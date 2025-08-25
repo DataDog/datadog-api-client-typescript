@@ -5,20 +5,15 @@
  */
 import { AWSIntegrationIamPermissionsResponseData } from "./AWSIntegrationIamPermissionsResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * AWS Integration IAM Permissions response body.
-*/
+ */
 export class AWSIntegrationIamPermissionsResponse {
   /**
    * AWS Integration IAM Permissions response data.
-  */
+   */
   "data": AWSIntegrationIamPermissionsResponseData;
 
   /**
@@ -37,49 +32,23 @@ export class AWSIntegrationIamPermissionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "AWSIntegrationIamPermissionsResponseData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "AWSIntegrationIamPermissionsResponseData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSIntegrationIamPermissionsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Denotes whether mapping keys were available for this endpoint.
-*/
+ */
 
-export type BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus = typeof OK| typeof NOT_FOUND | UnparsedObject;
-export const OK = 'OK';
-export const NOT_FOUND = 'NOT_FOUND';
+export type BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus =
+  | typeof OK
+  | typeof NOT_FOUND
+  | UnparsedObject;
+export const OK = "OK";
+export const NOT_FOUND = "NOT_FOUND";

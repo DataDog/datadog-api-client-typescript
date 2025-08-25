@@ -5,24 +5,19 @@
  */
 import { EscalationPolicyStepTargetType } from "./EscalationPolicyStepTargetType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a single escalation target within a step for an escalation policy creation request. Contains `id` and `type`.
-*/
+ */
 export class EscalationPolicyStepTarget {
   /**
    * Specifies the unique identifier for this target.
-  */
+   */
   "id"?: string;
   /**
    * Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-  */
+   */
   "type"?: EscalationPolicyStepTargetType;
 
   /**
@@ -41,52 +36,26 @@ export class EscalationPolicyStepTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "EscalationPolicyStepTargetType",
+    type: {
+      baseName: "type",
+      type: "EscalationPolicyStepTargetType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EscalationPolicyStepTarget.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

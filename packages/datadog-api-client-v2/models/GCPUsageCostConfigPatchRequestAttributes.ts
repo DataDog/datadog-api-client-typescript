@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes for GCP Usage Cost config patch request.
-*/
+ */
 export class GCPUsageCostConfigPatchRequestAttributes {
   /**
    * Whether or not the Cloud Cost Management account is enabled.
-  */
+   */
   "isEnabled": boolean;
 
   /**
@@ -36,49 +31,23 @@ export class GCPUsageCostConfigPatchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "isEnabled": {
-      "baseName": "is_enabled",
-      "type": "boolean",
-      "required": true,
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GCPUsageCostConfigPatchRequestAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

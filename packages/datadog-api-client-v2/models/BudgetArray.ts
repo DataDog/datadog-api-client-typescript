@@ -5,20 +5,15 @@
  */
 import { Budget } from "./Budget";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An array of budgets.
-*/
+ */
 export class BudgetArray {
   /**
    * The `BudgetArray` `data`.
-  */
+   */
   "data"?: Array<Budget>;
 
   /**
@@ -37,48 +32,22 @@ export class BudgetArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<Budget>",
+    data: {
+      baseName: "data",
+      type: "Array<Budget>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return BudgetArray.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

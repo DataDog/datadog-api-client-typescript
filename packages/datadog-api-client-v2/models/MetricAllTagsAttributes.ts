@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing the definition of a metric's tags.
-*/
+ */
 export class MetricAllTagsAttributes {
   /**
    * List of indexed tag value pairs.
-  */
+   */
   "tags"?: Array<string>;
 
   /**
@@ -36,48 +31,22 @@ export class MetricAllTagsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricAllTagsAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

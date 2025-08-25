@@ -6,15 +6,13 @@
 import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Query for matching rule.
-*/
+ */
 
-export type SecurityMonitoringRuleQuery = SecurityMonitoringStandardRuleQuery | SecurityMonitoringSignalRuleQuery | UnparsedObject;
+export type SecurityMonitoringRuleQuery =
+  | SecurityMonitoringStandardRuleQuery
+  | SecurityMonitoringSignalRuleQuery
+  | UnparsedObject;

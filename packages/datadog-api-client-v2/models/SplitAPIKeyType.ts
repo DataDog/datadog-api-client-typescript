@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `SplitAPIKey` object.
-*/
+ */
 
 export type SplitAPIKeyType = typeof SPLITAPIKEY | UnparsedObject;
-export const SPLITAPIKEY = 'SplitAPIKey';
+export const SPLITAPIKEY = "SplitAPIKey";

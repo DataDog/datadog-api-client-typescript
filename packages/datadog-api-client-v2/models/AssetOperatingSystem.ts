@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Asset operating system.
-*/
+ */
 export class AssetOperatingSystem {
   /**
    * Operating system version.
-  */
+   */
   "description"?: string;
   /**
    * Operating system name.
-  */
+   */
   "name": string;
 
   /**
@@ -40,53 +35,27 @@ export class AssetOperatingSystem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "description": {
-      "baseName": "description",
-      "type": "string",
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AssetOperatingSystem.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

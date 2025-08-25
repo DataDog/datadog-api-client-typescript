@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The app definition type.
-*/
+ */
 
 export type AppDefinitionType = typeof APPDEFINITIONS | UnparsedObject;
-export const APPDEFINITIONS = 'appDefinitions';
+export const APPDEFINITIONS = "appDefinitions";

@@ -1,51 +1,78 @@
-import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
-import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
+import {
+  Configuration,
+  applySecurityAuthentication,
+} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-  HttpFile
-  } from "../../datadog-api-client-common/http/http";
-
-import FormData from "form-data";
+} from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ContainerImageItem } from "../models/ContainerImageItem";
 import { ContainerImagesResponse } from "../models/ContainerImagesResponse";
 
 export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async listContainerImages(filterTags?: string,groupBy?: string,sort?: string,pageSize?: number,pageCursor?: string,_options?: Configuration): Promise<RequestContext> {
+  public async listContainerImages(
+    filterTags?: string,
+    groupBy?: string,
+    sort?: string,
+    pageSize?: number,
+    pageCursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = '/api/v2/container_images';
+    const localVarPath = "/api/v2/container_images";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.ContainerImagesApi.listContainerImages').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.ContainerImagesApi.listContainerImages")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (filterTags !== undefined) {
-      requestContext.setQueryParam("filter[tags]", ObjectSerializer.serialize(filterTags, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[tags]",
+        ObjectSerializer.serialize(filterTags, "string", ""),
+        ""
+      );
     }
     if (groupBy !== undefined) {
-      requestContext.setQueryParam("group_by", ObjectSerializer.serialize(groupBy, "string", ""), "");
+      requestContext.setQueryParam(
+        "group_by",
+        ObjectSerializer.serialize(groupBy, "string", ""),
+        ""
+      );
     }
     if (sort !== undefined) {
-      requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "string", ""), "");
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
     }
     if (pageSize !== undefined) {
-      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int32"), "");
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        ""
+      );
     }
     if (pageCursor !== undefined) {
-      requestContext.setQueryParam("page[cursor]", ObjectSerializer.serialize(pageCursor, "string", ""), "");
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -60,7 +87,6 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ContainerImagesApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -68,8 +94,12 @@ export class ContainerImagesApiResponseProcessor {
    * @params response Response returned by the server for a request to listContainerImages
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listContainerImages(response: ResponseContext): Promise<ContainerImagesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listContainerImages(
+    response: ResponseContext
+  ): Promise<ContainerImagesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: ContainerImagesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -77,8 +107,15 @@ export class ContainerImagesApiResponseProcessor {
       ) as ContainerImagesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -87,8 +124,11 @@ export class ContainerImagesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -96,13 +136,17 @@ export class ContainerImagesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ContainerImagesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ContainerImagesResponse", ""
+        "ContainerImagesResponse",
+        ""
       ) as ContainerImagesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -111,28 +155,28 @@ export interface ContainerImagesApiListContainerImagesRequest {
    * Comma-separated list of tags to filter Container Images by.
    * @type string
    */
-  filterTags?: string
+  filterTags?: string;
   /**
    * Comma-separated list of tags to group Container Images by.
    * @type string
    */
-  groupBy?: string
+  groupBy?: string;
   /**
    * Attribute to sort Container Images by.
    * @type string
    */
-  sort?: string
+  sort?: string;
   /**
    * Maximum number of results returned.
    * @type number
    */
-  pageSize?: number
+  pageSize?: number;
   /**
    * String to query the next page of results.
    * This key is provided with each valid response from the API in `meta.pagination.next_cursor`.
    * @type string
    */
-  pageCursor?: string
+  pageCursor?: string;
 }
 
 export class ContainerImagesApi {
@@ -140,21 +184,39 @@ export class ContainerImagesApi {
   private responseProcessor: ContainerImagesApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: ContainerImagesApiRequestFactory, responseProcessor?: ContainerImagesApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ContainerImagesApiRequestFactory,
+    responseProcessor?: ContainerImagesApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new ContainerImagesApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new ContainerImagesApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new ContainerImagesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new ContainerImagesApiResponseProcessor();
   }
 
   /**
    * Get all Container Images for your organization.
    * @param param The request object
    */
-  public listContainerImages(param: ContainerImagesApiListContainerImagesRequest = {}, options?: Configuration): Promise<ContainerImagesResponse> {
-    const requestContextPromise = this.requestFactory.listContainerImages(param.filterTags,param.groupBy,param.sort,param.pageSize,param.pageCursor,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listContainerImages(responseContext);
+  public listContainerImages(
+    param: ContainerImagesApiListContainerImagesRequest = {},
+    options?: Configuration
+  ): Promise<ContainerImagesResponse> {
+    const requestContextPromise = this.requestFactory.listContainerImages(
+      param.filterTags,
+      param.groupBy,
+      param.sort,
+      param.pageSize,
+      param.pageCursor,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listContainerImages(responseContext);
         });
     });
   }
@@ -162,18 +224,31 @@ export class ContainerImagesApi {
   /**
    * Provide a paginated version of listContainerImages returning a generator with all the items.
    */
-  public async *listContainerImagesWithPagination(param: ContainerImagesApiListContainerImagesRequest = {}, options?: Configuration): AsyncGenerator<ContainerImageItem> {
-
+  public async *listContainerImagesWithPagination(
+    param: ContainerImagesApiListContainerImagesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<ContainerImageItem> {
     let pageSize = 1000;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listContainerImages(param.filterTags,param.groupBy,param.sort,param.pageSize,param.pageCursor,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listContainerImages(
+        param.filterTags,
+        param.groupBy,
+        param.sort,
+        param.pageSize,
+        param.pageCursor,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
 
-      const response = await this.responseProcessor.listContainerImages(responseContext);
+      const response = await this.responseProcessor.listContainerImages(
+        responseContext
+      );
       const responseData = response.data;
       if (responseData === undefined) {
         break;

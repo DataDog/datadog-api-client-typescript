@@ -5,20 +5,15 @@
  */
 import { CreatePageResponseData } from "./CreatePageResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The full response object after creating a new On-Call Page.
-*/
+ */
 export class CreatePageResponse {
   /**
    * The information returned after successfully creating a page.
-  */
+   */
   "data"?: CreatePageResponseData;
 
   /**
@@ -37,48 +32,22 @@ export class CreatePageResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CreatePageResponseData",
+    data: {
+      baseName: "data",
+      type: "CreatePageResponseData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CreatePageResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

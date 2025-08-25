@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Y Axis controls for the distribution widget.
-*/
+ */
 export class DistributionWidgetYAxis {
   /**
    * True includes zero.
-  */
+   */
   "includeZero"?: boolean;
   /**
    * The label of the axis to display on the graph.
-  */
+   */
   "label"?: string;
   /**
    * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
-  */
+   */
   "max"?: string;
   /**
    * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
-  */
+   */
   "min"?: string;
   /**
    * Specifies the scale type. Possible values are `linear` or `log`.
-  */
+   */
   "scale"?: string;
 
   /**
@@ -52,64 +47,38 @@ export class DistributionWidgetYAxis {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "includeZero": {
-      "baseName": "include_zero",
-      "type": "boolean",
+    includeZero: {
+      baseName: "include_zero",
+      type: "boolean",
     },
-    "label": {
-      "baseName": "label",
-      "type": "string",
+    label: {
+      baseName: "label",
+      type: "string",
     },
-    "max": {
-      "baseName": "max",
-      "type": "string",
+    max: {
+      baseName: "max",
+      type: "string",
     },
-    "min": {
-      "baseName": "min",
-      "type": "string",
+    min: {
+      baseName: "min",
+      type: "string",
     },
-    "scale": {
-      "baseName": "scale",
-      "type": "string",
+    scale: {
+      baseName: "scale",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DistributionWidgetYAxis.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

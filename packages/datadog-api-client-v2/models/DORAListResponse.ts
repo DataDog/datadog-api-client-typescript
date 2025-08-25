@@ -5,20 +5,15 @@
  */
 import { DORAEvent } from "./DORAEvent";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for the DORA list endpoints.
-*/
+ */
 export class DORAListResponse {
   /**
    * The list of DORA events.
-  */
+   */
   "data"?: Array<DORAEvent>;
 
   /**
@@ -37,48 +32,22 @@ export class DORAListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<DORAEvent>",
+    data: {
+      baseName: "data",
+      type: "Array<DORAEvent>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DORAListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

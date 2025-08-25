@@ -5,20 +5,15 @@
  */
 import { WorkflowDataUpdate } from "./WorkflowDataUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A request object for updating an existing workflow.
-*/
+ */
 export class UpdateWorkflowRequest {
   /**
    * Data related to the workflow being updated.
-  */
+   */
   "data": WorkflowDataUpdate;
 
   /**
@@ -37,49 +32,23 @@ export class UpdateWorkflowRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "WorkflowDataUpdate",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "WorkflowDataUpdate",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateWorkflowRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

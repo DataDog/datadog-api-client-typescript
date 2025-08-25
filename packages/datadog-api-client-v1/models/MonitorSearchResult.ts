@@ -8,75 +8,70 @@ import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
 import { MonitorType } from "./MonitorType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Holds search results.
-*/
+ */
 export class MonitorSearchResult {
   /**
    * Classification of the monitor.
-  */
+   */
   "classification"?: string;
   /**
    * Object describing the creator of the shared element.
-  */
+   */
   "creator"?: Creator;
   /**
    * ID of the monitor.
-  */
+   */
   "id"?: number;
   /**
    * Latest timestamp the monitor triggered.
-  */
+   */
   "lastTriggeredTs"?: number;
   /**
    * Metrics used by the monitor.
-  */
+   */
   "metrics"?: Array<string>;
   /**
    * The monitor name.
-  */
+   */
   "name"?: string;
   /**
    * The notification triggered by the monitor.
-  */
+   */
   "notifications"?: Array<MonitorSearchResultNotification>;
   /**
    * The ID of the organization.
-  */
+   */
   "orgId"?: number;
   /**
    * Quality issues detected with the monitor.
-  */
+   */
   "qualityIssues"?: Array<string>;
   /**
    * The monitor query.
-  */
+   */
   "query"?: string;
   /**
    * The scope(s) to which the downtime applies, for example `host:app2`.
    * Provide multiple scopes as a comma-separated list, for example `env:dev,env:prod`.
    * The resulting downtime applies to sources that matches ALL provided scopes
    * (that is `env:dev AND env:prod`), NOT any of them.
-  */
+   */
   "scopes"?: Array<string>;
   /**
    * The different states your monitor can be in.
-  */
+   */
   "status"?: MonitorOverallStates;
   /**
    * Tags associated with the monitor.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
-  */
+   */
   "type"?: MonitorType;
 
   /**
@@ -95,103 +90,77 @@ export class MonitorSearchResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "classification": {
-      "baseName": "classification",
-      "type": "string",
+    classification: {
+      baseName: "classification",
+      type: "string",
     },
-    "creator": {
-      "baseName": "creator",
-      "type": "Creator",
+    creator: {
+      baseName: "creator",
+      type: "Creator",
     },
-    "id": {
-      "baseName": "id",
-      "type": "number",
-      "format": "int64",
+    id: {
+      baseName: "id",
+      type: "number",
+      format: "int64",
     },
-    "lastTriggeredTs": {
-      "baseName": "last_triggered_ts",
-      "type": "number",
-      "format": "int64",
+    lastTriggeredTs: {
+      baseName: "last_triggered_ts",
+      type: "number",
+      format: "int64",
     },
-    "metrics": {
-      "baseName": "metrics",
-      "type": "Array<string>",
+    metrics: {
+      baseName: "metrics",
+      type: "Array<string>",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "notifications": {
-      "baseName": "notifications",
-      "type": "Array<MonitorSearchResultNotification>",
+    notifications: {
+      baseName: "notifications",
+      type: "Array<MonitorSearchResultNotification>",
     },
-    "orgId": {
-      "baseName": "org_id",
-      "type": "number",
-      "format": "int64",
+    orgId: {
+      baseName: "org_id",
+      type: "number",
+      format: "int64",
     },
-    "qualityIssues": {
-      "baseName": "quality_issues",
-      "type": "Array<string>",
+    qualityIssues: {
+      baseName: "quality_issues",
+      type: "Array<string>",
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
+    query: {
+      baseName: "query",
+      type: "string",
     },
-    "scopes": {
-      "baseName": "scopes",
-      "type": "Array<string>",
+    scopes: {
+      baseName: "scopes",
+      type: "Array<string>",
     },
-    "status": {
-      "baseName": "status",
-      "type": "MonitorOverallStates",
+    status: {
+      baseName: "status",
+      type: "MonitorOverallStates",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "type": {
-      "baseName": "type",
-      "type": "MonitorType",
+    type: {
+      baseName: "type",
+      type: "MonitorType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorSearchResult.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

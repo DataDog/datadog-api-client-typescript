@@ -5,30 +5,25 @@
  */
 import { SLOErrorTimeframe } from "./SLOErrorTimeframe";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object describing the error.
-*/
+ */
 export class SLOBulkDeleteError {
   /**
    * The ID of the service level objective object associated with
    * this error.
-  */
+   */
   "id": string;
   /**
    * The error message.
-  */
+   */
   "message": string;
   /**
    * The timeframe of the threshold associated with this error
    * or "all" if all thresholds are affected.
-  */
+   */
   "timeframe": SLOErrorTimeframe;
 
   /**
@@ -47,59 +42,33 @@ export class SLOBulkDeleteError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
-      "required": true,
+    message: {
+      baseName: "message",
+      type: "string",
+      required: true,
     },
-    "timeframe": {
-      "baseName": "timeframe",
-      "type": "SLOErrorTimeframe",
-      "required": true,
+    timeframe: {
+      baseName: "timeframe",
+      type: "SLOErrorTimeframe",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SLOBulkDeleteError.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

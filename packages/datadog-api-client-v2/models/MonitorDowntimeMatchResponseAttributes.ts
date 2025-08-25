@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Downtime match details.
-*/
+ */
 export class MonitorDowntimeMatchResponseAttributes {
   /**
    * The end of the downtime.
-  */
+   */
   "end"?: Date;
   /**
    * An array of groups associated with the downtime.
-  */
+   */
   "groups"?: Array<string>;
   /**
    * The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
-  */
+   */
   "scope"?: string;
   /**
    * The start of the downtime.
-  */
+   */
   "start"?: Date;
 
   /**
@@ -48,62 +43,36 @@ export class MonitorDowntimeMatchResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "end": {
-      "baseName": "end",
-      "type": "Date",
-      "format": "date-time",
+    end: {
+      baseName: "end",
+      type: "Date",
+      format: "date-time",
     },
-    "groups": {
-      "baseName": "groups",
-      "type": "Array<string>",
+    groups: {
+      baseName: "groups",
+      type: "Array<string>",
     },
-    "scope": {
-      "baseName": "scope",
-      "type": "string",
+    scope: {
+      baseName: "scope",
+      type: "string",
     },
-    "start": {
-      "baseName": "start",
-      "type": "Date",
-      "format": "date-time",
+    start: {
+      baseName: "start",
+      type: "Date",
+      format: "date-time",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorDowntimeMatchResponseAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

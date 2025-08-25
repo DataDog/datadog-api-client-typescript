@@ -7,15 +7,14 @@ import { ObservabilityPipelineSensitiveDataScannerProcessorActionHash } from "./
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact";
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionRedact } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionRedact";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Defines what action to take when sensitive data is matched.
-*/
+ */
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorAction = ObservabilityPipelineSensitiveDataScannerProcessorActionRedact | ObservabilityPipelineSensitiveDataScannerProcessorActionHash | ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact | UnparsedObject;
+export type ObservabilityPipelineSensitiveDataScannerProcessorAction =
+  | ObservabilityPipelineSensitiveDataScannerProcessorActionRedact
+  | ObservabilityPipelineSensitiveDataScannerProcessorActionHash
+  | ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact
+  | UnparsedObject;

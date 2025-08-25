@@ -5,24 +5,19 @@
  */
 import { RetryStrategy } from "./RetryStrategy";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Used to handle errors in an action.
-*/
+ */
 export class ErrorHandler {
   /**
    * The `ErrorHandler` `fallbackStepName`.
-  */
+   */
   "fallbackStepName": string;
   /**
    * The definition of `RetryStrategy` object.
-  */
+   */
   "retryStrategy": RetryStrategy;
 
   /**
@@ -41,54 +36,28 @@ export class ErrorHandler {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "fallbackStepName": {
-      "baseName": "fallbackStepName",
-      "type": "string",
-      "required": true,
+    fallbackStepName: {
+      baseName: "fallbackStepName",
+      type: "string",
+      required: true,
     },
-    "retryStrategy": {
-      "baseName": "retryStrategy",
-      "type": "RetryStrategy",
-      "required": true,
+    retryStrategy: {
+      baseName: "retryStrategy",
+      type: "RetryStrategy",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ErrorHandler.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

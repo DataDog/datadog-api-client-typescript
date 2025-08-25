@@ -8,40 +8,35 @@ import { TopologyRequest } from "./TopologyRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * This widget displays a topology of nodes and edges for different data sources. It replaces the service map widget.
-*/
+ */
 export class TopologyMapWidgetDefinition {
   /**
    * List of custom links.
-  */
+   */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
    * One or more Topology requests.
-  */
+   */
   "requests": Array<TopologyRequest>;
   /**
    * Title of your widget.
-  */
+   */
   "title"?: string;
   /**
    * How to align the text on the widget.
-  */
+   */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-  */
+   */
   "titleSize"?: string;
   /**
    * Type of the topology map widget.
-  */
+   */
   "type": TopologyMapWidgetDefinitionType;
 
   /**
@@ -60,70 +55,44 @@ export class TopologyMapWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "customLinks": {
-      "baseName": "custom_links",
-      "type": "Array<WidgetCustomLink>",
+    customLinks: {
+      baseName: "custom_links",
+      type: "Array<WidgetCustomLink>",
     },
-    "requests": {
-      "baseName": "requests",
-      "type": "Array<TopologyRequest>",
-      "required": true,
+    requests: {
+      baseName: "requests",
+      type: "Array<TopologyRequest>",
+      required: true,
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "titleAlign": {
-      "baseName": "title_align",
-      "type": "WidgetTextAlign",
+    titleAlign: {
+      baseName: "title_align",
+      type: "WidgetTextAlign",
     },
-    "titleSize": {
-      "baseName": "title_size",
-      "type": "string",
+    titleSize: {
+      baseName: "title_size",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "TopologyMapWidgetDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "TopologyMapWidgetDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TopologyMapWidgetDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

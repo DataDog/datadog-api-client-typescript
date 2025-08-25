@@ -5,24 +5,19 @@
  */
 import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The counts of monitor groups per different criteria.
-*/
+ */
 export class MonitorGroupSearchResponseCounts {
   /**
    * Search facets.
-  */
+   */
   "status"?: Array<MonitorSearchCountItem>;
   /**
    * Search facets.
-  */
+   */
   "type"?: Array<MonitorSearchCountItem>;
 
   /**
@@ -41,52 +36,26 @@ export class MonitorGroupSearchResponseCounts {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "status": {
-      "baseName": "status",
-      "type": "Array<MonitorSearchCountItem>",
+    status: {
+      baseName: "status",
+      type: "Array<MonitorSearchCountItem>",
     },
-    "type": {
-      "baseName": "type",
-      "type": "Array<MonitorSearchCountItem>",
+    type: {
+      baseName: "type",
+      type: "Array<MonitorSearchCountItem>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorGroupSearchResponseCounts.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

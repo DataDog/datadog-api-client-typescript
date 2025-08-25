@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The destination type. Always `google_cloud_storage`.
-*/
+ */
 
-export type ObservabilityPipelineGoogleCloudStorageDestinationType = typeof GOOGLE_CLOUD_STORAGE | UnparsedObject;
-export const GOOGLE_CLOUD_STORAGE = 'google_cloud_storage';
+export type ObservabilityPipelineGoogleCloudStorageDestinationType =
+  | typeof GOOGLE_CLOUD_STORAGE
+  | UnparsedObject;
+export const GOOGLE_CLOUD_STORAGE = "google_cloud_storage";

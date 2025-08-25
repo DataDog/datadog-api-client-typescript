@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing the total filtered count.
-*/
+ */
 export class DowntimeMetaPage {
   /**
    * Total count of elements matched by the filter.
-  */
+   */
   "totalFilteredCount"?: number;
 
   /**
@@ -36,49 +31,23 @@ export class DowntimeMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "totalFilteredCount": {
-      "baseName": "total_filtered_count",
-      "type": "number",
-      "format": "int64",
+    totalFilteredCount: {
+      baseName: "total_filtered_count",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DowntimeMetaPage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,17 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * On-Call Page urgency level.
-*/
+ */
 
-export type PageUrgency = typeof LOW| typeof HIGH | UnparsedObject;
-export const LOW = 'low';
-export const HIGH = 'high';
+export type PageUrgency = typeof LOW | typeof HIGH | UnparsedObject;
+export const LOW = "low";
+export const HIGH = "high";

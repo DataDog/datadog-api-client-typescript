@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The deployment type.
-*/
+ */
 
 export type AppDeploymentType = typeof DEPLOYMENT | UnparsedObject;
-export const DEPLOYMENT = 'deployment';
+export const DEPLOYMENT = "deployment";

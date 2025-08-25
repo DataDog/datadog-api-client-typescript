@@ -5,20 +5,15 @@
  */
 import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Top-level schema representing a pipeline.
-*/
+ */
 export class ObservabilityPipeline {
   /**
    * Contains the pipeline’s ID, type, and configuration attributes.
-  */
+   */
   "data": ObservabilityPipelineData;
 
   /**
@@ -37,49 +32,23 @@ export class ObservabilityPipeline {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "ObservabilityPipelineData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "ObservabilityPipelineData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipeline.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

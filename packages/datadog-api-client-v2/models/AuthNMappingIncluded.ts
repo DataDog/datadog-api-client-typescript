@@ -7,15 +7,14 @@ import { AuthNMappingTeam } from "./AuthNMappingTeam";
 import { Role } from "./Role";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Included data in the AuthN Mapping response.
-*/
+ */
 
-export type AuthNMappingIncluded = SAMLAssertionAttribute | Role | AuthNMappingTeam | UnparsedObject;
+export type AuthNMappingIncluded =
+  | SAMLAssertionAttribute
+  | Role
+  | AuthNMappingTeam
+  | UnparsedObject;

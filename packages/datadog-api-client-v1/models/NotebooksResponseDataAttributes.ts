@@ -9,48 +9,43 @@ import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The attributes of a notebook in get all response.
-*/
+ */
 export class NotebooksResponseDataAttributes {
   /**
    * Attributes of user object returned by the API.
-  */
+   */
   "author"?: NotebookAuthor;
   /**
    * List of cells to display in the notebook.
-  */
+   */
   "cells"?: Array<NotebookCellResponse>;
   /**
    * UTC time stamp for when the notebook was created.
-  */
+   */
   "created"?: Date;
   /**
    * Metadata associated with the notebook.
-  */
+   */
   "metadata"?: NotebookMetadata;
   /**
    * UTC time stamp for when the notebook was last modified.
-  */
+   */
   "modified"?: Date;
   /**
    * The name of the notebook.
-  */
+   */
   "name": string;
   /**
    * Publication status of the notebook. For now, always "published".
-  */
+   */
   "status"?: NotebookStatus;
   /**
    * Notebook global timeframe.
-  */
+   */
   "time"?: NotebookGlobalTime;
 
   /**
@@ -69,79 +64,53 @@ export class NotebooksResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "author": {
-      "baseName": "author",
-      "type": "NotebookAuthor",
+    author: {
+      baseName: "author",
+      type: "NotebookAuthor",
     },
-    "cells": {
-      "baseName": "cells",
-      "type": "Array<NotebookCellResponse>",
+    cells: {
+      baseName: "cells",
+      type: "Array<NotebookCellResponse>",
     },
-    "created": {
-      "baseName": "created",
-      "type": "Date",
-      "format": "date-time",
+    created: {
+      baseName: "created",
+      type: "Date",
+      format: "date-time",
     },
-    "metadata": {
-      "baseName": "metadata",
-      "type": "NotebookMetadata",
+    metadata: {
+      baseName: "metadata",
+      type: "NotebookMetadata",
     },
-    "modified": {
-      "baseName": "modified",
-      "type": "Date",
-      "format": "date-time",
+    modified: {
+      baseName: "modified",
+      type: "Date",
+      format: "date-time",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "status": {
-      "baseName": "status",
-      "type": "NotebookStatus",
+    status: {
+      baseName: "status",
+      type: "NotebookStatus",
     },
-    "time": {
-      "baseName": "time",
-      "type": "NotebookGlobalTime",
+    time: {
+      baseName: "time",
+      type: "NotebookGlobalTime",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebooksResponseDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

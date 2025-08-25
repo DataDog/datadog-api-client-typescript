@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The action to take on tags with matching keys.
-*/
+ */
 
-export type ObservabilityPipelineDatadogTagsProcessorAction = typeof INCLUDE| typeof EXCLUDE | UnparsedObject;
-export const INCLUDE = 'include';
-export const EXCLUDE = 'exclude';
+export type ObservabilityPipelineDatadogTagsProcessorAction =
+  | typeof INCLUDE
+  | typeof EXCLUDE
+  | UnparsedObject;
+export const INCLUDE = "include";
+export const EXCLUDE = "exclude";

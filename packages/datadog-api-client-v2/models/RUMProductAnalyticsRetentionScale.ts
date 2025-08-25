@@ -5,24 +5,19 @@
  */
 import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentionState";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Product Analytics retention scale configuration.
-*/
+ */
 export class RUMProductAnalyticsRetentionScale {
   /**
    * Timestamp in milliseconds when this scale was last modified.
-  */
+   */
   "lastModifiedAt"?: number;
   /**
    * Controls the retention policy for Product Analytics data derived from RUM events.
-  */
+   */
   "state"?: RUMProductAnalyticsRetentionState;
 
   /**
@@ -41,53 +36,27 @@ export class RUMProductAnalyticsRetentionScale {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "lastModifiedAt": {
-      "baseName": "last_modified_at",
-      "type": "number",
-      "format": "int64",
+    lastModifiedAt: {
+      baseName: "last_modified_at",
+      type: "number",
+      format: "int64",
     },
-    "state": {
-      "baseName": "state",
-      "type": "RUMProductAnalyticsRetentionState",
+    state: {
+      baseName: "state",
+      type: "RUMProductAnalyticsRetentionState",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RUMProductAnalyticsRetentionScale.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

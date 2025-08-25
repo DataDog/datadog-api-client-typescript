@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the topology map widget.
-*/
+ */
 
-export type TopologyMapWidgetDefinitionType = typeof TOPOLOGY_MAP | UnparsedObject;
-export const TOPOLOGY_MAP = 'topology_map';
+export type TopologyMapWidgetDefinitionType =
+  | typeof TOPOLOGY_MAP
+  | UnparsedObject;
+export const TOPOLOGY_MAP = "topology_map";

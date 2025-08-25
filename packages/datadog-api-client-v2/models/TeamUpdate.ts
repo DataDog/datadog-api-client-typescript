@@ -7,28 +7,23 @@ import { TeamType } from "./TeamType";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Team update request
-*/
+ */
 export class TeamUpdate {
   /**
    * Team update attributes
-  */
+   */
   "attributes": TeamUpdateAttributes;
   /**
    * Team update relationships
-  */
+   */
   "relationships"?: TeamUpdateRelationships;
   /**
    * Team type
-  */
+   */
   "type": TeamType;
 
   /**
@@ -47,58 +42,32 @@ export class TeamUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "TeamUpdateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "TeamUpdateAttributes",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "TeamUpdateRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "TeamUpdateRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "TeamType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "TeamType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

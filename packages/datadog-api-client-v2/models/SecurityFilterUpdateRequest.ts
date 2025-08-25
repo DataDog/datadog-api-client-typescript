@@ -5,20 +5,15 @@
  */
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The new security filter body.
-*/
+ */
 export class SecurityFilterUpdateRequest {
   /**
    * The new security filter properties.
-  */
+   */
   "data": SecurityFilterUpdateData;
 
   /**
@@ -37,49 +32,23 @@ export class SecurityFilterUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SecurityFilterUpdateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "SecurityFilterUpdateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityFilterUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -6,24 +6,19 @@
 import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
 import { MonitorNotificationRuleResponseIncludedItem } from "./MonitorNotificationRuleResponseIncludedItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for retrieving all monitor notification rules.
-*/
+ */
 export class MonitorNotificationRuleListResponse {
   /**
    * A list of monitor notification rules.
-  */
+   */
   "data"?: Array<MonitorNotificationRuleData>;
   /**
    * Array of objects related to the monitor notification rules.
-  */
+   */
   "included"?: Array<MonitorNotificationRuleResponseIncludedItem>;
 
   /**
@@ -42,52 +37,26 @@ export class MonitorNotificationRuleListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<MonitorNotificationRuleData>",
+    data: {
+      baseName: "data",
+      type: "Array<MonitorNotificationRuleData>",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<MonitorNotificationRuleResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<MonitorNotificationRuleResponseIncludedItem>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorNotificationRuleListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

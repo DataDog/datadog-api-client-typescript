@@ -6,24 +6,19 @@
 import { NumberFormatUnit } from "./NumberFormatUnit";
 import { NumberFormatUnitScale } from "./NumberFormatUnitScale";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Number format options for the widget.
-*/
+ */
 export class WidgetNumberFormat {
   /**
    * Number format unit.
-  */
+   */
   "unit"?: NumberFormatUnit;
   /**
    * The definition of `NumberFormatUnitScale` object.
-  */
+   */
   "unitScale"?: NumberFormatUnitScale;
 
   /**
@@ -42,52 +37,26 @@ export class WidgetNumberFormat {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "unit": {
-      "baseName": "unit",
-      "type": "NumberFormatUnit",
+    unit: {
+      baseName: "unit",
+      type: "NumberFormatUnit",
     },
-    "unitScale": {
-      "baseName": "unit_scale",
-      "type": "NumberFormatUnitScale",
+    unitScale: {
+      baseName: "unit_scale",
+      type: "NumberFormatUnitScale",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetNumberFormat.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,36 +5,31 @@
  */
 import { LogsStorageTier } from "./LogsStorageTier";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The search and filter query settings
-*/
+ */
 export class LogsQueryFilter {
   /**
    * The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
-  */
+   */
   "from"?: string;
   /**
    * For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.
-  */
+   */
   "indexes"?: Array<string>;
   /**
    * The search query - following the log search syntax.
-  */
+   */
   "query"?: string;
   /**
    * Specifies storage type as indexes, online-archives or flex
-  */
+   */
   "storageTier"?: LogsStorageTier;
   /**
    * The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
-  */
+   */
   "to"?: string;
 
   /**
@@ -53,64 +48,38 @@ export class LogsQueryFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "from": {
-      "baseName": "from",
-      "type": "string",
+    from: {
+      baseName: "from",
+      type: "string",
     },
-    "indexes": {
-      "baseName": "indexes",
-      "type": "Array<string>",
+    indexes: {
+      baseName: "indexes",
+      type: "Array<string>",
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
+    query: {
+      baseName: "query",
+      type: "string",
     },
-    "storageTier": {
-      "baseName": "storage_tier",
-      "type": "LogsStorageTier",
+    storageTier: {
+      baseName: "storage_tier",
+      type: "LogsStorageTier",
     },
-    "to": {
-      "baseName": "to",
-      "type": "string",
+    to: {
+      baseName: "to",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsQueryFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The destination type. The value should always be `microsoft_sentinel`.
-*/
+ */
 
-export type MicrosoftSentinelDestinationType = typeof MICROSOFT_SENTINEL | UnparsedObject;
-export const MICROSOFT_SENTINEL = 'microsoft_sentinel';
+export type MicrosoftSentinelDestinationType =
+  | typeof MICROSOFT_SENTINEL
+  | UnparsedObject;
+export const MICROSOFT_SENTINEL = "microsoft_sentinel";

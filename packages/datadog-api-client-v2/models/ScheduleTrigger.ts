@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Trigger a workflow from a Schedule. The workflow must be published.
-*/
+ */
 export class ScheduleTrigger {
   /**
    * Recurrence rule expression for scheduling.
-  */
+   */
   "rruleExpression": string;
 
   /**
@@ -36,49 +31,23 @@ export class ScheduleTrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "rruleExpression": {
-      "baseName": "rruleExpression",
-      "type": "string",
-      "required": true,
+    rruleExpression: {
+      baseName: "rruleExpression",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScheduleTrigger.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

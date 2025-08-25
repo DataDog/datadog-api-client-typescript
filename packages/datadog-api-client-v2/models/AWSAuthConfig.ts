@@ -6,15 +6,13 @@
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * AWS Authentication config.
-*/
+ */
 
-export type AWSAuthConfig = AWSAuthConfigKeys | AWSAuthConfigRole | UnparsedObject;
+export type AWSAuthConfig =
+  | AWSAuthConfigKeys
+  | AWSAuthConfigRole
+  | UnparsedObject;

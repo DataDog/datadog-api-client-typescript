@@ -11,56 +11,51 @@ import { LogQueryDefinition } from "./LogQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSortBy } from "./WidgetSortBy";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An updated geomap widget.
-*/
+ */
 export class GeomapWidgetRequest {
   /**
    * Widget columns.
-  */
+   */
   "columns"?: Array<ListStreamColumn>;
   /**
    * List of formulas that operate on queries.
-  */
+   */
   "formulas"?: Array<WidgetFormula>;
   /**
    * The log query.
-  */
+   */
   "logQuery"?: LogQueryDefinition;
   /**
    * The widget metrics query.
-  */
+   */
   "q"?: string;
   /**
    * List of queries that can be returned directly or used in formulas.
-  */
+   */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   /**
    * Updated list stream widget.
-  */
+   */
   "query"?: ListStreamQuery;
   /**
    * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
-  */
+   */
   "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
-  */
+   */
   "rumQuery"?: LogQueryDefinition;
   /**
    * The log query.
-  */
+   */
   "securityQuery"?: LogQueryDefinition;
   /**
    * The controls for sorting the widget.
-  */
+   */
   "sort"?: WidgetSortBy;
 
   /**
@@ -79,84 +74,58 @@ export class GeomapWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "columns": {
-      "baseName": "columns",
-      "type": "Array<ListStreamColumn>",
+    columns: {
+      baseName: "columns",
+      type: "Array<ListStreamColumn>",
     },
-    "formulas": {
-      "baseName": "formulas",
-      "type": "Array<WidgetFormula>",
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
     },
-    "logQuery": {
-      "baseName": "log_query",
-      "type": "LogQueryDefinition",
+    logQuery: {
+      baseName: "log_query",
+      type: "LogQueryDefinition",
     },
-    "q": {
-      "baseName": "q",
-      "type": "string",
+    q: {
+      baseName: "q",
+      type: "string",
     },
-    "queries": {
-      "baseName": "queries",
-      "type": "Array<FormulaAndFunctionQueryDefinition>",
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
     },
-    "query": {
-      "baseName": "query",
-      "type": "ListStreamQuery",
+    query: {
+      baseName: "query",
+      type: "ListStreamQuery",
     },
-    "responseFormat": {
-      "baseName": "response_format",
-      "type": "FormulaAndFunctionResponseFormat",
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
-    "rumQuery": {
-      "baseName": "rum_query",
-      "type": "LogQueryDefinition",
+    rumQuery: {
+      baseName: "rum_query",
+      type: "LogQueryDefinition",
     },
-    "securityQuery": {
-      "baseName": "security_query",
-      "type": "LogQueryDefinition",
+    securityQuery: {
+      baseName: "security_query",
+      type: "LogQueryDefinition",
     },
-    "sort": {
-      "baseName": "sort",
-      "type": "WidgetSortBy",
+    sort: {
+      baseName: "sort",
+      type: "WidgetSortBy",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GeomapWidgetRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

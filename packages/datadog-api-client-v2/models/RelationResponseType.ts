@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Relation type.
-*/
+ */
 
 export type RelationResponseType = typeof RELATION | UnparsedObject;
-export const RELATION = 'relation';
+export const RELATION = "relation";

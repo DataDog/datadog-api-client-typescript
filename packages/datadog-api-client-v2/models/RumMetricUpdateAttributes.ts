@@ -7,28 +7,23 @@ import { RumMetricFilter } from "./RumMetricFilter";
 import { RumMetricGroupBy } from "./RumMetricGroupBy";
 import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The rum-based metric properties that will be updated.
-*/
+ */
 export class RumMetricUpdateAttributes {
   /**
    * The compute rule to compute the rum-based metric.
-  */
+   */
   "compute"?: RumMetricUpdateCompute;
   /**
    * The rum-based metric filter. Events matching this filter will be aggregated in this metric.
-  */
+   */
   "filter"?: RumMetricFilter;
   /**
    * The rules for the group by.
-  */
+   */
   "groupBy"?: Array<RumMetricGroupBy>;
 
   /**
@@ -47,56 +42,30 @@ export class RumMetricUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "compute": {
-      "baseName": "compute",
-      "type": "RumMetricUpdateCompute",
+    compute: {
+      baseName: "compute",
+      type: "RumMetricUpdateCompute",
     },
-    "filter": {
-      "baseName": "filter",
-      "type": "RumMetricFilter",
+    filter: {
+      baseName: "filter",
+      type: "RumMetricFilter",
     },
-    "groupBy": {
-      "baseName": "group_by",
-      "type": "Array<RumMetricGroupBy>",
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<RumMetricGroupBy>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RumMetricUpdateAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

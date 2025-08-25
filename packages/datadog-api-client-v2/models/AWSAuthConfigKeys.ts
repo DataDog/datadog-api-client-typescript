@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * AWS Authentication config to integrate your account using an access key pair.
-*/
+ */
 export class AWSAuthConfigKeys {
   /**
    * AWS Access Key ID.
-  */
+   */
   "accessKeyId": string;
   /**
    * AWS Secret Access Key.
-  */
+   */
   "secretAccessKey"?: string;
 
   /**
@@ -40,53 +35,27 @@ export class AWSAuthConfigKeys {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accessKeyId": {
-      "baseName": "access_key_id",
-      "type": "string",
-      "required": true,
+    accessKeyId: {
+      baseName: "access_key_id",
+      type: "string",
+      required: true,
     },
-    "secretAccessKey": {
-      "baseName": "secret_access_key",
-      "type": "string",
+    secretAccessKey: {
+      baseName: "secret_access_key",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSAuthConfigKeys.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `Connection` object.
-*/
+ */
 export class Connection {
   /**
    * The `Connection` `connectionId`.
-  */
+   */
   "connectionId": string;
   /**
    * The `Connection` `label`.
-  */
+   */
   "label": string;
 
   /**
@@ -40,54 +35,28 @@ export class Connection {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "connectionId": {
-      "baseName": "connectionId",
-      "type": "string",
-      "required": true,
+    connectionId: {
+      baseName: "connectionId",
+      type: "string",
+      required: true,
     },
-    "label": {
-      "baseName": "label",
-      "type": "string",
-      "required": true,
+    label: {
+      baseName: "label",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return Connection.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

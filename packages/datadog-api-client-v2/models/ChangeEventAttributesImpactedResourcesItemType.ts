@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of the impacted resource.
-*/
+ */
 
-export type ChangeEventAttributesImpactedResourcesItemType = typeof SERVICE | UnparsedObject;
-export const SERVICE = 'service';
+export type ChangeEventAttributesImpactedResourcesItemType =
+  | typeof SERVICE
+  | UnparsedObject;
+export const SERVICE = "service";

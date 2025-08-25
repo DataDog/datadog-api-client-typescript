@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * User who shared the dashboard.
-*/
+ */
 export class SharedDashboardAuthor {
   /**
    * Identifier of the user who shared the dashboard.
-  */
+   */
   "handle"?: string;
   /**
    * Name of the user who shared the dashboard.
-  */
+   */
   "name"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class SharedDashboardAuthor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "handle": {
-      "baseName": "handle",
-      "type": "string",
+    handle: {
+      baseName: "handle",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SharedDashboardAuthor.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

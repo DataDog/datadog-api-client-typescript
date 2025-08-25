@@ -6,24 +6,19 @@
 import { GCPServiceAccountType } from "./GCPServiceAccountType";
 import { GCPSTSServiceAccountAttributes } from "./GCPSTSServiceAccountAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Additional metadata on your generated service account.
-*/
+ */
 export class GCPSTSServiceAccountData {
   /**
    * Attributes associated with your service account.
-  */
+   */
   "attributes"?: GCPSTSServiceAccountAttributes;
   /**
    * The type of account.
-  */
+   */
   "type"?: GCPServiceAccountType;
 
   /**
@@ -42,52 +37,26 @@ export class GCPSTSServiceAccountData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "GCPSTSServiceAccountAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "GCPSTSServiceAccountAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "GCPServiceAccountType",
+    type: {
+      baseName: "type",
+      type: "GCPServiceAccountType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GCPSTSServiceAccountData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

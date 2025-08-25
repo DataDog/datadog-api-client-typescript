@@ -22,15 +22,29 @@ import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipeli
 import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
 import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A destination for the pipeline.
-*/
+ */
 
-export type ObservabilityPipelineConfigDestinationItem = ObservabilityPipelineDatadogLogsDestination | ObservabilityPipelineAmazonS3Destination | ObservabilityPipelineGoogleCloudStorageDestination | ObservabilityPipelineSplunkHecDestination | ObservabilityPipelineSumoLogicDestination | ObservabilityPipelineElasticsearchDestination | ObservabilityPipelineRsyslogDestination | ObservabilityPipelineSyslogNgDestination | AzureStorageDestination | MicrosoftSentinelDestination | ObservabilityPipelineGoogleChronicleDestination | ObservabilityPipelineNewRelicDestination | ObservabilityPipelineSentinelOneDestination | ObservabilityPipelineOpenSearchDestination | ObservabilityPipelineAmazonOpenSearchDestination | ObservabilityPipelineSocketDestination | ObservabilityPipelineAmazonSecurityLakeDestination | ObservabilityPipelineCrowdStrikeNextGenSiemDestination | UnparsedObject;
+export type ObservabilityPipelineConfigDestinationItem =
+  | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineAmazonS3Destination
+  | ObservabilityPipelineGoogleCloudStorageDestination
+  | ObservabilityPipelineSplunkHecDestination
+  | ObservabilityPipelineSumoLogicDestination
+  | ObservabilityPipelineElasticsearchDestination
+  | ObservabilityPipelineRsyslogDestination
+  | ObservabilityPipelineSyslogNgDestination
+  | AzureStorageDestination
+  | MicrosoftSentinelDestination
+  | ObservabilityPipelineGoogleChronicleDestination
+  | ObservabilityPipelineNewRelicDestination
+  | ObservabilityPipelineSentinelOneDestination
+  | ObservabilityPipelineOpenSearchDestination
+  | ObservabilityPipelineAmazonOpenSearchDestination
+  | ObservabilityPipelineSocketDestination
+  | ObservabilityPipelineAmazonSecurityLakeDestination
+  | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+  | UnparsedObject;

@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Options for selecting a predefined library pattern and enabling keyword support.
-*/
+ */
 export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions {
   /**
    * Identifier for a predefined pattern from the sensitive data scanner pattern library.
-  */
+   */
   "id": string;
   /**
    * Whether to augment the pattern with recommended keywords (optional).
-  */
+   */
   "useRecommendedKeywords"?: boolean;
 
   /**
@@ -40,53 +35,27 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "useRecommendedKeywords": {
-      "baseName": "use_recommended_keywords",
-      "type": "boolean",
+    useRecommendedKeywords: {
+      baseName: "use_recommended_keywords",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

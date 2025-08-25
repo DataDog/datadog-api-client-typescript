@@ -6,28 +6,23 @@
 import { CustomDestinationType } from "./CustomDestinationType";
 import { CustomDestinationUpdateRequestAttributes } from "./CustomDestinationUpdateRequestAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of a custom destination.
-*/
+ */
 export class CustomDestinationUpdateRequestDefinition {
   /**
    * The attributes associated with the custom destination.
-  */
+   */
   "attributes"?: CustomDestinationUpdateRequestAttributes;
   /**
    * The custom destination ID.
-  */
+   */
   "id": string;
   /**
    * The type of the resource. The value should always be `custom_destination`.
-  */
+   */
   "type": CustomDestinationType;
 
   /**
@@ -46,58 +41,32 @@ export class CustomDestinationUpdateRequestDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CustomDestinationUpdateRequestAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "CustomDestinationUpdateRequestAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CustomDestinationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CustomDestinationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomDestinationUpdateRequestDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

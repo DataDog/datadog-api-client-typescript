@@ -4,20 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The status of the finding.
-*/
+ */
 
-export type FindingStatus = typeof CRITICAL| typeof HIGH| typeof MEDIUM| typeof LOW| typeof INFO | UnparsedObject;
-export const CRITICAL = 'critical';
-export const HIGH = 'high';
-export const MEDIUM = 'medium';
-export const LOW = 'low';
-export const INFO = 'info';
+export type FindingStatus =
+  | typeof CRITICAL
+  | typeof HIGH
+  | typeof MEDIUM
+  | typeof LOW
+  | typeof INFO
+  | UnparsedObject;
+export const CRITICAL = "critical";
+export const HIGH = "high";
+export const MEDIUM = "medium";
+export const LOW = "low";
+export const INFO = "info";

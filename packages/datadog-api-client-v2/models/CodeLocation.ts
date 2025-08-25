@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Code vulnerability location.
-*/
+ */
 export class CodeLocation {
   /**
    * Vulnerability location file path.
-  */
+   */
   "filePath"?: string;
   /**
    * Vulnerability extracted location.
-  */
+   */
   "location": string;
   /**
    * Vulnerability location method.
-  */
+   */
   "method"?: string;
 
   /**
@@ -44,57 +39,31 @@ export class CodeLocation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "filePath": {
-      "baseName": "file_path",
-      "type": "string",
+    filePath: {
+      baseName: "file_path",
+      type: "string",
     },
-    "location": {
-      "baseName": "location",
-      "type": "string",
-      "required": true,
+    location: {
+      baseName: "location",
+      type: "string",
+      required: true,
     },
-    "method": {
-      "baseName": "method",
-      "type": "string",
+    method: {
+      baseName: "method",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CodeLocation.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

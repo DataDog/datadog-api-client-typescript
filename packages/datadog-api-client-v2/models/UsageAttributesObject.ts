@@ -6,40 +6,35 @@
 import { HourlyUsageType } from "./HourlyUsageType";
 import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Usage attributes data.
-*/
+ */
 export class UsageAttributesObject {
   /**
    * The organization name.
-  */
+   */
   "orgName"?: string;
   /**
    * The product for which usage is being reported.
-  */
+   */
   "productFamily"?: string;
   /**
    * The organization public ID.
-  */
+   */
   "publicId"?: string;
   /**
    * The region of the Datadog instance that the organization belongs to.
-  */
+   */
   "region"?: string;
   /**
    * List of usage data reported for each requested hour.
-  */
+   */
   "timeseries"?: Array<UsageTimeSeriesObject>;
   /**
    * Usage type that is being measured.
-  */
+   */
   "usageType"?: HourlyUsageType;
 
   /**
@@ -58,68 +53,42 @@ export class UsageAttributesObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "orgName": {
-      "baseName": "org_name",
-      "type": "string",
+    orgName: {
+      baseName: "org_name",
+      type: "string",
     },
-    "productFamily": {
-      "baseName": "product_family",
-      "type": "string",
+    productFamily: {
+      baseName: "product_family",
+      type: "string",
     },
-    "publicId": {
-      "baseName": "public_id",
-      "type": "string",
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
-    "region": {
-      "baseName": "region",
-      "type": "string",
+    region: {
+      baseName: "region",
+      type: "string",
     },
-    "timeseries": {
-      "baseName": "timeseries",
-      "type": "Array<UsageTimeSeriesObject>",
+    timeseries: {
+      baseName: "timeseries",
+      type: "Array<UsageTimeSeriesObject>",
     },
-    "usageType": {
-      "baseName": "usage_type",
-      "type": "HourlyUsageType",
+    usageType: {
+      baseName: "usage_type",
+      type: "HourlyUsageType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageAttributesObject.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

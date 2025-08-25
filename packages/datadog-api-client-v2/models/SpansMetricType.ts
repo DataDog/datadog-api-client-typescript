@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of resource. The value should always be spans_metrics.
-*/
+ */
 
 export type SpansMetricType = typeof SPANS_METRICS | UnparsedObject;
-export const SPANS_METRICS = 'spans_metrics';
+export const SPANS_METRICS = "spans_metrics";

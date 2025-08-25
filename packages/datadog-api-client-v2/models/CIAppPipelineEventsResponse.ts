@@ -7,28 +7,23 @@ import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
 import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadataWithPagination } from "./CIAppResponseMetadataWithPagination";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object with all pipeline events matching the request and pagination information.
-*/
+ */
 export class CIAppPipelineEventsResponse {
   /**
    * Array of events matching the request.
-  */
+   */
   "data"?: Array<CIAppPipelineEvent>;
   /**
    * Links attributes.
-  */
+   */
   "links"?: CIAppResponseLinks;
   /**
    * The metadata associated with a request.
-  */
+   */
   "meta"?: CIAppResponseMetadataWithPagination;
 
   /**
@@ -47,56 +42,30 @@ export class CIAppPipelineEventsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<CIAppPipelineEvent>",
+    data: {
+      baseName: "data",
+      type: "Array<CIAppPipelineEvent>",
     },
-    "links": {
-      "baseName": "links",
-      "type": "CIAppResponseLinks",
+    links: {
+      baseName: "links",
+      type: "CIAppResponseLinks",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "CIAppResponseMetadataWithPagination",
+    meta: {
+      baseName: "meta",
+      type: "CIAppResponseMetadataWithPagination",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppPipelineEventsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

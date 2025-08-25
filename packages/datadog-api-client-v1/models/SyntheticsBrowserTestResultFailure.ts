@@ -5,24 +5,19 @@
  */
 import { SyntheticsBrowserTestFailureCode } from "./SyntheticsBrowserTestFailureCode";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The browser test failure details.
-*/
+ */
 export class SyntheticsBrowserTestResultFailure {
   /**
    * Error code that can be returned by a Synthetic test.
-  */
+   */
   "code"?: SyntheticsBrowserTestFailureCode;
   /**
    * The browser test error message.
-  */
+   */
   "message"?: string;
 
   /**
@@ -41,52 +36,26 @@ export class SyntheticsBrowserTestResultFailure {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "code": {
-      "baseName": "code",
-      "type": "SyntheticsBrowserTestFailureCode",
+    code: {
+      baseName: "code",
+      type: "SyntheticsBrowserTestFailureCode",
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
+    message: {
+      baseName: "message",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsBrowserTestResultFailure.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

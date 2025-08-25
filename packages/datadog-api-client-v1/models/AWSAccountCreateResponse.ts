@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The Response returned by the AWS Create Account call.
-*/
+ */
 export class AWSAccountCreateResponse {
   /**
    * AWS external_id.
-  */
+   */
   "externalId"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class AWSAccountCreateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "externalId": {
-      "baseName": "external_id",
-      "type": "string",
+    externalId: {
+      baseName: "external_id",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSAccountCreateResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

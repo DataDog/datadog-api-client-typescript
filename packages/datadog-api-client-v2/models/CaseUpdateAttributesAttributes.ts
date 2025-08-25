@@ -4,21 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Case update attributes attributes
-*/
+ */
 export class CaseUpdateAttributesAttributes {
   /**
    * The definition of `CaseObjectAttributes` object.
-  */
-  "attributes": { [key: string]: Array<string>; };
+   */
+  "attributes": { [key: string]: Array<string> };
 
   /**
    * A container for additional, undeclared properties.
@@ -36,49 +31,23 @@ export class CaseUpdateAttributesAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "{ [key: string]: Array<string>; }",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: Array<string>; }",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CaseUpdateAttributesAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -9,36 +9,31 @@ import { EntityV3DatadogLogItem } from "./EntityV3DatadogLogItem";
 import { EntityV3DatadogPerformance } from "./EntityV3DatadogPerformance";
 import { EntityV3DatadogPipelines } from "./EntityV3DatadogPipelines";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Datadog product integrations for the API entity.
-*/
+ */
 export class EntityV3APIDatadog {
   /**
    * Schema for mapping source code locations to an entity.
-  */
+   */
   "codeLocations"?: Array<EntityV3DatadogCodeLocationItem>;
   /**
    * Events associations.
-  */
+   */
   "events"?: Array<EntityV3DatadogEventItem>;
   /**
    * Logs association.
-  */
+   */
   "logs"?: Array<EntityV3DatadogLogItem>;
   /**
    * Performance stats association.
-  */
+   */
   "performanceData"?: EntityV3DatadogPerformance;
   /**
    * CI Pipelines association.
-  */
+   */
   "pipelines"?: EntityV3DatadogPipelines;
 
   /**
@@ -50,60 +45,34 @@ export class EntityV3APIDatadog {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "codeLocations": {
-      "baseName": "codeLocations",
-      "type": "Array<EntityV3DatadogCodeLocationItem>",
+    codeLocations: {
+      baseName: "codeLocations",
+      type: "Array<EntityV3DatadogCodeLocationItem>",
     },
-    "events": {
-      "baseName": "events",
-      "type": "Array<EntityV3DatadogEventItem>",
+    events: {
+      baseName: "events",
+      type: "Array<EntityV3DatadogEventItem>",
     },
-    "logs": {
-      "baseName": "logs",
-      "type": "Array<EntityV3DatadogLogItem>",
+    logs: {
+      baseName: "logs",
+      type: "Array<EntityV3DatadogLogItem>",
     },
-    "performanceData": {
-      "baseName": "performanceData",
-      "type": "EntityV3DatadogPerformance",
+    performanceData: {
+      baseName: "performanceData",
+      type: "EntityV3DatadogPerformance",
     },
-    "pipelines": {
-      "baseName": "pipelines",
-      "type": "EntityV3DatadogPipelines",
-    }
+    pipelines: {
+      baseName: "pipelines",
+      type: "EntityV3DatadogPipelines",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityV3APIDatadog.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

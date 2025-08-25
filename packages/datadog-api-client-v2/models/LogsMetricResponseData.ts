@@ -6,28 +6,23 @@
 import { LogsMetricResponseAttributes } from "./LogsMetricResponseAttributes";
 import { LogsMetricType } from "./LogsMetricType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The log-based metric properties.
-*/
+ */
 export class LogsMetricResponseData {
   /**
    * The object describing a Datadog log-based metric.
-  */
+   */
   "attributes"?: LogsMetricResponseAttributes;
   /**
    * The name of the log-based metric.
-  */
+   */
   "id"?: string;
   /**
    * The type of the resource. The value should always be logs_metrics.
-  */
+   */
   "type"?: LogsMetricType;
 
   /**
@@ -46,56 +41,30 @@ export class LogsMetricResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "LogsMetricResponseAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "LogsMetricResponseAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "LogsMetricType",
+    type: {
+      baseName: "type",
+      type: "LogsMetricType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsMetricResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,21 +5,16 @@
  */
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationship to user.
-*/
+ */
 export class NullableUserRelationship {
   /**
    * Relationship to user object.
-  */
-  "data": NullableUserRelationshipData|null;
+   */
+  "data": NullableUserRelationshipData | null;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,49 +32,23 @@ export class NullableUserRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "NullableUserRelationshipData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "NullableUserRelationshipData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NullableUserRelationship.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

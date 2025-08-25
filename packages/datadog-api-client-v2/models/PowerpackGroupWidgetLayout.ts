@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Powerpack group widget layout.
-*/
+ */
 export class PowerpackGroupWidgetLayout {
   /**
    * The height of the widget. Should be a non-negative integer.
-  */
+   */
   "height": number;
   /**
    * The width of the widget. Should be a non-negative integer.
-  */
+   */
   "width": number;
   /**
    * The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
-  */
+   */
   "x": number;
   /**
    * The position of the widget on the y (vertical) axis. Should be a non-negative integer.
-  */
+   */
   "y": number;
 
   /**
@@ -48,68 +43,42 @@ export class PowerpackGroupWidgetLayout {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "height": {
-      "baseName": "height",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    height: {
+      baseName: "height",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "width": {
-      "baseName": "width",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    width: {
+      baseName: "width",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "x": {
-      "baseName": "x",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    x: {
+      baseName: "x",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "y": {
-      "baseName": "y",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    y: {
+      baseName: "y",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PowerpackGroupWidgetLayout.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

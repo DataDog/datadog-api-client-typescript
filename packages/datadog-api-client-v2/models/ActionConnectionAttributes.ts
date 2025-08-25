@@ -5,24 +5,19 @@
  */
 import { ActionConnectionIntegration } from "./ActionConnectionIntegration";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `ActionConnectionAttributes` object.
-*/
+ */
 export class ActionConnectionAttributes {
   /**
    * The definition of `ActionConnectionIntegration` object.
-  */
+   */
   "integration": ActionConnectionIntegration;
   /**
    * Name of the connection
-  */
+   */
   "name": string;
 
   /**
@@ -41,54 +36,28 @@ export class ActionConnectionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "integration": {
-      "baseName": "integration",
-      "type": "ActionConnectionIntegration",
-      "required": true,
+    integration: {
+      baseName: "integration",
+      type: "ActionConnectionIntegration",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ActionConnectionAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

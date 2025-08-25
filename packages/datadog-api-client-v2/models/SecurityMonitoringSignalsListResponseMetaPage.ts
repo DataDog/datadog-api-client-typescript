@@ -4,21 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Paging attributes.
-*/
+ */
 export class SecurityMonitoringSignalsListResponseMetaPage {
   /**
    * The cursor used to get the next results, if any. To make the next request, use the same
    * parameters with the addition of the `page[cursor]`.
-  */
+   */
   "after"?: string;
 
   /**
@@ -37,48 +32,22 @@ export class SecurityMonitoringSignalsListResponseMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "after": {
-      "baseName": "after",
-      "type": "string",
+    after: {
+      baseName: "after",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalsListResponseMetaPage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

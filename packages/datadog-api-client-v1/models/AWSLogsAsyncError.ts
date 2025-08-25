@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Description of errors.
-*/
+ */
 export class AWSLogsAsyncError {
   /**
    * Code properties
-  */
+   */
   "code"?: string;
   /**
    * Message content.
-  */
+   */
   "message"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class AWSLogsAsyncError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "code": {
-      "baseName": "code",
-      "type": "string",
+    code: {
+      baseName: "code",
+      type: "string",
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
+    message: {
+      baseName: "message",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSLogsAsyncError.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of Entity V3 Datastore Kind object.
-*/
+ */
 
 export type EntityV3DatastoreKind = typeof DATASTORE | UnparsedObject;
-export const DATASTORE = 'datastore';
+export const DATASTORE = "datastore";

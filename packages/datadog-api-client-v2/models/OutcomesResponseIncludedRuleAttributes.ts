@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Details of a rule.
-*/
+ */
 export class OutcomesResponseIncludedRuleAttributes {
   /**
    * Name of the rule.
-  */
+   */
   "name"?: string;
   /**
    * The scorecard name to which this rule must belong.
-  */
+   */
   "scorecardName"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class OutcomesResponseIncludedRuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "scorecardName": {
-      "baseName": "scorecard_name",
-      "type": "string",
+    scorecardName: {
+      baseName: "scorecard_name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OutcomesResponseIncludedRuleAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

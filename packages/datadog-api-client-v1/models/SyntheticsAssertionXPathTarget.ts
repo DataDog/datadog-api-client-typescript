@@ -7,32 +7,27 @@ import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 import { SyntheticsAssertionXPathOperator } from "./SyntheticsAssertionXPathOperator";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An assertion for the `validatesXPath` operator.
-*/
+ */
 export class SyntheticsAssertionXPathTarget {
   /**
    * Assertion operator to apply.
-  */
+   */
   "operator": SyntheticsAssertionXPathOperator;
   /**
    * The associated assertion property.
-  */
+   */
   "property"?: string;
   /**
    * Composed target for `validatesXPath` operator.
-  */
+   */
   "target"?: SyntheticsAssertionXPathTargetTarget;
   /**
    * Type of the assertion.
-  */
+   */
   "type": SyntheticsAssertionType;
 
   /**
@@ -51,62 +46,36 @@ export class SyntheticsAssertionXPathTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "operator": {
-      "baseName": "operator",
-      "type": "SyntheticsAssertionXPathOperator",
-      "required": true,
+    operator: {
+      baseName: "operator",
+      type: "SyntheticsAssertionXPathOperator",
+      required: true,
     },
-    "property": {
-      "baseName": "property",
-      "type": "string",
+    property: {
+      baseName: "property",
+      type: "string",
     },
-    "target": {
-      "baseName": "target",
-      "type": "SyntheticsAssertionXPathTargetTarget",
+    target: {
+      baseName: "target",
+      type: "SyntheticsAssertionXPathTargetTarget",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SyntheticsAssertionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "SyntheticsAssertionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsAssertionXPathTarget.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

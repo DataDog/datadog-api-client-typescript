@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Configuration for a recurrence set on the monitor options for custom schedule.
-*/
+ */
 export class MonitorOptionsCustomScheduleRecurrence {
   /**
    * Defines the recurrence rule (RRULE) for a given schedule.
-  */
+   */
   "rrule"?: string;
   /**
    * Defines the start date and time of the recurring schedule.
-  */
+   */
   "start"?: string;
   /**
    * Defines the timezone the schedule runs on.
-  */
+   */
   "timezone"?: string;
 
   /**
@@ -44,56 +39,30 @@ export class MonitorOptionsCustomScheduleRecurrence {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "rrule": {
-      "baseName": "rrule",
-      "type": "string",
+    rrule: {
+      baseName: "rrule",
+      type: "string",
     },
-    "start": {
-      "baseName": "start",
-      "type": "string",
+    start: {
+      baseName: "start",
+      type: "string",
     },
-    "timezone": {
-      "baseName": "timezone",
-      "type": "string",
+    timezone: {
+      baseName: "timezone",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorOptionsCustomScheduleRecurrence.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

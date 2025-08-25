@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The query being made on the logs.
-*/
+ */
 export class LogQueryDefinitionSearch {
   /**
    * Search value to apply.
-  */
+   */
   "query": string;
 
   /**
@@ -36,49 +31,23 @@ export class LogQueryDefinitionSearch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "query": {
-      "baseName": "query",
-      "type": "string",
-      "required": true,
+    query: {
+      baseName: "query",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogQueryDefinitionSearch.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

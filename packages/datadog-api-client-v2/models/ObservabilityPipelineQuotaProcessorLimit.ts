@@ -5,24 +5,19 @@
  */
 import { ObservabilityPipelineQuotaProcessorLimitEnforceType } from "./ObservabilityPipelineQuotaProcessorLimitEnforceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
-*/
+ */
 export class ObservabilityPipelineQuotaProcessorLimit {
   /**
    * Unit for quota enforcement in bytes for data size or events for count.
-  */
+   */
   "enforce": ObservabilityPipelineQuotaProcessorLimitEnforceType;
   /**
    * The limit for quota enforcement.
-  */
+   */
   "limit": number;
 
   /**
@@ -41,55 +36,29 @@ export class ObservabilityPipelineQuotaProcessorLimit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "enforce": {
-      "baseName": "enforce",
-      "type": "ObservabilityPipelineQuotaProcessorLimitEnforceType",
-      "required": true,
+    enforce: {
+      baseName: "enforce",
+      type: "ObservabilityPipelineQuotaProcessorLimitEnforceType",
+      required: true,
     },
-    "limit": {
-      "baseName": "limit",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    limit: {
+      baseName: "limit",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineQuotaProcessorLimit.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request used to update an application key.
-*/
+ */
 export class ApplicationKeyUpdateRequest {
   /**
    * Object used to update an application key.
-  */
+   */
   "data": ApplicationKeyUpdateData;
 
   /**
@@ -37,49 +32,23 @@ export class ApplicationKeyUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "ApplicationKeyUpdateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "ApplicationKeyUpdateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationKeyUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

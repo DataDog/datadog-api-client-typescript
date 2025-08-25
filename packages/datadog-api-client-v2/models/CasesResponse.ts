@@ -6,24 +6,19 @@
 import { Case } from "./Case";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response with cases
-*/
+ */
 export class CasesResponse {
   /**
    * Cases response data
-  */
+   */
   "data"?: Array<Case>;
   /**
    * Cases response metadata
-  */
+   */
   "meta"?: CasesResponseMeta;
 
   /**
@@ -42,52 +37,26 @@ export class CasesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<Case>",
+    data: {
+      baseName: "data",
+      type: "Array<Case>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "CasesResponseMeta",
+    meta: {
+      baseName: "meta",
+      type: "CasesResponseMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CasesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

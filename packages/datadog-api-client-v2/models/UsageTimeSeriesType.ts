@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of usage data.
-*/
+ */
 
 export type UsageTimeSeriesType = typeof USAGE_TIMESERIES | UnparsedObject;
-export const USAGE_TIMESERIES = 'usage_timeseries';
+export const USAGE_TIMESERIES = "usage_timeseries";

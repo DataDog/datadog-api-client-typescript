@@ -5,30 +5,25 @@
  */
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Options for cloud_configuration rules.
  * Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
-*/
+ */
 export class CloudConfigurationComplianceRuleOptions {
   /**
    * Whether the rule is a complex one.
    * Must be set to true if `regoRule.resourceTypes` contains more than one item. Defaults to false.
-  */
+   */
   "complexRule"?: boolean;
   /**
    * Rule details.
-  */
+   */
   "regoRule"?: CloudConfigurationRegoRule;
   /**
    * Main resource type to be checked by the rule. It should be specified again in `regoRule.resourceTypes`.
-  */
+   */
   "resourceType"?: string;
 
   /**
@@ -47,56 +42,30 @@ export class CloudConfigurationComplianceRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "complexRule": {
-      "baseName": "complexRule",
-      "type": "boolean",
+    complexRule: {
+      baseName: "complexRule",
+      type: "boolean",
     },
-    "regoRule": {
-      "baseName": "regoRule",
-      "type": "CloudConfigurationRegoRule",
+    regoRule: {
+      baseName: "regoRule",
+      type: "CloudConfigurationRegoRule",
     },
-    "resourceType": {
-      "baseName": "resourceType",
-      "type": "string",
+    resourceType: {
+      baseName: "resourceType",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudConfigurationComplianceRuleOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

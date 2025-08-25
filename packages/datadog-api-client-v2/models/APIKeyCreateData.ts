@@ -6,24 +6,19 @@
 import { APIKeyCreateAttributes } from "./APIKeyCreateAttributes";
 import { APIKeysType } from "./APIKeysType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object used to create an API key.
-*/
+ */
 export class APIKeyCreateData {
   /**
    * Attributes used to create an API Key.
-  */
+   */
   "attributes": APIKeyCreateAttributes;
   /**
    * API Keys resource type.
-  */
+   */
   "type": APIKeysType;
 
   /**
@@ -42,54 +37,28 @@ export class APIKeyCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "APIKeyCreateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "APIKeyCreateAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "APIKeysType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "APIKeysType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return APIKeyCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

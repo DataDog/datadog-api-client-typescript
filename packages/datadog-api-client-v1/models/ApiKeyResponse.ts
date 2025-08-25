@@ -5,20 +5,15 @@
  */
 import { ApiKey } from "./ApiKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An API key with its associated metadata.
-*/
+ */
 export class ApiKeyResponse {
   /**
    * Datadog API key.
-  */
+   */
   "apiKey"?: ApiKey;
 
   /**
@@ -37,48 +32,22 @@ export class ApiKeyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiKey": {
-      "baseName": "api_key",
-      "type": "ApiKey",
+    apiKey: {
+      baseName: "api_key",
+      type: "ApiKey",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApiKeyResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

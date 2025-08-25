@@ -4,56 +4,51 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes for a container.
-*/
+ */
 export class ContainerAttributes {
   /**
    * The ID of the container.
-  */
+   */
   "containerId"?: string;
   /**
    * Time the container was created.
-  */
+   */
   "createdAt"?: string;
   /**
    * Hostname of the host running the container.
-  */
+   */
   "host"?: string;
   /**
    * Digest of the compressed image manifest.
-  */
+   */
   "imageDigest"?: string;
   /**
    * Name of the associated container image.
-  */
+   */
   "imageName"?: string;
   /**
    * List of image tags associated with the container image.
-  */
+   */
   "imageTags"?: Array<string>;
   /**
    * Name of the container.
-  */
+   */
   "name"?: string;
   /**
    * Time the container was started.
-  */
+   */
   "startedAt"?: string;
   /**
    * State of the container. This depends on the container runtime.
-  */
+   */
   "state"?: string;
   /**
    * List of tags associated with the container.
-  */
+   */
   "tags"?: Array<string>;
 
   /**
@@ -72,84 +67,58 @@ export class ContainerAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "containerId": {
-      "baseName": "container_id",
-      "type": "string",
+    containerId: {
+      baseName: "container_id",
+      type: "string",
     },
-    "createdAt": {
-      "baseName": "created_at",
-      "type": "string",
+    createdAt: {
+      baseName: "created_at",
+      type: "string",
     },
-    "host": {
-      "baseName": "host",
-      "type": "string",
+    host: {
+      baseName: "host",
+      type: "string",
     },
-    "imageDigest": {
-      "baseName": "image_digest",
-      "type": "string",
+    imageDigest: {
+      baseName: "image_digest",
+      type: "string",
     },
-    "imageName": {
-      "baseName": "image_name",
-      "type": "string",
+    imageName: {
+      baseName: "image_name",
+      type: "string",
     },
-    "imageTags": {
-      "baseName": "image_tags",
-      "type": "Array<string>",
+    imageTags: {
+      baseName: "image_tags",
+      type: "Array<string>",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "startedAt": {
-      "baseName": "started_at",
-      "type": "string",
+    startedAt: {
+      baseName: "started_at",
+      type: "string",
     },
-    "state": {
-      "baseName": "state",
-      "type": "string",
+    state: {
+      baseName: "state",
+      type: "string",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

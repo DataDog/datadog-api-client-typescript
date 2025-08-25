@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Applies the rule to all fields.
-*/
+ */
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorScopeAllTarget = typeof ALL | UnparsedObject;
-export const ALL = 'all';
+export type ObservabilityPipelineSensitiveDataScannerProcessorScopeAllTarget =
+  | typeof ALL
+  | UnparsedObject;
+export const ALL = "all";

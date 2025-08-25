@@ -6,24 +6,19 @@
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigPostRequestType } from "./AzureUCConfigPostRequestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Azure config Post data.
-*/
+ */
 export class AzureUCConfigPostData {
   /**
    * Attributes for Azure config Post Request.
-  */
+   */
   "attributes": AzureUCConfigPostRequestAttributes;
   /**
    * Type of Azure config Post Request.
-  */
+   */
   "type": AzureUCConfigPostRequestType;
 
   /**
@@ -42,54 +37,28 @@ export class AzureUCConfigPostData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AzureUCConfigPostRequestAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "AzureUCConfigPostRequestAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "AzureUCConfigPostRequestType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AzureUCConfigPostRequestType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AzureUCConfigPostData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

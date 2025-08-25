@@ -6,24 +6,19 @@
 import { Component } from "./Component";
 import { ComponentPropertiesIsVisible } from "./ComponentPropertiesIsVisible";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Properties of a UI component. Different component types can have their own additional unique properties. See the [components documentation](https://docs.datadoghq.com/service_management/app_builder/components/) for more detail on each component type and its properties.
-*/
+ */
 export class ComponentProperties {
   /**
    * The child components of the UI component.
-  */
+   */
   "children"?: Array<Component>;
   /**
    * Whether the UI component is visible. If this is a string, it must be a valid JavaScript expression that evaluates to a boolean.
-  */
+   */
   "isVisible"?: ComponentPropertiesIsVisible;
 
   /**
@@ -42,52 +37,26 @@ export class ComponentProperties {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "children": {
-      "baseName": "children",
-      "type": "Array<Component>",
+    children: {
+      baseName: "children",
+      type: "Array<Component>",
     },
-    "isVisible": {
-      "baseName": "isVisible",
-      "type": "ComponentPropertiesIsVisible",
+    isVisible: {
+      baseName: "isVisible",
+      type: "ComponentPropertiesIsVisible",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ComponentProperties.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

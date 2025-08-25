@@ -5,21 +5,16 @@
  */
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Options on cloud configuration rules.
-*/
+ */
 export class CloudConfigurationRuleOptions {
   /**
    * Options for cloud_configuration rules.
    * Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
-  */
+   */
   "complianceRuleOptions": CloudConfigurationComplianceRuleOptions;
 
   /**
@@ -38,49 +33,23 @@ export class CloudConfigurationRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "complianceRuleOptions": {
-      "baseName": "complianceRuleOptions",
-      "type": "CloudConfigurationComplianceRuleOptions",
-      "required": true,
+    complianceRuleOptions: {
+      baseName: "complianceRuleOptions",
+      type: "CloudConfigurationComplianceRuleOptions",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudConfigurationRuleOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

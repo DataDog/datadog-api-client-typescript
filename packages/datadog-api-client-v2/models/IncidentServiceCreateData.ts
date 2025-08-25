@@ -7,28 +7,23 @@ import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttribut
 import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
 import { IncidentServiceType } from "./IncidentServiceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident Service payload for create requests.
-*/
+ */
 export class IncidentServiceCreateData {
   /**
    * The incident service's attributes for a create request.
-  */
+   */
   "attributes"?: IncidentServiceCreateAttributes;
   /**
    * The incident service's relationships.
-  */
+   */
   "relationships"?: IncidentServiceRelationships;
   /**
    * Incident service resource type.
-  */
+   */
   "type": IncidentServiceType;
 
   /**
@@ -47,57 +42,31 @@ export class IncidentServiceCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentServiceCreateAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentServiceCreateAttributes",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentServiceRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentServiceRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentServiceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentServiceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentServiceCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

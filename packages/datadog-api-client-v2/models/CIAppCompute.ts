@@ -6,33 +6,28 @@
 import { CIAppAggregationFunction } from "./CIAppAggregationFunction";
 import { CIAppComputeType } from "./CIAppComputeType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A compute rule to compute metrics or timeseries.
-*/
+ */
 export class CIAppCompute {
   /**
    * An aggregation function.
-  */
+   */
   "aggregation": CIAppAggregationFunction;
   /**
    * The time buckets' size (only used for type=timeseries)
    * Defaults to a resolution of 150 points.
-  */
+   */
   "interval"?: string;
   /**
    * The metric to use.
-  */
+   */
   "metric"?: string;
   /**
    * The type of compute.
-  */
+   */
   "type"?: CIAppComputeType;
 
   /**
@@ -51,61 +46,35 @@ export class CIAppCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregation": {
-      "baseName": "aggregation",
-      "type": "CIAppAggregationFunction",
-      "required": true,
+    aggregation: {
+      baseName: "aggregation",
+      type: "CIAppAggregationFunction",
+      required: true,
     },
-    "interval": {
-      "baseName": "interval",
-      "type": "string",
+    interval: {
+      baseName: "interval",
+      type: "string",
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
+    metric: {
+      baseName: "metric",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CIAppComputeType",
+    type: {
+      baseName: "type",
+      type: "CIAppComputeType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppCompute.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

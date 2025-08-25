@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Set of rules for the grok parser.
-*/
+ */
 export class LogsGrokParserRules {
   /**
    * List of match rules for the grok parser, separated by a new line.
-  */
+   */
   "matchRules": string;
   /**
    * List of support rules for the grok parser, separated by a new line.
-  */
+   */
   "supportRules"?: string;
 
   /**
@@ -40,53 +35,27 @@ export class LogsGrokParserRules {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "matchRules": {
-      "baseName": "match_rules",
-      "type": "string",
-      "required": true,
+    matchRules: {
+      baseName: "match_rules",
+      type: "string",
+      required: true,
     },
-    "supportRules": {
-      "baseName": "support_rules",
-      "type": "string",
+    supportRules: {
+      baseName: "support_rules",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsGrokParserRules.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

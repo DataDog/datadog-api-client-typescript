@@ -8,40 +8,35 @@ import { RelationMeta } from "./RelationMeta";
 import { RelationRelationships } from "./RelationRelationships";
 import { RelationResponseType } from "./RelationResponseType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relation response data.
-*/
+ */
 export class RelationResponse {
   /**
    * Relation attributes.
-  */
+   */
   "attributes"?: RelationAttributes;
   /**
    * Relation ID.
-  */
+   */
   "id"?: string;
   /**
    * Relation metadata.
-  */
+   */
   "meta"?: RelationMeta;
   /**
    * Relation relationships.
-  */
+   */
   "relationships"?: RelationRelationships;
   /**
    * Relation subtype.
-  */
+   */
   "subtype"?: string;
   /**
    * Relation type.
-  */
+   */
   "type"?: RelationResponseType;
 
   /**
@@ -60,68 +55,42 @@ export class RelationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "RelationAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "RelationAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "RelationMeta",
+    meta: {
+      baseName: "meta",
+      type: "RelationMeta",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "RelationRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "RelationRelationships",
     },
-    "subtype": {
-      "baseName": "subtype",
-      "type": "string",
+    subtype: {
+      baseName: "subtype",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "RelationResponseType",
+    type: {
+      baseName: "type",
+      type: "RelationResponseType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

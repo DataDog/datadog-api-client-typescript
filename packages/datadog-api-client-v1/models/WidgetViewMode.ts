@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Define how you want the SLO to be displayed.
-*/
+ */
 
-export type WidgetViewMode = typeof OVERALL| typeof COMPONENT| typeof BOTH | UnparsedObject;
-export const OVERALL = 'overall';
-export const COMPONENT = 'component';
-export const BOTH = 'both';
+export type WidgetViewMode =
+  | typeof OVERALL
+  | typeof COMPONENT
+  | typeof BOTH
+  | UnparsedObject;
+export const OVERALL = "overall";
+export const COMPONENT = "component";
+export const BOTH = "both";

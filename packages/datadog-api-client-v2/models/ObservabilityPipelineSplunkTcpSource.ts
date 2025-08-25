@@ -6,29 +6,24 @@
 import { ObservabilityPipelineSplunkTcpSourceType } from "./ObservabilityPipelineSplunkTcpSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
  * TLS is supported for secure transmission.
-*/
+ */
 export class ObservabilityPipelineSplunkTcpSource {
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
-  */
+   */
   "id": string;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-  */
+   */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The source type. Always `splunk_tcp`.
-  */
+   */
   "type": ObservabilityPipelineSplunkTcpSourceType;
 
   /**
@@ -47,58 +42,32 @@ export class ObservabilityPipelineSplunkTcpSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "tls": {
-      "baseName": "tls",
-      "type": "ObservabilityPipelineTls",
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineSplunkTcpSourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineSplunkTcpSourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSplunkTcpSource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

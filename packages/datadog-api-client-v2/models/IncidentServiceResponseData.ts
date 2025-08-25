@@ -7,32 +7,27 @@ import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
 import { IncidentServiceResponseAttributes } from "./IncidentServiceResponseAttributes";
 import { IncidentServiceType } from "./IncidentServiceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident Service data from responses.
-*/
+ */
 export class IncidentServiceResponseData {
   /**
    * The incident service's attributes from a response.
-  */
+   */
   "attributes"?: IncidentServiceResponseAttributes;
   /**
    * The incident service's ID.
-  */
+   */
   "id": string;
   /**
    * The incident service's relationships.
-  */
+   */
   "relationships"?: IncidentServiceRelationships;
   /**
    * Incident service resource type.
-  */
+   */
   "type": IncidentServiceType;
 
   /**
@@ -51,62 +46,36 @@ export class IncidentServiceResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentServiceResponseAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentServiceResponseAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentServiceRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentServiceRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentServiceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentServiceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentServiceResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -6,28 +6,23 @@
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostType } from "./ProjectedCostType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Projected Cost data.
-*/
+ */
 export class ProjectedCost {
   /**
    * Projected Cost attributes data.
-  */
+   */
   "attributes"?: ProjectedCostAttributes;
   /**
    * Unique ID of the response.
-  */
+   */
   "id"?: string;
   /**
    * Type of cost data.
-  */
+   */
   "type"?: ProjectedCostType;
 
   /**
@@ -46,56 +41,30 @@ export class ProjectedCost {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ProjectedCostAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ProjectedCostAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ProjectedCostType",
+    type: {
+      baseName: "type",
+      type: "ProjectedCostType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ProjectedCost.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

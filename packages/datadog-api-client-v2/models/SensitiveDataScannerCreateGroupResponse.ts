@@ -6,24 +6,19 @@
 import { SensitiveDataScannerGroupResponse } from "./SensitiveDataScannerGroupResponse";
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Create group response.
-*/
+ */
 export class SensitiveDataScannerCreateGroupResponse {
   /**
    * Response data related to the creation of a group.
-  */
+   */
   "data"?: SensitiveDataScannerGroupResponse;
   /**
    * Meta payload containing information about the API.
-  */
+   */
   "meta"?: SensitiveDataScannerMetaVersionOnly;
 
   /**
@@ -42,52 +37,26 @@ export class SensitiveDataScannerCreateGroupResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SensitiveDataScannerGroupResponse",
+    data: {
+      baseName: "data",
+      type: "SensitiveDataScannerGroupResponse",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "SensitiveDataScannerMetaVersionOnly",
+    meta: {
+      baseName: "meta",
+      type: "SensitiveDataScannerMetaVersionOnly",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerCreateGroupResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

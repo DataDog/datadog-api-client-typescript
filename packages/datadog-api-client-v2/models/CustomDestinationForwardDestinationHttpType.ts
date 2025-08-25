@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the HTTP destination.
-*/
+ */
 
-export type CustomDestinationForwardDestinationHttpType = typeof HTTP | UnparsedObject;
-export const HTTP = 'http';
+export type CustomDestinationForwardDestinationHttpType =
+  | typeof HTTP
+  | UnparsedObject;
+export const HTTP = "http";

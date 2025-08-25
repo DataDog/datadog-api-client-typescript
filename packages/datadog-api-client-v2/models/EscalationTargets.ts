@@ -5,20 +5,15 @@
  */
 import { EscalationTarget } from "./EscalationTarget";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A list of escalation targets for a step
-*/
+ */
 export class EscalationTargets {
   /**
    * The `EscalationTargets` `data`.
-  */
+   */
   "data"?: Array<EscalationTarget>;
 
   /**
@@ -37,48 +32,22 @@ export class EscalationTargets {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<EscalationTarget>",
+    data: {
+      baseName: "data",
+      type: "Array<EscalationTarget>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EscalationTargets.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

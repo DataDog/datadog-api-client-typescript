@@ -4,21 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Has one property enabled (boolean).
-*/
+ */
 export class OrganizationSettingsSamlIdpInitiatedLogin {
   /**
    * Whether SAML IdP initiated login is enabled, learn more
    * in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
-  */
+   */
   "enabled"?: boolean;
 
   /**
@@ -37,48 +32,22 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "enabled": {
-      "baseName": "enabled",
-      "type": "boolean",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OrganizationSettingsSamlIdpInitiatedLogin.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

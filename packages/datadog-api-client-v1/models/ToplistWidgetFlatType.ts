@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Top list widget flat display type.
-*/
+ */
 
 export type ToplistWidgetFlatType = typeof FLAT | UnparsedObject;
-export const FLAT = 'flat';
+export const FLAT = "flat";

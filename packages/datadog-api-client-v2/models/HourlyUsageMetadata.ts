@@ -5,20 +5,15 @@
  */
 import { HourlyUsagePagination } from "./HourlyUsagePagination";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing document metadata.
-*/
+ */
 export class HourlyUsageMetadata {
   /**
    * The metadata for the current pagination.
-  */
+   */
   "pagination"?: HourlyUsagePagination;
 
   /**
@@ -37,48 +32,22 @@ export class HourlyUsageMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "pagination": {
-      "baseName": "pagination",
-      "type": "HourlyUsagePagination",
+    pagination: {
+      baseName: "pagination",
+      type: "HourlyUsagePagination",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return HourlyUsageMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

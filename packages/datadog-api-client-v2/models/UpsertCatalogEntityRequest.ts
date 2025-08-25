@@ -5,15 +5,10 @@
  */
 import { EntityV3 } from "./EntityV3";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Create or update entity request.
-*/
+ */
 
 export type UpsertCatalogEntityRequest = EntityV3 | string | UnparsedObject;

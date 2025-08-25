@@ -5,20 +5,15 @@
  */
 import { SunburstWidgetLegendTableType } from "./SunburstWidgetLegendTableType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Configuration of table-based legend.
-*/
+ */
 export class SunburstWidgetLegendTable {
   /**
    * Whether or not to show a table legend.
-  */
+   */
   "type": SunburstWidgetLegendTableType;
 
   /**
@@ -37,49 +32,23 @@ export class SunburstWidgetLegendTable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "type": {
-      "baseName": "type",
-      "type": "SunburstWidgetLegendTableType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "SunburstWidgetLegendTableType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SunburstWidgetLegendTable.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

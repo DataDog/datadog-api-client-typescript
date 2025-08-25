@@ -7,28 +7,23 @@ import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { PartialAPIKey } from "./PartialAPIKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for a list of API keys.
-*/
+ */
 export class APIKeysResponse {
   /**
    * Array of API keys.
-  */
+   */
   "data"?: Array<PartialAPIKey>;
   /**
    * Array of objects related to the API key.
-  */
+   */
   "included"?: Array<APIKeyResponseIncludedItem>;
   /**
    * Additional information related to api keys response.
-  */
+   */
   "meta"?: APIKeysResponseMeta;
 
   /**
@@ -47,56 +42,30 @@ export class APIKeysResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<PartialAPIKey>",
+    data: {
+      baseName: "data",
+      type: "Array<PartialAPIKey>",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<APIKeyResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<APIKeyResponseIncludedItem>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "APIKeysResponseMeta",
+    meta: {
+      baseName: "meta",
+      type: "APIKeysResponseMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return APIKeysResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

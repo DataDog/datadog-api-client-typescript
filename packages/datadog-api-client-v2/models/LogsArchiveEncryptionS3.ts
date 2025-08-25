@@ -5,24 +5,19 @@
  */
 import { LogsArchiveEncryptionS3Type } from "./LogsArchiveEncryptionS3Type";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The S3 encryption settings.
-*/
+ */
 export class LogsArchiveEncryptionS3 {
   /**
    * An Amazon Resource Name (ARN) used to identify an AWS KMS key.
-  */
+   */
   "key"?: string;
   /**
    * Type of S3 encryption for a destination.
-  */
+   */
   "type": LogsArchiveEncryptionS3Type;
 
   /**
@@ -41,53 +36,27 @@ export class LogsArchiveEncryptionS3 {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "key": {
-      "baseName": "key",
-      "type": "string",
+    key: {
+      baseName: "key",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "LogsArchiveEncryptionS3Type",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "LogsArchiveEncryptionS3Type",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArchiveEncryptionS3.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

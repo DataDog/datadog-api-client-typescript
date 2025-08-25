@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Asset risks.
-*/
+ */
 export class AssetRisks {
   /**
    * Whether the asset has access to sensitive data or not.
-  */
+   */
   "hasAccessToSensitiveData"?: boolean;
   /**
    * Whether the asset has privileged access or not.
-  */
+   */
   "hasPrivilegedAccess"?: boolean;
   /**
    * Whether the asset is in production or not.
-  */
+   */
   "inProduction": boolean;
   /**
    * Whether the asset is publicly accessible or not.
-  */
+   */
   "isPubliclyAccessible"?: boolean;
   /**
    * Whether the asset is under attack or not.
-  */
+   */
   "underAttack"?: boolean;
 
   /**
@@ -52,65 +47,39 @@ export class AssetRisks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "hasAccessToSensitiveData": {
-      "baseName": "has_access_to_sensitive_data",
-      "type": "boolean",
+    hasAccessToSensitiveData: {
+      baseName: "has_access_to_sensitive_data",
+      type: "boolean",
     },
-    "hasPrivilegedAccess": {
-      "baseName": "has_privileged_access",
-      "type": "boolean",
+    hasPrivilegedAccess: {
+      baseName: "has_privileged_access",
+      type: "boolean",
     },
-    "inProduction": {
-      "baseName": "in_production",
-      "type": "boolean",
-      "required": true,
+    inProduction: {
+      baseName: "in_production",
+      type: "boolean",
+      required: true,
     },
-    "isPubliclyAccessible": {
-      "baseName": "is_publicly_accessible",
-      "type": "boolean",
+    isPubliclyAccessible: {
+      baseName: "is_publicly_accessible",
+      type: "boolean",
     },
-    "underAttack": {
-      "baseName": "under_attack",
-      "type": "boolean",
+    underAttack: {
+      baseName: "under_attack",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AssetRisks.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

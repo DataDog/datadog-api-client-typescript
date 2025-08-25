@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Byte frames which are delimited by a chosen character.
-*/
+ */
 
-export type ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod = typeof CHARACTER_DELIMITED | UnparsedObject;
-export const CHARACTER_DELIMITED = 'character_delimited';
+export type ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod =
+  | typeof CHARACTER_DELIMITED
+  | UnparsedObject;
+export const CHARACTER_DELIMITED = "character_delimited";

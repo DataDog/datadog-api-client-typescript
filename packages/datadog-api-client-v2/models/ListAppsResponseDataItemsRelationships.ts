@@ -5,20 +5,15 @@
  */
 import { DeploymentRelationship } from "./DeploymentRelationship";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The app's publication information.
-*/
+ */
 export class ListAppsResponseDataItemsRelationships {
   /**
    * Information pointing to the app's publication status.
-  */
+   */
   "deployment"?: DeploymentRelationship;
 
   /**
@@ -37,48 +32,22 @@ export class ListAppsResponseDataItemsRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "deployment": {
-      "baseName": "deployment",
-      "type": "DeploymentRelationship",
+    deployment: {
+      baseName: "deployment",
+      type: "DeploymentRelationship",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListAppsResponseDataItemsRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

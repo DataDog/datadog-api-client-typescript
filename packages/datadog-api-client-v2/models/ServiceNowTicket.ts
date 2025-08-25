@@ -6,24 +6,19 @@
 import { Case3rdPartyTicketStatus } from "./Case3rdPartyTicketStatus";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * ServiceNow ticket attached to case
-*/
+ */
 export class ServiceNowTicket {
   /**
    * ServiceNow ticket information
-  */
+   */
   "result"?: ServiceNowTicketResult;
   /**
    * Case status
-  */
+   */
   "status"?: Case3rdPartyTicketStatus;
 
   /**
@@ -42,52 +37,26 @@ export class ServiceNowTicket {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "result": {
-      "baseName": "result",
-      "type": "ServiceNowTicketResult",
+    result: {
+      baseName: "result",
+      type: "ServiceNowTicketResult",
     },
-    "status": {
-      "baseName": "status",
-      "type": "Case3rdPartyTicketStatus",
+    status: {
+      baseName: "status",
+      type: "Case3rdPartyTicketStatus",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceNowTicket.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

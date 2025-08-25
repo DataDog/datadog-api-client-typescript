@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Your delegate account attributes.
-*/
+ */
 export class GCPSTSDelegateAccountAttributes {
   /**
    * Your organization's Datadog principal email address.
-  */
+   */
   "delegateAccountEmail"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class GCPSTSDelegateAccountAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "delegateAccountEmail": {
-      "baseName": "delegate_account_email",
-      "type": "string",
+    delegateAccountEmail: {
+      baseName: "delegate_account_email",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GCPSTSDelegateAccountAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

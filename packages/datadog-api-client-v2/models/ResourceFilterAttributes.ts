@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes of a resource filter.
-*/
+ */
 export class ResourceFilterAttributes {
   /**
    * A map of cloud provider names (e.g., "aws", "gcp", "azure") to a map of account/resource IDs and their associated tag filters.
-  */
-  "cloudProvider": { [key: string]: { [key: string]: Array<string>; }; };
+   */
+  "cloudProvider": { [key: string]: { [key: string]: Array<string> } };
   /**
    * The UUID of the resource filter.
-  */
+   */
   "uuid"?: string;
 
   /**
@@ -40,53 +35,27 @@ export class ResourceFilterAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "cloudProvider": {
-      "baseName": "cloud_provider",
-      "type": "{ [key: string]: { [key: string]: Array<string>; }; }",
-      "required": true,
+    cloudProvider: {
+      baseName: "cloud_provider",
+      type: "{ [key: string]: { [key: string]: Array<string>; }; }",
+      required: true,
     },
-    "uuid": {
-      "baseName": "uuid",
-      "type": "string",
+    uuid: {
+      baseName: "uuid",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ResourceFilterAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

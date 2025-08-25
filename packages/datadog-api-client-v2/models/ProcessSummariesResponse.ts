@@ -6,24 +6,19 @@
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummary } from "./ProcessSummary";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * List of process summaries.
-*/
+ */
 export class ProcessSummariesResponse {
   /**
    * Array of process summary objects.
-  */
+   */
   "data"?: Array<ProcessSummary>;
   /**
    * Response metadata object.
-  */
+   */
   "meta"?: ProcessSummariesMeta;
 
   /**
@@ -42,52 +37,26 @@ export class ProcessSummariesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<ProcessSummary>",
+    data: {
+      baseName: "data",
+      type: "Array<ProcessSummary>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "ProcessSummariesMeta",
+    meta: {
+      baseName: "meta",
+      type: "ProcessSummariesMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ProcessSummariesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

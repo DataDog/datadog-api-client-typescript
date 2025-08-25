@@ -7,28 +7,23 @@ import { SpansMetricResponseCompute } from "./SpansMetricResponseCompute";
 import { SpansMetricResponseFilter } from "./SpansMetricResponseFilter";
 import { SpansMetricResponseGroupBy } from "./SpansMetricResponseGroupBy";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object describing a Datadog span-based metric.
-*/
+ */
 export class SpansMetricResponseAttributes {
   /**
    * The compute rule to compute the span-based metric.
-  */
+   */
   "compute"?: SpansMetricResponseCompute;
   /**
    * The span-based metric filter. Spans matching this filter will be aggregated in this metric.
-  */
+   */
   "filter"?: SpansMetricResponseFilter;
   /**
    * The rules for the group by.
-  */
+   */
   "groupBy"?: Array<SpansMetricResponseGroupBy>;
 
   /**
@@ -47,56 +42,30 @@ export class SpansMetricResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "compute": {
-      "baseName": "compute",
-      "type": "SpansMetricResponseCompute",
+    compute: {
+      baseName: "compute",
+      type: "SpansMetricResponseCompute",
     },
-    "filter": {
-      "baseName": "filter",
-      "type": "SpansMetricResponseFilter",
+    filter: {
+      baseName: "filter",
+      type: "SpansMetricResponseFilter",
     },
-    "groupBy": {
-      "baseName": "group_by",
-      "type": "Array<SpansMetricResponseGroupBy>",
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<SpansMetricResponseGroupBy>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansMetricResponseAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

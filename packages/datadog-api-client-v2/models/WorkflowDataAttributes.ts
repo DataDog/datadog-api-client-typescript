@@ -5,48 +5,43 @@
  */
 import { Spec } from "./Spec";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `WorkflowDataAttributes` object.
-*/
+ */
 export class WorkflowDataAttributes {
   /**
    * When the workflow was created.
-  */
+   */
   "createdAt"?: Date;
   /**
    * Description of the workflow.
-  */
+   */
   "description"?: string;
   /**
    * Name of the workflow.
-  */
+   */
   "name": string;
   /**
    * Set the workflow to published or unpublished. Workflows in an unpublished state will only be executable via manual runs. Automatic triggers such as Schedule will not execute the workflow until it is published.
-  */
+   */
   "published"?: boolean;
   /**
    * The spec defines what the workflow does.
-  */
+   */
   "spec": Spec;
   /**
    * Tags of the workflow.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * When the workflow was last updated.
-  */
+   */
   "updatedAt"?: Date;
   /**
    * If a Webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here.
-  */
+   */
   "webhookSecret"?: string;
 
   /**
@@ -65,80 +60,54 @@ export class WorkflowDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "createdAt": {
-      "baseName": "createdAt",
-      "type": "Date",
-      "format": "date-time",
+    createdAt: {
+      baseName: "createdAt",
+      type: "Date",
+      format: "date-time",
     },
-    "description": {
-      "baseName": "description",
-      "type": "string",
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "published": {
-      "baseName": "published",
-      "type": "boolean",
+    published: {
+      baseName: "published",
+      type: "boolean",
     },
-    "spec": {
-      "baseName": "spec",
-      "type": "Spec",
-      "required": true,
+    spec: {
+      baseName: "spec",
+      type: "Spec",
+      required: true,
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "updatedAt": {
-      "baseName": "updatedAt",
-      "type": "Date",
-      "format": "date-time",
+    updatedAt: {
+      baseName: "updatedAt",
+      type: "Date",
+      format: "date-time",
     },
-    "webhookSecret": {
-      "baseName": "webhookSecret",
-      "type": "string",
+    webhookSecret: {
+      baseName: "webhookSecret",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WorkflowDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

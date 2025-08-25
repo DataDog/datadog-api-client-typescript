@@ -5,24 +5,19 @@
  */
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Template variables saved views.
-*/
+ */
 export class DashboardTemplateVariablePreset {
   /**
    * The name of the variable.
-  */
+   */
   "name"?: string;
   /**
    * List of variables.
-  */
+   */
   "templateVariables"?: Array<DashboardTemplateVariablePresetValue>;
 
   /**
@@ -41,52 +36,26 @@ export class DashboardTemplateVariablePreset {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "templateVariables": {
-      "baseName": "template_variables",
-      "type": "Array<DashboardTemplateVariablePresetValue>",
+    templateVariables: {
+      baseName: "template_variables",
+      type: "Array<DashboardTemplateVariablePresetValue>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DashboardTemplateVariablePreset.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

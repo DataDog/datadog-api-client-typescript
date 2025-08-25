@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of `WorkflowUserRelationshipType` object.
-*/
+ */
 
 export type WorkflowUserRelationshipType = typeof USERS | UnparsedObject;
-export const USERS = 'users';
+export const USERS = "users";

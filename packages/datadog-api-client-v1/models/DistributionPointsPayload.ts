@@ -5,20 +5,15 @@
  */
 import { DistributionPointsSeries } from "./DistributionPointsSeries";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The distribution points payload.
-*/
+ */
 export class DistributionPointsPayload {
   /**
    * A list of distribution points series to submit to Datadog.
-  */
+   */
   "series": Array<DistributionPointsSeries>;
 
   /**
@@ -37,49 +32,23 @@ export class DistributionPointsPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "series": {
-      "baseName": "series",
-      "type": "Array<DistributionPointsSeries>",
-      "required": true,
+    series: {
+      baseName: "series",
+      type: "Array<DistributionPointsSeries>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DistributionPointsPayload.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

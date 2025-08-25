@@ -6,15 +6,13 @@
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * An individual timeseries query to one of the basic Datadog data sources.
-*/
+ */
 
-export type TimeseriesQuery = MetricsTimeseriesQuery | EventsTimeseriesQuery | UnparsedObject;
+export type TimeseriesQuery =
+  | MetricsTimeseriesQuery
+  | EventsTimeseriesQuery
+  | UnparsedObject;

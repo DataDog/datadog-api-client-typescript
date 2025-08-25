@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.
-*/
+ */
 
-export type SecurityMonitoringRuleCaseActionOptionsFlaggedIPType = typeof SUSPICIOUS| typeof FLAGGED | UnparsedObject;
-export const SUSPICIOUS = 'SUSPICIOUS';
-export const FLAGGED = 'FLAGGED';
+export type SecurityMonitoringRuleCaseActionOptionsFlaggedIPType =
+  | typeof SUSPICIOUS
+  | typeof FLAGGED
+  | UnparsedObject;
+export const SUSPICIOUS = "SUSPICIOUS";
+export const FLAGGED = "FLAGGED";

@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * List of active billing dimensions.
-*/
+ */
 export class ActiveBillingDimensionsAttributes {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]`.
-  */
+   */
   "month"?: Date;
   /**
    * List of active billing dimensions. Example: `[infra_host, apm_host, serverless_infra]`.
-  */
+   */
   "values"?: Array<string>;
 
   /**
@@ -40,53 +35,27 @@ export class ActiveBillingDimensionsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "month": {
-      "baseName": "month",
-      "type": "Date",
-      "format": "date-time",
+    month: {
+      baseName: "month",
+      type: "Date",
+      format: "date-time",
     },
-    "values": {
-      "baseName": "values",
-      "type": "Array<string>",
+    values: {
+      baseName: "values",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ActiveBillingDimensionsAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

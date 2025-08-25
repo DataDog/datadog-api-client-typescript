@@ -8,32 +8,27 @@ import { AppRelationship } from "./AppRelationship";
 import { Deployment } from "./Deployment";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response object after an app is successfully updated.
-*/
+ */
 export class UpdateAppResponse {
   /**
    * The data object containing the updated app definition.
-  */
+   */
   "data"?: UpdateAppResponseData;
   /**
    * Data on the version of the app that was published.
-  */
+   */
   "included"?: Array<Deployment>;
   /**
    * Metadata of an app.
-  */
+   */
   "meta"?: AppMeta;
   /**
    * The app's publication relationship and custom connections.
-  */
+   */
   "relationship"?: AppRelationship;
 
   /**
@@ -52,60 +47,34 @@ export class UpdateAppResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "UpdateAppResponseData",
+    data: {
+      baseName: "data",
+      type: "UpdateAppResponseData",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<Deployment>",
+    included: {
+      baseName: "included",
+      type: "Array<Deployment>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "AppMeta",
+    meta: {
+      baseName: "meta",
+      type: "AppMeta",
     },
-    "relationship": {
-      "baseName": "relationship",
-      "type": "AppRelationship",
+    relationship: {
+      baseName: "relationship",
+      type: "AppRelationship",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateAppResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

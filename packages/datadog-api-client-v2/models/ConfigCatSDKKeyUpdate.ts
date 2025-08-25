@@ -5,32 +5,27 @@
  */
 import { ConfigCatSDKKeyType } from "./ConfigCatSDKKeyType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `ConfigCatSDKKey` object.
-*/
+ */
 export class ConfigCatSDKKeyUpdate {
   /**
    * The `ConfigCatSDKKeyUpdate` `api_password`.
-  */
+   */
   "apiPassword"?: string;
   /**
    * The `ConfigCatSDKKeyUpdate` `api_username`.
-  */
+   */
   "apiUsername"?: string;
   /**
    * The `ConfigCatSDKKeyUpdate` `sdk_key`.
-  */
+   */
   "sdkKey"?: string;
   /**
    * The definition of the `ConfigCatSDKKey` object.
-  */
+   */
   "type": ConfigCatSDKKeyType;
 
   /**
@@ -49,61 +44,35 @@ export class ConfigCatSDKKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiPassword": {
-      "baseName": "api_password",
-      "type": "string",
+    apiPassword: {
+      baseName: "api_password",
+      type: "string",
     },
-    "apiUsername": {
-      "baseName": "api_username",
-      "type": "string",
+    apiUsername: {
+      baseName: "api_username",
+      type: "string",
     },
-    "sdkKey": {
-      "baseName": "sdk_key",
-      "type": "string",
+    sdkKey: {
+      baseName: "sdk_key",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ConfigCatSDKKeyType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ConfigCatSDKKeyType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ConfigCatSDKKeyUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

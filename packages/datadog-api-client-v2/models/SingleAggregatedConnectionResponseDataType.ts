@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Aggregated connection resource type.
-*/
+ */
 
-export type SingleAggregatedConnectionResponseDataType = typeof AGGREGATED_CONNECTION | UnparsedObject;
-export const AGGREGATED_CONNECTION = 'aggregated_connection';
+export type SingleAggregatedConnectionResponseDataType =
+  | typeof AGGREGATED_CONNECTION
+  | UnparsedObject;
+export const AGGREGATED_CONNECTION = "aggregated_connection";

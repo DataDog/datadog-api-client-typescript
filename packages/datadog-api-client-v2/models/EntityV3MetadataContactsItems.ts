@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of Entity V3 Metadata Contacts Items object.
-*/
+ */
 export class EntityV3MetadataContactsItems {
   /**
    * Contact value.
-  */
+   */
   "contact": string;
   /**
    * Contact name.
-  */
+   */
   "name"?: string;
   /**
    * Contact type.
-  */
+   */
   "type": string;
 
   /**
@@ -37,54 +32,28 @@ export class EntityV3MetadataContactsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "contact": {
-      "baseName": "contact",
-      "type": "string",
-      "required": true,
+    contact: {
+      baseName: "contact",
+      type: "string",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
-      "required": true,
-    }
+    type: {
+      baseName: "type",
+      type: "string",
+      required: true,
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityV3MetadataContactsItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

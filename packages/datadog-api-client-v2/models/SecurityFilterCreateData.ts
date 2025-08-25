@@ -6,24 +6,19 @@
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
 import { SecurityFilterType } from "./SecurityFilterType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object for a single security filter.
-*/
+ */
 export class SecurityFilterCreateData {
   /**
    * Object containing the attributes of the security filter to be created.
-  */
+   */
   "attributes": SecurityFilterCreateAttributes;
   /**
    * The type of the resource. The value should always be `security_filters`.
-  */
+   */
   "type": SecurityFilterType;
 
   /**
@@ -42,54 +37,28 @@ export class SecurityFilterCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "SecurityFilterCreateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "SecurityFilterCreateAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "SecurityFilterType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "SecurityFilterType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityFilterCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

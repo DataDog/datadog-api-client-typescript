@@ -4,31 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Used to perform a histogram computation (only for measure facets).
  * Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
-*/
+ */
 export class RUMGroupByHistogram {
   /**
    * The bin size of the histogram buckets.
-  */
+   */
   "interval": number;
   /**
    * The maximum value for the measure used in the histogram
    * (values greater than this one are filtered out).
-  */
+   */
   "max": number;
   /**
    * The minimum value for the measure used in the histogram
    * (values smaller than this one are filtered out).
-  */
+   */
   "min": number;
 
   /**
@@ -47,62 +42,36 @@ export class RUMGroupByHistogram {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "interval": {
-      "baseName": "interval",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    interval: {
+      baseName: "interval",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "max": {
-      "baseName": "max",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    max: {
+      baseName: "max",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "min": {
-      "baseName": "min",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    min: {
+      baseName: "min",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RUMGroupByHistogram.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

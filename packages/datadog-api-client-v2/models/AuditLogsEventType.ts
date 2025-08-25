@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the event.
-*/
+ */
 
 export type AuditLogsEventType = typeof Audit | UnparsedObject;
-export const Audit = 'audit';
+export const Audit = "audit";

@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of the resource, must always be `policy`
-*/
+ */
 
-export type CloudWorkloadSecurityAgentPolicyType = typeof POLICY | UnparsedObject;
-export const POLICY = 'policy';
+export type CloudWorkloadSecurityAgentPolicyType =
+  | typeof POLICY
+  | UnparsedObject;
+export const POLICY = "policy";

@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The JSON:API type for scorecard.
-*/
+ */
 
 export type ScorecardType = typeof SCORECARD | UnparsedObject;
-export const SCORECARD = 'scorecard';
+export const SCORECARD = "scorecard";

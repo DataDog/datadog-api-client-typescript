@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The SentinelOne region to send logs to.
-*/
+ */
 
-export type ObservabilityPipelineSentinelOneDestinationRegion = typeof US| typeof EU| typeof CA| typeof DATA_SET_US | UnparsedObject;
-export const US = 'us';
-export const EU = 'eu';
-export const CA = 'ca';
-export const DATA_SET_US = 'data_set_us';
+export type ObservabilityPipelineSentinelOneDestinationRegion =
+  | typeof US
+  | typeof EU
+  | typeof CA
+  | typeof DATA_SET_US
+  | UnparsedObject;
+export const US = "us";
+export const EU = "eu";
+export const CA = "ca";
+export const DATA_SET_US = "data_set_us";

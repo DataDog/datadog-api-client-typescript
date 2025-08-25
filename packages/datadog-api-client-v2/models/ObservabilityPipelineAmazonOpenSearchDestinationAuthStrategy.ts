@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The authentication strategy to use.
-*/
+ */
 
-export type ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy = typeof BASIC| typeof AWS | UnparsedObject;
-export const BASIC = 'basic';
-export const AWS = 'aws';
+export type ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy =
+  | typeof BASIC
+  | typeof AWS
+  | UnparsedObject;
+export const BASIC = "basic";
+export const AWS = "aws";

@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of Entity V3 Queue Spec object.
-*/
+ */
 export class EntityV3QueueSpec {
   /**
    * A list of components the queue is a part of
-  */
+   */
   "componentOf"?: Array<string>;
   /**
    * The lifecycle state of the queue.
-  */
+   */
   "lifecycle"?: string;
   /**
    * The importance of the queue.
-  */
+   */
   "tier"?: string;
   /**
    * The type of queue.
-  */
+   */
   "type"?: string;
 
   /**
@@ -41,56 +36,30 @@ export class EntityV3QueueSpec {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "componentOf": {
-      "baseName": "componentOf",
-      "type": "Array<string>",
+    componentOf: {
+      baseName: "componentOf",
+      type: "Array<string>",
     },
-    "lifecycle": {
-      "baseName": "lifecycle",
-      "type": "string",
+    lifecycle: {
+      baseName: "lifecycle",
+      type: "string",
     },
-    "tier": {
-      "baseName": "tier",
-      "type": "string",
+    tier: {
+      baseName: "tier",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
-    }
+    type: {
+      baseName: "type",
+      type: "string",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityV3QueueSpec.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The rum-based metric filter. Events matching this filter will be aggregated in this metric.
-*/
+ */
 export class RumMetricFilter {
   /**
    * The search query - following the RUM search syntax.
-  */
+   */
   "query": string;
 
   /**
@@ -36,49 +31,23 @@ export class RumMetricFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "query": {
-      "baseName": "query",
-      "type": "string",
-      "required": true,
+    query: {
+      baseName: "query",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RumMetricFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

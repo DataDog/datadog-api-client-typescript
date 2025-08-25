@@ -5,24 +5,19 @@
  */
 import { CircleCIAPIKeyType } from "./CircleCIAPIKeyType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `CircleCIAPIKey` object.
-*/
+ */
 export class CircleCIAPIKeyUpdate {
   /**
    * The `CircleCIAPIKeyUpdate` `api_token`.
-  */
+   */
   "apiToken"?: string;
   /**
    * The definition of the `CircleCIAPIKey` object.
-  */
+   */
   "type": CircleCIAPIKeyType;
 
   /**
@@ -41,53 +36,27 @@ export class CircleCIAPIKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiToken": {
-      "baseName": "api_token",
-      "type": "string",
+    apiToken: {
+      baseName: "api_token",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CircleCIAPIKeyType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CircleCIAPIKeyType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CircleCIAPIKeyUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

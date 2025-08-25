@@ -5,20 +5,15 @@
  */
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Cases response metadata
-*/
+ */
 export class CasesResponseMeta {
   /**
    * Pagination metadata
-  */
+   */
   "page"?: CasesResponseMetaPagination;
 
   /**
@@ -37,48 +32,22 @@ export class CasesResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "page": {
-      "baseName": "page",
-      "type": "CasesResponseMetaPagination",
+    page: {
+      baseName: "page",
+      type: "CasesResponseMetaPagination",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CasesResponseMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

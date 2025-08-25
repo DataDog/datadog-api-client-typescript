@@ -5,20 +5,15 @@
  */
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationship to incident responders.
-*/
+ */
 export class RelationshipToIncidentResponders {
   /**
    * An array of incident responders.
-  */
+   */
   "data": Array<RelationshipToIncidentResponderData>;
 
   /**
@@ -37,49 +32,23 @@ export class RelationshipToIncidentResponders {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<RelationshipToIncidentResponderData>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<RelationshipToIncidentResponderData>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToIncidentResponders.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

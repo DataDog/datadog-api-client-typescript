@@ -6,24 +6,19 @@
 import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident integration metadata data for a create request.
-*/
+ */
 export class IncidentIntegrationMetadataCreateData {
   /**
    * Incident integration metadata's attributes for a create request.
-  */
+   */
   "attributes": IncidentIntegrationMetadataAttributes;
   /**
    * Integration metadata resource type.
-  */
+   */
   "type": IncidentIntegrationMetadataType;
 
   /**
@@ -42,54 +37,28 @@ export class IncidentIntegrationMetadataCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentIntegrationMetadataAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentIntegrationMetadataAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentIntegrationMetadataType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentIntegrationMetadataType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentIntegrationMetadataCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

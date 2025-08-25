@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The new triage state of the signal.
-*/
+ */
 
-export type SignalTriageState = typeof OPEN| typeof ARCHIVED| typeof UNDER_REVIEW | UnparsedObject;
-export const OPEN = 'open';
-export const ARCHIVED = 'archived';
-export const UNDER_REVIEW = 'under_review';
+export type SignalTriageState =
+  | typeof OPEN
+  | typeof ARCHIVED
+  | typeof UNDER_REVIEW
+  | UnparsedObject;
+export const OPEN = "open";
+export const ARCHIVED = "archived";
+export const UNDER_REVIEW = "under_review";

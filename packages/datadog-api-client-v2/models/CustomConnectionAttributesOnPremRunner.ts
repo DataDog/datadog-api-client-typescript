@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Information about the Private Action Runner used by the custom connection, if the custom connection is associated with a Private Action Runner.
-*/
+ */
 export class CustomConnectionAttributesOnPremRunner {
   /**
    * The Private Action Runner ID.
-  */
+   */
   "id"?: string;
   /**
    * The URL of the Private Action Runner.
-  */
+   */
   "url"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class CustomConnectionAttributesOnPremRunner {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "url": {
-      "baseName": "url",
-      "type": "string",
+    url: {
+      baseName: "url",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomConnectionAttributesOnPremRunner.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

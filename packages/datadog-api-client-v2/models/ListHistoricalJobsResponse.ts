@@ -6,24 +6,19 @@
 import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
 import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * List of historical jobs.
-*/
+ */
 export class ListHistoricalJobsResponse {
   /**
    * Array containing the list of historical jobs.
-  */
+   */
   "data"?: Array<HistoricalJobResponseData>;
   /**
    * Metadata about the list of jobs.
-  */
+   */
   "meta"?: HistoricalJobListMeta;
 
   /**
@@ -42,52 +37,26 @@ export class ListHistoricalJobsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<HistoricalJobResponseData>",
+    data: {
+      baseName: "data",
+      type: "Array<HistoricalJobResponseData>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "HistoricalJobListMeta",
+    meta: {
+      baseName: "meta",
+      type: "HistoricalJobListMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListHistoricalJobsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

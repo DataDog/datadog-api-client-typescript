@@ -6,24 +6,19 @@
 import { RUMEventProcessingScale } from "./RUMEventProcessingScale";
 import { RUMProductAnalyticsRetentionScale } from "./RUMProductAnalyticsRetentionScale";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Product Scales configuration for the RUM application.
-*/
+ */
 export class RUMProductScales {
   /**
    * Product Analytics retention scale configuration.
-  */
+   */
   "productAnalyticsRetentionScale"?: RUMProductAnalyticsRetentionScale;
   /**
    * RUM event processing scale configuration.
-  */
+   */
   "rumEventProcessingScale"?: RUMEventProcessingScale;
 
   /**
@@ -42,52 +37,26 @@ export class RUMProductScales {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "productAnalyticsRetentionScale": {
-      "baseName": "product_analytics_retention_scale",
-      "type": "RUMProductAnalyticsRetentionScale",
+    productAnalyticsRetentionScale: {
+      baseName: "product_analytics_retention_scale",
+      type: "RUMProductAnalyticsRetentionScale",
     },
-    "rumEventProcessingScale": {
-      "baseName": "rum_event_processing_scale",
-      "type": "RUMEventProcessingScale",
+    rumEventProcessingScale: {
+      baseName: "rum_event_processing_scale",
+      type: "RUMEventProcessingScale",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RUMProductScales.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

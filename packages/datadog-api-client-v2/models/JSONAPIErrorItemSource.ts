@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * References to the source of the error.
-*/
+ */
 export class JSONAPIErrorItemSource {
   /**
    * A string indicating the name of a single request header which caused the error.
-  */
+   */
   "header"?: string;
   /**
    * A string indicating which URI query parameter caused the error.
-  */
+   */
   "parameter"?: string;
   /**
    * A JSON pointer to the value in the request document that caused the error.
-  */
+   */
   "pointer"?: string;
 
   /**
@@ -44,56 +39,30 @@ export class JSONAPIErrorItemSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "header": {
-      "baseName": "header",
-      "type": "string",
+    header: {
+      baseName: "header",
+      type: "string",
     },
-    "parameter": {
-      "baseName": "parameter",
-      "type": "string",
+    parameter: {
+      baseName: "parameter",
+      type: "string",
     },
-    "pointer": {
-      "baseName": "pointer",
-      "type": "string",
+    pointer: {
+      baseName: "pointer",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return JSONAPIErrorItemSource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

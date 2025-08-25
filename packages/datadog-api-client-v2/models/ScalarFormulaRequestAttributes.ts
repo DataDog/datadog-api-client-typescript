@@ -6,32 +6,27 @@
 import { QueryFormula } from "./QueryFormula";
 import { ScalarQuery } from "./ScalarQuery";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object describing a scalar formula request.
-*/
+ */
 export class ScalarFormulaRequestAttributes {
   /**
    * List of formulas to be calculated and returned as responses.
-  */
+   */
   "formulas"?: Array<QueryFormula>;
   /**
    * Start date (inclusive) of the query in milliseconds since the Unix epoch.
-  */
+   */
   "from": number;
   /**
    * List of queries to be run and used as inputs to the formulas.
-  */
+   */
   "queries": Array<ScalarQuery>;
   /**
    * End date (exclusive) of the query in milliseconds since the Unix epoch.
-  */
+   */
   "to": number;
 
   /**
@@ -50,65 +45,39 @@ export class ScalarFormulaRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "formulas": {
-      "baseName": "formulas",
-      "type": "Array<QueryFormula>",
+    formulas: {
+      baseName: "formulas",
+      type: "Array<QueryFormula>",
     },
-    "from": {
-      "baseName": "from",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    from: {
+      baseName: "from",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "queries": {
-      "baseName": "queries",
-      "type": "Array<ScalarQuery>",
-      "required": true,
+    queries: {
+      baseName: "queries",
+      type: "Array<ScalarQuery>",
+      required: true,
     },
-    "to": {
-      "baseName": "to",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    to: {
+      baseName: "to",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScalarFormulaRequestAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

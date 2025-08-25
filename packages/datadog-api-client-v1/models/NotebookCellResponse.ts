@@ -6,29 +6,24 @@
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
 import { NotebookCellResponseAttributes } from "./NotebookCellResponseAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The description of a notebook cell response.
-*/
+ */
 export class NotebookCellResponse {
   /**
    * The attributes of a notebook cell response. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
    * `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
-  */
+   */
   "attributes": NotebookCellResponseAttributes;
   /**
    * Notebook cell ID.
-  */
+   */
   "id": string;
   /**
    * Type of the Notebook Cell resource.
-  */
+   */
   "type": NotebookCellResourceType;
 
   /**
@@ -47,59 +42,33 @@ export class NotebookCellResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "NotebookCellResponseAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "NotebookCellResponseAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "NotebookCellResourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "NotebookCellResourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookCellResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

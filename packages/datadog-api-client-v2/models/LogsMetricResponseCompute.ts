@@ -5,29 +5,24 @@
  */
 import { LogsMetricResponseComputeAggregationType } from "./LogsMetricResponseComputeAggregationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The compute rule to compute the log-based metric.
-*/
+ */
 export class LogsMetricResponseCompute {
   /**
    * The type of aggregation to use.
-  */
+   */
   "aggregationType"?: LogsMetricResponseComputeAggregationType;
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
    * Only present when the `aggregation_type` is `distribution`.
-  */
+   */
   "includePercentiles"?: boolean;
   /**
    * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution").
-  */
+   */
   "path"?: string;
 
   /**
@@ -46,56 +41,30 @@ export class LogsMetricResponseCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregationType": {
-      "baseName": "aggregation_type",
-      "type": "LogsMetricResponseComputeAggregationType",
+    aggregationType: {
+      baseName: "aggregation_type",
+      type: "LogsMetricResponseComputeAggregationType",
     },
-    "includePercentiles": {
-      "baseName": "include_percentiles",
-      "type": "boolean",
+    includePercentiles: {
+      baseName: "include_percentiles",
+      type: "boolean",
     },
-    "path": {
-      "baseName": "path",
-      "type": "string",
+    path: {
+      baseName: "path",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsMetricResponseCompute.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

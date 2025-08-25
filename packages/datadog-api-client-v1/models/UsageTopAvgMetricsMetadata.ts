@@ -5,28 +5,23 @@
  */
 import { UsageTopAvgMetricsPagination } from "./UsageTopAvgMetricsPagination";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing document metadata.
-*/
+ */
 export class UsageTopAvgMetricsMetadata {
   /**
    * The day value from the user request that contains the returned usage data. (If day was used the request)
-  */
+   */
   "day"?: Date;
   /**
    * The month value from the user request that contains the returned usage data. (If month was used the request)
-  */
+   */
   "month"?: Date;
   /**
    * The metadata for the current pagination.
-  */
+   */
   "pagination"?: UsageTopAvgMetricsPagination;
 
   /**
@@ -45,58 +40,32 @@ export class UsageTopAvgMetricsMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "day": {
-      "baseName": "day",
-      "type": "Date",
-      "format": "date-time",
+    day: {
+      baseName: "day",
+      type: "Date",
+      format: "date-time",
     },
-    "month": {
-      "baseName": "month",
-      "type": "Date",
-      "format": "date-time",
+    month: {
+      baseName: "month",
+      type: "Date",
+      format: "date-time",
     },
-    "pagination": {
-      "baseName": "pagination",
-      "type": "UsageTopAvgMetricsPagination",
+    pagination: {
+      baseName: "pagination",
+      type: "UsageTopAvgMetricsPagination",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageTopAvgMetricsMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

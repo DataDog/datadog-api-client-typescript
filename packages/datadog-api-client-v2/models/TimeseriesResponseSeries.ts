@@ -3,15 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GroupTagsItem } from "./GroupTagsItem";
 import { Unit } from "./Unit";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
 
@@ -19,18 +13,18 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class TimeseriesResponseSeries {
   /**
    * List of tags that apply to a single response value.
-  */
+   */
   "groupTags"?: Array<string>;
   /**
    * The index of the query in the "formulas" array (or "queries" array if no "formulas" was specified).
-  */
+   */
   "queryIndex"?: number;
   /**
    * Detailed information about the unit.
    * The first element describes the "primary unit" (for example, `bytes` in `bytes per second`).
    * The second element describes the "per unit" (for example, `second` in `bytes per second`).
    * If the second element is not present, the API returns null.
-  */
+   */
   "unit"?: Array<Unit | null>;
 
   /**
@@ -49,57 +43,31 @@ export class TimeseriesResponseSeries {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "groupTags": {
-      "baseName": "group_tags",
-      "type": "Array<string>",
+    groupTags: {
+      baseName: "group_tags",
+      type: "Array<string>",
     },
-    "queryIndex": {
-      "baseName": "query_index",
-      "type": "number",
-      "format": "int32",
+    queryIndex: {
+      baseName: "query_index",
+      type: "number",
+      format: "int32",
     },
-    "unit": {
-      "baseName": "unit",
-      "type": "Array<Unit>",
+    unit: {
+      baseName: "unit",
+      type: "Array<Unit>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TimeseriesResponseSeries.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

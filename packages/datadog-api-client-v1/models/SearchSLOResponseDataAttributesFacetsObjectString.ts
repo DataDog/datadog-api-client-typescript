@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Facet
-*/
+ */
 export class SearchSLOResponseDataAttributesFacetsObjectString {
   /**
    * Count
-  */
+   */
   "count"?: number;
   /**
    * Facet
-  */
+   */
   "name"?: string;
 
   /**
@@ -40,53 +35,27 @@ export class SearchSLOResponseDataAttributesFacetsObjectString {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "count": {
-      "baseName": "count",
-      "type": "number",
-      "format": "int64",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int64",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SearchSLOResponseDataAttributesFacetsObjectString.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

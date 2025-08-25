@@ -5,28 +5,23 @@
  */
 import { WidgetSort } from "./WidgetSort";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Define a sorting method.
-*/
+ */
 export class LogQueryDefinitionGroupBySort {
   /**
    * The aggregation method.
-  */
+   */
   "aggregation": string;
   /**
    * Facet name.
-  */
+   */
   "facet"?: string;
   /**
    * Widget sorting methods.
-  */
+   */
   "order": WidgetSort;
 
   /**
@@ -45,58 +40,32 @@ export class LogQueryDefinitionGroupBySort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregation": {
-      "baseName": "aggregation",
-      "type": "string",
-      "required": true,
+    aggregation: {
+      baseName: "aggregation",
+      type: "string",
+      required: true,
     },
-    "facet": {
-      "baseName": "facet",
-      "type": "string",
+    facet: {
+      baseName: "facet",
+      type: "string",
     },
-    "order": {
-      "baseName": "order",
-      "type": "WidgetSort",
-      "required": true,
+    order: {
+      baseName: "order",
+      type: "WidgetSort",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogQueryDefinitionGroupBySort.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Constant string to identify the request type.
-*/
+ */
 
-export type ResourceFilterRequestType = typeof CSM_RESOURCE_FILTER | UnparsedObject;
-export const CSM_RESOURCE_FILTER = 'csm_resource_filter';
+export type ResourceFilterRequestType =
+  | typeof CSM_RESOURCE_FILTER
+  | UnparsedObject;
+export const CSM_RESOURCE_FILTER = "csm_resource_filter";

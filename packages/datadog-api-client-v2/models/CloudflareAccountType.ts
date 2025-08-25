@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The JSON:API type for this API. Should always be `cloudflare-accounts`.
-*/
+ */
 
 export type CloudflareAccountType = typeof CLOUDFLARE_ACCOUNTS | UnparsedObject;
-export const CLOUDFLARE_ACCOUNTS = 'cloudflare-accounts';
+export const CLOUDFLARE_ACCOUNTS = "cloudflare-accounts";

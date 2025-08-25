@@ -7,28 +7,23 @@ import { UserTeamAttributes } from "./UserTeamAttributes";
 import { UserTeamRelationships } from "./UserTeamRelationships";
 import { UserTeamType } from "./UserTeamType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A user's relationship with a team
-*/
+ */
 export class UserTeamCreate {
   /**
    * Team membership attributes
-  */
+   */
   "attributes"?: UserTeamAttributes;
   /**
    * Relationship between membership and a user
-  */
+   */
   "relationships"?: UserTeamRelationships;
   /**
    * Team membership type
-  */
+   */
   "type": UserTeamType;
 
   /**
@@ -47,57 +42,31 @@ export class UserTeamCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "UserTeamAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "UserTeamAttributes",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "UserTeamRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "UserTeamRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "UserTeamType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "UserTeamType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UserTeamCreate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

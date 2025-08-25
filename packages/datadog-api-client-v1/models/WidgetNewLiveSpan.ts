@@ -6,28 +6,23 @@
 import { WidgetLiveSpanUnit } from "./WidgetLiveSpanUnit";
 import { WidgetNewLiveSpanType } from "./WidgetNewLiveSpanType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Used for arbitrary live span times, such as 17 minutes or 6 hours.
-*/
+ */
 export class WidgetNewLiveSpan {
   /**
    * Type "live" denotes a live span in the new format.
-  */
+   */
   "type": WidgetNewLiveSpanType;
   /**
    * Unit of the time span.
-  */
+   */
   "unit": WidgetLiveSpanUnit;
   /**
    * Value of the time span.
-  */
+   */
   "value": number;
 
   /**
@@ -46,60 +41,34 @@ export class WidgetNewLiveSpan {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "type": {
-      "baseName": "type",
-      "type": "WidgetNewLiveSpanType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "WidgetNewLiveSpanType",
+      required: true,
     },
-    "unit": {
-      "baseName": "unit",
-      "type": "WidgetLiveSpanUnit",
-      "required": true,
+    unit: {
+      baseName: "unit",
+      type: "WidgetLiveSpanUnit",
+      required: true,
     },
-    "value": {
-      "baseName": "value",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    value: {
+      baseName: "value",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetNewLiveSpan.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

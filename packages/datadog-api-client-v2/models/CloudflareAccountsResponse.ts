@@ -5,20 +5,15 @@
  */
 import { CloudflareAccountResponseData } from "./CloudflareAccountResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The expected response schema when getting Cloudflare accounts.
-*/
+ */
 export class CloudflareAccountsResponse {
   /**
    * The JSON:API data schema.
-  */
+   */
   "data"?: Array<CloudflareAccountResponseData>;
 
   /**
@@ -37,48 +32,22 @@ export class CloudflareAccountsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<CloudflareAccountResponseData>",
+    data: {
+      baseName: "data",
+      type: "Array<CloudflareAccountResponseData>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudflareAccountsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

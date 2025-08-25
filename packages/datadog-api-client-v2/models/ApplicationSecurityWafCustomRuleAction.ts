@@ -6,24 +6,19 @@
 import { ApplicationSecurityWafCustomRuleActionAction } from "./ApplicationSecurityWafCustomRuleActionAction";
 import { ApplicationSecurityWafCustomRuleActionParameters } from "./ApplicationSecurityWafCustomRuleActionParameters";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `ApplicationSecurityWafCustomRuleAction` object.
-*/
+ */
 export class ApplicationSecurityWafCustomRuleAction {
   /**
    * Override the default action to take when the WAF custom rule would block.
-  */
+   */
   "action"?: ApplicationSecurityWafCustomRuleActionAction;
   /**
    * The definition of `ApplicationSecurityWafCustomRuleActionParameters` object.
-  */
+   */
   "parameters"?: ApplicationSecurityWafCustomRuleActionParameters;
 
   /**
@@ -42,52 +37,26 @@ export class ApplicationSecurityWafCustomRuleAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "action": {
-      "baseName": "action",
-      "type": "ApplicationSecurityWafCustomRuleActionAction",
+    action: {
+      baseName: "action",
+      type: "ApplicationSecurityWafCustomRuleActionAction",
     },
-    "parameters": {
-      "baseName": "parameters",
-      "type": "ApplicationSecurityWafCustomRuleActionParameters",
+    parameters: {
+      baseName: "parameters",
+      type: "ApplicationSecurityWafCustomRuleActionParameters",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafCustomRuleAction.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

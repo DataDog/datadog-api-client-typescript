@@ -5,20 +5,15 @@
  */
 import { ApplicationSecurityWafCustomRuleData } from "./ApplicationSecurityWafCustomRuleData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object that includes a single WAF custom rule.
-*/
+ */
 export class ApplicationSecurityWafCustomRuleResponse {
   /**
    * Object for a single WAF custom rule.
-  */
+   */
   "data"?: ApplicationSecurityWafCustomRuleData;
 
   /**
@@ -37,48 +32,22 @@ export class ApplicationSecurityWafCustomRuleResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "ApplicationSecurityWafCustomRuleData",
+    data: {
+      baseName: "data",
+      type: "ApplicationSecurityWafCustomRuleData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafCustomRuleResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

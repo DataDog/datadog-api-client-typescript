@@ -5,20 +5,15 @@
  */
 import { SyntheticsPatchTestOperation } from "./SyntheticsPatchTestOperation";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Wrapper around an array of [JSON Patch](https://jsonpatch.com) operations to perform on the test
-*/
+ */
 export class SyntheticsPatchTestBody {
   /**
    * Array of [JSON Patch](https://jsonpatch.com) operations to perform on the test
-  */
+   */
   "data"?: Array<SyntheticsPatchTestOperation>;
 
   /**
@@ -37,48 +32,22 @@ export class SyntheticsPatchTestBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<SyntheticsPatchTestOperation>",
+    data: {
+      baseName: "data",
+      type: "Array<SyntheticsPatchTestOperation>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsPatchTestBody.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

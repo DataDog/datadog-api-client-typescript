@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Links attributes.
-*/
+ */
 export class PowerpackResponseLinks {
   /**
    * Link to last page.
-  */
+   */
   "first"?: string;
   /**
    * Link to first page.
-  */
+   */
   "last"?: string;
   /**
    * Link for the next set of results.
-  */
+   */
   "next"?: string;
   /**
    * Link for the previous set of results.
-  */
+   */
   "prev"?: string;
   /**
    * Link to current page.
-  */
+   */
   "self"?: string;
 
   /**
@@ -52,64 +47,38 @@ export class PowerpackResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "first": {
-      "baseName": "first",
-      "type": "string",
+    first: {
+      baseName: "first",
+      type: "string",
     },
-    "last": {
-      "baseName": "last",
-      "type": "string",
+    last: {
+      baseName: "last",
+      type: "string",
     },
-    "next": {
-      "baseName": "next",
-      "type": "string",
+    next: {
+      baseName: "next",
+      type: "string",
     },
-    "prev": {
-      "baseName": "prev",
-      "type": "string",
+    prev: {
+      baseName: "prev",
+      type: "string",
     },
-    "self": {
-      "baseName": "self",
-      "type": "string",
+    self: {
+      baseName: "self",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PowerpackResponseLinks.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

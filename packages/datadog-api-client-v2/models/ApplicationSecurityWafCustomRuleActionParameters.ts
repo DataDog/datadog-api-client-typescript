@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `ApplicationSecurityWafCustomRuleActionParameters` object.
-*/
+ */
 export class ApplicationSecurityWafCustomRuleActionParameters {
   /**
    * The location to redirect to when the WAF custom rule triggers.
-  */
+   */
   "location"?: string;
   /**
    * The status code to return when the WAF custom rule triggers.
-  */
+   */
   "statusCode"?: number;
 
   /**
@@ -40,53 +35,27 @@ export class ApplicationSecurityWafCustomRuleActionParameters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "location": {
-      "baseName": "location",
-      "type": "string",
+    location: {
+      baseName: "location",
+      type: "string",
     },
-    "statusCode": {
-      "baseName": "status_code",
-      "type": "number",
-      "format": "int64",
+    statusCode: {
+      baseName: "status_code",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafCustomRuleActionParameters.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

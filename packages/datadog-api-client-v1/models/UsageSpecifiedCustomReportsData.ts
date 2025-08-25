@@ -6,28 +6,23 @@
 import { UsageReportsType } from "./UsageReportsType";
 import { UsageSpecifiedCustomReportsAttributes } from "./UsageSpecifiedCustomReportsAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing date and type for specified custom reports.
-*/
+ */
 export class UsageSpecifiedCustomReportsData {
   /**
    * The response containing attributes for specified custom reports.
-  */
+   */
   "attributes"?: UsageSpecifiedCustomReportsAttributes;
   /**
    * The date for specified custom reports.
-  */
+   */
   "id"?: string;
   /**
    * The type of reports.
-  */
+   */
   "type"?: UsageReportsType;
 
   /**
@@ -46,56 +41,30 @@ export class UsageSpecifiedCustomReportsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "UsageSpecifiedCustomReportsAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "UsageSpecifiedCustomReportsAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "UsageReportsType",
+    type: {
+      baseName: "type",
+      type: "UsageReportsType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageSpecifiedCustomReportsData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

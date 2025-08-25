@@ -5,24 +5,19 @@
  */
 import { Event } from "./Event";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing an event response.
-*/
+ */
 export class EventCreateResponse {
   /**
    * Object representing an event.
-  */
+   */
   "event"?: Event;
   /**
    * A status.
-  */
+   */
   "status"?: string;
 
   /**
@@ -41,52 +36,26 @@ export class EventCreateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "event": {
-      "baseName": "event",
-      "type": "Event",
+    event: {
+      baseName: "event",
+      type: "Event",
     },
-    "status": {
-      "baseName": "status",
-      "type": "string",
+    status: {
+      baseName: "status",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EventCreateResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

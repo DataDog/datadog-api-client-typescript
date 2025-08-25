@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Service's external links.
-*/
+ */
 export class ServiceDefinitionV2Dot2Link {
   /**
    * Link name.
-  */
+   */
   "name": string;
   /**
    * Link provider.
-  */
+   */
   "provider"?: string;
   /**
    * Link type. Datadog recognizes the following types: `runbook`, `doc`, `repo`, `dashboard`, and `other`.
-  */
+   */
   "type": string;
   /**
    * Link URL.
-  */
+   */
   "url": string;
 
   /**
@@ -48,63 +43,37 @@ export class ServiceDefinitionV2Dot2Link {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "provider": {
-      "baseName": "provider",
-      "type": "string",
+    provider: {
+      baseName: "provider",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "string",
+      required: true,
     },
-    "url": {
-      "baseName": "url",
-      "type": "string",
-      "required": true,
+    url: {
+      baseName: "url",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceDefinitionV2Dot2Link.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

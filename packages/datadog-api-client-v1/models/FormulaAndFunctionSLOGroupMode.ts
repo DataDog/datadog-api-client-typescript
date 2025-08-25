@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Group mode to query measures.
-*/
+ */
 
-export type FormulaAndFunctionSLOGroupMode = typeof OVERALL| typeof COMPONENTS | UnparsedObject;
-export const OVERALL = 'overall';
-export const COMPONENTS = 'components';
+export type FormulaAndFunctionSLOGroupMode =
+  | typeof OVERALL
+  | typeof COMPONENTS
+  | UnparsedObject;
+export const OVERALL = "overall";
+export const COMPONENTS = "components";

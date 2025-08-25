@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of `WorkflowDataType` object.
-*/
+ */
 
 export type WorkflowDataType = typeof WORKFLOWS | UnparsedObject;
-export const WORKFLOWS = 'workflows';
+export const WORKFLOWS = "workflows";

@@ -6,28 +6,23 @@
 import { SecurityMonitoringSignalMetadataType } from "./SecurityMonitoringSignalMetadataType";
 import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data containing the patch for changing the state of a signal.
-*/
+ */
 export class SecurityMonitoringSignalStateUpdateData {
   /**
    * Attributes describing the change of state of a security signal.
-  */
+   */
   "attributes": SecurityMonitoringSignalStateUpdateAttributes;
   /**
    * The unique ID of the security signal.
-  */
+   */
   "id"?: any;
   /**
    * The type of event.
-  */
+   */
   "type"?: SecurityMonitoringSignalMetadataType;
 
   /**
@@ -46,57 +41,31 @@ export class SecurityMonitoringSignalStateUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "SecurityMonitoringSignalStateUpdateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "SecurityMonitoringSignalStateUpdateAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "any",
+    id: {
+      baseName: "id",
+      type: "any",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SecurityMonitoringSignalMetadataType",
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringSignalMetadataType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalStateUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -10,16 +10,18 @@ import { NotebookMarkdownCellAttributes } from "./NotebookMarkdownCellAttributes
 import { NotebookTimeseriesCellAttributes } from "./NotebookTimeseriesCellAttributes";
 import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
  * `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
-*/
+ */
 
-export type NotebookCellUpdateRequestAttributes = NotebookMarkdownCellAttributes | NotebookTimeseriesCellAttributes | NotebookToplistCellAttributes | NotebookHeatMapCellAttributes | NotebookDistributionCellAttributes | NotebookLogStreamCellAttributes | UnparsedObject;
+export type NotebookCellUpdateRequestAttributes =
+  | NotebookMarkdownCellAttributes
+  | NotebookTimeseriesCellAttributes
+  | NotebookToplistCellAttributes
+  | NotebookHeatMapCellAttributes
+  | NotebookDistributionCellAttributes
+  | NotebookLogStreamCellAttributes
+  | UnparsedObject;

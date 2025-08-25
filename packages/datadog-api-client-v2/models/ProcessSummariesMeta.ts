@@ -5,20 +5,15 @@
  */
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response metadata object.
-*/
+ */
 export class ProcessSummariesMeta {
   /**
    * Paging attributes.
-  */
+   */
   "page"?: ProcessSummariesMetaPage;
 
   /**
@@ -37,48 +32,22 @@ export class ProcessSummariesMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "page": {
-      "baseName": "page",
-      "type": "ProcessSummariesMetaPage",
+    page: {
+      baseName: "page",
+      type: "ProcessSummariesMetaPage",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ProcessSummariesMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

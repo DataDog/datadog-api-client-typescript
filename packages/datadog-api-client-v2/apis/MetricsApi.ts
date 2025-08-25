@@ -1,18 +1,20 @@
-import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
-import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
+import {
+  Configuration,
+  applySecurityAuthentication,
+} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-  HttpFile
-  } from "../../datadog-api-client-common/http/http";
-
-import FormData from "form-data";
+} from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
@@ -40,26 +42,31 @@ import { TimeseriesFormulaQueryRequest } from "../models/TimeseriesFormulaQueryR
 import { TimeseriesFormulaQueryResponse } from "../models/TimeseriesFormulaQueryResponse";
 
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async createBulkTagsMetricsConfiguration(body: MetricBulkTagConfigCreateRequest,_options?: Configuration): Promise<RequestContext> {
+  public async createBulkTagsMetricsConfiguration(
+    body: MetricBulkTagConfigCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'createBulkTagsMetricsConfiguration');
+      throw new RequiredError("body", "createBulkTagsMetricsConfiguration");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/config/bulk-tags';
+    const localVarPath = "/api/v2/metrics/config/bulk-tags";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.createBulkTagsMetricsConfiguration').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.createBulkTagsMetricsConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MetricBulkTagConfigCreateRequest", ""),
@@ -76,34 +83,47 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createTagConfiguration(metricName: string,body: MetricTagConfigurationCreateRequest,_options?: Configuration): Promise<RequestContext> {
+  public async createTagConfiguration(
+    metricName: string,
+    body: MetricTagConfigurationCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'createTagConfiguration');
+      throw new RequiredError("metricName", "createTagConfiguration");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'createTagConfiguration');
+      throw new RequiredError("body", "createTagConfiguration");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/tags'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.createTagConfiguration').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.createTagConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "MetricTagConfigurationCreateRequest", ""),
+      ObjectSerializer.serialize(
+        body,
+        "MetricTagConfigurationCreateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -117,25 +137,31 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteBulkTagsMetricsConfiguration(body: MetricBulkTagConfigDeleteRequest,_options?: Configuration): Promise<RequestContext> {
+  public async deleteBulkTagsMetricsConfiguration(
+    body: MetricBulkTagConfigDeleteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'deleteBulkTagsMetricsConfiguration');
+      throw new RequiredError("body", "deleteBulkTagsMetricsConfiguration");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/config/bulk-tags';
+    const localVarPath = "/api/v2/metrics/config/bulk-tags";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.deleteBulkTagsMetricsConfiguration').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.deleteBulkTagsMetricsConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MetricBulkTagConfigDeleteRequest", ""),
@@ -152,20 +178,27 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteTagConfiguration(metricName: string,_options?: Configuration): Promise<RequestContext> {
+  public async deleteTagConfiguration(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'deleteTagConfiguration');
+      throw new RequiredError("metricName", "deleteTagConfiguration");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/tags'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.deleteTagConfiguration').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.deleteTagConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -178,38 +211,70 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async estimateMetricsOutputSeries(metricName: string,filterGroups?: string,filterHoursAgo?: number,filterNumAggregations?: number,filterPct?: boolean,filterTimespanH?: number,_options?: Configuration): Promise<RequestContext> {
+  public async estimateMetricsOutputSeries(
+    metricName: string,
+    filterGroups?: string,
+    filterHoursAgo?: number,
+    filterNumAggregations?: number,
+    filterPct?: boolean,
+    filterTimespanH?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'estimateMetricsOutputSeries');
+      throw new RequiredError("metricName", "estimateMetricsOutputSeries");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/estimate'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/estimate".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.estimateMetricsOutputSeries').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.estimateMetricsOutputSeries")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (filterGroups !== undefined) {
-      requestContext.setQueryParam("filter[groups]", ObjectSerializer.serialize(filterGroups, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[groups]",
+        ObjectSerializer.serialize(filterGroups, "string", ""),
+        ""
+      );
     }
     if (filterHoursAgo !== undefined) {
-      requestContext.setQueryParam("filter[hours_ago]", ObjectSerializer.serialize(filterHoursAgo, "number", "int32"), "");
+      requestContext.setQueryParam(
+        "filter[hours_ago]",
+        ObjectSerializer.serialize(filterHoursAgo, "number", "int32"),
+        ""
+      );
     }
     if (filterNumAggregations !== undefined) {
-      requestContext.setQueryParam("filter[num_aggregations]", ObjectSerializer.serialize(filterNumAggregations, "number", "int32"), "");
+      requestContext.setQueryParam(
+        "filter[num_aggregations]",
+        ObjectSerializer.serialize(filterNumAggregations, "number", "int32"),
+        ""
+      );
     }
     if (filterPct !== undefined) {
-      requestContext.setQueryParam("filter[pct]", ObjectSerializer.serialize(filterPct, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[pct]",
+        ObjectSerializer.serialize(filterPct, "boolean", ""),
+        ""
+      );
     }
     if (filterTimespanH !== undefined) {
-      requestContext.setQueryParam("filter[timespan_h]", ObjectSerializer.serialize(filterTimespanH, "number", "int32"), "");
+      requestContext.setQueryParam(
+        "filter[timespan_h]",
+        ObjectSerializer.serialize(filterTimespanH, "number", "int32"),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -221,20 +286,28 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getMetricTagCardinalityDetails(metricName: string,_options?: Configuration): Promise<RequestContext> {
+  public async getMetricTagCardinalityDetails(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'getMetricTagCardinalityDetails');
+      throw new RequiredError("metricName", "getMetricTagCardinalityDetails");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/tag-cardinalities'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/tag-cardinalities".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.getMetricTagCardinalityDetails').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.getMetricTagCardinalityDetails")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -247,26 +320,39 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listActiveMetricConfigurations(metricName: string,windowSeconds?: number,_options?: Configuration): Promise<RequestContext> {
+  public async listActiveMetricConfigurations(
+    metricName: string,
+    windowSeconds?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'listActiveMetricConfigurations');
+      throw new RequiredError("metricName", "listActiveMetricConfigurations");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/active-configurations'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/active-configurations".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.listActiveMetricConfigurations').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listActiveMetricConfigurations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (windowSeconds !== undefined) {
-      requestContext.setQueryParam("window[seconds]", ObjectSerializer.serialize(windowSeconds, "number", "int64"), "");
+      requestContext.setQueryParam(
+        "window[seconds]",
+        ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -278,20 +364,27 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listMetricAssets(metricName: string,_options?: Configuration): Promise<RequestContext> {
+  public async listMetricAssets(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'listMetricAssets');
+      throw new RequiredError("metricName", "listMetricAssets");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/assets'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/assets".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.listMetricAssets').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listMetricAssets")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -305,20 +398,27 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTagConfigurationByName(metricName: string,_options?: Configuration): Promise<RequestContext> {
+  public async listTagConfigurationByName(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'listTagConfigurationByName');
+      throw new RequiredError("metricName", "listTagConfigurationByName");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/tags'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.listTagConfigurationByName').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listTagConfigurationByName")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -332,47 +432,105 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTagConfigurations(filterConfigured?: boolean,filterTagsConfigured?: string,filterMetricType?: MetricTagConfigurationMetricTypeCategory,filterIncludePercentiles?: boolean,filterQueried?: boolean,filterTags?: string,filterRelatedAssets?: boolean,windowSeconds?: number,pageSize?: number,pageCursor?: string,_options?: Configuration): Promise<RequestContext> {
+  public async listTagConfigurations(
+    filterConfigured?: boolean,
+    filterTagsConfigured?: string,
+    filterMetricType?: MetricTagConfigurationMetricTypeCategory,
+    filterIncludePercentiles?: boolean,
+    filterQueried?: boolean,
+    filterTags?: string,
+    filterRelatedAssets?: boolean,
+    windowSeconds?: number,
+    pageSize?: number,
+    pageCursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = '/api/v2/metrics';
+    const localVarPath = "/api/v2/metrics";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.listTagConfigurations').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listTagConfigurations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (filterConfigured !== undefined) {
-      requestContext.setQueryParam("filter[configured]", ObjectSerializer.serialize(filterConfigured, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[configured]",
+        ObjectSerializer.serialize(filterConfigured, "boolean", ""),
+        ""
+      );
     }
     if (filterTagsConfigured !== undefined) {
-      requestContext.setQueryParam("filter[tags_configured]", ObjectSerializer.serialize(filterTagsConfigured, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[tags_configured]",
+        ObjectSerializer.serialize(filterTagsConfigured, "string", ""),
+        ""
+      );
     }
     if (filterMetricType !== undefined) {
-      requestContext.setQueryParam("filter[metric_type]", ObjectSerializer.serialize(filterMetricType, "MetricTagConfigurationMetricTypeCategory", ""), "");
+      requestContext.setQueryParam(
+        "filter[metric_type]",
+        ObjectSerializer.serialize(
+          filterMetricType,
+          "MetricTagConfigurationMetricTypeCategory",
+          ""
+        ),
+        ""
+      );
     }
     if (filterIncludePercentiles !== undefined) {
-      requestContext.setQueryParam("filter[include_percentiles]", ObjectSerializer.serialize(filterIncludePercentiles, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[include_percentiles]",
+        ObjectSerializer.serialize(filterIncludePercentiles, "boolean", ""),
+        ""
+      );
     }
     if (filterQueried !== undefined) {
-      requestContext.setQueryParam("filter[queried]", ObjectSerializer.serialize(filterQueried, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[queried]",
+        ObjectSerializer.serialize(filterQueried, "boolean", ""),
+        ""
+      );
     }
     if (filterTags !== undefined) {
-      requestContext.setQueryParam("filter[tags]", ObjectSerializer.serialize(filterTags, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[tags]",
+        ObjectSerializer.serialize(filterTags, "string", ""),
+        ""
+      );
     }
     if (filterRelatedAssets !== undefined) {
-      requestContext.setQueryParam("filter[related_assets]", ObjectSerializer.serialize(filterRelatedAssets, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[related_assets]",
+        ObjectSerializer.serialize(filterRelatedAssets, "boolean", ""),
+        ""
+      );
     }
     if (windowSeconds !== undefined) {
-      requestContext.setQueryParam("window[seconds]", ObjectSerializer.serialize(windowSeconds, "number", "int64"), "");
+      requestContext.setQueryParam(
+        "window[seconds]",
+        ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        ""
+      );
     }
     if (pageSize !== undefined) {
-      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int32"), "");
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        ""
+      );
     }
     if (pageCursor !== undefined) {
-      requestContext.setQueryParam("page[cursor]", ObjectSerializer.serialize(pageCursor, "string", ""), "");
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -385,20 +543,27 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTagsByMetricName(metricName: string,_options?: Configuration): Promise<RequestContext> {
+  public async listTagsByMetricName(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'listTagsByMetricName');
+      throw new RequiredError("metricName", "listTagsByMetricName");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/all-tags'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/all-tags".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.listTagsByMetricName').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listTagsByMetricName")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -412,20 +577,27 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listVolumesByMetricName(metricName: string,_options?: Configuration): Promise<RequestContext> {
+  public async listVolumesByMetricName(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'listVolumesByMetricName');
+      throw new RequiredError("metricName", "listVolumesByMetricName");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/volumes'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/volumes".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.listVolumesByMetricName').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listVolumesByMetricName")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -438,25 +610,31 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async queryScalarData(body: ScalarFormulaQueryRequest,_options?: Configuration): Promise<RequestContext> {
+  public async queryScalarData(
+    body: ScalarFormulaQueryRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'queryScalarData');
+      throw new RequiredError("body", "queryScalarData");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/query/scalar';
+    const localVarPath = "/api/v2/query/scalar";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.queryScalarData').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.queryScalarData")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScalarFormulaQueryRequest", ""),
@@ -474,25 +652,31 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async queryTimeseriesData(body: TimeseriesFormulaQueryRequest,_options?: Configuration): Promise<RequestContext> {
+  public async queryTimeseriesData(
+    body: TimeseriesFormulaQueryRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'queryTimeseriesData');
+      throw new RequiredError("body", "queryTimeseriesData");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/query/timeseries';
+    const localVarPath = "/api/v2/query/timeseries";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.queryTimeseriesData').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.queryTimeseriesData")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TimeseriesFormulaQueryRequest", ""),
@@ -510,30 +694,40 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async submitMetrics(body: MetricPayload,contentEncoding?: MetricContentEncoding,_options?: Configuration): Promise<RequestContext> {
+  public async submitMetrics(
+    body: MetricPayload,
+    contentEncoding?: MetricContentEncoding,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'submitMetrics');
+      throw new RequiredError("body", "submitMetrics");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/series';
+    const localVarPath = "/api/v2/series";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.submitMetrics').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.submitMetrics")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", ""));
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", "")
+      );
     }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MetricPayload", ""),
@@ -542,41 +736,52 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
 
-  public async updateTagConfiguration(metricName: string,body: MetricTagConfigurationUpdateRequest,_options?: Configuration): Promise<RequestContext> {
+  public async updateTagConfiguration(
+    metricName: string,
+    body: MetricTagConfigurationUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError('metricName', 'updateTagConfiguration');
+      throw new RequiredError("metricName", "updateTagConfiguration");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'updateTagConfiguration');
+      throw new RequiredError("body", "updateTagConfiguration");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/metrics/{metric_name}/tags'
-      .replace('{metric_name}', encodeURIComponent(String(metricName)));
+    const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.MetricsApi.updateTagConfiguration').makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.MetricsApi.updateTagConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "MetricTagConfigurationUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        body,
+        "MetricTagConfigurationUpdateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -592,7 +797,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class MetricsApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -600,8 +804,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to createBulkTagsMetricsConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createBulkTagsMetricsConfiguration(response: ResponseContext): Promise<MetricBulkTagConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createBulkTagsMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<MetricBulkTagConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 202) {
       const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -609,8 +817,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricBulkTagConfigResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -619,8 +835,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -628,13 +847,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricBulkTagConfigResponse", ""
+        "MetricBulkTagConfigResponse",
+        ""
       ) as MetricBulkTagConfigResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -644,8 +867,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to createTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createTagConfiguration(response: ResponseContext): Promise<MetricTagConfigurationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createTagConfiguration(
+    response: ResponseContext
+  ): Promise<MetricTagConfigurationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 201) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -653,8 +880,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricTagConfigurationResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 409||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -663,8 +898,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -672,13 +910,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagConfigurationResponse", ""
+        "MetricTagConfigurationResponse",
+        ""
       ) as MetricTagConfigurationResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -688,8 +930,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteBulkTagsMetricsConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteBulkTagsMetricsConfiguration(response: ResponseContext): Promise<MetricBulkTagConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteBulkTagsMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<MetricBulkTagConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 202) {
       const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -697,8 +943,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricBulkTagConfigResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -707,8 +961,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -716,13 +973,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricBulkTagConfigResponse", ""
+        "MetricBulkTagConfigResponse",
+        ""
       ) as MetricBulkTagConfigResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -732,13 +993,24 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteTagConfiguration(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteTagConfiguration(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -747,8 +1019,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -756,13 +1031,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void", ""
+        "void",
+        ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -772,8 +1051,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to estimateMetricsOutputSeries
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async estimateMetricsOutputSeries(response: ResponseContext): Promise<MetricEstimateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async estimateMetricsOutputSeries(
+    response: ResponseContext
+  ): Promise<MetricEstimateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricEstimateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -781,8 +1064,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricEstimateResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -791,8 +1082,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -800,13 +1094,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricEstimateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricEstimateResponse", ""
+        "MetricEstimateResponse",
+        ""
       ) as MetricEstimateResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -816,8 +1114,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to getMetricTagCardinalityDetails
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getMetricTagCardinalityDetails(response: ResponseContext): Promise<MetricTagCardinalitiesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getMetricTagCardinalityDetails(
+    response: ResponseContext
+  ): Promise<MetricTagCardinalitiesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricTagCardinalitiesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -825,8 +1127,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricTagCardinalitiesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -835,22 +1145,32 @@ export class MetricsApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
-      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagCardinalitiesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagCardinalitiesResponse", ""
+        "MetricTagCardinalitiesResponse",
+        ""
       ) as MetricTagCardinalitiesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -860,17 +1180,30 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listActiveMetricConfigurations
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listActiveMetricConfigurations(response: ResponseContext): Promise<MetricSuggestedTagsAndAggregationsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listActiveMetricConfigurations(
+    response: ResponseContext
+  ): Promise<MetricSuggestedTagsAndAggregationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
-      const body: MetricSuggestedTagsAndAggregationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricSuggestedTagsAndAggregationsResponse"
-      ) as MetricSuggestedTagsAndAggregationsResponse;
+      const body: MetricSuggestedTagsAndAggregationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricSuggestedTagsAndAggregationsResponse"
+        ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -879,22 +1212,30 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricSuggestedTagsAndAggregationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricSuggestedTagsAndAggregationsResponse", ""
-      ) as MetricSuggestedTagsAndAggregationsResponse;
+      const body: MetricSuggestedTagsAndAggregationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricSuggestedTagsAndAggregationsResponse",
+          ""
+        ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -904,8 +1245,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listMetricAssets
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listMetricAssets(response: ResponseContext): Promise<MetricAssetsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listMetricAssets(
+    response: ResponseContext
+  ): Promise<MetricAssetsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricAssetsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -913,8 +1258,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricAssetsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -923,8 +1276,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -932,13 +1288,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricAssetsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricAssetsResponse", ""
+        "MetricAssetsResponse",
+        ""
       ) as MetricAssetsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -948,8 +1308,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listTagConfigurationByName
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listTagConfigurationByName(response: ResponseContext): Promise<MetricTagConfigurationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listTagConfigurationByName(
+    response: ResponseContext
+  ): Promise<MetricTagConfigurationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -957,8 +1321,15 @@ export class MetricsApiResponseProcessor {
       ) as MetricTagConfigurationResponse;
       return body;
     }
-    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -967,8 +1338,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -976,13 +1350,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagConfigurationResponse", ""
+        "MetricTagConfigurationResponse",
+        ""
       ) as MetricTagConfigurationResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -992,17 +1370,29 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listTagConfigurations
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listTagConfigurations(response: ResponseContext): Promise<MetricsAndMetricTagConfigurationsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listTagConfigurations(
+    response: ResponseContext
+  ): Promise<MetricsAndMetricTagConfigurationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
-      const body: MetricsAndMetricTagConfigurationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsAndMetricTagConfigurationsResponse"
-      ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricsAndMetricTagConfigurationsResponse"
+        ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1011,22 +1401,30 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricsAndMetricTagConfigurationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsAndMetricTagConfigurationsResponse", ""
-      ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricsAndMetricTagConfigurationsResponse",
+          ""
+        ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -1036,8 +1434,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listTagsByMetricName
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listTagsByMetricName(response: ResponseContext): Promise<MetricAllTagsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listTagsByMetricName(
+    response: ResponseContext
+  ): Promise<MetricAllTagsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricAllTagsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1045,8 +1447,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricAllTagsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1055,8 +1465,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -1064,13 +1477,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricAllTagsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricAllTagsResponse", ""
+        "MetricAllTagsResponse",
+        ""
       ) as MetricAllTagsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -1080,8 +1497,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listVolumesByMetricName
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listVolumesByMetricName(response: ResponseContext): Promise<MetricVolumesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listVolumesByMetricName(
+    response: ResponseContext
+  ): Promise<MetricVolumesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricVolumesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1089,8 +1510,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricVolumesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1099,8 +1528,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -1108,13 +1540,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricVolumesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricVolumesResponse", ""
+        "MetricVolumesResponse",
+        ""
       ) as MetricVolumesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -1124,8 +1560,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to queryScalarData
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async queryScalarData(response: ResponseContext): Promise<ScalarFormulaQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async queryScalarData(
+    response: ResponseContext
+  ): Promise<ScalarFormulaQueryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: ScalarFormulaQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1133,8 +1573,16 @@ export class MetricsApiResponseProcessor {
       ) as ScalarFormulaQueryResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1143,8 +1591,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -1152,13 +1603,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ScalarFormulaQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ScalarFormulaQueryResponse", ""
+        "ScalarFormulaQueryResponse",
+        ""
       ) as ScalarFormulaQueryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -1168,8 +1623,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to queryTimeseriesData
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async queryTimeseriesData(response: ResponseContext): Promise<TimeseriesFormulaQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async queryTimeseriesData(
+    response: ResponseContext
+  ): Promise<TimeseriesFormulaQueryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: TimeseriesFormulaQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1177,8 +1636,16 @@ export class MetricsApiResponseProcessor {
       ) as TimeseriesFormulaQueryResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1187,8 +1654,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -1196,13 +1666,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TimeseriesFormulaQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TimeseriesFormulaQueryResponse", ""
+        "TimeseriesFormulaQueryResponse",
+        ""
       ) as TimeseriesFormulaQueryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -1212,8 +1686,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to submitMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async submitMetrics(response: ResponseContext): Promise<IntakePayloadAccepted> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async submitMetrics(
+    response: ResponseContext
+  ): Promise<IntakePayloadAccepted> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1221,8 +1699,17 @@ export class MetricsApiResponseProcessor {
       ) as IntakePayloadAccepted;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 408||response.httpStatusCode === 413||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 408 ||
+      response.httpStatusCode === 413 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1231,8 +1718,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -1240,13 +1730,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IntakePayloadAccepted", ""
+        "IntakePayloadAccepted",
+        ""
       ) as IntakePayloadAccepted;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -1256,8 +1750,12 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateTagConfiguration(response: ResponseContext): Promise<MetricTagConfigurationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateTagConfiguration(
+    response: ResponseContext
+  ): Promise<MetricTagConfigurationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1265,8 +1763,16 @@ export class MetricsApiResponseProcessor {
       ) as MetricTagConfigurationResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 422||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 422 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1275,8 +1781,11 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -1284,13 +1793,17 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricTagConfigurationResponse", ""
+        "MetricTagConfigurationResponse",
+        ""
       ) as MetricTagConfigurationResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -1298,7 +1811,7 @@ export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
   /**
    * @type MetricBulkTagConfigCreateRequest
    */
-  body: MetricBulkTagConfigCreateRequest
+  body: MetricBulkTagConfigCreateRequest;
 }
 
 export interface MetricsApiCreateTagConfigurationRequest {
@@ -1306,18 +1819,18 @@ export interface MetricsApiCreateTagConfigurationRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
   /**
    * @type MetricTagConfigurationCreateRequest
    */
-  body: MetricTagConfigurationCreateRequest
+  body: MetricTagConfigurationCreateRequest;
 }
 
 export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
   /**
    * @type MetricBulkTagConfigDeleteRequest
    */
-  body: MetricBulkTagConfigDeleteRequest
+  body: MetricBulkTagConfigDeleteRequest;
 }
 
 export interface MetricsApiDeleteTagConfigurationRequest {
@@ -1325,7 +1838,7 @@ export interface MetricsApiDeleteTagConfigurationRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
 }
 
 export interface MetricsApiEstimateMetricsOutputSeriesRequest {
@@ -1333,32 +1846,32 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
   /**
    * Filtered tag keys that the metric is configured to query with.
    * @type string
    */
-  filterGroups?: string
+  filterGroups?: string;
   /**
    * The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
    * @type number
    */
-  filterHoursAgo?: number
+  filterHoursAgo?: number;
   /**
    * Deprecated. Number of aggregations has no impact on volume.
    * @type number
    */
-  filterNumAggregations?: number
+  filterNumAggregations?: number;
   /**
    * A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
    * @type boolean
    */
-  filterPct?: boolean
+  filterPct?: boolean;
   /**
    * A window, in hours, from the look back to estimate cardinality with. The minimum and default is 1 hour.
    * @type number
    */
-  filterTimespanH?: number
+  filterTimespanH?: number;
 }
 
 export interface MetricsApiGetMetricTagCardinalityDetailsRequest {
@@ -1366,7 +1879,7 @@ export interface MetricsApiGetMetricTagCardinalityDetailsRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
 }
 
 export interface MetricsApiListActiveMetricConfigurationsRequest {
@@ -1374,13 +1887,13 @@ export interface MetricsApiListActiveMetricConfigurationsRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
   /**
    * The number of seconds of look back (from now).
    * Default value is 604,800 (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
    * @type number
    */
-  windowSeconds?: number
+  windowSeconds?: number;
 }
 
 export interface MetricsApiListMetricAssetsRequest {
@@ -1388,7 +1901,7 @@ export interface MetricsApiListMetricAssetsRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
 }
 
 export interface MetricsApiListTagConfigurationByNameRequest {
@@ -1396,7 +1909,7 @@ export interface MetricsApiListTagConfigurationByNameRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
 }
 
 export interface MetricsApiListTagConfigurationsRequest {
@@ -1404,58 +1917,58 @@ export interface MetricsApiListTagConfigurationsRequest {
    * Filter custom metrics that have configured tags.
    * @type boolean
    */
-  filterConfigured?: boolean
+  filterConfigured?: boolean;
   /**
    * Filter tag configurations by configured tags.
    * @type string
    */
-  filterTagsConfigured?: string
+  filterTagsConfigured?: string;
   /**
    * Filter metrics by metric type.
    * @type MetricTagConfigurationMetricTypeCategory
    */
-  filterMetricType?: MetricTagConfigurationMetricTypeCategory
+  filterMetricType?: MetricTagConfigurationMetricTypeCategory;
   /**
    * Filter distributions with additional percentile
    * aggregations enabled or disabled.
    * @type boolean
    */
-  filterIncludePercentiles?: boolean
+  filterIncludePercentiles?: boolean;
   /**
    * (Preview) Filter custom metrics that have or have not been queried in the specified window[seconds].
    * If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
    * @type boolean
    */
-  filterQueried?: boolean
+  filterQueried?: boolean;
   /**
    * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions.
    * Can only be combined with the filter[queried] filter.
    * @type string
    */
-  filterTags?: string
+  filterTags?: string;
   /**
    * (Preview) Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
    * @type boolean
    */
-  filterRelatedAssets?: boolean
+  filterRelatedAssets?: boolean;
   /**
    * The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query.
    * Default value is 3600 (1 hour), maximum value is 2,592,000 (30 days).
    * @type number
    */
-  windowSeconds?: number
+  windowSeconds?: number;
   /**
    * Maximum number of results returned.
    * @type number
    */
-  pageSize?: number
+  pageSize?: number;
   /**
    * String to query the next page of results.
    * This key is provided with each valid response from the API in `meta.pagination.next_cursor`.
    * Once the `meta.pagination.next_cursor` key is null, all pages have been retrieved.
    * @type string
    */
-  pageCursor?: string
+  pageCursor?: string;
 }
 
 export interface MetricsApiListTagsByMetricNameRequest {
@@ -1463,7 +1976,7 @@ export interface MetricsApiListTagsByMetricNameRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
 }
 
 export interface MetricsApiListVolumesByMetricNameRequest {
@@ -1471,33 +1984,33 @@ export interface MetricsApiListVolumesByMetricNameRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
 }
 
 export interface MetricsApiQueryScalarDataRequest {
   /**
    * @type ScalarFormulaQueryRequest
    */
-  body: ScalarFormulaQueryRequest
+  body: ScalarFormulaQueryRequest;
 }
 
 export interface MetricsApiQueryTimeseriesDataRequest {
   /**
    * @type TimeseriesFormulaQueryRequest
    */
-  body: TimeseriesFormulaQueryRequest
+  body: TimeseriesFormulaQueryRequest;
 }
 
 export interface MetricsApiSubmitMetricsRequest {
   /**
    * @type MetricPayload
    */
-  body: MetricPayload
+  body: MetricPayload;
   /**
    * HTTP header used to compress the media-type.
    * @type MetricContentEncoding
    */
-  contentEncoding?: MetricContentEncoding
+  contentEncoding?: MetricContentEncoding;
 }
 
 export interface MetricsApiUpdateTagConfigurationRequest {
@@ -1505,11 +2018,11 @@ export interface MetricsApiUpdateTagConfigurationRequest {
    * The name of the metric.
    * @type string
    */
-  metricName: string
+  metricName: string;
   /**
    * @type MetricTagConfigurationUpdateRequest
    */
-  body: MetricTagConfigurationUpdateRequest
+  body: MetricTagConfigurationUpdateRequest;
 }
 
 export class MetricsApi {
@@ -1517,10 +2030,16 @@ export class MetricsApi {
   private responseProcessor: MetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: MetricsApiRequestFactory, responseProcessor?: MetricsApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: MetricsApiRequestFactory,
+    responseProcessor?: MetricsApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new MetricsApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new MetricsApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new MetricsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new MetricsApiResponseProcessor();
   }
 
   /**
@@ -1533,11 +2052,22 @@ export class MetricsApi {
    * Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
-  public createBulkTagsMetricsConfiguration(param: MetricsApiCreateBulkTagsMetricsConfigurationRequest, options?: Configuration): Promise<MetricBulkTagConfigResponse> {
-    const requestContextPromise = this.requestFactory.createBulkTagsMetricsConfiguration(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createBulkTagsMetricsConfiguration(responseContext);
+  public createBulkTagsMetricsConfiguration(
+    param: MetricsApiCreateBulkTagsMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricBulkTagConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.createBulkTagsMetricsConfiguration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createBulkTagsMetricsConfiguration(
+            responseContext
+          );
         });
     });
   }
@@ -1550,11 +2080,20 @@ export class MetricsApi {
    * permission.
    * @param param The request object
    */
-  public createTagConfiguration(param: MetricsApiCreateTagConfigurationRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
-    const requestContextPromise = this.requestFactory.createTagConfiguration(param.metricName,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createTagConfiguration(responseContext);
+  public createTagConfiguration(
+    param: MetricsApiCreateTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise = this.requestFactory.createTagConfiguration(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTagConfiguration(responseContext);
         });
     });
   }
@@ -1566,11 +2105,22 @@ export class MetricsApi {
    * Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
-  public deleteBulkTagsMetricsConfiguration(param: MetricsApiDeleteBulkTagsMetricsConfigurationRequest, options?: Configuration): Promise<MetricBulkTagConfigResponse> {
-    const requestContextPromise = this.requestFactory.deleteBulkTagsMetricsConfiguration(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteBulkTagsMetricsConfiguration(responseContext);
+  public deleteBulkTagsMetricsConfiguration(
+    param: MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricBulkTagConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.deleteBulkTagsMetricsConfiguration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteBulkTagsMetricsConfiguration(
+            responseContext
+          );
         });
     });
   }
@@ -1580,11 +2130,19 @@ export class MetricsApi {
    * keys from users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
-  public deleteTagConfiguration(param: MetricsApiDeleteTagConfigurationRequest, options?: Configuration): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteTagConfiguration(param.metricName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteTagConfiguration(responseContext);
+  public deleteTagConfiguration(
+    param: MetricsApiDeleteTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTagConfiguration(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTagConfiguration(responseContext);
         });
     });
   }
@@ -1593,11 +2151,27 @@ export class MetricsApi {
    * Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
    * @param param The request object
    */
-  public estimateMetricsOutputSeries(param: MetricsApiEstimateMetricsOutputSeriesRequest, options?: Configuration): Promise<MetricEstimateResponse> {
-    const requestContextPromise = this.requestFactory.estimateMetricsOutputSeries(param.metricName,param.filterGroups,param.filterHoursAgo,param.filterNumAggregations,param.filterPct,param.filterTimespanH,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.estimateMetricsOutputSeries(responseContext);
+  public estimateMetricsOutputSeries(
+    param: MetricsApiEstimateMetricsOutputSeriesRequest,
+    options?: Configuration
+  ): Promise<MetricEstimateResponse> {
+    const requestContextPromise =
+      this.requestFactory.estimateMetricsOutputSeries(
+        param.metricName,
+        param.filterGroups,
+        param.filterHoursAgo,
+        param.filterNumAggregations,
+        param.filterPct,
+        param.filterTimespanH,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.estimateMetricsOutputSeries(
+            responseContext
+          );
         });
     });
   }
@@ -1606,11 +2180,22 @@ export class MetricsApi {
    * Returns the cardinality details of tags for a specific metric.
    * @param param The request object
    */
-  public getMetricTagCardinalityDetails(param: MetricsApiGetMetricTagCardinalityDetailsRequest, options?: Configuration): Promise<MetricTagCardinalitiesResponse> {
-    const requestContextPromise = this.requestFactory.getMetricTagCardinalityDetails(param.metricName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getMetricTagCardinalityDetails(responseContext);
+  public getMetricTagCardinalityDetails(
+    param: MetricsApiGetMetricTagCardinalityDetailsRequest,
+    options?: Configuration
+  ): Promise<MetricTagCardinalitiesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getMetricTagCardinalityDetails(
+        param.metricName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMetricTagCardinalityDetails(
+            responseContext
+          );
         });
     });
   }
@@ -1619,11 +2204,23 @@ export class MetricsApi {
    * List tags and aggregations that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer, and using the API for a given metric name.
    * @param param The request object
    */
-  public listActiveMetricConfigurations(param: MetricsApiListActiveMetricConfigurationsRequest, options?: Configuration): Promise<MetricSuggestedTagsAndAggregationsResponse> {
-    const requestContextPromise = this.requestFactory.listActiveMetricConfigurations(param.metricName,param.windowSeconds,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listActiveMetricConfigurations(responseContext);
+  public listActiveMetricConfigurations(
+    param: MetricsApiListActiveMetricConfigurationsRequest,
+    options?: Configuration
+  ): Promise<MetricSuggestedTagsAndAggregationsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listActiveMetricConfigurations(
+        param.metricName,
+        param.windowSeconds,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listActiveMetricConfigurations(
+            responseContext
+          );
         });
     });
   }
@@ -1632,11 +2229,19 @@ export class MetricsApi {
    * Returns dashboards, monitors, notebooks, and SLOs that a metric is stored in, if any.  Updated every 24 hours.
    * @param param The request object
    */
-  public listMetricAssets(param: MetricsApiListMetricAssetsRequest, options?: Configuration): Promise<MetricAssetsResponse> {
-    const requestContextPromise = this.requestFactory.listMetricAssets(param.metricName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listMetricAssets(responseContext);
+  public listMetricAssets(
+    param: MetricsApiListMetricAssetsRequest,
+    options?: Configuration
+  ): Promise<MetricAssetsResponse> {
+    const requestContextPromise = this.requestFactory.listMetricAssets(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMetricAssets(responseContext);
         });
     });
   }
@@ -1645,11 +2250,19 @@ export class MetricsApi {
    * Returns the tag configuration for the given metric name.
    * @param param The request object
    */
-  public listTagConfigurationByName(param: MetricsApiListTagConfigurationByNameRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
-    const requestContextPromise = this.requestFactory.listTagConfigurationByName(param.metricName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listTagConfigurationByName(responseContext);
+  public listTagConfigurationByName(
+    param: MetricsApiListTagConfigurationByNameRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTagConfigurationByName(param.metricName, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagConfigurationByName(
+            responseContext
+          );
         });
     });
   }
@@ -1661,11 +2274,28 @@ export class MetricsApi {
    * Once the `meta.pagination.next_cursor` value is null, all pages have been retrieved.
    * @param param The request object
    */
-  public listTagConfigurations(param: MetricsApiListTagConfigurationsRequest = {}, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
-    const requestContextPromise = this.requestFactory.listTagConfigurations(param.filterConfigured,param.filterTagsConfigured,param.filterMetricType,param.filterIncludePercentiles,param.filterQueried,param.filterTags,param.filterRelatedAssets,param.windowSeconds,param.pageSize,param.pageCursor,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listTagConfigurations(responseContext);
+  public listTagConfigurations(
+    param: MetricsApiListTagConfigurationsRequest = {},
+    options?: Configuration
+  ): Promise<MetricsAndMetricTagConfigurationsResponse> {
+    const requestContextPromise = this.requestFactory.listTagConfigurations(
+      param.filterConfigured,
+      param.filterTagsConfigured,
+      param.filterMetricType,
+      param.filterIncludePercentiles,
+      param.filterQueried,
+      param.filterTags,
+      param.filterRelatedAssets,
+      param.windowSeconds,
+      param.pageSize,
+      param.pageCursor,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagConfigurations(responseContext);
         });
     });
   }
@@ -1673,18 +2303,36 @@ export class MetricsApi {
   /**
    * Provide a paginated version of listTagConfigurations returning a generator with all the items.
    */
-  public async *listTagConfigurationsWithPagination(param: MetricsApiListTagConfigurationsRequest = {}, options?: Configuration): AsyncGenerator<MetricsAndMetricTagConfigurations> {
-
+  public async *listTagConfigurationsWithPagination(
+    param: MetricsApiListTagConfigurationsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<MetricsAndMetricTagConfigurations> {
     let pageSize = 10000;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listTagConfigurations(param.filterConfigured,param.filterTagsConfigured,param.filterMetricType,param.filterIncludePercentiles,param.filterQueried,param.filterTags,param.filterRelatedAssets,param.windowSeconds,param.pageSize,param.pageCursor,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listTagConfigurations(
+        param.filterConfigured,
+        param.filterTagsConfigured,
+        param.filterMetricType,
+        param.filterIncludePercentiles,
+        param.filterQueried,
+        param.filterTags,
+        param.filterRelatedAssets,
+        param.windowSeconds,
+        param.pageSize,
+        param.pageCursor,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
 
-      const response = await this.responseProcessor.listTagConfigurations(responseContext);
+      const response = await this.responseProcessor.listTagConfigurations(
+        responseContext
+      );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1717,26 +2365,44 @@ export class MetricsApi {
    * View indexed tag key-value pairs for a given metric name over the previous hour.
    * @param param The request object
    */
-  public listTagsByMetricName(param: MetricsApiListTagsByMetricNameRequest, options?: Configuration): Promise<MetricAllTagsResponse> {
-    const requestContextPromise = this.requestFactory.listTagsByMetricName(param.metricName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listTagsByMetricName(responseContext);
+  public listTagsByMetricName(
+    param: MetricsApiListTagsByMetricNameRequest,
+    options?: Configuration
+  ): Promise<MetricAllTagsResponse> {
+    const requestContextPromise = this.requestFactory.listTagsByMetricName(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagsByMetricName(responseContext);
         });
     });
   }
 
   /**
    * View distinct metrics volumes for the given metric name.
-   * 
+   *
    * Custom metrics generated in-app from other products will return `null` for ingested volumes.
    * @param param The request object
    */
-  public listVolumesByMetricName(param: MetricsApiListVolumesByMetricNameRequest, options?: Configuration): Promise<MetricVolumesResponse> {
-    const requestContextPromise = this.requestFactory.listVolumesByMetricName(param.metricName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listVolumesByMetricName(responseContext);
+  public listVolumesByMetricName(
+    param: MetricsApiListVolumesByMetricNameRequest,
+    options?: Configuration
+  ): Promise<MetricVolumesResponse> {
+    const requestContextPromise = this.requestFactory.listVolumesByMetricName(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listVolumesByMetricName(
+            responseContext
+          );
         });
     });
   }
@@ -1747,11 +2413,19 @@ export class MetricsApi {
    * process the data using formulas and functions.
    * @param param The request object
    */
-  public queryScalarData(param: MetricsApiQueryScalarDataRequest, options?: Configuration): Promise<ScalarFormulaQueryResponse> {
-    const requestContextPromise = this.requestFactory.queryScalarData(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.queryScalarData(responseContext);
+  public queryScalarData(
+    param: MetricsApiQueryScalarDataRequest,
+    options?: Configuration
+  ): Promise<ScalarFormulaQueryResponse> {
+    const requestContextPromise = this.requestFactory.queryScalarData(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.queryScalarData(responseContext);
         });
     });
   }
@@ -1761,11 +2435,19 @@ export class MetricsApi {
    * process the data by applying formulas and functions.
    * @param param The request object
    */
-  public queryTimeseriesData(param: MetricsApiQueryTimeseriesDataRequest, options?: Configuration): Promise<TimeseriesFormulaQueryResponse> {
-    const requestContextPromise = this.requestFactory.queryTimeseriesData(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.queryTimeseriesData(responseContext);
+  public queryTimeseriesData(
+    param: MetricsApiQueryTimeseriesDataRequest,
+    options?: Configuration
+  ): Promise<TimeseriesFormulaQueryResponse> {
+    const requestContextPromise = this.requestFactory.queryTimeseriesData(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.queryTimeseriesData(responseContext);
         });
     });
   }
@@ -1773,23 +2455,32 @@ export class MetricsApi {
   /**
    * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
    * The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads must have a decompressed size of less than 5 megabytes (5242880 bytes).
-   * 
+   *
    * If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-   * 
+   *
    * - 64 bits for the timestamp
    * - 64 bits for the value
    * - 20 bytes for the metric names
    * - 50 bytes for the timeseries
    * - The full payload is approximately 100 bytes.
-   * 
+   *
    * Host name is one of the resources in the Resources field.
    * @param param The request object
    */
-  public submitMetrics(param: MetricsApiSubmitMetricsRequest, options?: Configuration): Promise<IntakePayloadAccepted> {
-    const requestContextPromise = this.requestFactory.submitMetrics(param.body,param.contentEncoding,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.submitMetrics(responseContext);
+  public submitMetrics(
+    param: MetricsApiSubmitMetricsRequest,
+    options?: Configuration
+  ): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitMetrics(
+      param.body,
+      param.contentEncoding,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.submitMetrics(responseContext);
         });
     });
   }
@@ -1802,11 +2493,20 @@ export class MetricsApi {
    * a tag configuration to be created first.
    * @param param The request object
    */
-  public updateTagConfiguration(param: MetricsApiUpdateTagConfigurationRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
-    const requestContextPromise = this.requestFactory.updateTagConfiguration(param.metricName,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateTagConfiguration(responseContext);
+  public updateTagConfiguration(
+    param: MetricsApiUpdateTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise = this.requestFactory.updateTagConfiguration(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateTagConfiguration(responseContext);
         });
     });
   }

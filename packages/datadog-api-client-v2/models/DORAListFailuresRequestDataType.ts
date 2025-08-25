@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of `DORAListFailuresRequestDataType` object.
-*/
+ */
 
-export type DORAListFailuresRequestDataType = typeof DORA_FAILURES_LIST_REQUEST | UnparsedObject;
-export const DORA_FAILURES_LIST_REQUEST = 'dora_failures_list_request';
+export type DORAListFailuresRequestDataType =
+  | typeof DORA_FAILURES_LIST_REQUEST
+  | UnparsedObject;
+export const DORA_FAILURES_LIST_REQUEST = "dora_failures_list_request";

@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The event source status "created".
-*/
+ */
 
 export type AWSEventBridgeCreateStatus = typeof CREATED | UnparsedObject;
-export const CREATED = 'created';
+export const CREATED = "created";

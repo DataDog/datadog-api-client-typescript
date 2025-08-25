@@ -5,24 +5,19 @@
  */
 import { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./ChangeEventCustomAttributesImpactedResourcesItemsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object representing a uniquely identified resource.
-*/
+ */
 export class ChangeEventCustomAttributesImpactedResourcesItems {
   /**
    * The name of the impacted resource. Limited to 128 characters.
-  */
+   */
   "name": string;
   /**
    * The type of the impacted resource.
-  */
+   */
   "type": ChangeEventCustomAttributesImpactedResourcesItemsType;
 
   /**
@@ -34,50 +29,24 @@ export class ChangeEventCustomAttributesImpactedResourcesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ChangeEventCustomAttributesImpactedResourcesItemsType",
-      "required": true,
-    }
+    type: {
+      baseName: "type",
+      type: "ChangeEventCustomAttributesImpactedResourcesItemsType",
+      required: true,
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ChangeEventCustomAttributesImpactedResourcesItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

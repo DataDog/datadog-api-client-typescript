@@ -5,20 +5,15 @@
  */
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A request wrapper around a single timeseries query to be executed.
-*/
+ */
 export class TimeseriesFormulaQueryRequest {
   /**
    * A single timeseries query to be executed.
-  */
+   */
   "data": TimeseriesFormulaRequest;
 
   /**
@@ -37,49 +32,23 @@ export class TimeseriesFormulaQueryRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "TimeseriesFormulaRequest",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "TimeseriesFormulaRequest",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TimeseriesFormulaQueryRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,28 +5,23 @@
  */
 import { SyntheticsMobileTestsMobileApplicationReferenceType } from "./SyntheticsMobileTestsMobileApplicationReferenceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Mobile application for mobile synthetics test.
-*/
+ */
 export class SyntheticsMobileTestsMobileApplication {
   /**
    * Application ID of the mobile application.
-  */
+   */
   "applicationId": string;
   /**
    * Reference ID of the mobile application.
-  */
+   */
   "referenceId": string;
   /**
    * Reference type for the mobile application for a mobile synthetics test.
-  */
+   */
   "referenceType": SyntheticsMobileTestsMobileApplicationReferenceType;
 
   /**
@@ -45,59 +40,33 @@ export class SyntheticsMobileTestsMobileApplication {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "applicationId": {
-      "baseName": "applicationId",
-      "type": "string",
-      "required": true,
+    applicationId: {
+      baseName: "applicationId",
+      type: "string",
+      required: true,
     },
-    "referenceId": {
-      "baseName": "referenceId",
-      "type": "string",
-      "required": true,
+    referenceId: {
+      baseName: "referenceId",
+      type: "string",
+      required: true,
     },
-    "referenceType": {
-      "baseName": "referenceType",
-      "type": "SyntheticsMobileTestsMobileApplicationReferenceType",
-      "required": true,
+    referenceType: {
+      baseName: "referenceType",
+      type: "SyntheticsMobileTestsMobileApplicationReferenceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsMobileTestsMobileApplication.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

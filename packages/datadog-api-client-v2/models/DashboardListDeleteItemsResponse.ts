@@ -5,20 +5,15 @@
  */
 import { DashboardListItemResponse } from "./DashboardListItemResponse";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing a list of deleted dashboards.
-*/
+ */
 export class DashboardListDeleteItemsResponse {
   /**
    * List of dashboards deleted from the dashboard list.
-  */
+   */
   "deletedDashboardsFromList"?: Array<DashboardListItemResponse>;
 
   /**
@@ -37,48 +32,22 @@ export class DashboardListDeleteItemsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "deletedDashboardsFromList": {
-      "baseName": "deleted_dashboards_from_list",
-      "type": "Array<DashboardListItemResponse>",
+    deletedDashboardsFromList: {
+      baseName: "deleted_dashboards_from_list",
+      type: "Array<DashboardListItemResponse>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DashboardListDeleteItemsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

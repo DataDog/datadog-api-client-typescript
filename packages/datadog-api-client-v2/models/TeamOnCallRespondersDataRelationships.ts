@@ -6,24 +6,19 @@
 import { TeamOnCallRespondersDataRelationshipsEscalations } from "./TeamOnCallRespondersDataRelationshipsEscalations";
 import { TeamOnCallRespondersDataRelationshipsResponders } from "./TeamOnCallRespondersDataRelationshipsResponders";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationship objects linked to a team's on-call responder configuration, including escalations and responders.
-*/
+ */
 export class TeamOnCallRespondersDataRelationships {
   /**
    * Defines the escalation policy steps linked to the team's on-call configuration.
-  */
+   */
   "escalations"?: TeamOnCallRespondersDataRelationshipsEscalations;
   /**
    * Defines the list of users assigned as on-call responders for the team.
-  */
+   */
   "responders"?: TeamOnCallRespondersDataRelationshipsResponders;
 
   /**
@@ -42,52 +37,26 @@ export class TeamOnCallRespondersDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "escalations": {
-      "baseName": "escalations",
-      "type": "TeamOnCallRespondersDataRelationshipsEscalations",
+    escalations: {
+      baseName: "escalations",
+      type: "TeamOnCallRespondersDataRelationshipsEscalations",
     },
-    "responders": {
-      "baseName": "responders",
-      "type": "TeamOnCallRespondersDataRelationshipsResponders",
+    responders: {
+      baseName: "responders",
+      type: "TeamOnCallRespondersDataRelationshipsResponders",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamOnCallRespondersDataRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

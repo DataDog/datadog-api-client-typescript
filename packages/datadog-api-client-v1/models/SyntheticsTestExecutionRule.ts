@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Execution rule for a Synthetic test.
-*/
+ */
 
-export type SyntheticsTestExecutionRule = typeof BLOCKING| typeof NON_BLOCKING| typeof SKIPPED | UnparsedObject;
-export const BLOCKING = 'blocking';
-export const NON_BLOCKING = 'non_blocking';
-export const SKIPPED = 'skipped';
+export type SyntheticsTestExecutionRule =
+  | typeof BLOCKING
+  | typeof NON_BLOCKING
+  | typeof SKIPPED
+  | UnparsedObject;
+export const BLOCKING = "blocking";
+export const NON_BLOCKING = "non_blocking";
+export const SKIPPED = "skipped";

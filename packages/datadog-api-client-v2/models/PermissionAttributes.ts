@@ -4,44 +4,39 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes of a permission.
-*/
+ */
 export class PermissionAttributes {
   /**
    * Creation time of the permission.
-  */
+   */
   "created"?: Date;
   /**
    * Description of the permission.
-  */
+   */
   "description"?: string;
   /**
    * Displayed name for the permission.
-  */
+   */
   "displayName"?: string;
   /**
    * Display type.
-  */
+   */
   "displayType"?: string;
   /**
    * Name of the permission group.
-  */
+   */
   "groupName"?: string;
   /**
    * Name of the permission.
-  */
+   */
   "name"?: string;
   /**
    * Whether or not the permission is restricted.
-  */
+   */
   "restricted"?: boolean;
 
   /**
@@ -60,73 +55,47 @@ export class PermissionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "created": {
-      "baseName": "created",
-      "type": "Date",
-      "format": "date-time",
+    created: {
+      baseName: "created",
+      type: "Date",
+      format: "date-time",
     },
-    "description": {
-      "baseName": "description",
-      "type": "string",
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    "displayName": {
-      "baseName": "display_name",
-      "type": "string",
+    displayName: {
+      baseName: "display_name",
+      type: "string",
     },
-    "displayType": {
-      "baseName": "display_type",
-      "type": "string",
+    displayType: {
+      baseName: "display_type",
+      type: "string",
     },
-    "groupName": {
-      "baseName": "group_name",
-      "type": "string",
+    groupName: {
+      baseName: "group_name",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "restricted": {
-      "baseName": "restricted",
-      "type": "boolean",
+    restricted: {
+      baseName: "restricted",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PermissionAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Aggregated DNS resource type.
-*/
+ */
 
-export type SingleAggregatedDnsResponseDataType = typeof AGGREGATED_DNS | UnparsedObject;
-export const AGGREGATED_DNS = 'aggregated_dns';
+export type SingleAggregatedDnsResponseDataType =
+  | typeof AGGREGATED_DNS
+  | UnparsedObject;
+export const AGGREGATED_DNS = "aggregated_dns";

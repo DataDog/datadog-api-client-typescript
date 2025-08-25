@@ -6,28 +6,23 @@
 import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
 import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Provides additional information about a BOM.
-*/
+ */
 export class SBOMMetadata {
   /**
    * List of authors of the SBOM.
-  */
+   */
   "authors"?: Array<SBOMMetadataAuthor>;
   /**
    * The component that the BOM describes.
-  */
+   */
   "component"?: SBOMMetadataComponent;
   /**
    * The timestamp of the SBOM creation.
-  */
+   */
   "timestamp"?: string;
 
   /**
@@ -46,56 +41,30 @@ export class SBOMMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "authors": {
-      "baseName": "authors",
-      "type": "Array<SBOMMetadataAuthor>",
+    authors: {
+      baseName: "authors",
+      type: "Array<SBOMMetadataAuthor>",
     },
-    "component": {
-      "baseName": "component",
-      "type": "SBOMMetadataComponent",
+    component: {
+      baseName: "component",
+      type: "SBOMMetadataComponent",
     },
-    "timestamp": {
-      "baseName": "timestamp",
-      "type": "string",
+    timestamp: {
+      baseName: "timestamp",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SBOMMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

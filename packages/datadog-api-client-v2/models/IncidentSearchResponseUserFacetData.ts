@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Facet data for user attributes of an incident.
-*/
+ */
 export class IncidentSearchResponseUserFacetData {
   /**
    * Count of the facet value appearing in search results.
-  */
+   */
   "count"?: number;
   /**
    * Email of the user.
-  */
+   */
   "email"?: string;
   /**
    * Handle of the user.
-  */
+   */
   "handle"?: string;
   /**
    * Name of the user.
-  */
+   */
   "name"?: string;
   /**
    * ID of the user.
-  */
+   */
   "uuid"?: string;
 
   /**
@@ -52,65 +47,39 @@ export class IncidentSearchResponseUserFacetData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "count": {
-      "baseName": "count",
-      "type": "number",
-      "format": "int32",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int32",
     },
-    "email": {
-      "baseName": "email",
-      "type": "string",
+    email: {
+      baseName: "email",
+      type: "string",
     },
-    "handle": {
-      "baseName": "handle",
-      "type": "string",
+    handle: {
+      baseName: "handle",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "uuid": {
-      "baseName": "uuid",
-      "type": "string",
+    uuid: {
+      baseName: "uuid",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentSearchResponseUserFacetData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

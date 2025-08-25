@@ -4,38 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { Selectors } from "./Selectors";
-import { TargetsItem } from "./TargetsItem";
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Attributes of the notification rule patch request. It is required to update the version of the rule when patching it.
-*/
+ */
 export class PatchNotificationRuleParametersDataAttributes {
   /**
    * Field used to enable or disable the rule.
-  */
+   */
   "enabled"?: boolean;
   /**
    * Name of the notification rule.
-  */
+   */
   "name"?: string;
   /**
    * Selectors are used to filter security issues for which notifications should be generated.
    * Users can specify rule severities, rule types, a query to filter security issues on tags and attributes, and the trigger source.
    * Only the trigger_source field is required.
-  */
+   */
   "selectors"?: Selectors;
   /**
    * List of recipients to notify when a notification rule is triggered. Many different target types are supported,
    * such as email addresses, Slack channels, and PagerDuty services.
    * The appropriate integrations need to be properly configured to send notifications to the specified targets.
-  */
+   */
   "targets"?: Array<string>;
   /**
    * Time aggregation period (in seconds) is used to aggregate the results of the notification rule evaluation.
@@ -43,11 +37,11 @@ export class PatchNotificationRuleParametersDataAttributes {
    * Notifications are only sent for new issues discovered during the window.
    * Time aggregation is only available for vulnerability-based notification rules. When omitted or set to 0, no aggregation
    * is done.
-  */
+   */
   "timeAggregation"?: number;
   /**
    * Version of the notification rule. It is updated when the rule is modified.
-  */
+   */
   "version"?: number;
 
   /**
@@ -66,70 +60,44 @@ export class PatchNotificationRuleParametersDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "enabled": {
-      "baseName": "enabled",
-      "type": "boolean",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "selectors": {
-      "baseName": "selectors",
-      "type": "Selectors",
+    selectors: {
+      baseName: "selectors",
+      type: "Selectors",
     },
-    "targets": {
-      "baseName": "targets",
-      "type": "Array<string>",
+    targets: {
+      baseName: "targets",
+      type: "Array<string>",
     },
-    "timeAggregation": {
-      "baseName": "time_aggregation",
-      "type": "number",
-      "format": "int64",
+    timeAggregation: {
+      baseName: "time_aggregation",
+      type: "number",
+      format: "int64",
     },
-    "version": {
-      "baseName": "version",
-      "type": "number",
-      "format": "int64",
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PatchNotificationRuleParametersDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

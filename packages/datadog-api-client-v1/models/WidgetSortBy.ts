@@ -5,24 +5,19 @@
  */
 import { WidgetSortOrderBy } from "./WidgetSortOrderBy";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The controls for sorting the widget.
-*/
+ */
 export class WidgetSortBy {
   /**
    * The number of items to limit the widget to.
-  */
+   */
   "count"?: number;
   /**
    * The array of items to sort the widget by in order.
-  */
+   */
   "orderBy"?: Array<WidgetSortOrderBy>;
 
   /**
@@ -41,53 +36,27 @@ export class WidgetSortBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "count": {
-      "baseName": "count",
-      "type": "number",
-      "format": "int64",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int64",
     },
-    "orderBy": {
-      "baseName": "order_by",
-      "type": "Array<WidgetSortOrderBy>",
+    orderBy: {
+      baseName: "order_by",
+      type: "Array<WidgetSortOrderBy>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetSortBy.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

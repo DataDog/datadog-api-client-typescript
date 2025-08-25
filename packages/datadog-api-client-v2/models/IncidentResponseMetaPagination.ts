@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Pagination properties.
-*/
+ */
 export class IncidentResponseMetaPagination {
   /**
    * The index of the first element in the next page of results. Equal to page size added to the current offset.
-  */
+   */
   "nextOffset"?: number;
   /**
    * The index of the first element in the results.
-  */
+   */
   "offset"?: number;
   /**
    * Maximum size of pages to return.
-  */
+   */
   "size"?: number;
 
   /**
@@ -44,59 +39,33 @@ export class IncidentResponseMetaPagination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "nextOffset": {
-      "baseName": "next_offset",
-      "type": "number",
-      "format": "int64",
+    nextOffset: {
+      baseName: "next_offset",
+      type: "number",
+      format: "int64",
     },
-    "offset": {
-      "baseName": "offset",
-      "type": "number",
-      "format": "int64",
+    offset: {
+      baseName: "offset",
+      type: "number",
+      format: "int64",
     },
-    "size": {
-      "baseName": "size",
-      "type": "number",
-      "format": "int64",
+    size: {
+      baseName: "size",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentResponseMetaPagination.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

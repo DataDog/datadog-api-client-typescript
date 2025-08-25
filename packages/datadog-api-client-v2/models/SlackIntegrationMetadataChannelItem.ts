@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Item in the Slack integration metadata channel array.
-*/
+ */
 export class SlackIntegrationMetadataChannelItem {
   /**
    * Slack channel ID.
-  */
+   */
   "channelId": string;
   /**
    * Name of the Slack channel.
-  */
+   */
   "channelName": string;
   /**
    * URL redirecting to the Slack channel.
-  */
+   */
   "redirectUrl": string;
   /**
    * Slack team ID.
-  */
+   */
   "teamId"?: string;
 
   /**
@@ -48,63 +43,37 @@ export class SlackIntegrationMetadataChannelItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "channelId": {
-      "baseName": "channel_id",
-      "type": "string",
-      "required": true,
+    channelId: {
+      baseName: "channel_id",
+      type: "string",
+      required: true,
     },
-    "channelName": {
-      "baseName": "channel_name",
-      "type": "string",
-      "required": true,
+    channelName: {
+      baseName: "channel_name",
+      type: "string",
+      required: true,
     },
-    "redirectUrl": {
-      "baseName": "redirect_url",
-      "type": "string",
-      "required": true,
+    redirectUrl: {
+      baseName: "redirect_url",
+      type: "string",
+      required: true,
     },
-    "teamId": {
-      "baseName": "team_id",
-      "type": "string",
+    teamId: {
+      baseName: "team_id",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SlackIntegrationMetadataChannelItem.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

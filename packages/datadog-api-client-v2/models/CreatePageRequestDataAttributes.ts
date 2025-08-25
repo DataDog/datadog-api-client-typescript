@@ -6,36 +6,31 @@
 import { CreatePageRequestDataAttributesTarget } from "./CreatePageRequestDataAttributesTarget";
 import { PageUrgency } from "./PageUrgency";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Details about the On-Call Page you want to create.
-*/
+ */
 export class CreatePageRequestDataAttributes {
   /**
    * A short summary of the issue or context.
-  */
+   */
   "description"?: string;
   /**
    * Tags to help categorize or filter the page.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * Information about the target to notify (such as a team or user).
-  */
+   */
   "target": CreatePageRequestDataAttributesTarget;
   /**
    * The title of the page.
-  */
+   */
   "title": string;
   /**
    * On-Call Page urgency level.
-  */
+   */
   "urgency": PageUrgency;
 
   /**
@@ -54,67 +49,41 @@ export class CreatePageRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "description": {
-      "baseName": "description",
-      "type": "string",
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "target": {
-      "baseName": "target",
-      "type": "CreatePageRequestDataAttributesTarget",
-      "required": true,
+    target: {
+      baseName: "target",
+      type: "CreatePageRequestDataAttributesTarget",
+      required: true,
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
-      "required": true,
+    title: {
+      baseName: "title",
+      type: "string",
+      required: true,
     },
-    "urgency": {
-      "baseName": "urgency",
-      "type": "PageUrgency",
-      "required": true,
+    urgency: {
+      baseName: "urgency",
+      type: "PageUrgency",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CreatePageRequestDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

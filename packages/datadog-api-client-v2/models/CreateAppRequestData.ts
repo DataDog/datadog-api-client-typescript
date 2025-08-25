@@ -6,24 +6,19 @@
 import { AppDefinitionType } from "./AppDefinitionType";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The data object containing the app definition.
-*/
+ */
 export class CreateAppRequestData {
   /**
    * App definition attributes such as name, description, and components.
-  */
+   */
   "attributes"?: CreateAppRequestDataAttributes;
   /**
    * The app definition type.
-  */
+   */
   "type": AppDefinitionType;
 
   /**
@@ -42,53 +37,27 @@ export class CreateAppRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CreateAppRequestDataAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "CreateAppRequestDataAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AppDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AppDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CreateAppRequestData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

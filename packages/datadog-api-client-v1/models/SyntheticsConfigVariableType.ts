@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the configuration variable.
-*/
+ */
 
-export type SyntheticsConfigVariableType = typeof GLOBAL| typeof TEXT| typeof EMAIL | UnparsedObject;
-export const GLOBAL = 'global';
-export const TEXT = 'text';
-export const EMAIL = 'email';
+export type SyntheticsConfigVariableType =
+  | typeof GLOBAL
+  | typeof TEXT
+  | typeof EMAIL
+  | UnparsedObject;
+export const GLOBAL = "global";
+export const TEXT = "text";
+export const EMAIL = "email";

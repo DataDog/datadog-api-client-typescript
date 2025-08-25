@@ -5,28 +5,23 @@
  */
 import { RuleVersionUpdateType } from "./RuleVersionUpdateType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A change in a rule version.
-*/
+ */
 export class RuleVersionUpdate {
   /**
    * The new value of the field.
-  */
+   */
   "change"?: string;
   /**
    * The field that was changed.
-  */
+   */
   "field"?: string;
   /**
    * The type of change.
-  */
+   */
   "type"?: RuleVersionUpdateType;
 
   /**
@@ -45,56 +40,30 @@ export class RuleVersionUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "change": {
-      "baseName": "change",
-      "type": "string",
+    change: {
+      baseName: "change",
+      type: "string",
     },
-    "field": {
-      "baseName": "field",
-      "type": "string",
+    field: {
+      baseName: "field",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "RuleVersionUpdateType",
+    type: {
+      baseName: "type",
+      type: "RuleVersionUpdateType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RuleVersionUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The `AWSNewExternalIDResponseData` `type`.
-*/
+ */
 
-export type AWSNewExternalIDResponseDataType = typeof EXTERNAL_ID | UnparsedObject;
-export const EXTERNAL_ID = 'external_id';
+export type AWSNewExternalIDResponseDataType =
+  | typeof EXTERNAL_ID
+  | UnparsedObject;
+export const EXTERNAL_ID = "external_id";

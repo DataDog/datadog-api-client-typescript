@@ -5,24 +5,19 @@
  */
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes describing the new assignee of a security signal.
-*/
+ */
 export class SecurityMonitoringSignalAssigneeUpdateAttributes {
   /**
    * Object representing a given user entity.
-  */
+   */
   "assignee": SecurityMonitoringTriageUser;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-  */
+   */
   "version"?: number;
 
   /**
@@ -41,54 +36,28 @@ export class SecurityMonitoringSignalAssigneeUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "assignee": {
-      "baseName": "assignee",
-      "type": "SecurityMonitoringTriageUser",
-      "required": true,
+    assignee: {
+      baseName: "assignee",
+      type: "SecurityMonitoringTriageUser",
+      required: true,
     },
-    "version": {
-      "baseName": "version",
-      "type": "number",
-      "format": "int64",
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalAssigneeUpdateAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

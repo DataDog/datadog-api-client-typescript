@@ -5,24 +5,19 @@
  */
 import { UserTeamTeamType } from "./UserTeamTeamType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The team associated with the membership
-*/
+ */
 export class RelationshipToUserTeamTeamData {
   /**
    * The ID of the team associated with the membership
-  */
+   */
   "id": string;
   /**
    * User team team type
-  */
+   */
   "type": UserTeamTeamType;
 
   /**
@@ -41,54 +36,28 @@ export class RelationshipToUserTeamTeamData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "UserTeamTeamType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "UserTeamTeamType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToUserTeamTeamData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

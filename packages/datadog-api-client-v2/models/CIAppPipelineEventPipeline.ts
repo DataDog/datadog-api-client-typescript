@@ -6,15 +6,13 @@
 import { CIAppPipelineEventFinishedPipeline } from "./CIAppPipelineEventFinishedPipeline";
 import { CIAppPipelineEventInProgressPipeline } from "./CIAppPipelineEventInProgressPipeline";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Details of the top level pipeline, build, or workflow of your CI.
-*/
+ */
 
-export type CIAppPipelineEventPipeline = CIAppPipelineEventFinishedPipeline | CIAppPipelineEventInProgressPipeline | UnparsedObject;
+export type CIAppPipelineEventPipeline =
+  | CIAppPipelineEventFinishedPipeline
+  | CIAppPipelineEventInProgressPipeline
+  | UnparsedObject;

@@ -5,24 +5,19 @@
  */
 import { SensitiveDataScannerProduct } from "./SensitiveDataScannerProduct";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Sampling configurations for the Scanning Group.
-*/
+ */
 export class SensitiveDataScannerSamplings {
   /**
    * Datadog product onto which Sensitive Data Scanner can be activated.
-  */
+   */
   "product"?: SensitiveDataScannerProduct;
   /**
    * Rate at which data in product type will be scanned, as a percentage.
-  */
+   */
   "rate"?: number;
 
   /**
@@ -41,53 +36,27 @@ export class SensitiveDataScannerSamplings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "product": {
-      "baseName": "product",
-      "type": "SensitiveDataScannerProduct",
+    product: {
+      baseName: "product",
+      type: "SensitiveDataScannerProduct",
     },
-    "rate": {
-      "baseName": "rate",
-      "type": "number",
-      "format": "double",
+    rate: {
+      baseName: "rate",
+      type: "number",
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerSamplings.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

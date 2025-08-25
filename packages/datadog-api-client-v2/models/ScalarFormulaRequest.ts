@@ -6,24 +6,19 @@
 import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes";
 import { ScalarFormulaRequestType } from "./ScalarFormulaRequestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A single scalar query to be executed.
-*/
+ */
 export class ScalarFormulaRequest {
   /**
    * The object describing a scalar formula request.
-  */
+   */
   "attributes": ScalarFormulaRequestAttributes;
   /**
    * The type of the resource. The value should always be scalar_request.
-  */
+   */
   "type": ScalarFormulaRequestType;
 
   /**
@@ -42,54 +37,28 @@ export class ScalarFormulaRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ScalarFormulaRequestAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "ScalarFormulaRequestAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ScalarFormulaRequestType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ScalarFormulaRequestType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScalarFormulaRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

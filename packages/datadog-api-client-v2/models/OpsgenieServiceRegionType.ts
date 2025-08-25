@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The region for the Opsgenie service.
-*/
+ */
 
-export type OpsgenieServiceRegionType = typeof US| typeof EU| typeof CUSTOM | UnparsedObject;
-export const US = 'us';
-export const EU = 'eu';
-export const CUSTOM = 'custom';
+export type OpsgenieServiceRegionType =
+  | typeof US
+  | typeof EU
+  | typeof CUSTOM
+  | UnparsedObject;
+export const US = "us";
+export const EU = "eu";
+export const CUSTOM = "custom";

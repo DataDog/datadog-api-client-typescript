@@ -6,15 +6,13 @@
 import { NumberFormatUnitCanonical } from "./NumberFormatUnitCanonical";
 import { NumberFormatUnitCustom } from "./NumberFormatUnitCustom";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Number format unit.
-*/
+ */
 
-export type NumberFormatUnit = NumberFormatUnitCanonical | NumberFormatUnitCustom | UnparsedObject;
+export type NumberFormatUnit =
+  | NumberFormatUnitCanonical
+  | NumberFormatUnitCustom
+  | UnparsedObject;

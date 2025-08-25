@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The source type. The value should always be `google_pubsub`.
-*/
+ */
 
-export type ObservabilityPipelineGooglePubSubSourceType = typeof GOOGLE_PUBSUB | UnparsedObject;
-export const GOOGLE_PUBSUB = 'google_pubsub';
+export type ObservabilityPipelineGooglePubSubSourceType =
+  | typeof GOOGLE_PUBSUB
+  | UnparsedObject;
+export const GOOGLE_PUBSUB = "google_pubsub";

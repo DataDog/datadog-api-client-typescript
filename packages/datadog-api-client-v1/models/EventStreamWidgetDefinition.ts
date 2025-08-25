@@ -8,49 +8,44 @@ import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The event stream is a widget version of the stream of events
  * on the Event Stream view. Only available on FREE layout dashboards.
-*/
+ */
 export class EventStreamWidgetDefinition {
   /**
    * Size to use to display an event.
-  */
+   */
   "eventSize"?: WidgetEventSize;
   /**
    * Query to filter the event stream with.
-  */
+   */
   "query": string;
   /**
    * The execution method for multi-value filters. Can be either and or or.
-  */
+   */
   "tagsExecution"?: string;
   /**
    * Time setting for the widget.
-  */
+   */
   "time"?: WidgetTime;
   /**
    * Title of the widget.
-  */
+   */
   "title"?: string;
   /**
    * How to align the text on the widget.
-  */
+   */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-  */
+   */
   "titleSize"?: string;
   /**
    * Type of the event stream widget.
-  */
+   */
   "type": EventStreamWidgetDefinitionType;
 
   /**
@@ -69,78 +64,52 @@ export class EventStreamWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "eventSize": {
-      "baseName": "event_size",
-      "type": "WidgetEventSize",
+    eventSize: {
+      baseName: "event_size",
+      type: "WidgetEventSize",
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
-      "required": true,
+    query: {
+      baseName: "query",
+      type: "string",
+      required: true,
     },
-    "tagsExecution": {
-      "baseName": "tags_execution",
-      "type": "string",
+    tagsExecution: {
+      baseName: "tags_execution",
+      type: "string",
     },
-    "time": {
-      "baseName": "time",
-      "type": "WidgetTime",
+    time: {
+      baseName: "time",
+      type: "WidgetTime",
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "titleAlign": {
-      "baseName": "title_align",
-      "type": "WidgetTextAlign",
+    titleAlign: {
+      baseName: "title_align",
+      type: "WidgetTextAlign",
     },
-    "titleSize": {
-      "baseName": "title_size",
-      "type": "string",
+    titleSize: {
+      baseName: "title_size",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "EventStreamWidgetDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "EventStreamWidgetDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EventStreamWidgetDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

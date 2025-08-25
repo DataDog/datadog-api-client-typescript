@@ -7,28 +7,23 @@ import { DowntimeMeta } from "./DowntimeMeta";
 import { DowntimeResponseData } from "./DowntimeResponseData";
 import { DowntimeResponseIncludedItem } from "./DowntimeResponseIncludedItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for retrieving all downtimes.
-*/
+ */
 export class ListDowntimesResponse {
   /**
    * An array of downtimes.
-  */
+   */
   "data"?: Array<DowntimeResponseData>;
   /**
    * Array of objects related to the downtimes.
-  */
+   */
   "included"?: Array<DowntimeResponseIncludedItem>;
   /**
    * Pagination metadata returned by the API.
-  */
+   */
   "meta"?: DowntimeMeta;
 
   /**
@@ -47,56 +42,30 @@ export class ListDowntimesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<DowntimeResponseData>",
+    data: {
+      baseName: "data",
+      type: "Array<DowntimeResponseData>",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<DowntimeResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<DowntimeResponseIncludedItem>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "DowntimeMeta",
+    meta: {
+      baseName: "meta",
+      type: "DowntimeMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListDowntimesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

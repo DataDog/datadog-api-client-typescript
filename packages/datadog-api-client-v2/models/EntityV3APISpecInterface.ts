@@ -6,15 +6,13 @@
 import { EntityV3APISpecInterfaceDefinition } from "./EntityV3APISpecInterfaceDefinition";
 import { EntityV3APISpecInterfaceFileRef } from "./EntityV3APISpecInterfaceFileRef";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The API definition.
-*/
+ */
 
-export type EntityV3APISpecInterface = EntityV3APISpecInterfaceFileRef | EntityV3APISpecInterfaceDefinition | UnparsedObject;
+export type EntityV3APISpecInterface =
+  | EntityV3APISpecInterfaceFileRef
+  | EntityV3APISpecInterfaceDefinition
+  | UnparsedObject;

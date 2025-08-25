@@ -5,24 +5,19 @@
  */
 import { DataRelationshipsTeamsDataItemsType } from "./DataRelationshipsTeamsDataItemsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relates a team to this schedule, identified by `id` and `type` (must be `teams`).
-*/
+ */
 export class DataRelationshipsTeamsDataItems {
   /**
    * The unique identifier of the team in this relationship.
-  */
+   */
   "id": string;
   /**
    * Teams resource type.
-  */
+   */
   "type": DataRelationshipsTeamsDataItemsType;
 
   /**
@@ -41,54 +36,28 @@ export class DataRelationshipsTeamsDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "DataRelationshipsTeamsDataItemsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "DataRelationshipsTeamsDataItemsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DataRelationshipsTeamsDataItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

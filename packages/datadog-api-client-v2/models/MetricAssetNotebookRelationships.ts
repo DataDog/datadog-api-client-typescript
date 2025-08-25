@@ -5,20 +5,15 @@
  */
 import { MetricAssetNotebookRelationship } from "./MetricAssetNotebookRelationship";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An object containing the list of notebooks that can be referenced in the `included` data.
-*/
+ */
 export class MetricAssetNotebookRelationships {
   /**
    * A list of notebooks that can be referenced in the `included` data.
-  */
+   */
   "data"?: Array<MetricAssetNotebookRelationship>;
 
   /**
@@ -37,48 +32,22 @@ export class MetricAssetNotebookRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<MetricAssetNotebookRelationship>",
+    data: {
+      baseName: "data",
+      type: "Array<MetricAssetNotebookRelationship>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricAssetNotebookRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

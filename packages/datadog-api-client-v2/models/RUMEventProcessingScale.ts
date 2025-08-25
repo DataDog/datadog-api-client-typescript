@@ -5,24 +5,19 @@
  */
 import { RUMEventProcessingState } from "./RUMEventProcessingState";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * RUM event processing scale configuration.
-*/
+ */
 export class RUMEventProcessingScale {
   /**
    * Timestamp in milliseconds when this scale was last modified.
-  */
+   */
   "lastModifiedAt"?: number;
   /**
    * Configures which RUM events are processed and stored for the application.
-  */
+   */
   "state"?: RUMEventProcessingState;
 
   /**
@@ -41,53 +36,27 @@ export class RUMEventProcessingScale {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "lastModifiedAt": {
-      "baseName": "last_modified_at",
-      "type": "number",
-      "format": "int64",
+    lastModifiedAt: {
+      baseName: "last_modified_at",
+      type: "number",
+      format: "int64",
     },
-    "state": {
-      "baseName": "state",
-      "type": "RUMEventProcessingState",
+    state: {
+      baseName: "state",
+      type: "RUMEventProcessingState",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RUMEventProcessingScale.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

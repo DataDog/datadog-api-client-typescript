@@ -5,20 +5,15 @@
  */
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request to create a DORA deployment event.
-*/
+ */
 export class DORADeploymentRequest {
   /**
    * The JSON:API data.
-  */
+   */
   "data": DORADeploymentRequestData;
 
   /**
@@ -37,49 +32,23 @@ export class DORADeploymentRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "DORADeploymentRequestData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "DORADeploymentRequestData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DORADeploymentRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

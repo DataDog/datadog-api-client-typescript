@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * JSON:API resource type for Spark Pod Autosizing recommendations. Identifies the Recommendation resource returned by SPA.
-*/
+ */
 
 export type RecommendationType = typeof RECOMMENDATION | UnparsedObject;
-export const RECOMMENDATION = 'recommendation';
+export const RECOMMENDATION = "recommendation";

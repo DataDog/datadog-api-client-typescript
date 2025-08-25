@@ -4,21 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing the ordered list of pipeline IDs.
-*/
+ */
 export class LogsPipelinesOrder {
   /**
    * Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array
    * define the overall Pipelines order for Datadog.
-  */
+   */
   "pipelineIds": Array<string>;
 
   /**
@@ -37,49 +32,23 @@ export class LogsPipelinesOrder {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "pipelineIds": {
-      "baseName": "pipeline_ids",
-      "type": "Array<string>",
-      "required": true,
+    pipelineIds: {
+      baseName: "pipeline_ids",
+      type: "Array<string>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsPipelinesOrder.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

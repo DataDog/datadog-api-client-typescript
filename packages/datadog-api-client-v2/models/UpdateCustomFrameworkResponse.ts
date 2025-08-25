@@ -5,20 +5,15 @@
  */
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object to update a custom framework.
-*/
+ */
 export class UpdateCustomFrameworkResponse {
   /**
    * Contains type and attributes for custom frameworks.
-  */
+   */
   "data": FrameworkHandleAndVersionResponseData;
 
   /**
@@ -37,49 +32,23 @@ export class UpdateCustomFrameworkResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "FrameworkHandleAndVersionResponseData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "FrameworkHandleAndVersionResponseData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateCustomFrameworkResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

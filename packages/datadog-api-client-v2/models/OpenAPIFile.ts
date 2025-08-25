@@ -8,16 +8,13 @@ import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Object for API data in an `OpenAPI` format as a file.
-*/
+ */
 export class OpenAPIFile {
   /**
    * Binary `OpenAPI` spec file
-  */
+   */
   "openapiSpecFile"?: HttpFile;
 
   /**
@@ -36,49 +33,23 @@ export class OpenAPIFile {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "openapiSpecFile": {
-      "baseName": "openapi_spec_file",
-      "type": "HttpFile",
-      "format": "binary",
+    openapiSpecFile: {
+      baseName: "openapi_spec_file",
+      type: "HttpFile",
+      format: "binary",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OpenAPIFile.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

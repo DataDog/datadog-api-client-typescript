@@ -5,24 +5,19 @@
  */
 import { SecurityMonitoringFilterAction } from "./SecurityMonitoringFilterAction";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The rule's suppression filter.
-*/
+ */
 export class SecurityMonitoringFilter {
   /**
    * The type of filtering action.
-  */
+   */
   "action"?: SecurityMonitoringFilterAction;
   /**
    * Query for selecting logs to apply the filtering action.
-  */
+   */
   "query"?: string;
 
   /**
@@ -41,52 +36,26 @@ export class SecurityMonitoringFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "action": {
-      "baseName": "action",
-      "type": "SecurityMonitoringFilterAction",
+    action: {
+      baseName: "action",
+      type: "SecurityMonitoringFilterAction",
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
+    query: {
+      baseName: "query",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The style to apply to the widget.
-*/
+ */
 export class HostMapWidgetDefinitionStyle {
   /**
    * Max value to use to color the map.
-  */
+   */
   "fillMax"?: string;
   /**
    * Min value to use to color the map.
-  */
+   */
   "fillMin"?: string;
   /**
    * Color palette to apply to the widget.
-  */
+   */
   "palette"?: string;
   /**
    * Whether to flip the palette tones.
-  */
+   */
   "paletteFlip"?: boolean;
 
   /**
@@ -48,60 +43,34 @@ export class HostMapWidgetDefinitionStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "fillMax": {
-      "baseName": "fill_max",
-      "type": "string",
+    fillMax: {
+      baseName: "fill_max",
+      type: "string",
     },
-    "fillMin": {
-      "baseName": "fill_min",
-      "type": "string",
+    fillMin: {
+      baseName: "fill_min",
+      type: "string",
     },
-    "palette": {
-      "baseName": "palette",
-      "type": "string",
+    palette: {
+      baseName: "palette",
+      type: "string",
     },
-    "paletteFlip": {
-      "baseName": "palette_flip",
-      "type": "boolean",
+    paletteFlip: {
+      baseName: "palette_flip",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return HostMapWidgetDefinitionStyle.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

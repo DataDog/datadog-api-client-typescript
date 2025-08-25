@@ -5,20 +5,15 @@
  */
 import { UsageDBMHour } from "./UsageDBMHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the Database Monitoring usage for each hour for a given organization.
-*/
+ */
 export class UsageDBMResponse {
   /**
    * Get hourly usage for Database Monitoring
-  */
+   */
   "usage"?: Array<UsageDBMHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageDBMResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageDBMHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageDBMHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageDBMResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -6,28 +6,23 @@
 import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
 import { MetricBulkTagConfigDeleteAttributes } from "./MetricBulkTagConfigDeleteAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request object to bulk delete all tag configurations for metrics matching the given prefix.
-*/
+ */
 export class MetricBulkTagConfigDelete {
   /**
    * Optional parameters for bulk deleting metric tag configurations.
-  */
+   */
   "attributes"?: MetricBulkTagConfigDeleteAttributes;
   /**
    * A text prefix to match against metric names.
-  */
+   */
   "id": string;
   /**
    * The metric bulk configure tags resource.
-  */
+   */
   "type": MetricBulkConfigureTagsType;
 
   /**
@@ -46,58 +41,32 @@ export class MetricBulkTagConfigDelete {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "MetricBulkTagConfigDeleteAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "MetricBulkTagConfigDeleteAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "MetricBulkConfigureTagsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "MetricBulkConfigureTagsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricBulkTagConfigDelete.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

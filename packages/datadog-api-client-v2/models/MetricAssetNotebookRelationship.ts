@@ -5,24 +5,19 @@
  */
 import { MetricNotebookType } from "./MetricNotebookType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An object of type `notebook` that can be referenced in the `included` data.
-*/
+ */
 export class MetricAssetNotebookRelationship {
   /**
    * The related notebook's ID.
-  */
+   */
   "id"?: string;
   /**
    * Notebook resource type.
-  */
+   */
   "type"?: MetricNotebookType;
 
   /**
@@ -41,52 +36,26 @@ export class MetricAssetNotebookRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "MetricNotebookType",
+    type: {
+      baseName: "type",
+      type: "MetricNotebookType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricAssetNotebookRelationship.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

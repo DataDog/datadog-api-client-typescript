@@ -5,24 +5,19 @@
  */
 import { UserTargetType } from "./UserTargetType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Represents a user target for an escalation policy step, including the user's ID and resource type.
-*/
+ */
 export class UserTarget {
   /**
    * Specifies the unique identifier of the user resource.
-  */
+   */
   "id": string;
   /**
    * Indicates that the resource is of type `users`.
-  */
+   */
   "type": UserTargetType;
 
   /**
@@ -41,54 +36,28 @@ export class UserTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "UserTargetType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "UserTargetType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UserTarget.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

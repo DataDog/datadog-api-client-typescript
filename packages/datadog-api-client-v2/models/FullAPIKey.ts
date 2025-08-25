@@ -7,32 +7,27 @@ import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Datadog API key.
-*/
+ */
 export class FullAPIKey {
   /**
    * Attributes of a full API key.
-  */
+   */
   "attributes"?: FullAPIKeyAttributes;
   /**
    * ID of the API key.
-  */
+   */
   "id"?: string;
   /**
    * Resources related to the API key.
-  */
+   */
   "relationships"?: APIKeyRelationships;
   /**
    * API Keys resource type.
-  */
+   */
   "type"?: APIKeysType;
 
   /**
@@ -51,60 +46,34 @@ export class FullAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "FullAPIKeyAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "FullAPIKeyAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "APIKeyRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "APIKeyRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "APIKeysType",
+    type: {
+      baseName: "type",
+      type: "APIKeysType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FullAPIKey.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

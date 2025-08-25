@@ -4,20 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Legend column.
-*/
+ */
 
-export type TimeseriesWidgetLegendColumn = typeof VALUE| typeof AVG| typeof SUM| typeof MIN| typeof MAX | UnparsedObject;
-export const VALUE = 'value';
-export const AVG = 'avg';
-export const SUM = 'sum';
-export const MIN = 'min';
-export const MAX = 'max';
+export type TimeseriesWidgetLegendColumn =
+  | typeof VALUE
+  | typeof AVG
+  | typeof SUM
+  | typeof MIN
+  | typeof MAX
+  | UnparsedObject;
+export const VALUE = "value";
+export const AVG = "avg";
+export const SUM = "sum";
+export const MIN = "min";
+export const MAX = "max";

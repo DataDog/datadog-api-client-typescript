@@ -6,24 +6,19 @@
 import { FreshserviceCredentials } from "./FreshserviceCredentials";
 import { FreshserviceIntegrationType } from "./FreshserviceIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `FreshserviceIntegration` object.
-*/
+ */
 export class FreshserviceIntegration {
   /**
    * The definition of the `FreshserviceCredentials` object.
-  */
+   */
   "credentials": FreshserviceCredentials;
   /**
    * The definition of the `FreshserviceIntegrationType` object.
-  */
+   */
   "type": FreshserviceIntegrationType;
 
   /**
@@ -42,54 +37,28 @@ export class FreshserviceIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "FreshserviceCredentials",
-      "required": true,
+    credentials: {
+      baseName: "credentials",
+      type: "FreshserviceCredentials",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "FreshserviceIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "FreshserviceIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FreshserviceIntegration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

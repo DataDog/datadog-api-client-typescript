@@ -5,24 +5,19 @@
  */
 import { ScheduleMemberRelationshipsUserDataType } from "./ScheduleMemberRelationshipsUserDataType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Points to the user data associated with this schedule member, including an ID and type.
-*/
+ */
 export class ScheduleMemberRelationshipsUserData {
   /**
    * The user's unique identifier.
-  */
+   */
   "id": string;
   /**
    * Users resource type.
-  */
+   */
   "type": ScheduleMemberRelationshipsUserDataType;
 
   /**
@@ -41,54 +36,28 @@ export class ScheduleMemberRelationshipsUserData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ScheduleMemberRelationshipsUserDataType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ScheduleMemberRelationshipsUserDataType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScheduleMemberRelationshipsUserData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

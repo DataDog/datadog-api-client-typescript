@@ -5,24 +5,19 @@
  */
 import { IFrameWidgetDefinitionType } from "./IFrameWidgetDefinitionType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
-*/
+ */
 export class IFrameWidgetDefinition {
   /**
    * Type of the iframe widget.
-  */
+   */
   "type": IFrameWidgetDefinitionType;
   /**
    * URL of the iframe.
-  */
+   */
   "url": string;
 
   /**
@@ -41,54 +36,28 @@ export class IFrameWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "type": {
-      "baseName": "type",
-      "type": "IFrameWidgetDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IFrameWidgetDefinitionType",
+      required: true,
     },
-    "url": {
-      "baseName": "url",
-      "type": "string",
-      "required": true,
+    url: {
+      baseName: "url",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IFrameWidgetDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

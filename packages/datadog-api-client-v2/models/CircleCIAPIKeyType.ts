@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `CircleCIAPIKey` object.
-*/
+ */
 
 export type CircleCIAPIKeyType = typeof CIRCLECIAPIKEY | UnparsedObject;
-export const CIRCLECIAPIKEY = 'CircleCIAPIKey';
+export const CIRCLECIAPIKEY = "CircleCIAPIKey";

@@ -6,28 +6,23 @@
 import { FunnelSource } from "./FunnelSource";
 import { FunnelStep } from "./FunnelStep";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Updated funnel widget.
-*/
+ */
 export class FunnelQuery {
   /**
    * Source from which to query items to display in the funnel.
-  */
+   */
   "dataSource": FunnelSource;
   /**
    * The widget query.
-  */
+   */
   "queryString": string;
   /**
    * List of funnel steps.
-  */
+   */
   "steps": Array<FunnelStep>;
 
   /**
@@ -46,59 +41,33 @@ export class FunnelQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "dataSource": {
-      "baseName": "data_source",
-      "type": "FunnelSource",
-      "required": true,
+    dataSource: {
+      baseName: "data_source",
+      type: "FunnelSource",
+      required: true,
     },
-    "queryString": {
-      "baseName": "query_string",
-      "type": "string",
-      "required": true,
+    queryString: {
+      baseName: "query_string",
+      type: "string",
+      required: true,
     },
-    "steps": {
-      "baseName": "steps",
-      "type": "Array<FunnelStep>",
-      "required": true,
+    steps: {
+      baseName: "steps",
+      type: "Array<FunnelStep>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FunnelQuery.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -7,32 +7,27 @@ import { SpansAggregateSortType } from "./SpansAggregateSortType";
 import { SpansAggregationFunction } from "./SpansAggregationFunction";
 import { SpansSortOrder } from "./SpansSortOrder";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A sort rule.
-*/
+ */
 export class SpansAggregateSort {
   /**
    * An aggregation function.
-  */
+   */
   "aggregation"?: SpansAggregationFunction;
   /**
    * The metric to sort by (only used for `type=measure`).
-  */
+   */
   "metric"?: string;
   /**
    * The order to use, ascending or descending.
-  */
+   */
   "order"?: SpansSortOrder;
   /**
    * The type of sorting algorithm.
-  */
+   */
   "type"?: SpansAggregateSortType;
 
   /**
@@ -51,60 +46,34 @@ export class SpansAggregateSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregation": {
-      "baseName": "aggregation",
-      "type": "SpansAggregationFunction",
+    aggregation: {
+      baseName: "aggregation",
+      type: "SpansAggregationFunction",
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
+    metric: {
+      baseName: "metric",
+      type: "string",
     },
-    "order": {
-      "baseName": "order",
-      "type": "SpansSortOrder",
+    order: {
+      baseName: "order",
+      type: "SpansSortOrder",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SpansAggregateSortType",
+    type: {
+      baseName: "type",
+      type: "SpansAggregateSortType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansAggregateSort.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

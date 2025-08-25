@@ -8,44 +8,39 @@ import { ObservabilityPipelineHttpClientSourceAuthStrategy } from "./Observabili
 import { ObservabilityPipelineHttpClientSourceType } from "./ObservabilityPipelineHttpClientSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
-*/
+ */
 export class ObservabilityPipelineHttpClientSource {
   /**
    * Optional authentication strategy for HTTP requests.
-  */
+   */
   "authStrategy"?: ObservabilityPipelineHttpClientSourceAuthStrategy;
   /**
    * The decoding format used to interpret incoming logs.
-  */
+   */
   "decoding": ObservabilityPipelineDecoding;
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
-  */
+   */
   "id": string;
   /**
    * The interval (in seconds) between HTTP scrape requests.
-  */
+   */
   "scrapeIntervalSecs"?: number;
   /**
    * The timeout (in seconds) for each scrape request.
-  */
+   */
   "scrapeTimeoutSecs"?: number;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-  */
+   */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The source type. The value should always be `http_client`.
-  */
+   */
   "type": ObservabilityPipelineHttpClientSourceType;
 
   /**
@@ -64,77 +59,51 @@ export class ObservabilityPipelineHttpClientSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "authStrategy": {
-      "baseName": "auth_strategy",
-      "type": "ObservabilityPipelineHttpClientSourceAuthStrategy",
+    authStrategy: {
+      baseName: "auth_strategy",
+      type: "ObservabilityPipelineHttpClientSourceAuthStrategy",
     },
-    "decoding": {
-      "baseName": "decoding",
-      "type": "ObservabilityPipelineDecoding",
-      "required": true,
+    decoding: {
+      baseName: "decoding",
+      type: "ObservabilityPipelineDecoding",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "scrapeIntervalSecs": {
-      "baseName": "scrape_interval_secs",
-      "type": "number",
-      "format": "int64",
+    scrapeIntervalSecs: {
+      baseName: "scrape_interval_secs",
+      type: "number",
+      format: "int64",
     },
-    "scrapeTimeoutSecs": {
-      "baseName": "scrape_timeout_secs",
-      "type": "number",
-      "format": "int64",
+    scrapeTimeoutSecs: {
+      baseName: "scrape_timeout_secs",
+      type: "number",
+      format: "int64",
     },
-    "tls": {
-      "baseName": "tls",
-      "type": "ObservabilityPipelineTls",
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineHttpClientSourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineHttpClientSourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineHttpClientSource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

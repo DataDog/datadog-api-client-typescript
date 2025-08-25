@@ -5,20 +5,15 @@
  */
 import { UsageProfilingHour } from "./UsageProfilingHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the number of profiled hosts for each hour for a given organization.
-*/
+ */
 export class UsageProfilingResponse {
   /**
    * Get hourly usage for profiled hosts.
-  */
+   */
   "usage"?: Array<UsageProfilingHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageProfilingResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageProfilingHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageProfilingHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageProfilingResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { RelationshipToRuleData } from "./RelationshipToRuleData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Scorecard create rule response relationship.
-*/
+ */
 export class RelationshipToRule {
   /**
    * Relationship data for a rule.
-  */
+   */
   "scorecard"?: RelationshipToRuleData;
 
   /**
@@ -37,48 +32,22 @@ export class RelationshipToRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "scorecard": {
-      "baseName": "scorecard",
-      "type": "RelationshipToRuleData",
+    scorecard: {
+      baseName: "scorecard",
+      type: "RelationshipToRuleData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToRule.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

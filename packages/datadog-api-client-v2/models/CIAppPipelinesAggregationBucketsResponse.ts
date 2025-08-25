@@ -5,20 +5,15 @@
  */
 import { CIAppPipelinesBucketResponse } from "./CIAppPipelinesBucketResponse";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The query results.
-*/
+ */
 export class CIAppPipelinesAggregationBucketsResponse {
   /**
    * The list of matching buckets, one item per bucket.
-  */
+   */
   "buckets"?: Array<CIAppPipelinesBucketResponse>;
 
   /**
@@ -37,48 +32,22 @@ export class CIAppPipelinesAggregationBucketsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "buckets": {
-      "baseName": "buckets",
-      "type": "Array<CIAppPipelinesBucketResponse>",
+    buckets: {
+      baseName: "buckets",
+      type: "Array<CIAppPipelinesBucketResponse>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppPipelinesAggregationBucketsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

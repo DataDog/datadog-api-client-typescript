@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The deletion request type.
-*/
+ */
 
-export type CreateDataDeletionRequestBodyDataType = typeof CREATE_DELETION_REQ | UnparsedObject;
-export const CREATE_DELETION_REQ = 'create_deletion_req';
+export type CreateDataDeletionRequestBodyDataType =
+  | typeof CREATE_DELETION_REQ
+  | UnparsedObject;
+export const CREATE_DELETION_REQ = "create_deletion_req";

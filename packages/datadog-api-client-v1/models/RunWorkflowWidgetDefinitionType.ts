@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the run workflow widget.
-*/
+ */
 
-export type RunWorkflowWidgetDefinitionType = typeof RUN_WORKFLOW | UnparsedObject;
-export const RUN_WORKFLOW = 'run_workflow';
+export type RunWorkflowWidgetDefinitionType =
+  | typeof RUN_WORKFLOW
+  | UnparsedObject;
+export const RUN_WORKFLOW = "run_workflow";

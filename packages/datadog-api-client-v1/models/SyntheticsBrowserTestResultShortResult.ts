@@ -5,36 +5,31 @@
  */
 import { SyntheticsDevice } from "./SyntheticsDevice";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object with the result of the last browser test run.
-*/
+ */
 export class SyntheticsBrowserTestResultShortResult {
   /**
    * Object describing the device used to perform the Synthetic test.
-  */
+   */
   "device"?: SyntheticsDevice;
   /**
    * Length in milliseconds of the browser test run.
-  */
+   */
   "duration"?: number;
   /**
    * Amount of errors collected for a single browser test run.
-  */
+   */
   "errorCount"?: number;
   /**
    * Amount of browser test steps completed before failing.
-  */
+   */
   "stepCountCompleted"?: number;
   /**
    * Total amount of browser test steps.
-  */
+   */
   "stepCountTotal"?: number;
 
   /**
@@ -53,68 +48,42 @@ export class SyntheticsBrowserTestResultShortResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "device": {
-      "baseName": "device",
-      "type": "SyntheticsDevice",
+    device: {
+      baseName: "device",
+      type: "SyntheticsDevice",
     },
-    "duration": {
-      "baseName": "duration",
-      "type": "number",
-      "format": "double",
+    duration: {
+      baseName: "duration",
+      type: "number",
+      format: "double",
     },
-    "errorCount": {
-      "baseName": "errorCount",
-      "type": "number",
-      "format": "int64",
+    errorCount: {
+      baseName: "errorCount",
+      type: "number",
+      format: "int64",
     },
-    "stepCountCompleted": {
-      "baseName": "stepCountCompleted",
-      "type": "number",
-      "format": "int64",
+    stepCountCompleted: {
+      baseName: "stepCountCompleted",
+      type: "number",
+      format: "int64",
     },
-    "stepCountTotal": {
-      "baseName": "stepCountTotal",
-      "type": "number",
-      "format": "int64",
+    stepCountTotal: {
+      baseName: "stepCountTotal",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsBrowserTestResultShortResult.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

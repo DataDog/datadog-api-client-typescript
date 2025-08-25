@@ -6,28 +6,23 @@
 import { MetricAssetAttributes } from "./MetricAssetAttributes";
 import { MetricSLOType } from "./MetricSLOType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A SLO object with title.
-*/
+ */
 export class MetricSLOAsset {
   /**
    * Assets related to the object, including title, url, and tags.
-  */
+   */
   "attributes"?: MetricAssetAttributes;
   /**
    * The SLO ID.
-  */
+   */
   "id": string;
   /**
    * SLO resource type.
-  */
+   */
   "type": MetricSLOType;
 
   /**
@@ -46,58 +41,32 @@ export class MetricSLOAsset {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "MetricAssetAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "MetricAssetAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "MetricSLOType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "MetricSLOType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricSLOAsset.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

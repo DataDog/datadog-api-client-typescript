@@ -5,24 +5,19 @@
  */
 import { OpenAIAPIKeyType } from "./OpenAIAPIKeyType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `OpenAIAPIKey` object.
-*/
+ */
 export class OpenAIAPIKey {
   /**
    * The `OpenAIAPIKey` `api_token`.
-  */
+   */
   "apiToken": string;
   /**
    * The definition of the `OpenAIAPIKey` object.
-  */
+   */
   "type": OpenAIAPIKeyType;
 
   /**
@@ -41,54 +36,28 @@ export class OpenAIAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiToken": {
-      "baseName": "api_token",
-      "type": "string",
-      "required": true,
+    apiToken: {
+      baseName: "api_token",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "OpenAIAPIKeyType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "OpenAIAPIKeyType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OpenAIAPIKey.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

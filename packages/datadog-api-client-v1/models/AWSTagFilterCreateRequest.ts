@@ -5,28 +5,23 @@
  */
 import { AWSNamespace } from "./AWSNamespace";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The objects used to set an AWS tag filter.
-*/
+ */
 export class AWSTagFilterCreateRequest {
   /**
    * Your AWS Account ID without dashes.
-  */
+   */
   "accountId"?: string;
   /**
    * The namespace associated with the tag filter entry.
-  */
+   */
   "namespace"?: AWSNamespace;
   /**
    * The tag filter string.
-  */
+   */
   "tagFilterStr"?: string;
 
   /**
@@ -45,56 +40,30 @@ export class AWSTagFilterCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accountId": {
-      "baseName": "account_id",
-      "type": "string",
+    accountId: {
+      baseName: "account_id",
+      type: "string",
     },
-    "namespace": {
-      "baseName": "namespace",
-      "type": "AWSNamespace",
+    namespace: {
+      baseName: "namespace",
+      type: "AWSNamespace",
     },
-    "tagFilterStr": {
-      "baseName": "tag_filter_str",
-      "type": "string",
+    tagFilterStr: {
+      baseName: "tag_filter_str",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSTagFilterCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

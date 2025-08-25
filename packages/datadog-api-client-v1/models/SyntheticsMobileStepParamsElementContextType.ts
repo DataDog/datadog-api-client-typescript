@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the context that the element is in.
-*/
+ */
 
-export type SyntheticsMobileStepParamsElementContextType = typeof NATIVE| typeof WEB | UnparsedObject;
-export const NATIVE = 'native';
-export const WEB = 'web';
+export type SyntheticsMobileStepParamsElementContextType =
+  | typeof NATIVE
+  | typeof WEB
+  | UnparsedObject;
+export const NATIVE = "native";
+export const WEB = "web";

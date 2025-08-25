@@ -5,20 +5,15 @@
  */
 import { ObservabilityPipelineSocketSourceFramingOctetCountingMethod } from "./ObservabilityPipelineSocketSourceFramingOctetCountingMethod";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Byte frames according to the octet counting format as per RFC6587.
-*/
+ */
 export class ObservabilityPipelineSocketSourceFramingOctetCounting {
   /**
    * Byte frames according to the octet counting format as per RFC6587.
-  */
+   */
   "method": ObservabilityPipelineSocketSourceFramingOctetCountingMethod;
 
   /**
@@ -37,49 +32,23 @@ export class ObservabilityPipelineSocketSourceFramingOctetCounting {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "method": {
-      "baseName": "method",
-      "type": "ObservabilityPipelineSocketSourceFramingOctetCountingMethod",
-      "required": true,
+    method: {
+      baseName: "method",
+      type: "ObservabilityPipelineSocketSourceFramingOctetCountingMethod",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSocketSourceFramingOctetCounting.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

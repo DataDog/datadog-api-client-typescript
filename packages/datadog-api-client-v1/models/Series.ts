@@ -3,44 +3,37 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Point } from "./Point";
-import { PointItem } from "./PointItem";
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A metric to submit to Datadog.
  * See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
-*/
+ */
 export class Series {
   /**
    * The name of the host that produced the metric.
-  */
+   */
   "host"?: string;
   /**
    * If the type of the metric is rate or count, define the corresponding interval in seconds.
-  */
+   */
   "interval"?: number;
   /**
    * The name of the timeseries.
-  */
+   */
   "metric": string;
   /**
    * Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
-  */
+   */
   "points": Array<[number, number]>;
   /**
    * A list of tags associated with the metric.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * The type of the metric. Valid types are "",`count`, `gauge`, and `rate`.
-  */
+   */
   "type"?: string;
 
   /**
@@ -59,72 +52,46 @@ export class Series {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "host": {
-      "baseName": "host",
-      "type": "string",
+    host: {
+      baseName: "host",
+      type: "string",
     },
-    "interval": {
-      "baseName": "interval",
-      "type": "number",
-      "format": "int64",
+    interval: {
+      baseName: "interval",
+      type: "number",
+      format: "int64",
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
-      "required": true,
+    metric: {
+      baseName: "metric",
+      type: "string",
+      required: true,
     },
-    "points": {
-      "baseName": "points",
-      "type": "Array<[number, number]>",
-      "required": true,
-      "format": "double",
+    points: {
+      baseName: "points",
+      type: "Array<[number, number]>",
+      required: true,
+      format: "double",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return Series.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

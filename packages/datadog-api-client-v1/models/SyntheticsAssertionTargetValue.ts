@@ -4,15 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Value used by the operator in assertions. Can be either a number or string.
-*/
+ */
 
 export type SyntheticsAssertionTargetValue = number | string | UnparsedObject;

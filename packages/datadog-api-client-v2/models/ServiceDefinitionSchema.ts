@@ -8,15 +8,15 @@ import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
 import { ServiceDefinitionV2Dot1 } from "./ServiceDefinitionV2Dot1";
 import { ServiceDefinitionV2Dot2 } from "./ServiceDefinitionV2Dot2";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Service definition schema.
-*/
+ */
 
-export type ServiceDefinitionSchema = ServiceDefinitionV1 | ServiceDefinitionV2 | ServiceDefinitionV2Dot1 | ServiceDefinitionV2Dot2 | UnparsedObject;
+export type ServiceDefinitionSchema =
+  | ServiceDefinitionV1
+  | ServiceDefinitionV2
+  | ServiceDefinitionV2Dot1
+  | ServiceDefinitionV2Dot2
+  | UnparsedObject;

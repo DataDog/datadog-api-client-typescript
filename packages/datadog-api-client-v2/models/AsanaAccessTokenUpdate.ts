@@ -5,24 +5,19 @@
  */
 import { AsanaAccessTokenType } from "./AsanaAccessTokenType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `AsanaAccessToken` object.
-*/
+ */
 export class AsanaAccessTokenUpdate {
   /**
    * The `AsanaAccessTokenUpdate` `access_token`.
-  */
+   */
   "accessToken"?: string;
   /**
    * The definition of the `AsanaAccessToken` object.
-  */
+   */
   "type": AsanaAccessTokenType;
 
   /**
@@ -41,53 +36,27 @@ export class AsanaAccessTokenUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accessToken": {
-      "baseName": "access_token",
-      "type": "string",
+    accessToken: {
+      baseName: "access_token",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AsanaAccessTokenType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AsanaAccessTokenType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AsanaAccessTokenUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

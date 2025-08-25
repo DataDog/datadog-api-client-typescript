@@ -5,15 +5,10 @@
  */
 import { NotionAPIKey } from "./NotionAPIKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `NotionCredentials` object.
-*/
+ */
 
 export type NotionCredentials = NotionAPIKey | UnparsedObject;

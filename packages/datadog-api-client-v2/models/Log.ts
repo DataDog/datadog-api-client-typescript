@@ -6,28 +6,23 @@
 import { LogAttributes } from "./LogAttributes";
 import { LogType } from "./LogType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object description of a log after being processed and stored by Datadog.
-*/
+ */
 export class Log {
   /**
    * JSON object containing all log attributes and their associated values.
-  */
+   */
   "attributes"?: LogAttributes;
   /**
    * Unique ID of the Log.
-  */
+   */
   "id"?: string;
   /**
    * Type of the event.
-  */
+   */
   "type"?: LogType;
 
   /**
@@ -46,56 +41,30 @@ export class Log {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "LogAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "LogAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "LogType",
+    type: {
+      baseName: "type",
+      type: "LogType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return Log.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

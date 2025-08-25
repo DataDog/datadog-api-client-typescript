@@ -6,24 +6,19 @@
 import { ServiceNowCredentials } from "./ServiceNowCredentials";
 import { ServiceNowIntegrationType } from "./ServiceNowIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `ServiceNowIntegration` object.
-*/
+ */
 export class ServiceNowIntegration {
   /**
    * The definition of the `ServiceNowCredentials` object.
-  */
+   */
   "credentials": ServiceNowCredentials;
   /**
    * The definition of the `ServiceNowIntegrationType` object.
-  */
+   */
   "type": ServiceNowIntegrationType;
 
   /**
@@ -42,54 +37,28 @@ export class ServiceNowIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "ServiceNowCredentials",
-      "required": true,
+    credentials: {
+      baseName: "credentials",
+      type: "ServiceNowCredentials",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ServiceNowIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ServiceNowIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceNowIntegration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

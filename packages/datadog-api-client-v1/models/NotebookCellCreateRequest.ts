@@ -6,25 +6,20 @@
 import { NotebookCellCreateRequestAttributes } from "./NotebookCellCreateRequestAttributes";
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The description of a notebook cell create request.
-*/
+ */
 export class NotebookCellCreateRequest {
   /**
    * The attributes of a notebook cell in create cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
    * `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
-  */
+   */
   "attributes": NotebookCellCreateRequestAttributes;
   /**
    * Type of the Notebook Cell resource.
-  */
+   */
   "type": NotebookCellResourceType;
 
   /**
@@ -36,50 +31,24 @@ export class NotebookCellCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "NotebookCellCreateRequestAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "NotebookCellCreateRequestAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "NotebookCellResourceType",
-      "required": true,
-    }
+    type: {
+      baseName: "type",
+      type: "NotebookCellResourceType",
+      required: true,
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookCellCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

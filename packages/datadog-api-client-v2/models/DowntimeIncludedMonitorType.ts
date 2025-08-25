@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Monitor resource type.
-*/
+ */
 
 export type DowntimeIncludedMonitorType = typeof MONITORS | UnparsedObject;
-export const MONITORS = 'monitors';
+export const MONITORS = "monitors";

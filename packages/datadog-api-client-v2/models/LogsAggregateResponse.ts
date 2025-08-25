@@ -6,24 +6,19 @@
 import { LogsAggregateResponseData } from "./LogsAggregateResponseData";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response object for the logs aggregate API endpoint
-*/
+ */
 export class LogsAggregateResponse {
   /**
    * The query results
-  */
+   */
   "data"?: LogsAggregateResponseData;
   /**
    * The metadata associated with a request
-  */
+   */
   "meta"?: LogsResponseMetadata;
 
   /**
@@ -42,52 +37,26 @@ export class LogsAggregateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "LogsAggregateResponseData",
+    data: {
+      baseName: "data",
+      type: "LogsAggregateResponseData",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "LogsResponseMetadata",
+    meta: {
+      baseName: "meta",
+      type: "LogsResponseMetadata",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsAggregateResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

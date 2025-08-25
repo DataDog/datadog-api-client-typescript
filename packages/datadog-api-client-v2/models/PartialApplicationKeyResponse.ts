@@ -6,24 +6,19 @@
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for retrieving a partial application key.
-*/
+ */
 export class PartialApplicationKeyResponse {
   /**
    * Partial Datadog application key.
-  */
+   */
   "data"?: PartialApplicationKey;
   /**
    * Array of objects related to the application key.
-  */
+   */
   "included"?: Array<ApplicationKeyResponseIncludedItem>;
 
   /**
@@ -42,52 +37,26 @@ export class PartialApplicationKeyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "PartialApplicationKey",
+    data: {
+      baseName: "data",
+      type: "PartialApplicationKey",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<ApplicationKeyResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<ApplicationKeyResponseIncludedItem>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PartialApplicationKeyResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

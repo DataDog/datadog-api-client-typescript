@@ -6,28 +6,23 @@
 import { FormulaType } from "./FormulaType";
 import { WidgetSort } from "./WidgetSort";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The formula to sort the widget by.
-*/
+ */
 export class WidgetFormulaSort {
   /**
    * The index of the formula to sort by.
-  */
+   */
   "index": number;
   /**
    * Widget sorting methods.
-  */
+   */
   "order": WidgetSort;
   /**
    * Set the sort type to formula.
-  */
+   */
   "type": FormulaType;
 
   /**
@@ -46,60 +41,34 @@ export class WidgetFormulaSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "index": {
-      "baseName": "index",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    index: {
+      baseName: "index",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "order": {
-      "baseName": "order",
-      "type": "WidgetSort",
-      "required": true,
+    order: {
+      baseName: "order",
+      type: "WidgetSort",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "FormulaType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "FormulaType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetFormulaSort.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

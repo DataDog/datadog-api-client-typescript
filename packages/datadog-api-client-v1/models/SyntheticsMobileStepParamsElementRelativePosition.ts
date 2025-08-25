@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Position of the action relative to the element.
-*/
+ */
 export class SyntheticsMobileStepParamsElementRelativePosition {
   /**
    * The `relativePosition` on the `x` axis for the element.
-  */
+   */
   "x"?: number;
   /**
    * The `relativePosition` on the `y` axis for the element.
-  */
+   */
   "y"?: number;
 
   /**
@@ -40,54 +35,28 @@ export class SyntheticsMobileStepParamsElementRelativePosition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "x": {
-      "baseName": "x",
-      "type": "number",
-      "format": "double",
+    x: {
+      baseName: "x",
+      type: "number",
+      format: "double",
     },
-    "y": {
-      "baseName": "y",
-      "type": "number",
-      "format": "double",
+    y: {
+      baseName: "y",
+      type: "number",
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsMobileStepParamsElementRelativePosition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

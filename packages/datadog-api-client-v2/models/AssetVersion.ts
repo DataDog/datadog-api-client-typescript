@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Asset version.
-*/
+ */
 export class AssetVersion {
   /**
    * Asset first version.
-  */
+   */
   "first"?: string;
   /**
    * Asset last version.
-  */
+   */
   "last"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class AssetVersion {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "first": {
-      "baseName": "first",
-      "type": "string",
+    first: {
+      baseName: "first",
+      type: "string",
     },
-    "last": {
-      "baseName": "last",
-      "type": "string",
+    last: {
+      baseName: "last",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AssetVersion.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

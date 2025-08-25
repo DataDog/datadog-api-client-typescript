@@ -5,20 +5,15 @@
  */
 import { CsmHostsAndContainersCoverageAnalysisData } from "./CsmHostsAndContainersCoverageAnalysisData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * CSM Hosts and Containers Coverage Analysis response.
-*/
+ */
 export class CsmHostsAndContainersCoverageAnalysisResponse {
   /**
    * CSM Hosts and Containers Coverage Analysis data.
-  */
+   */
   "data"?: CsmHostsAndContainersCoverageAnalysisData;
 
   /**
@@ -37,48 +32,22 @@ export class CsmHostsAndContainersCoverageAnalysisResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CsmHostsAndContainersCoverageAnalysisData",
+    data: {
+      baseName: "data",
+      type: "CsmHostsAndContainersCoverageAnalysisData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CsmHostsAndContainersCoverageAnalysisResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -6,28 +6,23 @@
 import { RUMApplicationListAttributes } from "./RUMApplicationListAttributes";
 import { RUMApplicationListType } from "./RUMApplicationListType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * RUM application list.
-*/
+ */
 export class RUMApplicationList {
   /**
    * RUM application list attributes.
-  */
+   */
   "attributes": RUMApplicationListAttributes;
   /**
    * RUM application ID.
-  */
+   */
   "id"?: string;
   /**
    * RUM application list type.
-  */
+   */
   "type": RUMApplicationListType;
 
   /**
@@ -46,58 +41,32 @@ export class RUMApplicationList {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "RUMApplicationListAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "RUMApplicationListAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "RUMApplicationListType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "RUMApplicationListType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RUMApplicationList.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

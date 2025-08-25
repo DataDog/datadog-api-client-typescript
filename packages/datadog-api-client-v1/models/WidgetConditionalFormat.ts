@@ -6,52 +6,47 @@
 import { WidgetComparator } from "./WidgetComparator";
 import { WidgetPalette } from "./WidgetPalette";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Define a conditional format for the widget.
-*/
+ */
 export class WidgetConditionalFormat {
   /**
    * Comparator to apply.
-  */
+   */
   "comparator": WidgetComparator;
   /**
    * Color palette to apply to the background, same values available as palette.
-  */
+   */
   "customBgColor"?: string;
   /**
    * Color palette to apply to the foreground, same values available as palette.
-  */
+   */
   "customFgColor"?: string;
   /**
    * True hides values.
-  */
+   */
   "hideValue"?: boolean;
   /**
    * Displays an image as the background.
-  */
+   */
   "imageUrl"?: string;
   /**
    * Metric from the request to correlate this conditional format with.
-  */
+   */
   "metric"?: string;
   /**
    * Color palette to apply.
-  */
+   */
   "palette": WidgetPalette;
   /**
    * Defines the displayed timeframe.
-  */
+   */
   "timeframe"?: string;
   /**
    * Value for the comparator.
-  */
+   */
   "value": number;
 
   /**
@@ -70,84 +65,58 @@ export class WidgetConditionalFormat {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "comparator": {
-      "baseName": "comparator",
-      "type": "WidgetComparator",
-      "required": true,
+    comparator: {
+      baseName: "comparator",
+      type: "WidgetComparator",
+      required: true,
     },
-    "customBgColor": {
-      "baseName": "custom_bg_color",
-      "type": "string",
+    customBgColor: {
+      baseName: "custom_bg_color",
+      type: "string",
     },
-    "customFgColor": {
-      "baseName": "custom_fg_color",
-      "type": "string",
+    customFgColor: {
+      baseName: "custom_fg_color",
+      type: "string",
     },
-    "hideValue": {
-      "baseName": "hide_value",
-      "type": "boolean",
+    hideValue: {
+      baseName: "hide_value",
+      type: "boolean",
     },
-    "imageUrl": {
-      "baseName": "image_url",
-      "type": "string",
+    imageUrl: {
+      baseName: "image_url",
+      type: "string",
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
+    metric: {
+      baseName: "metric",
+      type: "string",
     },
-    "palette": {
-      "baseName": "palette",
-      "type": "WidgetPalette",
-      "required": true,
+    palette: {
+      baseName: "palette",
+      type: "WidgetPalette",
+      required: true,
     },
-    "timeframe": {
-      "baseName": "timeframe",
-      "type": "string",
+    timeframe: {
+      baseName: "timeframe",
+      type: "string",
     },
-    "value": {
-      "baseName": "value",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    value: {
+      baseName: "value",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetConditionalFormat.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

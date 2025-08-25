@@ -5,24 +5,19 @@
  */
 import { TimeRestriction } from "./TimeRestriction";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Holds time zone information and a list of time restrictions for a routing rule.
-*/
+ */
 export class TimeRestrictions {
   /**
    * Defines the list of time-based restrictions.
-  */
+   */
   "restrictions": Array<TimeRestriction>;
   /**
    * Specifies the time zone applicable to the restrictions.
-  */
+   */
   "timeZone": string;
 
   /**
@@ -41,54 +36,28 @@ export class TimeRestrictions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "restrictions": {
-      "baseName": "restrictions",
-      "type": "Array<TimeRestriction>",
-      "required": true,
+    restrictions: {
+      baseName: "restrictions",
+      type: "Array<TimeRestriction>",
+      required: true,
     },
-    "timeZone": {
-      "baseName": "time_zone",
-      "type": "string",
-      "required": true,
+    timeZone: {
+      baseName: "time_zone",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TimeRestrictions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

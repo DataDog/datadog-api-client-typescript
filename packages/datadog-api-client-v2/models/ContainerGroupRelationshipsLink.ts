@@ -3,27 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ContainerGroupRelationshipsDataItem } from "./ContainerGroupRelationshipsDataItem";
 import { ContainerGroupRelationshipsLinks } from "./ContainerGroupRelationshipsLinks";
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Relationships to Containers inside a Container Group.
-*/
+ */
 export class ContainerGroupRelationshipsLink {
   /**
    * Links data.
-  */
+   */
   "data"?: Array<string>;
   /**
    * Links attributes.
-  */
+   */
   "links"?: ContainerGroupRelationshipsLinks;
 
   /**
@@ -42,52 +36,26 @@ export class ContainerGroupRelationshipsLink {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<string>",
+    data: {
+      baseName: "data",
+      type: "Array<string>",
     },
-    "links": {
-      "baseName": "links",
-      "type": "ContainerGroupRelationshipsLinks",
+    links: {
+      baseName: "links",
+      type: "ContainerGroupRelationshipsLinks",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerGroupRelationshipsLink.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

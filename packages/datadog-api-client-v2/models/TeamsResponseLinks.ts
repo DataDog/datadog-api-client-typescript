@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Teams response links.
-*/
+ */
 export class TeamsResponseLinks {
   /**
    * First link.
-  */
+   */
   "first"?: string;
   /**
    * Last link.
-  */
+   */
   "last"?: string;
   /**
    * Next link.
-  */
+   */
   "next"?: string;
   /**
    * Previous link.
-  */
+   */
   "prev"?: string;
   /**
    * Current link.
-  */
+   */
   "self"?: string;
 
   /**
@@ -52,64 +47,38 @@ export class TeamsResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "first": {
-      "baseName": "first",
-      "type": "string",
+    first: {
+      baseName: "first",
+      type: "string",
     },
-    "last": {
-      "baseName": "last",
-      "type": "string",
+    last: {
+      baseName: "last",
+      type: "string",
     },
-    "next": {
-      "baseName": "next",
-      "type": "string",
+    next: {
+      baseName: "next",
+      type: "string",
     },
-    "prev": {
-      "baseName": "prev",
-      "type": "string",
+    prev: {
+      baseName: "prev",
+      type: "string",
     },
-    "self": {
-      "baseName": "self",
-      "type": "string",
+    self: {
+      baseName: "self",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamsResponseLinks.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

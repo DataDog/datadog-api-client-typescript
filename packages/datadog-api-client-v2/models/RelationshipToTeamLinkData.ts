@@ -5,24 +5,19 @@
  */
 import { TeamLinkType } from "./TeamLinkType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationship between a link and a team
-*/
+ */
 export class RelationshipToTeamLinkData {
   /**
    * The team link's identifier
-  */
+   */
   "id": string;
   /**
    * Team link type
-  */
+   */
   "type": TeamLinkType;
 
   /**
@@ -41,54 +36,28 @@ export class RelationshipToTeamLinkData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "TeamLinkType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "TeamLinkType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToTeamLinkData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

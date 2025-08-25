@@ -5,20 +5,15 @@
  */
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident integration metadata for the Jira integration.
-*/
+ */
 export class JiraIntegrationMetadata {
   /**
    * Array of Jira issues in this integration metadata.
-  */
+   */
   "issues": Array<JiraIntegrationMetadataIssuesItem>;
 
   /**
@@ -37,49 +32,23 @@ export class JiraIntegrationMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "issues": {
-      "baseName": "issues",
-      "type": "Array<JiraIntegrationMetadataIssuesItem>",
-      "required": true,
+    issues: {
+      baseName: "issues",
+      type: "Array<JiraIntegrationMetadataIssuesItem>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return JiraIntegrationMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

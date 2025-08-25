@@ -6,15 +6,13 @@
 import { Metric } from "./Metric";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Object for a metrics and metric tag configurations.
-*/
+ */
 
-export type MetricsAndMetricTagConfigurations = Metric | MetricTagConfiguration | UnparsedObject;
+export type MetricsAndMetricTagConfigurations =
+  | Metric
+  | MetricTagConfiguration
+  | UnparsedObject;

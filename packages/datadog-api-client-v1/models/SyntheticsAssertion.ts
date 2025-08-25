@@ -10,16 +10,18 @@ import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSc
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Object describing the assertions type, their associated operator,
  * which property they apply, and upon which target.
-*/
+ */
 
-export type SyntheticsAssertion = SyntheticsAssertionTarget | SyntheticsAssertionBodyHashTarget | SyntheticsAssertionJSONPathTarget | SyntheticsAssertionJSONSchemaTarget | SyntheticsAssertionXPathTarget | SyntheticsAssertionJavascript | UnparsedObject;
+export type SyntheticsAssertion =
+  | SyntheticsAssertionTarget
+  | SyntheticsAssertionBodyHashTarget
+  | SyntheticsAssertionJSONPathTarget
+  | SyntheticsAssertionJSONSchemaTarget
+  | SyntheticsAssertionXPathTarget
+  | SyntheticsAssertionJavascript
+  | UnparsedObject;

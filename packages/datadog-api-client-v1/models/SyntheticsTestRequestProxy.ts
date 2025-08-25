@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The proxy to perform the test.
-*/
+ */
 export class SyntheticsTestRequestProxy {
   /**
    * Headers to include when performing the test.
-  */
-  "headers"?: { [key: string]: string; };
+   */
+  "headers"?: { [key: string]: string };
   /**
    * URL of the proxy to perform the test.
-  */
+   */
   "url": string;
 
   /**
@@ -40,53 +35,27 @@ export class SyntheticsTestRequestProxy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "headers": {
-      "baseName": "headers",
-      "type": "{ [key: string]: string; }",
+    headers: {
+      baseName: "headers",
+      type: "{ [key: string]: string; }",
     },
-    "url": {
-      "baseName": "url",
-      "type": "string",
-      "required": true,
+    url: {
+      baseName: "url",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsTestRequestProxy.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

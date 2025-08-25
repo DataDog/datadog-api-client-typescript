@@ -5,28 +5,23 @@
  */
 import { SendSlackMessageActionType } from "./SendSlackMessageActionType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Sends a message to a Slack channel.
-*/
+ */
 export class SendSlackMessageAction {
   /**
    * The channel ID.
-  */
+   */
   "channel": string;
   /**
    * Indicates that the action is a send Slack message action.
-  */
+   */
   "type": SendSlackMessageActionType;
   /**
    * The workspace ID.
-  */
+   */
   "workspace": string;
 
   /**
@@ -45,59 +40,33 @@ export class SendSlackMessageAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "channel": {
-      "baseName": "channel",
-      "type": "string",
-      "required": true,
+    channel: {
+      baseName: "channel",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "SendSlackMessageActionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "SendSlackMessageActionType",
+      required: true,
     },
-    "workspace": {
-      "baseName": "workspace",
-      "type": "string",
-      "required": true,
+    workspace: {
+      baseName: "workspace",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SendSlackMessageAction.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

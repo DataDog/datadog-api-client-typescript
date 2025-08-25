@@ -6,28 +6,23 @@
 import { AwsScanOptionsCreateAttributes } from "./AwsScanOptionsCreateAttributes";
 import { AwsScanOptionsType } from "./AwsScanOptionsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object for the scan options of a single AWS account.
-*/
+ */
 export class AwsScanOptionsCreateData {
   /**
    * Attributes for the AWS scan options to create.
-  */
+   */
   "attributes": AwsScanOptionsCreateAttributes;
   /**
    * The ID of the AWS account.
-  */
+   */
   "id": string;
   /**
    * The type of the resource. The value should always be `aws_scan_options`.
-  */
+   */
   "type": AwsScanOptionsType;
 
   /**
@@ -46,59 +41,33 @@ export class AwsScanOptionsCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AwsScanOptionsCreateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "AwsScanOptionsCreateAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "AwsScanOptionsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AwsScanOptionsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AwsScanOptionsCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

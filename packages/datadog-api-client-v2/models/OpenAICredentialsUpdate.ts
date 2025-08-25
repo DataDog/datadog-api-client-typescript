@@ -5,15 +5,10 @@
  */
 import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `OpenAICredentialsUpdate` object.
-*/
+ */
 
 export type OpenAICredentialsUpdate = OpenAIAPIKeyUpdate | UnparsedObject;

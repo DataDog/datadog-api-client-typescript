@@ -6,24 +6,19 @@
 import { GCPUsageCostConfigPatchRequestAttributes } from "./GCPUsageCostConfigPatchRequestAttributes";
 import { GCPUsageCostConfigPatchRequestType } from "./GCPUsageCostConfigPatchRequestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * GCP Usage Cost config patch data.
-*/
+ */
 export class GCPUsageCostConfigPatchData {
   /**
    * Attributes for GCP Usage Cost config patch request.
-  */
+   */
   "attributes": GCPUsageCostConfigPatchRequestAttributes;
   /**
    * Type of GCP Usage Cost config patch request.
-  */
+   */
   "type": GCPUsageCostConfigPatchRequestType;
 
   /**
@@ -42,54 +37,28 @@ export class GCPUsageCostConfigPatchData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "GCPUsageCostConfigPatchRequestAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "GCPUsageCostConfigPatchRequestAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "GCPUsageCostConfigPatchRequestType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "GCPUsageCostConfigPatchRequestType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GCPUsageCostConfigPatchData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

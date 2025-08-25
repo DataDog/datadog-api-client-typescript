@@ -8,32 +8,27 @@ import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
 import { RelationshipToRoles } from "./RelationshipToRoles";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationships of the user object returned by the API.
-*/
+ */
 export class UserResponseRelationships {
   /**
    * Relationship to an organization.
-  */
+   */
   "org"?: RelationshipToOrganization;
   /**
    * Relationship to organizations.
-  */
+   */
   "otherOrgs"?: RelationshipToOrganizations;
   /**
    * Relationship to users.
-  */
+   */
   "otherUsers"?: RelationshipToUsers;
   /**
    * Relationship to roles.
-  */
+   */
   "roles"?: RelationshipToRoles;
 
   /**
@@ -52,60 +47,34 @@ export class UserResponseRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "org": {
-      "baseName": "org",
-      "type": "RelationshipToOrganization",
+    org: {
+      baseName: "org",
+      type: "RelationshipToOrganization",
     },
-    "otherOrgs": {
-      "baseName": "other_orgs",
-      "type": "RelationshipToOrganizations",
+    otherOrgs: {
+      baseName: "other_orgs",
+      type: "RelationshipToOrganizations",
     },
-    "otherUsers": {
-      "baseName": "other_users",
-      "type": "RelationshipToUsers",
+    otherUsers: {
+      baseName: "other_users",
+      type: "RelationshipToUsers",
     },
-    "roles": {
-      "baseName": "roles",
-      "type": "RelationshipToRoles",
+    roles: {
+      baseName: "roles",
+      type: "RelationshipToRoles",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UserResponseRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

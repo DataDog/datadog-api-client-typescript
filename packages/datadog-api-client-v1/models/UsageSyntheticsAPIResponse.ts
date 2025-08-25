@@ -5,20 +5,15 @@
  */
 import { UsageSyntheticsAPIHour } from "./UsageSyntheticsAPIHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the number of Synthetics API tests run for each hour for a given organization.
-*/
+ */
 export class UsageSyntheticsAPIResponse {
   /**
    * Get hourly usage for Synthetics API tests.
-  */
+   */
   "usage"?: Array<UsageSyntheticsAPIHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageSyntheticsAPIResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageSyntheticsAPIHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageSyntheticsAPIHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageSyntheticsAPIResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

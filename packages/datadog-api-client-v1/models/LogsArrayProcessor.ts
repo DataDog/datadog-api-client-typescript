@@ -6,12 +6,7 @@
 import { LogsArrayProcessorOperation } from "./LogsArrayProcessorOperation";
 import { LogsArrayProcessorType } from "./LogsArrayProcessorType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A processor for extracting, aggregating, or transforming values from JSON arrays within your logs.
@@ -19,23 +14,23 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * - Select value from matching element
  * - Compute array length
  * - Append a value to an array
-*/
+ */
 export class LogsArrayProcessor {
   /**
    * Whether or not the processor is enabled.
-  */
+   */
   "isEnabled"?: boolean;
   /**
    * Name of the processor.
-  */
+   */
   "name"?: string;
   /**
    * Configuration of the array processor operation to perform.
-  */
+   */
   "operation": LogsArrayProcessorOperation;
   /**
    * Type of logs array processor.
-  */
+   */
   "type": LogsArrayProcessorType;
 
   /**
@@ -54,62 +49,36 @@ export class LogsArrayProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "isEnabled": {
-      "baseName": "is_enabled",
-      "type": "boolean",
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "operation": {
-      "baseName": "operation",
-      "type": "LogsArrayProcessorOperation",
-      "required": true,
+    operation: {
+      baseName: "operation",
+      type: "LogsArrayProcessorOperation",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "LogsArrayProcessorType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "LogsArrayProcessorType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArrayProcessor.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

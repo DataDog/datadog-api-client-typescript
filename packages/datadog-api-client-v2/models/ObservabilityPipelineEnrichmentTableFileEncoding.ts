@@ -5,28 +5,23 @@
  */
 import { ObservabilityPipelineEnrichmentTableFileEncodingType } from "./ObservabilityPipelineEnrichmentTableFileEncodingType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * File encoding format.
-*/
+ */
 export class ObservabilityPipelineEnrichmentTableFileEncoding {
   /**
    * The `encoding` `delimiter`.
-  */
+   */
   "delimiter": string;
   /**
    * The `encoding` `includes_headers`.
-  */
+   */
   "includesHeaders": boolean;
   /**
    * Specifies the encoding format (e.g., CSV) used for enrichment tables.
-  */
+   */
   "type": ObservabilityPipelineEnrichmentTableFileEncodingType;
 
   /**
@@ -45,59 +40,33 @@ export class ObservabilityPipelineEnrichmentTableFileEncoding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "delimiter": {
-      "baseName": "delimiter",
-      "type": "string",
-      "required": true,
+    delimiter: {
+      baseName: "delimiter",
+      type: "string",
+      required: true,
     },
-    "includesHeaders": {
-      "baseName": "includes_headers",
-      "type": "boolean",
-      "required": true,
+    includesHeaders: {
+      baseName: "includes_headers",
+      type: "boolean",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineEnrichmentTableFileEncodingType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineEnrichmentTableFileEncodingType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineEnrichmentTableFileEncoding.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

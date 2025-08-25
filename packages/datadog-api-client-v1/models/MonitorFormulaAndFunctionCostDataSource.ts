@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Data source for cost queries.
-*/
+ */
 
-export type MonitorFormulaAndFunctionCostDataSource = typeof METRICS| typeof CLOUD_COST| typeof DATADOG_USAGE | UnparsedObject;
-export const METRICS = 'metrics';
-export const CLOUD_COST = 'cloud_cost';
-export const DATADOG_USAGE = 'datadog_usage';
+export type MonitorFormulaAndFunctionCostDataSource =
+  | typeof METRICS
+  | typeof CLOUD_COST
+  | typeof DATADOG_USAGE
+  | UnparsedObject;
+export const METRICS = "metrics";
+export const CLOUD_COST = "cloud_cost";
+export const DATADOG_USAGE = "datadog_usage";

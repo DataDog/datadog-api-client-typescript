@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Byte frames according to the octet counting format as per RFC6587.
-*/
+ */
 
-export type ObservabilityPipelineSocketSourceFramingOctetCountingMethod = typeof OCTET_COUNTING | UnparsedObject;
-export const OCTET_COUNTING = 'octet_counting';
+export type ObservabilityPipelineSocketSourceFramingOctetCountingMethod =
+  | typeof OCTET_COUNTING
+  | UnparsedObject;
+export const OCTET_COUNTING = "octet_counting";

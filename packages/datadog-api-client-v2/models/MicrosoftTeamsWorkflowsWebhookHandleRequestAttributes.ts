@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Workflows Webhook handle attributes.
-*/
+ */
 export class MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes {
   /**
    * Workflows Webhook handle name.
-  */
+   */
   "name": string;
   /**
    * Workflows Webhook URL.
-  */
+   */
   "url": string;
 
   /**
@@ -40,54 +35,28 @@ export class MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "url": {
-      "baseName": "url",
-      "type": "string",
-      "required": true,
+    url: {
+      baseName: "url",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

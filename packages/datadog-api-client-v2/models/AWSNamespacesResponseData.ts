@@ -6,28 +6,23 @@
 import { AWSNamespacesResponseAttributes } from "./AWSNamespacesResponseAttributes";
 import { AWSNamespacesResponseDataType } from "./AWSNamespacesResponseDataType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * AWS Namespaces response data.
-*/
+ */
 export class AWSNamespacesResponseData {
   /**
    * AWS Namespaces response attributes.
-  */
+   */
   "attributes"?: AWSNamespacesResponseAttributes;
   /**
    * The `AWSNamespacesResponseData` `id`.
-  */
+   */
   "id": string;
   /**
    * The `AWSNamespacesResponseData` `type`.
-  */
+   */
   "type": AWSNamespacesResponseDataType;
 
   /**
@@ -46,58 +41,32 @@ export class AWSNamespacesResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AWSNamespacesResponseAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "AWSNamespacesResponseAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "AWSNamespacesResponseDataType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AWSNamespacesResponseDataType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSNamespacesResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,28 +5,23 @@
  */
 import { CsmCloudAccountsCoverageAnalysisAttributes } from "./CsmCloudAccountsCoverageAnalysisAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * CSM Cloud Accounts Coverage Analysis data.
-*/
+ */
 export class CsmCloudAccountsCoverageAnalysisData {
   /**
    * CSM Cloud Accounts Coverage Analysis attributes.
-  */
+   */
   "attributes"?: CsmCloudAccountsCoverageAnalysisAttributes;
   /**
    * The ID of your organization.
-  */
+   */
   "id"?: string;
   /**
    * The type of the resource. The value should always be `get_cloud_accounts_coverage_analysis_response_public_v0`.
-  */
+   */
   "type"?: string;
 
   /**
@@ -45,56 +40,30 @@ export class CsmCloudAccountsCoverageAnalysisData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CsmCloudAccountsCoverageAnalysisAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "CsmCloudAccountsCoverageAnalysisAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CsmCloudAccountsCoverageAnalysisData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

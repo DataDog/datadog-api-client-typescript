@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing page total count.
-*/
+ */
 export class UsageCustomReportsPage {
   /**
    * Total page count.
-  */
+   */
   "totalCount"?: number;
 
   /**
@@ -36,49 +31,23 @@ export class UsageCustomReportsPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "totalCount": {
-      "baseName": "total_count",
-      "type": "number",
-      "format": "int64",
+    totalCount: {
+      baseName: "total_count",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageCustomReportsPage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

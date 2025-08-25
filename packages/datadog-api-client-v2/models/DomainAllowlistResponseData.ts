@@ -6,28 +6,23 @@
 import { DomainAllowlistResponseDataAttributes } from "./DomainAllowlistResponseDataAttributes";
 import { DomainAllowlistType } from "./DomainAllowlistType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The email domain allowlist response for an org.
-*/
+ */
 export class DomainAllowlistResponseData {
   /**
    * The details of the email domain allowlist.
-  */
+   */
   "attributes"?: DomainAllowlistResponseDataAttributes;
   /**
    * The unique identifier of the org.
-  */
+   */
   "id"?: string;
   /**
    * Email domain allowlist allowlist type.
-  */
+   */
   "type": DomainAllowlistType;
 
   /**
@@ -46,57 +41,31 @@ export class DomainAllowlistResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "DomainAllowlistResponseDataAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "DomainAllowlistResponseDataAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "DomainAllowlistType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "DomainAllowlistType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DomainAllowlistResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

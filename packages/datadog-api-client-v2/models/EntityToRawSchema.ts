@@ -5,20 +5,15 @@
  */
 import { RelationshipItem } from "./RelationshipItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Entity to raw schema relationship.
-*/
+ */
 export class EntityToRawSchema {
   /**
    * Relationship entry.
-  */
+   */
   "data"?: RelationshipItem;
 
   /**
@@ -37,48 +32,22 @@ export class EntityToRawSchema {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "RelationshipItem",
+    data: {
+      baseName: "data",
+      type: "RelationshipItem",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityToRawSchema.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

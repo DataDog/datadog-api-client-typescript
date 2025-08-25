@@ -5,20 +5,15 @@
  */
 import { DowntimeCreateRequestData } from "./DowntimeCreateRequestData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request for creating a downtime.
-*/
+ */
 export class DowntimeCreateRequest {
   /**
    * Object to create a downtime.
-  */
+   */
   "data": DowntimeCreateRequestData;
 
   /**
@@ -37,49 +32,23 @@ export class DowntimeCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "DowntimeCreateRequestData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "DowntimeCreateRequestData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DowntimeCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

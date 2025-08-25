@@ -5,28 +5,23 @@
  */
 import { MonitorFormulaAndFunctionEventAggregation } from "./MonitorFormulaAndFunctionEventAggregation";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Compute options.
-*/
+ */
 export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
   /**
    * Aggregation methods for event platform queries.
-  */
+   */
   "aggregation": MonitorFormulaAndFunctionEventAggregation;
   /**
    * A time interval in milliseconds.
-  */
+   */
   "interval"?: number;
   /**
    * Measurable attribute to compute.
-  */
+   */
   "metric"?: string;
 
   /**
@@ -45,58 +40,32 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregation": {
-      "baseName": "aggregation",
-      "type": "MonitorFormulaAndFunctionEventAggregation",
-      "required": true,
+    aggregation: {
+      baseName: "aggregation",
+      type: "MonitorFormulaAndFunctionEventAggregation",
+      required: true,
     },
-    "interval": {
-      "baseName": "interval",
-      "type": "number",
-      "format": "int64",
+    interval: {
+      baseName: "interval",
+      type: "number",
+      format: "int64",
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
+    metric: {
+      baseName: "metric",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorFormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

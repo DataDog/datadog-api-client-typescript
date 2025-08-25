@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Indicates that the action is a send Microsoft Teams message action.
-*/
+ */
 
-export type SendTeamsMessageActionType = typeof SEND_TEAMS_MESSAGE | UnparsedObject;
-export const SEND_TEAMS_MESSAGE = 'send_teams_message';
+export type SendTeamsMessageActionType =
+  | typeof SEND_TEAMS_MESSAGE
+  | UnparsedObject;
+export const SEND_TEAMS_MESSAGE = "send_teams_message";

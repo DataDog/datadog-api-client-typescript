@@ -5,24 +5,19 @@
  */
 import { ApplicationSecurityWafCustomRuleConditionInputAddress } from "./ApplicationSecurityWafCustomRuleConditionInputAddress";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Input from the request on which the condition should apply.
-*/
+ */
 export class ApplicationSecurityWafCustomRuleConditionInput {
   /**
    * Input from the request on which the condition should apply.
-  */
+   */
   "address": ApplicationSecurityWafCustomRuleConditionInputAddress;
   /**
    * Specific path for the input.
-  */
+   */
   "keyPath"?: Array<string>;
 
   /**
@@ -41,53 +36,27 @@ export class ApplicationSecurityWafCustomRuleConditionInput {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "address": {
-      "baseName": "address",
-      "type": "ApplicationSecurityWafCustomRuleConditionInputAddress",
-      "required": true,
+    address: {
+      baseName: "address",
+      type: "ApplicationSecurityWafCustomRuleConditionInputAddress",
+      required: true,
     },
-    "keyPath": {
-      "baseName": "key_path",
-      "type": "Array<string>",
+    keyPath: {
+      baseName: "key_path",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafCustomRuleConditionInput.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

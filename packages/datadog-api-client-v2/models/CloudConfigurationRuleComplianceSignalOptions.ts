@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * How to generate compliance signals. Useful for cloud_configuration rules only.
-*/
+ */
 export class CloudConfigurationRuleComplianceSignalOptions {
   /**
    * The default activation status.
-  */
+   */
   "defaultActivationStatus"?: boolean;
   /**
    * The default group by fields.
-  */
+   */
   "defaultGroupByFields"?: Array<string>;
   /**
    * Whether signals will be sent.
-  */
+   */
   "userActivationStatus"?: boolean;
   /**
    * Fields to use to group findings by when sending signals.
-  */
+   */
   "userGroupByFields"?: Array<string>;
 
   /**
@@ -48,60 +43,34 @@ export class CloudConfigurationRuleComplianceSignalOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "defaultActivationStatus": {
-      "baseName": "defaultActivationStatus",
-      "type": "boolean",
+    defaultActivationStatus: {
+      baseName: "defaultActivationStatus",
+      type: "boolean",
     },
-    "defaultGroupByFields": {
-      "baseName": "defaultGroupByFields",
-      "type": "Array<string>",
+    defaultGroupByFields: {
+      baseName: "defaultGroupByFields",
+      type: "Array<string>",
     },
-    "userActivationStatus": {
-      "baseName": "userActivationStatus",
-      "type": "boolean",
+    userActivationStatus: {
+      baseName: "userActivationStatus",
+      type: "boolean",
     },
-    "userGroupByFields": {
-      "baseName": "userGroupByFields",
-      "type": "Array<string>",
+    userGroupByFields: {
+      baseName: "userGroupByFields",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudConfigurationRuleComplianceSignalOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

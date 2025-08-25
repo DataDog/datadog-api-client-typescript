@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
-*/
+ */
 
-export type RumMetricUniquenessWhen = typeof WHEN_MATCH| typeof WHEN_END | UnparsedObject;
-export const WHEN_MATCH = 'match';
-export const WHEN_END = 'end';
+export type RumMetricUniquenessWhen =
+  | typeof WHEN_MATCH
+  | typeof WHEN_END
+  | UnparsedObject;
+export const WHEN_MATCH = "match";
+export const WHEN_END = "end";

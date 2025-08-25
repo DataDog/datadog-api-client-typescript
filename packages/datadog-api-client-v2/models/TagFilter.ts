@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Tag filter for the budget's entries.
-*/
+ */
 export class TagFilter {
   /**
    * The key of the tag.
-  */
+   */
   "tagKey"?: string;
   /**
    * The value of the tag.
-  */
+   */
   "tagValue"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class TagFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "tagKey": {
-      "baseName": "tag_key",
-      "type": "string",
+    tagKey: {
+      baseName: "tag_key",
+      type: "string",
     },
-    "tagValue": {
-      "baseName": "tag_value",
-      "type": "string",
+    tagValue: {
+      baseName: "tag_value",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TagFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

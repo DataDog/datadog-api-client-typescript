@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing indexed logs usage aggregated across organizations and months for a retention period.
-*/
+ */
 export class LogsRetentionAggSumUsage {
   /**
    * Total indexed logs for this retention period.
-  */
+   */
   "logsIndexedLogsUsageAggSum"?: number;
   /**
    * Live indexed logs for this retention period.
-  */
+   */
   "logsLiveIndexedLogsUsageAggSum"?: number;
   /**
    * Rehydrated indexed logs for this retention period.
-  */
+   */
   "logsRehydratedIndexedLogsUsageAggSum"?: number;
   /**
    * The retention period in days or "custom" for all custom retention periods.
-  */
+   */
   "retention"?: string;
 
   /**
@@ -48,63 +43,37 @@ export class LogsRetentionAggSumUsage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "logsIndexedLogsUsageAggSum": {
-      "baseName": "logs_indexed_logs_usage_agg_sum",
-      "type": "number",
-      "format": "int64",
+    logsIndexedLogsUsageAggSum: {
+      baseName: "logs_indexed_logs_usage_agg_sum",
+      type: "number",
+      format: "int64",
     },
-    "logsLiveIndexedLogsUsageAggSum": {
-      "baseName": "logs_live_indexed_logs_usage_agg_sum",
-      "type": "number",
-      "format": "int64",
+    logsLiveIndexedLogsUsageAggSum: {
+      baseName: "logs_live_indexed_logs_usage_agg_sum",
+      type: "number",
+      format: "int64",
     },
-    "logsRehydratedIndexedLogsUsageAggSum": {
-      "baseName": "logs_rehydrated_indexed_logs_usage_agg_sum",
-      "type": "number",
-      "format": "int64",
+    logsRehydratedIndexedLogsUsageAggSum: {
+      baseName: "logs_rehydrated_indexed_logs_usage_agg_sum",
+      type: "number",
+      format: "int64",
     },
-    "retention": {
-      "baseName": "retention",
-      "type": "string",
+    retention: {
+      baseName: "retention",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsRetentionAggSumUsage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

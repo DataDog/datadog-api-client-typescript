@@ -6,29 +6,24 @@
 import { CustomDestinationElasticsearchDestinationAuth } from "./CustomDestinationElasticsearchDestinationAuth";
 import { CustomDestinationForwardDestinationElasticsearchType } from "./CustomDestinationForwardDestinationElasticsearchType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The Elasticsearch destination.
-*/
+ */
 export class CustomDestinationForwardDestinationElasticsearch {
   /**
    * Basic access authentication.
-  */
+   */
   "auth": CustomDestinationElasticsearchDestinationAuth;
   /**
    * The destination for which logs will be forwarded to.
    * Must have HTTPS scheme and forwarding back to Datadog is not allowed.
-  */
+   */
   "endpoint": string;
   /**
    * Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
-  */
+   */
   "indexName": string;
   /**
    * Date pattern with US locale and UTC timezone to be appended to the index name after adding `-`
@@ -38,14 +33,14 @@ export class CustomDestinationForwardDestinationElasticsearch {
    * - Daily: `yyyy-MM-dd` (as an example, it would render: `2022-10-19`)
    * - Weekly: `yyyy-'W'ww` (as an example, it would render: `2022-W42`)
    * - Monthly: `yyyy-MM` (as an example, it would render: `2022-10`)
-   * 
+   *
    * If this field is missing or is blank, it means that the index name will always be the same
    * (that is, no rotation).
-  */
+   */
   "indexRotation"?: string;
   /**
    * Type of the Elasticsearch destination.
-  */
+   */
   "type": CustomDestinationForwardDestinationElasticsearchType;
 
   /**
@@ -64,68 +59,42 @@ export class CustomDestinationForwardDestinationElasticsearch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "auth": {
-      "baseName": "auth",
-      "type": "CustomDestinationElasticsearchDestinationAuth",
-      "required": true,
+    auth: {
+      baseName: "auth",
+      type: "CustomDestinationElasticsearchDestinationAuth",
+      required: true,
     },
-    "endpoint": {
-      "baseName": "endpoint",
-      "type": "string",
-      "required": true,
+    endpoint: {
+      baseName: "endpoint",
+      type: "string",
+      required: true,
     },
-    "indexName": {
-      "baseName": "index_name",
-      "type": "string",
-      "required": true,
+    indexName: {
+      baseName: "index_name",
+      type: "string",
+      required: true,
     },
-    "indexRotation": {
-      "baseName": "index_rotation",
-      "type": "string",
+    indexRotation: {
+      baseName: "index_rotation",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CustomDestinationForwardDestinationElasticsearchType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CustomDestinationForwardDestinationElasticsearchType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomDestinationForwardDestinationElasticsearch.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

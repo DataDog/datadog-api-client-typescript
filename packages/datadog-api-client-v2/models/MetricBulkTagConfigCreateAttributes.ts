@@ -3,36 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MetricBulkTagConfigEmailListItem } from "./MetricBulkTagConfigEmailListItem";
-import { MetricBulkTagConfigTagNameListItem } from "./MetricBulkTagConfigTagNameListItem";
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Optional parameters for bulk creating metric tag configurations.
-*/
+ */
 export class MetricBulkTagConfigCreateAttributes {
   /**
    * A list of account emails to notify when the configuration is applied.
-  */
+   */
   "emails"?: Array<string>;
   /**
    * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
    * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
    * Defaults to false.
-  */
+   */
   "excludeTagsMode"?: boolean;
   /**
    * When provided, all tags that have been actively queried are
    * configured (and, therefore, remain queryable) for each metric that
    * matches the given prefix.  Minimum value is 1 second, and maximum
    * value is 7,776,000 seconds (90 days).
-  */
+   */
   "includeActivelyQueriedTagsWindow"?: number;
   /**
    * When set to true, the configuration overrides any existing
@@ -40,11 +33,11 @@ export class MetricBulkTagConfigCreateAttributes {
    * configuration request. If false, old configurations are kept and
    * are merged with the set of tags in this configuration request.
    * Defaults to true.
-  */
+   */
   "overrideExistingConfigurations"?: boolean;
   /**
    * A list of tag names to apply to the configuration.
-  */
+   */
   "tags"?: Array<string>;
 
   /**
@@ -63,65 +56,39 @@ export class MetricBulkTagConfigCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "emails": {
-      "baseName": "emails",
-      "type": "Array<string>",
+    emails: {
+      baseName: "emails",
+      type: "Array<string>",
     },
-    "excludeTagsMode": {
-      "baseName": "exclude_tags_mode",
-      "type": "boolean",
+    excludeTagsMode: {
+      baseName: "exclude_tags_mode",
+      type: "boolean",
     },
-    "includeActivelyQueriedTagsWindow": {
-      "baseName": "include_actively_queried_tags_window",
-      "type": "number",
-      "format": "double",
+    includeActivelyQueriedTagsWindow: {
+      baseName: "include_actively_queried_tags_window",
+      type: "number",
+      format: "double",
     },
-    "overrideExistingConfigurations": {
-      "baseName": "override_existing_configurations",
-      "type": "boolean",
+    overrideExistingConfigurations: {
+      baseName: "override_existing_configurations",
+      type: "boolean",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricBulkTagConfigCreateAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

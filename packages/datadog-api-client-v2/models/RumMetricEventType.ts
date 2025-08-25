@@ -4,22 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of RUM events to filter on.
-*/
+ */
 
-export type RumMetricEventType = typeof SESSION| typeof VIEW| typeof ACTION| typeof ERROR| typeof RESOURCE| typeof LONG_TASK| typeof VITAL | UnparsedObject;
-export const SESSION = 'session';
-export const VIEW = 'view';
-export const ACTION = 'action';
-export const ERROR = 'error';
-export const RESOURCE = 'resource';
-export const LONG_TASK = 'long_task';
-export const VITAL = 'vital';
+export type RumMetricEventType =
+  | typeof SESSION
+  | typeof VIEW
+  | typeof ACTION
+  | typeof ERROR
+  | typeof RESOURCE
+  | typeof LONG_TASK
+  | typeof VITAL
+  | UnparsedObject;
+export const SESSION = "session";
+export const VIEW = "view";
+export const ACTION = "action";
+export const ERROR = "error";
+export const RESOURCE = "resource";
+export const LONG_TASK = "long_task";
+export const VITAL = "vital";

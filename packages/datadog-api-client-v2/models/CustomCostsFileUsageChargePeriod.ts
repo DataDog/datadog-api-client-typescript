@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Usage charge period of a Custom Costs file.
-*/
+ */
 export class CustomCostsFileUsageChargePeriod {
   /**
    * End of the usage of the Custom Costs file.
-  */
+   */
   "end"?: number;
   /**
    * Start of the usage of the Custom Costs file.
-  */
+   */
   "start"?: number;
 
   /**
@@ -40,54 +35,28 @@ export class CustomCostsFileUsageChargePeriod {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "end": {
-      "baseName": "end",
-      "type": "number",
-      "format": "double",
+    end: {
+      baseName: "end",
+      type: "number",
+      format: "double",
     },
-    "start": {
-      "baseName": "start",
-      "type": "number",
-      "format": "double",
+    start: {
+      baseName: "start",
+      type: "number",
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomCostsFileUsageChargePeriod.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

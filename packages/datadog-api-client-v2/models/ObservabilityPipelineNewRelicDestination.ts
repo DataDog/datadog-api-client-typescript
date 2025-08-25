@@ -6,32 +6,27 @@
 import { ObservabilityPipelineNewRelicDestinationRegion } from "./ObservabilityPipelineNewRelicDestinationRegion";
 import { ObservabilityPipelineNewRelicDestinationType } from "./ObservabilityPipelineNewRelicDestinationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `new_relic` destination sends logs to the New Relic platform.
-*/
+ */
 export class ObservabilityPipelineNewRelicDestination {
   /**
    * The unique identifier for this component.
-  */
+   */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-  */
+   */
   "inputs": Array<string>;
   /**
    * The New Relic region.
-  */
+   */
   "region": ObservabilityPipelineNewRelicDestinationRegion;
   /**
    * The destination type. The value should always be `new_relic`.
-  */
+   */
   "type": ObservabilityPipelineNewRelicDestinationType;
 
   /**
@@ -50,64 +45,38 @@ export class ObservabilityPipelineNewRelicDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "inputs": {
-      "baseName": "inputs",
-      "type": "Array<string>",
-      "required": true,
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
     },
-    "region": {
-      "baseName": "region",
-      "type": "ObservabilityPipelineNewRelicDestinationRegion",
-      "required": true,
+    region: {
+      baseName: "region",
+      type: "ObservabilityPipelineNewRelicDestinationRegion",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineNewRelicDestinationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineNewRelicDestinationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineNewRelicDestination.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

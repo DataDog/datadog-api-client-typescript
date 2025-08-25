@@ -5,20 +5,15 @@
  */
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Searches metadata returned by the API.
-*/
+ */
 export class NotebooksResponseMeta {
   /**
    * Pagination metadata returned by the API.
-  */
+   */
   "page"?: NotebooksResponsePage;
 
   /**
@@ -37,48 +32,22 @@ export class NotebooksResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "page": {
-      "baseName": "page",
-      "type": "NotebooksResponsePage",
+    page: {
+      baseName: "page",
+      type: "NotebooksResponsePage",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebooksResponseMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

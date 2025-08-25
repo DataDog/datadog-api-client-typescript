@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The details of the email domain allowlist.
-*/
+ */
 export class DomainAllowlistResponseDataAttributes {
   /**
    * The list of domains in the email domain allowlist.
-  */
+   */
   "domains"?: Array<string>;
   /**
    * Whether the email domain allowlist is enabled for the org.
-  */
+   */
   "enabled"?: boolean;
 
   /**
@@ -40,52 +35,26 @@ export class DomainAllowlistResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "domains": {
-      "baseName": "domains",
-      "type": "Array<string>",
+    domains: {
+      baseName: "domains",
+      type: "Array<string>",
     },
-    "enabled": {
-      "baseName": "enabled",
-      "type": "boolean",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DomainAllowlistResponseDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

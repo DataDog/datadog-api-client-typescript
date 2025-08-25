@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Links to the event.
-*/
+ */
 export class EventCreateResponsePayloadLinks {
   /**
    * The URL of the event. This link is only functional when using the default subdomain.
-  */
+   */
   "self"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class EventCreateResponsePayloadLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "self": {
-      "baseName": "self",
-      "type": "string",
+    self: {
+      baseName: "self",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EventCreateResponsePayloadLinks.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

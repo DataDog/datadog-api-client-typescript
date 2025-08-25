@@ -5,20 +5,15 @@
  */
 import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The available archives.
-*/
+ */
 export class LogsArchives {
   /**
    * A list of archives.
-  */
+   */
   "data"?: Array<LogsArchiveDefinition>;
 
   /**
@@ -37,48 +32,22 @@ export class LogsArchives {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<LogsArchiveDefinition>",
+    data: {
+      baseName: "data",
+      type: "Array<LogsArchiveDefinition>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArchives.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

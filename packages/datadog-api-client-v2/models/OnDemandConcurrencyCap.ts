@@ -6,24 +6,19 @@
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapType } from "./OnDemandConcurrencyCapType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * On-demand concurrency cap.
-*/
+ */
 export class OnDemandConcurrencyCap {
   /**
    * On-demand concurrency cap attributes.
-  */
+   */
   "attributes"?: OnDemandConcurrencyCapAttributes;
   /**
    * On-demand concurrency cap type.
-  */
+   */
   "type"?: OnDemandConcurrencyCapType;
 
   /**
@@ -42,52 +37,26 @@ export class OnDemandConcurrencyCap {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "OnDemandConcurrencyCapAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "OnDemandConcurrencyCapAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "OnDemandConcurrencyCapType",
+    type: {
+      baseName: "type",
+      type: "OnDemandConcurrencyCapType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OnDemandConcurrencyCap.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

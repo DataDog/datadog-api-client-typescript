@@ -6,24 +6,19 @@
 import { GreyNoiseCredentials } from "./GreyNoiseCredentials";
 import { GreyNoiseIntegrationType } from "./GreyNoiseIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `GreyNoiseIntegration` object.
-*/
+ */
 export class GreyNoiseIntegration {
   /**
    * The definition of the `GreyNoiseCredentials` object.
-  */
+   */
   "credentials": GreyNoiseCredentials;
   /**
    * The definition of the `GreyNoiseIntegrationType` object.
-  */
+   */
   "type": GreyNoiseIntegrationType;
 
   /**
@@ -42,54 +37,28 @@ export class GreyNoiseIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "GreyNoiseCredentials",
-      "required": true,
+    credentials: {
+      baseName: "credentials",
+      type: "GreyNoiseCredentials",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "GreyNoiseIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "GreyNoiseIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GreyNoiseIntegration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

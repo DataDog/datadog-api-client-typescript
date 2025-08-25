@@ -6,24 +6,19 @@
 import { CustomDestinationCreateRequestAttributes } from "./CustomDestinationCreateRequestAttributes";
 import { CustomDestinationType } from "./CustomDestinationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of a custom destination.
-*/
+ */
 export class CustomDestinationCreateRequestDefinition {
   /**
    * The attributes associated with the custom destination.
-  */
+   */
   "attributes": CustomDestinationCreateRequestAttributes;
   /**
    * The type of the resource. The value should always be `custom_destination`.
-  */
+   */
   "type": CustomDestinationType;
 
   /**
@@ -42,54 +37,28 @@ export class CustomDestinationCreateRequestDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CustomDestinationCreateRequestAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "CustomDestinationCreateRequestAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CustomDestinationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CustomDestinationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomDestinationCreateRequestDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

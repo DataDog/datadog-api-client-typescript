@@ -4,22 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Cancel downtimes according to scope.
-*/
+ */
 export class CancelDowntimesByScopeRequest {
   /**
    * The scope(s) to which the downtime applies and must be in `key:value` format. For example, `host:app2`.
    * Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
    * The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
-  */
+   */
   "scope": string;
 
   /**
@@ -38,49 +33,23 @@ export class CancelDowntimesByScopeRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "scope": {
-      "baseName": "scope",
-      "type": "string",
-      "required": true,
+    scope: {
+      baseName: "scope",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CancelDowntimesByScopeRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

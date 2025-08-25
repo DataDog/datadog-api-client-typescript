@@ -5,23 +5,18 @@
  */
 import { Unit } from "./Unit";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Metadata for the resulting numerical values.
-*/
+ */
 export class ScalarMeta {
   /**
    * Detailed information about the unit.
    * First element describes the "primary unit" (for example, `bytes` in `bytes per second`).
    * The second element describes the "per unit" (for example, `second` in `bytes per second`).
    * If the second element is not present, the API returns null.
-  */
+   */
   "unit"?: Array<Unit | null>;
 
   /**
@@ -40,48 +35,22 @@ export class ScalarMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "unit": {
-      "baseName": "unit",
-      "type": "Array<Unit>",
+    unit: {
+      baseName: "unit",
+      type: "Array<Unit>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScalarMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

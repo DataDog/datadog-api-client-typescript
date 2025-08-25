@@ -5,24 +5,19 @@
  */
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Compression configuration for log events.
-*/
+ */
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression {
   /**
    * Compression algorithm for log events.
-  */
+   */
   "algorithm": ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm;
   /**
    * Compression level.
-  */
+   */
   "level"?: number;
 
   /**
@@ -41,54 +36,28 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "algorithm": {
-      "baseName": "algorithm",
-      "type": "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm",
-      "required": true,
+    algorithm: {
+      baseName: "algorithm",
+      type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm",
+      required: true,
     },
-    "level": {
-      "baseName": "level",
-      "type": "number",
-      "format": "int64",
+    level: {
+      baseName: "level",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes object of a Cloudflare account.
-*/
+ */
 export class CloudflareAccountResponseAttributes {
   /**
    * The email associated with the Cloudflare account.
-  */
+   */
   "email"?: string;
   /**
    * The name of the Cloudflare account.
-  */
+   */
   "name": string;
   /**
    * An allowlist of resources, such as `web`, `dns`, `lb` (load balancer), `worker`, that restricts pulling metrics from those resources.
-  */
+   */
   "resources"?: Array<string>;
   /**
    * An allowlist of zones to restrict pulling metrics for.
-  */
+   */
   "zones"?: Array<string>;
 
   /**
@@ -48,61 +43,35 @@ export class CloudflareAccountResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "email": {
-      "baseName": "email",
-      "type": "string",
+    email: {
+      baseName: "email",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "resources": {
-      "baseName": "resources",
-      "type": "Array<string>",
+    resources: {
+      baseName: "resources",
+      type: "Array<string>",
     },
-    "zones": {
-      "baseName": "zones",
-      "type": "Array<string>",
+    zones: {
+      baseName: "zones",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudflareAccountResponseAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

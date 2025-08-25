@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `OktaAPIToken` object.
-*/
+ */
 
 export type OktaAPITokenType = typeof OKTAAPITOKEN | UnparsedObject;
-export const OKTAAPITOKEN = 'OktaAPIToken';
+export const OKTAAPITOKEN = "OktaAPIToken";

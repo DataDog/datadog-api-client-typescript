@@ -5,28 +5,23 @@
  */
 import { ScalarColumnTypeGroup } from "./ScalarColumnTypeGroup";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A column containing the tag keys and values in a group.
-*/
+ */
 export class GroupScalarColumn {
   /**
    * The name of the tag key or group.
-  */
+   */
   "name"?: string;
   /**
    * The type of column present for groups.
-  */
+   */
   "type"?: ScalarColumnTypeGroup;
   /**
    * The array of tag values for each group found for the results of the formulas or queries.
-  */
+   */
   "values"?: Array<Array<string>>;
 
   /**
@@ -45,56 +40,30 @@ export class GroupScalarColumn {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ScalarColumnTypeGroup",
+    type: {
+      baseName: "type",
+      type: "ScalarColumnTypeGroup",
     },
-    "values": {
-      "baseName": "values",
-      "type": "Array<Array<string>>",
+    values: {
+      baseName: "values",
+      type: "Array<Array<string>>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GroupScalarColumn.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

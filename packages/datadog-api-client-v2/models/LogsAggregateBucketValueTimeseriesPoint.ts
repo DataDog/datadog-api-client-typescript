@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A timeseries point
-*/
+ */
 export class LogsAggregateBucketValueTimeseriesPoint {
   /**
    * The time value for this point
-  */
+   */
   "time"?: string;
   /**
    * The value for this point
-  */
+   */
   "value"?: number;
 
   /**
@@ -40,53 +35,27 @@ export class LogsAggregateBucketValueTimeseriesPoint {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "time": {
-      "baseName": "time",
-      "type": "string",
+    time: {
+      baseName: "time",
+      type: "string",
     },
-    "value": {
-      "baseName": "value",
-      "type": "number",
-      "format": "double",
+    value: {
+      baseName: "value",
+      type: "number",
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

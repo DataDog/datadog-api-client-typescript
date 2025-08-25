@@ -6,36 +6,31 @@
 import { FreeTextWidgetDefinitionType } from "./FreeTextWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
-*/
+ */
 export class FreeTextWidgetDefinition {
   /**
    * Color of the text.
-  */
+   */
   "color"?: string;
   /**
    * Size of the text.
-  */
+   */
   "fontSize"?: string;
   /**
    * Text to display.
-  */
+   */
   "text": string;
   /**
    * How to align the text on the widget.
-  */
+   */
   "textAlign"?: WidgetTextAlign;
   /**
    * Type of the free text widget.
-  */
+   */
   "type": FreeTextWidgetDefinitionType;
 
   /**
@@ -54,66 +49,40 @@ export class FreeTextWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "color": {
-      "baseName": "color",
-      "type": "string",
+    color: {
+      baseName: "color",
+      type: "string",
     },
-    "fontSize": {
-      "baseName": "font_size",
-      "type": "string",
+    fontSize: {
+      baseName: "font_size",
+      type: "string",
     },
-    "text": {
-      "baseName": "text",
-      "type": "string",
-      "required": true,
+    text: {
+      baseName: "text",
+      type: "string",
+      required: true,
     },
-    "textAlign": {
-      "baseName": "text_align",
-      "type": "WidgetTextAlign",
+    textAlign: {
+      baseName: "text_align",
+      type: "WidgetTextAlign",
     },
-    "type": {
-      "baseName": "type",
-      "type": "FreeTextWidgetDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "FreeTextWidgetDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FreeTextWidgetDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

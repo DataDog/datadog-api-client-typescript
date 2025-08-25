@@ -5,20 +5,15 @@
  */
 import { UsageCIVisibilityHour } from "./UsageCIVisibilityHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * CI visibility usage response
-*/
+ */
 export class UsageCIVisibilityResponse {
   /**
    * Response containing CI visibility usage.
-  */
+   */
   "usage"?: Array<UsageCIVisibilityHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageCIVisibilityResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageCIVisibilityHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageCIVisibilityHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageCIVisibilityResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -7,32 +7,27 @@ import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes
 import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
 import { EscalationPolicyStepType } from "./EscalationPolicyStepType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Represents a single step in an escalation policy, including its attributes, relationships, and resource type.
-*/
+ */
 export class EscalationPolicyStep {
   /**
    * Defines attributes for an escalation policy step, such as assignment strategy and escalation timeout.
-  */
+   */
   "attributes"?: EscalationPolicyStepAttributes;
   /**
    * Specifies the unique identifier of this escalation policy step.
-  */
+   */
   "id"?: string;
   /**
    * Represents the relationship of an escalation policy step to its targets.
-  */
+   */
   "relationships"?: EscalationPolicyStepRelationships;
   /**
    * Indicates that the resource is of type `steps`.
-  */
+   */
   "type": EscalationPolicyStepType;
 
   /**
@@ -51,61 +46,35 @@ export class EscalationPolicyStep {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "EscalationPolicyStepAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "EscalationPolicyStepAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "EscalationPolicyStepRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "EscalationPolicyStepRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "EscalationPolicyStepType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "EscalationPolicyStepType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EscalationPolicyStep.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

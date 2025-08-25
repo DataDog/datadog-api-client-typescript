@@ -5,36 +5,31 @@
  */
 import { CsmCoverageAnalysis } from "./CsmCoverageAnalysis";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * CSM Hosts and Containers Coverage Analysis attributes.
-*/
+ */
 export class CsmHostsAndContainersCoverageAnalysisAttributes {
   /**
    * CSM Coverage Analysis.
-  */
+   */
   "cspmCoverage"?: CsmCoverageAnalysis;
   /**
    * CSM Coverage Analysis.
-  */
+   */
   "cwsCoverage"?: CsmCoverageAnalysis;
   /**
    * The ID of your organization.
-  */
+   */
   "orgId"?: number;
   /**
    * CSM Coverage Analysis.
-  */
+   */
   "totalCoverage"?: CsmCoverageAnalysis;
   /**
    * CSM Coverage Analysis.
-  */
+   */
   "vmCoverage"?: CsmCoverageAnalysis;
 
   /**
@@ -53,65 +48,39 @@ export class CsmHostsAndContainersCoverageAnalysisAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "cspmCoverage": {
-      "baseName": "cspm_coverage",
-      "type": "CsmCoverageAnalysis",
+    cspmCoverage: {
+      baseName: "cspm_coverage",
+      type: "CsmCoverageAnalysis",
     },
-    "cwsCoverage": {
-      "baseName": "cws_coverage",
-      "type": "CsmCoverageAnalysis",
+    cwsCoverage: {
+      baseName: "cws_coverage",
+      type: "CsmCoverageAnalysis",
     },
-    "orgId": {
-      "baseName": "org_id",
-      "type": "number",
-      "format": "int64",
+    orgId: {
+      baseName: "org_id",
+      type: "number",
+      format: "int64",
     },
-    "totalCoverage": {
-      "baseName": "total_coverage",
-      "type": "CsmCoverageAnalysis",
+    totalCoverage: {
+      baseName: "total_coverage",
+      type: "CsmCoverageAnalysis",
     },
-    "vmCoverage": {
-      "baseName": "vm_coverage",
-      "type": "CsmCoverageAnalysis",
+    vmCoverage: {
+      baseName: "vm_coverage",
+      type: "CsmCoverageAnalysis",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CsmHostsAndContainersCoverageAnalysisAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Options for the operator of this condition.
-*/
+ */
 export class ApplicationSecurityWafCustomRuleConditionOptions {
   /**
    * Evaluate the value as case sensitive.
-  */
+   */
   "caseSensitive"?: boolean;
   /**
    * Only evaluate this condition if the value has a minimum amount of characters.
-  */
+   */
   "minLength"?: number;
 
   /**
@@ -40,53 +35,27 @@ export class ApplicationSecurityWafCustomRuleConditionOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "caseSensitive": {
-      "baseName": "case_sensitive",
-      "type": "boolean",
+    caseSensitive: {
+      baseName: "case_sensitive",
+      type: "boolean",
     },
-    "minLength": {
-      "baseName": "min_length",
-      "type": "number",
-      "format": "int64",
+    minLength: {
+      baseName: "min_length",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafCustomRuleConditionOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

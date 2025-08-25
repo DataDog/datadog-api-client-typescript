@@ -5,20 +5,15 @@
  */
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object needed to create a data deletion request.
-*/
+ */
 export class CreateDataDeletionRequestBody {
   /**
    * Data needed to create a data deletion request.
-  */
+   */
   "data": CreateDataDeletionRequestBodyData;
 
   /**
@@ -37,49 +32,23 @@ export class CreateDataDeletionRequestBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CreateDataDeletionRequestBodyData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "CreateDataDeletionRequestBodyData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CreateDataDeletionRequestBody.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

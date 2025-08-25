@@ -4,17 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Compression algorithm for log events.
-*/
+ */
 
-export type ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm = typeof GZIP| typeof ZLIB | UnparsedObject;
-export const GZIP = 'gzip';
-export const ZLIB = 'zlib';
+export type ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm =
+  typeof GZIP | typeof ZLIB | UnparsedObject;
+export const GZIP = "gzip";
+export const ZLIB = "zlib";

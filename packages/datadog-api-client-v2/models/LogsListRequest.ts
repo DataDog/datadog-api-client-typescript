@@ -8,33 +8,28 @@ import { LogsQueryFilter } from "./LogsQueryFilter";
 import { LogsQueryOptions } from "./LogsQueryOptions";
 import { LogsSort } from "./LogsSort";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The request for a logs list.
-*/
+ */
 export class LogsListRequest {
   /**
    * The search and filter query settings
-  */
+   */
   "filter"?: LogsQueryFilter;
   /**
    * Global query options that are used during the query.
    * Note: These fields are currently deprecated and do not affect the query results.
-  */
+   */
   "options"?: LogsQueryOptions;
   /**
    * Paging attributes for listing logs.
-  */
+   */
   "page"?: LogsListRequestPage;
   /**
    * Sort parameters when querying logs.
-  */
+   */
   "sort"?: LogsSort;
 
   /**
@@ -53,60 +48,34 @@ export class LogsListRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "filter": {
-      "baseName": "filter",
-      "type": "LogsQueryFilter",
+    filter: {
+      baseName: "filter",
+      type: "LogsQueryFilter",
     },
-    "options": {
-      "baseName": "options",
-      "type": "LogsQueryOptions",
+    options: {
+      baseName: "options",
+      type: "LogsQueryOptions",
     },
-    "page": {
-      "baseName": "page",
-      "type": "LogsListRequestPage",
+    page: {
+      baseName: "page",
+      type: "LogsListRequestPage",
     },
-    "sort": {
-      "baseName": "sort",
-      "type": "LogsSort",
+    sort: {
+      baseName: "sort",
+      type: "LogsSort",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsListRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,15 +5,10 @@
  */
 import { GeminiAPIKeyUpdate } from "./GeminiAPIKeyUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `GeminiCredentialsUpdate` object.
-*/
+ */
 
 export type GeminiCredentialsUpdate = GeminiAPIKeyUpdate | UnparsedObject;

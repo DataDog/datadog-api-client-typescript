@@ -5,21 +5,16 @@
  */
 import { UsageLambdaHour } from "./UsageLambdaHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the number of Lambda functions and sum of the invocations of all Lambda functions
  * for each hour for a given organization.
-*/
+ */
 export class UsageLambdaResponse {
   /**
    * Get hourly usage for Lambda.
-  */
+   */
   "usage"?: Array<UsageLambdaHour>;
 
   /**
@@ -38,48 +33,22 @@ export class UsageLambdaResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageLambdaHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageLambdaHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageLambdaResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

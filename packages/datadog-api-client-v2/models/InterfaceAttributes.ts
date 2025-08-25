@@ -5,44 +5,39 @@
  */
 import { InterfaceAttributesStatus } from "./InterfaceAttributesStatus";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The interface attributes
-*/
+ */
 export class InterfaceAttributes {
   /**
    * The interface alias
-  */
+   */
   "alias"?: string;
   /**
    * The interface description
-  */
+   */
   "description"?: string;
   /**
    * The interface index
-  */
+   */
   "index"?: number;
   /**
    * The interface IP addresses
-  */
+   */
   "ipAddresses"?: Array<string>;
   /**
    * The interface MAC address
-  */
+   */
   "macAddress"?: string;
   /**
    * The interface name
-  */
+   */
   "name"?: string;
   /**
    * The interface status
-  */
+   */
   "status"?: InterfaceAttributesStatus;
 
   /**
@@ -61,73 +56,47 @@ export class InterfaceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "alias": {
-      "baseName": "alias",
-      "type": "string",
+    alias: {
+      baseName: "alias",
+      type: "string",
     },
-    "description": {
-      "baseName": "description",
-      "type": "string",
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    "index": {
-      "baseName": "index",
-      "type": "number",
-      "format": "int64",
+    index: {
+      baseName: "index",
+      type: "number",
+      format: "int64",
     },
-    "ipAddresses": {
-      "baseName": "ip_addresses",
-      "type": "Array<string>",
+    ipAddresses: {
+      baseName: "ip_addresses",
+      type: "Array<string>",
     },
-    "macAddress": {
-      "baseName": "mac_address",
-      "type": "string",
+    macAddress: {
+      baseName: "mac_address",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "InterfaceAttributesStatus",
+    status: {
+      baseName: "status",
+      type: "InterfaceAttributesStatus",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return InterfaceAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

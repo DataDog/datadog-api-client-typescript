@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type "fixed" denotes a fixed span.
-*/
+ */
 
 export type WidgetNewFixedSpanType = typeof FIXED | UnparsedObject;
-export const FIXED = 'fixed';
+export const FIXED = "fixed";

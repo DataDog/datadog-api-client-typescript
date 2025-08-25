@@ -5,28 +5,23 @@
  */
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The list tags response data.
-*/
+ */
 export class ListTagsResponseData {
   /**
    * The definition of ListTagsResponseDataAttributes object.
-  */
+   */
   "attributes"?: ListTagsResponseDataAttributes;
   /**
    * The device ID
-  */
+   */
   "id"?: string;
   /**
    * The type of the resource. The value should always be tags.
-  */
+   */
   "type"?: string;
 
   /**
@@ -45,56 +40,30 @@ export class ListTagsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ListTagsResponseDataAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ListTagsResponseDataAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListTagsResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

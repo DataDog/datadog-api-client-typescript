@@ -8,56 +8,51 @@ import { WidgetGrouping } from "./WidgetGrouping";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Check status shows the current status or number of results for any check performed.
-*/
+ */
 export class CheckStatusWidgetDefinition {
   /**
    * Name of the check to use in the widget.
-  */
+   */
   "check": string;
   /**
    * Group reporting a single check.
-  */
+   */
   "group"?: string;
   /**
    * List of tag prefixes to group by in the case of a cluster check.
-  */
+   */
   "groupBy"?: Array<string>;
   /**
    * The kind of grouping to use.
-  */
+   */
   "grouping": WidgetGrouping;
   /**
    * List of tags used to filter the groups reporting a cluster check.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * Time setting for the widget.
-  */
+   */
   "time"?: WidgetTime;
   /**
    * Title of the widget.
-  */
+   */
   "title"?: string;
   /**
    * How to align the text on the widget.
-  */
+   */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-  */
+   */
   "titleSize"?: string;
   /**
    * Type of the check status widget.
-  */
+   */
   "type": CheckStatusWidgetDefinitionType;
 
   /**
@@ -76,87 +71,61 @@ export class CheckStatusWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "check": {
-      "baseName": "check",
-      "type": "string",
-      "required": true,
+    check: {
+      baseName: "check",
+      type: "string",
+      required: true,
     },
-    "group": {
-      "baseName": "group",
-      "type": "string",
+    group: {
+      baseName: "group",
+      type: "string",
     },
-    "groupBy": {
-      "baseName": "group_by",
-      "type": "Array<string>",
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<string>",
     },
-    "grouping": {
-      "baseName": "grouping",
-      "type": "WidgetGrouping",
-      "required": true,
+    grouping: {
+      baseName: "grouping",
+      type: "WidgetGrouping",
+      required: true,
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "time": {
-      "baseName": "time",
-      "type": "WidgetTime",
+    time: {
+      baseName: "time",
+      type: "WidgetTime",
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "titleAlign": {
-      "baseName": "title_align",
-      "type": "WidgetTextAlign",
+    titleAlign: {
+      baseName: "title_align",
+      type: "WidgetTextAlign",
     },
-    "titleSize": {
-      "baseName": "title_size",
-      "type": "string",
+    titleSize: {
+      baseName: "title_size",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CheckStatusWidgetDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CheckStatusWidgetDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CheckStatusWidgetDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

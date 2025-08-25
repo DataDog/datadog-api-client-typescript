@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a mapping between an environment variable and a log field.
-*/
+ */
 export class ObservabilityPipelineAddEnvVarsProcessorVariable {
   /**
    * The target field in the log event.
-  */
+   */
   "field": string;
   /**
    * The name of the environment variable to read.
-  */
+   */
   "name": string;
 
   /**
@@ -40,54 +35,28 @@ export class ObservabilityPipelineAddEnvVarsProcessorVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "field": {
-      "baseName": "field",
-      "type": "string",
-      "required": true,
+    field: {
+      baseName: "field",
+      type: "string",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineAddEnvVarsProcessorVariable.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

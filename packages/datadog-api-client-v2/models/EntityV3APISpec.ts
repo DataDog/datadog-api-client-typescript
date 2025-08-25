@@ -5,36 +5,31 @@
  */
 import { EntityV3APISpecInterface } from "./EntityV3APISpecInterface";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of Entity V3 API Spec object.
-*/
+ */
 export class EntityV3APISpec {
   /**
    * Services which implemented the API.
-  */
+   */
   "implementedBy"?: Array<string>;
   /**
    * The API definition.
-  */
+   */
   "_interface"?: EntityV3APISpecInterface;
   /**
    * The lifecycle state of the component.
-  */
+   */
   "lifecycle"?: string;
   /**
    * The importance of the component.
-  */
+   */
   "tier"?: string;
   /**
    * The type of API.
-  */
+   */
   "type"?: string;
 
   /**
@@ -46,60 +41,34 @@ export class EntityV3APISpec {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "implementedBy": {
-      "baseName": "implementedBy",
-      "type": "Array<string>",
+    implementedBy: {
+      baseName: "implementedBy",
+      type: "Array<string>",
     },
-    "_interface": {
-      "baseName": "interface",
-      "type": "EntityV3APISpecInterface",
+    _interface: {
+      baseName: "interface",
+      type: "EntityV3APISpecInterface",
     },
-    "lifecycle": {
-      "baseName": "lifecycle",
-      "type": "string",
+    lifecycle: {
+      baseName: "lifecycle",
+      type: "string",
     },
-    "tier": {
-      "baseName": "tier",
-      "type": "string",
+    tier: {
+      baseName: "tier",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
-    }
+    type: {
+      baseName: "type",
+      type: "string",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityV3APISpec.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

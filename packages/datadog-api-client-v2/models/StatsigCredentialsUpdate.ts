@@ -5,15 +5,10 @@
  */
 import { StatsigAPIKeyUpdate } from "./StatsigAPIKeyUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `StatsigCredentialsUpdate` object.
-*/
+ */
 
 export type StatsigCredentialsUpdate = StatsigAPIKeyUpdate | UnparsedObject;

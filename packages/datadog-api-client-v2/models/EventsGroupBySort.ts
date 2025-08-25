@@ -7,32 +7,27 @@ import { EventsAggregation } from "./EventsAggregation";
 import { EventsSortType } from "./EventsSortType";
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The dimension by which to sort a query's results.
-*/
+ */
 export class EventsGroupBySort {
   /**
    * The type of aggregation that can be performed on events-based queries.
-  */
+   */
   "aggregation": EventsAggregation;
   /**
    * The metric's calculated value which should be used to define the sort order of a query's results.
-  */
+   */
   "metric"?: string;
   /**
    * Direction of sort.
-  */
+   */
   "order"?: QuerySortOrder;
   /**
    * The type of sort to use on the calculated value.
-  */
+   */
   "type"?: EventsSortType;
 
   /**
@@ -51,61 +46,35 @@ export class EventsGroupBySort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregation": {
-      "baseName": "aggregation",
-      "type": "EventsAggregation",
-      "required": true,
+    aggregation: {
+      baseName: "aggregation",
+      type: "EventsAggregation",
+      required: true,
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
+    metric: {
+      baseName: "metric",
+      type: "string",
     },
-    "order": {
-      "baseName": "order",
-      "type": "QuerySortOrder",
+    order: {
+      baseName: "order",
+      type: "QuerySortOrder",
     },
-    "type": {
-      "baseName": "type",
-      "type": "EventsSortType",
+    type: {
+      baseName: "type",
+      type: "EventsSortType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EventsGroupBySort.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

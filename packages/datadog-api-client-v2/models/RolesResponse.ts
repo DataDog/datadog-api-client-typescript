@@ -6,24 +6,19 @@
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { Role } from "./Role";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing information about multiple roles.
-*/
+ */
 export class RolesResponse {
   /**
    * Array of returned roles.
-  */
+   */
   "data"?: Array<Role>;
   /**
    * Object describing meta attributes of response.
-  */
+   */
   "meta"?: ResponseMetaAttributes;
 
   /**
@@ -42,52 +37,26 @@ export class RolesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<Role>",
+    data: {
+      baseName: "data",
+      type: "Array<Role>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "ResponseMetaAttributes",
+    meta: {
+      baseName: "meta",
+      type: "ResponseMetaAttributes",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RolesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -15,68 +15,63 @@ import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * IP ranges.
-*/
+ */
 export class IPRanges {
   /**
    * Available prefix information for the Agent endpoints.
-  */
+   */
   "agents"?: IPPrefixesAgents;
   /**
    * Available prefix information for the API endpoints.
-  */
+   */
   "api"?: IPPrefixesAPI;
   /**
    * Available prefix information for the APM endpoints.
-  */
+   */
   "apm"?: IPPrefixesAPM;
   /**
    * Available prefix information for all Datadog endpoints.
-  */
+   */
   "global"?: IPPrefixesGlobal;
   /**
    * Available prefix information for the Logs endpoints.
-  */
+   */
   "logs"?: IPPrefixesLogs;
   /**
    * Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
-  */
+   */
   "modified"?: string;
   /**
    * Available prefix information for the Orchestrator endpoints.
-  */
+   */
   "orchestrator"?: IPPrefixesOrchestrator;
   /**
    * Available prefix information for the Process endpoints.
-  */
+   */
   "process"?: IPPrefixesProcess;
   /**
    * Available prefix information for the Remote Configuration endpoints.
-  */
+   */
   "remoteConfiguration"?: IPPrefixesRemoteConfiguration;
   /**
    * Available prefix information for the Synthetics endpoints.
-  */
+   */
   "synthetics"?: IPPrefixesSynthetics;
   /**
    * Available prefix information for the Synthetics Private Locations endpoints.
-  */
+   */
   "syntheticsPrivateLocations"?: IPPrefixesSyntheticsPrivateLocations;
   /**
    * Version of the IP list.
-  */
+   */
   "version"?: number;
   /**
    * Available prefix information for the Webhook endpoints.
-  */
+   */
   "webhooks"?: IPPrefixesWebhooks;
 
   /**
@@ -95,97 +90,71 @@ export class IPRanges {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "agents": {
-      "baseName": "agents",
-      "type": "IPPrefixesAgents",
+    agents: {
+      baseName: "agents",
+      type: "IPPrefixesAgents",
     },
-    "api": {
-      "baseName": "api",
-      "type": "IPPrefixesAPI",
+    api: {
+      baseName: "api",
+      type: "IPPrefixesAPI",
     },
-    "apm": {
-      "baseName": "apm",
-      "type": "IPPrefixesAPM",
+    apm: {
+      baseName: "apm",
+      type: "IPPrefixesAPM",
     },
-    "global": {
-      "baseName": "global",
-      "type": "IPPrefixesGlobal",
+    global: {
+      baseName: "global",
+      type: "IPPrefixesGlobal",
     },
-    "logs": {
-      "baseName": "logs",
-      "type": "IPPrefixesLogs",
+    logs: {
+      baseName: "logs",
+      type: "IPPrefixesLogs",
     },
-    "modified": {
-      "baseName": "modified",
-      "type": "string",
+    modified: {
+      baseName: "modified",
+      type: "string",
     },
-    "orchestrator": {
-      "baseName": "orchestrator",
-      "type": "IPPrefixesOrchestrator",
+    orchestrator: {
+      baseName: "orchestrator",
+      type: "IPPrefixesOrchestrator",
     },
-    "process": {
-      "baseName": "process",
-      "type": "IPPrefixesProcess",
+    process: {
+      baseName: "process",
+      type: "IPPrefixesProcess",
     },
-    "remoteConfiguration": {
-      "baseName": "remote-configuration",
-      "type": "IPPrefixesRemoteConfiguration",
+    remoteConfiguration: {
+      baseName: "remote-configuration",
+      type: "IPPrefixesRemoteConfiguration",
     },
-    "synthetics": {
-      "baseName": "synthetics",
-      "type": "IPPrefixesSynthetics",
+    synthetics: {
+      baseName: "synthetics",
+      type: "IPPrefixesSynthetics",
     },
-    "syntheticsPrivateLocations": {
-      "baseName": "synthetics-private-locations",
-      "type": "IPPrefixesSyntheticsPrivateLocations",
+    syntheticsPrivateLocations: {
+      baseName: "synthetics-private-locations",
+      type: "IPPrefixesSyntheticsPrivateLocations",
     },
-    "version": {
-      "baseName": "version",
-      "type": "number",
-      "format": "int64",
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int64",
     },
-    "webhooks": {
-      "baseName": "webhooks",
-      "type": "IPPrefixesWebhooks",
+    webhooks: {
+      baseName: "webhooks",
+      type: "IPPrefixesWebhooks",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IPRanges.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

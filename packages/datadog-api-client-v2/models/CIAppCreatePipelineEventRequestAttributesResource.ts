@@ -8,15 +8,15 @@ import { CIAppPipelineEventPipeline } from "./CIAppPipelineEventPipeline";
 import { CIAppPipelineEventStage } from "./CIAppPipelineEventStage";
 import { CIAppPipelineEventStep } from "./CIAppPipelineEventStep";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Details of the CI pipeline event.
-*/
+ */
 
-export type CIAppCreatePipelineEventRequestAttributesResource = CIAppPipelineEventPipeline | CIAppPipelineEventStage | CIAppPipelineEventJob | CIAppPipelineEventStep | UnparsedObject;
+export type CIAppCreatePipelineEventRequestAttributesResource =
+  | CIAppPipelineEventPipeline
+  | CIAppPipelineEventStage
+  | CIAppPipelineEventJob
+  | CIAppPipelineEventStep
+  | UnparsedObject;

@@ -5,20 +5,15 @@
  */
 import { SecurityFilterCreateData } from "./SecurityFilterCreateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request object that includes the security filter that you would like to create.
-*/
+ */
 export class SecurityFilterCreateRequest {
   /**
    * Object for a single security filter.
-  */
+   */
   "data": SecurityFilterCreateData;
 
   /**
@@ -37,49 +32,23 @@ export class SecurityFilterCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SecurityFilterCreateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "SecurityFilterCreateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityFilterCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

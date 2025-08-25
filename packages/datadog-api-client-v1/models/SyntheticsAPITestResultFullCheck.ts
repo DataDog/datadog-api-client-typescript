@@ -5,20 +5,15 @@
  */
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object describing the API test configuration.
-*/
+ */
 export class SyntheticsAPITestResultFullCheck {
   /**
    * Configuration object for a Synthetic test.
-  */
+   */
   "config": SyntheticsTestConfig;
 
   /**
@@ -37,49 +32,23 @@ export class SyntheticsAPITestResultFullCheck {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "config": {
-      "baseName": "config",
-      "type": "SyntheticsTestConfig",
-      "required": true,
+    config: {
+      baseName: "config",
+      type: "SyntheticsTestConfig",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsAPITestResultFullCheck.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

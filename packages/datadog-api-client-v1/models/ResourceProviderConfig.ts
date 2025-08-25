@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Configuration settings applied to resources from the specified Azure resource provider.
-*/
+ */
 export class ResourceProviderConfig {
   /**
    * Collect metrics for resources from this provider.
-  */
+   */
   "metricsEnabled"?: boolean;
   /**
    * The provider namespace to apply this configuration to.
-  */
+   */
   "namespace"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class ResourceProviderConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "metricsEnabled": {
-      "baseName": "metrics_enabled",
-      "type": "boolean",
+    metricsEnabled: {
+      baseName: "metrics_enabled",
+      type: "boolean",
     },
-    "namespace": {
-      "baseName": "namespace",
-      "type": "string",
+    namespace: {
+      baseName: "namespace",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ResourceProviderConfig.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

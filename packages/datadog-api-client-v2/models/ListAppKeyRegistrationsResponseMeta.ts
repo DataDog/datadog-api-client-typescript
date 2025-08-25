@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `ListAppKeyRegistrationsResponseMeta` object.
-*/
+ */
 export class ListAppKeyRegistrationsResponseMeta {
   /**
    * The total number of app key registrations.
-  */
+   */
   "total"?: number;
   /**
    * The total number of app key registrations that match the specified filters.
-  */
+   */
   "totalFiltered"?: number;
 
   /**
@@ -40,54 +35,28 @@ export class ListAppKeyRegistrationsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "total": {
-      "baseName": "total",
-      "type": "number",
-      "format": "int64",
+    total: {
+      baseName: "total",
+      type: "number",
+      format: "int64",
     },
-    "totalFiltered": {
-      "baseName": "total_filtered",
-      "type": "number",
-      "format": "int64",
+    totalFiltered: {
+      baseName: "total_filtered",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListAppKeyRegistrationsResponseMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

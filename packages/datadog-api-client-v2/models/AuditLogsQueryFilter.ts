@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Search and filter query settings.
-*/
+ */
 export class AuditLogsQueryFilter {
   /**
    * Minimum time for the requested events. Supports date, math, and regular timestamps (in milliseconds).
-  */
+   */
   "from"?: string;
   /**
    * Search query following the Audit Logs search syntax.
-  */
+   */
   "query"?: string;
   /**
    * Maximum time for the requested events. Supports date, math, and regular timestamps (in milliseconds).
-  */
+   */
   "to"?: string;
 
   /**
@@ -44,56 +39,30 @@ export class AuditLogsQueryFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "from": {
-      "baseName": "from",
-      "type": "string",
+    from: {
+      baseName: "from",
+      type: "string",
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
+    query: {
+      baseName: "query",
+      type: "string",
     },
-    "to": {
-      "baseName": "to",
-      "type": "string",
+    to: {
+      baseName: "to",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AuditLogsQueryFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

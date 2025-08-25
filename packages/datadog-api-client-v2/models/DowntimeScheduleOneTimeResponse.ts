@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A one-time downtime definition.
-*/
+ */
 export class DowntimeScheduleOneTimeResponse {
   /**
    * ISO-8601 Datetime to end the downtime.
-  */
+   */
   "end"?: Date;
   /**
    * ISO-8601 Datetime to start the downtime.
-  */
+   */
   "start": Date;
 
   /**
@@ -40,55 +35,29 @@ export class DowntimeScheduleOneTimeResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "end": {
-      "baseName": "end",
-      "type": "Date",
-      "format": "date-time",
+    end: {
+      baseName: "end",
+      type: "Date",
+      format: "date-time",
     },
-    "start": {
-      "baseName": "start",
-      "type": "Date",
-      "required": true,
-      "format": "date-time",
+    start: {
+      baseName: "start",
+      type: "Date",
+      required: true,
+      format: "date-time",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DowntimeScheduleOneTimeResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

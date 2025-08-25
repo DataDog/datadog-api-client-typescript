@@ -5,20 +5,15 @@
  */
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident integration metadata for the Microsoft Teams integration.
-*/
+ */
 export class MSTeamsIntegrationMetadata {
   /**
    * Array of Microsoft Teams in this integration metadata.
-  */
+   */
   "teams": Array<MSTeamsIntegrationMetadataTeamsItem>;
 
   /**
@@ -37,49 +32,23 @@ export class MSTeamsIntegrationMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "teams": {
-      "baseName": "teams",
-      "type": "Array<MSTeamsIntegrationMetadataTeamsItem>",
-      "required": true,
+    teams: {
+      baseName: "teams",
+      type: "Array<MSTeamsIntegrationMetadataTeamsItem>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MSTeamsIntegrationMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

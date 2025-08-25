@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Increments the metric by 1 for each matching event.
-*/
+ */
 
-export type ObservabilityPipelineGeneratedMetricIncrementByOneStrategy = typeof INCREMENT_BY_ONE | UnparsedObject;
-export const INCREMENT_BY_ONE = 'increment_by_one';
+export type ObservabilityPipelineGeneratedMetricIncrementByOneStrategy =
+  | typeof INCREMENT_BY_ONE
+  | UnparsedObject;
+export const INCREMENT_BY_ONE = "increment_by_one";

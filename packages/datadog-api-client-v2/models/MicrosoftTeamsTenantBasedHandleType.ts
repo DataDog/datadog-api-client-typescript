@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Specifies the tenant-based handle resource type.
-*/
+ */
 
-export type MicrosoftTeamsTenantBasedHandleType = typeof TENANT_BASED_HANDLE | UnparsedObject;
-export const TENANT_BASED_HANDLE = 'tenant-based-handle';
+export type MicrosoftTeamsTenantBasedHandleType =
+  | typeof TENANT_BASED_HANDLE
+  | UnparsedObject;
+export const TENANT_BASED_HANDLE = "tenant-based-handle";

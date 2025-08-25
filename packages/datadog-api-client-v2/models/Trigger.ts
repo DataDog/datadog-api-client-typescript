@@ -20,15 +20,27 @@ import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
 import { SoftwareCatalogTriggerWrapper } from "./SoftwareCatalogTriggerWrapper";
 import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * One of the triggers that can start the execution of a workflow.
-*/
+ */
 
-export type Trigger = APITriggerWrapper | AppTriggerWrapper | CaseTriggerWrapper | ChangeEventTriggerWrapper | DatabaseMonitoringTriggerWrapper | DashboardTriggerWrapper | GithubWebhookTriggerWrapper | IncidentTriggerWrapper | MonitorTriggerWrapper | NotebookTriggerWrapper | ScheduleTriggerWrapper | SecurityTriggerWrapper | SelfServiceTriggerWrapper | SlackTriggerWrapper | SoftwareCatalogTriggerWrapper | WorkflowTriggerWrapper | UnparsedObject;
+export type Trigger =
+  | APITriggerWrapper
+  | AppTriggerWrapper
+  | CaseTriggerWrapper
+  | ChangeEventTriggerWrapper
+  | DatabaseMonitoringTriggerWrapper
+  | DashboardTriggerWrapper
+  | GithubWebhookTriggerWrapper
+  | IncidentTriggerWrapper
+  | MonitorTriggerWrapper
+  | NotebookTriggerWrapper
+  | ScheduleTriggerWrapper
+  | SecurityTriggerWrapper
+  | SelfServiceTriggerWrapper
+  | SlackTriggerWrapper
+  | SoftwareCatalogTriggerWrapper
+  | WorkflowTriggerWrapper
+  | UnparsedObject;

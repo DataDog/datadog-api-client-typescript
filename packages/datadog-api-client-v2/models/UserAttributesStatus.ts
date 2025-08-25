@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The user's status.
-*/
+ */
 
-export type UserAttributesStatus = typeof ACTIVE| typeof DEACTIVATED| typeof PENDING | UnparsedObject;
-export const ACTIVE = 'active';
-export const DEACTIVATED = 'deactivated';
-export const PENDING = 'pending';
+export type UserAttributesStatus =
+  | typeof ACTIVE
+  | typeof DEACTIVATED
+  | typeof PENDING
+  | UnparsedObject;
+export const ACTIVE = "active";
+export const DEACTIVATED = "deactivated";
+export const PENDING = "pending";

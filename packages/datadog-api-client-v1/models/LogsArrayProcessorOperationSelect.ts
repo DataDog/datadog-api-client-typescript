@@ -5,36 +5,31 @@
  */
 import { LogsArrayProcessorOperationSelectType } from "./LogsArrayProcessorOperationSelectType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Operation that finds an object in a `source` array using a `filter`, and then extracts a specific value into the `target` attribute.
-*/
+ */
 export class LogsArrayProcessorOperationSelect {
   /**
    * Filter condition expressed as `key:value` used to find the matching element.
-  */
+   */
   "filter": string;
   /**
    * Attribute path of the array to search into.
-  */
+   */
   "source": string;
   /**
    * Attribute that receives the extracted value.
-  */
+   */
   "target": string;
   /**
    * Operation type.
-  */
+   */
   "type": LogsArrayProcessorOperationSelectType;
   /**
    * Key of the value to extract from the matching element.
-  */
+   */
   "valueToExtract": string;
 
   /**
@@ -53,69 +48,43 @@ export class LogsArrayProcessorOperationSelect {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "filter": {
-      "baseName": "filter",
-      "type": "string",
-      "required": true,
+    filter: {
+      baseName: "filter",
+      type: "string",
+      required: true,
     },
-    "source": {
-      "baseName": "source",
-      "type": "string",
-      "required": true,
+    source: {
+      baseName: "source",
+      type: "string",
+      required: true,
     },
-    "target": {
-      "baseName": "target",
-      "type": "string",
-      "required": true,
+    target: {
+      baseName: "target",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "LogsArrayProcessorOperationSelectType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "LogsArrayProcessorOperationSelectType",
+      required: true,
     },
-    "valueToExtract": {
-      "baseName": "value_to_extract",
-      "type": "string",
-      "required": true,
+    valueToExtract: {
+      baseName: "value_to_extract",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArrayProcessorOperationSelect.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

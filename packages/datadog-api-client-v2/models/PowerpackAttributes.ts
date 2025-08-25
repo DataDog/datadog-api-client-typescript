@@ -6,36 +6,31 @@
 import { PowerpackGroupWidget } from "./PowerpackGroupWidget";
 import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Powerpack attribute object.
-*/
+ */
 export class PowerpackAttributes {
   /**
    * Description of this powerpack.
-  */
+   */
   "description"?: string;
   /**
    * Powerpack group widget definition object.
-  */
+   */
   "groupWidget": PowerpackGroupWidget;
   /**
    * Name of the powerpack.
-  */
+   */
   "name": string;
   /**
    * List of tags to identify this powerpack.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * List of template variables for this powerpack.
-  */
+   */
   "templateVariables"?: Array<PowerpackTemplateVariable>;
 
   /**
@@ -54,66 +49,40 @@ export class PowerpackAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "description": {
-      "baseName": "description",
-      "type": "string",
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    "groupWidget": {
-      "baseName": "group_widget",
-      "type": "PowerpackGroupWidget",
-      "required": true,
+    groupWidget: {
+      baseName: "group_widget",
+      type: "PowerpackGroupWidget",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "templateVariables": {
-      "baseName": "template_variables",
-      "type": "Array<PowerpackTemplateVariable>",
+    templateVariables: {
+      baseName: "template_variables",
+      type: "Array<PowerpackTemplateVariable>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PowerpackAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

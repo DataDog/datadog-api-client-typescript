@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Monitor notification rule resource type.
-*/
+ */
 
-export type MonitorNotificationRuleResourceType = typeof MONITOR_NOTIFICATION_RULE | UnparsedObject;
-export const MONITOR_NOTIFICATION_RULE = 'monitor-notification-rule';
+export type MonitorNotificationRuleResourceType =
+  | typeof MONITOR_NOTIFICATION_RULE
+  | UnparsedObject;
+export const MONITOR_NOTIFICATION_RULE = "monitor-notification-rule";

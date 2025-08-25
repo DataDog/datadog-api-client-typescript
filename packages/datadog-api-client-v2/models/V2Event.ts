@@ -5,28 +5,23 @@
  */
 import { V2EventAttributes } from "./V2EventAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An event object.
-*/
+ */
 export class V2Event {
   /**
    * Event attributes.
-  */
+   */
   "attributes"?: V2EventAttributes;
   /**
    * The event's ID.
-  */
+   */
   "id"?: string;
   /**
    * Entity type.
-  */
+   */
   "type"?: string;
 
   /**
@@ -45,56 +40,30 @@ export class V2Event {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "V2EventAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "V2EventAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return V2Event.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

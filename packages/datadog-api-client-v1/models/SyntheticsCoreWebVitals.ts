@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Core Web Vitals attached to a browser test step.
-*/
+ */
 export class SyntheticsCoreWebVitals {
   /**
    * Cumulative Layout Shift.
-  */
+   */
   "cls"?: number;
   /**
    * Largest Contentful Paint in milliseconds.
-  */
+   */
   "lcp"?: number;
   /**
    * URL attached to the metrics.
-  */
+   */
   "url"?: string;
 
   /**
@@ -44,58 +39,32 @@ export class SyntheticsCoreWebVitals {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "cls": {
-      "baseName": "cls",
-      "type": "number",
-      "format": "double",
+    cls: {
+      baseName: "cls",
+      type: "number",
+      format: "double",
     },
-    "lcp": {
-      "baseName": "lcp",
-      "type": "number",
-      "format": "double",
+    lcp: {
+      baseName: "lcp",
+      type: "number",
+      format: "double",
     },
-    "url": {
-      "baseName": "url",
-      "type": "string",
+    url: {
+      baseName: "url",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsCoreWebVitals.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

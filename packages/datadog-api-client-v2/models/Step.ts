@@ -10,52 +10,47 @@ import { Parameter } from "./Parameter";
 import { ReadinessGate } from "./ReadinessGate";
 import { StepDisplay } from "./StepDisplay";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A Step is a sub-component of a workflow. Each Step performs an action.
-*/
+ */
 export class Step {
   /**
    * The unique identifier of an action.
-  */
+   */
   "actionId": string;
   /**
    * Used to create conditions before running subsequent actions.
-  */
+   */
   "completionGate"?: CompletionGate;
   /**
    * The unique identifier of a connection defined in the spec.
-  */
+   */
   "connectionLabel"?: string;
   /**
    * The definition of `StepDisplay` object.
-  */
+   */
   "display"?: StepDisplay;
   /**
    * The `Step` `errorHandlers`.
-  */
+   */
   "errorHandlers"?: Array<ErrorHandler>;
   /**
    * Name of the step.
-  */
+   */
   "name": string;
   /**
    * A list of subsequent actions to run.
-  */
+   */
   "outboundEdges"?: Array<OutboundEdge>;
   /**
    * A list of inputs for an action.
-  */
+   */
   "parameters"?: Array<Parameter>;
   /**
    * Used to merge multiple branches into a single branch.
-  */
+   */
   "readinessGate"?: ReadinessGate;
 
   /**
@@ -74,82 +69,56 @@ export class Step {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "actionId": {
-      "baseName": "actionId",
-      "type": "string",
-      "required": true,
+    actionId: {
+      baseName: "actionId",
+      type: "string",
+      required: true,
     },
-    "completionGate": {
-      "baseName": "completionGate",
-      "type": "CompletionGate",
+    completionGate: {
+      baseName: "completionGate",
+      type: "CompletionGate",
     },
-    "connectionLabel": {
-      "baseName": "connectionLabel",
-      "type": "string",
+    connectionLabel: {
+      baseName: "connectionLabel",
+      type: "string",
     },
-    "display": {
-      "baseName": "display",
-      "type": "StepDisplay",
+    display: {
+      baseName: "display",
+      type: "StepDisplay",
     },
-    "errorHandlers": {
-      "baseName": "errorHandlers",
-      "type": "Array<ErrorHandler>",
+    errorHandlers: {
+      baseName: "errorHandlers",
+      type: "Array<ErrorHandler>",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "outboundEdges": {
-      "baseName": "outboundEdges",
-      "type": "Array<OutboundEdge>",
+    outboundEdges: {
+      baseName: "outboundEdges",
+      type: "Array<OutboundEdge>",
     },
-    "parameters": {
-      "baseName": "parameters",
-      "type": "Array<Parameter>",
+    parameters: {
+      baseName: "parameters",
+      type: "Array<Parameter>",
     },
-    "readinessGate": {
-      "baseName": "readinessGate",
-      "type": "ReadinessGate",
+    readinessGate: {
+      baseName: "readinessGate",
+      type: "ReadinessGate",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return Step.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

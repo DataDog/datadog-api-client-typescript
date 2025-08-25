@@ -5,20 +5,15 @@
  */
 import { LogsMetricUpdateData } from "./LogsMetricUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The new log-based metric body.
-*/
+ */
 export class LogsMetricUpdateRequest {
   /**
    * The new log-based metric properties.
-  */
+   */
   "data": LogsMetricUpdateData;
 
   /**
@@ -37,49 +32,23 @@ export class LogsMetricUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "LogsMetricUpdateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "LogsMetricUpdateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsMetricUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

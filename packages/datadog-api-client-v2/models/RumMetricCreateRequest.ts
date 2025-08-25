@@ -5,20 +5,15 @@
  */
 import { RumMetricCreateData } from "./RumMetricCreateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The new rum-based metric body.
-*/
+ */
 export class RumMetricCreateRequest {
   /**
    * The new rum-based metric properties.
-  */
+   */
   "data": RumMetricCreateData;
 
   /**
@@ -37,49 +32,23 @@ export class RumMetricCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "RumMetricCreateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "RumMetricCreateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RumMetricCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

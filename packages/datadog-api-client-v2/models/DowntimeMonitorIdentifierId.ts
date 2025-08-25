@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object of the monitor identifier.
-*/
+ */
 export class DowntimeMonitorIdentifierId {
   /**
    * ID of the monitor to prevent notifications.
-  */
+   */
   "monitorId": number;
 
   /**
@@ -36,50 +31,24 @@ export class DowntimeMonitorIdentifierId {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "monitorId": {
-      "baseName": "monitor_id",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    monitorId: {
+      baseName: "monitor_id",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DowntimeMonitorIdentifierId.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

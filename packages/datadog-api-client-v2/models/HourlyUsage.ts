@@ -6,28 +6,23 @@
 import { HourlyUsageAttributes } from "./HourlyUsageAttributes";
 import { UsageTimeSeriesType } from "./UsageTimeSeriesType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Hourly usage for a product family for an org.
-*/
+ */
 export class HourlyUsage {
   /**
    * Attributes of hourly usage for a product family for an org for a time period.
-  */
+   */
   "attributes"?: HourlyUsageAttributes;
   /**
    * Unique ID of the response.
-  */
+   */
   "id"?: string;
   /**
    * Type of usage data.
-  */
+   */
   "type"?: UsageTimeSeriesType;
 
   /**
@@ -46,56 +41,30 @@ export class HourlyUsage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "HourlyUsageAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "HourlyUsageAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "UsageTimeSeriesType",
+    type: {
+      baseName: "type",
+      type: "UsageTimeSeriesType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return HourlyUsage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

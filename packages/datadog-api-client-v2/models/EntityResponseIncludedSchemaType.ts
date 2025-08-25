@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Schema type.
-*/
+ */
 
 export type EntityResponseIncludedSchemaType = typeof SCHEMA | UnparsedObject;
-export const SCHEMA = 'schema';
+export const SCHEMA = "schema";

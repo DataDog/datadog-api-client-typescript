@@ -5,20 +5,15 @@
  */
 import { ContainerImageMetaPage } from "./ContainerImageMetaPage";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response metadata object.
-*/
+ */
 export class ContainerImageMeta {
   /**
    * Paging attributes.
-  */
+   */
   "pagination"?: ContainerImageMetaPage;
 
   /**
@@ -37,48 +32,22 @@ export class ContainerImageMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "pagination": {
-      "baseName": "pagination",
-      "type": "ContainerImageMetaPage",
+    pagination: {
+      baseName: "pagination",
+      type: "ContainerImageMetaPage",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerImageMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

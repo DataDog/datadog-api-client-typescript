@@ -5,24 +5,19 @@
  */
 import { VulnerabilitySeverity } from "./VulnerabilitySeverity";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Vulnerability EPSS severity.
-*/
+ */
 export class EPSS {
   /**
    * Vulnerability EPSS severity score.
-  */
+   */
   "score": number;
   /**
    * The vulnerability severity.
-  */
+   */
   "severity": VulnerabilitySeverity;
 
   /**
@@ -41,55 +36,29 @@ export class EPSS {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "score": {
-      "baseName": "score",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    score: {
+      baseName: "score",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "severity": {
-      "baseName": "severity",
-      "type": "VulnerabilitySeverity",
-      "required": true,
+    severity: {
+      baseName: "severity",
+      type: "VulnerabilitySeverity",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EPSS.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

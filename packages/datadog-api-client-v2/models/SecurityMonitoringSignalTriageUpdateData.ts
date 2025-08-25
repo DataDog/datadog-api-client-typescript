@@ -6,28 +6,23 @@
 import { SecurityMonitoringSignalMetadataType } from "./SecurityMonitoringSignalMetadataType";
 import { SecurityMonitoringSignalTriageAttributes } from "./SecurityMonitoringSignalTriageAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data containing the updated triage attributes of the signal.
-*/
+ */
 export class SecurityMonitoringSignalTriageUpdateData {
   /**
    * Attributes describing a triage state update operation over a security signal.
-  */
+   */
   "attributes"?: SecurityMonitoringSignalTriageAttributes;
   /**
    * The unique ID of the security signal.
-  */
+   */
   "id"?: string;
   /**
    * The type of event.
-  */
+   */
   "type"?: SecurityMonitoringSignalMetadataType;
 
   /**
@@ -46,56 +41,30 @@ export class SecurityMonitoringSignalTriageUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "SecurityMonitoringSignalTriageAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "SecurityMonitoringSignalTriageAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SecurityMonitoringSignalMetadataType",
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringSignalMetadataType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalTriageUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

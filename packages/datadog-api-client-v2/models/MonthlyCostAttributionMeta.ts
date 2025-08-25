@@ -6,24 +6,19 @@
 import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing document metadata.
-*/
+ */
 export class MonthlyCostAttributionMeta {
   /**
    * An array of available aggregates.
-  */
+   */
   "aggregates"?: Array<CostAttributionAggregatesBody>;
   /**
    * The metadata for the current pagination.
-  */
+   */
   "pagination"?: MonthlyCostAttributionPagination;
 
   /**
@@ -42,52 +37,26 @@ export class MonthlyCostAttributionMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregates": {
-      "baseName": "aggregates",
-      "type": "Array<CostAttributionAggregatesBody>",
+    aggregates: {
+      baseName: "aggregates",
+      type: "Array<CostAttributionAggregatesBody>",
     },
-    "pagination": {
-      "baseName": "pagination",
-      "type": "MonthlyCostAttributionPagination",
+    pagination: {
+      baseName: "pagination",
+      type: "MonthlyCostAttributionPagination",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonthlyCostAttributionMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

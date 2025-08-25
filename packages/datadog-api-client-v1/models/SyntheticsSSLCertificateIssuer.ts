@@ -4,40 +4,35 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object describing the issuer of a SSL certificate.
-*/
+ */
 export class SyntheticsSSLCertificateIssuer {
   /**
    * Country Name that issued the certificate.
-  */
+   */
   "C"?: string;
   /**
    * Common Name that issued certificate.
-  */
+   */
   "CN"?: string;
   /**
    * Locality that issued the certificate.
-  */
+   */
   "L"?: string;
   /**
    * Organization that issued the certificate.
-  */
+   */
   "O"?: string;
   /**
    * Organizational Unit that issued the certificate.
-  */
+   */
   "OU"?: string;
   /**
    * State Or Province Name that issued the certificate.
-  */
+   */
   "ST"?: string;
 
   /**
@@ -56,68 +51,42 @@ export class SyntheticsSSLCertificateIssuer {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "C": {
-      "baseName": "C",
-      "type": "string",
+    C: {
+      baseName: "C",
+      type: "string",
     },
-    "CN": {
-      "baseName": "CN",
-      "type": "string",
+    CN: {
+      baseName: "CN",
+      type: "string",
     },
-    "L": {
-      "baseName": "L",
-      "type": "string",
+    L: {
+      baseName: "L",
+      type: "string",
     },
-    "O": {
-      "baseName": "O",
-      "type": "string",
+    O: {
+      baseName: "O",
+      type: "string",
     },
-    "OU": {
-      "baseName": "OU",
-      "type": "string",
+    OU: {
+      baseName: "OU",
+      type: "string",
     },
-    "ST": {
-      "baseName": "ST",
-      "type": "string",
+    ST: {
+      baseName: "ST",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsSSLCertificateIssuer.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

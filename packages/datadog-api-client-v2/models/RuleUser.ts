@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * User creating or modifying a rule.
-*/
+ */
 export class RuleUser {
   /**
    * The user handle.
-  */
+   */
   "handle"?: string;
   /**
    * The user name.
-  */
+   */
   "name"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class RuleUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "handle": {
-      "baseName": "handle",
-      "type": "string",
+    handle: {
+      baseName: "handle",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RuleUser.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

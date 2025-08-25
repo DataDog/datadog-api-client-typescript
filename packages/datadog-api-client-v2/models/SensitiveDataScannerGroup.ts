@@ -5,24 +5,19 @@
  */
 import { SensitiveDataScannerGroupType } from "./SensitiveDataScannerGroupType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A scanning group.
-*/
+ */
 export class SensitiveDataScannerGroup {
   /**
    * ID of the group.
-  */
+   */
   "id"?: string;
   /**
    * Sensitive Data Scanner group type.
-  */
+   */
   "type"?: SensitiveDataScannerGroupType;
 
   /**
@@ -41,52 +36,26 @@ export class SensitiveDataScannerGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SensitiveDataScannerGroupType",
+    type: {
+      baseName: "type",
+      type: "SensitiveDataScannerGroupType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerGroup.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

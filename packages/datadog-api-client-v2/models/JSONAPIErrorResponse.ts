@@ -5,20 +5,15 @@
  */
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * API error response.
-*/
+ */
 export class JSONAPIErrorResponse {
   /**
    * A list of errors.
-  */
+   */
   "errors": Array<JSONAPIErrorItem>;
 
   /**
@@ -37,49 +32,23 @@ export class JSONAPIErrorResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "errors": {
-      "baseName": "errors",
-      "type": "Array<JSONAPIErrorItem>",
-      "required": true,
+    errors: {
+      baseName: "errors",
+      type: "Array<JSONAPIErrorItem>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return JSONAPIErrorResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { MonitorOptionsCustomScheduleRecurrence } from "./MonitorOptionsCustomScheduleRecurrence";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Configuration options for the custom schedule. **This feature is in private beta.**
-*/
+ */
 export class MonitorOptionsCustomSchedule {
   /**
    * Array of custom schedule recurrences.
-  */
+   */
   "recurrences"?: Array<MonitorOptionsCustomScheduleRecurrence>;
 
   /**
@@ -37,48 +32,22 @@ export class MonitorOptionsCustomSchedule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "recurrences": {
-      "baseName": "recurrences",
-      "type": "Array<MonitorOptionsCustomScheduleRecurrence>",
+    recurrences: {
+      baseName: "recurrences",
+      type: "Array<MonitorOptionsCustomScheduleRecurrence>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorOptionsCustomSchedule.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

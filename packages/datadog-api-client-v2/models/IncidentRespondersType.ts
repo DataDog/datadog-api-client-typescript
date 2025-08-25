@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The incident responders type.
-*/
+ */
 
-export type IncidentRespondersType = typeof INCIDENT_RESPONDERS | UnparsedObject;
-export const INCIDENT_RESPONDERS = 'incident_responders';
+export type IncidentRespondersType =
+  | typeof INCIDENT_RESPONDERS
+  | UnparsedObject;
+export const INCIDENT_RESPONDERS = "incident_responders";

@@ -4,26 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { APITrigger } from "./APITrigger";
-import { StartStepNamesItem } from "./StartStepNamesItem";
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Schema for an API-based trigger.
-*/
+ */
 export class APITriggerWrapper {
   /**
    * Trigger a workflow from an API request. The workflow must be published.
-  */
+   */
   "apiTrigger": APITrigger;
   /**
    * A list of steps that run first after a trigger fires.
-  */
+   */
   "startStepNames"?: Array<string>;
 
   /**
@@ -42,53 +36,27 @@ export class APITriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiTrigger": {
-      "baseName": "apiTrigger",
-      "type": "APITrigger",
-      "required": true,
+    apiTrigger: {
+      baseName: "apiTrigger",
+      type: "APITrigger",
+      required: true,
     },
-    "startStepNames": {
-      "baseName": "startStepNames",
-      "type": "Array<string>",
+    startStepNames: {
+      baseName: "startStepNames",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return APITriggerWrapper.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

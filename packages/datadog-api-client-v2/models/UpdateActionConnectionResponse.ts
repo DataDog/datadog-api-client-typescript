@@ -5,20 +5,15 @@
  */
 import { ActionConnectionData } from "./ActionConnectionData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response for an updated connection.
-*/
+ */
 export class UpdateActionConnectionResponse {
   /**
    * Data related to the connection.
-  */
+   */
   "data"?: ActionConnectionData;
 
   /**
@@ -37,48 +32,22 @@ export class UpdateActionConnectionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "ActionConnectionData",
+    data: {
+      baseName: "data",
+      type: "ActionConnectionData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateActionConnectionResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

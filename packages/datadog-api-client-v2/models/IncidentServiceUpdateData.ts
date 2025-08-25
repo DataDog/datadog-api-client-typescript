@@ -7,32 +7,27 @@ import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
 import { IncidentServiceType } from "./IncidentServiceType";
 import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident Service payload for update requests.
-*/
+ */
 export class IncidentServiceUpdateData {
   /**
    * The incident service's attributes for an update request.
-  */
+   */
   "attributes"?: IncidentServiceUpdateAttributes;
   /**
    * The incident service's ID.
-  */
+   */
   "id"?: string;
   /**
    * The incident service's relationships.
-  */
+   */
   "relationships"?: IncidentServiceRelationships;
   /**
    * Incident service resource type.
-  */
+   */
   "type": IncidentServiceType;
 
   /**
@@ -51,61 +46,35 @@ export class IncidentServiceUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentServiceUpdateAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentServiceUpdateAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentServiceRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentServiceRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentServiceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentServiceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentServiceUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

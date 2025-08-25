@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The processor type. The value should always be `ocsf_mapper`.
-*/
+ */
 
-export type ObservabilityPipelineOcsfMapperProcessorType = typeof OCSF_MAPPER | UnparsedObject;
-export const OCSF_MAPPER = 'ocsf_mapper';
+export type ObservabilityPipelineOcsfMapperProcessorType =
+  | typeof OCSF_MAPPER
+  | UnparsedObject;
+export const OCSF_MAPPER = "ocsf_mapper";

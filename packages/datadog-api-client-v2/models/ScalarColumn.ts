@@ -6,15 +6,13 @@
 import { DataScalarColumn } from "./DataScalarColumn";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A single column in a scalar query response.
-*/
+ */
 
-export type ScalarColumn = GroupScalarColumn | DataScalarColumn | UnparsedObject;
+export type ScalarColumn =
+  | GroupScalarColumn
+  | DataScalarColumn
+  | UnparsedObject;

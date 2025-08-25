@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The number of SNMP devices for each hour for a given organization.
-*/
+ */
 export class UsageSNMPHour {
   /**
    * The hour for the usage.
-  */
+   */
   "hour"?: Date;
   /**
    * The organization name.
-  */
+   */
   "orgName"?: string;
   /**
    * The organization public ID.
-  */
+   */
   "publicId"?: string;
   /**
    * Contains the number of SNMP devices.
-  */
+   */
   "snmpDevices"?: number;
 
   /**
@@ -48,62 +43,36 @@ export class UsageSNMPHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "hour": {
-      "baseName": "hour",
-      "type": "Date",
-      "format": "date-time",
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
     },
-    "orgName": {
-      "baseName": "org_name",
-      "type": "string",
+    orgName: {
+      baseName: "org_name",
+      type: "string",
     },
-    "publicId": {
-      "baseName": "public_id",
-      "type": "string",
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
-    "snmpDevices": {
-      "baseName": "snmp_devices",
-      "type": "number",
-      "format": "int64",
+    snmpDevices: {
+      baseName: "snmp_devices",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageSNMPHour.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

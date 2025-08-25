@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * List of errors.
-*/
+ */
 export class HTTPCIAppError {
   /**
    * Error message.
-  */
+   */
   "detail"?: string;
   /**
    * Error code.
-  */
+   */
   "status"?: string;
   /**
    * Error title.
-  */
+   */
   "title"?: string;
 
   /**
@@ -44,56 +39,30 @@ export class HTTPCIAppError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "detail": {
-      "baseName": "detail",
-      "type": "string",
+    detail: {
+      baseName: "detail",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "string",
+    status: {
+      baseName: "status",
+      type: "string",
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return HTTPCIAppError.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

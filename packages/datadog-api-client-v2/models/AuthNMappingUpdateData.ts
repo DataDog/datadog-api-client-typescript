@@ -7,32 +7,27 @@ import { AuthNMappingsType } from "./AuthNMappingsType";
 import { AuthNMappingUpdateAttributes } from "./AuthNMappingUpdateAttributes";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data for updating an AuthN Mapping.
-*/
+ */
 export class AuthNMappingUpdateData {
   /**
    * Key/Value pair of attributes used for update request.
-  */
+   */
   "attributes"?: AuthNMappingUpdateAttributes;
   /**
    * ID of the AuthN Mapping.
-  */
+   */
   "id": string;
   /**
    * Relationship of AuthN Mapping update object to a Role or Team.
-  */
+   */
   "relationships"?: AuthNMappingUpdateRelationships;
   /**
    * AuthN Mappings resource type.
-  */
+   */
   "type": AuthNMappingsType;
 
   /**
@@ -51,62 +46,36 @@ export class AuthNMappingUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AuthNMappingUpdateAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "AuthNMappingUpdateAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "AuthNMappingUpdateRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "AuthNMappingUpdateRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AuthNMappingsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AuthNMappingsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AuthNMappingUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

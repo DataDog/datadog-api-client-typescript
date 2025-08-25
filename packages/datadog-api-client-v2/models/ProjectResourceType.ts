@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Project resource type
-*/
+ */
 
 export type ProjectResourceType = typeof PROJECT | UnparsedObject;
-export const PROJECT = 'project';
+export const PROJECT = "project";

@@ -6,24 +6,19 @@
 import { SpansAggregateRequestAttributes } from "./SpansAggregateRequestAttributes";
 import { SpansAggregateRequestType } from "./SpansAggregateRequestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing the query content.
-*/
+ */
 export class SpansAggregateData {
   /**
    * The object containing all the query parameters.
-  */
+   */
   "attributes"?: SpansAggregateRequestAttributes;
   /**
    * The type of resource. The value should always be aggregate_request.
-  */
+   */
   "type"?: SpansAggregateRequestType;
 
   /**
@@ -42,52 +37,26 @@ export class SpansAggregateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "SpansAggregateRequestAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "SpansAggregateRequestAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SpansAggregateRequestType",
+    type: {
+      baseName: "type",
+      type: "SpansAggregateRequestType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansAggregateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

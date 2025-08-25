@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The payload accepted for intake.
-*/
+ */
 export class IntakePayloadAccepted {
   /**
    * The status of the intake payload.
-  */
+   */
   "status"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class IntakePayloadAccepted {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "status": {
-      "baseName": "status",
-      "type": "string",
+    status: {
+      baseName: "status",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IntakePayloadAccepted.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

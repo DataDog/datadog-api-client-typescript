@@ -5,20 +5,15 @@
  */
 import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Metadata about the instances list
-*/
+ */
 export class WorkflowListInstancesResponseMeta {
   /**
    * Page information for the list instances response.
-  */
+   */
   "page"?: WorkflowListInstancesResponseMetaPage;
 
   /**
@@ -37,48 +32,22 @@ export class WorkflowListInstancesResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "page": {
-      "baseName": "page",
-      "type": "WorkflowListInstancesResponseMetaPage",
+    page: {
+      baseName: "page",
+      type: "WorkflowListInstancesResponseMetaPage",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WorkflowListInstancesResponseMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

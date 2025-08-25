@@ -7,32 +7,27 @@ import { IncidentAttachmentAttributes } from "./IncidentAttachmentAttributes";
 import { IncidentAttachmentRelationships } from "./IncidentAttachmentRelationships";
 import { IncidentAttachmentType } from "./IncidentAttachmentType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A single incident attachment.
-*/
+ */
 export class IncidentAttachmentData {
   /**
    * The attributes object for an attachment.
-  */
+   */
   "attributes": IncidentAttachmentAttributes;
   /**
    * A unique identifier that represents the incident attachment.
-  */
+   */
   "id": string;
   /**
    * The incident attachment's relationships.
-  */
+   */
   "relationships": IncidentAttachmentRelationships;
   /**
    * The incident attachment resource type.
-  */
+   */
   "type": IncidentAttachmentType;
 
   /**
@@ -51,64 +46,38 @@ export class IncidentAttachmentData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentAttachmentAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentAttachmentAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentAttachmentRelationships",
-      "required": true,
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentAttachmentRelationships",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentAttachmentType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentAttachmentType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentAttachmentData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,28 +5,23 @@
  */
 import { ServiceDefinitionV1ResourceType } from "./ServiceDefinitionV1ResourceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Service's external links.
-*/
+ */
 export class ServiceDefinitionV1Resource {
   /**
    * Link name.
-  */
+   */
   "name": string;
   /**
    * Link type.
-  */
+   */
   "type": ServiceDefinitionV1ResourceType;
   /**
    * Link URL.
-  */
+   */
   "url": string;
 
   /**
@@ -45,59 +40,33 @@ export class ServiceDefinitionV1Resource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ServiceDefinitionV1ResourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ServiceDefinitionV1ResourceType",
+      required: true,
     },
-    "url": {
-      "baseName": "url",
-      "type": "string",
-      "required": true,
+    url: {
+      baseName: "url",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceDefinitionV1Resource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

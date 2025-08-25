@@ -4,20 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of a user locator.
-*/
+ */
 
-export type SyntheticsMobileStepParamsElementUserLocatorValuesItemsType = typeof ACCESSIBILITY_ID| typeof ID| typeof IOS_PREDICATE_STRING| typeof IOS_CLASS_CHAIN| typeof XPATH | UnparsedObject;
-export const ACCESSIBILITY_ID = 'accessibility-id';
-export const ID = 'id';
-export const IOS_PREDICATE_STRING = 'ios-predicate-string';
-export const IOS_CLASS_CHAIN = 'ios-class-chain';
-export const XPATH = 'xpath';
+export type SyntheticsMobileStepParamsElementUserLocatorValuesItemsType =
+  | typeof ACCESSIBILITY_ID
+  | typeof ID
+  | typeof IOS_PREDICATE_STRING
+  | typeof IOS_CLASS_CHAIN
+  | typeof XPATH
+  | UnparsedObject;
+export const ACCESSIBILITY_ID = "accessibility-id";
+export const ID = "id";
+export const IOS_PREDICATE_STRING = "ios-predicate-string";
+export const IOS_CLASS_CHAIN = "ios-class-chain";
+export const XPATH = "xpath";

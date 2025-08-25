@@ -6,28 +6,23 @@
 import { NotebookResourceType } from "./NotebookResourceType";
 import { NotebookResponseDataAttributes } from "./NotebookResponseDataAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The data for a notebook.
-*/
+ */
 export class NotebookResponseData {
   /**
    * The attributes of a notebook.
-  */
+   */
   "attributes": NotebookResponseDataAttributes;
   /**
    * Unique notebook ID, assigned when you create the notebook.
-  */
+   */
   "id": number;
   /**
    * Type of the Notebook resource.
-  */
+   */
   "type": NotebookResourceType;
 
   /**
@@ -46,60 +41,34 @@ export class NotebookResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "NotebookResponseDataAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "NotebookResponseDataAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    id: {
+      baseName: "id",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "type": {
-      "baseName": "type",
-      "type": "NotebookResourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "NotebookResourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

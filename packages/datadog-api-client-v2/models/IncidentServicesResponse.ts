@@ -7,28 +7,23 @@ import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentServiceIncludedItems } from "./IncidentServiceIncludedItems";
 import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response with a list of incident service payloads.
-*/
+ */
 export class IncidentServicesResponse {
   /**
    * An array of incident services.
-  */
+   */
   "data": Array<IncidentServiceResponseData>;
   /**
    * Included related resources which the user requested.
-  */
+   */
   "included"?: Array<IncidentServiceIncludedItems>;
   /**
    * The metadata object containing pagination metadata.
-  */
+   */
   "meta"?: IncidentResponseMeta;
 
   /**
@@ -47,57 +42,31 @@ export class IncidentServicesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<IncidentServiceResponseData>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<IncidentServiceResponseData>",
+      required: true,
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<IncidentServiceIncludedItems>",
+    included: {
+      baseName: "included",
+      type: "Array<IncidentServiceIncludedItems>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "IncidentResponseMeta",
+    meta: {
+      baseName: "meta",
+      type: "IncidentResponseMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentServicesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

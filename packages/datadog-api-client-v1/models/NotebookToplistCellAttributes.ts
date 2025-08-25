@@ -8,32 +8,27 @@ import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The attributes of a notebook `toplist` cell.
-*/
+ */
 export class NotebookToplistCellAttributes {
   /**
    * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
-  */
+   */
   "definition": ToplistWidgetDefinition;
   /**
    * The size of the graph.
-  */
+   */
   "graphSize"?: NotebookGraphSize;
   /**
    * Object describing how to split the graph to display multiple visualizations per request.
-  */
+   */
   "splitBy"?: NotebookSplitBy;
   /**
    * Timeframe for the notebook cell. When 'null', the notebook global time is used.
-  */
+   */
   "time"?: NotebookCellTime;
 
   /**
@@ -52,61 +47,35 @@ export class NotebookToplistCellAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "definition": {
-      "baseName": "definition",
-      "type": "ToplistWidgetDefinition",
-      "required": true,
+    definition: {
+      baseName: "definition",
+      type: "ToplistWidgetDefinition",
+      required: true,
     },
-    "graphSize": {
-      "baseName": "graph_size",
-      "type": "NotebookGraphSize",
+    graphSize: {
+      baseName: "graph_size",
+      type: "NotebookGraphSize",
     },
-    "splitBy": {
-      "baseName": "split_by",
-      "type": "NotebookSplitBy",
+    splitBy: {
+      baseName: "split_by",
+      type: "NotebookSplitBy",
     },
-    "time": {
-      "baseName": "time",
-      "type": "NotebookCellTime",
+    time: {
+      baseName: "time",
+      type: "NotebookCellTime",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookToplistCellAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

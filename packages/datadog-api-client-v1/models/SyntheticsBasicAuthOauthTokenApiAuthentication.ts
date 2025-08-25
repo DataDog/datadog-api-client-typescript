@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of token to use when performing the authentication.
-*/
+ */
 
-export type SyntheticsBasicAuthOauthTokenApiAuthentication = typeof HEADER| typeof BODY | UnparsedObject;
-export const HEADER = 'header';
-export const BODY = 'body';
+export type SyntheticsBasicAuthOauthTokenApiAuthentication =
+  | typeof HEADER
+  | typeof BODY
+  | UnparsedObject;
+export const HEADER = "header";
+export const BODY = "body";

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Toggles the display of additional content sent in the monitor notification.
-*/
+ */
 
-export type MonitorOptionsNotificationPresets = typeof SHOW_ALL| typeof HIDE_QUERY| typeof HIDE_HANDLES| typeof HIDE_ALL | UnparsedObject;
-export const SHOW_ALL = 'show_all';
-export const HIDE_QUERY = 'hide_query';
-export const HIDE_HANDLES = 'hide_handles';
-export const HIDE_ALL = 'hide_all';
+export type MonitorOptionsNotificationPresets =
+  | typeof SHOW_ALL
+  | typeof HIDE_QUERY
+  | typeof HIDE_HANDLES
+  | typeof HIDE_ALL
+  | UnparsedObject;
+export const SHOW_ALL = "show_all";
+export const HIDE_QUERY = "hide_query";
+export const HIDE_HANDLES = "hide_handles";
+export const HIDE_ALL = "hide_all";

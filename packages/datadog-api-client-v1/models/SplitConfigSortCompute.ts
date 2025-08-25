@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines the metric and aggregation used as the sort value.
-*/
+ */
 export class SplitConfigSortCompute {
   /**
    * How to aggregate the sort metric for the purposes of ordering.
-  */
+   */
   "aggregation": string;
   /**
    * The metric to use for sorting graphs.
-  */
+   */
   "metric": string;
 
   /**
@@ -40,54 +35,28 @@ export class SplitConfigSortCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregation": {
-      "baseName": "aggregation",
-      "type": "string",
-      "required": true,
+    aggregation: {
+      baseName: "aggregation",
+      type: "string",
+      required: true,
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
-      "required": true,
+    metric: {
+      baseName: "metric",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SplitConfigSortCompute.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

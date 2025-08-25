@@ -6,28 +6,23 @@
 import { WidgetLineType } from "./WidgetLineType";
 import { WidgetLineWidth } from "./WidgetLineWidth";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Define request widget style.
-*/
+ */
 export class WidgetRequestStyle {
   /**
    * Type of lines displayed.
-  */
+   */
   "lineType"?: WidgetLineType;
   /**
    * Width of line displayed.
-  */
+   */
   "lineWidth"?: WidgetLineWidth;
   /**
    * Color palette to apply to the widget.
-  */
+   */
   "palette"?: string;
 
   /**
@@ -46,56 +41,30 @@ export class WidgetRequestStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "lineType": {
-      "baseName": "line_type",
-      "type": "WidgetLineType",
+    lineType: {
+      baseName: "line_type",
+      type: "WidgetLineType",
     },
-    "lineWidth": {
-      "baseName": "line_width",
-      "type": "WidgetLineWidth",
+    lineWidth: {
+      baseName: "line_width",
+      type: "WidgetLineWidth",
     },
-    "palette": {
-      "baseName": "palette",
-      "type": "string",
+    palette: {
+      baseName: "palette",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetRequestStyle.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

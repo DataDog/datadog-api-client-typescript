@@ -4,16 +4,14 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Tenant-based handle resource type.
-*/
+ */
 
-export type MicrosoftTeamsTenantBasedHandleInfoType = typeof MS_TEAMS_TENANT_BASED_HANDLE_INFO | UnparsedObject;
-export const MS_TEAMS_TENANT_BASED_HANDLE_INFO = 'ms-teams-tenant-based-handle-info';
+export type MicrosoftTeamsTenantBasedHandleInfoType =
+  | typeof MS_TEAMS_TENANT_BASED_HANDLE_INFO
+  | UnparsedObject;
+export const MS_TEAMS_TENANT_BASED_HANDLE_INFO =
+  "ms-teams-tenant-based-handle-info";

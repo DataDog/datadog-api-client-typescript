@@ -5,15 +5,10 @@
  */
 import { GitlabAPIKey } from "./GitlabAPIKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `GitlabCredentials` object.
-*/
+ */
 
 export type GitlabCredentials = GitlabAPIKey | UnparsedObject;

@@ -4,17 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Widget sorting methods.
-*/
+ */
 
-export type WidgetSort = typeof ASCENDING| typeof DESCENDING | UnparsedObject;
-export const ASCENDING = 'asc';
-export const DESCENDING = 'desc';
+export type WidgetSort = typeof ASCENDING | typeof DESCENDING | UnparsedObject;
+export const ASCENDING = "asc";
+export const DESCENDING = "desc";

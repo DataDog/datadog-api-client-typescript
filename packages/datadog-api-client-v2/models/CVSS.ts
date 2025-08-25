@@ -5,28 +5,23 @@
  */
 import { VulnerabilitySeverity } from "./VulnerabilitySeverity";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Vulnerability severity.
-*/
+ */
 export class CVSS {
   /**
    * Vulnerability severity score.
-  */
+   */
   "score": number;
   /**
    * The vulnerability severity.
-  */
+   */
   "severity": VulnerabilitySeverity;
   /**
    * Vulnerability CVSS vector.
-  */
+   */
   "vector": string;
 
   /**
@@ -45,60 +40,34 @@ export class CVSS {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "score": {
-      "baseName": "score",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    score: {
+      baseName: "score",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "severity": {
-      "baseName": "severity",
-      "type": "VulnerabilitySeverity",
-      "required": true,
+    severity: {
+      baseName: "severity",
+      type: "VulnerabilitySeverity",
+      required: true,
     },
-    "vector": {
-      "baseName": "vector",
-      "type": "string",
-      "required": true,
+    vector: {
+      baseName: "vector",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CVSS.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

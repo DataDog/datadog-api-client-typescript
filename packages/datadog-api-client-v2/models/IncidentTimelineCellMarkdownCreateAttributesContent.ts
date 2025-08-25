@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The Markdown timeline cell contents.
-*/
+ */
 export class IncidentTimelineCellMarkdownCreateAttributesContent {
   /**
    * The Markdown content of the cell.
-  */
+   */
   "content"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "content": {
-      "baseName": "content",
-      "type": "string",
+    content: {
+      baseName: "content",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

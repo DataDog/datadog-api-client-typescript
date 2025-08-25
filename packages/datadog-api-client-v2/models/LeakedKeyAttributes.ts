@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of LeakedKeyAttributes object.
-*/
+ */
 export class LeakedKeyAttributes {
   /**
    * The LeakedKeyAttributes date.
-  */
+   */
   "date": Date;
   /**
    * The LeakedKeyAttributes leak_source.
-  */
+   */
   "leakSource"?: string;
 
   /**
@@ -40,54 +35,28 @@ export class LeakedKeyAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "date": {
-      "baseName": "date",
-      "type": "Date",
-      "required": true,
-      "format": "date-time",
+    date: {
+      baseName: "date",
+      type: "Date",
+      required: true,
+      format: "date-time",
     },
-    "leakSource": {
-      "baseName": "leak_source",
-      "type": "string",
+    leakSource: {
+      baseName: "leak_source",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LeakedKeyAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

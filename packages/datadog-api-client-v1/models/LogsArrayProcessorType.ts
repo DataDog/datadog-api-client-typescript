@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of logs array processor.
-*/
+ */
 
 export type LogsArrayProcessorType = typeof ARRAY_PROCESSOR | UnparsedObject;
-export const ARRAY_PROCESSOR = 'array-processor';
+export const ARRAY_PROCESSOR = "array-processor";

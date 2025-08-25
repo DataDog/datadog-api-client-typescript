@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of the resource. The value should always be logs_metrics.
-*/
+ */
 
 export type LogsMetricType = typeof LOGS_METRICS | UnparsedObject;
-export const LOGS_METRICS = 'logs_metrics';
+export const LOGS_METRICS = "logs_metrics";

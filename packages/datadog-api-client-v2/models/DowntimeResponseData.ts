@@ -7,32 +7,27 @@ import { DowntimeRelationships } from "./DowntimeRelationships";
 import { DowntimeResourceType } from "./DowntimeResourceType";
 import { DowntimeResponseAttributes } from "./DowntimeResponseAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Downtime data.
-*/
+ */
 export class DowntimeResponseData {
   /**
    * Downtime details.
-  */
+   */
   "attributes"?: DowntimeResponseAttributes;
   /**
    * The downtime ID.
-  */
+   */
   "id"?: string;
   /**
    * All relationships associated with downtime.
-  */
+   */
   "relationships"?: DowntimeRelationships;
   /**
    * Downtime resource type.
-  */
+   */
   "type"?: DowntimeResourceType;
 
   /**
@@ -51,60 +46,34 @@ export class DowntimeResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "DowntimeResponseAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "DowntimeResponseAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "DowntimeRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "DowntimeRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "DowntimeResourceType",
+    type: {
+      baseName: "type",
+      type: "DowntimeResourceType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DowntimeResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

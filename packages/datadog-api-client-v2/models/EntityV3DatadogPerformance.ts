@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Performance stats association.
-*/
+ */
 export class EntityV3DatadogPerformance {
   /**
    * A list of APM entity tags that associates the APM Stats data with the entity.
-  */
+   */
   "tags"?: Array<string>;
 
   /**
@@ -29,44 +24,18 @@ export class EntityV3DatadogPerformance {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
-    }
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityV3DatadogPerformance.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

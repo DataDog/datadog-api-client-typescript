@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `NotionAPIKey` object.
-*/
+ */
 
 export type NotionAPIKeyType = typeof NOTIONAPIKEY | UnparsedObject;
-export const NOTIONAPIKEY = 'NotionAPIKey';
+export const NOTIONAPIKEY = "NotionAPIKey";

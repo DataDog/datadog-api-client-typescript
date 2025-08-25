@@ -6,28 +6,23 @@
 import { GCPServiceAccountType } from "./GCPServiceAccountType";
 import { GCPSTSServiceAccountAttributes } from "./GCPSTSServiceAccountAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data on your service account.
-*/
+ */
 export class GCPSTSServiceAccountUpdateRequestData {
   /**
    * Attributes associated with your service account.
-  */
+   */
   "attributes"?: GCPSTSServiceAccountAttributes;
   /**
    * Your service account's unique ID.
-  */
+   */
   "id"?: string;
   /**
    * The type of account.
-  */
+   */
   "type"?: GCPServiceAccountType;
 
   /**
@@ -46,56 +41,30 @@ export class GCPSTSServiceAccountUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "GCPSTSServiceAccountAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "GCPSTSServiceAccountAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "GCPServiceAccountType",
+    type: {
+      baseName: "type",
+      type: "GCPServiceAccountType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GCPSTSServiceAccountUpdateRequestData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Security Signal response data object.
-*/
+ */
 export class SecurityMonitoringSignalResponse {
   /**
    * Object description of a security signal.
-  */
+   */
   "data"?: SecurityMonitoringSignal;
 
   /**
@@ -37,48 +32,22 @@ export class SecurityMonitoringSignalResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SecurityMonitoringSignal",
+    data: {
+      baseName: "data",
+      type: "SecurityMonitoringSignal",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

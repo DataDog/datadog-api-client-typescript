@@ -5,20 +5,15 @@
  */
 import { UsageHostHour } from "./UsageHostHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Host usage response.
-*/
+ */
 export class UsageHostsResponse {
   /**
    * An array of objects related to host usage.
-  */
+   */
   "usage"?: Array<UsageHostHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageHostsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageHostHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageHostHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageHostsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

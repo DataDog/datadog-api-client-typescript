@@ -5,15 +5,14 @@
  */
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A bucket value, can be either a timeseries or a single value.
-*/
+ */
 
-export type RUMAggregateBucketValue = string | number | Array<RUMAggregateBucketValueTimeseriesPoint> | UnparsedObject;
+export type RUMAggregateBucketValue =
+  | string
+  | number
+  | Array<RUMAggregateBucketValueTimeseriesPoint>
+  | UnparsedObject;

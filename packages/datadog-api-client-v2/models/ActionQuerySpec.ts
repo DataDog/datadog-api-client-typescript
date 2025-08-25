@@ -5,15 +5,10 @@
  */
 import { ActionQuerySpecObject } from "./ActionQuerySpecObject";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the action query.
-*/
+ */
 
 export type ActionQuerySpec = string | ActionQuerySpecObject | UnparsedObject;

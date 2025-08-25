@@ -8,60 +8,55 @@ import { ChangeEventAttributesChangedResource } from "./ChangeEventAttributesCha
 import { ChangeEventAttributesImpactedResourcesItem } from "./ChangeEventAttributesImpactedResourcesItem";
 import { EventSystemAttributes } from "./EventSystemAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Change event attributes.
-*/
+ */
 export class ChangeEventAttributes {
   /**
    * Aggregation key of the event.
-  */
+   */
   "aggregationKey"?: string;
   /**
    * The entity that made the change.
-  */
+   */
   "author"?: ChangeEventAttributesAuthor;
   /**
    * JSON object of change metadata.
-  */
+   */
   "changeMetadata"?: any;
   /**
    * A uniquely identified resource.
-  */
+   */
   "changedResource"?: ChangeEventAttributesChangedResource;
   /**
    * JSON object of event system attributes.
-  */
+   */
   "evt"?: EventSystemAttributes;
   /**
    * A list of resources impacted by this change.
-  */
+   */
   "impactedResources"?: Array<ChangeEventAttributesImpactedResourcesItem>;
   /**
    * The new state of the changed resource.
-  */
+   */
   "newValue"?: any;
   /**
    * The previous state of the changed resource.
-  */
+   */
   "prevValue"?: any;
   /**
    * Service that triggered the event.
-  */
+   */
   "service"?: string;
   /**
    * POSIX timestamp of the event.
-  */
+   */
   "timestamp"?: number;
   /**
    * The title of the event.
-  */
+   */
   "title"?: string;
 
   /**
@@ -80,89 +75,63 @@ export class ChangeEventAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregationKey": {
-      "baseName": "aggregation_key",
-      "type": "string",
+    aggregationKey: {
+      baseName: "aggregation_key",
+      type: "string",
     },
-    "author": {
-      "baseName": "author",
-      "type": "ChangeEventAttributesAuthor",
+    author: {
+      baseName: "author",
+      type: "ChangeEventAttributesAuthor",
     },
-    "changeMetadata": {
-      "baseName": "change_metadata",
-      "type": "any",
+    changeMetadata: {
+      baseName: "change_metadata",
+      type: "any",
     },
-    "changedResource": {
-      "baseName": "changed_resource",
-      "type": "ChangeEventAttributesChangedResource",
+    changedResource: {
+      baseName: "changed_resource",
+      type: "ChangeEventAttributesChangedResource",
     },
-    "evt": {
-      "baseName": "evt",
-      "type": "EventSystemAttributes",
+    evt: {
+      baseName: "evt",
+      type: "EventSystemAttributes",
     },
-    "impactedResources": {
-      "baseName": "impacted_resources",
-      "type": "Array<ChangeEventAttributesImpactedResourcesItem>",
+    impactedResources: {
+      baseName: "impacted_resources",
+      type: "Array<ChangeEventAttributesImpactedResourcesItem>",
     },
-    "newValue": {
-      "baseName": "new_value",
-      "type": "any",
+    newValue: {
+      baseName: "new_value",
+      type: "any",
     },
-    "prevValue": {
-      "baseName": "prev_value",
-      "type": "any",
+    prevValue: {
+      baseName: "prev_value",
+      type: "any",
     },
-    "service": {
-      "baseName": "service",
-      "type": "string",
+    service: {
+      baseName: "service",
+      type: "string",
     },
-    "timestamp": {
-      "baseName": "timestamp",
-      "type": "number",
-      "format": "int64",
+    timestamp: {
+      baseName: "timestamp",
+      type: "number",
+      format: "int64",
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ChangeEventAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

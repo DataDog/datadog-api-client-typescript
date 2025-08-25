@@ -5,21 +5,16 @@
  */
 import { SyntheticsDeletedTest } from "./SyntheticsDeletedTest";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object for deleting Synthetic tests.
-*/
+ */
 export class SyntheticsDeleteTestsResponse {
   /**
    * Array of objects containing a deleted Synthetic test ID with
    * the associated deletion timestamp.
-  */
+   */
   "deletedTests"?: Array<SyntheticsDeletedTest>;
 
   /**
@@ -38,48 +33,22 @@ export class SyntheticsDeleteTestsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "deletedTests": {
-      "baseName": "deleted_tests",
-      "type": "Array<SyntheticsDeletedTest>",
+    deletedTests: {
+      baseName: "deleted_tests",
+      type: "Array<SyntheticsDeletedTest>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsDeleteTestsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

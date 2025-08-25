@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * IP allowlist Entry type.
-*/
+ */
 
 export type IPAllowlistEntryType = typeof IP_ALLOWLIST_ENTRY | UnparsedObject;
-export const IP_ALLOWLIST_ENTRY = 'ip_allowlist_entry';
+export const IP_ALLOWLIST_ENTRY = "ip_allowlist_entry";

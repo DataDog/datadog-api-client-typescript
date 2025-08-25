@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The metric's type.
-*/
+ */
 
-export type MetricTagConfigurationMetricTypes = typeof GAUGE| typeof COUNT| typeof RATE| typeof DISTRIBUTION | UnparsedObject;
-export const GAUGE = 'gauge';
-export const COUNT = 'count';
-export const RATE = 'rate';
-export const DISTRIBUTION = 'distribution';
+export type MetricTagConfigurationMetricTypes =
+  | typeof GAUGE
+  | typeof COUNT
+  | typeof RATE
+  | typeof DISTRIBUTION
+  | UnparsedObject;
+export const GAUGE = "gauge";
+export const COUNT = "count";
+export const RATE = "rate";
+export const DISTRIBUTION = "distribution";

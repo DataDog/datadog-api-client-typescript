@@ -5,24 +5,19 @@
  */
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object with the latest Synthetic browser test run.
-*/
+ */
 export class SyntheticsGetBrowserTestLatestResultsResponse {
   /**
    * Timestamp of the latest browser test run.
-  */
+   */
   "lastTimestampFetched"?: number;
   /**
    * Result of the latest browser test run.
-  */
+   */
   "results"?: Array<SyntheticsBrowserTestResultShort>;
 
   /**
@@ -41,53 +36,27 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "lastTimestampFetched": {
-      "baseName": "last_timestamp_fetched",
-      "type": "number",
-      "format": "int64",
+    lastTimestampFetched: {
+      baseName: "last_timestamp_fetched",
+      type: "number",
+      format: "int64",
     },
-    "results": {
-      "baseName": "results",
-      "type": "Array<SyntheticsBrowserTestResultShort>",
+    results: {
+      baseName: "results",
+      type: "Array<SyntheticsBrowserTestResultShort>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

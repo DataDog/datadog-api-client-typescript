@@ -6,24 +6,19 @@
 import { NotionCredentials } from "./NotionCredentials";
 import { NotionIntegrationType } from "./NotionIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `NotionIntegration` object.
-*/
+ */
 export class NotionIntegration {
   /**
    * The definition of the `NotionCredentials` object.
-  */
+   */
   "credentials": NotionCredentials;
   /**
    * The definition of the `NotionIntegrationType` object.
-  */
+   */
   "type": NotionIntegrationType;
 
   /**
@@ -42,54 +37,28 @@ export class NotionIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "NotionCredentials",
-      "required": true,
+    credentials: {
+      baseName: "credentials",
+      type: "NotionCredentials",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "NotionIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "NotionIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotionIntegration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

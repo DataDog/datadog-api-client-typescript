@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the event.
-*/
+ */
 
 export type RUMEventType = typeof RUM | UnparsedObject;
-export const RUM = 'rum';
+export const RUM = "rum";

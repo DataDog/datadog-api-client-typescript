@@ -5,24 +5,19 @@
  */
 import { ObservabilityPipelineSumoLogicSourceType } from "./ObservabilityPipelineSumoLogicSourceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `sumo_logic` source receives logs from Sumo Logic collectors.
-*/
+ */
 export class ObservabilityPipelineSumoLogicSource {
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
-  */
+   */
   "id": string;
   /**
    * The source type. The value should always be `sumo_logic`.
-  */
+   */
   "type": ObservabilityPipelineSumoLogicSourceType;
 
   /**
@@ -41,54 +36,28 @@ export class ObservabilityPipelineSumoLogicSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineSumoLogicSourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineSumoLogicSourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSumoLogicSource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

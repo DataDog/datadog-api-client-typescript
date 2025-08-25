@@ -5,20 +5,15 @@
  */
 import { GetInterfacesData } from "./GetInterfacesData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `GetInterfaces` operation's response.
-*/
+ */
 export class GetInterfacesResponse {
   /**
    * Get Interfaces response
-  */
+   */
   "data"?: Array<GetInterfacesData>;
 
   /**
@@ -37,48 +32,22 @@ export class GetInterfacesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<GetInterfacesData>",
+    data: {
+      baseName: "data",
+      type: "Array<GetInterfacesData>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GetInterfacesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

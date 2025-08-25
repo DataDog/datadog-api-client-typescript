@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Pagination object.
-*/
+ */
 export class ListDevicesResponseMetadataPage {
   /**
    * Total count of devices matched by the filter.
-  */
+   */
   "totalFilteredCount"?: number;
 
   /**
@@ -36,49 +31,23 @@ export class ListDevicesResponseMetadataPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "totalFilteredCount": {
-      "baseName": "total_filtered_count",
-      "type": "number",
-      "format": "int64",
+    totalFilteredCount: {
+      baseName: "total_filtered_count",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListDevicesResponseMetadataPage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

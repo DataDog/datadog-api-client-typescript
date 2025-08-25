@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident attributes.
-*/
+ */
 export class EntityResponseIncludedRelatedIncidentAttributes {
   /**
    * Incident creation time.
-  */
+   */
   "createdAt"?: Date;
   /**
    * Incident URL.
-  */
+   */
   "htmlUrl"?: string;
   /**
    * Incident provider.
-  */
+   */
   "provider"?: string;
   /**
    * Incident status.
-  */
+   */
   "status"?: string;
   /**
    * Incident title.
-  */
+   */
   "title"?: string;
 
   /**
@@ -52,65 +47,39 @@ export class EntityResponseIncludedRelatedIncidentAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "createdAt": {
-      "baseName": "createdAt",
-      "type": "Date",
-      "format": "date-time",
+    createdAt: {
+      baseName: "createdAt",
+      type: "Date",
+      format: "date-time",
     },
-    "htmlUrl": {
-      "baseName": "htmlURL",
-      "type": "string",
+    htmlUrl: {
+      baseName: "htmlURL",
+      type: "string",
     },
-    "provider": {
-      "baseName": "provider",
-      "type": "string",
+    provider: {
+      baseName: "provider",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "string",
+    status: {
+      baseName: "status",
+      type: "string",
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityResponseIncludedRelatedIncidentAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `RetryStrategyLinear` object.
-*/
+ */
 export class RetryStrategyLinear {
   /**
    * The `RetryStrategyLinear` `interval`. The expected format is the number of seconds ending with an s. For example, 1 day is 86400s
-  */
+   */
   "interval": string;
   /**
    * The `RetryStrategyLinear` `maxRetries`.
-  */
+   */
   "maxRetries": number;
 
   /**
@@ -40,55 +35,29 @@ export class RetryStrategyLinear {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "interval": {
-      "baseName": "interval",
-      "type": "string",
-      "required": true,
+    interval: {
+      baseName: "interval",
+      type: "string",
+      required: true,
     },
-    "maxRetries": {
-      "baseName": "maxRetries",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    maxRetries: {
+      baseName: "maxRetries",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RetryStrategyLinear.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

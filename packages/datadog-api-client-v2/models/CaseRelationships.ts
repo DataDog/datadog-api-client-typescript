@@ -6,32 +6,27 @@
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { ProjectRelationship } from "./ProjectRelationship";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Resources related to a case
-*/
+ */
 export class CaseRelationships {
   /**
    * Relationship to user.
-  */
+   */
   "assignee"?: NullableUserRelationship;
   /**
    * Relationship to user.
-  */
+   */
   "createdBy"?: NullableUserRelationship;
   /**
    * Relationship to user.
-  */
+   */
   "modifiedBy"?: NullableUserRelationship;
   /**
    * Relationship to project
-  */
+   */
   "project"?: ProjectRelationship;
 
   /**
@@ -50,60 +45,34 @@ export class CaseRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "assignee": {
-      "baseName": "assignee",
-      "type": "NullableUserRelationship",
+    assignee: {
+      baseName: "assignee",
+      type: "NullableUserRelationship",
     },
-    "createdBy": {
-      "baseName": "created_by",
-      "type": "NullableUserRelationship",
+    createdBy: {
+      baseName: "created_by",
+      type: "NullableUserRelationship",
     },
-    "modifiedBy": {
-      "baseName": "modified_by",
-      "type": "NullableUserRelationship",
+    modifiedBy: {
+      baseName: "modified_by",
+      type: "NullableUserRelationship",
     },
-    "project": {
-      "baseName": "project",
-      "type": "ProjectRelationship",
+    project: {
+      baseName: "project",
+      type: "ProjectRelationship",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CaseRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

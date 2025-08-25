@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `ServiceNowBasicAuth` object.
-*/
+ */
 
-export type ServiceNowBasicAuthType = typeof SERVICENOWBASICAUTH | UnparsedObject;
-export const SERVICENOWBASICAUTH = 'ServiceNowBasicAuth';
+export type ServiceNowBasicAuthType =
+  | typeof SERVICENOWBASICAUTH
+  | UnparsedObject;
+export const SERVICENOWBASICAUTH = "ServiceNowBasicAuth";

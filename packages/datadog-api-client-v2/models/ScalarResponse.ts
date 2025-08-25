@@ -6,24 +6,19 @@
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
 import { ScalarFormulaResponseType } from "./ScalarFormulaResponseType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A message containing the response to a scalar query.
-*/
+ */
 export class ScalarResponse {
   /**
    * The object describing a scalar response.
-  */
+   */
   "attributes"?: ScalarFormulaResponseAtrributes;
   /**
    * The type of the resource. The value should always be scalar_response.
-  */
+   */
   "type"?: ScalarFormulaResponseType;
 
   /**
@@ -42,52 +37,26 @@ export class ScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ScalarFormulaResponseAtrributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ScalarFormulaResponseAtrributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ScalarFormulaResponseType",
+    type: {
+      baseName: "type",
+      type: "ScalarFormulaResponseType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScalarResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

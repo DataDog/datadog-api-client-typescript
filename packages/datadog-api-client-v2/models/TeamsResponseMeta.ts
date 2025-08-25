@@ -5,20 +5,15 @@
  */
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Teams response metadata.
-*/
+ */
 export class TeamsResponseMeta {
   /**
    * Teams response metadata.
-  */
+   */
   "pagination"?: TeamsResponseMetaPagination;
 
   /**
@@ -37,48 +32,22 @@ export class TeamsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "pagination": {
-      "baseName": "pagination",
-      "type": "TeamsResponseMetaPagination",
+    pagination: {
+      baseName: "pagination",
+      type: "TeamsResponseMetaPagination",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamsResponseMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for `UpdateOpenAPI`.
-*/
+ */
 export class UpdateOpenAPIResponse {
   /**
    * Data envelope for `UpdateOpenAPIResponse`.
-  */
+   */
   "data"?: UpdateOpenAPIResponseData;
 
   /**
@@ -37,48 +32,22 @@ export class UpdateOpenAPIResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "UpdateOpenAPIResponseData",
+    data: {
+      baseName: "data",
+      type: "UpdateOpenAPIResponseData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateOpenAPIResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

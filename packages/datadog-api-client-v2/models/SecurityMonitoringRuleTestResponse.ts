@@ -4,22 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Result of the test of the rule queries.
-*/
+ */
 export class SecurityMonitoringRuleTestResponse {
   /**
    * Assert results are returned in the same order as the rule query payloads.
    * For each payload, it returns True if the result matched the expected result,
    * False otherwise.
-  */
+   */
   "results"?: Array<boolean>;
 
   /**
@@ -38,48 +33,22 @@ export class SecurityMonitoringRuleTestResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "results": {
-      "baseName": "results",
-      "type": "Array<boolean>",
+    results: {
+      baseName: "results",
+      type: "Array<boolean>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringRuleTestResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

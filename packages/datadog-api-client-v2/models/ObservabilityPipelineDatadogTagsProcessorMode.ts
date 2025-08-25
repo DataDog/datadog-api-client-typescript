@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The processing mode.
-*/
+ */
 
-export type ObservabilityPipelineDatadogTagsProcessorMode = typeof FILTER | UnparsedObject;
-export const FILTER = 'filter';
+export type ObservabilityPipelineDatadogTagsProcessorMode =
+  | typeof FILTER
+  | UnparsedObject;
+export const FILTER = "filter";

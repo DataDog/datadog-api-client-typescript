@@ -6,15 +6,13 @@
 import { SyntheticsAPITestStep } from "./SyntheticsAPITestStep";
 import { SyntheticsAPIWaitStep } from "./SyntheticsAPIWaitStep";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The steps used in a Synthetic multi-step API test.
-*/
+ */
 
-export type SyntheticsAPIStep = SyntheticsAPITestStep | SyntheticsAPIWaitStep | UnparsedObject;
+export type SyntheticsAPIStep =
+  | SyntheticsAPITestStep
+  | SyntheticsAPIWaitStep
+  | UnparsedObject;

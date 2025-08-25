@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Description of the Lambdas.
-*/
+ */
 export class AWSLogsLambda {
   /**
    * Available ARN IDs.
-  */
+   */
   "arn"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class AWSLogsLambda {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "arn": {
-      "baseName": "arn",
-      "type": "string",
+    arn: {
+      baseName: "arn",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSLogsLambda.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

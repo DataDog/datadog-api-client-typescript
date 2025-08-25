@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Which summary type should be used.
-*/
+ */
 
-export type WidgetSummaryType = typeof MONITORS| typeof GROUPS| typeof COMBINED | UnparsedObject;
-export const MONITORS = 'monitors';
-export const GROUPS = 'groups';
-export const COMBINED = 'combined';
+export type WidgetSummaryType =
+  | typeof MONITORS
+  | typeof GROUPS
+  | typeof COMBINED
+  | UnparsedObject;
+export const MONITORS = "monitors";
+export const GROUPS = "groups";
+export const COMBINED = "combined";

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Dimension of the Scatterplot.
-*/
+ */
 
-export type ScatterplotDimension = typeof X| typeof Y| typeof RADIUS| typeof COLOR | UnparsedObject;
-export const X = 'x';
-export const Y = 'y';
-export const RADIUS = 'radius';
-export const COLOR = 'color';
+export type ScatterplotDimension =
+  | typeof X
+  | typeof Y
+  | typeof RADIUS
+  | typeof COLOR
+  | UnparsedObject;
+export const X = "x";
+export const Y = "y";
+export const RADIUS = "radius";
+export const COLOR = "color";

@@ -6,24 +6,19 @@
 import { MonthlyUsageAttributionPagination } from "./MonthlyUsageAttributionPagination";
 import { UsageAttributionAggregatesBody } from "./UsageAttributionAggregatesBody";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing document metadata.
-*/
+ */
 export class MonthlyUsageAttributionMetadata {
   /**
    * An array of available aggregates.
-  */
+   */
   "aggregates"?: Array<UsageAttributionAggregatesBody>;
   /**
    * The metadata for the current pagination.
-  */
+   */
   "pagination"?: MonthlyUsageAttributionPagination;
 
   /**
@@ -42,52 +37,26 @@ export class MonthlyUsageAttributionMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregates": {
-      "baseName": "aggregates",
-      "type": "Array<UsageAttributionAggregatesBody>",
+    aggregates: {
+      baseName: "aggregates",
+      type: "Array<UsageAttributionAggregatesBody>",
     },
-    "pagination": {
-      "baseName": "pagination",
-      "type": "MonthlyUsageAttributionPagination",
+    pagination: {
+      baseName: "pagination",
+      type: "MonthlyUsageAttributionPagination",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonthlyUsageAttributionMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

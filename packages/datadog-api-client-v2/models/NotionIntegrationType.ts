@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `NotionIntegrationType` object.
-*/
+ */
 
 export type NotionIntegrationType = typeof NOTION | UnparsedObject;
-export const NOTION = 'Notion';
+export const NOTION = "Notion";

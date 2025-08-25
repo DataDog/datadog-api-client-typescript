@@ -5,20 +5,15 @@
  */
 import { CloudWorkloadSecurityAgentPolicyData } from "./CloudWorkloadSecurityAgentPolicyData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object that includes a list of Agent policies
-*/
+ */
 export class CloudWorkloadSecurityAgentPoliciesListResponse {
   /**
    * A list of Agent policy objects
-  */
+   */
   "data"?: Array<CloudWorkloadSecurityAgentPolicyData>;
 
   /**
@@ -37,48 +32,22 @@ export class CloudWorkloadSecurityAgentPoliciesListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<CloudWorkloadSecurityAgentPolicyData>",
+    data: {
+      baseName: "data",
+      type: "Array<CloudWorkloadSecurityAgentPolicyData>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudWorkloadSecurityAgentPoliciesListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

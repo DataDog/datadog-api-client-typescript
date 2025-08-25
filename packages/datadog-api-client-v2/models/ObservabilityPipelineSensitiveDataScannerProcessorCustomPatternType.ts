@@ -4,16 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Indicates a custom regular expression is used for matching.
-*/
+ */
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType = typeof CUSTOM | UnparsedObject;
-export const CUSTOM = 'custom';
+export type ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType =
+  typeof CUSTOM | UnparsedObject;
+export const CUSTOM = "custom";

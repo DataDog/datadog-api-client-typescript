@@ -6,28 +6,23 @@
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventType } from "./AuditLogsEventType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object description of an Audit Logs event after it is processed and stored by Datadog.
-*/
+ */
 export class AuditLogsEvent {
   /**
    * JSON object containing all event attributes and their associated values.
-  */
+   */
   "attributes"?: AuditLogsEventAttributes;
   /**
    * Unique ID of the event.
-  */
+   */
   "id"?: string;
   /**
    * Type of the event.
-  */
+   */
   "type"?: AuditLogsEventType;
 
   /**
@@ -46,56 +41,30 @@ export class AuditLogsEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AuditLogsEventAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "AuditLogsEventAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AuditLogsEventType",
+    type: {
+      baseName: "type",
+      type: "AuditLogsEventType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AuditLogsEvent.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

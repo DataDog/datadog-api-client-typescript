@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Entity metadata.
-*/
+ */
 export class EntityMeta {
   /**
    * The creation time.
-  */
+   */
   "createdAt"?: string;
   /**
    * The ingestion source.
-  */
+   */
   "ingestionSource"?: string;
   /**
    * The modification time.
-  */
+   */
   "modifiedAt"?: string;
   /**
    * The origin.
-  */
+   */
   "origin"?: string;
 
   /**
@@ -48,60 +43,34 @@ export class EntityMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "createdAt": {
-      "baseName": "createdAt",
-      "type": "string",
+    createdAt: {
+      baseName: "createdAt",
+      type: "string",
     },
-    "ingestionSource": {
-      "baseName": "ingestionSource",
-      "type": "string",
+    ingestionSource: {
+      baseName: "ingestionSource",
+      type: "string",
     },
-    "modifiedAt": {
-      "baseName": "modifiedAt",
-      "type": "string",
+    modifiedAt: {
+      baseName: "modifiedAt",
+      type: "string",
     },
-    "origin": {
-      "baseName": "origin",
-      "type": "string",
+    origin: {
+      baseName: "origin",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

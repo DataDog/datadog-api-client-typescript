@@ -4,17 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The evaluation of the finding.
-*/
+ */
 
-export type FindingEvaluation = typeof PASS| typeof FAIL | UnparsedObject;
-export const PASS = 'pass';
-export const FAIL = 'fail';
+export type FindingEvaluation = typeof PASS | typeof FAIL | UnparsedObject;
+export const PASS = "pass";
+export const FAIL = "fail";

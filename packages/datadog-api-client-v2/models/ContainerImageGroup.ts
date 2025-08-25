@@ -7,32 +7,27 @@ import { ContainerImageGroupAttributes } from "./ContainerImageGroupAttributes";
 import { ContainerImageGroupRelationships } from "./ContainerImageGroupRelationships";
 import { ContainerImageGroupType } from "./ContainerImageGroupType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Container Image Group object.
-*/
+ */
 export class ContainerImageGroup {
   /**
    * Attributes for a Container Image Group.
-  */
+   */
   "attributes"?: ContainerImageGroupAttributes;
   /**
    * Container Image Group ID.
-  */
+   */
   "id"?: string;
   /**
    * Relationships inside a Container Image Group.
-  */
+   */
   "relationships"?: ContainerImageGroupRelationships;
   /**
    * Type of Container Image Group.
-  */
+   */
   "type"?: ContainerImageGroupType;
 
   /**
@@ -51,60 +46,34 @@ export class ContainerImageGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ContainerImageGroupAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ContainerImageGroupAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "ContainerImageGroupRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "ContainerImageGroupRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ContainerImageGroupType",
+    type: {
+      baseName: "type",
+      type: "ContainerImageGroupType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerImageGroup.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

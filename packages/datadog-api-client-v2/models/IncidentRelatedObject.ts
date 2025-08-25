@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Object related to an incident.
-*/
+ */
 
-export type IncidentRelatedObject = typeof USERS| typeof ATTACHMENTS | UnparsedObject;
-export const USERS = 'users';
-export const ATTACHMENTS = 'attachments';
+export type IncidentRelatedObject =
+  | typeof USERS
+  | typeof ATTACHMENTS
+  | UnparsedObject;
+export const USERS = "users";
+export const ATTACHMENTS = "attachments";

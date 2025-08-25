@@ -6,24 +6,19 @@
 import { UsageCustomReportsData } from "./UsageCustomReportsData";
 import { UsageCustomReportsMeta } from "./UsageCustomReportsMeta";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing available custom reports.
-*/
+ */
 export class UsageCustomReportsResponse {
   /**
    * An array of available custom reports.
-  */
+   */
   "data"?: Array<UsageCustomReportsData>;
   /**
    * The object containing document metadata.
-  */
+   */
   "meta"?: UsageCustomReportsMeta;
 
   /**
@@ -42,52 +37,26 @@ export class UsageCustomReportsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<UsageCustomReportsData>",
+    data: {
+      baseName: "data",
+      type: "Array<UsageCustomReportsData>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "UsageCustomReportsMeta",
+    meta: {
+      baseName: "meta",
+      type: "UsageCustomReportsMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageCustomReportsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

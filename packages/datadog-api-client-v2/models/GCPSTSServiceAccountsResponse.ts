@@ -5,20 +5,15 @@
  */
 import { GCPSTSServiceAccount } from "./GCPSTSServiceAccount";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing all your STS enabled accounts.
-*/
+ */
 export class GCPSTSServiceAccountsResponse {
   /**
    * Array of GCP STS enabled service accounts.
-  */
+   */
   "data"?: Array<GCPSTSServiceAccount>;
 
   /**
@@ -37,48 +32,22 @@ export class GCPSTSServiceAccountsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<GCPSTSServiceAccount>",
+    data: {
+      baseName: "data",
+      type: "Array<GCPSTSServiceAccount>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GCPSTSServiceAccountsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

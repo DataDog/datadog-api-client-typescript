@@ -6,28 +6,23 @@
 import { ApplicationSecurityWafExclusionFilterAttributes } from "./ApplicationSecurityWafExclusionFilterAttributes";
 import { ApplicationSecurityWafExclusionFilterType } from "./ApplicationSecurityWafExclusionFilterType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A JSON:API resource for an WAF exclusion filter.
-*/
+ */
 export class ApplicationSecurityWafExclusionFilterResource {
   /**
    * Attributes describing a WAF exclusion filter.
-  */
+   */
   "attributes"?: ApplicationSecurityWafExclusionFilterAttributes;
   /**
    * The identifier of the WAF exclusion filter.
-  */
+   */
   "id"?: string;
   /**
    * Type of the resource. The value should always be `exclusion_filter`.
-  */
+   */
   "type"?: ApplicationSecurityWafExclusionFilterType;
 
   /**
@@ -46,56 +41,30 @@ export class ApplicationSecurityWafExclusionFilterResource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ApplicationSecurityWafExclusionFilterAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ApplicationSecurityWafExclusionFilterAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ApplicationSecurityWafExclusionFilterType",
+    type: {
+      baseName: "type",
+      type: "ApplicationSecurityWafExclusionFilterType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafExclusionFilterResource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

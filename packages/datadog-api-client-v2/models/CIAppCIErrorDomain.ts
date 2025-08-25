@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Error category used to differentiate between issues related to the developer or provider environments.
-*/
+ */
 
-export type CIAppCIErrorDomain = typeof PROVIDER| typeof USER| typeof UNKNOWN | UnparsedObject;
-export const PROVIDER = 'provider';
-export const USER = 'user';
-export const UNKNOWN = 'unknown';
+export type CIAppCIErrorDomain =
+  | typeof PROVIDER
+  | typeof USER
+  | typeof UNKNOWN
+  | UnparsedObject;
+export const PROVIDER = "provider";
+export const USER = "user";
+export const UNKNOWN = "unknown";

@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of Entity V3 System Spec object.
-*/
+ */
 export class EntityV3SystemSpec {
   /**
    * A list of components belongs to the system.
-  */
+   */
   "components"?: Array<string>;
   /**
    * The lifecycle state of the component.
-  */
+   */
   "lifecycle"?: string;
   /**
    * An entity reference to the owner of the component.
-  */
+   */
   "tier"?: string;
 
   /**
@@ -37,52 +32,26 @@ export class EntityV3SystemSpec {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "components": {
-      "baseName": "components",
-      "type": "Array<string>",
+    components: {
+      baseName: "components",
+      type: "Array<string>",
     },
-    "lifecycle": {
-      "baseName": "lifecycle",
-      "type": "string",
+    lifecycle: {
+      baseName: "lifecycle",
+      type: "string",
     },
-    "tier": {
-      "baseName": "tier",
-      "type": "string",
-    }
+    tier: {
+      baseName: "tier",
+      type: "string",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityV3SystemSpec.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

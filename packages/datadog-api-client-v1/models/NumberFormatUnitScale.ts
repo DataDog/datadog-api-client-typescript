@@ -5,24 +5,19 @@
  */
 import { NumberFormatUnitScaleType } from "./NumberFormatUnitScaleType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `NumberFormatUnitScale` object.
-*/
+ */
 export class NumberFormatUnitScale {
   /**
    * The type of unit scale.
-  */
+   */
   "type"?: NumberFormatUnitScaleType;
   /**
    * The name of the unit.
-  */
+   */
   "unitName"?: string;
 
   /**
@@ -41,52 +36,26 @@ export class NumberFormatUnitScale {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "type": {
-      "baseName": "type",
-      "type": "NumberFormatUnitScaleType",
+    type: {
+      baseName: "type",
+      type: "NumberFormatUnitScaleType",
     },
-    "unitName": {
-      "baseName": "unit_name",
-      "type": "string",
+    unitName: {
+      baseName: "unit_name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NumberFormatUnitScale.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,21 +5,16 @@
  */
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object to start or pause an existing Synthetic test.
-*/
+ */
 export class SyntheticsUpdateTestPauseStatusPayload {
   /**
    * Define whether you want to start (`live`) or pause (`paused`) a
    * Synthetic test.
-  */
+   */
   "newStatus"?: SyntheticsTestPauseStatus;
 
   /**
@@ -38,48 +33,22 @@ export class SyntheticsUpdateTestPauseStatusPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "newStatus": {
-      "baseName": "new_status",
-      "type": "SyntheticsTestPauseStatus",
+    newStatus: {
+      baseName: "new_status",
+      type: "SyntheticsTestPauseStatus",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

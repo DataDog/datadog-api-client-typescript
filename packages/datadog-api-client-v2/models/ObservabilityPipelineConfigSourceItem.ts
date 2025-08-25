@@ -20,15 +20,27 @@ import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSpl
 import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSumoLogicSource";
 import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A data source for the pipeline.
-*/
+ */
 
-export type ObservabilityPipelineConfigSourceItem = ObservabilityPipelineKafkaSource | ObservabilityPipelineDatadogAgentSource | ObservabilityPipelineSplunkTcpSource | ObservabilityPipelineSplunkHecSource | ObservabilityPipelineAmazonS3Source | ObservabilityPipelineFluentdSource | ObservabilityPipelineFluentBitSource | ObservabilityPipelineHttpServerSource | ObservabilityPipelineSumoLogicSource | ObservabilityPipelineRsyslogSource | ObservabilityPipelineSyslogNgSource | ObservabilityPipelineAmazonDataFirehoseSource | ObservabilityPipelineGooglePubSubSource | ObservabilityPipelineHttpClientSource | ObservabilityPipelineLogstashSource | ObservabilityPipelineSocketSource | UnparsedObject;
+export type ObservabilityPipelineConfigSourceItem =
+  | ObservabilityPipelineKafkaSource
+  | ObservabilityPipelineDatadogAgentSource
+  | ObservabilityPipelineSplunkTcpSource
+  | ObservabilityPipelineSplunkHecSource
+  | ObservabilityPipelineAmazonS3Source
+  | ObservabilityPipelineFluentdSource
+  | ObservabilityPipelineFluentBitSource
+  | ObservabilityPipelineHttpServerSource
+  | ObservabilityPipelineSumoLogicSource
+  | ObservabilityPipelineRsyslogSource
+  | ObservabilityPipelineSyslogNgSource
+  | ObservabilityPipelineAmazonDataFirehoseSource
+  | ObservabilityPipelineGooglePubSubSource
+  | ObservabilityPipelineHttpClientSource
+  | ObservabilityPipelineLogstashSource
+  | ObservabilityPipelineSocketSource
+  | UnparsedObject;

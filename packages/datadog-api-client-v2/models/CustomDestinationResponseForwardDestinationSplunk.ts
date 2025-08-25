@@ -5,25 +5,20 @@
  */
 import { CustomDestinationResponseForwardDestinationSplunkType } from "./CustomDestinationResponseForwardDestinationSplunkType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The Splunk HTTP Event Collector (HEC) destination.
-*/
+ */
 export class CustomDestinationResponseForwardDestinationSplunk {
   /**
    * The destination for which logs will be forwarded to.
    * Must have HTTPS scheme and forwarding back to Datadog is not allowed.
-  */
+   */
   "endpoint": string;
   /**
    * Type of the Splunk HTTP Event Collector (HEC) destination.
-  */
+   */
   "type": CustomDestinationResponseForwardDestinationSplunkType;
 
   /**
@@ -42,54 +37,28 @@ export class CustomDestinationResponseForwardDestinationSplunk {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "endpoint": {
-      "baseName": "endpoint",
-      "type": "string",
-      "required": true,
+    endpoint: {
+      baseName: "endpoint",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CustomDestinationResponseForwardDestinationSplunkType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CustomDestinationResponseForwardDestinationSplunkType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomDestinationResponseForwardDestinationSplunk.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

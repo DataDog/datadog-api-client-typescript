@@ -4,17 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Direction of sort.
-*/
+ */
 
-export type QuerySortOrder = typeof ASC| typeof DESC | UnparsedObject;
-export const ASC = 'asc';
-export const DESC = 'desc';
+export type QuerySortOrder = typeof ASC | typeof DESC | UnparsedObject;
+export const ASC = "asc";
+export const DESC = "desc";

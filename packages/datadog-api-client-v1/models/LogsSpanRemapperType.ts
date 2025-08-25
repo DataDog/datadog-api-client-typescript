@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of logs span remapper.
-*/
+ */
 
 export type LogsSpanRemapperType = typeof SPAN_ID_REMAPPER | UnparsedObject;
-export const SPAN_ID_REMAPPER = 'span-id-remapper';
+export const SPAN_ID_REMAPPER = "span-id-remapper";

@@ -5,28 +5,23 @@
  */
 import { BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An endpoint's keys mapped to the billing_dimension.
-*/
+ */
 export class BillingDimensionsMappingBodyItemAttributesEndpointsItems {
   /**
    * The URL for the endpoint.
-  */
+   */
   "id"?: string;
   /**
    * The billing dimension.
-  */
+   */
   "keys"?: Array<string>;
   /**
    * Denotes whether mapping keys were available for this endpoint.
-  */
+   */
   "status"?: BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus;
 
   /**
@@ -45,56 +40,30 @@ export class BillingDimensionsMappingBodyItemAttributesEndpointsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "keys": {
-      "baseName": "keys",
-      "type": "Array<string>",
+    keys: {
+      baseName: "keys",
+      type: "Array<string>",
     },
-    "status": {
-      "baseName": "status",
-      "type": "BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus",
+    status: {
+      baseName: "status",
+      type: "BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return BillingDimensionsMappingBodyItemAttributesEndpointsItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

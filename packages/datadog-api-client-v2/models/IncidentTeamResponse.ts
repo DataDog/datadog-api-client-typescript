@@ -6,24 +6,19 @@
 import { IncidentTeamIncludedItems } from "./IncidentTeamIncludedItems";
 import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response with an incident team payload.
-*/
+ */
 export class IncidentTeamResponse {
   /**
    * Incident Team data from a response.
-  */
+   */
   "data": IncidentTeamResponseData;
   /**
    * Included objects from relationships.
-  */
+   */
   "included"?: Array<IncidentTeamIncludedItems>;
 
   /**
@@ -42,53 +37,27 @@ export class IncidentTeamResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "IncidentTeamResponseData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "IncidentTeamResponseData",
+      required: true,
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<IncidentTeamIncludedItems>",
+    included: {
+      baseName: "included",
+      type: "Array<IncidentTeamIncludedItems>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentTeamResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

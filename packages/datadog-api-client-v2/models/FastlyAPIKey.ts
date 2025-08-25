@@ -5,24 +5,19 @@
  */
 import { FastlyAPIKeyType } from "./FastlyAPIKeyType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `FastlyAPIKey` object.
-*/
+ */
 export class FastlyAPIKey {
   /**
    * The `FastlyAPIKey` `api_key`.
-  */
+   */
   "apiKey": string;
   /**
    * The definition of the `FastlyAPIKey` object.
-  */
+   */
   "type": FastlyAPIKeyType;
 
   /**
@@ -41,54 +36,28 @@ export class FastlyAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiKey": {
-      "baseName": "api_key",
-      "type": "string",
-      "required": true,
+    apiKey: {
+      baseName: "api_key",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "FastlyAPIKeyType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "FastlyAPIKeyType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FastlyAPIKey.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

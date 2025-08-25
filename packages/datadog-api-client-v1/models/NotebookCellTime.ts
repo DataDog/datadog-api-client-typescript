@@ -6,15 +6,13 @@
 import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
 import { NotebookRelativeTime } from "./NotebookRelativeTime";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Timeframe for the notebook cell. When 'null', the notebook global time is used.
-*/
+ */
 
-export type NotebookCellTime = NotebookRelativeTime | NotebookAbsoluteTime | UnparsedObject;
+export type NotebookCellTime =
+  | NotebookRelativeTime
+  | NotebookAbsoluteTime
+  | UnparsedObject;

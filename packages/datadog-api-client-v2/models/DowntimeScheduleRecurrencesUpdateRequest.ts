@@ -5,24 +5,19 @@
  */
 import { DowntimeScheduleRecurrenceCreateUpdateRequest } from "./DowntimeScheduleRecurrenceCreateUpdateRequest";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A recurring downtime schedule definition.
-*/
+ */
 export class DowntimeScheduleRecurrencesUpdateRequest {
   /**
    * A list of downtime recurrences.
-  */
+   */
   "recurrences"?: Array<DowntimeScheduleRecurrenceCreateUpdateRequest>;
   /**
    * The timezone in which to schedule the downtime.
-  */
+   */
   "timezone"?: string;
 
   /**
@@ -34,48 +29,22 @@ export class DowntimeScheduleRecurrencesUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "recurrences": {
-      "baseName": "recurrences",
-      "type": "Array<DowntimeScheduleRecurrenceCreateUpdateRequest>",
+    recurrences: {
+      baseName: "recurrences",
+      type: "Array<DowntimeScheduleRecurrenceCreateUpdateRequest>",
     },
-    "timezone": {
-      "baseName": "timezone",
-      "type": "string",
-    }
+    timezone: {
+      baseName: "timezone",
+      type: "string",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DowntimeScheduleRecurrencesUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

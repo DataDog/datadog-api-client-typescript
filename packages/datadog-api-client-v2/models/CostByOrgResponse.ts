@@ -5,20 +5,15 @@
  */
 import { CostByOrg } from "./CostByOrg";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Chargeback Summary response.
-*/
+ */
 export class CostByOrgResponse {
   /**
    * Response containing Chargeback Summary.
-  */
+   */
   "data"?: Array<CostByOrg>;
 
   /**
@@ -37,48 +32,22 @@ export class CostByOrgResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<CostByOrg>",
+    data: {
+      baseName: "data",
+      type: "Array<CostByOrg>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CostByOrgResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

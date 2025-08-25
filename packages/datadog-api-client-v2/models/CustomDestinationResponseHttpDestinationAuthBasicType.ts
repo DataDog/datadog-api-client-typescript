@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the basic access authentication.
-*/
+ */
 
-export type CustomDestinationResponseHttpDestinationAuthBasicType = typeof BASIC | UnparsedObject;
-export const BASIC = 'basic';
+export type CustomDestinationResponseHttpDestinationAuthBasicType =
+  | typeof BASIC
+  | UnparsedObject;
+export const BASIC = "basic";

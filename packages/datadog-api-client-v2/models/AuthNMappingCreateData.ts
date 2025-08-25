@@ -7,28 +7,23 @@ import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
 import { AuthNMappingCreateRelationships } from "./AuthNMappingCreateRelationships";
 import { AuthNMappingsType } from "./AuthNMappingsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data for creating an AuthN Mapping.
-*/
+ */
 export class AuthNMappingCreateData {
   /**
    * Key/Value pair of attributes used for create request.
-  */
+   */
   "attributes"?: AuthNMappingCreateAttributes;
   /**
    * Relationship of AuthN Mapping create object to a Role or Team.
-  */
+   */
   "relationships"?: AuthNMappingCreateRelationships;
   /**
    * AuthN Mappings resource type.
-  */
+   */
   "type": AuthNMappingsType;
 
   /**
@@ -47,57 +42,31 @@ export class AuthNMappingCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AuthNMappingCreateAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "AuthNMappingCreateAttributes",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "AuthNMappingCreateRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "AuthNMappingCreateRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AuthNMappingsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AuthNMappingsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AuthNMappingCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

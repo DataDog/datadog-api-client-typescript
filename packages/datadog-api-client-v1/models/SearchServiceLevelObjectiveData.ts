@@ -5,31 +5,26 @@
  */
 import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A service level objective ID and attributes.
-*/
+ */
 export class SearchServiceLevelObjectiveData {
   /**
    * A service level objective object includes a service level indicator, thresholds
    * for one or more timeframes, and metadata (`name`, `description`, and `tags`).
-  */
+   */
   "attributes"?: SearchServiceLevelObjectiveAttributes;
   /**
    * A unique identifier for the service level objective object.
-   * 
+   *
    * Always included in service level objective responses.
-  */
+   */
   "id"?: string;
   /**
    * The type of the object, must be `slo`.
-  */
+   */
   "type"?: string;
 
   /**
@@ -48,56 +43,30 @@ export class SearchServiceLevelObjectiveData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "SearchServiceLevelObjectiveAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "SearchServiceLevelObjectiveAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SearchServiceLevelObjectiveData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

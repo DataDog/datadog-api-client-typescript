@@ -4,15 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Whether the UI component is visible. If this is a string, it must be a valid JavaScript expression that evaluates to a boolean.
-*/
+ */
 
 export type ComponentPropertiesIsVisible = boolean | string | UnparsedObject;

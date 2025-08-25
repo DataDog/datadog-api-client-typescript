@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes object for updating a Confluent account.
-*/
+ */
 export class ConfluentAccountUpdateRequestAttributes {
   /**
    * The API key associated with your Confluent account.
-  */
+   */
   "apiKey": string;
   /**
    * The API secret associated with your Confluent account.
-  */
+   */
   "apiSecret": string;
   /**
    * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
-  */
+   */
   "tags"?: Array<string>;
 
   /**
@@ -44,58 +39,32 @@ export class ConfluentAccountUpdateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiKey": {
-      "baseName": "api_key",
-      "type": "string",
-      "required": true,
+    apiKey: {
+      baseName: "api_key",
+      type: "string",
+      required: true,
     },
-    "apiSecret": {
-      "baseName": "api_secret",
-      "type": "string",
-      "required": true,
+    apiSecret: {
+      baseName: "api_secret",
+      type: "string",
+      required: true,
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ConfluentAccountUpdateRequestAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

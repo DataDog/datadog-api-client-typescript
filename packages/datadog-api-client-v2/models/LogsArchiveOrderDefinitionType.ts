@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the archive order definition.
-*/
+ */
 
-export type LogsArchiveOrderDefinitionType = typeof ARCHIVE_ORDER | UnparsedObject;
-export const ARCHIVE_ORDER = 'archive_order';
+export type LogsArchiveOrderDefinitionType =
+  | typeof ARCHIVE_ORDER
+  | UnparsedObject;
+export const ARCHIVE_ORDER = "archive_order";

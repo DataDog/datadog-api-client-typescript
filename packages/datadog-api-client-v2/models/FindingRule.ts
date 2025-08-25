@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The rule that triggered this finding.
-*/
+ */
 export class FindingRule {
   /**
    * The ID of the rule that triggered this finding.
-  */
+   */
   "id"?: string;
   /**
    * The name of the rule that triggered this finding.
-  */
+   */
   "name"?: string;
 
   /**
@@ -33,48 +28,22 @@ export class FindingRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-    }
+    name: {
+      baseName: "name",
+      type: "string",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FindingRule.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

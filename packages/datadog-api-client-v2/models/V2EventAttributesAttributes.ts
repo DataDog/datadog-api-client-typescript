@@ -6,15 +6,13 @@
 import { AlertEventAttributes } from "./AlertEventAttributes";
 import { ChangeEventAttributes } from "./ChangeEventAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * JSON object for category-specific attributes.
-*/
+ */
 
-export type V2EventAttributesAttributes = ChangeEventAttributes | AlertEventAttributes | UnparsedObject;
+export type V2EventAttributesAttributes =
+  | ChangeEventAttributes
+  | AlertEventAttributes
+  | UnparsedObject;

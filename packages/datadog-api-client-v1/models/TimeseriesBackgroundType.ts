@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Timeseries is made using an area or bars.
-*/
+ */
 
-export type TimeseriesBackgroundType = typeof BARS| typeof AREA | UnparsedObject;
-export const BARS = 'bars';
-export const AREA = 'area';
+export type TimeseriesBackgroundType =
+  | typeof BARS
+  | typeof AREA
+  | UnparsedObject;
+export const BARS = "bars";
+export const AREA = "area";

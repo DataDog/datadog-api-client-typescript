@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Incident type resource type.
-*/
+ */
 
 export type IncidentTypeType = typeof INCIDENT_TYPES | UnparsedObject;
-export const INCIDENT_TYPES = 'incident_types';
+export const INCIDENT_TYPES = "incident_types";

@@ -5,24 +5,19 @@
  */
 import { TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType } from "./TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Represents a link to a specific escalation policy step associated with the on-call team.
-*/
+ */
 export class TeamOnCallRespondersDataRelationshipsEscalationsDataItems {
   /**
    * Unique identifier of the escalation step.
-  */
+   */
   "id": string;
   /**
    * Identifies the resource type for escalation policy steps linked to a team's on-call configuration.
-  */
+   */
   "type": TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType;
 
   /**
@@ -41,54 +36,28 @@ export class TeamOnCallRespondersDataRelationshipsEscalationsDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamOnCallRespondersDataRelationshipsEscalationsDataItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

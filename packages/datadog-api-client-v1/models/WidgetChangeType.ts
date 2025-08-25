@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Show the absolute or the relative change.
-*/
+ */
 
-export type WidgetChangeType = typeof ABSOLUTE| typeof RELATIVE | UnparsedObject;
-export const ABSOLUTE = 'absolute';
-export const RELATIVE = 'relative';
+export type WidgetChangeType =
+  | typeof ABSOLUTE
+  | typeof RELATIVE
+  | UnparsedObject;
+export const ABSOLUTE = "absolute";
+export const RELATIVE = "relative";

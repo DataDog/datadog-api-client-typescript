@@ -6,24 +6,19 @@
 import { SplitCredentialsUpdate } from "./SplitCredentialsUpdate";
 import { SplitIntegrationType } from "./SplitIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `SplitIntegrationUpdate` object.
-*/
+ */
 export class SplitIntegrationUpdate {
   /**
    * The definition of the `SplitCredentialsUpdate` object.
-  */
+   */
   "credentials"?: SplitCredentialsUpdate;
   /**
    * The definition of the `SplitIntegrationType` object.
-  */
+   */
   "type": SplitIntegrationType;
 
   /**
@@ -42,53 +37,27 @@ export class SplitIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "SplitCredentialsUpdate",
+    credentials: {
+      baseName: "credentials",
+      type: "SplitCredentialsUpdate",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SplitIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "SplitIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SplitIntegrationUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

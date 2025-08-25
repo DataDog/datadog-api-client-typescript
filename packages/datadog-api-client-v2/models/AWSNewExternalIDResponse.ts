@@ -5,20 +5,15 @@
  */
 import { AWSNewExternalIDResponseData } from "./AWSNewExternalIDResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * AWS External ID response body.
-*/
+ */
 export class AWSNewExternalIDResponse {
   /**
    * AWS External ID response body.
-  */
+   */
   "data": AWSNewExternalIDResponseData;
 
   /**
@@ -37,49 +32,23 @@ export class AWSNewExternalIDResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "AWSNewExternalIDResponseData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "AWSNewExternalIDResponseData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSNewExternalIDResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

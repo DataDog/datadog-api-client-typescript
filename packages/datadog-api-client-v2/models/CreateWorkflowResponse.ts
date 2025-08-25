@@ -5,20 +5,15 @@
  */
 import { WorkflowData } from "./WorkflowData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response object after creating a new workflow.
-*/
+ */
 export class CreateWorkflowResponse {
   /**
    * Data related to the workflow.
-  */
+   */
   "data": WorkflowData;
 
   /**
@@ -37,49 +32,23 @@ export class CreateWorkflowResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "WorkflowData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "WorkflowData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CreateWorkflowResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

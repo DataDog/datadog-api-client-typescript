@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of cost attribution data.
-*/
+ */
 
 export type CostAttributionType = typeof COST_BY_TAG | UnparsedObject;
-export const COST_BY_TAG = 'cost_by_tag';
+export const COST_BY_TAG = "cost_by_tag";

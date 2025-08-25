@@ -4,38 +4,33 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * JSON object containing all event attributes and their associated values.
-*/
+ */
 export class AuditLogsEventAttributes {
   /**
    * JSON object of attributes from Audit Logs events.
-  */
-  "attributes"?: { [key: string]: any; };
+   */
+  "attributes"?: { [key: string]: any };
   /**
    * Message of the event.
-  */
+   */
   "message"?: string;
   /**
    * Name of the application or service generating Audit Logs events.
    * This name is used to correlate Audit Logs to APM, so make sure you specify the same
    * value when you use both products.
-  */
+   */
   "service"?: string;
   /**
    * Array of tags associated with your event.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * Timestamp of your event.
-  */
+   */
   "timestamp"?: Date;
 
   /**
@@ -54,65 +49,39 @@ export class AuditLogsEventAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "{ [key: string]: any; }",
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: any; }",
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
+    message: {
+      baseName: "message",
+      type: "string",
     },
-    "service": {
-      "baseName": "service",
-      "type": "string",
+    service: {
+      baseName: "service",
+      type: "string",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "timestamp": {
-      "baseName": "timestamp",
-      "type": "Date",
-      "format": "date-time",
+    timestamp: {
+      baseName: "timestamp",
+      type: "Date",
+      format: "date-time",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AuditLogsEventAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

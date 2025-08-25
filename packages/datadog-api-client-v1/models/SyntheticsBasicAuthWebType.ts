@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of basic authentication to use when performing the test.
-*/
+ */
 
 export type SyntheticsBasicAuthWebType = typeof WEB | UnparsedObject;
-export const WEB = 'web';
+export const WEB = "web";

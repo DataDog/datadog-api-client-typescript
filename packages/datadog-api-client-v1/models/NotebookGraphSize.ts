@@ -4,20 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The size of the graph.
-*/
+ */
 
-export type NotebookGraphSize = typeof EXTRA_SMALL| typeof SMALL| typeof MEDIUM| typeof LARGE| typeof EXTRA_LARGE | UnparsedObject;
-export const EXTRA_SMALL = 'xs';
-export const SMALL = 's';
-export const MEDIUM = 'm';
-export const LARGE = 'l';
-export const EXTRA_LARGE = 'xl';
+export type NotebookGraphSize =
+  | typeof EXTRA_SMALL
+  | typeof SMALL
+  | typeof MEDIUM
+  | typeof LARGE
+  | typeof EXTRA_LARGE
+  | UnparsedObject;
+export const EXTRA_SMALL = "xs";
+export const SMALL = "s";
+export const MEDIUM = "m";
+export const LARGE = "l";
+export const EXTRA_LARGE = "xl";

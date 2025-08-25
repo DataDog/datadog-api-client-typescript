@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of resource being mapped to.
-*/
+ */
 
-export type AuthNMappingResourceType = typeof ROLE| typeof TEAM | UnparsedObject;
-export const ROLE = 'role';
-export const TEAM = 'team';
+export type AuthNMappingResourceType =
+  | typeof ROLE
+  | typeof TEAM
+  | UnparsedObject;
+export const ROLE = "role";
+export const TEAM = "team";

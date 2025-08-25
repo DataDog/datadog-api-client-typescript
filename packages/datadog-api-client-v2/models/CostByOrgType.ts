@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of cost data.
-*/
+ */
 
 export type CostByOrgType = typeof COST_BY_ORG | UnparsedObject;
-export const COST_BY_ORG = 'cost_by_org';
+export const COST_BY_ORG = "cost_by_org";

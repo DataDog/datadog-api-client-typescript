@@ -6,32 +6,27 @@
 import { EscalationPolicyStepAttributesAssignment } from "./EscalationPolicyStepAttributesAssignment";
 import { EscalationPolicyStepTarget } from "./EscalationPolicyStepTarget";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a single escalation step within an escalation policy update request. Contains assignment strategy, escalation timeout, an optional step ID, and a list of targets.
-*/
+ */
 export class EscalationPolicyUpdateRequestDataAttributesStepsItems {
   /**
    * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
-  */
+   */
   "assignment"?: EscalationPolicyStepAttributesAssignment;
   /**
    * Defines how many seconds to wait before escalating to the next step.
-  */
+   */
   "escalateAfterSeconds"?: number;
   /**
    * Specifies the unique identifier of this step.
-  */
+   */
   "id"?: string;
   /**
    * Specifies the collection of escalation targets for this step.
-  */
+   */
   "targets": Array<EscalationPolicyStepTarget>;
 
   /**
@@ -50,62 +45,36 @@ export class EscalationPolicyUpdateRequestDataAttributesStepsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "assignment": {
-      "baseName": "assignment",
-      "type": "EscalationPolicyStepAttributesAssignment",
+    assignment: {
+      baseName: "assignment",
+      type: "EscalationPolicyStepAttributesAssignment",
     },
-    "escalateAfterSeconds": {
-      "baseName": "escalate_after_seconds",
-      "type": "number",
-      "format": "int64",
+    escalateAfterSeconds: {
+      baseName: "escalate_after_seconds",
+      type: "number",
+      format: "int64",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "targets": {
-      "baseName": "targets",
-      "type": "Array<EscalationPolicyStepTarget>",
-      "required": true,
+    targets: {
+      baseName: "targets",
+      type: "Array<EscalationPolicyStepTarget>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EscalationPolicyUpdateRequestDataAttributesStepsItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

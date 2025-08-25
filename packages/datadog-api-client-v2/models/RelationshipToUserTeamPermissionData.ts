@@ -5,24 +5,19 @@
  */
 import { UserTeamPermissionType } from "./UserTeamPermissionType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Related user team permission data
-*/
+ */
 export class RelationshipToUserTeamPermissionData {
   /**
    * The ID of the user team permission
-  */
+   */
   "id": string;
   /**
    * User team permission type
-  */
+   */
   "type": UserTeamPermissionType;
 
   /**
@@ -41,54 +36,28 @@ export class RelationshipToUserTeamPermissionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "UserTeamPermissionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "UserTeamPermissionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToUserTeamPermissionData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

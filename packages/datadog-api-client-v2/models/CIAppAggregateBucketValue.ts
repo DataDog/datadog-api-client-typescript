@@ -5,15 +5,14 @@
  */
 import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A bucket value, can either be a timeseries or a single value.
-*/
+ */
 
-export type CIAppAggregateBucketValue = string | number | Array<CIAppAggregateBucketValueTimeseriesPoint> | UnparsedObject;
+export type CIAppAggregateBucketValue =
+  | string
+  | number
+  | Array<CIAppAggregateBucketValueTimeseriesPoint>
+  | UnparsedObject;

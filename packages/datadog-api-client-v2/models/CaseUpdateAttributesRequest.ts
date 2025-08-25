@@ -5,20 +5,15 @@
  */
 import { CaseUpdateAttributes } from "./CaseUpdateAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Case update attributes request
-*/
+ */
 export class CaseUpdateAttributesRequest {
   /**
    * Case update attributes
-  */
+   */
   "data": CaseUpdateAttributes;
 
   /**
@@ -37,49 +32,23 @@ export class CaseUpdateAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CaseUpdateAttributes",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "CaseUpdateAttributes",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CaseUpdateAttributesRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Restriction policy type.
-*/
+ */
 
 export type RestrictionPolicyType = typeof RESTRICTION_POLICY | UnparsedObject;
-export const RESTRICTION_POLICY = 'restriction_policy';
+export const RESTRICTION_POLICY = "restriction_policy";

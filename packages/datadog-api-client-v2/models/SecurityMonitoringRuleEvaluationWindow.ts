@@ -4,19 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A time window is specified to match when at least one of the cases matches true. This is a sliding window
  * and evaluates in real time. For third party detection method, this field is not used.
-*/
+ */
 
-export type SecurityMonitoringRuleEvaluationWindow = typeof ZERO_MINUTES| typeof ONE_MINUTE| typeof FIVE_MINUTES| typeof TEN_MINUTES| typeof FIFTEEN_MINUTES| typeof THIRTY_MINUTES| typeof ONE_HOUR| typeof TWO_HOURS| typeof THREE_HOURS| typeof SIX_HOURS| typeof TWELVE_HOURS| typeof ONE_DAY | UnparsedObject;
+export type SecurityMonitoringRuleEvaluationWindow =
+  | typeof ZERO_MINUTES
+  | typeof ONE_MINUTE
+  | typeof FIVE_MINUTES
+  | typeof TEN_MINUTES
+  | typeof FIFTEEN_MINUTES
+  | typeof THIRTY_MINUTES
+  | typeof ONE_HOUR
+  | typeof TWO_HOURS
+  | typeof THREE_HOURS
+  | typeof SIX_HOURS
+  | typeof TWELVE_HOURS
+  | typeof ONE_DAY
+  | UnparsedObject;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;

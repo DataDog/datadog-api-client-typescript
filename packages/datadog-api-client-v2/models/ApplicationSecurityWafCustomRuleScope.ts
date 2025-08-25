@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The scope of the WAF custom rule.
-*/
+ */
 export class ApplicationSecurityWafCustomRuleScope {
   /**
    * The environment scope for the WAF custom rule.
-  */
+   */
   "env": string;
   /**
    * The service scope for the WAF custom rule.
-  */
+   */
   "service": string;
 
   /**
@@ -40,54 +35,28 @@ export class ApplicationSecurityWafCustomRuleScope {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "env": {
-      "baseName": "env",
-      "type": "string",
-      "required": true,
+    env: {
+      baseName: "env",
+      type: "string",
+      required: true,
     },
-    "service": {
-      "baseName": "service",
-      "type": "string",
-      "required": true,
+    service: {
+      baseName: "service",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafCustomRuleScope.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

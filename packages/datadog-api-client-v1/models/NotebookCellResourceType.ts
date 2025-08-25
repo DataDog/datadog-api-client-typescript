@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the Notebook Cell resource.
-*/
+ */
 
 export type NotebookCellResourceType = typeof NOTEBOOK_CELLS | UnparsedObject;
-export const NOTEBOOK_CELLS = 'notebook_cells';
+export const NOTEBOOK_CELLS = "notebook_cells";

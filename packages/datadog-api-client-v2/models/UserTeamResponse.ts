@@ -6,24 +6,19 @@
 import { UserTeam } from "./UserTeam";
 import { UserTeamIncluded } from "./UserTeamIncluded";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Team membership response
-*/
+ */
 export class UserTeamResponse {
   /**
    * A user's relationship with a team
-  */
+   */
   "data"?: UserTeam;
   /**
    * Resources related to the team memberships
-  */
+   */
   "included"?: Array<UserTeamIncluded>;
 
   /**
@@ -42,52 +37,26 @@ export class UserTeamResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "UserTeam",
+    data: {
+      baseName: "data",
+      type: "UserTeam",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<UserTeamIncluded>",
+    included: {
+      baseName: "included",
+      type: "Array<UserTeamIncluded>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UserTeamResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

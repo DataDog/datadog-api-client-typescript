@@ -5,20 +5,15 @@
  */
 import { TeamRoutingRulesRequestRule } from "./TeamRoutingRulesRequestRule";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Represents the attributes of a request to update or create team routing rules.
-*/
+ */
 export class TeamRoutingRulesRequestDataAttributes {
   /**
    * A list of routing rule items that define how incoming pages should be handled.
-  */
+   */
   "rules"?: Array<TeamRoutingRulesRequestRule>;
 
   /**
@@ -37,48 +32,22 @@ export class TeamRoutingRulesRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "rules": {
-      "baseName": "rules",
-      "type": "Array<TeamRoutingRulesRequestRule>",
+    rules: {
+      baseName: "rules",
+      type: "Array<TeamRoutingRulesRequestRule>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamRoutingRulesRequestDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

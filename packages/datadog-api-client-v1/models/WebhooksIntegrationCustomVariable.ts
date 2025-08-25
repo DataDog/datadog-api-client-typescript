@@ -4,29 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Custom variable for Webhook integration.
-*/
+ */
 export class WebhooksIntegrationCustomVariable {
   /**
    * Make custom variable is secret or not.
    * If the custom variable is secret, the value is not returned in the response payload.
-  */
+   */
   "isSecret": boolean;
   /**
    * The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
-  */
+   */
   "name": string;
   /**
    * Value of the custom variable.
-  */
+   */
   "value": string;
 
   /**
@@ -45,59 +40,33 @@ export class WebhooksIntegrationCustomVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "isSecret": {
-      "baseName": "is_secret",
-      "type": "boolean",
-      "required": true,
+    isSecret: {
+      baseName: "is_secret",
+      type: "boolean",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "value": {
-      "baseName": "value",
-      "type": "string",
-      "required": true,
+    value: {
+      baseName: "value",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WebhooksIntegrationCustomVariable.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

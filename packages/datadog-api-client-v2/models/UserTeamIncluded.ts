@@ -6,15 +6,10 @@
 import { Team } from "./Team";
 import { User } from "./User";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Included resources related to the team membership
-*/
+ */
 
 export type UserTeamIncluded = User | Team | UnparsedObject;

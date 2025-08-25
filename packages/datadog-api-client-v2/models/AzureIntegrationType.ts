@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `AzureIntegrationType` object.
-*/
+ */
 
 export type AzureIntegrationType = typeof AZURE | UnparsedObject;
-export const AZURE = 'Azure';
+export const AZURE = "Azure";

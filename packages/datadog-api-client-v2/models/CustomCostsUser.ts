@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Metadata of the user that has uploaded the Custom Costs file.
-*/
+ */
 export class CustomCostsUser {
   /**
    * The name of the Custom Costs file.
-  */
+   */
   "email"?: string;
   /**
    * The name of the Custom Costs file.
-  */
+   */
   "icon"?: string;
   /**
    * Name of the user.
-  */
+   */
   "name"?: string;
 
   /**
@@ -44,56 +39,30 @@ export class CustomCostsUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "email": {
-      "baseName": "email",
-      "type": "string",
+    email: {
+      baseName: "email",
+      type: "string",
     },
-    "icon": {
-      "baseName": "icon",
-      "type": "string",
+    icon: {
+      baseName: "icon",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomCostsUser.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

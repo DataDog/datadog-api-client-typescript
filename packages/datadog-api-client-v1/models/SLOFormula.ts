@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A formula that specifies how to combine the results of multiple queries.
-*/
+ */
 export class SLOFormula {
   /**
    * The formula string, which is an expression involving named queries.
-  */
+   */
   "formula": string;
 
   /**
@@ -36,49 +31,23 @@ export class SLOFormula {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "formula": {
-      "baseName": "formula",
-      "type": "string",
-      "required": true,
+    formula: {
+      baseName: "formula",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SLOFormula.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

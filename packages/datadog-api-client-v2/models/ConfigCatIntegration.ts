@@ -6,24 +6,19 @@
 import { ConfigCatCredentials } from "./ConfigCatCredentials";
 import { ConfigCatIntegrationType } from "./ConfigCatIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `ConfigCatIntegration` object.
-*/
+ */
 export class ConfigCatIntegration {
   /**
    * The definition of the `ConfigCatCredentials` object.
-  */
+   */
   "credentials": ConfigCatCredentials;
   /**
    * The definition of the `ConfigCatIntegrationType` object.
-  */
+   */
   "type": ConfigCatIntegrationType;
 
   /**
@@ -42,54 +37,28 @@ export class ConfigCatIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "ConfigCatCredentials",
-      "required": true,
+    credentials: {
+      baseName: "credentials",
+      type: "ConfigCatCredentials",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ConfigCatIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ConfigCatIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ConfigCatIntegration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

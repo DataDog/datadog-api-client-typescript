@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the alert graph widget.
-*/
+ */
 
-export type AlertGraphWidgetDefinitionType = typeof ALERT_GRAPH | UnparsedObject;
-export const ALERT_GRAPH = 'alert_graph';
+export type AlertGraphWidgetDefinitionType =
+  | typeof ALERT_GRAPH
+  | UnparsedObject;
+export const ALERT_GRAPH = "alert_graph";

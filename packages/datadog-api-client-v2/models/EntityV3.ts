@@ -9,15 +9,16 @@ import { EntityV3Queue } from "./EntityV3Queue";
 import { EntityV3Service } from "./EntityV3Service";
 import { EntityV3System } from "./EntityV3System";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Entity schema v3.
-*/
+ */
 
-export type EntityV3 = EntityV3Service | EntityV3Datastore | EntityV3Queue | EntityV3System | EntityV3API | UnparsedObject;
+export type EntityV3 =
+  | EntityV3Service
+  | EntityV3Datastore
+  | EntityV3Queue
+  | EntityV3System
+  | EntityV3API
+  | UnparsedObject;

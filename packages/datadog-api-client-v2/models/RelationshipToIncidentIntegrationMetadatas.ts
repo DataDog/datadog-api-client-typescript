@@ -5,20 +5,15 @@
  */
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A relationship reference for multiple integration metadata objects.
-*/
+ */
 export class RelationshipToIncidentIntegrationMetadatas {
   /**
    * Integration metadata relationship array
-  */
+   */
   "data": Array<RelationshipToIncidentIntegrationMetadataData>;
 
   /**
@@ -37,49 +32,23 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<RelationshipToIncidentIntegrationMetadataData>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<RelationshipToIncidentIntegrationMetadataData>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

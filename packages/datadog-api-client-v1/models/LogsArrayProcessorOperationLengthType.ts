@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Operation type.
-*/
+ */
 
-export type LogsArrayProcessorOperationLengthType = typeof LENGTH | UnparsedObject;
-export const LENGTH = 'length';
+export type LogsArrayProcessorOperationLengthType =
+  | typeof LENGTH
+  | UnparsedObject;
+export const LENGTH = "length";

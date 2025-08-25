@@ -6,28 +6,23 @@
 import { AppDefinitionType } from "./AppDefinitionType";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The data object containing the app definition.
-*/
+ */
 export class GetAppResponseData {
   /**
    * The app definition attributes, such as name, description, and components.
-  */
+   */
   "attributes": GetAppResponseDataAttributes;
   /**
    * The ID of the app.
-  */
+   */
   "id": string;
   /**
    * The app definition type.
-  */
+   */
   "type": AppDefinitionType;
 
   /**
@@ -46,60 +41,34 @@ export class GetAppResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "GetAppResponseDataAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "GetAppResponseDataAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
-      "format": "uuid",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AppDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AppDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GetAppResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

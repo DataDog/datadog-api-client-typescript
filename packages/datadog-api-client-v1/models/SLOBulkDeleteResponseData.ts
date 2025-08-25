@@ -4,27 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An array of service level objective objects.
-*/
+ */
 export class SLOBulkDeleteResponseData {
   /**
    * An array of service level objective object IDs that indicates
    * which objects that were completely deleted.
-  */
+   */
   "deleted"?: Array<string>;
   /**
    * An array of service level objective object IDs that indicates
    * which objects that were modified (objects for which at least one
    * threshold was deleted, but that were not completely deleted).
-  */
+   */
   "updated"?: Array<string>;
 
   /**
@@ -43,52 +38,26 @@ export class SLOBulkDeleteResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "deleted": {
-      "baseName": "deleted",
-      "type": "Array<string>",
+    deleted: {
+      baseName: "deleted",
+      type: "Array<string>",
     },
-    "updated": {
-      "baseName": "updated",
-      "type": "Array<string>",
+    updated: {
+      baseName: "updated",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SLOBulkDeleteResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

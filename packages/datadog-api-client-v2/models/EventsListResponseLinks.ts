@@ -4,21 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Links attributes.
-*/
+ */
 export class EventsListResponseLinks {
   /**
    * Link for the next set of results. Note that the request can also be made using the
    * POST endpoint.
-  */
+   */
   "next"?: string;
 
   /**
@@ -37,48 +32,22 @@ export class EventsListResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "next": {
-      "baseName": "next",
-      "type": "string",
+    next: {
+      baseName: "next",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EventsListResponseLinks.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

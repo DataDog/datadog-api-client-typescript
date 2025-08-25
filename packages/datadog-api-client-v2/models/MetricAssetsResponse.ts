@@ -6,24 +6,19 @@
 import { MetricAssetResponseData } from "./MetricAssetResponseData";
 import { MetricAssetResponseIncluded } from "./MetricAssetResponseIncluded";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object that includes related dashboards, monitors, notebooks, and SLOs.
-*/
+ */
 export class MetricAssetsResponse {
   /**
    * Metric assets response data.
-  */
+   */
   "data"?: MetricAssetResponseData;
   /**
    * Array of objects related to the metric assets.
-  */
+   */
   "included"?: Array<MetricAssetResponseIncluded>;
 
   /**
@@ -42,52 +37,26 @@ export class MetricAssetsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "MetricAssetResponseData",
+    data: {
+      baseName: "data",
+      type: "MetricAssetResponseData",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<MetricAssetResponseIncluded>",
+    included: {
+      baseName: "included",
+      type: "Array<MetricAssetResponseIncluded>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricAssetsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relative timeframe.
-*/
+ */
 export class NotebookRelativeTime {
   /**
    * The available timeframes depend on the widget you are using.
-  */
+   */
   "liveSpan": WidgetLiveSpan;
 
   /**
@@ -37,49 +32,23 @@ export class NotebookRelativeTime {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "liveSpan": {
-      "baseName": "live_span",
-      "type": "WidgetLiveSpan",
-      "required": true,
+    liveSpan: {
+      baseName: "live_span",
+      type: "WidgetLiveSpan",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookRelativeTime.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

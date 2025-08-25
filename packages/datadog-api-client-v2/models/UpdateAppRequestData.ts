@@ -6,28 +6,23 @@
 import { AppDefinitionType } from "./AppDefinitionType";
 import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The data object containing the new app definition. Any fields not included in the request remain unchanged.
-*/
+ */
 export class UpdateAppRequestData {
   /**
    * App definition attributes to be updated, such as name, description, and components.
-  */
+   */
   "attributes"?: UpdateAppRequestDataAttributes;
   /**
    * The ID of the app to update. The app ID must match the ID in the URL path.
-  */
+   */
   "id"?: string;
   /**
    * The app definition type.
-  */
+   */
   "type": AppDefinitionType;
 
   /**
@@ -46,58 +41,32 @@ export class UpdateAppRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "UpdateAppRequestDataAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "UpdateAppRequestDataAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "format": "uuid",
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "uuid",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AppDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AppDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateAppRequestData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

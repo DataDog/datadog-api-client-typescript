@@ -4,44 +4,39 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Vulnerability counts associated with the Container Image.
-*/
+ */
 export class ContainerImageVulnerabilities {
   /**
    * ID of the Container Image.
-  */
+   */
   "assetId"?: string;
   /**
    * Number of vulnerabilities with CVSS Critical severity.
-  */
+   */
   "critical"?: number;
   /**
    * Number of vulnerabilities with CVSS High severity.
-  */
+   */
   "high"?: number;
   /**
    * Number of vulnerabilities with CVSS Low severity.
-  */
+   */
   "low"?: number;
   /**
    * Number of vulnerabilities with CVSS Medium severity.
-  */
+   */
   "medium"?: number;
   /**
    * Number of vulnerabilities with CVSS None severity.
-  */
+   */
   "none"?: number;
   /**
    * Number of vulnerabilities with an unknown CVSS severity.
-  */
+   */
   "unknown"?: number;
 
   /**
@@ -60,78 +55,52 @@ export class ContainerImageVulnerabilities {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "assetId": {
-      "baseName": "asset_id",
-      "type": "string",
+    assetId: {
+      baseName: "asset_id",
+      type: "string",
     },
-    "critical": {
-      "baseName": "critical",
-      "type": "number",
-      "format": "int64",
+    critical: {
+      baseName: "critical",
+      type: "number",
+      format: "int64",
     },
-    "high": {
-      "baseName": "high",
-      "type": "number",
-      "format": "int64",
+    high: {
+      baseName: "high",
+      type: "number",
+      format: "int64",
     },
-    "low": {
-      "baseName": "low",
-      "type": "number",
-      "format": "int64",
+    low: {
+      baseName: "low",
+      type: "number",
+      format: "int64",
     },
-    "medium": {
-      "baseName": "medium",
-      "type": "number",
-      "format": "int64",
+    medium: {
+      baseName: "medium",
+      type: "number",
+      format: "int64",
     },
-    "none": {
-      "baseName": "none",
-      "type": "number",
-      "format": "int64",
+    none: {
+      baseName: "none",
+      type: "number",
+      format: "int64",
     },
-    "unknown": {
-      "baseName": "unknown",
-      "type": "number",
-      "format": "int64",
+    unknown: {
+      baseName: "unknown",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerImageVulnerabilities.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

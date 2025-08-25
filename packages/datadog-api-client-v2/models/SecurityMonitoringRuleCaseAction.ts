@@ -6,24 +6,19 @@
 import { SecurityMonitoringRuleCaseActionOptions } from "./SecurityMonitoringRuleCaseActionOptions";
 import { SecurityMonitoringRuleCaseActionType } from "./SecurityMonitoringRuleCaseActionType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Action to perform when a signal is triggered. Only available for Application Security rule type.
-*/
+ */
 export class SecurityMonitoringRuleCaseAction {
   /**
    * Options for the rule action
-  */
+   */
   "options"?: SecurityMonitoringRuleCaseActionOptions;
   /**
    * The action type.
-  */
+   */
   "type"?: SecurityMonitoringRuleCaseActionType;
 
   /**
@@ -42,52 +37,26 @@ export class SecurityMonitoringRuleCaseAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "options": {
-      "baseName": "options",
-      "type": "SecurityMonitoringRuleCaseActionOptions",
+    options: {
+      baseName: "options",
+      type: "SecurityMonitoringRuleCaseActionOptions",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SecurityMonitoringRuleCaseActionType",
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringRuleCaseActionType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringRuleCaseAction.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

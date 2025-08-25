@@ -5,20 +5,15 @@
  */
 import { SpansMetricResponseData } from "./SpansMetricResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The span-based metric object.
-*/
+ */
 export class SpansMetricResponse {
   /**
    * The span-based metric properties.
-  */
+   */
   "data"?: SpansMetricResponseData;
 
   /**
@@ -37,48 +32,22 @@ export class SpansMetricResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SpansMetricResponseData",
+    data: {
+      baseName: "data",
+      type: "SpansMetricResponseData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansMetricResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

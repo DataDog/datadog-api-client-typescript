@@ -5,24 +5,19 @@
  */
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A list of all Datadog-AWS logs integrations available in your Datadog organization.
-*/
+ */
 export class AWSLogsAsyncResponse {
   /**
    * List of errors.
-  */
+   */
   "errors"?: Array<AWSLogsAsyncError>;
   /**
    * Status of the properties.
-  */
+   */
   "status"?: string;
 
   /**
@@ -41,52 +36,26 @@ export class AWSLogsAsyncResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "errors": {
-      "baseName": "errors",
-      "type": "Array<AWSLogsAsyncError>",
+    errors: {
+      baseName: "errors",
+      type: "Array<AWSLogsAsyncError>",
     },
-    "status": {
-      "baseName": "status",
-      "type": "string",
+    status: {
+      baseName: "status",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSLogsAsyncResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

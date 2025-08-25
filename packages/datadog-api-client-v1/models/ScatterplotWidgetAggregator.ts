@@ -4,20 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Aggregator used for the request.
-*/
+ */
 
-export type ScatterplotWidgetAggregator = typeof AVERAGE| typeof LAST| typeof MAXIMUM| typeof MINIMUM| typeof SUM | UnparsedObject;
-export const AVERAGE = 'avg';
-export const LAST = 'last';
-export const MAXIMUM = 'max';
-export const MINIMUM = 'min';
-export const SUM = 'sum';
+export type ScatterplotWidgetAggregator =
+  | typeof AVERAGE
+  | typeof LAST
+  | typeof MAXIMUM
+  | typeof MINIMUM
+  | typeof SUM
+  | UnparsedObject;
+export const AVERAGE = "avg";
+export const LAST = "last";
+export const MAXIMUM = "max";
+export const MINIMUM = "min";
+export const SUM = "sum";

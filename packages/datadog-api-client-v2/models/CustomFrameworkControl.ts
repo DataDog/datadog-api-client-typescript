@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Framework Control.
-*/
+ */
 export class CustomFrameworkControl {
   /**
    * Control Name.
-  */
+   */
   "name": string;
   /**
    * Rule IDs.
-  */
+   */
   "rulesId": Array<string>;
 
   /**
@@ -40,54 +35,28 @@ export class CustomFrameworkControl {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "rulesId": {
-      "baseName": "rules_id",
-      "type": "Array<string>",
-      "required": true,
+    rulesId: {
+      baseName: "rules_id",
+      type: "Array<string>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomFrameworkControl.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

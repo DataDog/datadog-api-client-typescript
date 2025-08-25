@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The frequency at which report data is to be generated.
-*/
+ */
 
-export type SLOReportInterval = typeof DAILY| typeof WEEKLY| typeof MONTHLY | UnparsedObject;
-export const DAILY = 'daily';
-export const WEEKLY = 'weekly';
-export const MONTHLY = 'monthly';
+export type SLOReportInterval =
+  | typeof DAILY
+  | typeof WEEKLY
+  | typeof MONTHLY
+  | UnparsedObject;
+export const DAILY = "daily";
+export const WEEKLY = "weekly";
+export const MONTHLY = "monthly";

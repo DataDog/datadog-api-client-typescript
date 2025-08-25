@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `LaunchDarklyIntegrationType` object.
-*/
+ */
 
 export type LaunchDarklyIntegrationType = typeof LAUNCHDARKLY | UnparsedObject;
-export const LAUNCHDARKLY = 'LaunchDarkly';
+export const LAUNCHDARKLY = "LaunchDarkly";

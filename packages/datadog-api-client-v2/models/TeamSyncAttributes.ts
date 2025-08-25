@@ -6,24 +6,19 @@
 import { TeamSyncAttributesSource } from "./TeamSyncAttributesSource";
 import { TeamSyncAttributesType } from "./TeamSyncAttributesType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Team sync attributes.
-*/
+ */
 export class TeamSyncAttributes {
   /**
    * The external source platform for team synchronization. Only "github" is supported.
-  */
+   */
   "source": TeamSyncAttributesSource;
   /**
    * The type of synchronization operation. Only "link" is supported, which links existing teams by matching names.
-  */
+   */
   "type": TeamSyncAttributesType;
 
   /**
@@ -42,54 +37,28 @@ export class TeamSyncAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "source": {
-      "baseName": "source",
-      "type": "TeamSyncAttributesSource",
-      "required": true,
+    source: {
+      baseName: "source",
+      type: "TeamSyncAttributesSource",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "TeamSyncAttributesType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "TeamSyncAttributesType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamSyncAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

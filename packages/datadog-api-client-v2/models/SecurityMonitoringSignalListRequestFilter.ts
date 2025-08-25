@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Search filters for listing security signals.
-*/
+ */
 export class SecurityMonitoringSignalListRequestFilter {
   /**
    * The minimum timestamp for requested security signals.
-  */
+   */
   "from"?: Date;
   /**
    * Search query for listing security signals.
-  */
+   */
   "query"?: string;
   /**
    * The maximum timestamp for requested security signals.
-  */
+   */
   "to"?: Date;
 
   /**
@@ -44,58 +39,32 @@ export class SecurityMonitoringSignalListRequestFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "from": {
-      "baseName": "from",
-      "type": "Date",
-      "format": "date-time",
+    from: {
+      baseName: "from",
+      type: "Date",
+      format: "date-time",
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
+    query: {
+      baseName: "query",
+      type: "string",
     },
-    "to": {
-      "baseName": "to",
-      "type": "Date",
-      "format": "date-time",
+    to: {
+      baseName: "to",
+      type: "Date",
+      format: "date-time",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

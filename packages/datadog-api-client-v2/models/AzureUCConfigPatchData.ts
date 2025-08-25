@@ -6,24 +6,19 @@
 import { AzureUCConfigPatchRequestAttributes } from "./AzureUCConfigPatchRequestAttributes";
 import { AzureUCConfigPatchRequestType } from "./AzureUCConfigPatchRequestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Azure config Patch data.
-*/
+ */
 export class AzureUCConfigPatchData {
   /**
    * Attributes for Azure config Patch Request.
-  */
+   */
   "attributes": AzureUCConfigPatchRequestAttributes;
   /**
    * Type of Azure config Patch Request.
-  */
+   */
   "type": AzureUCConfigPatchRequestType;
 
   /**
@@ -42,54 +37,28 @@ export class AzureUCConfigPatchData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AzureUCConfigPatchRequestAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "AzureUCConfigPatchRequestAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "AzureUCConfigPatchRequestType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AzureUCConfigPatchRequestType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AzureUCConfigPatchData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

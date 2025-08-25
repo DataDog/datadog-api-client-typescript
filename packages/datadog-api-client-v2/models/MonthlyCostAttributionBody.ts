@@ -6,28 +6,23 @@
 import { CostAttributionType } from "./CostAttributionType";
 import { MonthlyCostAttributionAttributes } from "./MonthlyCostAttributionAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Cost data.
-*/
+ */
 export class MonthlyCostAttributionBody {
   /**
    * Cost Attribution by Tag for a given organization.
-  */
+   */
   "attributes"?: MonthlyCostAttributionAttributes;
   /**
    * Unique ID of the response.
-  */
+   */
   "id"?: string;
   /**
    * Type of cost attribution data.
-  */
+   */
   "type"?: CostAttributionType;
 
   /**
@@ -46,56 +41,30 @@ export class MonthlyCostAttributionBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "MonthlyCostAttributionAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "MonthlyCostAttributionAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CostAttributionType",
+    type: {
+      baseName: "type",
+      type: "CostAttributionType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonthlyCostAttributionBody.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

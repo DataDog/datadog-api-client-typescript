@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The processor type. The value should always be `remove_fields`.
-*/
+ */
 
-export type ObservabilityPipelineRemoveFieldsProcessorType = typeof REMOVE_FIELDS | UnparsedObject;
-export const REMOVE_FIELDS = 'remove_fields';
+export type ObservabilityPipelineRemoveFieldsProcessorType =
+  | typeof REMOVE_FIELDS
+  | UnparsedObject;
+export const REMOVE_FIELDS = "remove_fields";

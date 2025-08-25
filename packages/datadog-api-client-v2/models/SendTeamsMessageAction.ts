@@ -5,32 +5,27 @@
  */
 import { SendTeamsMessageActionType } from "./SendTeamsMessageActionType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Sends a message to a Microsoft Teams channel.
-*/
+ */
 export class SendTeamsMessageAction {
   /**
    * The channel ID.
-  */
+   */
   "channel": string;
   /**
    * The team ID.
-  */
+   */
   "team": string;
   /**
    * The tenant ID.
-  */
+   */
   "tenant": string;
   /**
    * Indicates that the action is a send Microsoft Teams message action.
-  */
+   */
   "type": SendTeamsMessageActionType;
 
   /**
@@ -49,64 +44,38 @@ export class SendTeamsMessageAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "channel": {
-      "baseName": "channel",
-      "type": "string",
-      "required": true,
+    channel: {
+      baseName: "channel",
+      type: "string",
+      required: true,
     },
-    "team": {
-      "baseName": "team",
-      "type": "string",
-      "required": true,
+    team: {
+      baseName: "team",
+      type: "string",
+      required: true,
     },
-    "tenant": {
-      "baseName": "tenant",
-      "type": "string",
-      "required": true,
+    tenant: {
+      baseName: "tenant",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "SendTeamsMessageActionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "SendTeamsMessageActionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SendTeamsMessageAction.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

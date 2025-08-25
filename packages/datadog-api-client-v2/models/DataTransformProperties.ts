@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The properties of the data transformer.
-*/
+ */
 export class DataTransformProperties {
   /**
    * A JavaScript function that returns the transformed data.
-  */
+   */
   "outputs"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class DataTransformProperties {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "outputs": {
-      "baseName": "outputs",
-      "type": "string",
+    outputs: {
+      baseName: "outputs",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DataTransformProperties.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

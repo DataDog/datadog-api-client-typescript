@@ -5,20 +5,15 @@
  */
 import { ConfluentResourceResponseData } from "./ConfluentResourceResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response schema when interacting with a list of Confluent resources.
-*/
+ */
 export class ConfluentResourcesResponse {
   /**
    * The JSON:API data attribute.
-  */
+   */
   "data"?: Array<ConfluentResourceResponseData>;
 
   /**
@@ -37,48 +32,22 @@ export class ConfluentResourcesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<ConfluentResourceResponseData>",
+    data: {
+      baseName: "data",
+      type: "Array<ConfluentResourceResponseData>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ConfluentResourcesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a rate limit for a trigger.
-*/
+ */
 export class TriggerRateLimit {
   /**
    * The `TriggerRateLimit` `count`.
-  */
+   */
   "count"?: number;
   /**
    * The `TriggerRateLimit` `interval`. The expected format is the number of seconds ending with an s. For example, 1 day is 86400s
-  */
+   */
   "interval"?: string;
 
   /**
@@ -40,53 +35,27 @@ export class TriggerRateLimit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "count": {
-      "baseName": "count",
-      "type": "number",
-      "format": "int64",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int64",
     },
-    "interval": {
-      "baseName": "interval",
-      "type": "string",
+    interval: {
+      baseName: "interval",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TriggerRateLimit.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

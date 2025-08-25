@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of active billing dimensions data.
-*/
+ */
 
-export type ActiveBillingDimensionsType = typeof BILLING_DIMENSIONS | UnparsedObject;
-export const BILLING_DIMENSIONS = 'billing_dimensions';
+export type ActiveBillingDimensionsType =
+  | typeof BILLING_DIMENSIONS
+  | UnparsedObject;
+export const BILLING_DIMENSIONS = "billing_dimensions";

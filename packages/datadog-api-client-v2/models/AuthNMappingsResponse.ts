@@ -7,28 +7,23 @@ import { AuthNMapping } from "./AuthNMapping";
 import { AuthNMappingIncluded } from "./AuthNMappingIncluded";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Array of AuthN Mappings response.
-*/
+ */
 export class AuthNMappingsResponse {
   /**
    * Array of returned AuthN Mappings.
-  */
+   */
   "data"?: Array<AuthNMapping>;
   /**
    * Included data in the AuthN Mapping response.
-  */
+   */
   "included"?: Array<AuthNMappingIncluded>;
   /**
    * Object describing meta attributes of response.
-  */
+   */
   "meta"?: ResponseMetaAttributes;
 
   /**
@@ -47,56 +42,30 @@ export class AuthNMappingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<AuthNMapping>",
+    data: {
+      baseName: "data",
+      type: "Array<AuthNMapping>",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<AuthNMappingIncluded>",
+    included: {
+      baseName: "included",
+      type: "Array<AuthNMappingIncluded>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "ResponseMetaAttributes",
+    meta: {
+      baseName: "meta",
+      type: "ResponseMetaAttributes",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AuthNMappingsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

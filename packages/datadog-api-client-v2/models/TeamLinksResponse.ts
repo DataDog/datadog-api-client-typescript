@@ -5,20 +5,15 @@
  */
 import { TeamLink } from "./TeamLink";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Team links response
-*/
+ */
 export class TeamLinksResponse {
   /**
    * Team links response data
-  */
+   */
   "data"?: Array<TeamLink>;
 
   /**
@@ -37,48 +32,22 @@ export class TeamLinksResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<TeamLink>",
+    data: {
+      baseName: "data",
+      type: "Array<TeamLink>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamLinksResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

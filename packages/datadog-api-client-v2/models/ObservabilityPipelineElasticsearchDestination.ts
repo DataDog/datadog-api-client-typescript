@@ -6,36 +6,31 @@
 import { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./ObservabilityPipelineElasticsearchDestinationApiVersion";
 import { ObservabilityPipelineElasticsearchDestinationType } from "./ObservabilityPipelineElasticsearchDestinationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
-*/
+ */
 export class ObservabilityPipelineElasticsearchDestination {
   /**
    * The Elasticsearch API version to use. Set to `auto` to auto-detect.
-  */
+   */
   "apiVersion"?: ObservabilityPipelineElasticsearchDestinationApiVersion;
   /**
    * The index to write logs to in Elasticsearch.
-  */
+   */
   "bulkIndex"?: string;
   /**
    * The unique identifier for this component.
-  */
+   */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-  */
+   */
   "inputs": Array<string>;
   /**
    * The destination type. The value should always be `elasticsearch`.
-  */
+   */
   "type": ObservabilityPipelineElasticsearchDestinationType;
 
   /**
@@ -54,67 +49,41 @@ export class ObservabilityPipelineElasticsearchDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiVersion": {
-      "baseName": "api_version",
-      "type": "ObservabilityPipelineElasticsearchDestinationApiVersion",
+    apiVersion: {
+      baseName: "api_version",
+      type: "ObservabilityPipelineElasticsearchDestinationApiVersion",
     },
-    "bulkIndex": {
-      "baseName": "bulk_index",
-      "type": "string",
+    bulkIndex: {
+      baseName: "bulk_index",
+      type: "string",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "inputs": {
-      "baseName": "inputs",
-      "type": "Array<string>",
-      "required": true,
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineElasticsearchDestinationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineElasticsearchDestinationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineElasticsearchDestination.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

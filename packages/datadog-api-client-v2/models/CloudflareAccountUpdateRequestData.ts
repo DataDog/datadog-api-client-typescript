@@ -6,24 +6,19 @@
 import { CloudflareAccountType } from "./CloudflareAccountType";
 import { CloudflareAccountUpdateRequestAttributes } from "./CloudflareAccountUpdateRequestAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data object for updating a Cloudflare account.
-*/
+ */
 export class CloudflareAccountUpdateRequestData {
   /**
    * Attributes object for updating a Cloudflare account.
-  */
+   */
   "attributes"?: CloudflareAccountUpdateRequestAttributes;
   /**
    * The JSON:API type for this API. Should always be `cloudflare-accounts`.
-  */
+   */
   "type"?: CloudflareAccountType;
 
   /**
@@ -42,52 +37,26 @@ export class CloudflareAccountUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CloudflareAccountUpdateRequestAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "CloudflareAccountUpdateRequestAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CloudflareAccountType",
+    type: {
+      baseName: "type",
+      type: "CloudflareAccountType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudflareAccountUpdateRequestData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

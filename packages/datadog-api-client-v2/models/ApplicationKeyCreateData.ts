@@ -6,24 +6,19 @@
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object used to create an application key.
-*/
+ */
 export class ApplicationKeyCreateData {
   /**
    * Attributes used to create an application Key.
-  */
+   */
   "attributes": ApplicationKeyCreateAttributes;
   /**
    * Application Keys resource type.
-  */
+   */
   "type": ApplicationKeysType;
 
   /**
@@ -42,54 +37,28 @@ export class ApplicationKeyCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ApplicationKeyCreateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "ApplicationKeyCreateAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ApplicationKeysType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ApplicationKeysType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationKeyCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

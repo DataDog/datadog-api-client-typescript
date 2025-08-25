@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The source type. The value should always be `rsyslog`.
-*/
+ */
 
-export type ObservabilityPipelineRsyslogSourceType = typeof RSYSLOG | UnparsedObject;
-export const RSYSLOG = 'rsyslog';
+export type ObservabilityPipelineRsyslogSourceType =
+  | typeof RSYSLOG
+  | UnparsedObject;
+export const RSYSLOG = "rsyslog";

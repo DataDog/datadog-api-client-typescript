@@ -5,20 +5,15 @@
  */
 import { EscalationPolicyUpdateRequestData } from "./EscalationPolicyUpdateRequestData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Represents a request to update an existing escalation policy, including the updated policy data.
-*/
+ */
 export class EscalationPolicyUpdateRequest {
   /**
    * Represents the data for updating an existing escalation policy, including its ID, attributes, relationships, and resource type.
-  */
+   */
   "data": EscalationPolicyUpdateRequestData;
 
   /**
@@ -37,49 +32,23 @@ export class EscalationPolicyUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "EscalationPolicyUpdateRequestData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "EscalationPolicyUpdateRequestData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EscalationPolicyUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,44 +4,39 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object describing the SSL certificate used for the test.
-*/
+ */
 export class SyntheticsSSLCertificateSubject {
   /**
    * Country Name associated with the certificate.
-  */
+   */
   "C"?: string;
   /**
    * Common Name that associated with the certificate.
-  */
+   */
   "CN"?: string;
   /**
    * Locality associated with the certificate.
-  */
+   */
   "L"?: string;
   /**
    * Organization associated with the certificate.
-  */
+   */
   "O"?: string;
   /**
    * Organizational Unit associated with the certificate.
-  */
+   */
   "OU"?: string;
   /**
    * State Or Province Name associated with the certificate.
-  */
+   */
   "ST"?: string;
   /**
    * Subject Alternative Name associated with the certificate.
-  */
+   */
   "altName"?: string;
 
   /**
@@ -60,72 +55,46 @@ export class SyntheticsSSLCertificateSubject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "C": {
-      "baseName": "C",
-      "type": "string",
+    C: {
+      baseName: "C",
+      type: "string",
     },
-    "CN": {
-      "baseName": "CN",
-      "type": "string",
+    CN: {
+      baseName: "CN",
+      type: "string",
     },
-    "L": {
-      "baseName": "L",
-      "type": "string",
+    L: {
+      baseName: "L",
+      type: "string",
     },
-    "O": {
-      "baseName": "O",
-      "type": "string",
+    O: {
+      baseName: "O",
+      type: "string",
     },
-    "OU": {
-      "baseName": "OU",
-      "type": "string",
+    OU: {
+      baseName: "OU",
+      type: "string",
     },
-    "ST": {
-      "baseName": "ST",
-      "type": "string",
+    ST: {
+      baseName: "ST",
+      type: "string",
     },
-    "altName": {
-      "baseName": "altName",
-      "type": "string",
+    altName: {
+      baseName: "altName",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsSSLCertificateSubject.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

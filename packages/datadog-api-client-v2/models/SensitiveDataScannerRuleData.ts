@@ -5,20 +5,15 @@
  */
 import { SensitiveDataScannerRule } from "./SensitiveDataScannerRule";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Rules included in the group.
-*/
+ */
 export class SensitiveDataScannerRuleData {
   /**
    * Rules included in the group. The order is important.
-  */
+   */
   "data"?: Array<SensitiveDataScannerRule>;
 
   /**
@@ -37,48 +32,22 @@ export class SensitiveDataScannerRuleData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<SensitiveDataScannerRule>",
+    data: {
+      baseName: "data",
+      type: "Array<SensitiveDataScannerRule>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerRuleData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

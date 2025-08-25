@@ -5,24 +5,19 @@
  */
 import { GeminiAPIKeyType } from "./GeminiAPIKeyType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `GeminiAPIKey` object.
-*/
+ */
 export class GeminiAPIKey {
   /**
    * The `GeminiAPIKey` `api_key`.
-  */
+   */
   "apiKey": string;
   /**
    * The definition of the `GeminiAPIKey` object.
-  */
+   */
   "type": GeminiAPIKeyType;
 
   /**
@@ -41,54 +36,28 @@ export class GeminiAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiKey": {
-      "baseName": "api_key",
-      "type": "string",
-      "required": true,
+    apiKey: {
+      baseName: "api_key",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "GeminiAPIKeyType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "GeminiAPIKeyType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GeminiAPIKey.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Reference type for the mobile application for a mobile synthetics test.
-*/
+ */
 
-export type SyntheticsMobileTestsMobileApplicationReferenceType = typeof LATEST| typeof VERSION | UnparsedObject;
-export const LATEST = 'latest';
-export const VERSION = 'version';
+export type SyntheticsMobileTestsMobileApplicationReferenceType =
+  | typeof LATEST
+  | typeof VERSION
+  | UnparsedObject;
+export const LATEST = "latest";
+export const VERSION = "version";

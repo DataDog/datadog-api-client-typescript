@@ -5,15 +5,12 @@
  */
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The timeline cell's attributes for a create request.
-*/
+ */
 
-export type IncidentTimelineCellCreateAttributes = IncidentTimelineCellMarkdownCreateAttributes | UnparsedObject;
+export type IncidentTimelineCellCreateAttributes =
+  | IncidentTimelineCellMarkdownCreateAttributes
+  | UnparsedObject;

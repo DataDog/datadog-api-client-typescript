@@ -5,28 +5,23 @@
  */
 import { OktaAPITokenType } from "./OktaAPITokenType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `OktaAPIToken` object.
-*/
+ */
 export class OktaAPIToken {
   /**
    * The `OktaAPIToken` `api_token`.
-  */
+   */
   "apiToken": string;
   /**
    * The `OktaAPIToken` `domain`.
-  */
+   */
   "domain": string;
   /**
    * The definition of the `OktaAPIToken` object.
-  */
+   */
   "type": OktaAPITokenType;
 
   /**
@@ -45,59 +40,33 @@ export class OktaAPIToken {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiToken": {
-      "baseName": "api_token",
-      "type": "string",
-      "required": true,
+    apiToken: {
+      baseName: "api_token",
+      type: "string",
+      required: true,
     },
-    "domain": {
-      "baseName": "domain",
-      "type": "string",
-      "required": true,
+    domain: {
+      baseName: "domain",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "OktaAPITokenType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "OktaAPITokenType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OktaAPIToken.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

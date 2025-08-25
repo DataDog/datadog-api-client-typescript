@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of resource. The value should always be search_request.
-*/
+ */
 
 export type SpansListRequestType = typeof SEARCH_REQUEST | UnparsedObject;
-export const SEARCH_REQUEST = 'search_request';
+export const SEARCH_REQUEST = "search_request";

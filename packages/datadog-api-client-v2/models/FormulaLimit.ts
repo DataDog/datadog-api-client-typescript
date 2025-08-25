@@ -5,25 +5,20 @@
  */
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Message for specifying limits to the number of values returned by a query.
  * This limit is only for scalar queries and has no effect on timeseries queries.
-*/
+ */
 export class FormulaLimit {
   /**
    * The number of results to which to limit.
-  */
+   */
   "count"?: number;
   /**
    * Direction of sort.
-  */
+   */
   "order"?: QuerySortOrder;
 
   /**
@@ -42,53 +37,27 @@ export class FormulaLimit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "count": {
-      "baseName": "count",
-      "type": "number",
-      "format": "int32",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int32",
     },
-    "order": {
-      "baseName": "order",
-      "type": "QuerySortOrder",
+    order: {
+      baseName: "order",
+      type: "QuerySortOrder",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FormulaLimit.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

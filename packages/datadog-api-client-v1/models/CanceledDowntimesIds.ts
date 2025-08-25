@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing array of IDs of canceled downtimes.
-*/
+ */
 export class CanceledDowntimesIds {
   /**
    * ID of downtimes that were canceled.
-  */
+   */
   "cancelledIds"?: Array<number>;
 
   /**
@@ -36,49 +31,23 @@ export class CanceledDowntimesIds {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "cancelledIds": {
-      "baseName": "cancelled_ids",
-      "type": "Array<number>",
-      "format": "int64",
+    cancelledIds: {
+      baseName: "cancelled_ids",
+      type: "Array<number>",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CanceledDowntimesIds.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

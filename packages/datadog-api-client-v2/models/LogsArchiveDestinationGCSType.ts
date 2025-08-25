@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the GCS archive destination.
-*/
+ */
 
 export type LogsArchiveDestinationGCSType = typeof GCS | UnparsedObject;
-export const GCS = 'gcs';
+export const GCS = "gcs";

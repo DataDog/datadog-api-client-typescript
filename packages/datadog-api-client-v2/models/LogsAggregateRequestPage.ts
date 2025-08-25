@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Paging settings
-*/
+ */
 export class LogsAggregateRequestPage {
   /**
    * The returned paging point to use to get the next results. Note: at most 1000 results can be paged.
-  */
+   */
   "cursor"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class LogsAggregateRequestPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "cursor": {
-      "baseName": "cursor",
-      "type": "string",
+    cursor: {
+      baseName: "cursor",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsAggregateRequestPage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

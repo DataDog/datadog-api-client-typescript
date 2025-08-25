@@ -5,32 +5,27 @@
  */
 import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The counts of monitors per different criteria.
-*/
+ */
 export class MonitorSearchResponseCounts {
   /**
    * Search facets.
-  */
+   */
   "muted"?: Array<MonitorSearchCountItem>;
   /**
    * Search facets.
-  */
+   */
   "status"?: Array<MonitorSearchCountItem>;
   /**
    * Search facets.
-  */
+   */
   "tag"?: Array<MonitorSearchCountItem>;
   /**
    * Search facets.
-  */
+   */
   "type"?: Array<MonitorSearchCountItem>;
 
   /**
@@ -49,60 +44,34 @@ export class MonitorSearchResponseCounts {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "muted": {
-      "baseName": "muted",
-      "type": "Array<MonitorSearchCountItem>",
+    muted: {
+      baseName: "muted",
+      type: "Array<MonitorSearchCountItem>",
     },
-    "status": {
-      "baseName": "status",
-      "type": "Array<MonitorSearchCountItem>",
+    status: {
+      baseName: "status",
+      type: "Array<MonitorSearchCountItem>",
     },
-    "tag": {
-      "baseName": "tag",
-      "type": "Array<MonitorSearchCountItem>",
+    tag: {
+      baseName: "tag",
+      type: "Array<MonitorSearchCountItem>",
     },
-    "type": {
-      "baseName": "type",
-      "type": "Array<MonitorSearchCountItem>",
+    type: {
+      baseName: "type",
+      type: "Array<MonitorSearchCountItem>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorSearchResponseCounts.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

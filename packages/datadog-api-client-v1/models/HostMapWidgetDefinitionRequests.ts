@@ -5,24 +5,19 @@
  */
 import { HostMapRequest } from "./HostMapRequest";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * List of definitions.
-*/
+ */
 export class HostMapWidgetDefinitionRequests {
   /**
    * Updated host map.
-  */
+   */
   "fill"?: HostMapRequest;
   /**
    * Updated host map.
-  */
+   */
   "size"?: HostMapRequest;
 
   /**
@@ -41,52 +36,26 @@ export class HostMapWidgetDefinitionRequests {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "fill": {
-      "baseName": "fill",
-      "type": "HostMapRequest",
+    fill: {
+      baseName: "fill",
+      type: "HostMapRequest",
     },
-    "size": {
-      "baseName": "size",
-      "type": "HostMapRequest",
+    size: {
+      baseName: "size",
+      type: "HostMapRequest",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return HostMapWidgetDefinitionRequests.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

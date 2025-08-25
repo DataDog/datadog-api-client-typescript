@@ -5,20 +5,15 @@
  */
 import { AwsScanOptionsData } from "./AwsScanOptionsData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object that includes the scan options of an AWS account.
-*/
+ */
 export class AwsScanOptionsResponse {
   /**
    * Single AWS Scan Options entry.
-  */
+   */
   "data"?: AwsScanOptionsData;
 
   /**
@@ -37,48 +32,22 @@ export class AwsScanOptionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "AwsScanOptionsData",
+    data: {
+      baseName: "data",
+      type: "AwsScanOptionsData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AwsScanOptionsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

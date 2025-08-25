@@ -5,24 +5,19 @@
  */
 import { SyntheticsAssertionJSONSchemaMetaSchema } from "./SyntheticsAssertionJSONSchemaMetaSchema";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Composed target for `validatesJSONSchema` operator.
-*/
+ */
 export class SyntheticsAssertionJSONSchemaTargetTarget {
   /**
    * The JSON Schema to assert.
-  */
+   */
   "jsonSchema"?: string;
   /**
    * The JSON Schema meta-schema version used in the assertion.
-  */
+   */
   "metaSchema"?: SyntheticsAssertionJSONSchemaMetaSchema;
 
   /**
@@ -41,52 +36,26 @@ export class SyntheticsAssertionJSONSchemaTargetTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "jsonSchema": {
-      "baseName": "jsonSchema",
-      "type": "string",
+    jsonSchema: {
+      baseName: "jsonSchema",
+      type: "string",
     },
-    "metaSchema": {
-      "baseName": "metaSchema",
-      "type": "SyntheticsAssertionJSONSchemaMetaSchema",
+    metaSchema: {
+      baseName: "metaSchema",
+      type: "SyntheticsAssertionJSONSchemaMetaSchema",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsAssertionJSONSchemaTargetTarget.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationships of the role object.
-*/
+ */
 export class RoleRelationships {
   /**
    * Relationship to multiple permissions objects.
-  */
+   */
   "permissions"?: RelationshipToPermissions;
 
   /**
@@ -37,48 +32,22 @@ export class RoleRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "permissions": {
-      "baseName": "permissions",
-      "type": "RelationshipToPermissions",
+    permissions: {
+      baseName: "permissions",
+      type: "RelationshipToPermissions",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RoleRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

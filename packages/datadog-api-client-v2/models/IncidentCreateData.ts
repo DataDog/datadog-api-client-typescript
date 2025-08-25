@@ -7,28 +7,23 @@ import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentType } from "./IncidentType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident data for a create request.
-*/
+ */
 export class IncidentCreateData {
   /**
    * The incident's attributes for a create request.
-  */
+   */
   "attributes": IncidentCreateAttributes;
   /**
    * The relationships the incident will have with other resources once created.
-  */
+   */
   "relationships"?: IncidentCreateRelationships;
   /**
    * Incident resource type.
-  */
+   */
   "type": IncidentType;
 
   /**
@@ -47,58 +42,32 @@ export class IncidentCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentCreateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentCreateAttributes",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentCreateRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentCreateRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

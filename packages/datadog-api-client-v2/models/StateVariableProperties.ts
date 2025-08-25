@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The properties of the state variable.
-*/
+ */
 export class StateVariableProperties {
   /**
    * The default value of the state variable.
-  */
+   */
   "defaultValue"?: any;
 
   /**
@@ -36,48 +31,22 @@ export class StateVariableProperties {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "defaultValue": {
-      "baseName": "defaultValue",
-      "type": "any",
+    defaultValue: {
+      baseName: "defaultValue",
+      type: "any",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return StateVariableProperties.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

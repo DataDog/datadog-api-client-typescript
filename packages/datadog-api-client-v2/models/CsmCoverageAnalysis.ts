@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * CSM Coverage Analysis.
-*/
+ */
 export class CsmCoverageAnalysis {
   /**
    * The number of fully configured resources.
-  */
+   */
   "configuredResourcesCount"?: number;
   /**
    * The coverage percentage.
-  */
+   */
   "coverage"?: number;
   /**
    * The number of partially configured resources.
-  */
+   */
   "partiallyConfiguredResourcesCount"?: number;
   /**
    * The total number of resources.
-  */
+   */
   "totalResourcesCount"?: number;
 
   /**
@@ -48,64 +43,38 @@ export class CsmCoverageAnalysis {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "configuredResourcesCount": {
-      "baseName": "configured_resources_count",
-      "type": "number",
-      "format": "int64",
+    configuredResourcesCount: {
+      baseName: "configured_resources_count",
+      type: "number",
+      format: "int64",
     },
-    "coverage": {
-      "baseName": "coverage",
-      "type": "number",
-      "format": "double",
+    coverage: {
+      baseName: "coverage",
+      type: "number",
+      format: "double",
     },
-    "partiallyConfiguredResourcesCount": {
-      "baseName": "partially_configured_resources_count",
-      "type": "number",
-      "format": "int64",
+    partiallyConfiguredResourcesCount: {
+      baseName: "partially_configured_resources_count",
+      type: "number",
+      format: "int64",
     },
-    "totalResourcesCount": {
-      "baseName": "total_resources_count",
-      "type": "number",
-      "format": "int64",
+    totalResourcesCount: {
+      baseName: "total_resources_count",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CsmCoverageAnalysis.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { AWSAccount } from "./AWSAccount";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * List of enabled AWS accounts.
-*/
+ */
 export class AWSAccountListResponse {
   /**
    * List of enabled AWS accounts.
-  */
+   */
   "accounts"?: Array<AWSAccount>;
 
   /**
@@ -37,48 +32,22 @@ export class AWSAccountListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accounts": {
-      "baseName": "accounts",
-      "type": "Array<AWSAccount>",
+    accounts: {
+      baseName: "accounts",
+      type: "Array<AWSAccount>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSAccountListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

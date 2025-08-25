@@ -5,24 +5,19 @@
  */
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines the pipeline’s name and its components (sources, processors, and destinations).
-*/
+ */
 export class ObservabilityPipelineDataAttributes {
   /**
    * Specifies the pipeline's configuration, including its sources, processors, and destinations.
-  */
+   */
   "config": ObservabilityPipelineConfig;
   /**
    * Name of the pipeline.
-  */
+   */
   "name": string;
 
   /**
@@ -41,54 +36,28 @@ export class ObservabilityPipelineDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "config": {
-      "baseName": "config",
-      "type": "ObservabilityPipelineConfig",
-      "required": true,
+    config: {
+      baseName: "config",
+      type: "ObservabilityPipelineConfig",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

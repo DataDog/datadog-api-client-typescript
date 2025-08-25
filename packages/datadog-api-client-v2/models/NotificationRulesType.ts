@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The rule type associated to notification rules.
-*/
+ */
 
 export type NotificationRulesType = typeof NOTIFICATION_RULES | UnparsedObject;
-export const NOTIFICATION_RULES = 'notification_rules';
+export const NOTIFICATION_RULES = "notification_rules";

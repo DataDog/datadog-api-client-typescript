@@ -8,16 +8,13 @@ import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Object describing the IdP configuration.
-*/
+ */
 export class IdpFormData {
   /**
    * The path to the XML metadata file you wish to upload.
-  */
+   */
   "idpFile": HttpFile;
 
   /**
@@ -36,50 +33,24 @@ export class IdpFormData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "idpFile": {
-      "baseName": "idp_file",
-      "type": "HttpFile",
-      "required": true,
-      "format": "binary",
+    idpFile: {
+      baseName: "idp_file",
+      type: "HttpFile",
+      required: true,
+      format: "binary",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IdpFormData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

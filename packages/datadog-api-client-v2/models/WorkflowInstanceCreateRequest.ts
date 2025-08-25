@@ -5,20 +5,15 @@
  */
 import { WorkflowInstanceCreateMeta } from "./WorkflowInstanceCreateMeta";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request used to create a workflow instance.
-*/
+ */
 export class WorkflowInstanceCreateRequest {
   /**
    * Additional information for creating a workflow instance.
-  */
+   */
   "meta"?: WorkflowInstanceCreateMeta;
 
   /**
@@ -37,48 +32,22 @@ export class WorkflowInstanceCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "meta": {
-      "baseName": "meta",
-      "type": "WorkflowInstanceCreateMeta",
+    meta: {
+      baseName: "meta",
+      type: "WorkflowInstanceCreateMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WorkflowInstanceCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

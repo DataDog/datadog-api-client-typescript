@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The external source platform for team synchronization. Only "github" is supported.
-*/
+ */
 
 export type TeamSyncAttributesSource = typeof GITHUB | UnparsedObject;
-export const GITHUB = 'github';
+export const GITHUB = "github";

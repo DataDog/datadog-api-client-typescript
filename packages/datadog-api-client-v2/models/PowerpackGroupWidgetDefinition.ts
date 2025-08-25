@@ -5,36 +5,31 @@
  */
 import { PowerpackInnerWidgets } from "./PowerpackInnerWidgets";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Powerpack group widget object.
-*/
+ */
 export class PowerpackGroupWidgetDefinition {
   /**
    * Layout type of widgets.
-  */
+   */
   "layoutType": string;
   /**
    * Boolean indicating whether powerpack group title should be visible or not.
-  */
+   */
   "showTitle"?: boolean;
   /**
    * Name for the group widget.
-  */
+   */
   "title"?: string;
   /**
    * Type of widget, must be group.
-  */
+   */
   "type": string;
   /**
    * Widgets inside the powerpack.
-  */
+   */
   "widgets": Array<PowerpackInnerWidgets>;
 
   /**
@@ -53,67 +48,41 @@ export class PowerpackGroupWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "layoutType": {
-      "baseName": "layout_type",
-      "type": "string",
-      "required": true,
+    layoutType: {
+      baseName: "layout_type",
+      type: "string",
+      required: true,
     },
-    "showTitle": {
-      "baseName": "show_title",
-      "type": "boolean",
+    showTitle: {
+      baseName: "show_title",
+      type: "boolean",
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "string",
+      required: true,
     },
-    "widgets": {
-      "baseName": "widgets",
-      "type": "Array<PowerpackInnerWidgets>",
-      "required": true,
+    widgets: {
+      baseName: "widgets",
+      type: "Array<PowerpackInnerWidgets>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PowerpackGroupWidgetDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

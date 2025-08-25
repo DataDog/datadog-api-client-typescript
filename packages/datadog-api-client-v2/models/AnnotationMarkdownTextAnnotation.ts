@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `AnnotationMarkdownTextAnnotation` object.
-*/
+ */
 export class AnnotationMarkdownTextAnnotation {
   /**
    * The `markdownTextAnnotation` `text`.
-  */
+   */
   "text"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class AnnotationMarkdownTextAnnotation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "text": {
-      "baseName": "text",
-      "type": "string",
+    text: {
+      baseName: "text",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AnnotationMarkdownTextAnnotation.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

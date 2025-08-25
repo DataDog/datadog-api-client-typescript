@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Kind metadata.
-*/
+ */
 export class KindMetadata {
   /**
    * The creation time.
-  */
+   */
   "createdAt"?: string;
   /**
    * The modification time.
-  */
+   */
   "modifiedAt"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class KindMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "createdAt": {
-      "baseName": "createdAt",
-      "type": "string",
+    createdAt: {
+      baseName: "createdAt",
+      type: "string",
     },
-    "modifiedAt": {
-      "baseName": "modifiedAt",
-      "type": "string",
+    modifiedAt: {
+      baseName: "modifiedAt",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return KindMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -7,28 +7,23 @@ import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsResponseLinks } from "./AuditLogsResponseLinks";
 import { AuditLogsResponseMetadata } from "./AuditLogsResponseMetadata";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object with all events matching the request and pagination information.
-*/
+ */
 export class AuditLogsEventsResponse {
   /**
    * Array of events matching the request.
-  */
+   */
   "data"?: Array<AuditLogsEvent>;
   /**
    * Links attributes.
-  */
+   */
   "links"?: AuditLogsResponseLinks;
   /**
    * The metadata associated with a request.
-  */
+   */
   "meta"?: AuditLogsResponseMetadata;
 
   /**
@@ -47,56 +42,30 @@ export class AuditLogsEventsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<AuditLogsEvent>",
+    data: {
+      baseName: "data",
+      type: "Array<AuditLogsEvent>",
     },
-    "links": {
-      "baseName": "links",
-      "type": "AuditLogsResponseLinks",
+    links: {
+      baseName: "links",
+      type: "AuditLogsResponseLinks",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "AuditLogsResponseMetadata",
+    meta: {
+      baseName: "meta",
+      type: "AuditLogsResponseMetadata",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AuditLogsEventsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,24 +5,19 @@
  */
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Controls how partial redaction is applied, including character count and direction.
-*/
+ */
 export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions {
   /**
    * The `ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions` `characters`.
-  */
+   */
   "characters": number;
   /**
    * Indicates whether to redact characters from the first or last part of the matched value.
-  */
+   */
   "direction": ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection;
 
   /**
@@ -41,55 +36,29 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "characters": {
-      "baseName": "characters",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    characters: {
+      baseName: "characters",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "direction": {
-      "baseName": "direction",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection",
-      "required": true,
+    direction: {
+      baseName: "direction",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

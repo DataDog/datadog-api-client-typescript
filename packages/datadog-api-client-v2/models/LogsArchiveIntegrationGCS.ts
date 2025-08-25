@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The GCS archive's integration destination.
-*/
+ */
 export class LogsArchiveIntegrationGCS {
   /**
    * A client email.
-  */
+   */
   "clientEmail": string;
   /**
    * A project ID.
-  */
+   */
   "projectId"?: string;
 
   /**
@@ -40,53 +35,27 @@ export class LogsArchiveIntegrationGCS {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "clientEmail": {
-      "baseName": "client_email",
-      "type": "string",
-      "required": true,
+    clientEmail: {
+      baseName: "client_email",
+      type: "string",
+      required: true,
     },
-    "projectId": {
-      "baseName": "project_id",
-      "type": "string",
+    projectId: {
+      baseName: "project_id",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArchiveIntegrationGCS.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

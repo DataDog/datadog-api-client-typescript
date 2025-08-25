@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the single value field definitions.
-*/
+ */
 
-export type IncidentFieldAttributesSingleValueType = typeof DROPDOWN| typeof TEXTBOX | UnparsedObject;
-export const DROPDOWN = 'dropdown';
-export const TEXTBOX = 'textbox';
+export type IncidentFieldAttributesSingleValueType =
+  | typeof DROPDOWN
+  | typeof TEXTBOX
+  | UnparsedObject;
+export const DROPDOWN = "dropdown";
+export const TEXTBOX = "textbox";

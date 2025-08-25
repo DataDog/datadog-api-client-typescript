@@ -6,29 +6,24 @@
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The bulk partial delete service level objective object endpoint
  * response.
- * 
+ *
  * This endpoint operates on multiple service level objective objects, so
  * it may be partially successful. In such cases, the "data" and "error"
  * fields in this response indicate which deletions succeeded and failed.
-*/
+ */
 export class SLOBulkDeleteResponse {
   /**
    * An array of service level objective objects.
-  */
+   */
   "data"?: SLOBulkDeleteResponseData;
   /**
    * Array of errors object returned.
-  */
+   */
   "errors"?: Array<SLOBulkDeleteError>;
 
   /**
@@ -47,52 +42,26 @@ export class SLOBulkDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SLOBulkDeleteResponseData",
+    data: {
+      baseName: "data",
+      type: "SLOBulkDeleteResponseData",
     },
-    "errors": {
-      "baseName": "errors",
-      "type": "Array<SLOBulkDeleteError>",
+    errors: {
+      baseName: "errors",
+      type: "Array<SLOBulkDeleteError>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SLOBulkDeleteResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

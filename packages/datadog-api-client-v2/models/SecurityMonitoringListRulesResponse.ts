@@ -6,24 +6,19 @@
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * List of rules.
-*/
+ */
 export class SecurityMonitoringListRulesResponse {
   /**
    * Array containing the list of rules.
-  */
+   */
   "data"?: Array<SecurityMonitoringRuleResponse>;
   /**
    * Object describing meta attributes of response.
-  */
+   */
   "meta"?: ResponseMetaAttributes;
 
   /**
@@ -42,52 +37,26 @@ export class SecurityMonitoringListRulesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<SecurityMonitoringRuleResponse>",
+    data: {
+      baseName: "data",
+      type: "Array<SecurityMonitoringRuleResponse>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "ResponseMetaAttributes",
+    meta: {
+      baseName: "meta",
+      type: "ResponseMetaAttributes",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringListRulesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

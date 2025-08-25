@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Key/Value pair of attributes used in SAML assertion attributes.
-*/
+ */
 export class SAMLAssertionAttributeAttributes {
   /**
    * Key portion of a key/value pair of the attribute sent from the Identity Provider.
-  */
+   */
   "attributeKey"?: string;
   /**
    * Value portion of a key/value pair of the attribute sent from the Identity Provider.
-  */
+   */
   "attributeValue"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class SAMLAssertionAttributeAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributeKey": {
-      "baseName": "attribute_key",
-      "type": "string",
+    attributeKey: {
+      baseName: "attribute_key",
+      type: "string",
     },
-    "attributeValue": {
-      "baseName": "attribute_value",
-      "type": "string",
+    attributeValue: {
+      baseName: "attribute_value",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SAMLAssertionAttributeAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

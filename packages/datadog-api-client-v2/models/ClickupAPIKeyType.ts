@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `ClickupAPIKey` object.
-*/
+ */
 
 export type ClickupAPIKeyType = typeof CLICKUPAPIKEY | UnparsedObject;
-export const CLICKUPAPIKEY = 'ClickupAPIKey';
+export const CLICKUPAPIKEY = "ClickupAPIKey";

@@ -6,32 +6,27 @@
 import { ObservabilityPipelineSentinelOneDestinationRegion } from "./ObservabilityPipelineSentinelOneDestinationRegion";
 import { ObservabilityPipelineSentinelOneDestinationType } from "./ObservabilityPipelineSentinelOneDestinationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `sentinel_one` destination sends logs to SentinelOne.
-*/
+ */
 export class ObservabilityPipelineSentinelOneDestination {
   /**
    * The unique identifier for this component.
-  */
+   */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-  */
+   */
   "inputs": Array<string>;
   /**
    * The SentinelOne region to send logs to.
-  */
+   */
   "region": ObservabilityPipelineSentinelOneDestinationRegion;
   /**
    * The destination type. The value should always be `sentinel_one`.
-  */
+   */
   "type": ObservabilityPipelineSentinelOneDestinationType;
 
   /**
@@ -50,64 +45,38 @@ export class ObservabilityPipelineSentinelOneDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "inputs": {
-      "baseName": "inputs",
-      "type": "Array<string>",
-      "required": true,
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
     },
-    "region": {
-      "baseName": "region",
-      "type": "ObservabilityPipelineSentinelOneDestinationRegion",
-      "required": true,
+    region: {
+      baseName: "region",
+      type: "ObservabilityPipelineSentinelOneDestinationRegion",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineSentinelOneDestinationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineSentinelOneDestinationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSentinelOneDestination.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

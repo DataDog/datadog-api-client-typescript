@@ -6,24 +6,19 @@
 import { Case3rdPartyTicketStatus } from "./Case3rdPartyTicketStatus";
 import { JiraIssueResult } from "./JiraIssueResult";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Jira issue attached to case
-*/
+ */
 export class JiraIssue {
   /**
    * Jira issue information
-  */
+   */
   "result"?: JiraIssueResult;
   /**
    * Case status
-  */
+   */
   "status"?: Case3rdPartyTicketStatus;
 
   /**
@@ -42,52 +37,26 @@ export class JiraIssue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "result": {
-      "baseName": "result",
-      "type": "JiraIssueResult",
+    result: {
+      baseName: "result",
+      type: "JiraIssueResult",
     },
-    "status": {
-      "baseName": "status",
-      "type": "Case3rdPartyTicketStatus",
+    status: {
+      baseName: "status",
+      type: "Case3rdPartyTicketStatus",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return JiraIssue.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { ReadinessGateThresholdType } from "./ReadinessGateThresholdType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Used to merge multiple branches into a single branch.
-*/
+ */
 export class ReadinessGate {
   /**
    * The definition of `ReadinessGateThresholdType` object.
-  */
+   */
   "thresholdType": ReadinessGateThresholdType;
 
   /**
@@ -37,49 +32,23 @@ export class ReadinessGate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "thresholdType": {
-      "baseName": "thresholdType",
-      "type": "ReadinessGateThresholdType",
-      "required": true,
+    thresholdType: {
+      baseName: "thresholdType",
+      type: "ReadinessGateThresholdType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ReadinessGate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

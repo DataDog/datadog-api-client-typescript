@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `VirusTotalAPIKey` object.
-*/
+ */
 
 export type VirusTotalAPIKeyType = typeof VIRUSTOTALAPIKEY | UnparsedObject;
-export const VIRUSTOTALAPIKEY = 'VirusTotalAPIKey';
+export const VIRUSTOTALAPIKEY = "VirusTotalAPIKey";

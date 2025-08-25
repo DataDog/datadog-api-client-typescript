@@ -6,32 +6,27 @@
 import { StateVariableProperties } from "./StateVariableProperties";
 import { StateVariableType } from "./StateVariableType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A variable, which can be set and read by other components in the app.
-*/
+ */
 export class StateVariable {
   /**
    * The ID of the state variable.
-  */
+   */
   "id": string;
   /**
    * A unique identifier for this state variable. This name is also used to access the variable's value throughout the app.
-  */
+   */
   "name": string;
   /**
    * The properties of the state variable.
-  */
+   */
   "properties": StateVariableProperties;
   /**
    * The state variable type.
-  */
+   */
   "type": StateVariableType;
 
   /**
@@ -50,65 +45,39 @@ export class StateVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
-      "format": "uuid",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "properties": {
-      "baseName": "properties",
-      "type": "StateVariableProperties",
-      "required": true,
+    properties: {
+      baseName: "properties",
+      type: "StateVariableProperties",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "StateVariableType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "StateVariableType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return StateVariable.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

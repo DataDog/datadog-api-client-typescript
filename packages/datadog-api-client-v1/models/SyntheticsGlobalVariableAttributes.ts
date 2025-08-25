@@ -3,22 +3,16 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsRestrictedRolesItem } from "./SyntheticsRestrictedRolesItem";
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Attributes of the global variable.
-*/
+ */
 export class SyntheticsGlobalVariableAttributes {
   /**
    * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
-  */
+   */
   "restrictedRoles"?: Array<string>;
 
   /**
@@ -37,48 +31,22 @@ export class SyntheticsGlobalVariableAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "restrictedRoles": {
-      "baseName": "restricted_roles",
-      "type": "Array<string>",
+    restrictedRoles: {
+      baseName: "restricted_roles",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsGlobalVariableAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,24 +5,19 @@
  */
 import { LogsArchiveCreateRequestAttributes } from "./LogsArchiveCreateRequestAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of an archive.
-*/
+ */
 export class LogsArchiveCreateRequestDefinition {
   /**
    * The attributes associated with the archive.
-  */
+   */
   "attributes"?: LogsArchiveCreateRequestAttributes;
   /**
    * The type of the resource. The value should always be archives.
-  */
+   */
   "type": string;
 
   /**
@@ -41,53 +36,27 @@ export class LogsArchiveCreateRequestDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "LogsArchiveCreateRequestAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "LogsArchiveCreateRequestAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArchiveCreateRequestDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

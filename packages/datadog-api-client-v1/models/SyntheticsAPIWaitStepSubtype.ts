@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The subtype of the Synthetic multi-step API wait step.
-*/
+ */
 
 export type SyntheticsAPIWaitStepSubtype = typeof WAIT | UnparsedObject;
-export const WAIT = 'wait';
+export const WAIT = "wait";

@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Include only these regions.
-*/
+ */
 export class AWSRegionsIncludeOnly {
   /**
    * Include only these regions.
-  */
+   */
   "includeOnly": Array<string>;
 
   /**
@@ -36,49 +31,23 @@ export class AWSRegionsIncludeOnly {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "includeOnly": {
-      "baseName": "include_only",
-      "type": "Array<string>",
-      "required": true,
+    includeOnly: {
+      baseName: "include_only",
+      type: "Array<string>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSRegionsIncludeOnly.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

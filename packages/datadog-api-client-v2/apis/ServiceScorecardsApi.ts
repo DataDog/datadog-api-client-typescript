@@ -1,18 +1,20 @@
-import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
-import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
+import {
+  Configuration,
+  applySecurityAuthentication,
+} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-  HttpFile
-  } from "../../datadog-api-client-common/http/http";
-
-import FormData from "form-data";
+} from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateRuleRequest } from "../models/CreateRuleRequest";
@@ -27,31 +29,38 @@ import { UpdateRuleRequest } from "../models/UpdateRuleRequest";
 import { UpdateRuleResponse } from "../models/UpdateRuleResponse";
 
 export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async createScorecardOutcomesBatch(body: OutcomesBatchRequest,_options?: Configuration): Promise<RequestContext> {
+  public async createScorecardOutcomesBatch(
+    body: OutcomesBatchRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createScorecardOutcomesBatch'");
-    if (!_config.unstableOperations['v2.createScorecardOutcomesBatch']) {
-      throw new Error("Unstable operation 'createScorecardOutcomesBatch' is disabled");
+    if (!_config.unstableOperations["v2.createScorecardOutcomesBatch"]) {
+      throw new Error(
+        "Unstable operation 'createScorecardOutcomesBatch' is disabled"
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'createScorecardOutcomesBatch');
+      throw new RequiredError("body", "createScorecardOutcomesBatch");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/scorecard/outcomes/batch';
+    const localVarPath = "/api/v2/scorecard/outcomes/batch";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.ServiceScorecardsApi.createScorecardOutcomesBatch').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.ServiceScorecardsApi.createScorecardOutcomesBatch")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OutcomesBatchRequest", ""),
@@ -69,30 +78,36 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createScorecardRule(body: CreateRuleRequest,_options?: Configuration): Promise<RequestContext> {
+  public async createScorecardRule(
+    body: CreateRuleRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createScorecardRule'");
-    if (!_config.unstableOperations['v2.createScorecardRule']) {
+    if (!_config.unstableOperations["v2.createScorecardRule"]) {
       throw new Error("Unstable operation 'createScorecardRule' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'createScorecardRule');
+      throw new RequiredError("body", "createScorecardRule");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/scorecard/rules';
+    const localVarPath = "/api/v2/scorecard/rules";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.ServiceScorecardsApi.createScorecardRule').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.ServiceScorecardsApi.createScorecardRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateRuleRequest", ""),
@@ -110,25 +125,32 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteScorecardRule(ruleId: string,_options?: Configuration): Promise<RequestContext> {
+  public async deleteScorecardRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteScorecardRule'");
-    if (!_config.unstableOperations['v2.deleteScorecardRule']) {
+    if (!_config.unstableOperations["v2.deleteScorecardRule"]) {
       throw new Error("Unstable operation 'deleteScorecardRule' is disabled");
     }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError('ruleId', 'deleteScorecardRule');
+      throw new RequiredError("ruleId", "deleteScorecardRule");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/scorecard/rules/{rule_id}'
-      .replace('{rule_id}', encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/scorecard/rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.ServiceScorecardsApi.deleteScorecardRule').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.ServiceScorecardsApi.deleteScorecardRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -142,52 +164,106 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listScorecardOutcomes(pageSize?: number,pageOffset?: number,include?: string,fieldsOutcome?: string,fieldsRule?: string,filterOutcomeServiceName?: string,filterOutcomeState?: string,filterRuleEnabled?: boolean,filterRuleId?: string,filterRuleName?: string,_options?: Configuration): Promise<RequestContext> {
+  public async listScorecardOutcomes(
+    pageSize?: number,
+    pageOffset?: number,
+    include?: string,
+    fieldsOutcome?: string,
+    fieldsRule?: string,
+    filterOutcomeServiceName?: string,
+    filterOutcomeState?: string,
+    filterRuleEnabled?: boolean,
+    filterRuleId?: string,
+    filterRuleName?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listScorecardOutcomes'");
-    if (!_config.unstableOperations['v2.listScorecardOutcomes']) {
+    if (!_config.unstableOperations["v2.listScorecardOutcomes"]) {
       throw new Error("Unstable operation 'listScorecardOutcomes' is disabled");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/scorecard/outcomes';
+    const localVarPath = "/api/v2/scorecard/outcomes";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.ServiceScorecardsApi.listScorecardOutcomes').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.ServiceScorecardsApi.listScorecardOutcomes")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (pageSize !== undefined) {
-      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int64"), "");
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
     }
     if (pageOffset !== undefined) {
-      requestContext.setQueryParam("page[offset]", ObjectSerializer.serialize(pageOffset, "number", "int64"), "");
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
+      );
     }
     if (include !== undefined) {
-      requestContext.setQueryParam("include", ObjectSerializer.serialize(include, "string", ""), "");
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
     }
     if (fieldsOutcome !== undefined) {
-      requestContext.setQueryParam("fields[outcome]", ObjectSerializer.serialize(fieldsOutcome, "string", ""), "");
+      requestContext.setQueryParam(
+        "fields[outcome]",
+        ObjectSerializer.serialize(fieldsOutcome, "string", ""),
+        ""
+      );
     }
     if (fieldsRule !== undefined) {
-      requestContext.setQueryParam("fields[rule]", ObjectSerializer.serialize(fieldsRule, "string", ""), "");
+      requestContext.setQueryParam(
+        "fields[rule]",
+        ObjectSerializer.serialize(fieldsRule, "string", ""),
+        ""
+      );
     }
     if (filterOutcomeServiceName !== undefined) {
-      requestContext.setQueryParam("filter[outcome][service_name]", ObjectSerializer.serialize(filterOutcomeServiceName, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[outcome][service_name]",
+        ObjectSerializer.serialize(filterOutcomeServiceName, "string", ""),
+        ""
+      );
     }
     if (filterOutcomeState !== undefined) {
-      requestContext.setQueryParam("filter[outcome][state]", ObjectSerializer.serialize(filterOutcomeState, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[outcome][state]",
+        ObjectSerializer.serialize(filterOutcomeState, "string", ""),
+        ""
+      );
     }
     if (filterRuleEnabled !== undefined) {
-      requestContext.setQueryParam("filter[rule][enabled]", ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][enabled]",
+        ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""),
+        ""
+      );
     }
     if (filterRuleId !== undefined) {
-      requestContext.setQueryParam("filter[rule][id]", ObjectSerializer.serialize(filterRuleId, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][id]",
+        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        ""
+      );
     }
     if (filterRuleName !== undefined) {
-      requestContext.setQueryParam("filter[rule][name]", ObjectSerializer.serialize(filterRuleName, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][name]",
+        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -200,52 +276,106 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listScorecardRules(pageSize?: number,pageOffset?: number,include?: string,filterRuleId?: string,filterRuleEnabled?: boolean,filterRuleCustom?: boolean,filterRuleName?: string,filterRuleDescription?: string,fieldsRule?: string,fieldsScorecard?: string,_options?: Configuration): Promise<RequestContext> {
+  public async listScorecardRules(
+    pageSize?: number,
+    pageOffset?: number,
+    include?: string,
+    filterRuleId?: string,
+    filterRuleEnabled?: boolean,
+    filterRuleCustom?: boolean,
+    filterRuleName?: string,
+    filterRuleDescription?: string,
+    fieldsRule?: string,
+    fieldsScorecard?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listScorecardRules'");
-    if (!_config.unstableOperations['v2.listScorecardRules']) {
+    if (!_config.unstableOperations["v2.listScorecardRules"]) {
       throw new Error("Unstable operation 'listScorecardRules' is disabled");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/scorecard/rules';
+    const localVarPath = "/api/v2/scorecard/rules";
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.ServiceScorecardsApi.listScorecardRules').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.ServiceScorecardsApi.listScorecardRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (pageSize !== undefined) {
-      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int64"), "");
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
     }
     if (pageOffset !== undefined) {
-      requestContext.setQueryParam("page[offset]", ObjectSerializer.serialize(pageOffset, "number", "int64"), "");
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
+      );
     }
     if (include !== undefined) {
-      requestContext.setQueryParam("include", ObjectSerializer.serialize(include, "string", ""), "");
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
     }
     if (filterRuleId !== undefined) {
-      requestContext.setQueryParam("filter[rule][id]", ObjectSerializer.serialize(filterRuleId, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][id]",
+        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        ""
+      );
     }
     if (filterRuleEnabled !== undefined) {
-      requestContext.setQueryParam("filter[rule][enabled]", ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][enabled]",
+        ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""),
+        ""
+      );
     }
     if (filterRuleCustom !== undefined) {
-      requestContext.setQueryParam("filter[rule][custom]", ObjectSerializer.serialize(filterRuleCustom, "boolean", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][custom]",
+        ObjectSerializer.serialize(filterRuleCustom, "boolean", ""),
+        ""
+      );
     }
     if (filterRuleName !== undefined) {
-      requestContext.setQueryParam("filter[rule][name]", ObjectSerializer.serialize(filterRuleName, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][name]",
+        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        ""
+      );
     }
     if (filterRuleDescription !== undefined) {
-      requestContext.setQueryParam("filter[rule][description]", ObjectSerializer.serialize(filterRuleDescription, "string", ""), "");
+      requestContext.setQueryParam(
+        "filter[rule][description]",
+        ObjectSerializer.serialize(filterRuleDescription, "string", ""),
+        ""
+      );
     }
     if (fieldsRule !== undefined) {
-      requestContext.setQueryParam("fields[rule]", ObjectSerializer.serialize(fieldsRule, "string", ""), "");
+      requestContext.setQueryParam(
+        "fields[rule]",
+        ObjectSerializer.serialize(fieldsRule, "string", ""),
+        ""
+      );
     }
     if (fieldsScorecard !== undefined) {
-      requestContext.setQueryParam("fields[scorecard]", ObjectSerializer.serialize(fieldsScorecard, "string", ""), "");
+      requestContext.setQueryParam(
+        "fields[scorecard]",
+        ObjectSerializer.serialize(fieldsScorecard, "string", ""),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -258,36 +388,45 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateScorecardRule(ruleId: string,body: UpdateRuleRequest,_options?: Configuration): Promise<RequestContext> {
+  public async updateScorecardRule(
+    ruleId: string,
+    body: UpdateRuleRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateScorecardRule'");
-    if (!_config.unstableOperations['v2.updateScorecardRule']) {
+    if (!_config.unstableOperations["v2.updateScorecardRule"]) {
       throw new Error("Unstable operation 'updateScorecardRule' is disabled");
     }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError('ruleId', 'updateScorecardRule');
+      throw new RequiredError("ruleId", "updateScorecardRule");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('body', 'updateScorecardRule');
+      throw new RequiredError("body", "updateScorecardRule");
     }
 
     // Path Params
-    const localVarPath = '/api/v2/scorecard/rules/{rule_id}'
-      .replace('{rule_id}', encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/scorecard/rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
 
     // Make Request Context
-    const requestContext = _config.getServer('v2.ServiceScorecardsApi.updateScorecardRule').makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v2.ServiceScorecardsApi.updateScorecardRule")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateRuleRequest", ""),
@@ -307,7 +446,6 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ServiceScorecardsApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -315,8 +453,12 @@ export class ServiceScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to createScorecardOutcomesBatch
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createScorecardOutcomesBatch(response: ResponseContext): Promise<OutcomesBatchResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createScorecardOutcomesBatch(
+    response: ResponseContext
+  ): Promise<OutcomesBatchResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: OutcomesBatchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -324,8 +466,15 @@ export class ServiceScorecardsApiResponseProcessor {
       ) as OutcomesBatchResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -334,8 +483,11 @@ export class ServiceScorecardsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -343,13 +495,17 @@ export class ServiceScorecardsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OutcomesBatchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "OutcomesBatchResponse", ""
+        "OutcomesBatchResponse",
+        ""
       ) as OutcomesBatchResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -359,8 +515,12 @@ export class ServiceScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to createScorecardRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createScorecardRule(response: ResponseContext): Promise<CreateRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createScorecardRule(
+    response: ResponseContext
+  ): Promise<CreateRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 201) {
       const body: CreateRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -368,8 +528,15 @@ export class ServiceScorecardsApiResponseProcessor {
       ) as CreateRuleResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -378,8 +545,11 @@ export class ServiceScorecardsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -387,13 +557,17 @@ export class ServiceScorecardsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateRuleResponse", ""
+        "CreateRuleResponse",
+        ""
       ) as CreateRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -403,13 +577,23 @@ export class ServiceScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteScorecardRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteScorecardRule(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteScorecardRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -418,8 +602,11 @@ export class ServiceScorecardsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -427,13 +614,17 @@ export class ServiceScorecardsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void", ""
+        "void",
+        ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -443,8 +634,12 @@ export class ServiceScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to listScorecardOutcomes
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listScorecardOutcomes(response: ResponseContext): Promise<OutcomesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listScorecardOutcomes(
+    response: ResponseContext
+  ): Promise<OutcomesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: OutcomesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -452,8 +647,15 @@ export class ServiceScorecardsApiResponseProcessor {
       ) as OutcomesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -462,8 +664,11 @@ export class ServiceScorecardsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -471,13 +676,17 @@ export class ServiceScorecardsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OutcomesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "OutcomesResponse", ""
+        "OutcomesResponse",
+        ""
       ) as OutcomesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -487,8 +696,12 @@ export class ServiceScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to listScorecardRules
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listScorecardRules(response: ResponseContext): Promise<ListRulesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listScorecardRules(
+    response: ResponseContext
+  ): Promise<ListRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: ListRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -496,8 +709,15 @@ export class ServiceScorecardsApiResponseProcessor {
       ) as ListRulesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -506,8 +726,11 @@ export class ServiceScorecardsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -515,13 +738,17 @@ export class ServiceScorecardsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListRulesResponse", ""
+        "ListRulesResponse",
+        ""
       ) as ListRulesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -531,8 +758,12 @@ export class ServiceScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateScorecardRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateScorecardRule(response: ResponseContext): Promise<UpdateRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateScorecardRule(
+    response: ResponseContext
+  ): Promise<UpdateRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -540,8 +771,15 @@ export class ServiceScorecardsApiResponseProcessor {
       ) as UpdateRuleResponse;
       return body;
     }
-    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -550,8 +788,11 @@ export class ServiceScorecardsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
-      } 
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -559,13 +800,17 @@ export class ServiceScorecardsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateRuleResponse", ""
+        "UpdateRuleResponse",
+        ""
       ) as UpdateRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -574,7 +819,7 @@ export interface ServiceScorecardsApiCreateScorecardOutcomesBatchRequest {
    * Set of scorecard outcomes.
    * @type OutcomesBatchRequest
    */
-  body: OutcomesBatchRequest
+  body: OutcomesBatchRequest;
 }
 
 export interface ServiceScorecardsApiCreateScorecardRuleRequest {
@@ -582,7 +827,7 @@ export interface ServiceScorecardsApiCreateScorecardRuleRequest {
    * Rule attributes.
    * @type CreateRuleRequest
    */
-  body: CreateRuleRequest
+  body: CreateRuleRequest;
 }
 
 export interface ServiceScorecardsApiDeleteScorecardRuleRequest {
@@ -590,7 +835,7 @@ export interface ServiceScorecardsApiDeleteScorecardRuleRequest {
    * The ID of the rule.
    * @type string
    */
-  ruleId: string
+  ruleId: string;
 }
 
 export interface ServiceScorecardsApiListScorecardOutcomesRequest {
@@ -598,52 +843,52 @@ export interface ServiceScorecardsApiListScorecardOutcomesRequest {
    * Size for a given page. The maximum allowed value is 100.
    * @type number
    */
-  pageSize?: number
+  pageSize?: number;
   /**
    * Specific offset to use as the beginning of the returned page.
    * @type number
    */
-  pageOffset?: number
+  pageOffset?: number;
   /**
    * Include related rule details in the response.
    * @type string
    */
-  include?: string
+  include?: string;
   /**
    * Return only specified values in the outcome attributes.
    * @type string
    */
-  fieldsOutcome?: string
+  fieldsOutcome?: string;
   /**
    * Return only specified values in the included rule details.
    * @type string
    */
-  fieldsRule?: string
+  fieldsRule?: string;
   /**
    * Filter the outcomes on a specific service name.
    * @type string
    */
-  filterOutcomeServiceName?: string
+  filterOutcomeServiceName?: string;
   /**
    * Filter the outcomes by a specific state.
    * @type string
    */
-  filterOutcomeState?: string
+  filterOutcomeState?: string;
   /**
    * Filter outcomes on whether a rule is enabled/disabled.
    * @type boolean
    */
-  filterRuleEnabled?: boolean
+  filterRuleEnabled?: boolean;
   /**
    * Filter outcomes based on rule ID.
    * @type string
    */
-  filterRuleId?: string
+  filterRuleId?: string;
   /**
    * Filter outcomes based on rule name.
    * @type string
    */
-  filterRuleName?: string
+  filterRuleName?: string;
 }
 
 export interface ServiceScorecardsApiListScorecardRulesRequest {
@@ -651,52 +896,52 @@ export interface ServiceScorecardsApiListScorecardRulesRequest {
    * Size for a given page. The maximum allowed value is 100.
    * @type number
    */
-  pageSize?: number
+  pageSize?: number;
   /**
    * Specific offset to use as the beginning of the returned page.
    * @type number
    */
-  pageOffset?: number
+  pageOffset?: number;
   /**
    * Include related scorecard details in the response.
    * @type string
    */
-  include?: string
+  include?: string;
   /**
    * Filter the rules on a rule ID.
    * @type string
    */
-  filterRuleId?: string
+  filterRuleId?: string;
   /**
    * Filter for enabled rules only.
    * @type boolean
    */
-  filterRuleEnabled?: boolean
+  filterRuleEnabled?: boolean;
   /**
    * Filter for custom rules only.
    * @type boolean
    */
-  filterRuleCustom?: boolean
+  filterRuleCustom?: boolean;
   /**
    * Filter rules on the rule name.
    * @type string
    */
-  filterRuleName?: string
+  filterRuleName?: string;
   /**
    * Filter rules on the rule description.
    * @type string
    */
-  filterRuleDescription?: string
+  filterRuleDescription?: string;
   /**
    * Return only specific fields in the response for rule attributes.
    * @type string
    */
-  fieldsRule?: string
+  fieldsRule?: string;
   /**
    * Return only specific fields in the included response for scorecard attributes.
    * @type string
    */
-  fieldsScorecard?: string
+  fieldsScorecard?: string;
 }
 
 export interface ServiceScorecardsApiUpdateScorecardRuleRequest {
@@ -704,12 +949,12 @@ export interface ServiceScorecardsApiUpdateScorecardRuleRequest {
    * The ID of the rule.
    * @type string
    */
-  ruleId: string
+  ruleId: string;
   /**
    * Rule attributes.
    * @type UpdateRuleRequest
    */
-  body: UpdateRuleRequest
+  body: UpdateRuleRequest;
 }
 
 export class ServiceScorecardsApi {
@@ -717,21 +962,35 @@ export class ServiceScorecardsApi {
   private responseProcessor: ServiceScorecardsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: ServiceScorecardsApiRequestFactory, responseProcessor?: ServiceScorecardsApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceScorecardsApiRequestFactory,
+    responseProcessor?: ServiceScorecardsApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new ServiceScorecardsApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new ServiceScorecardsApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new ServiceScorecardsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new ServiceScorecardsApiResponseProcessor();
   }
 
   /**
    * Sets multiple service-rule outcomes in a single batched request.
    * @param param The request object
    */
-  public createScorecardOutcomesBatch(param: ServiceScorecardsApiCreateScorecardOutcomesBatchRequest, options?: Configuration): Promise<OutcomesBatchResponse> {
-    const requestContextPromise = this.requestFactory.createScorecardOutcomesBatch(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createScorecardOutcomesBatch(responseContext);
+  public createScorecardOutcomesBatch(
+    param: ServiceScorecardsApiCreateScorecardOutcomesBatchRequest,
+    options?: Configuration
+  ): Promise<OutcomesBatchResponse> {
+    const requestContextPromise =
+      this.requestFactory.createScorecardOutcomesBatch(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createScorecardOutcomesBatch(
+            responseContext
+          );
         });
     });
   }
@@ -740,11 +999,19 @@ export class ServiceScorecardsApi {
    * Creates a new rule.
    * @param param The request object
    */
-  public createScorecardRule(param: ServiceScorecardsApiCreateScorecardRuleRequest, options?: Configuration): Promise<CreateRuleResponse> {
-    const requestContextPromise = this.requestFactory.createScorecardRule(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createScorecardRule(responseContext);
+  public createScorecardRule(
+    param: ServiceScorecardsApiCreateScorecardRuleRequest,
+    options?: Configuration
+  ): Promise<CreateRuleResponse> {
+    const requestContextPromise = this.requestFactory.createScorecardRule(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createScorecardRule(responseContext);
         });
     });
   }
@@ -753,11 +1020,19 @@ export class ServiceScorecardsApi {
    * Deletes a single rule.
    * @param param The request object
    */
-  public deleteScorecardRule(param: ServiceScorecardsApiDeleteScorecardRuleRequest, options?: Configuration): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteScorecardRule(param.ruleId,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteScorecardRule(responseContext);
+  public deleteScorecardRule(
+    param: ServiceScorecardsApiDeleteScorecardRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteScorecardRule(
+      param.ruleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteScorecardRule(responseContext);
         });
     });
   }
@@ -766,11 +1041,28 @@ export class ServiceScorecardsApi {
    * Fetches all rule outcomes.
    * @param param The request object
    */
-  public listScorecardOutcomes(param: ServiceScorecardsApiListScorecardOutcomesRequest = {}, options?: Configuration): Promise<OutcomesResponse> {
-    const requestContextPromise = this.requestFactory.listScorecardOutcomes(param.pageSize,param.pageOffset,param.include,param.fieldsOutcome,param.fieldsRule,param.filterOutcomeServiceName,param.filterOutcomeState,param.filterRuleEnabled,param.filterRuleId,param.filterRuleName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listScorecardOutcomes(responseContext);
+  public listScorecardOutcomes(
+    param: ServiceScorecardsApiListScorecardOutcomesRequest = {},
+    options?: Configuration
+  ): Promise<OutcomesResponse> {
+    const requestContextPromise = this.requestFactory.listScorecardOutcomes(
+      param.pageSize,
+      param.pageOffset,
+      param.include,
+      param.fieldsOutcome,
+      param.fieldsRule,
+      param.filterOutcomeServiceName,
+      param.filterOutcomeState,
+      param.filterRuleEnabled,
+      param.filterRuleId,
+      param.filterRuleName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listScorecardOutcomes(responseContext);
         });
     });
   }
@@ -778,18 +1070,36 @@ export class ServiceScorecardsApi {
   /**
    * Provide a paginated version of listScorecardOutcomes returning a generator with all the items.
    */
-  public async *listScorecardOutcomesWithPagination(param: ServiceScorecardsApiListScorecardOutcomesRequest = {}, options?: Configuration): AsyncGenerator<OutcomesResponseDataItem> {
-
+  public async *listScorecardOutcomesWithPagination(
+    param: ServiceScorecardsApiListScorecardOutcomesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<OutcomesResponseDataItem> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listScorecardOutcomes(param.pageSize,param.pageOffset,param.include,param.fieldsOutcome,param.fieldsRule,param.filterOutcomeServiceName,param.filterOutcomeState,param.filterRuleEnabled,param.filterRuleId,param.filterRuleName,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listScorecardOutcomes(
+        param.pageSize,
+        param.pageOffset,
+        param.include,
+        param.fieldsOutcome,
+        param.fieldsRule,
+        param.filterOutcomeServiceName,
+        param.filterOutcomeState,
+        param.filterRuleEnabled,
+        param.filterRuleId,
+        param.filterRuleName,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
 
-      const response = await this.responseProcessor.listScorecardOutcomes(responseContext);
+      const response = await this.responseProcessor.listScorecardOutcomes(
+        responseContext
+      );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -813,11 +1123,28 @@ export class ServiceScorecardsApi {
    * Fetch all rules.
    * @param param The request object
    */
-  public listScorecardRules(param: ServiceScorecardsApiListScorecardRulesRequest = {}, options?: Configuration): Promise<ListRulesResponse> {
-    const requestContextPromise = this.requestFactory.listScorecardRules(param.pageSize,param.pageOffset,param.include,param.filterRuleId,param.filterRuleEnabled,param.filterRuleCustom,param.filterRuleName,param.filterRuleDescription,param.fieldsRule,param.fieldsScorecard,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listScorecardRules(responseContext);
+  public listScorecardRules(
+    param: ServiceScorecardsApiListScorecardRulesRequest = {},
+    options?: Configuration
+  ): Promise<ListRulesResponse> {
+    const requestContextPromise = this.requestFactory.listScorecardRules(
+      param.pageSize,
+      param.pageOffset,
+      param.include,
+      param.filterRuleId,
+      param.filterRuleEnabled,
+      param.filterRuleCustom,
+      param.filterRuleName,
+      param.filterRuleDescription,
+      param.fieldsRule,
+      param.fieldsScorecard,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listScorecardRules(responseContext);
         });
     });
   }
@@ -825,18 +1152,36 @@ export class ServiceScorecardsApi {
   /**
    * Provide a paginated version of listScorecardRules returning a generator with all the items.
    */
-  public async *listScorecardRulesWithPagination(param: ServiceScorecardsApiListScorecardRulesRequest = {}, options?: Configuration): AsyncGenerator<ListRulesResponseDataItem> {
-
+  public async *listScorecardRulesWithPagination(
+    param: ServiceScorecardsApiListScorecardRulesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<ListRulesResponseDataItem> {
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listScorecardRules(param.pageSize,param.pageOffset,param.include,param.filterRuleId,param.filterRuleEnabled,param.filterRuleCustom,param.filterRuleName,param.filterRuleDescription,param.fieldsRule,param.fieldsScorecard,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listScorecardRules(
+        param.pageSize,
+        param.pageOffset,
+        param.include,
+        param.filterRuleId,
+        param.filterRuleEnabled,
+        param.filterRuleCustom,
+        param.filterRuleName,
+        param.filterRuleDescription,
+        param.fieldsRule,
+        param.fieldsScorecard,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
 
-      const response = await this.responseProcessor.listScorecardRules(responseContext);
+      const response = await this.responseProcessor.listScorecardRules(
+        responseContext
+      );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -860,11 +1205,20 @@ export class ServiceScorecardsApi {
    * Updates an existing rule.
    * @param param The request object
    */
-  public updateScorecardRule(param: ServiceScorecardsApiUpdateScorecardRuleRequest, options?: Configuration): Promise<UpdateRuleResponse> {
-    const requestContextPromise = this.requestFactory.updateScorecardRule(param.ruleId,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateScorecardRule(responseContext);
+  public updateScorecardRule(
+    param: ServiceScorecardsApiUpdateScorecardRuleRequest,
+    options?: Configuration
+  ): Promise<UpdateRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateScorecardRule(
+      param.ruleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateScorecardRule(responseContext);
         });
     });
   }

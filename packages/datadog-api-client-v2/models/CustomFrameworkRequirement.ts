@@ -5,24 +5,19 @@
  */
 import { CustomFrameworkControl } from "./CustomFrameworkControl";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Framework Requirement.
-*/
+ */
 export class CustomFrameworkRequirement {
   /**
    * Requirement Controls.
-  */
+   */
   "controls": Array<CustomFrameworkControl>;
   /**
    * Requirement Name.
-  */
+   */
   "name": string;
 
   /**
@@ -41,54 +36,28 @@ export class CustomFrameworkRequirement {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "controls": {
-      "baseName": "controls",
-      "type": "Array<CustomFrameworkControl>",
-      "required": true,
+    controls: {
+      baseName: "controls",
+      type: "Array<CustomFrameworkControl>",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomFrameworkRequirement.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

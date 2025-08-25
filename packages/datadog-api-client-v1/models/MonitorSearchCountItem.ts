@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A facet item.
-*/
+ */
 export class MonitorSearchCountItem {
   /**
    * The number of found monitors with the listed value.
-  */
+   */
   "count"?: number;
   /**
    * The facet value.
-  */
+   */
   "name"?: any;
 
   /**
@@ -40,53 +35,27 @@ export class MonitorSearchCountItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "count": {
-      "baseName": "count",
-      "type": "number",
-      "format": "int64",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int64",
     },
-    "name": {
-      "baseName": "name",
-      "type": "any",
+    name: {
+      baseName: "name",
+      type: "any",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorSearchCountItem.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

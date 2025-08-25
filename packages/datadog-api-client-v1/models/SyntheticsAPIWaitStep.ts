@@ -5,28 +5,23 @@
  */
 import { SyntheticsAPIWaitStepSubtype } from "./SyntheticsAPIWaitStepSubtype";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The Wait step used in a Synthetic multi-step API test.
-*/
+ */
 export class SyntheticsAPIWaitStep {
   /**
    * The name of the step.
-  */
+   */
   "name": string;
   /**
    * The subtype of the Synthetic multi-step API wait step.
-  */
+   */
   "subtype": SyntheticsAPIWaitStepSubtype;
   /**
    * The time to wait in seconds. Minimum value: 0. Maximum value: 180.
-  */
+   */
   "value": number;
 
   /**
@@ -45,60 +40,34 @@ export class SyntheticsAPIWaitStep {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "subtype": {
-      "baseName": "subtype",
-      "type": "SyntheticsAPIWaitStepSubtype",
-      "required": true,
+    subtype: {
+      baseName: "subtype",
+      type: "SyntheticsAPIWaitStepSubtype",
+      required: true,
     },
-    "value": {
-      "baseName": "value",
-      "type": "number",
-      "required": true,
-      "format": "int32",
+    value: {
+      baseName: "value",
+      type: "number",
+      required: true,
+      format: "int32",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsAPIWaitStep.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

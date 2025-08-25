@@ -6,24 +6,19 @@
 import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
 import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the hourly usage attribution by tag(s).
-*/
+ */
 export class HourlyUsageAttributionResponse {
   /**
    * The object containing document metadata.
-  */
+   */
   "metadata"?: HourlyUsageAttributionMetadata;
   /**
    * Get the hourly usage attribution by tag(s).
-  */
+   */
   "usage"?: Array<HourlyUsageAttributionBody>;
 
   /**
@@ -42,52 +37,26 @@ export class HourlyUsageAttributionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "metadata": {
-      "baseName": "metadata",
-      "type": "HourlyUsageAttributionMetadata",
+    metadata: {
+      baseName: "metadata",
+      type: "HourlyUsageAttributionMetadata",
     },
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<HourlyUsageAttributionBody>",
+    usage: {
+      baseName: "usage",
+      type: "Array<HourlyUsageAttributionBody>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return HourlyUsageAttributionResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

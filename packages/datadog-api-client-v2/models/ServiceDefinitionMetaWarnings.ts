@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Schema validation warnings.
-*/
+ */
 export class ServiceDefinitionMetaWarnings {
   /**
    * The warning instance location.
-  */
+   */
   "instanceLocation"?: string;
   /**
    * The warning keyword location.
-  */
+   */
   "keywordLocation"?: string;
   /**
    * The warning message.
-  */
+   */
   "message"?: string;
 
   /**
@@ -44,56 +39,30 @@ export class ServiceDefinitionMetaWarnings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "instanceLocation": {
-      "baseName": "instance-location",
-      "type": "string",
+    instanceLocation: {
+      baseName: "instance-location",
+      type: "string",
     },
-    "keywordLocation": {
-      "baseName": "keyword-location",
-      "type": "string",
+    keywordLocation: {
+      baseName: "keyword-location",
+      type: "string",
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
+    message: {
+      baseName: "message",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceDefinitionMetaWarnings.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

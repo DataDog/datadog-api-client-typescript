@@ -5,24 +5,19 @@
  */
 import { UsersType } from "./UsersType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data for the user who created the downtime.
-*/
+ */
 export class DowntimeRelationshipsCreatedByData {
   /**
    * User ID of the downtime creator.
-  */
+   */
   "id"?: string;
   /**
    * Users resource type.
-  */
+   */
   "type"?: UsersType;
 
   /**
@@ -41,52 +36,26 @@ export class DowntimeRelationshipsCreatedByData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "UsersType",
+    type: {
+      baseName: "type",
+      type: "UsersType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DowntimeRelationshipsCreatedByData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

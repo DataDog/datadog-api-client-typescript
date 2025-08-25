@@ -5,20 +5,15 @@
  */
 import { AwsOnDemandData } from "./AwsOnDemandData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object that includes an AWS on demand task.
-*/
+ */
 export class AwsOnDemandResponse {
   /**
    * Single AWS on demand task.
-  */
+   */
   "data"?: AwsOnDemandData;
 
   /**
@@ -37,48 +32,22 @@ export class AwsOnDemandResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "AwsOnDemandData",
+    data: {
+      baseName: "data",
+      type: "AwsOnDemandData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AwsOnDemandResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

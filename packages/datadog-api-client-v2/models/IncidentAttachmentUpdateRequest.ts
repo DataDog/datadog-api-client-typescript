@@ -5,23 +5,18 @@
  */
 import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The update request for an incident's attachments.
-*/
+ */
 export class IncidentAttachmentUpdateRequest {
   /**
    * An array of incident attachments. An attachment object without an "id" key indicates that you want to
    * create that attachment. An attachment object without an "attributes" key indicates that you want to
    * delete that attachment. An attachment object with both the "id" key and a populated "attributes" object
    * indicates that you want to update that attachment.
-  */
+   */
   "data": Array<IncidentAttachmentUpdateData>;
 
   /**
@@ -40,49 +35,23 @@ export class IncidentAttachmentUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<IncidentAttachmentUpdateData>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<IncidentAttachmentUpdateData>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentAttachmentUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

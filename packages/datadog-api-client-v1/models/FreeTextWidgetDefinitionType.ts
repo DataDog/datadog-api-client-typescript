@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the free text widget.
-*/
+ */
 
 export type FreeTextWidgetDefinitionType = typeof FREE_TEXT | UnparsedObject;
-export const FREE_TEXT = 'free_text';
+export const FREE_TEXT = "free_text";

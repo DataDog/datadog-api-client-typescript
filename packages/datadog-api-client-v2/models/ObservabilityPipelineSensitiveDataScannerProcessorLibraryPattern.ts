@@ -6,24 +6,19 @@
 import { ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions";
 import { ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType } from "./ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Specifies a pattern from Datadog’s sensitive data detection library to match known sensitive data types.
-*/
+ */
 export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
   /**
    * Options for selecting a predefined library pattern and enabling keyword support.
-  */
+   */
   "options": ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions;
   /**
    * Indicates that a predefined library pattern is used.
-  */
+   */
   "type": ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType;
 
   /**
@@ -42,54 +37,28 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "options": {
-      "baseName": "options",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions",
-      "required": true,
+    options: {
+      baseName: "options",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

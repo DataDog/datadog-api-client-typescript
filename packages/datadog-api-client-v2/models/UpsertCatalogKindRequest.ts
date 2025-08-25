@@ -5,15 +5,10 @@
  */
 import { KindObj } from "./KindObj";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Create or update kind request.
-*/
+ */
 
 export type UpsertCatalogKindRequest = KindObj | string | UnparsedObject;

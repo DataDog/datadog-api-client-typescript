@@ -6,28 +6,23 @@
 import { MetricAssetResponseRelationships } from "./MetricAssetResponseRelationships";
 import { MetricType } from "./MetricType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Metric assets response data.
-*/
+ */
 export class MetricAssetResponseData {
   /**
    * The metric name for this resource.
-  */
+   */
   "id": string;
   /**
    * Relationships to assets related to the metric.
-  */
+   */
   "relationships"?: MetricAssetResponseRelationships;
   /**
    * The metric resource type.
-  */
+   */
   "type": MetricType;
 
   /**
@@ -46,58 +41,32 @@ export class MetricAssetResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "MetricAssetResponseRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "MetricAssetResponseRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "MetricType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "MetricType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricAssetResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

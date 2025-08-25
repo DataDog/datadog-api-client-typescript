@@ -5,20 +5,15 @@
  */
 import { BulkMuteFindingsRequestMetaFindings } from "./BulkMuteFindingsRequestMetaFindings";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Meta object containing the findings to be updated.
-*/
+ */
 export class BulkMuteFindingsRequestMeta {
   /**
    * Array of findings.
-  */
+   */
   "findings"?: Array<BulkMuteFindingsRequestMetaFindings>;
 
   /**
@@ -37,48 +32,22 @@ export class BulkMuteFindingsRequestMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "findings": {
-      "baseName": "findings",
-      "type": "Array<BulkMuteFindingsRequestMetaFindings>",
+    findings: {
+      baseName: "findings",
+      type: "Array<BulkMuteFindingsRequestMetaFindings>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return BulkMuteFindingsRequestMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

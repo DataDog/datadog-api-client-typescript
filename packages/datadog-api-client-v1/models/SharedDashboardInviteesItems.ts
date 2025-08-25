@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The allowlisted invitees for an INVITE-only shared dashboard.
-*/
+ */
 export class SharedDashboardInviteesItems {
   /**
    * Time of the invitee expiration. Null means the invite will not expire.
-  */
+   */
   "accessExpiration"?: Date;
   /**
    * Time that the invitee was created.
-  */
+   */
   "createdAt"?: Date;
   /**
    * Email of the invitee.
-  */
+   */
   "email": string;
 
   /**
@@ -44,59 +39,33 @@ export class SharedDashboardInviteesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accessExpiration": {
-      "baseName": "access_expiration",
-      "type": "Date",
-      "format": "date-time",
+    accessExpiration: {
+      baseName: "access_expiration",
+      type: "Date",
+      format: "date-time",
     },
-    "createdAt": {
-      "baseName": "created_at",
-      "type": "Date",
-      "format": "date-time",
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
     },
-    "email": {
-      "baseName": "email",
-      "type": "string",
-      "required": true,
+    email: {
+      baseName: "email",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SharedDashboardInviteesItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

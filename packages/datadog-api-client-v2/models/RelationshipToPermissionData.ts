@@ -5,24 +5,19 @@
  */
 import { PermissionsType } from "./PermissionsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationship to permission object.
-*/
+ */
 export class RelationshipToPermissionData {
   /**
    * ID of the permission.
-  */
+   */
   "id"?: string;
   /**
    * Permissions resource type.
-  */
+   */
   "type"?: PermissionsType;
 
   /**
@@ -41,52 +36,26 @@ export class RelationshipToPermissionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "PermissionsType",
+    type: {
+      baseName: "type",
+      type: "PermissionsType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToPermissionData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

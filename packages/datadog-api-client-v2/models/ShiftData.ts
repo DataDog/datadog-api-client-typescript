@@ -7,32 +7,27 @@ import { ShiftDataAttributes } from "./ShiftDataAttributes";
 import { ShiftDataRelationships } from "./ShiftDataRelationships";
 import { ShiftDataType } from "./ShiftDataType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `ShiftData` object.
-*/
+ */
 export class ShiftData {
   /**
    * The definition of `ShiftDataAttributes` object.
-  */
+   */
   "attributes"?: ShiftDataAttributes;
   /**
    * The `ShiftData` `id`.
-  */
+   */
   "id"?: string;
   /**
    * The definition of `ShiftDataRelationships` object.
-  */
+   */
   "relationships"?: ShiftDataRelationships;
   /**
    * Indicates that the resource is of type 'shifts'.
-  */
+   */
   "type": ShiftDataType;
 
   /**
@@ -51,61 +46,35 @@ export class ShiftData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ShiftDataAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ShiftDataAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "ShiftDataRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "ShiftDataRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ShiftDataType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ShiftDataType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ShiftData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { LogsAPIError } from "./LogsAPIError";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response returned by the Logs API when the max limit has been reached.
-*/
+ */
 export class LogsAPILimitReachedResponse {
   /**
    * Error returned by the Logs API
-  */
+   */
   "error"?: LogsAPIError;
 
   /**
@@ -37,48 +32,22 @@ export class LogsAPILimitReachedResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "error": {
-      "baseName": "error",
-      "type": "LogsAPIError",
+    error: {
+      baseName: "error",
+      type: "LogsAPIError",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsAPILimitReachedResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

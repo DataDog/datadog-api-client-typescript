@@ -5,15 +5,10 @@
  */
 import { GreyNoiseAPIKeyUpdate } from "./GreyNoiseAPIKeyUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `GreyNoiseCredentialsUpdate` object.
-*/
+ */
 
 export type GreyNoiseCredentialsUpdate = GreyNoiseAPIKeyUpdate | UnparsedObject;

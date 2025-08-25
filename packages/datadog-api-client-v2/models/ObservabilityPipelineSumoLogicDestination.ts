@@ -7,48 +7,43 @@ import { ObservabilityPipelineSumoLogicDestinationEncoding } from "./Observabili
 import { ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem } from "./ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem";
 import { ObservabilityPipelineSumoLogicDestinationType } from "./ObservabilityPipelineSumoLogicDestinationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `sumo_logic` destination forwards logs to Sumo Logic.
-*/
+ */
 export class ObservabilityPipelineSumoLogicDestination {
   /**
    * The output encoding format.
-  */
+   */
   "encoding"?: ObservabilityPipelineSumoLogicDestinationEncoding;
   /**
    * A list of custom headers to include in the request to Sumo Logic.
-  */
+   */
   "headerCustomFields"?: Array<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem>;
   /**
    * Optional override for the host name header.
-  */
+   */
   "headerHostName"?: string;
   /**
    * Optional override for the source category header.
-  */
+   */
   "headerSourceCategory"?: string;
   /**
    * Optional override for the source name header.
-  */
+   */
   "headerSourceName"?: string;
   /**
    * The unique identifier for this component.
-  */
+   */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-  */
+   */
   "inputs": Array<string>;
   /**
    * The destination type. The value should always be `sumo_logic`.
-  */
+   */
   "type": ObservabilityPipelineSumoLogicDestinationType;
 
   /**
@@ -67,79 +62,53 @@ export class ObservabilityPipelineSumoLogicDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "encoding": {
-      "baseName": "encoding",
-      "type": "ObservabilityPipelineSumoLogicDestinationEncoding",
+    encoding: {
+      baseName: "encoding",
+      type: "ObservabilityPipelineSumoLogicDestinationEncoding",
     },
-    "headerCustomFields": {
-      "baseName": "header_custom_fields",
-      "type": "Array<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem>",
+    headerCustomFields: {
+      baseName: "header_custom_fields",
+      type: "Array<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem>",
     },
-    "headerHostName": {
-      "baseName": "header_host_name",
-      "type": "string",
+    headerHostName: {
+      baseName: "header_host_name",
+      type: "string",
     },
-    "headerSourceCategory": {
-      "baseName": "header_source_category",
-      "type": "string",
+    headerSourceCategory: {
+      baseName: "header_source_category",
+      type: "string",
     },
-    "headerSourceName": {
-      "baseName": "header_source_name",
-      "type": "string",
+    headerSourceName: {
+      baseName: "header_source_name",
+      type: "string",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "inputs": {
-      "baseName": "inputs",
-      "type": "Array<string>",
-      "required": true,
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineSumoLogicDestinationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineSumoLogicDestinationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSumoLogicDestination.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

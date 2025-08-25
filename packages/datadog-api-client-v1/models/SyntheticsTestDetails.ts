@@ -11,70 +11,65 @@ import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object containing details about your Synthetic test.
-*/
+ */
 export class SyntheticsTestDetails {
   /**
    * Configuration object for a Synthetic test.
-  */
+   */
   "config"?: SyntheticsTestConfig;
   /**
    * Object describing the creator of the shared element.
-  */
+   */
   "creator"?: Creator;
   /**
    * Array of locations used to run the test.
-  */
+   */
   "locations"?: Array<string>;
   /**
    * Notification message associated with the test.
-  */
+   */
   "message"?: string;
   /**
    * The associated monitor ID.
-  */
+   */
   "monitorId"?: number;
   /**
    * Name of the test.
-  */
+   */
   "name"?: string;
   /**
    * Object describing the extra options for a Synthetic test.
-  */
+   */
   "options"?: SyntheticsTestOptions;
   /**
    * The test public ID.
-  */
+   */
   "publicId"?: string;
   /**
    * Define whether you want to start (`live`) or pause (`paused`) a
    * Synthetic test.
-  */
+   */
   "status"?: SyntheticsTestPauseStatus;
   /**
    * For browser test, the steps of the test.
-  */
+   */
   "steps"?: Array<SyntheticsStep>;
   /**
    * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
    * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
-  */
+   */
   "subtype"?: SyntheticsTestDetailsSubType;
   /**
    * Array of tags attached to the test.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * Type of the Synthetic test, either `api` or `browser`.
-  */
+   */
   "type"?: SyntheticsTestDetailsType;
 
   /**
@@ -93,97 +88,71 @@ export class SyntheticsTestDetails {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "config": {
-      "baseName": "config",
-      "type": "SyntheticsTestConfig",
+    config: {
+      baseName: "config",
+      type: "SyntheticsTestConfig",
     },
-    "creator": {
-      "baseName": "creator",
-      "type": "Creator",
+    creator: {
+      baseName: "creator",
+      type: "Creator",
     },
-    "locations": {
-      "baseName": "locations",
-      "type": "Array<string>",
+    locations: {
+      baseName: "locations",
+      type: "Array<string>",
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
+    message: {
+      baseName: "message",
+      type: "string",
     },
-    "monitorId": {
-      "baseName": "monitor_id",
-      "type": "number",
-      "format": "int64",
+    monitorId: {
+      baseName: "monitor_id",
+      type: "number",
+      format: "int64",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "options": {
-      "baseName": "options",
-      "type": "SyntheticsTestOptions",
+    options: {
+      baseName: "options",
+      type: "SyntheticsTestOptions",
     },
-    "publicId": {
-      "baseName": "public_id",
-      "type": "string",
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "SyntheticsTestPauseStatus",
+    status: {
+      baseName: "status",
+      type: "SyntheticsTestPauseStatus",
     },
-    "steps": {
-      "baseName": "steps",
-      "type": "Array<SyntheticsStep>",
+    steps: {
+      baseName: "steps",
+      type: "Array<SyntheticsStep>",
     },
-    "subtype": {
-      "baseName": "subtype",
-      "type": "SyntheticsTestDetailsSubType",
+    subtype: {
+      baseName: "subtype",
+      type: "SyntheticsTestDetailsSubType",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "type": {
-      "baseName": "type",
-      "type": "SyntheticsTestDetailsType",
+    type: {
+      baseName: "type",
+      type: "SyntheticsTestDetailsType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsTestDetails.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

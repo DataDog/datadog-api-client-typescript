@@ -4,20 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A time aggregation for use in query.
-*/
+ */
 
-export type MetricCustomTimeAggregation = typeof AVG| typeof COUNT| typeof MAX| typeof MIN| typeof SUM | UnparsedObject;
-export const AVG = 'avg';
-export const COUNT = 'count';
-export const MAX = 'max';
-export const MIN = 'min';
-export const SUM = 'sum';
+export type MetricCustomTimeAggregation =
+  | typeof AVG
+  | typeof COUNT
+  | typeof MAX
+  | typeof MIN
+  | typeof SUM
+  | UnparsedObject;
+export const AVG = "avg";
+export const COUNT = "count";
+export const MAX = "max";
+export const MIN = "min";
+export const SUM = "sum";

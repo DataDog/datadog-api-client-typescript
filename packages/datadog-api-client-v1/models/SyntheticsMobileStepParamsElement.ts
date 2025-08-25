@@ -7,48 +7,43 @@ import { SyntheticsMobileStepParamsElementContextType } from "./SyntheticsMobile
 import { SyntheticsMobileStepParamsElementRelativePosition } from "./SyntheticsMobileStepParamsElementRelativePosition";
 import { SyntheticsMobileStepParamsElementUserLocator } from "./SyntheticsMobileStepParamsElementUserLocator";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Information about the element used for a step.
-*/
+ */
 export class SyntheticsMobileStepParamsElement {
   /**
    * Context of the element.
-  */
+   */
   "context"?: string;
   /**
    * Type of the context that the element is in.
-  */
+   */
   "contextType"?: SyntheticsMobileStepParamsElementContextType;
   /**
    * Description of the element.
-  */
+   */
   "elementDescription"?: string;
   /**
    * Multi-locator to find the element.
-  */
+   */
   "multiLocator"?: any;
   /**
    * Position of the action relative to the element.
-  */
+   */
   "relativePosition"?: SyntheticsMobileStepParamsElementRelativePosition;
   /**
    * Text content of the element.
-  */
+   */
   "textContent"?: string;
   /**
    * User locator to find the element.
-  */
+   */
   "userLocator"?: SyntheticsMobileStepParamsElementUserLocator;
   /**
    * Name of the view of the element.
-  */
+   */
   "viewName"?: string;
 
   /**
@@ -67,76 +62,50 @@ export class SyntheticsMobileStepParamsElement {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "context": {
-      "baseName": "context",
-      "type": "string",
+    context: {
+      baseName: "context",
+      type: "string",
     },
-    "contextType": {
-      "baseName": "contextType",
-      "type": "SyntheticsMobileStepParamsElementContextType",
+    contextType: {
+      baseName: "contextType",
+      type: "SyntheticsMobileStepParamsElementContextType",
     },
-    "elementDescription": {
-      "baseName": "elementDescription",
-      "type": "string",
+    elementDescription: {
+      baseName: "elementDescription",
+      type: "string",
     },
-    "multiLocator": {
-      "baseName": "multiLocator",
-      "type": "any",
+    multiLocator: {
+      baseName: "multiLocator",
+      type: "any",
     },
-    "relativePosition": {
-      "baseName": "relativePosition",
-      "type": "SyntheticsMobileStepParamsElementRelativePosition",
+    relativePosition: {
+      baseName: "relativePosition",
+      type: "SyntheticsMobileStepParamsElementRelativePosition",
     },
-    "textContent": {
-      "baseName": "textContent",
-      "type": "string",
+    textContent: {
+      baseName: "textContent",
+      type: "string",
     },
-    "userLocator": {
-      "baseName": "userLocator",
-      "type": "SyntheticsMobileStepParamsElementUserLocator",
+    userLocator: {
+      baseName: "userLocator",
+      type: "SyntheticsMobileStepParamsElementUserLocator",
     },
-    "viewName": {
-      "baseName": "viewName",
-      "type": "string",
+    viewName: {
+      baseName: "viewName",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsMobileStepParamsElement.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

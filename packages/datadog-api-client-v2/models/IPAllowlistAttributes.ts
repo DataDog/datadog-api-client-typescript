@@ -5,24 +5,19 @@
  */
 import { IPAllowlistEntry } from "./IPAllowlistEntry";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes of the IP allowlist.
-*/
+ */
 export class IPAllowlistAttributes {
   /**
    * Whether the IP allowlist logic is enabled or not.
-  */
+   */
   "enabled"?: boolean;
   /**
    * Array of entries in the IP allowlist.
-  */
+   */
   "entries"?: Array<IPAllowlistEntry>;
 
   /**
@@ -41,52 +36,26 @@ export class IPAllowlistAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "enabled": {
-      "baseName": "enabled",
-      "type": "boolean",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    "entries": {
-      "baseName": "entries",
-      "type": "Array<IPAllowlistEntry>",
+    entries: {
+      baseName: "entries",
+      type: "Array<IPAllowlistEntry>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IPAllowlistAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

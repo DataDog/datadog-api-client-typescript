@@ -6,28 +6,23 @@
 import { FastlyAccounResponseAttributes } from "./FastlyAccounResponseAttributes";
 import { FastlyAccountType } from "./FastlyAccountType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data object of a Fastly account.
-*/
+ */
 export class FastlyAccountResponseData {
   /**
    * Attributes object of a Fastly account.
-  */
+   */
   "attributes": FastlyAccounResponseAttributes;
   /**
    * The ID of the Fastly account, a hash of the account name.
-  */
+   */
   "id": string;
   /**
    * The JSON:API type for this API. Should always be `fastly-accounts`.
-  */
+   */
   "type": FastlyAccountType;
 
   /**
@@ -46,59 +41,33 @@ export class FastlyAccountResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "FastlyAccounResponseAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "FastlyAccounResponseAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "FastlyAccountType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "FastlyAccountType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FastlyAccountResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

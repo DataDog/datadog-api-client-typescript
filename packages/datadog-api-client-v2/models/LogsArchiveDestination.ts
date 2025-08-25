@@ -7,15 +7,14 @@ import { LogsArchiveDestinationAzure } from "./LogsArchiveDestinationAzure";
 import { LogsArchiveDestinationGCS } from "./LogsArchiveDestinationGCS";
 import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * An archive's destination.
-*/
+ */
 
-export type LogsArchiveDestination = LogsArchiveDestinationAzure | LogsArchiveDestinationGCS | LogsArchiveDestinationS3 | UnparsedObject;
+export type LogsArchiveDestination =
+  | LogsArchiveDestinationAzure
+  | LogsArchiveDestinationGCS
+  | LogsArchiveDestinationS3
+  | UnparsedObject;

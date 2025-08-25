@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of event.
-*/
+ */
 
-export type SecurityMonitoringSignalMetadataType = typeof SIGNAL_METADATA | UnparsedObject;
-export const SIGNAL_METADATA = 'signal_metadata';
+export type SecurityMonitoringSignalMetadataType =
+  | typeof SIGNAL_METADATA
+  | UnparsedObject;
+export const SIGNAL_METADATA = "signal_metadata";

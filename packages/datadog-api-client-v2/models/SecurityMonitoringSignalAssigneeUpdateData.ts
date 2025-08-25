@@ -5,20 +5,15 @@
  */
 import { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./SecurityMonitoringSignalAssigneeUpdateAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data containing the patch for changing the assignee of a signal.
-*/
+ */
 export class SecurityMonitoringSignalAssigneeUpdateData {
   /**
    * Attributes describing the new assignee of a security signal.
-  */
+   */
   "attributes": SecurityMonitoringSignalAssigneeUpdateAttributes;
 
   /**
@@ -37,49 +32,23 @@ export class SecurityMonitoringSignalAssigneeUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "SecurityMonitoringSignalAssigneeUpdateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "SecurityMonitoringSignalAssigneeUpdateAttributes",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalAssigneeUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

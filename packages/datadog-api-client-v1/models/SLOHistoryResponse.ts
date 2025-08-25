@@ -6,24 +6,19 @@
 import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
 import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A service level objective history response.
-*/
+ */
 export class SLOHistoryResponse {
   /**
    * An array of service level objective objects.
-  */
+   */
   "data"?: SLOHistoryResponseData;
   /**
    * A list of errors while querying the history data for the service level objective.
-  */
+   */
   "errors"?: Array<SLOHistoryResponseError>;
 
   /**
@@ -42,52 +37,26 @@ export class SLOHistoryResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SLOHistoryResponseData",
+    data: {
+      baseName: "data",
+      type: "SLOHistoryResponseData",
     },
-    "errors": {
-      "baseName": "errors",
-      "type": "Array<SLOHistoryResponseError>",
+    errors: {
+      baseName: "errors",
+      type: "Array<SLOHistoryResponseError>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SLOHistoryResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

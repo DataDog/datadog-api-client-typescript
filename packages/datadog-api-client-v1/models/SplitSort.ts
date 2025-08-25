@@ -6,24 +6,19 @@
 import { SplitConfigSortCompute } from "./SplitConfigSortCompute";
 import { WidgetSort } from "./WidgetSort";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Controls the order in which graphs appear in the split.
-*/
+ */
 export class SplitSort {
   /**
    * Defines the metric and aggregation used as the sort value.
-  */
+   */
   "compute"?: SplitConfigSortCompute;
   /**
    * Widget sorting methods.
-  */
+   */
   "order": WidgetSort;
 
   /**
@@ -42,53 +37,27 @@ export class SplitSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "compute": {
-      "baseName": "compute",
-      "type": "SplitConfigSortCompute",
+    compute: {
+      baseName: "compute",
+      type: "SplitConfigSortCompute",
     },
-    "order": {
-      "baseName": "order",
-      "type": "WidgetSort",
-      "required": true,
+    order: {
+      baseName: "order",
+      type: "WidgetSort",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SplitSort.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

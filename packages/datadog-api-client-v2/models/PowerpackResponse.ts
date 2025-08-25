@@ -6,24 +6,19 @@
 import { PowerpackData } from "./PowerpackData";
 import { User } from "./User";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object which includes a single powerpack configuration.
-*/
+ */
 export class PowerpackResponse {
   /**
    * Powerpack data object.
-  */
+   */
   "data"?: PowerpackData;
   /**
    * Array of objects related to the users.
-  */
+   */
   "included"?: Array<User>;
 
   /**
@@ -42,52 +37,26 @@ export class PowerpackResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "PowerpackData",
+    data: {
+      baseName: "data",
+      type: "PowerpackData",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<User>",
+    included: {
+      baseName: "included",
+      type: "Array<User>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PowerpackResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

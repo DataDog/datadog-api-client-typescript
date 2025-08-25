@@ -5,24 +5,19 @@
  */
 import { IncidentFieldAttributesValueType } from "./IncidentFieldAttributesValueType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A field with potentially multiple values selected.
-*/
+ */
 export class IncidentFieldAttributesMultipleValue {
   /**
    * Type of the multiple value field definitions.
-  */
+   */
   "type"?: IncidentFieldAttributesValueType;
   /**
    * The multiple values selected for this field.
-  */
+   */
   "value"?: Array<string>;
 
   /**
@@ -41,52 +36,26 @@ export class IncidentFieldAttributesMultipleValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "type": {
-      "baseName": "type",
-      "type": "IncidentFieldAttributesValueType",
+    type: {
+      baseName: "type",
+      type: "IncidentFieldAttributesValueType",
     },
-    "value": {
-      "baseName": "value",
-      "type": "Array<string>",
+    value: {
+      baseName: "value",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentFieldAttributesMultipleValue.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

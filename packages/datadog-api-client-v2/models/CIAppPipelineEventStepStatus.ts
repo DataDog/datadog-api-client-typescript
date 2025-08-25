@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The final status of the step.
-*/
+ */
 
-export type CIAppPipelineEventStepStatus = typeof SUCCESS| typeof ERROR | UnparsedObject;
-export const SUCCESS = 'success';
-export const ERROR = 'error';
+export type CIAppPipelineEventStepStatus =
+  | typeof SUCCESS
+  | typeof ERROR
+  | UnparsedObject;
+export const SUCCESS = "success";
+export const ERROR = "error";

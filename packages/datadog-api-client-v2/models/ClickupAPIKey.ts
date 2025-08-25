@@ -5,24 +5,19 @@
  */
 import { ClickupAPIKeyType } from "./ClickupAPIKeyType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `ClickupAPIKey` object.
-*/
+ */
 export class ClickupAPIKey {
   /**
    * The `ClickupAPIKey` `api_token`.
-  */
+   */
   "apiToken": string;
   /**
    * The definition of the `ClickupAPIKey` object.
-  */
+   */
   "type": ClickupAPIKeyType;
 
   /**
@@ -41,54 +36,28 @@ export class ClickupAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiToken": {
-      "baseName": "api_token",
-      "type": "string",
-      "required": true,
+    apiToken: {
+      baseName: "api_token",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ClickupAPIKeyType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ClickupAPIKeyType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ClickupAPIKey.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

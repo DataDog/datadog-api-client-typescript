@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes for a container group.
-*/
+ */
 export class ContainerGroupAttributes {
   /**
    * Number of containers in the group.
-  */
+   */
   "count"?: number;
   /**
    * Tags from the group name parsed in key/value format.
-  */
+   */
   "tags"?: any;
 
   /**
@@ -40,53 +35,27 @@ export class ContainerGroupAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "count": {
-      "baseName": "count",
-      "type": "number",
-      "format": "int64",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int64",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "any",
+    tags: {
+      baseName: "tags",
+      type: "any",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerGroupAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

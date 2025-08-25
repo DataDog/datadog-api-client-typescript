@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Search result.
-*/
+ */
 export class MetricSearchResponseResults {
   /**
    * List of metrics that match the search query.
-  */
+   */
   "metrics"?: Array<string>;
 
   /**
@@ -36,48 +31,22 @@ export class MetricSearchResponseResults {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "metrics": {
-      "baseName": "metrics",
-      "type": "Array<string>",
+    metrics: {
+      baseName: "metrics",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricSearchResponseResults.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

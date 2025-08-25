@@ -7,32 +7,27 @@ import { RoleAttributes } from "./RoleAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RolesType } from "./RolesType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Role object returned by the API.
-*/
+ */
 export class Role {
   /**
    * Attributes of the role.
-  */
+   */
   "attributes"?: RoleAttributes;
   /**
    * The unique identifier of the role.
-  */
+   */
   "id"?: string;
   /**
    * Relationships of the role object returned by the API.
-  */
+   */
   "relationships"?: RoleResponseRelationships;
   /**
    * Roles type.
-  */
+   */
   "type": RolesType;
 
   /**
@@ -51,61 +46,35 @@ export class Role {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "RoleAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "RoleAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "RoleResponseRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "RoleResponseRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "RolesType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "RolesType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return Role.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

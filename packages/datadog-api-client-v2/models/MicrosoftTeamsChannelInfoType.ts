@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Channel info resource type.
-*/
+ */
 
-export type MicrosoftTeamsChannelInfoType = typeof MS_TEAMS_CHANNEL_INFO | UnparsedObject;
-export const MS_TEAMS_CHANNEL_INFO = 'ms-teams-channel-info';
+export type MicrosoftTeamsChannelInfoType =
+  | typeof MS_TEAMS_CHANNEL_INFO
+  | UnparsedObject;
+export const MS_TEAMS_CHANNEL_INFO = "ms-teams-channel-info";

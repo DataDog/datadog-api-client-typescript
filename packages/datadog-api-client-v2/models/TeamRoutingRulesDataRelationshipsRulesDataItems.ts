@@ -5,24 +5,19 @@
  */
 import { TeamRoutingRulesDataRelationshipsRulesDataItemsType } from "./TeamRoutingRulesDataRelationshipsRulesDataItemsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a relationship item to link a routing rule by its ID and type.
-*/
+ */
 export class TeamRoutingRulesDataRelationshipsRulesDataItems {
   /**
    * Specifies the unique identifier for the related routing rule.
-  */
+   */
   "id": string;
   /**
    * Indicates that the resource is of type 'team_routing_rules'.
-  */
+   */
   "type": TeamRoutingRulesDataRelationshipsRulesDataItemsType;
 
   /**
@@ -41,54 +36,28 @@ export class TeamRoutingRulesDataRelationshipsRulesDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "TeamRoutingRulesDataRelationshipsRulesDataItemsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "TeamRoutingRulesDataRelationshipsRulesDataItemsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamRoutingRulesDataRelationshipsRulesDataItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

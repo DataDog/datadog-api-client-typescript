@@ -6,25 +6,20 @@
 import { IncidentAttachmentData } from "./IncidentAttachmentData";
 import { IncidentAttachmentsResponseIncludedItem } from "./IncidentAttachmentsResponseIncludedItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response object containing the created or updated incident attachments.
-*/
+ */
 export class IncidentAttachmentUpdateResponse {
   /**
    * An array of incident attachments. Only the attachments that were created or updated by the request are
    * returned.
-  */
+   */
   "data": Array<IncidentAttachmentData>;
   /**
    * Included related resources that the user requested.
-  */
+   */
   "included"?: Array<IncidentAttachmentsResponseIncludedItem>;
 
   /**
@@ -43,53 +38,27 @@ export class IncidentAttachmentUpdateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<IncidentAttachmentData>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<IncidentAttachmentData>",
+      required: true,
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<IncidentAttachmentsResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<IncidentAttachmentsResponseIncludedItem>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentAttachmentUpdateResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { ApplicationSecurityWafExclusionFilterResource } from "./ApplicationSecurityWafExclusionFilterResource";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object for multiple WAF exclusion filters.
-*/
+ */
 export class ApplicationSecurityWafExclusionFiltersResponse {
   /**
    * A list of WAF exclusion filters.
-  */
+   */
   "data"?: Array<ApplicationSecurityWafExclusionFilterResource>;
 
   /**
@@ -37,48 +32,22 @@ export class ApplicationSecurityWafExclusionFiltersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<ApplicationSecurityWafExclusionFilterResource>",
+    data: {
+      baseName: "data",
+      type: "Array<ApplicationSecurityWafExclusionFilterResource>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafExclusionFiltersResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

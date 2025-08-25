@@ -5,32 +5,27 @@
  */
 import { UsageMetricCategory } from "./UsageMetricCategory";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Number of hourly recorded custom metrics for a given organization.
-*/
+ */
 export class UsageTopAvgMetricsHour {
   /**
    * Average number of timeseries per hour in which the metric occurs.
-  */
+   */
   "avgMetricHour"?: number;
   /**
    * Maximum number of timeseries per hour in which the metric occurs.
-  */
+   */
   "maxMetricHour"?: number;
   /**
    * Contains the metric category.
-  */
+   */
   "metricCategory"?: UsageMetricCategory;
   /**
    * Contains the custom metric name.
-  */
+   */
   "metricName"?: string;
 
   /**
@@ -49,62 +44,36 @@ export class UsageTopAvgMetricsHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "avgMetricHour": {
-      "baseName": "avg_metric_hour",
-      "type": "number",
-      "format": "int64",
+    avgMetricHour: {
+      baseName: "avg_metric_hour",
+      type: "number",
+      format: "int64",
     },
-    "maxMetricHour": {
-      "baseName": "max_metric_hour",
-      "type": "number",
-      "format": "int64",
+    maxMetricHour: {
+      baseName: "max_metric_hour",
+      type: "number",
+      format: "int64",
     },
-    "metricCategory": {
-      "baseName": "metric_category",
-      "type": "UsageMetricCategory",
+    metricCategory: {
+      baseName: "metric_category",
+      type: "UsageMetricCategory",
     },
-    "metricName": {
-      "baseName": "metric_name",
-      "type": "string",
+    metricName: {
+      baseName: "metric_name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageTopAvgMetricsHour.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

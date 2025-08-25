@@ -6,24 +6,19 @@
 import { ApplicationSecurityWafCustomRuleCreateAttributes } from "./ApplicationSecurityWafCustomRuleCreateAttributes";
 import { ApplicationSecurityWafCustomRuleType } from "./ApplicationSecurityWafCustomRuleType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object for a single WAF custom rule.
-*/
+ */
 export class ApplicationSecurityWafCustomRuleCreateData {
   /**
    * Create a new WAF custom rule.
-  */
+   */
   "attributes": ApplicationSecurityWafCustomRuleCreateAttributes;
   /**
    * The type of the resource. The value should always be `custom_rule`.
-  */
+   */
   "type": ApplicationSecurityWafCustomRuleType;
 
   /**
@@ -42,54 +37,28 @@ export class ApplicationSecurityWafCustomRuleCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ApplicationSecurityWafCustomRuleCreateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "ApplicationSecurityWafCustomRuleCreateAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ApplicationSecurityWafCustomRuleType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ApplicationSecurityWafCustomRuleType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationSecurityWafCustomRuleCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

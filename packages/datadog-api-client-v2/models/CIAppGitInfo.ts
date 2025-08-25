@@ -4,65 +4,60 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
  * Note that either `tag` or `branch` has to be provided, but not both.
-*/
+ */
 export class CIAppGitInfo {
   /**
    * The commit author email.
-  */
+   */
   "authorEmail": string;
   /**
    * The commit author name.
-  */
+   */
   "authorName"?: string;
   /**
    * The commit author timestamp in RFC3339 format.
-  */
+   */
   "authorTime"?: string;
   /**
    * The branch name (if a tag use the tag parameter).
-  */
+   */
   "branch"?: string;
   /**
    * The commit timestamp in RFC3339 format.
-  */
+   */
   "commitTime"?: string;
   /**
    * The committer email.
-  */
+   */
   "committerEmail"?: string;
   /**
    * The committer name.
-  */
+   */
   "committerName"?: string;
   /**
    * The Git repository's default branch.
-  */
+   */
   "defaultBranch"?: string;
   /**
    * The commit message.
-  */
+   */
   "message"?: string;
   /**
    * The URL of the repository.
-  */
+   */
   "repositoryUrl": string;
   /**
    * The git commit SHA.
-  */
+   */
   "sha": string;
   /**
    * The tag name (if a branch use the branch parameter).
-  */
+   */
   "tag"?: string;
 
   /**
@@ -81,95 +76,69 @@ export class CIAppGitInfo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "authorEmail": {
-      "baseName": "author_email",
-      "type": "string",
-      "required": true,
+    authorEmail: {
+      baseName: "author_email",
+      type: "string",
+      required: true,
     },
-    "authorName": {
-      "baseName": "author_name",
-      "type": "string",
+    authorName: {
+      baseName: "author_name",
+      type: "string",
     },
-    "authorTime": {
-      "baseName": "author_time",
-      "type": "string",
+    authorTime: {
+      baseName: "author_time",
+      type: "string",
     },
-    "branch": {
-      "baseName": "branch",
-      "type": "string",
+    branch: {
+      baseName: "branch",
+      type: "string",
     },
-    "commitTime": {
-      "baseName": "commit_time",
-      "type": "string",
+    commitTime: {
+      baseName: "commit_time",
+      type: "string",
     },
-    "committerEmail": {
-      "baseName": "committer_email",
-      "type": "string",
+    committerEmail: {
+      baseName: "committer_email",
+      type: "string",
     },
-    "committerName": {
-      "baseName": "committer_name",
-      "type": "string",
+    committerName: {
+      baseName: "committer_name",
+      type: "string",
     },
-    "defaultBranch": {
-      "baseName": "default_branch",
-      "type": "string",
+    defaultBranch: {
+      baseName: "default_branch",
+      type: "string",
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
+    message: {
+      baseName: "message",
+      type: "string",
     },
-    "repositoryUrl": {
-      "baseName": "repository_url",
-      "type": "string",
-      "required": true,
+    repositoryUrl: {
+      baseName: "repository_url",
+      type: "string",
+      required: true,
     },
-    "sha": {
-      "baseName": "sha",
-      "type": "string",
-      "required": true,
+    sha: {
+      baseName: "sha",
+      type: "string",
+      required: true,
     },
-    "tag": {
-      "baseName": "tag",
-      "type": "string",
+    tag: {
+      baseName: "tag",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppGitInfo.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

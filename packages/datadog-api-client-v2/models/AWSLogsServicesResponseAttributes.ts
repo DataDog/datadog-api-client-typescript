@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * AWS Logs Services response body
-*/
+ */
 export class AWSLogsServicesResponseAttributes {
   /**
    * List of AWS services that can send logs to Datadog
-  */
+   */
   "logsServices": Array<string>;
 
   /**
@@ -36,49 +31,23 @@ export class AWSLogsServicesResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "logsServices": {
-      "baseName": "logs_services",
-      "type": "Array<string>",
-      "required": true,
+    logsServices: {
+      baseName: "logs_services",
+      type: "Array<string>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSLogsServicesResponseAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

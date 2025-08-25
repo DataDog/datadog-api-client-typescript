@@ -5,29 +5,24 @@
  */
 import { AWSEventBridgeSource } from "./AWSEventBridgeSource";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The EventBridge configuration for one AWS account.
-*/
+ */
 export class AWSEventBridgeAccountConfiguration {
   /**
    * Your AWS Account ID without dashes.
-  */
+   */
   "accountId"?: string;
   /**
    * Array of AWS event sources associated with this account.
-  */
+   */
   "eventHubs"?: Array<AWSEventBridgeSource>;
   /**
    * Array of tags (in the form `key:value`) which are added to all hosts
    * and metrics reporting through the main AWS integration.
-  */
+   */
   "tags"?: Array<string>;
 
   /**
@@ -46,56 +41,30 @@ export class AWSEventBridgeAccountConfiguration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accountId": {
-      "baseName": "accountId",
-      "type": "string",
+    accountId: {
+      baseName: "accountId",
+      type: "string",
     },
-    "eventHubs": {
-      "baseName": "eventHubs",
-      "type": "Array<AWSEventBridgeSource>",
+    eventHubs: {
+      baseName: "eventHubs",
+      type: "Array<AWSEventBridgeSource>",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSEventBridgeAccountConfiguration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,24 +5,19 @@
  */
 import { CustomDestinationResponseHttpDestinationAuthCustomHeaderType } from "./CustomDestinationResponseHttpDestinationAuthCustomHeaderType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Custom header access authentication.
-*/
+ */
 export class CustomDestinationResponseHttpDestinationAuthCustomHeader {
   /**
    * The header name of the authentication.
-  */
+   */
   "headerName": string;
   /**
    * Type of the custom header access authentication.
-  */
+   */
   "type": CustomDestinationResponseHttpDestinationAuthCustomHeaderType;
 
   /**
@@ -41,54 +36,28 @@ export class CustomDestinationResponseHttpDestinationAuthCustomHeader {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "headerName": {
-      "baseName": "header_name",
-      "type": "string",
-      "required": true,
+    headerName: {
+      baseName: "header_name",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CustomDestinationResponseHttpDestinationAuthCustomHeaderType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CustomDestinationResponseHttpDestinationAuthCustomHeaderType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomDestinationResponseHttpDestinationAuthCustomHeader.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

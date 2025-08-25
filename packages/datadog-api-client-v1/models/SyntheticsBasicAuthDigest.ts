@@ -5,28 +5,23 @@
  */
 import { SyntheticsBasicAuthDigestType } from "./SyntheticsBasicAuthDigestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object to handle digest authentication when performing the test.
-*/
+ */
 export class SyntheticsBasicAuthDigest {
   /**
    * Password to use for the digest authentication.
-  */
+   */
   "password": string;
   /**
    * The type of basic authentication to use when performing the test.
-  */
+   */
   "type": SyntheticsBasicAuthDigestType;
   /**
    * Username to use for the digest authentication.
-  */
+   */
   "username": string;
 
   /**
@@ -45,59 +40,33 @@ export class SyntheticsBasicAuthDigest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "password": {
-      "baseName": "password",
-      "type": "string",
-      "required": true,
+    password: {
+      baseName: "password",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "SyntheticsBasicAuthDigestType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "SyntheticsBasicAuthDigestType",
+      required: true,
     },
-    "username": {
-      "baseName": "username",
-      "type": "string",
-      "required": true,
+    username: {
+      baseName: "username",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsBasicAuthDigest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

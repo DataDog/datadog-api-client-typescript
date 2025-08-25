@@ -5,20 +5,15 @@
  */
 import { SLOReportStatus } from "./SLOReportStatus";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The attributes portion of the SLO report status response.
-*/
+ */
 export class SLOReportStatusGetResponseAttributes {
   /**
    * The status of the SLO report job.
-  */
+   */
   "status"?: SLOReportStatus;
 
   /**
@@ -37,48 +32,22 @@ export class SLOReportStatusGetResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "status": {
-      "baseName": "status",
-      "type": "SLOReportStatus",
+    status: {
+      baseName: "status",
+      type: "SLOReportStatus",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SLOReportStatusGetResponseAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

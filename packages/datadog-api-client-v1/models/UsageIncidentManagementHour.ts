@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident management usage for a given organization for a given hour.
-*/
+ */
 export class UsageIncidentManagementHour {
   /**
    * The hour for the usage.
-  */
+   */
   "hour"?: Date;
   /**
    * Contains the total number monthly active users from the start of the given hour's month until the given hour.
-  */
+   */
   "monthlyActiveUsers"?: number;
   /**
    * The organization name.
-  */
+   */
   "orgName"?: string;
   /**
    * The organization public ID.
-  */
+   */
   "publicId"?: string;
 
   /**
@@ -48,62 +43,36 @@ export class UsageIncidentManagementHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "hour": {
-      "baseName": "hour",
-      "type": "Date",
-      "format": "date-time",
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
     },
-    "monthlyActiveUsers": {
-      "baseName": "monthly_active_users",
-      "type": "number",
-      "format": "int64",
+    monthlyActiveUsers: {
+      baseName: "monthly_active_users",
+      type: "number",
+      format: "int64",
     },
-    "orgName": {
-      "baseName": "org_name",
-      "type": "string",
+    orgName: {
+      baseName: "org_name",
+      type: "string",
     },
-    "publicId": {
-      "baseName": "public_id",
-      "type": "string",
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageIncidentManagementHour.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

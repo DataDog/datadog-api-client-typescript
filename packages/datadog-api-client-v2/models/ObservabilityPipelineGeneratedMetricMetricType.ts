@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of metric to create.
-*/
+ */
 
-export type ObservabilityPipelineGeneratedMetricMetricType = typeof COUNT| typeof GAUGE| typeof DISTRIBUTION | UnparsedObject;
-export const COUNT = 'count';
-export const GAUGE = 'gauge';
-export const DISTRIBUTION = 'distribution';
+export type ObservabilityPipelineGeneratedMetricMetricType =
+  | typeof COUNT
+  | typeof GAUGE
+  | typeof DISTRIBUTION
+  | UnparsedObject;
+export const COUNT = "count";
+export const GAUGE = "gauge";
+export const DISTRIBUTION = "distribution";

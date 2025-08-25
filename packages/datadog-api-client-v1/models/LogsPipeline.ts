@@ -6,56 +6,51 @@
 import { LogsFilter } from "./LogsFilter";
 import { LogsProcessor } from "./LogsProcessor";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Pipelines and processors operate on incoming logs,
  * parsing and transforming them into structured attributes for easier querying.
- * 
+ *
  * **Note**: These endpoints are only available for admin users.
  * Make sure to use an application key created by an admin.
-*/
+ */
 export class LogsPipeline {
   /**
    * A description of the pipeline.
-  */
+   */
   "description"?: string;
   /**
    * Filter for logs.
-  */
+   */
   "filter"?: LogsFilter;
   /**
    * ID of the pipeline.
-  */
+   */
   "id"?: string;
   /**
    * Whether or not the pipeline is enabled.
-  */
+   */
   "isEnabled"?: boolean;
   /**
    * Whether or not the pipeline can be edited.
-  */
+   */
   "isReadOnly"?: boolean;
   /**
    * Name of the pipeline.
-  */
+   */
   "name": string;
   /**
    * Ordered list of processors in this pipeline.
-  */
+   */
   "processors"?: Array<LogsProcessor>;
   /**
    * A list of tags associated with the pipeline.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * Type of pipeline.
-  */
+   */
   "type"?: string;
 
   /**
@@ -74,81 +69,55 @@ export class LogsPipeline {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "description": {
-      "baseName": "description",
-      "type": "string",
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    "filter": {
-      "baseName": "filter",
-      "type": "LogsFilter",
+    filter: {
+      baseName: "filter",
+      type: "LogsFilter",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "isEnabled": {
-      "baseName": "is_enabled",
-      "type": "boolean",
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
     },
-    "isReadOnly": {
-      "baseName": "is_read_only",
-      "type": "boolean",
+    isReadOnly: {
+      baseName: "is_read_only",
+      type: "boolean",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "processors": {
-      "baseName": "processors",
-      "type": "Array<LogsProcessor>",
+    processors: {
+      baseName: "processors",
+      type: "Array<LogsProcessor>",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsPipeline.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

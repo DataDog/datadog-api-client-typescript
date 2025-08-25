@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The destination type. The value should always be `datadog_logs`.
-*/
+ */
 
-export type ObservabilityPipelineDatadogLogsDestinationType = typeof DATADOG_LOGS | UnparsedObject;
-export const DATADOG_LOGS = 'datadog_logs';
+export type ObservabilityPipelineDatadogLogsDestinationType =
+  | typeof DATADOG_LOGS
+  | UnparsedObject;
+export const DATADOG_LOGS = "datadog_logs";

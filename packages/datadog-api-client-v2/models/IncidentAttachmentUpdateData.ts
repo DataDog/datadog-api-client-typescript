@@ -6,28 +6,23 @@
 import { IncidentAttachmentType } from "./IncidentAttachmentType";
 import { IncidentAttachmentUpdateAttributes } from "./IncidentAttachmentUpdateAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A single incident attachment.
-*/
+ */
 export class IncidentAttachmentUpdateData {
   /**
    * Incident attachment attributes.
-  */
+   */
   "attributes"?: IncidentAttachmentUpdateAttributes;
   /**
    * A unique identifier that represents the incident attachment.
-  */
+   */
   "id"?: string;
   /**
    * The incident attachment resource type.
-  */
+   */
   "type": IncidentAttachmentType;
 
   /**
@@ -46,57 +41,31 @@ export class IncidentAttachmentUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentAttachmentUpdateAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentAttachmentUpdateAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentAttachmentType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentAttachmentType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentAttachmentUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

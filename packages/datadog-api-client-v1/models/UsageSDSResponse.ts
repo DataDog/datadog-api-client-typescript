@@ -5,20 +5,15 @@
  */
 import { UsageSDSHour } from "./UsageSDSHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the Sensitive Data Scanner usage for each hour for a given organization.
-*/
+ */
 export class UsageSDSResponse {
   /**
    * Get hourly usage for Sensitive Data Scanner.
-  */
+   */
   "usage"?: Array<UsageSDSHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageSDSResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageSDSHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageSDSHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageSDSResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

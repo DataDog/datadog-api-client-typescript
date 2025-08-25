@@ -6,24 +6,19 @@
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
 import { SensitiveDataScannerRuleData } from "./SensitiveDataScannerRuleData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationships of the group.
-*/
+ */
 export class SensitiveDataScannerGroupRelationships {
   /**
    * A Sensitive Data Scanner configuration data.
-  */
+   */
   "configuration"?: SensitiveDataScannerConfigurationData;
   /**
    * Rules included in the group.
-  */
+   */
   "rules"?: SensitiveDataScannerRuleData;
 
   /**
@@ -42,52 +37,26 @@ export class SensitiveDataScannerGroupRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "configuration": {
-      "baseName": "configuration",
-      "type": "SensitiveDataScannerConfigurationData",
+    configuration: {
+      baseName: "configuration",
+      type: "SensitiveDataScannerConfigurationData",
     },
-    "rules": {
-      "baseName": "rules",
-      "type": "SensitiveDataScannerRuleData",
+    rules: {
+      baseName: "rules",
+      type: "SensitiveDataScannerRuleData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerGroupRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,25 +5,20 @@
  */
 import { FormulaLimit } from "./FormulaLimit";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A formula for calculation based on one or more queries.
-*/
+ */
 export class QueryFormula {
   /**
    * Formula string, referencing one or more queries with their name property.
-  */
+   */
   "formula": string;
   /**
    * Message for specifying limits to the number of values returned by a query.
    * This limit is only for scalar queries and has no effect on timeseries queries.
-  */
+   */
   "limit"?: FormulaLimit;
 
   /**
@@ -42,53 +37,27 @@ export class QueryFormula {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "formula": {
-      "baseName": "formula",
-      "type": "string",
-      "required": true,
+    formula: {
+      baseName: "formula",
+      type: "string",
+      required: true,
     },
-    "limit": {
-      "baseName": "limit",
-      "type": "FormulaLimit",
+    limit: {
+      baseName: "limit",
+      type: "FormulaLimit",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return QueryFormula.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

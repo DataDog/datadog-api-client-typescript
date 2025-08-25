@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Type of aggregation performed in the monitor query.
-*/
+ */
 export class MonitorOptionsAggregation {
   /**
    * Group to break down the monitor on.
-  */
+   */
   "groupBy"?: string;
   /**
    * Metric name used in the monitor.
-  */
+   */
   "metric"?: string;
   /**
    * Metric type used in the monitor.
-  */
+   */
   "type"?: string;
 
   /**
@@ -44,56 +39,30 @@ export class MonitorOptionsAggregation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "groupBy": {
-      "baseName": "group_by",
-      "type": "string",
+    groupBy: {
+      baseName: "group_by",
+      type: "string",
     },
-    "metric": {
-      "baseName": "metric",
-      "type": "string",
+    metric: {
+      baseName: "metric",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorOptionsAggregation.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

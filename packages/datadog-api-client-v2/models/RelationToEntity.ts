@@ -6,24 +6,19 @@
 import { EntityMeta } from "./EntityMeta";
 import { RelationshipItem } from "./RelationshipItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relation to entity.
-*/
+ */
 export class RelationToEntity {
   /**
    * Relationship entry.
-  */
+   */
   "data"?: RelationshipItem;
   /**
    * Entity metadata.
-  */
+   */
   "meta"?: EntityMeta;
 
   /**
@@ -42,52 +37,26 @@ export class RelationToEntity {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "RelationshipItem",
+    data: {
+      baseName: "data",
+      type: "RelationshipItem",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "EntityMeta",
+    meta: {
+      baseName: "meta",
+      type: "EntityMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationToEntity.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

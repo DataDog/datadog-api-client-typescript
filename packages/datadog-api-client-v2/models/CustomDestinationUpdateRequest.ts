@@ -5,20 +5,15 @@
  */
 import { CustomDestinationUpdateRequestDefinition } from "./CustomDestinationUpdateRequestDefinition";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The custom destination.
-*/
+ */
 export class CustomDestinationUpdateRequest {
   /**
    * The definition of a custom destination.
-  */
+   */
   "data"?: CustomDestinationUpdateRequestDefinition;
 
   /**
@@ -37,48 +32,22 @@ export class CustomDestinationUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CustomDestinationUpdateRequestDefinition",
+    data: {
+      baseName: "data",
+      type: "CustomDestinationUpdateRequestDefinition",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomDestinationUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

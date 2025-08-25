@@ -7,28 +7,23 @@ import { Links } from "./Links";
 import { Metadata } from "./Metadata";
 import { SBOM } from "./SBOM";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The expected response schema when listing assets SBOMs.
-*/
+ */
 export class ListAssetsSBOMsResponse {
   /**
    * List of assets SBOMs.
-  */
+   */
   "data": Array<SBOM>;
   /**
    * The JSON:API links related to pagination.
-  */
+   */
   "links"?: Links;
   /**
    * The metadata related to this request.
-  */
+   */
   "meta"?: Metadata;
 
   /**
@@ -47,57 +42,31 @@ export class ListAssetsSBOMsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<SBOM>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<SBOM>",
+      required: true,
     },
-    "links": {
-      "baseName": "links",
-      "type": "Links",
+    links: {
+      baseName: "links",
+      type: "Links",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "Metadata",
+    meta: {
+      baseName: "meta",
+      type: "Metadata",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListAssetsSBOMsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

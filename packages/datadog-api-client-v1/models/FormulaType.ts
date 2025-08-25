@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Set the sort type to formula.
-*/
+ */
 
 export type FormulaType = typeof FORMULA | UnparsedObject;
-export const FORMULA = 'formula';
+export const FORMULA = "formula";

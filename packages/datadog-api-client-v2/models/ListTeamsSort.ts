@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Specifies the order of the returned teams
-*/
+ */
 
-export type ListTeamsSort = typeof NAME| typeof _NAME| typeof USER_COUNT| typeof _USER_COUNT | UnparsedObject;
-export const NAME = 'name';
-export const _NAME = '-name';
-export const USER_COUNT = 'user_count';
-export const _USER_COUNT = '-user_count';
+export type ListTeamsSort =
+  | typeof NAME
+  | typeof _NAME
+  | typeof USER_COUNT
+  | typeof _USER_COUNT
+  | UnparsedObject;
+export const NAME = "name";
+export const _NAME = "-name";
+export const USER_COUNT = "user_count";
+export const _USER_COUNT = "-user_count";

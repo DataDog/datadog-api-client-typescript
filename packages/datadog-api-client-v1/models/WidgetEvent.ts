@@ -4,27 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Event overlay control options.
- * 
+ *
  * See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema)
  * to learn how to build the `<EVENTS_SCHEMA>`.
-*/
+ */
 export class WidgetEvent {
   /**
    * Query definition.
-  */
+   */
   "q": string;
   /**
    * The execution method for multi-value filters.
-  */
+   */
   "tagsExecution"?: string;
 
   /**
@@ -43,53 +38,27 @@ export class WidgetEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "q": {
-      "baseName": "q",
-      "type": "string",
-      "required": true,
+    q: {
+      baseName: "q",
+      type: "string",
+      required: true,
     },
-    "tagsExecution": {
-      "baseName": "tags_execution",
-      "type": "string",
+    tagsExecution: {
+      baseName: "tags_execution",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetEvent.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { SensitiveDataScannerMeta } from "./SensitiveDataScannerMeta";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Group reorder response.
-*/
+ */
 export class SensitiveDataScannerReorderGroupsResponse {
   /**
    * Meta response containing information about the API.
-  */
+   */
   "meta"?: SensitiveDataScannerMeta;
 
   /**
@@ -37,48 +32,22 @@ export class SensitiveDataScannerReorderGroupsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "meta": {
-      "baseName": "meta",
-      "type": "SensitiveDataScannerMeta",
+    meta: {
+      baseName: "meta",
+      type: "SensitiveDataScannerMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerReorderGroupsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

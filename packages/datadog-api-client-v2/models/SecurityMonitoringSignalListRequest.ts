@@ -7,28 +7,23 @@ import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringS
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalsSort } from "./SecurityMonitoringSignalsSort";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The request for a security signal list.
-*/
+ */
 export class SecurityMonitoringSignalListRequest {
   /**
    * Search filters for listing security signals.
-  */
+   */
   "filter"?: SecurityMonitoringSignalListRequestFilter;
   /**
    * The paging attributes for listing security signals.
-  */
+   */
   "page"?: SecurityMonitoringSignalListRequestPage;
   /**
    * The sort parameters used for querying security signals.
-  */
+   */
   "sort"?: SecurityMonitoringSignalsSort;
 
   /**
@@ -47,56 +42,30 @@ export class SecurityMonitoringSignalListRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "filter": {
-      "baseName": "filter",
-      "type": "SecurityMonitoringSignalListRequestFilter",
+    filter: {
+      baseName: "filter",
+      type: "SecurityMonitoringSignalListRequestFilter",
     },
-    "page": {
-      "baseName": "page",
-      "type": "SecurityMonitoringSignalListRequestPage",
+    page: {
+      baseName: "page",
+      type: "SecurityMonitoringSignalListRequestPage",
     },
-    "sort": {
-      "baseName": "sort",
-      "type": "SecurityMonitoringSignalsSort",
+    sort: {
+      baseName: "sort",
+      type: "SecurityMonitoringSignalsSort",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalListRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The original representation of input string.
-*/
+ */
 
-export type LogsDecoderProcessorInputRepresentation = typeof UTF_8| typeof INTEGER | UnparsedObject;
-export const UTF_8 = 'utf_8';
-export const INTEGER = 'integer';
+export type LogsDecoderProcessorInputRepresentation =
+  | typeof UTF_8
+  | typeof INTEGER
+  | UnparsedObject;
+export const UTF_8 = "utf_8";
+export const INTEGER = "integer";

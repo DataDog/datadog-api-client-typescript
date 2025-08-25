@@ -4,22 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The different states your monitor can be in.
-*/
+ */
 
-export type MonitorOverallStates = typeof ALERT| typeof IGNORED| typeof NO_DATA| typeof OK| typeof SKIPPED| typeof UNKNOWN| typeof WARN | UnparsedObject;
-export const ALERT = 'Alert';
-export const IGNORED = 'Ignored';
-export const NO_DATA = 'No Data';
-export const OK = 'OK';
-export const SKIPPED = 'Skipped';
-export const UNKNOWN = 'Unknown';
-export const WARN = 'Warn';
+export type MonitorOverallStates =
+  | typeof ALERT
+  | typeof IGNORED
+  | typeof NO_DATA
+  | typeof OK
+  | typeof SKIPPED
+  | typeof UNKNOWN
+  | typeof WARN
+  | UnparsedObject;
+export const ALERT = "Alert";
+export const IGNORED = "Ignored";
+export const NO_DATA = "No Data";
+export const OK = "OK";
+export const SKIPPED = "Skipped";
+export const UNKNOWN = "Unknown";
+export const WARN = "Warn";

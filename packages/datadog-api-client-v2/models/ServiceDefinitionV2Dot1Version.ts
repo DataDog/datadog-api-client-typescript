@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Schema version being used.
-*/
+ */
 
 export type ServiceDefinitionV2Dot1Version = typeof V2_1 | UnparsedObject;
-export const V2_1 = 'v2.1';
+export const V2_1 = "v2.1";

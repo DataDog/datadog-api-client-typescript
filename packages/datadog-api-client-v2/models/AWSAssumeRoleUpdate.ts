@@ -5,32 +5,27 @@
  */
 import { AWSAssumeRoleType } from "./AWSAssumeRoleType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `AWSAssumeRoleUpdate` object.
-*/
+ */
 export class AWSAssumeRoleUpdate {
   /**
    * AWS account the connection is created for
-  */
+   */
   "accountId"?: string;
   /**
    * The `AWSAssumeRoleUpdate` `generate_new_external_id`.
-  */
+   */
   "generateNewExternalId"?: boolean;
   /**
    * Role to assume
-  */
+   */
   "role"?: string;
   /**
    * The definition of `AWSAssumeRoleType` object.
-  */
+   */
   "type": AWSAssumeRoleType;
 
   /**
@@ -49,61 +44,35 @@ export class AWSAssumeRoleUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accountId": {
-      "baseName": "account_id",
-      "type": "string",
+    accountId: {
+      baseName: "account_id",
+      type: "string",
     },
-    "generateNewExternalId": {
-      "baseName": "generate_new_external_id",
-      "type": "boolean",
+    generateNewExternalId: {
+      baseName: "generate_new_external_id",
+      type: "boolean",
     },
-    "role": {
-      "baseName": "role",
-      "type": "string",
+    role: {
+      baseName: "role",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AWSAssumeRoleType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AWSAssumeRoleType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSAssumeRoleUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

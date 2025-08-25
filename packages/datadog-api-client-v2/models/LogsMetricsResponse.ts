@@ -5,20 +5,15 @@
  */
 import { LogsMetricResponseData } from "./LogsMetricResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * All the available log-based metric objects.
-*/
+ */
 export class LogsMetricsResponse {
   /**
    * A list of log-based metric objects.
-  */
+   */
   "data"?: Array<LogsMetricResponseData>;
 
   /**
@@ -37,48 +32,22 @@ export class LogsMetricsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<LogsMetricResponseData>",
+    data: {
+      baseName: "data",
+      type: "Array<LogsMetricResponseData>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsMetricsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

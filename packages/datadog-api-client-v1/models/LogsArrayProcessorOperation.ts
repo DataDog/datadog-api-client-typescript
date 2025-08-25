@@ -7,15 +7,14 @@ import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperation
 import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
 import { LogsArrayProcessorOperationSelect } from "./LogsArrayProcessorOperationSelect";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Configuration of the array processor operation to perform.
-*/
+ */
 
-export type LogsArrayProcessorOperation = LogsArrayProcessorOperationAppend | LogsArrayProcessorOperationLength | LogsArrayProcessorOperationSelect | UnparsedObject;
+export type LogsArrayProcessorOperation =
+  | LogsArrayProcessorOperationAppend
+  | LogsArrayProcessorOperationLength
+  | LogsArrayProcessorOperationSelect
+  | UnparsedObject;

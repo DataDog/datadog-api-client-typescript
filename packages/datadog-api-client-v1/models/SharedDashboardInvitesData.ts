@@ -5,15 +5,13 @@
  */
 import { SharedDashboardInvitesDataObject } from "./SharedDashboardInvitesDataObject";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * An object or list of objects containing the information for an invitation to a shared dashboard.
-*/
+ */
 
-export type SharedDashboardInvitesData = SharedDashboardInvitesDataObject | Array<SharedDashboardInvitesDataObject> | UnparsedObject;
+export type SharedDashboardInvitesData =
+  | SharedDashboardInvitesDataObject
+  | Array<SharedDashboardInvitesDataObject>
+  | UnparsedObject;

@@ -5,20 +5,15 @@
  */
 import { IncidentIntegrationMetadataPatchData } from "./IncidentIntegrationMetadataPatchData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Patch request for an incident integration metadata.
-*/
+ */
 export class IncidentIntegrationMetadataPatchRequest {
   /**
    * Incident integration metadata data for a patch request.
-  */
+   */
   "data": IncidentIntegrationMetadataPatchData;
 
   /**
@@ -37,49 +32,23 @@ export class IncidentIntegrationMetadataPatchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "IncidentIntegrationMetadataPatchData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "IncidentIntegrationMetadataPatchData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentIntegrationMetadataPatchRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

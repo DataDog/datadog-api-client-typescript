@@ -6,33 +6,28 @@
 import { SpansAggregateResponseStatus } from "./SpansAggregateResponseStatus";
 import { SpansWarning } from "./SpansWarning";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The metadata associated with a request.
-*/
+ */
 export class SpansAggregateResponseMetadata {
   /**
    * The time elapsed in milliseconds.
-  */
+   */
   "elapsed"?: number;
   /**
    * The identifier of the request.
-  */
+   */
   "requestId"?: string;
   /**
    * The status of the response.
-  */
+   */
   "status"?: SpansAggregateResponseStatus;
   /**
    * A list of warnings (non fatal errors) encountered, partial results might be returned if
    * warnings are present in the response.
-  */
+   */
   "warnings"?: Array<SpansWarning>;
 
   /**
@@ -51,61 +46,35 @@ export class SpansAggregateResponseMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "elapsed": {
-      "baseName": "elapsed",
-      "type": "number",
-      "format": "int64",
+    elapsed: {
+      baseName: "elapsed",
+      type: "number",
+      format: "int64",
     },
-    "requestId": {
-      "baseName": "request_id",
-      "type": "string",
+    requestId: {
+      baseName: "request_id",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "SpansAggregateResponseStatus",
+    status: {
+      baseName: "status",
+      type: "SpansAggregateResponseStatus",
     },
-    "warnings": {
-      "baseName": "warnings",
-      "type": "Array<SpansWarning>",
+    warnings: {
+      baseName: "warnings",
+      type: "Array<SpansWarning>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansAggregateResponseMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

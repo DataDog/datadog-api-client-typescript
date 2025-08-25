@@ -4,15 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Port to use when performing the test.
-*/
+ */
 
 export type SyntheticsTestRequestPort = number | string | UnparsedObject;

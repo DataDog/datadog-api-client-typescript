@@ -7,28 +7,23 @@ import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCo
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response of a monitor group search.
-*/
+ */
 export class MonitorGroupSearchResponse {
   /**
    * The counts of monitor groups per different criteria.
-  */
+   */
   "counts"?: MonitorGroupSearchResponseCounts;
   /**
    * The list of found monitor groups.
-  */
+   */
   "groups"?: Array<MonitorGroupSearchResult>;
   /**
    * Metadata about the response.
-  */
+   */
   "metadata"?: MonitorSearchResponseMetadata;
 
   /**
@@ -47,56 +42,30 @@ export class MonitorGroupSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "counts": {
-      "baseName": "counts",
-      "type": "MonitorGroupSearchResponseCounts",
+    counts: {
+      baseName: "counts",
+      type: "MonitorGroupSearchResponseCounts",
     },
-    "groups": {
-      "baseName": "groups",
-      "type": "Array<MonitorGroupSearchResult>",
+    groups: {
+      baseName: "groups",
+      type: "Array<MonitorGroupSearchResult>",
     },
-    "metadata": {
-      "baseName": "metadata",
-      "type": "MonitorSearchResponseMetadata",
+    metadata: {
+      baseName: "metadata",
+      type: "MonitorSearchResponseMetadata",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorGroupSearchResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

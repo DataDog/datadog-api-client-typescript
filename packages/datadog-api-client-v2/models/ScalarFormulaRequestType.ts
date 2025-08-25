@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of the resource. The value should always be scalar_request.
-*/
+ */
 
 export type ScalarFormulaRequestType = typeof SCALAR_REQUEST | UnparsedObject;
-export const SCALAR_REQUEST = 'scalar_request';
+export const SCALAR_REQUEST = "scalar_request";

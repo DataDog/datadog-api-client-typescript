@@ -7,28 +7,23 @@ import { IncidentResponseIncludedItem } from "./IncidentResponseIncludedItem";
 import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
 import { IncidentSearchResponseMeta } from "./IncidentSearchResponseMeta";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response with incidents and facets.
-*/
+ */
 export class IncidentSearchResponse {
   /**
    * Data returned by an incident search.
-  */
+   */
   "data": IncidentSearchResponseData;
   /**
    * Included related resources that the user requested.
-  */
+   */
   "included"?: Array<IncidentResponseIncludedItem>;
   /**
    * The metadata object containing pagination metadata.
-  */
+   */
   "meta"?: IncidentSearchResponseMeta;
 
   /**
@@ -47,57 +42,31 @@ export class IncidentSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "IncidentSearchResponseData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "IncidentSearchResponseData",
+      required: true,
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<IncidentResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<IncidentResponseIncludedItem>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "IncidentSearchResponseMeta",
+    meta: {
+      baseName: "meta",
+      type: "IncidentSearchResponseMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentSearchResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

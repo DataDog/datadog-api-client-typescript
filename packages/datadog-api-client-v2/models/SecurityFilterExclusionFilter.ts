@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Exclusion filter for the security filter.
-*/
+ */
 export class SecurityFilterExclusionFilter {
   /**
    * Exclusion filter name.
-  */
+   */
   "name": string;
   /**
    * Exclusion filter query. Logs that match this query are excluded from the security filter.
-  */
+   */
   "query": string;
 
   /**
@@ -40,54 +35,28 @@ export class SecurityFilterExclusionFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
-      "required": true,
+    query: {
+      baseName: "query",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityFilterExclusionFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

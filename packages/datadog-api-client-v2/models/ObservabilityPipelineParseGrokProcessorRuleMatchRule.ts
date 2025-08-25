@@ -4,25 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a Grok parsing rule, which extracts structured fields from log content using named Grok patterns.
  * Each rule must have a unique name and a valid Datadog Grok pattern that will be applied to the source field.
-*/
+ */
 export class ObservabilityPipelineParseGrokProcessorRuleMatchRule {
   /**
    * The name of the rule.
-  */
+   */
   "name": string;
   /**
    * The definition of the Grok rule.
-  */
+   */
   "rule": string;
 
   /**
@@ -41,54 +36,28 @@ export class ObservabilityPipelineParseGrokProcessorRuleMatchRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "rule": {
-      "baseName": "rule",
-      "type": "string",
-      "required": true,
+    rule: {
+      baseName: "rule",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineParseGrokProcessorRuleMatchRule.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

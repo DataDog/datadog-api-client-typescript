@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Error type returned by a browser test.
-*/
+ */
 
-export type SyntheticsBrowserErrorType = typeof NETWORK| typeof JS | UnparsedObject;
-export const NETWORK = 'network';
-export const JS = 'js';
+export type SyntheticsBrowserErrorType =
+  | typeof NETWORK
+  | typeof JS
+  | UnparsedObject;
+export const NETWORK = "network";
+export const JS = "js";

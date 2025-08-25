@@ -7,28 +7,23 @@ import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The attributes of a notebook `log_stream` cell.
-*/
+ */
 export class NotebookLogStreamCellAttributes {
   /**
    * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
-  */
+   */
   "definition": LogStreamWidgetDefinition;
   /**
    * The size of the graph.
-  */
+   */
   "graphSize"?: NotebookGraphSize;
   /**
    * Timeframe for the notebook cell. When 'null', the notebook global time is used.
-  */
+   */
   "time"?: NotebookCellTime;
 
   /**
@@ -47,57 +42,31 @@ export class NotebookLogStreamCellAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "definition": {
-      "baseName": "definition",
-      "type": "LogStreamWidgetDefinition",
-      "required": true,
+    definition: {
+      baseName: "definition",
+      type: "LogStreamWidgetDefinition",
+      required: true,
     },
-    "graphSize": {
-      "baseName": "graph_size",
-      "type": "NotebookGraphSize",
+    graphSize: {
+      baseName: "graph_size",
+      type: "NotebookGraphSize",
     },
-    "time": {
-      "baseName": "time",
-      "type": "NotebookCellTime",
+    time: {
+      baseName: "time",
+      type: "NotebookCellTime",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookLogStreamCellAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

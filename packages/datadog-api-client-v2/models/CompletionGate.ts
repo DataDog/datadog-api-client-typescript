@@ -6,24 +6,19 @@
 import { CompletionCondition } from "./CompletionCondition";
 import { RetryStrategy } from "./RetryStrategy";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Used to create conditions before running subsequent actions.
-*/
+ */
 export class CompletionGate {
   /**
    * The definition of `CompletionCondition` object.
-  */
+   */
   "completionCondition": CompletionCondition;
   /**
    * The definition of `RetryStrategy` object.
-  */
+   */
   "retryStrategy": RetryStrategy;
 
   /**
@@ -42,54 +37,28 @@ export class CompletionGate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "completionCondition": {
-      "baseName": "completionCondition",
-      "type": "CompletionCondition",
-      "required": true,
+    completionCondition: {
+      baseName: "completionCondition",
+      type: "CompletionCondition",
+      required: true,
     },
-    "retryStrategy": {
-      "baseName": "retryStrategy",
-      "type": "RetryStrategy",
-      "required": true,
+    retryStrategy: {
+      baseName: "retryStrategy",
+      type: "RetryStrategy",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CompletionGate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

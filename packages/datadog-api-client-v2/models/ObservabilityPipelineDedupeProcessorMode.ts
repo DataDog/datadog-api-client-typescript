@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The deduplication mode to apply to the fields.
-*/
+ */
 
-export type ObservabilityPipelineDedupeProcessorMode = typeof MATCH| typeof IGNORE | UnparsedObject;
-export const MATCH = 'match';
-export const IGNORE = 'ignore';
+export type ObservabilityPipelineDedupeProcessorMode =
+  | typeof MATCH
+  | typeof IGNORE
+  | UnparsedObject;
+export const MATCH = "match";
+export const IGNORE = "ignore";

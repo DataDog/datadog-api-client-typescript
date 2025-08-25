@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of logs decoder processor.
-*/
+ */
 
-export type LogsDecoderProcessorType = typeof DECODER_PROCESSOR | UnparsedObject;
-export const DECODER_PROCESSOR = 'decoder-processor';
+export type LogsDecoderProcessorType =
+  | typeof DECODER_PROCESSOR
+  | UnparsedObject;
+export const DECODER_PROCESSOR = "decoder-processor";

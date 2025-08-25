@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a single VRL remap rule with its own filtering and transformation logic.
-*/
+ */
 export class ObservabilityPipelineCustomProcessorRemap {
   /**
    * Whether to drop events that caused errors during processing.
-  */
+   */
   "dropOnError": boolean;
   /**
    * Whether this remap rule is enabled.
-  */
+   */
   "enabled": boolean;
   /**
    * A Datadog search query used to filter events for this specific remap rule.
-  */
+   */
   "include": string;
   /**
    * A descriptive name for this remap rule.
-  */
+   */
   "name": string;
   /**
    * The VRL script source code that defines the processing logic.
-  */
+   */
   "source": string;
 
   /**
@@ -52,69 +47,43 @@ export class ObservabilityPipelineCustomProcessorRemap {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "dropOnError": {
-      "baseName": "drop_on_error",
-      "type": "boolean",
-      "required": true,
+    dropOnError: {
+      baseName: "drop_on_error",
+      type: "boolean",
+      required: true,
     },
-    "enabled": {
-      "baseName": "enabled",
-      "type": "boolean",
-      "required": true,
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
     },
-    "include": {
-      "baseName": "include",
-      "type": "string",
-      "required": true,
+    include: {
+      baseName: "include",
+      type: "string",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "source": {
-      "baseName": "source",
-      "type": "string",
-      "required": true,
+    source: {
+      baseName: "source",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineCustomProcessorRemap.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

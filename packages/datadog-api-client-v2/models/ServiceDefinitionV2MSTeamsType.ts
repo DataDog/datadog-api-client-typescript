@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Contact type.
-*/
+ */
 
-export type ServiceDefinitionV2MSTeamsType = typeof MICROSOFT_TEAMS | UnparsedObject;
-export const MICROSOFT_TEAMS = 'microsoft-teams';
+export type ServiceDefinitionV2MSTeamsType =
+  | typeof MICROSOFT_TEAMS
+  | UnparsedObject;
+export const MICROSOFT_TEAMS = "microsoft-teams";

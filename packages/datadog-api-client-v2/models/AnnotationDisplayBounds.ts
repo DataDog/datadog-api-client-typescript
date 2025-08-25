@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `AnnotationDisplayBounds` object.
-*/
+ */
 export class AnnotationDisplayBounds {
   /**
    * The `bounds` `height`.
-  */
+   */
   "height"?: number;
   /**
    * The `bounds` `width`.
-  */
+   */
   "width"?: number;
   /**
    * The `bounds` `x`.
-  */
+   */
   "x"?: number;
   /**
    * The `bounds` `y`.
-  */
+   */
   "y"?: number;
 
   /**
@@ -48,64 +43,38 @@ export class AnnotationDisplayBounds {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "height": {
-      "baseName": "height",
-      "type": "number",
-      "format": "double",
+    height: {
+      baseName: "height",
+      type: "number",
+      format: "double",
     },
-    "width": {
-      "baseName": "width",
-      "type": "number",
-      "format": "double",
+    width: {
+      baseName: "width",
+      type: "number",
+      format: "double",
     },
-    "x": {
-      "baseName": "x",
-      "type": "number",
-      "format": "double",
+    x: {
+      baseName: "x",
+      type: "number",
+      format: "double",
     },
-    "y": {
-      "baseName": "y",
-      "type": "number",
-      "format": "double",
+    y: {
+      baseName: "y",
+      type: "number",
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AnnotationDisplayBounds.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

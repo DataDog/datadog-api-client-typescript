@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The final status of the job.
-*/
+ */
 
-export type CIAppPipelineEventJobStatus = typeof SUCCESS| typeof ERROR| typeof CANCELED| typeof SKIPPED | UnparsedObject;
-export const SUCCESS = 'success';
-export const ERROR = 'error';
-export const CANCELED = 'canceled';
-export const SKIPPED = 'skipped';
+export type CIAppPipelineEventJobStatus =
+  | typeof SUCCESS
+  | typeof ERROR
+  | typeof CANCELED
+  | typeof SKIPPED
+  | UnparsedObject;
+export const SUCCESS = "success";
+export const ERROR = "error";
+export const CANCELED = "canceled";
+export const SKIPPED = "skipped";

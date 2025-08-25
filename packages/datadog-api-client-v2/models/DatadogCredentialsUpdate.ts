@@ -5,15 +5,10 @@
  */
 import { DatadogAPIKeyUpdate } from "./DatadogAPIKeyUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `DatadogCredentialsUpdate` object.
-*/
+ */
 
 export type DatadogCredentialsUpdate = DatadogAPIKeyUpdate | UnparsedObject;

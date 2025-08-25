@@ -6,32 +6,27 @@
 import { RUMEventProcessingState } from "./RUMEventProcessingState";
 import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentionState";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * RUM application update attributes.
-*/
+ */
 export class RUMApplicationUpdateAttributes {
   /**
    * Name of the RUM application.
-  */
+   */
   "name"?: string;
   /**
    * Controls the retention policy for Product Analytics data derived from RUM events.
-  */
+   */
   "productAnalyticsRetentionState"?: RUMProductAnalyticsRetentionState;
   /**
    * Configures which RUM events are processed and stored for the application.
-  */
+   */
   "rumEventProcessingState"?: RUMEventProcessingState;
   /**
    * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
-  */
+   */
   "type"?: string;
 
   /**
@@ -50,60 +45,34 @@ export class RUMApplicationUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "productAnalyticsRetentionState": {
-      "baseName": "product_analytics_retention_state",
-      "type": "RUMProductAnalyticsRetentionState",
+    productAnalyticsRetentionState: {
+      baseName: "product_analytics_retention_state",
+      type: "RUMProductAnalyticsRetentionState",
     },
-    "rumEventProcessingState": {
-      "baseName": "rum_event_processing_state",
-      "type": "RUMEventProcessingState",
+    rumEventProcessingState: {
+      baseName: "rum_event_processing_state",
+      type: "RUMEventProcessingState",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RUMApplicationUpdateAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

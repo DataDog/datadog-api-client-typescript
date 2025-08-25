@@ -6,28 +6,23 @@
 import { NotificationRulesType } from "./NotificationRulesType";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data of the notification rule patch request: the rule ID, the rule type, and the rule attributes. All fields are required.
-*/
+ */
 export class PatchNotificationRuleParametersData {
   /**
    * Attributes of the notification rule patch request. It is required to update the version of the rule when patching it.
-  */
+   */
   "attributes": PatchNotificationRuleParametersDataAttributes;
   /**
    * The ID of a notification rule.
-  */
+   */
   "id": string;
   /**
    * The rule type associated to notification rules.
-  */
+   */
   "type": NotificationRulesType;
 
   /**
@@ -46,59 +41,33 @@ export class PatchNotificationRuleParametersData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "PatchNotificationRuleParametersDataAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "PatchNotificationRuleParametersDataAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "NotificationRulesType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "NotificationRulesType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PatchNotificationRuleParametersData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

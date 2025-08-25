@@ -5,20 +5,15 @@
  */
 import { OktaAccountUpdateRequestData } from "./OktaAccountUpdateRequestData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Payload schema when updating an Okta account.
-*/
+ */
 export class OktaAccountUpdateRequest {
   /**
    * Data object for updating an Okta account.
-  */
+   */
   "data": OktaAccountUpdateRequestData;
 
   /**
@@ -37,49 +32,23 @@ export class OktaAccountUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "OktaAccountUpdateRequestData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "OktaAccountUpdateRequestData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OktaAccountUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

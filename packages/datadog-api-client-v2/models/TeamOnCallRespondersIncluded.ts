@@ -6,15 +6,10 @@
 import { Escalation } from "./Escalation";
 import { User } from "./User";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Represents an union of related resources included in the response, such as users and escalation steps.
-*/
+ */
 
 export type TeamOnCallRespondersIncluded = User | Escalation | UnparsedObject;

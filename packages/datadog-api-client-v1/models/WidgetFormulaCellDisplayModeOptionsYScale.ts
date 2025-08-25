@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Y scale for the cell display mode options.
-*/
+ */
 
-export type WidgetFormulaCellDisplayModeOptionsYScale = typeof SHARED| typeof INDEPENDENT | UnparsedObject;
-export const SHARED = 'shared';
-export const INDEPENDENT = 'independent';
+export type WidgetFormulaCellDisplayModeOptionsYScale =
+  | typeof SHARED
+  | typeof INDEPENDENT
+  | UnparsedObject;
+export const SHARED = "shared";
+export const INDEPENDENT = "independent";

@@ -5,20 +5,15 @@
  */
 import { FastlyAccountCreateRequestData } from "./FastlyAccountCreateRequestData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Payload schema when adding a Fastly account.
-*/
+ */
 export class FastlyAccountCreateRequest {
   /**
    * Data object for creating a Fastly account.
-  */
+   */
   "data": FastlyAccountCreateRequestData;
 
   /**
@@ -37,49 +32,23 @@ export class FastlyAccountCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "FastlyAccountCreateRequestData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "FastlyAccountCreateRequestData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FastlyAccountCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

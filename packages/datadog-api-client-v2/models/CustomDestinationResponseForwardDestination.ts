@@ -8,15 +8,15 @@ import { CustomDestinationResponseForwardDestinationHttp } from "./CustomDestina
 import { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinel";
 import { CustomDestinationResponseForwardDestinationSplunk } from "./CustomDestinationResponseForwardDestinationSplunk";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A custom destination's location to forward logs.
-*/
+ */
 
-export type CustomDestinationResponseForwardDestination = CustomDestinationResponseForwardDestinationHttp | CustomDestinationResponseForwardDestinationSplunk | CustomDestinationResponseForwardDestinationElasticsearch | CustomDestinationResponseForwardDestinationMicrosoftSentinel | UnparsedObject;
+export type CustomDestinationResponseForwardDestination =
+  | CustomDestinationResponseForwardDestinationHttp
+  | CustomDestinationResponseForwardDestinationSplunk
+  | CustomDestinationResponseForwardDestinationElasticsearch
+  | CustomDestinationResponseForwardDestinationMicrosoftSentinel
+  | UnparsedObject;

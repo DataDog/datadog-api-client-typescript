@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * SLO resource type.
-*/
+ */
 
 export type MetricSLOType = typeof SLOS | UnparsedObject;
-export const SLOS = 'slos';
+export const SLOS = "slos";

@@ -6,24 +6,19 @@
 import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Notebooks get all response.
-*/
+ */
 export class NotebooksResponse {
   /**
    * List of notebook definitions.
-  */
+   */
   "data"?: Array<NotebooksResponseData>;
   /**
    * Searches metadata returned by the API.
-  */
+   */
   "meta"?: NotebooksResponseMeta;
 
   /**
@@ -42,52 +37,26 @@ export class NotebooksResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<NotebooksResponseData>",
+    data: {
+      baseName: "data",
+      type: "Array<NotebooksResponseData>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "NotebooksResponseMeta",
+    meta: {
+      baseName: "meta",
+      type: "NotebooksResponseMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebooksResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

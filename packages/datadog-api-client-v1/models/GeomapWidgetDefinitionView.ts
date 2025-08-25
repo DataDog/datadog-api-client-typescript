@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The view of the world that the map should render.
-*/
+ */
 export class GeomapWidgetDefinitionView {
   /**
    * The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
-  */
+   */
   "focus": string;
 
   /**
@@ -36,49 +31,23 @@ export class GeomapWidgetDefinitionView {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "focus": {
-      "baseName": "focus",
-      "type": "string",
-      "required": true,
+    focus: {
+      baseName: "focus",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GeomapWidgetDefinitionView.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

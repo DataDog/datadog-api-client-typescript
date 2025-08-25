@@ -5,20 +5,15 @@
  */
 import { SensitiveDataScannerStandardPattern } from "./SensitiveDataScannerStandardPattern";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A standard pattern.
-*/
+ */
 export class SensitiveDataScannerStandardPatternData {
   /**
    * Data containing the standard pattern id.
-  */
+   */
   "data"?: SensitiveDataScannerStandardPattern;
 
   /**
@@ -37,48 +32,22 @@ export class SensitiveDataScannerStandardPatternData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SensitiveDataScannerStandardPattern",
+    data: {
+      baseName: "data",
+      type: "SensitiveDataScannerStandardPattern",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerStandardPatternData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

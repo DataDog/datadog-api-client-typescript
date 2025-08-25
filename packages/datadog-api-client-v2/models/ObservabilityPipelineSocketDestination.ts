@@ -9,44 +9,39 @@ import { ObservabilityPipelineSocketDestinationMode } from "./ObservabilityPipel
 import { ObservabilityPipelineSocketDestinationType } from "./ObservabilityPipelineSocketDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `socket` destination sends logs over TCP or UDP to a remote server.
-*/
+ */
 export class ObservabilityPipelineSocketDestination {
   /**
    * Encoding format for log events.
-  */
+   */
   "encoding": ObservabilityPipelineSocketDestinationEncoding;
   /**
    * Framing method configuration.
-  */
+   */
   "framing": ObservabilityPipelineSocketDestinationFraming;
   /**
    * The unique identifier for this component.
-  */
+   */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-  */
+   */
   "inputs": Array<string>;
   /**
    * Protocol used to send logs.
-  */
+   */
   "mode": ObservabilityPipelineSocketDestinationMode;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-  */
+   */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The destination type. The value should always be `socket`.
-  */
+   */
   "type": ObservabilityPipelineSocketDestinationType;
 
   /**
@@ -65,78 +60,52 @@ export class ObservabilityPipelineSocketDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "encoding": {
-      "baseName": "encoding",
-      "type": "ObservabilityPipelineSocketDestinationEncoding",
-      "required": true,
+    encoding: {
+      baseName: "encoding",
+      type: "ObservabilityPipelineSocketDestinationEncoding",
+      required: true,
     },
-    "framing": {
-      "baseName": "framing",
-      "type": "ObservabilityPipelineSocketDestinationFraming",
-      "required": true,
+    framing: {
+      baseName: "framing",
+      type: "ObservabilityPipelineSocketDestinationFraming",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "inputs": {
-      "baseName": "inputs",
-      "type": "Array<string>",
-      "required": true,
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
     },
-    "mode": {
-      "baseName": "mode",
-      "type": "ObservabilityPipelineSocketDestinationMode",
-      "required": true,
+    mode: {
+      baseName: "mode",
+      type: "ObservabilityPipelineSocketDestinationMode",
+      required: true,
     },
-    "tls": {
-      "baseName": "tls",
-      "type": "ObservabilityPipelineTls",
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineSocketDestinationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineSocketDestinationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSocketDestination.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

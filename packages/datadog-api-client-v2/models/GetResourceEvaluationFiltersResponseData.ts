@@ -6,28 +6,23 @@
 import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResourceFilterRequestType } from "./ResourceFilterRequestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `GetResourceFilterResponseData` object.
-*/
+ */
 export class GetResourceEvaluationFiltersResponseData {
   /**
    * Attributes of a resource filter.
-  */
+   */
   "attributes"?: ResourceFilterAttributes;
   /**
    * The `data` `id`.
-  */
+   */
   "id"?: string;
   /**
    * Constant string to identify the request type.
-  */
+   */
   "type"?: ResourceFilterRequestType;
 
   /**
@@ -46,56 +41,30 @@ export class GetResourceEvaluationFiltersResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ResourceFilterAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ResourceFilterAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ResourceFilterRequestType",
+    type: {
+      baseName: "type",
+      type: "ResourceFilterRequestType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GetResourceEvaluationFiltersResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

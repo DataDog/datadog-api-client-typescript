@@ -5,25 +5,20 @@
  */
 import { CIAppAggregateBucketValue } from "./CIAppAggregateBucketValue";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Bucket values.
-*/
+ */
 export class CIAppTestsBucketResponse {
   /**
    * The key-value pairs for each group-by.
-  */
-  "by"?: { [key: string]: any; };
+   */
+  "by"?: { [key: string]: any };
   /**
    * A map of the metric name to value for regular compute, or a list of values for a timeseries.
-  */
-  "computes"?: { [key: string]: CIAppAggregateBucketValue; };
+   */
+  "computes"?: { [key: string]: CIAppAggregateBucketValue };
 
   /**
    * A container for additional, undeclared properties.
@@ -41,52 +36,26 @@ export class CIAppTestsBucketResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "by": {
-      "baseName": "by",
-      "type": "{ [key: string]: any; }",
+    by: {
+      baseName: "by",
+      type: "{ [key: string]: any; }",
     },
-    "computes": {
-      "baseName": "computes",
-      "type": "{ [key: string]: CIAppAggregateBucketValue; }",
+    computes: {
+      baseName: "computes",
+      type: "{ [key: string]: CIAppAggregateBucketValue; }",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppTestsBucketResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { Series } from "./Series";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The metrics' payload.
-*/
+ */
 export class MetricsPayload {
   /**
    * A list of timeseries to submit to Datadog.
-  */
+   */
   "series": Array<Series>;
 
   /**
@@ -37,49 +32,23 @@ export class MetricsPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "series": {
-      "baseName": "series",
-      "type": "Array<Series>",
-      "required": true,
+    series: {
+      baseName: "series",
+      type: "Array<Series>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricsPayload.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,28 +5,23 @@
  */
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Get device response data.
-*/
+ */
 export class GetDeviceData {
   /**
    * The device attributes
-  */
+   */
   "attributes"?: GetDeviceAttributes;
   /**
    * The device ID
-  */
+   */
   "id"?: string;
   /**
    * The type of the resource. The value should always be device.
-  */
+   */
   "type"?: string;
 
   /**
@@ -45,56 +40,30 @@ export class GetDeviceData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "GetDeviceAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "GetDeviceAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GetDeviceData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

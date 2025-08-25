@@ -5,15 +5,10 @@
  */
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of `HTTPCredentialsUpdate` object.
-*/
+ */
 
 export type HTTPCredentialsUpdate = HTTPTokenAuthUpdate | UnparsedObject;

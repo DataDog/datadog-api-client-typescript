@@ -5,28 +5,23 @@
  */
 import { CustomDestinationHttpDestinationAuthCustomHeaderType } from "./CustomDestinationHttpDestinationAuthCustomHeaderType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Custom header access authentication.
-*/
+ */
 export class CustomDestinationHttpDestinationAuthCustomHeader {
   /**
    * The header name of the authentication.
-  */
+   */
   "headerName": string;
   /**
    * The header value of the authentication. This field is not returned by the API.
-  */
+   */
   "headerValue": string;
   /**
    * Type of the custom header access authentication.
-  */
+   */
   "type": CustomDestinationHttpDestinationAuthCustomHeaderType;
 
   /**
@@ -45,59 +40,33 @@ export class CustomDestinationHttpDestinationAuthCustomHeader {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "headerName": {
-      "baseName": "header_name",
-      "type": "string",
-      "required": true,
+    headerName: {
+      baseName: "header_name",
+      type: "string",
+      required: true,
     },
-    "headerValue": {
-      "baseName": "header_value",
-      "type": "string",
-      "required": true,
+    headerValue: {
+      baseName: "header_value",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CustomDestinationHttpDestinationAuthCustomHeaderType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CustomDestinationHttpDestinationAuthCustomHeaderType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomDestinationHttpDestinationAuthCustomHeader.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

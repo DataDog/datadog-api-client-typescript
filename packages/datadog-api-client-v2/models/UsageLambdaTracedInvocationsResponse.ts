@@ -5,20 +5,15 @@
  */
 import { UsageDataObject } from "./UsageDataObject";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Lambda Traced Invocations usage response.
-*/
+ */
 export class UsageLambdaTracedInvocationsResponse {
   /**
    * Response containing Lambda Traced Invocations usage.
-  */
+   */
   "data"?: Array<UsageDataObject>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageLambdaTracedInvocationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<UsageDataObject>",
+    data: {
+      baseName: "data",
+      type: "Array<UsageDataObject>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageLambdaTracedInvocationsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

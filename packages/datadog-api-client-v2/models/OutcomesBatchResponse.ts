@@ -6,24 +6,19 @@
 import { OutcomesBatchResponseMeta } from "./OutcomesBatchResponseMeta";
 import { OutcomesResponseDataItem } from "./OutcomesResponseDataItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Scorecard outcomes batch response.
-*/
+ */
 export class OutcomesBatchResponse {
   /**
    * List of rule outcomes which were affected during the bulk operation.
-  */
+   */
   "data": Array<OutcomesResponseDataItem>;
   /**
    * Metadata pertaining to the bulk operation.
-  */
+   */
   "meta": OutcomesBatchResponseMeta;
 
   /**
@@ -42,54 +37,28 @@ export class OutcomesBatchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<OutcomesResponseDataItem>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<OutcomesResponseDataItem>",
+      required: true,
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "OutcomesBatchResponseMeta",
-      "required": true,
+    meta: {
+      baseName: "meta",
+      type: "OutcomesBatchResponseMeta",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OutcomesBatchResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

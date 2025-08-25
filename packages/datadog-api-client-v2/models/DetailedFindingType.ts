@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The JSON:API type for findings that have the message and resource configuration.
-*/
+ */
 
 export type DetailedFindingType = typeof DETAILED_FINDING | UnparsedObject;
-export const DETAILED_FINDING = 'detailed_finding';
+export const DETAILED_FINDING = "detailed_finding";

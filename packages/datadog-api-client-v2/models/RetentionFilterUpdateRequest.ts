@@ -5,20 +5,15 @@
  */
 import { RetentionFilterUpdateData } from "./RetentionFilterUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The body of the retention filter to be updated.
-*/
+ */
 export class RetentionFilterUpdateRequest {
   /**
    * The body of the retention filter to be updated.
-  */
+   */
   "data": RetentionFilterUpdateData;
 
   /**
@@ -37,49 +32,23 @@ export class RetentionFilterUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "RetentionFilterUpdateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "RetentionFilterUpdateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RetentionFilterUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

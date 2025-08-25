@@ -5,20 +5,15 @@
  */
 import { DatasetResponse } from "./DatasetResponse";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing a list of datasets.
-*/
+ */
 export class DatasetResponseMulti {
   /**
    * The list of datasets returned in response.
-  */
+   */
   "data"?: Array<DatasetResponse>;
 
   /**
@@ -37,48 +32,22 @@ export class DatasetResponseMulti {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<DatasetResponse>",
+    data: {
+      baseName: "data",
+      type: "Array<DatasetResponse>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DatasetResponseMulti.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

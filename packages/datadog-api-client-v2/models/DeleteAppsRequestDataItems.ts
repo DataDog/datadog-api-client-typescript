@@ -5,24 +5,19 @@
  */
 import { AppDefinitionType } from "./AppDefinitionType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An object containing the ID of an app to delete.
-*/
+ */
 export class DeleteAppsRequestDataItems {
   /**
    * The ID of the app to delete.
-  */
+   */
   "id": string;
   /**
    * The app definition type.
-  */
+   */
   "type": AppDefinitionType;
 
   /**
@@ -41,55 +36,29 @@ export class DeleteAppsRequestDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
-      "format": "uuid",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
-    "type": {
-      "baseName": "type",
-      "type": "AppDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AppDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DeleteAppsRequestDataItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { EscalationRelationshipsResponders } from "./EscalationRelationshipsResponders";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Contains the relationships of an escalation object, including its responders.
-*/
+ */
 export class EscalationRelationships {
   /**
    * Lists the users involved in a specific step of the escalation policy.
-  */
+   */
   "responders"?: EscalationRelationshipsResponders;
 
   /**
@@ -37,48 +32,22 @@ export class EscalationRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "responders": {
-      "baseName": "responders",
-      "type": "EscalationRelationshipsResponders",
+    responders: {
+      baseName: "responders",
+      type: "EscalationRelationshipsResponders",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EscalationRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

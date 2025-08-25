@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The destination type. Always `splunk_hec`.
-*/
+ */
 
-export type ObservabilityPipelineSplunkHecDestinationType = typeof SPLUNK_HEC | UnparsedObject;
-export const SPLUNK_HEC = 'splunk_hec';
+export type ObservabilityPipelineSplunkHecDestinationType =
+  | typeof SPLUNK_HEC
+  | UnparsedObject;
+export const SPLUNK_HEC = "splunk_hec";

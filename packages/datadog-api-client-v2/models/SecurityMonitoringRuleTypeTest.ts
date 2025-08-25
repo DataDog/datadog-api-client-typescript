@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The rule type.
-*/
+ */
 
-export type SecurityMonitoringRuleTypeTest = typeof LOG_DETECTION | UnparsedObject;
-export const LOG_DETECTION = 'log_detection';
+export type SecurityMonitoringRuleTypeTest =
+  | typeof LOG_DETECTION
+  | UnparsedObject;
+export const LOG_DETECTION = "log_detection";

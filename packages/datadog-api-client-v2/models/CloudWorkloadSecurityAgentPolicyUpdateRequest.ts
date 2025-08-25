@@ -5,20 +5,15 @@
  */
 import { CloudWorkloadSecurityAgentPolicyUpdateData } from "./CloudWorkloadSecurityAgentPolicyUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request object that includes the Agent policy with the attributes to update
-*/
+ */
 export class CloudWorkloadSecurityAgentPolicyUpdateRequest {
   /**
    * Object for a single Agent policy
-  */
+   */
   "data": CloudWorkloadSecurityAgentPolicyUpdateData;
 
   /**
@@ -37,49 +32,23 @@ export class CloudWorkloadSecurityAgentPolicyUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CloudWorkloadSecurityAgentPolicyUpdateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "CloudWorkloadSecurityAgentPolicyUpdateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudWorkloadSecurityAgentPolicyUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

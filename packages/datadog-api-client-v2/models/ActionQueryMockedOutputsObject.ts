@@ -5,24 +5,19 @@
  */
 import { ActionQueryMockedOutputsEnabled } from "./ActionQueryMockedOutputsEnabled";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The mocked outputs of the action query.
-*/
+ */
 export class ActionQueryMockedOutputsObject {
   /**
    * Whether to enable the mocked outputs for testing.
-  */
+   */
   "enabled": ActionQueryMockedOutputsEnabled;
   /**
    * The mocked outputs of the action query, serialized as JSON.
-  */
+   */
   "outputs"?: string;
 
   /**
@@ -41,53 +36,27 @@ export class ActionQueryMockedOutputsObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "enabled": {
-      "baseName": "enabled",
-      "type": "ActionQueryMockedOutputsEnabled",
-      "required": true,
+    enabled: {
+      baseName: "enabled",
+      type: "ActionQueryMockedOutputsEnabled",
+      required: true,
     },
-    "outputs": {
-      "baseName": "outputs",
-      "type": "string",
+    outputs: {
+      baseName: "outputs",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ActionQueryMockedOutputsObject.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

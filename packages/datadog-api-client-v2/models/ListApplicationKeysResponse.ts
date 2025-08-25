@@ -7,28 +7,23 @@ import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncl
 import { ApplicationKeyResponseMeta } from "./ApplicationKeyResponseMeta";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for a list of application keys.
-*/
+ */
 export class ListApplicationKeysResponse {
   /**
    * Array of application keys.
-  */
+   */
   "data"?: Array<PartialApplicationKey>;
   /**
    * Array of objects related to the application key.
-  */
+   */
   "included"?: Array<ApplicationKeyResponseIncludedItem>;
   /**
    * Additional information related to the application key response.
-  */
+   */
   "meta"?: ApplicationKeyResponseMeta;
 
   /**
@@ -47,56 +42,30 @@ export class ListApplicationKeysResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<PartialApplicationKey>",
+    data: {
+      baseName: "data",
+      type: "Array<PartialApplicationKey>",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<ApplicationKeyResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<ApplicationKeyResponseIncludedItem>",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "ApplicationKeyResponseMeta",
+    meta: {
+      baseName: "meta",
+      type: "ApplicationKeyResponseMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListApplicationKeysResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

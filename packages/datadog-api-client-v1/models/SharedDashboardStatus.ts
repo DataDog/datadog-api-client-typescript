@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
-*/
+ */
 
-export type SharedDashboardStatus = typeof ACTIVE| typeof PAUSED | UnparsedObject;
-export const ACTIVE = 'active';
-export const PAUSED = 'paused';
+export type SharedDashboardStatus =
+  | typeof ACTIVE
+  | typeof PAUSED
+  | UnparsedObject;
+export const ACTIVE = "active";
+export const PAUSED = "paused";

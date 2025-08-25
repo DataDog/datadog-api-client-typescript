@@ -5,20 +5,15 @@
  */
 import { MicrosoftTeamsUpdateTenantBasedHandleRequestData } from "./MicrosoftTeamsUpdateTenantBasedHandleRequestData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Update tenant-based handle request.
-*/
+ */
 export class MicrosoftTeamsUpdateTenantBasedHandleRequest {
   /**
    * Tenant-based handle data from a response.
-  */
+   */
   "data": MicrosoftTeamsUpdateTenantBasedHandleRequestData;
 
   /**
@@ -37,49 +32,23 @@ export class MicrosoftTeamsUpdateTenantBasedHandleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "MicrosoftTeamsUpdateTenantBasedHandleRequestData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "MicrosoftTeamsUpdateTenantBasedHandleRequestData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MicrosoftTeamsUpdateTenantBasedHandleRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Links attributes.
-*/
+ */
 export class ContainerImageGroupRelationshipsLinks {
   /**
    * Link to related Container Images.
-  */
+   */
   "related"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class ContainerImageGroupRelationshipsLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "related": {
-      "baseName": "related",
-      "type": "string",
+    related: {
+      baseName: "related",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerImageGroupRelationshipsLinks.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -8,56 +8,51 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTickEdge } from "./WidgetTickEdge";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The notes and links widget is similar to free text widget, but allows for more formatting options.
-*/
+ */
 export class NoteWidgetDefinition {
   /**
    * Background color of the note.
-  */
+   */
   "backgroundColor"?: string;
   /**
    * Content of the note.
-  */
+   */
   "content": string;
   /**
    * Size of the text.
-  */
+   */
   "fontSize"?: string;
   /**
    * Whether to add padding or not.
-  */
+   */
   "hasPadding"?: boolean;
   /**
    * Whether to show a tick or not.
-  */
+   */
   "showTick"?: boolean;
   /**
    * How to align the text on the widget.
-  */
+   */
   "textAlign"?: WidgetTextAlign;
   /**
    * Define how you want to align the text on the widget.
-  */
+   */
   "tickEdge"?: WidgetTickEdge;
   /**
    * Where to position the tick on an edge.
-  */
+   */
   "tickPos"?: string;
   /**
    * Type of the note widget.
-  */
+   */
   "type": NoteWidgetDefinitionType;
   /**
    * Vertical alignment.
-  */
+   */
   "verticalAlign"?: WidgetVerticalAlign;
 
   /**
@@ -76,86 +71,60 @@ export class NoteWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "backgroundColor": {
-      "baseName": "background_color",
-      "type": "string",
+    backgroundColor: {
+      baseName: "background_color",
+      type: "string",
     },
-    "content": {
-      "baseName": "content",
-      "type": "string",
-      "required": true,
+    content: {
+      baseName: "content",
+      type: "string",
+      required: true,
     },
-    "fontSize": {
-      "baseName": "font_size",
-      "type": "string",
+    fontSize: {
+      baseName: "font_size",
+      type: "string",
     },
-    "hasPadding": {
-      "baseName": "has_padding",
-      "type": "boolean",
+    hasPadding: {
+      baseName: "has_padding",
+      type: "boolean",
     },
-    "showTick": {
-      "baseName": "show_tick",
-      "type": "boolean",
+    showTick: {
+      baseName: "show_tick",
+      type: "boolean",
     },
-    "textAlign": {
-      "baseName": "text_align",
-      "type": "WidgetTextAlign",
+    textAlign: {
+      baseName: "text_align",
+      type: "WidgetTextAlign",
     },
-    "tickEdge": {
-      "baseName": "tick_edge",
-      "type": "WidgetTickEdge",
+    tickEdge: {
+      baseName: "tick_edge",
+      type: "WidgetTickEdge",
     },
-    "tickPos": {
-      "baseName": "tick_pos",
-      "type": "string",
+    tickPos: {
+      baseName: "tick_pos",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "NoteWidgetDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "NoteWidgetDefinitionType",
+      required: true,
     },
-    "verticalAlign": {
-      "baseName": "vertical_align",
-      "type": "WidgetVerticalAlign",
+    verticalAlign: {
+      baseName: "vertical_align",
+      type: "WidgetVerticalAlign",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NoteWidgetDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

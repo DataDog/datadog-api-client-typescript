@@ -4,21 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Options on impossible travel detection method.
-*/
+ */
 export class SecurityMonitoringRuleImpossibleTravelOptions {
   /**
    * If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's regular
    * access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
-  */
+   */
   "baselineUserLocations"?: boolean;
 
   /**
@@ -37,48 +32,22 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "baselineUserLocations": {
-      "baseName": "baselineUserLocations",
-      "type": "boolean",
+    baselineUserLocations: {
+      baseName: "baselineUserLocations",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringRuleImpossibleTravelOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

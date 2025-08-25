@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type for shared dashboard invitation request body.
-*/
+ */
 
-export type DashboardInviteType = typeof PUBLIC_DASHBOARD_INVITATION | UnparsedObject;
-export const PUBLIC_DASHBOARD_INVITATION = 'public_dashboard_invitation';
+export type DashboardInviteType =
+  | typeof PUBLIC_DASHBOARD_INVITATION
+  | UnparsedObject;
+export const PUBLIC_DASHBOARD_INVITATION = "public_dashboard_invitation";

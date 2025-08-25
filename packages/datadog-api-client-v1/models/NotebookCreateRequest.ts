@@ -5,20 +5,15 @@
  */
 import { NotebookCreateData } from "./NotebookCreateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The description of a notebook create request.
-*/
+ */
 export class NotebookCreateRequest {
   /**
    * The data for a notebook create request.
-  */
+   */
   "data": NotebookCreateData;
 
   /**
@@ -37,49 +32,23 @@ export class NotebookCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "NotebookCreateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "NotebookCreateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

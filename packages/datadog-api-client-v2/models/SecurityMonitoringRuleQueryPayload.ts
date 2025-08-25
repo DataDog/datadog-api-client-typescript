@@ -5,28 +5,23 @@
  */
 import { SecurityMonitoringRuleQueryPayloadData } from "./SecurityMonitoringRuleQueryPayloadData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Payload to test a rule query with the expected result.
-*/
+ */
 export class SecurityMonitoringRuleQueryPayload {
   /**
    * Expected result of the test.
-  */
+   */
   "expectedResult"?: boolean;
   /**
    * Index of the query under test.
-  */
+   */
   "index"?: number;
   /**
    * Payload used to test the rule query.
-  */
+   */
   "payload"?: SecurityMonitoringRuleQueryPayloadData;
 
   /**
@@ -45,57 +40,31 @@ export class SecurityMonitoringRuleQueryPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "expectedResult": {
-      "baseName": "expectedResult",
-      "type": "boolean",
+    expectedResult: {
+      baseName: "expectedResult",
+      type: "boolean",
     },
-    "index": {
-      "baseName": "index",
-      "type": "number",
-      "format": "int64",
+    index: {
+      baseName: "index",
+      type: "number",
+      format: "int64",
     },
-    "payload": {
-      "baseName": "payload",
-      "type": "SecurityMonitoringRuleQueryPayloadData",
+    payload: {
+      baseName: "payload",
+      type: "SecurityMonitoringRuleQueryPayloadData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringRuleQueryPayload.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

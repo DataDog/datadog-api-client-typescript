@@ -6,24 +6,19 @@
 import { AWSCredentials } from "./AWSCredentials";
 import { AWSIntegrationType } from "./AWSIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of `AWSIntegration` object.
-*/
+ */
 export class AWSIntegration {
   /**
    * The definition of `AWSCredentials` object.
-  */
+   */
   "credentials": AWSCredentials;
   /**
    * The definition of `AWSIntegrationType` object.
-  */
+   */
   "type": AWSIntegrationType;
 
   /**
@@ -42,54 +37,28 @@ export class AWSIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "AWSCredentials",
-      "required": true,
+    credentials: {
+      baseName: "credentials",
+      type: "AWSCredentials",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "AWSIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AWSIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSIntegration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

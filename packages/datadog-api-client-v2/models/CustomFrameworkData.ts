@@ -6,24 +6,19 @@
 import { CustomFrameworkDataAttributes } from "./CustomFrameworkDataAttributes";
 import { CustomFrameworkType } from "./CustomFrameworkType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Contains type and attributes for custom frameworks.
-*/
+ */
 export class CustomFrameworkData {
   /**
    * Framework Data Attributes.
-  */
+   */
   "attributes": CustomFrameworkDataAttributes;
   /**
    * The type of the resource. The value must be `custom_framework`.
-  */
+   */
   "type": CustomFrameworkType;
 
   /**
@@ -42,54 +37,28 @@ export class CustomFrameworkData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CustomFrameworkDataAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "CustomFrameworkDataAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CustomFrameworkType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CustomFrameworkType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomFrameworkData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

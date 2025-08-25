@@ -5,24 +5,19 @@
  */
 import { ProjectResourceType } from "./ProjectResourceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationship to project object
-*/
+ */
 export class ProjectRelationshipData {
   /**
    * A unique identifier that represents the project
-  */
+   */
   "id": string;
   /**
    * Project resource type
-  */
+   */
   "type": ProjectResourceType;
 
   /**
@@ -41,54 +36,28 @@ export class ProjectRelationshipData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ProjectResourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ProjectResourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ProjectRelationshipData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

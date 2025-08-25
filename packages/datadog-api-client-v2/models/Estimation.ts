@@ -5,36 +5,31 @@
  */
 import { Cpu } from "./Cpu";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Recommended resource values for a Spark driver or executor, derived from recent real usage metrics. Used by SPA to propose more efficient pod sizing.
-*/
+ */
 export class Estimation {
   /**
    * CPU usage statistics derived from historical Spark job metrics. Provides multiple estimates so users can choose between conservative and cost-saving risk profiles.
-  */
+   */
   "cpu"?: Cpu;
   /**
    * Recommended ephemeral storage allocation (in MiB). Derived from job temporary storage patterns.
-  */
+   */
   "ephemeralStorage"?: number;
   /**
    * Recommended JVM heap size (in MiB).
-  */
+   */
   "heap"?: number;
   /**
    * Recommended total memory allocation (in MiB). Includes both heap and overhead.
-  */
+   */
   "memory"?: number;
   /**
    * Recommended JVM overhead (in MiB). Computed as total memory - heap.
-  */
+   */
   "overhead"?: number;
 
   /**
@@ -53,68 +48,42 @@ export class Estimation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "cpu": {
-      "baseName": "cpu",
-      "type": "Cpu",
+    cpu: {
+      baseName: "cpu",
+      type: "Cpu",
     },
-    "ephemeralStorage": {
-      "baseName": "ephemeral_storage",
-      "type": "number",
-      "format": "int64",
+    ephemeralStorage: {
+      baseName: "ephemeral_storage",
+      type: "number",
+      format: "int64",
     },
-    "heap": {
-      "baseName": "heap",
-      "type": "number",
-      "format": "int64",
+    heap: {
+      baseName: "heap",
+      type: "number",
+      format: "int64",
     },
-    "memory": {
-      "baseName": "memory",
-      "type": "number",
-      "format": "int64",
+    memory: {
+      baseName: "memory",
+      type: "number",
+      format: "int64",
     },
-    "overhead": {
-      "baseName": "overhead",
-      "type": "number",
-      "format": "int64",
+    overhead: {
+      baseName: "overhead",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return Estimation.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

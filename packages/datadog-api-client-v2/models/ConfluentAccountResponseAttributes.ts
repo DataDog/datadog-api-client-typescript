@@ -5,28 +5,23 @@
  */
 import { ConfluentResourceResponseAttributes } from "./ConfluentResourceResponseAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The attributes of a Confluent account.
-*/
+ */
 export class ConfluentAccountResponseAttributes {
   /**
    * The API key associated with your Confluent account.
-  */
+   */
   "apiKey": string;
   /**
    * A list of Confluent resources associated with the Confluent account.
-  */
+   */
   "resources"?: Array<ConfluentResourceResponseAttributes>;
   /**
    * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
-  */
+   */
   "tags"?: Array<string>;
 
   /**
@@ -45,57 +40,31 @@ export class ConfluentAccountResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiKey": {
-      "baseName": "api_key",
-      "type": "string",
-      "required": true,
+    apiKey: {
+      baseName: "api_key",
+      type: "string",
+      required: true,
     },
-    "resources": {
-      "baseName": "resources",
-      "type": "Array<ConfluentResourceResponseAttributes>",
+    resources: {
+      baseName: "resources",
+      type: "Array<ConfluentResourceResponseAttributes>",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ConfluentAccountResponseAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

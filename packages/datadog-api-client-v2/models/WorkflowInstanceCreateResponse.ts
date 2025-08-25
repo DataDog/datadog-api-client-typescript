@@ -5,20 +5,15 @@
  */
 import { WorkflowInstanceCreateResponseData } from "./WorkflowInstanceCreateResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response returned upon successful workflow instance creation.
-*/
+ */
 export class WorkflowInstanceCreateResponse {
   /**
    * Data about the created workflow instance.
-  */
+   */
   "data"?: WorkflowInstanceCreateResponseData;
 
   /**
@@ -37,48 +32,22 @@ export class WorkflowInstanceCreateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "WorkflowInstanceCreateResponseData",
+    data: {
+      baseName: "data",
+      type: "WorkflowInstanceCreateResponseData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WorkflowInstanceCreateResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

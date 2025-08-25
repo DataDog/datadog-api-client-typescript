@@ -5,29 +5,24 @@
  */
 import { Log } from "./Log";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object with all logs matching the request and pagination information.
-*/
+ */
 export class LogsListResponse {
   /**
    * Array of logs matching the request and the `nextLogId` if sent.
-  */
+   */
   "logs"?: Array<Log>;
   /**
    * Hash identifier of the next log to return in the list.
    * This parameter is used for the pagination feature.
-  */
+   */
   "nextLogId"?: string;
   /**
    * Status of the response.
-  */
+   */
   "status"?: string;
 
   /**
@@ -46,56 +41,30 @@ export class LogsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "logs": {
-      "baseName": "logs",
-      "type": "Array<Log>",
+    logs: {
+      baseName: "logs",
+      type: "Array<Log>",
     },
-    "nextLogId": {
-      "baseName": "nextLogId",
-      "type": "string",
+    nextLogId: {
+      baseName: "nextLogId",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "string",
+    status: {
+      baseName: "status",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

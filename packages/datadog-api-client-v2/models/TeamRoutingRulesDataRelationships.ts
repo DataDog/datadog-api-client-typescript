@@ -5,20 +5,15 @@
  */
 import { TeamRoutingRulesDataRelationshipsRules } from "./TeamRoutingRulesDataRelationshipsRules";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Specifies relationships for team routing rules, including rule references.
-*/
+ */
 export class TeamRoutingRulesDataRelationships {
   /**
    * Holds references to a set of routing rules in a relationship.
-  */
+   */
   "rules"?: TeamRoutingRulesDataRelationshipsRules;
 
   /**
@@ -37,48 +32,22 @@ export class TeamRoutingRulesDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "rules": {
-      "baseName": "rules",
-      "type": "TeamRoutingRulesDataRelationshipsRules",
+    rules: {
+      baseName: "rules",
+      type: "TeamRoutingRulesDataRelationshipsRules",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamRoutingRulesDataRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

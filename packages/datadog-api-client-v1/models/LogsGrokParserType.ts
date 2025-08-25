@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of logs grok parser.
-*/
+ */
 
 export type LogsGrokParserType = typeof GROK_PARSER | UnparsedObject;
-export const GROK_PARSER = 'grok-parser';
+export const GROK_PARSER = "grok-parser";

@@ -6,28 +6,23 @@
 import { CloudflareAccountResponseAttributes } from "./CloudflareAccountResponseAttributes";
 import { CloudflareAccountType } from "./CloudflareAccountType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data object of a Cloudflare account.
-*/
+ */
 export class CloudflareAccountResponseData {
   /**
    * Attributes object of a Cloudflare account.
-  */
+   */
   "attributes": CloudflareAccountResponseAttributes;
   /**
    * The ID of the Cloudflare account, a hash of the account name.
-  */
+   */
   "id": string;
   /**
    * The JSON:API type for this API. Should always be `cloudflare-accounts`.
-  */
+   */
   "type": CloudflareAccountType;
 
   /**
@@ -46,59 +41,33 @@ export class CloudflareAccountResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CloudflareAccountResponseAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "CloudflareAccountResponseAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CloudflareAccountType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CloudflareAccountType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudflareAccountResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

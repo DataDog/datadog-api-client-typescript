@@ -6,24 +6,19 @@
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactAction } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactAction";
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Configuration for partially redacting matched sensitive data.
-*/
+ */
 export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact {
   /**
    * Action type that redacts part of the sensitive data while preserving a configurable number of characters, typically used for masking purposes (e.g., show last 4 digits of a credit card).
-  */
+   */
   "action": ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactAction;
   /**
    * Controls how partial redaction is applied, including character count and direction.
-  */
+   */
   "options": ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions;
 
   /**
@@ -42,54 +37,28 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "action": {
-      "baseName": "action",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactAction",
-      "required": true,
+    action: {
+      baseName: "action",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactAction",
+      required: true,
     },
-    "options": {
-      "baseName": "options",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions",
-      "required": true,
+    options: {
+      baseName: "options",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

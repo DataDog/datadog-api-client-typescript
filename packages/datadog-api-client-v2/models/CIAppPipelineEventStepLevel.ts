@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Used to distinguish between pipelines, stages, jobs and steps.
-*/
+ */
 
 export type CIAppPipelineEventStepLevel = typeof STEP | UnparsedObject;
-export const STEP = 'step';
+export const STEP = "step";

@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Charges breakdown.
-*/
+ */
 export class ChargebackBreakdown {
   /**
    * The type of charge for a particular product.
-  */
+   */
   "chargeType"?: string;
   /**
    * The cost for a particular product and charge type during a given month.
-  */
+   */
   "cost"?: number;
   /**
    * The product for which cost is being reported.
-  */
+   */
   "productName"?: string;
 
   /**
@@ -44,57 +39,31 @@ export class ChargebackBreakdown {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "chargeType": {
-      "baseName": "charge_type",
-      "type": "string",
+    chargeType: {
+      baseName: "charge_type",
+      type: "string",
     },
-    "cost": {
-      "baseName": "cost",
-      "type": "number",
-      "format": "double",
+    cost: {
+      baseName: "cost",
+      type: "number",
+      format: "double",
     },
-    "productName": {
-      "baseName": "product_name",
-      "type": "string",
+    productName: {
+      baseName: "product_name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ChargebackBreakdown.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -6,28 +6,23 @@
 import { OktaAccountAttributes } from "./OktaAccountAttributes";
 import { OktaAccountType } from "./OktaAccountType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data object of an Okta account
-*/
+ */
 export class OktaAccountResponseData {
   /**
    * Attributes object for an Okta account.
-  */
+   */
   "attributes": OktaAccountAttributes;
   /**
    * The ID of the Okta account, a UUID hash of the account name.
-  */
+   */
   "id": string;
   /**
    * Account type for an Okta account.
-  */
+   */
   "type": OktaAccountType;
 
   /**
@@ -46,59 +41,33 @@ export class OktaAccountResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "OktaAccountAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "OktaAccountAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "OktaAccountType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "OktaAccountType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OktaAccountResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `GreyNoiseAPIKey` object.
-*/
+ */
 
 export type GreyNoiseAPIKeyType = typeof GREYNOISEAPIKEY | UnparsedObject;
-export const GREYNOISEAPIKEY = 'GreyNoiseAPIKey';
+export const GREYNOISEAPIKEY = "GreyNoiseAPIKey";

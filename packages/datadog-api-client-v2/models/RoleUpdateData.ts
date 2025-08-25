@@ -7,32 +7,27 @@ import { RoleRelationships } from "./RoleRelationships";
 import { RolesType } from "./RolesType";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data related to the update of a role.
-*/
+ */
 export class RoleUpdateData {
   /**
    * Attributes of the role.
-  */
+   */
   "attributes": RoleUpdateAttributes;
   /**
    * The unique identifier of the role.
-  */
+   */
   "id": string;
   /**
    * Relationships of the role object.
-  */
+   */
   "relationships"?: RoleRelationships;
   /**
    * Roles type.
-  */
+   */
   "type": RolesType;
 
   /**
@@ -51,63 +46,37 @@ export class RoleUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "RoleUpdateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "RoleUpdateAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "RoleRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "RoleRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "RolesType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "RolesType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RoleUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

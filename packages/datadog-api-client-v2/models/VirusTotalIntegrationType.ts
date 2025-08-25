@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `VirusTotalIntegrationType` object.
-*/
+ */
 
 export type VirusTotalIntegrationType = typeof VIRUSTOTAL | UnparsedObject;
-export const VIRUSTOTAL = 'VirusTotal';
+export const VIRUSTOTAL = "VirusTotal";

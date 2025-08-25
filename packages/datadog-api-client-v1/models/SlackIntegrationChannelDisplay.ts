@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Configuration options for what is shown in an alert event message.
-*/
+ */
 export class SlackIntegrationChannelDisplay {
   /**
    * Show the main body of the alert event.
-  */
+   */
   "message"?: boolean;
   /**
    * Show interactive buttons to mute the alerting monitor.
-  */
+   */
   "muteButtons"?: boolean;
   /**
    * Show the list of @-handles in the alert event.
-  */
+   */
   "notified"?: boolean;
   /**
    * Show the alert event's snapshot image.
-  */
+   */
   "snapshot"?: boolean;
   /**
    * Show the scopes on which the monitor alerted.
-  */
+   */
   "tags"?: boolean;
 
   /**
@@ -52,64 +47,38 @@ export class SlackIntegrationChannelDisplay {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "message": {
-      "baseName": "message",
-      "type": "boolean",
+    message: {
+      baseName: "message",
+      type: "boolean",
     },
-    "muteButtons": {
-      "baseName": "mute_buttons",
-      "type": "boolean",
+    muteButtons: {
+      baseName: "mute_buttons",
+      type: "boolean",
     },
-    "notified": {
-      "baseName": "notified",
-      "type": "boolean",
+    notified: {
+      baseName: "notified",
+      type: "boolean",
     },
-    "snapshot": {
-      "baseName": "snapshot",
-      "type": "boolean",
+    snapshot: {
+      baseName: "snapshot",
+      type: "boolean",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "boolean",
+    tags: {
+      baseName: "tags",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SlackIntegrationChannelDisplay.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

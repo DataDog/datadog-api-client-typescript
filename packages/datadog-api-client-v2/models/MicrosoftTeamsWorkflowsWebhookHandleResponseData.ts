@@ -6,28 +6,23 @@
 import { MicrosoftTeamsWorkflowsWebhookHandleType } from "./MicrosoftTeamsWorkflowsWebhookHandleType";
 import { MicrosoftTeamsWorkflowsWebhookResponseAttributes } from "./MicrosoftTeamsWorkflowsWebhookResponseAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Workflows Webhook handle data from a response.
-*/
+ */
 export class MicrosoftTeamsWorkflowsWebhookHandleResponseData {
   /**
    * Workflows Webhook handle attributes.
-  */
+   */
   "attributes"?: MicrosoftTeamsWorkflowsWebhookResponseAttributes;
   /**
    * The ID of the Workflows webhook handle.
-  */
+   */
   "id"?: string;
   /**
    * Specifies the Workflows webhook handle resource type.
-  */
+   */
   "type"?: MicrosoftTeamsWorkflowsWebhookHandleType;
 
   /**
@@ -46,56 +41,30 @@ export class MicrosoftTeamsWorkflowsWebhookHandleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "MicrosoftTeamsWorkflowsWebhookResponseAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "MicrosoftTeamsWorkflowsWebhookResponseAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "MicrosoftTeamsWorkflowsWebhookHandleType",
+    type: {
+      baseName: "type",
+      type: "MicrosoftTeamsWorkflowsWebhookHandleType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MicrosoftTeamsWorkflowsWebhookHandleResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

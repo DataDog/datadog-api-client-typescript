@@ -5,24 +5,19 @@
  */
 import { CustomConnectionAttributesOnPremRunner } from "./CustomConnectionAttributesOnPremRunner";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The custom connection attributes.
-*/
+ */
 export class CustomConnectionAttributes {
   /**
    * The name of the custom connection.
-  */
+   */
   "name"?: string;
   /**
    * Information about the Private Action Runner used by the custom connection, if the custom connection is associated with a Private Action Runner.
-  */
+   */
   "onPremRunner"?: CustomConnectionAttributesOnPremRunner;
 
   /**
@@ -41,52 +36,26 @@ export class CustomConnectionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "onPremRunner": {
-      "baseName": "onPremRunner",
-      "type": "CustomConnectionAttributesOnPremRunner",
+    onPremRunner: {
+      baseName: "onPremRunner",
+      type: "CustomConnectionAttributesOnPremRunner",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CustomConnectionAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { RoleCreateResponseData } from "./RoleCreateResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing information about a created role.
-*/
+ */
 export class RoleCreateResponse {
   /**
    * Role object returned by the API.
-  */
+   */
   "data"?: RoleCreateResponseData;
 
   /**
@@ -37,48 +32,22 @@ export class RoleCreateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "RoleCreateResponseData",
+    data: {
+      baseName: "data",
+      type: "RoleCreateResponseData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RoleCreateResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

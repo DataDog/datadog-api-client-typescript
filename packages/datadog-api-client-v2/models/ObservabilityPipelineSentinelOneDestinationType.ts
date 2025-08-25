@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The destination type. The value should always be `sentinel_one`.
-*/
+ */
 
-export type ObservabilityPipelineSentinelOneDestinationType = typeof SENTINEL_ONE | UnparsedObject;
-export const SENTINEL_ONE = 'sentinel_one';
+export type ObservabilityPipelineSentinelOneDestinationType =
+  | typeof SENTINEL_ONE
+  | UnparsedObject;
+export const SENTINEL_ONE = "sentinel_one";

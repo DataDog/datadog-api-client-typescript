@@ -5,32 +5,27 @@
  */
 import { ServiceNowBasicAuthType } from "./ServiceNowBasicAuthType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `ServiceNowBasicAuth` object.
-*/
+ */
 export class ServiceNowBasicAuth {
   /**
    * The `ServiceNowBasicAuth` `instance`.
-  */
+   */
   "instance": string;
   /**
    * The `ServiceNowBasicAuth` `password`.
-  */
+   */
   "password": string;
   /**
    * The definition of the `ServiceNowBasicAuth` object.
-  */
+   */
   "type": ServiceNowBasicAuthType;
   /**
    * The `ServiceNowBasicAuth` `username`.
-  */
+   */
   "username": string;
 
   /**
@@ -49,64 +44,38 @@ export class ServiceNowBasicAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "instance": {
-      "baseName": "instance",
-      "type": "string",
-      "required": true,
+    instance: {
+      baseName: "instance",
+      type: "string",
+      required: true,
     },
-    "password": {
-      "baseName": "password",
-      "type": "string",
-      "required": true,
+    password: {
+      baseName: "password",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ServiceNowBasicAuthType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ServiceNowBasicAuthType",
+      required: true,
     },
-    "username": {
-      "baseName": "username",
-      "type": "string",
-      "required": true,
+    username: {
+      baseName: "username",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceNowBasicAuth.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

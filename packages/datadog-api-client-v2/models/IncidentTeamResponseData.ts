@@ -7,32 +7,27 @@ import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
 import { IncidentTeamResponseAttributes } from "./IncidentTeamResponseAttributes";
 import { IncidentTeamType } from "./IncidentTeamType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident Team data from a response.
-*/
+ */
 export class IncidentTeamResponseData {
   /**
    * The incident team's attributes from a response.
-  */
+   */
   "attributes"?: IncidentTeamResponseAttributes;
   /**
    * The incident team's ID.
-  */
+   */
   "id"?: string;
   /**
    * The incident team's relationships.
-  */
+   */
   "relationships"?: IncidentTeamRelationships;
   /**
    * Incident Team resource type.
-  */
+   */
   "type"?: IncidentTeamType;
 
   /**
@@ -51,60 +46,34 @@ export class IncidentTeamResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentTeamResponseAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentTeamResponseAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentTeamRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentTeamRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentTeamType",
+    type: {
+      baseName: "type",
+      type: "IncidentTeamType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentTeamResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

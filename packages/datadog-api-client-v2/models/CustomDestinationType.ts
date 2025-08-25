@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of the resource. The value should always be `custom_destination`.
-*/
+ */
 
 export type CustomDestinationType = typeof CUSTOM_DESTINATION | UnparsedObject;
-export const CUSTOM_DESTINATION = 'custom_destination';
+export const CUSTOM_DESTINATION = "custom_destination";

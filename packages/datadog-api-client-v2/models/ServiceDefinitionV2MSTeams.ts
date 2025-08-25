@@ -5,28 +5,23 @@
  */
 import { ServiceDefinitionV2MSTeamsType } from "./ServiceDefinitionV2MSTeamsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Service owner's Microsoft Teams.
-*/
+ */
 export class ServiceDefinitionV2MSTeams {
   /**
    * Contact value.
-  */
+   */
   "contact": string;
   /**
    * Contact Microsoft Teams.
-  */
+   */
   "name"?: string;
   /**
    * Contact type.
-  */
+   */
   "type": ServiceDefinitionV2MSTeamsType;
 
   /**
@@ -45,58 +40,32 @@ export class ServiceDefinitionV2MSTeams {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "contact": {
-      "baseName": "contact",
-      "type": "string",
-      "required": true,
+    contact: {
+      baseName: "contact",
+      type: "string",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ServiceDefinitionV2MSTeamsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ServiceDefinitionV2MSTeamsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceDefinitionV2MSTeams.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

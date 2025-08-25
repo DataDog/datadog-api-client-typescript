@@ -5,24 +5,19 @@
  */
 import { IncidentFieldAttributesSingleValueType } from "./IncidentFieldAttributesSingleValueType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A field with a single value selected.
-*/
+ */
 export class IncidentFieldAttributesSingleValue {
   /**
    * Type of the single value field definitions.
-  */
+   */
   "type"?: IncidentFieldAttributesSingleValueType;
   /**
    * The single value selected for this field.
-  */
+   */
   "value"?: string;
 
   /**
@@ -41,52 +36,26 @@ export class IncidentFieldAttributesSingleValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "type": {
-      "baseName": "type",
-      "type": "IncidentFieldAttributesSingleValueType",
+    type: {
+      baseName: "type",
+      type: "IncidentFieldAttributesSingleValueType",
     },
-    "value": {
-      "baseName": "value",
-      "type": "string",
+    value: {
+      baseName: "value",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentFieldAttributesSingleValue.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

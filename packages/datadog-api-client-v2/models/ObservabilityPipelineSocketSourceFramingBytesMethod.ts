@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Byte frames are passed through as-is according to the underlying I/O boundaries (for example, split between messages or stream segments).
-*/
+ */
 
-export type ObservabilityPipelineSocketSourceFramingBytesMethod = typeof BYTES | UnparsedObject;
-export const BYTES = 'bytes';
+export type ObservabilityPipelineSocketSourceFramingBytesMethod =
+  | typeof BYTES
+  | UnparsedObject;
+export const BYTES = "bytes";

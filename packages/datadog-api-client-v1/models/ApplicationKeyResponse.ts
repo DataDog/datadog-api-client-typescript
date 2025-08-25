@@ -5,20 +5,15 @@
  */
 import { ApplicationKey } from "./ApplicationKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An application key response.
-*/
+ */
 export class ApplicationKeyResponse {
   /**
    * An application key with its associated metadata.
-  */
+   */
   "applicationKey"?: ApplicationKey;
 
   /**
@@ -37,48 +32,22 @@ export class ApplicationKeyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "applicationKey": {
-      "baseName": "application_key",
-      "type": "ApplicationKey",
+    applicationKey: {
+      baseName: "application_key",
+      type: "ApplicationKey",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApplicationKeyResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

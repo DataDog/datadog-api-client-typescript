@@ -6,40 +6,35 @@
 import { SecurityFilterExclusionFilter } from "./SecurityFilterExclusionFilter";
 import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The security filters properties to be updated.
-*/
+ */
 export class SecurityFilterUpdateAttributes {
   /**
    * Exclusion filters to exclude some logs from the security filter.
-  */
+   */
   "exclusionFilters"?: Array<SecurityFilterExclusionFilter>;
   /**
    * The filtered data type.
-  */
+   */
   "filteredDataType"?: SecurityFilterFilteredDataType;
   /**
    * Whether the security filter is enabled.
-  */
+   */
   "isEnabled"?: boolean;
   /**
    * The name of the security filter.
-  */
+   */
   "name"?: string;
   /**
    * The query of the security filter.
-  */
+   */
   "query"?: string;
   /**
    * The version of the security filter to update.
-  */
+   */
   "version"?: number;
 
   /**
@@ -58,69 +53,43 @@ export class SecurityFilterUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "exclusionFilters": {
-      "baseName": "exclusion_filters",
-      "type": "Array<SecurityFilterExclusionFilter>",
+    exclusionFilters: {
+      baseName: "exclusion_filters",
+      type: "Array<SecurityFilterExclusionFilter>",
     },
-    "filteredDataType": {
-      "baseName": "filtered_data_type",
-      "type": "SecurityFilterFilteredDataType",
+    filteredDataType: {
+      baseName: "filtered_data_type",
+      type: "SecurityFilterFilteredDataType",
     },
-    "isEnabled": {
-      "baseName": "is_enabled",
-      "type": "boolean",
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "query": {
-      "baseName": "query",
-      "type": "string",
+    query: {
+      baseName: "query",
+      type: "string",
     },
-    "version": {
-      "baseName": "version",
-      "type": "number",
-      "format": "int32",
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int32",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityFilterUpdateAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

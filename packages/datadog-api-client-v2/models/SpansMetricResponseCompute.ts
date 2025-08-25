@@ -5,29 +5,24 @@
  */
 import { SpansMetricComputeAggregationType } from "./SpansMetricComputeAggregationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The compute rule to compute the span-based metric.
-*/
+ */
 export class SpansMetricResponseCompute {
   /**
    * The type of aggregation to use.
-  */
+   */
   "aggregationType"?: SpansMetricComputeAggregationType;
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
    * Only present when the `aggregation_type` is `distribution`.
-  */
+   */
   "includePercentiles"?: boolean;
   /**
    * The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution").
-  */
+   */
   "path"?: string;
 
   /**
@@ -46,56 +41,30 @@ export class SpansMetricResponseCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregationType": {
-      "baseName": "aggregation_type",
-      "type": "SpansMetricComputeAggregationType",
+    aggregationType: {
+      baseName: "aggregation_type",
+      type: "SpansMetricComputeAggregationType",
     },
-    "includePercentiles": {
-      "baseName": "include_percentiles",
-      "type": "boolean",
+    includePercentiles: {
+      baseName: "include_percentiles",
+      type: "boolean",
     },
-    "path": {
-      "baseName": "path",
-      "type": "string",
+    path: {
+      baseName: "path",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansMetricResponseCompute.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * User resource type.
-*/
+ */
 
 export type UserResourceType = typeof USER | UnparsedObject;
-export const USER = 'user';
+export const USER = "user";

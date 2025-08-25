@@ -5,28 +5,23 @@
  */
 import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdateRequestDataAttributesLayersItems";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines the updatable attributes for a schedule, such as name, time zone, and layers.
-*/
+ */
 export class ScheduleUpdateRequestDataAttributes {
   /**
    * The updated list of layers (rotations) for this schedule.
-  */
+   */
   "layers": Array<ScheduleUpdateRequestDataAttributesLayersItems>;
   /**
    * A short name for the schedule.
-  */
+   */
   "name": string;
   /**
    * The time zone used when interpreting rotation times.
-  */
+   */
   "timeZone": string;
 
   /**
@@ -45,59 +40,33 @@ export class ScheduleUpdateRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "layers": {
-      "baseName": "layers",
-      "type": "Array<ScheduleUpdateRequestDataAttributesLayersItems>",
-      "required": true,
+    layers: {
+      baseName: "layers",
+      type: "Array<ScheduleUpdateRequestDataAttributesLayersItems>",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "timeZone": {
-      "baseName": "time_zone",
-      "type": "string",
-      "required": true,
+    timeZone: {
+      baseName: "time_zone",
+      type: "string",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScheduleUpdateRequestDataAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

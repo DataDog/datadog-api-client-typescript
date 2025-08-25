@@ -6,32 +6,27 @@
 import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The GCS archive destination.
-*/
+ */
 export class LogsArchiveDestinationGCS {
   /**
    * The bucket where the archive will be stored.
-  */
+   */
   "bucket": string;
   /**
    * The GCS archive's integration destination.
-  */
+   */
   "integration": LogsArchiveIntegrationGCS;
   /**
    * The archive path.
-  */
+   */
   "path"?: string;
   /**
    * Type of the GCS archive destination.
-  */
+   */
   "type": LogsArchiveDestinationGCSType;
 
   /**
@@ -50,63 +45,37 @@ export class LogsArchiveDestinationGCS {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "bucket": {
-      "baseName": "bucket",
-      "type": "string",
-      "required": true,
+    bucket: {
+      baseName: "bucket",
+      type: "string",
+      required: true,
     },
-    "integration": {
-      "baseName": "integration",
-      "type": "LogsArchiveIntegrationGCS",
-      "required": true,
+    integration: {
+      baseName: "integration",
+      type: "LogsArchiveIntegrationGCS",
+      required: true,
     },
-    "path": {
-      "baseName": "path",
-      "type": "string",
+    path: {
+      baseName: "path",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "LogsArchiveDestinationGCSType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "LogsArchiveDestinationGCSType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArchiveDestinationGCS.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

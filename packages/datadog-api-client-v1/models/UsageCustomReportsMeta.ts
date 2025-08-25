@@ -5,20 +5,15 @@
  */
 import { UsageCustomReportsPage } from "./UsageCustomReportsPage";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing document metadata.
-*/
+ */
 export class UsageCustomReportsMeta {
   /**
    * The object containing page total count.
-  */
+   */
   "page"?: UsageCustomReportsPage;
 
   /**
@@ -37,48 +32,22 @@ export class UsageCustomReportsMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "page": {
-      "baseName": "page",
-      "type": "UsageCustomReportsPage",
+    page: {
+      baseName: "page",
+      type: "UsageCustomReportsPage",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageCustomReportsMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

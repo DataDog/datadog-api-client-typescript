@@ -5,20 +5,15 @@
  */
 import { SecurityMonitoringSignalStateUpdateData } from "./SecurityMonitoringSignalStateUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Request body for changing the state of a given security monitoring signal.
-*/
+ */
 export class SecurityMonitoringSignalStateUpdateRequest {
   /**
    * Data containing the patch for changing the state of a signal.
-  */
+   */
   "data": SecurityMonitoringSignalStateUpdateData;
 
   /**
@@ -37,49 +32,23 @@ export class SecurityMonitoringSignalStateUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SecurityMonitoringSignalStateUpdateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "SecurityMonitoringSignalStateUpdateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalStateUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

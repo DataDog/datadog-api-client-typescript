@@ -4,17 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Controls the retention policy for Product Analytics data derived from RUM events.
-*/
+ */
 
-export type RUMProductAnalyticsRetentionState = typeof MAX| typeof NONE | UnparsedObject;
-export const MAX = 'MAX';
-export const NONE = 'NONE';
+export type RUMProductAnalyticsRetentionState =
+  | typeof MAX
+  | typeof NONE
+  | UnparsedObject;
+export const MAX = "MAX";
+export const NONE = "NONE";

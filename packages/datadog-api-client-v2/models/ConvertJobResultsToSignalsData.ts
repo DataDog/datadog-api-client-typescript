@@ -6,24 +6,19 @@
 import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
 import { ConvertJobResultsToSignalsDataType } from "./ConvertJobResultsToSignalsDataType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data for converting historical job results to signals.
-*/
+ */
 export class ConvertJobResultsToSignalsData {
   /**
    * Attributes for converting historical job results to signals.
-  */
+   */
   "attributes"?: ConvertJobResultsToSignalsAttributes;
   /**
    * Type of payload.
-  */
+   */
   "type"?: ConvertJobResultsToSignalsDataType;
 
   /**
@@ -42,52 +37,26 @@ export class ConvertJobResultsToSignalsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ConvertJobResultsToSignalsAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ConvertJobResultsToSignalsAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ConvertJobResultsToSignalsDataType",
+    type: {
+      baseName: "type",
+      type: "ConvertJobResultsToSignalsDataType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ConvertJobResultsToSignalsData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

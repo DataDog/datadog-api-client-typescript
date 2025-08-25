@@ -6,24 +6,19 @@
 import { IncidentSearchResponseAttributes } from "./IncidentSearchResponseAttributes";
 import { IncidentSearchResultsType } from "./IncidentSearchResultsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data returned by an incident search.
-*/
+ */
 export class IncidentSearchResponseData {
   /**
    * Attributes returned by an incident search.
-  */
+   */
   "attributes"?: IncidentSearchResponseAttributes;
   /**
    * Incident search result type.
-  */
+   */
   "type"?: IncidentSearchResultsType;
 
   /**
@@ -42,52 +37,26 @@ export class IncidentSearchResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentSearchResponseAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentSearchResponseAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentSearchResultsType",
+    type: {
+      baseName: "type",
+      type: "IncidentSearchResultsType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentSearchResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

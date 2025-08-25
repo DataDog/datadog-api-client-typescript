@@ -8,36 +8,31 @@ import { ObservabilityPipelineSocketSourceMode } from "./ObservabilityPipelineSo
 import { ObservabilityPipelineSocketSourceType } from "./ObservabilityPipelineSocketSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `socket` source ingests logs over TCP or UDP.
-*/
+ */
 export class ObservabilityPipelineSocketSource {
   /**
    * Framing method configuration for the socket source.
-  */
+   */
   "framing": ObservabilityPipelineSocketSourceFraming;
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
-  */
+   */
   "id": string;
   /**
    * Protocol used to receive logs.
-  */
+   */
   "mode": ObservabilityPipelineSocketSourceMode;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-  */
+   */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The source type. The value should always be `socket`.
-  */
+   */
   "type": ObservabilityPipelineSocketSourceType;
 
   /**
@@ -56,68 +51,42 @@ export class ObservabilityPipelineSocketSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "framing": {
-      "baseName": "framing",
-      "type": "ObservabilityPipelineSocketSourceFraming",
-      "required": true,
+    framing: {
+      baseName: "framing",
+      type: "ObservabilityPipelineSocketSourceFraming",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "mode": {
-      "baseName": "mode",
-      "type": "ObservabilityPipelineSocketSourceMode",
-      "required": true,
+    mode: {
+      baseName: "mode",
+      type: "ObservabilityPipelineSocketSourceMode",
+      required: true,
     },
-    "tls": {
-      "baseName": "tls",
-      "type": "ObservabilityPipelineTls",
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineSocketSourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineSocketSourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSocketSource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

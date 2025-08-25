@@ -5,20 +5,15 @@
  */
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Active billing dimensions response.
-*/
+ */
 export class ActiveBillingDimensionsResponse {
   /**
    * Active billing dimensions data.
-  */
+   */
   "data"?: ActiveBillingDimensionsBody;
 
   /**
@@ -37,48 +32,22 @@ export class ActiveBillingDimensionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "ActiveBillingDimensionsBody",
+    data: {
+      baseName: "data",
+      type: "ActiveBillingDimensionsBody",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ActiveBillingDimensionsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

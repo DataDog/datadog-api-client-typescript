@@ -8,40 +8,35 @@ import { ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions } from
 import { ObservabilityPipelineSensitiveDataScannerProcessorPattern } from "./ObservabilityPipelineSensitiveDataScannerProcessorPattern";
 import { ObservabilityPipelineSensitiveDataScannerProcessorScope } from "./ObservabilityPipelineSensitiveDataScannerProcessorScope";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Defines a rule for detecting sensitive data, including matching pattern, scope, and the action to take.
-*/
+ */
 export class ObservabilityPipelineSensitiveDataScannerProcessorRule {
   /**
    * Configuration for keywords used to reinforce sensitive data pattern detection.
-  */
+   */
   "keywordOptions"?: ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions;
   /**
    * A name identifying the rule.
-  */
+   */
   "name": string;
   /**
    * Defines what action to take when sensitive data is matched.
-  */
+   */
   "onMatch": ObservabilityPipelineSensitiveDataScannerProcessorAction;
   /**
    * Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
-  */
+   */
   "pattern": ObservabilityPipelineSensitiveDataScannerProcessorPattern;
   /**
    * Determines which parts of the log the pattern-matching rule should be applied to.
-  */
+   */
   "scope": ObservabilityPipelineSensitiveDataScannerProcessorScope;
   /**
    * Tags assigned to this rule for filtering and classification.
-  */
+   */
   "tags": Array<string>;
 
   /**
@@ -60,73 +55,47 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "keywordOptions": {
-      "baseName": "keyword_options",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions",
+    keywordOptions: {
+      baseName: "keyword_options",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "onMatch": {
-      "baseName": "on_match",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorAction",
-      "required": true,
+    onMatch: {
+      baseName: "on_match",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorAction",
+      required: true,
     },
-    "pattern": {
-      "baseName": "pattern",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorPattern",
-      "required": true,
+    pattern: {
+      baseName: "pattern",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorPattern",
+      required: true,
     },
-    "scope": {
-      "baseName": "scope",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorScope",
-      "required": true,
+    scope: {
+      baseName: "scope",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorScope",
+      required: true,
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
-      "required": true,
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSensitiveDataScannerProcessorRule.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Private key for the private location.
-*/
+ */
 export class SyntheticsPrivateLocationSecretsConfigDecryption {
   /**
    * Private key for the private location.
-  */
+   */
   "key"?: string;
 
   /**
@@ -36,48 +31,22 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "key": {
-      "baseName": "key",
-      "type": "string",
+    key: {
+      baseName: "key",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsPrivateLocationSecretsConfigDecryption.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

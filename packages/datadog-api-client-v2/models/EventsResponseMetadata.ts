@@ -6,37 +6,32 @@
 import { EventsResponseMetadataPage } from "./EventsResponseMetadataPage";
 import { EventsWarning } from "./EventsWarning";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The metadata associated with a request.
-*/
+ */
 export class EventsResponseMetadata {
   /**
    * The time elapsed in milliseconds.
-  */
+   */
   "elapsed"?: number;
   /**
    * Pagination attributes.
-  */
+   */
   "page"?: EventsResponseMetadataPage;
   /**
    * The identifier of the request.
-  */
+   */
   "requestId"?: string;
   /**
    * The request status.
-  */
+   */
   "status"?: string;
   /**
    * A list of warnings (non-fatal errors) encountered. Partial results might be returned if
    * warnings are present in the response.
-  */
+   */
   "warnings"?: Array<EventsWarning>;
 
   /**
@@ -55,65 +50,39 @@ export class EventsResponseMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "elapsed": {
-      "baseName": "elapsed",
-      "type": "number",
-      "format": "int64",
+    elapsed: {
+      baseName: "elapsed",
+      type: "number",
+      format: "int64",
     },
-    "page": {
-      "baseName": "page",
-      "type": "EventsResponseMetadataPage",
+    page: {
+      baseName: "page",
+      type: "EventsResponseMetadataPage",
     },
-    "requestId": {
-      "baseName": "request_id",
-      "type": "string",
+    requestId: {
+      baseName: "request_id",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "string",
+    status: {
+      baseName: "status",
+      type: "string",
     },
-    "warnings": {
-      "baseName": "warnings",
-      "type": "Array<EventsWarning>",
+    warnings: {
+      baseName: "warnings",
+      type: "Array<EventsWarning>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EventsResponseMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

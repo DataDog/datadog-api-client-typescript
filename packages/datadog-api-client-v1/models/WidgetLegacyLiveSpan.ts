@@ -5,20 +5,15 @@
  */
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Wrapper for live span
-*/
+ */
 export class WidgetLegacyLiveSpan {
   /**
    * The available timeframes depend on the widget you are using.
-  */
+   */
   "liveSpan"?: WidgetLiveSpan;
 
   /**
@@ -30,44 +25,18 @@ export class WidgetLegacyLiveSpan {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "liveSpan": {
-      "baseName": "live_span",
-      "type": "WidgetLiveSpan",
-    }
+    liveSpan: {
+      baseName: "live_span",
+      type: "WidgetLiveSpan",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WidgetLegacyLiveSpan.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

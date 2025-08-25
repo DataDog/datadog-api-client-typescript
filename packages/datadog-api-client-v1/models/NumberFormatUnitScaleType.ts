@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of unit scale.
-*/
+ */
 
 export type NumberFormatUnitScaleType = typeof CANONICAL_UNIT | UnparsedObject;
-export const CANONICAL_UNIT = 'canonical_unit';
+export const CANONICAL_UNIT = "canonical_unit";

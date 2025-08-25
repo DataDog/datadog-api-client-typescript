@@ -7,28 +7,23 @@ import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object to create a service account User.
-*/
+ */
 export class ServiceAccountCreateData {
   /**
    * Attributes of the created user.
-  */
+   */
   "attributes": ServiceAccountCreateAttributes;
   /**
    * Relationships of the user object.
-  */
+   */
   "relationships"?: UserRelationships;
   /**
    * Users resource type.
-  */
+   */
   "type": UsersType;
 
   /**
@@ -47,58 +42,32 @@ export class ServiceAccountCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ServiceAccountCreateAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "ServiceAccountCreateAttributes",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "UserRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "UserRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "UsersType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "UsersType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ServiceAccountCreateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { ScalarColumn } from "./ScalarColumn";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object describing a scalar response.
-*/
+ */
 export class ScalarFormulaResponseAtrributes {
   /**
    * List of response columns, each corresponding to an individual formula or query in the request and with values in parallel arrays matching the series list.
-  */
+   */
   "columns"?: Array<ScalarColumn>;
 
   /**
@@ -37,48 +32,22 @@ export class ScalarFormulaResponseAtrributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "columns": {
-      "baseName": "columns",
-      "type": "Array<ScalarColumn>",
+    columns: {
+      baseName: "columns",
+      type: "Array<ScalarColumn>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScalarFormulaResponseAtrributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

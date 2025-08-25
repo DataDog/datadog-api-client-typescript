@@ -5,20 +5,15 @@
  */
 import { ObservabilityPipelinePipelineKafkaSourceSaslMechanism } from "./ObservabilityPipelinePipelineKafkaSourceSaslMechanism";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Specifies the SASL mechanism for authenticating with a Kafka cluster.
-*/
+ */
 export class ObservabilityPipelineKafkaSourceSasl {
   /**
    * SASL mechanism used for Kafka authentication.
-  */
+   */
   "mechanism"?: ObservabilityPipelinePipelineKafkaSourceSaslMechanism;
 
   /**
@@ -37,48 +32,22 @@ export class ObservabilityPipelineKafkaSourceSasl {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "mechanism": {
-      "baseName": "mechanism",
-      "type": "ObservabilityPipelinePipelineKafkaSourceSaslMechanism",
+    mechanism: {
+      baseName: "mechanism",
+      type: "ObservabilityPipelinePipelineKafkaSourceSaslMechanism",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineKafkaSourceSasl.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

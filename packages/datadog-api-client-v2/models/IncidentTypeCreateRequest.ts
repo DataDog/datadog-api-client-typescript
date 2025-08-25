@@ -5,20 +5,15 @@
  */
 import { IncidentTypeCreateData } from "./IncidentTypeCreateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Create request for an incident type.
-*/
+ */
 export class IncidentTypeCreateRequest {
   /**
    * Incident type data for a create request.
-  */
+   */
   "data": IncidentTypeCreateData;
 
   /**
@@ -37,49 +32,23 @@ export class IncidentTypeCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "IncidentTypeCreateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "IncidentTypeCreateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentTypeCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

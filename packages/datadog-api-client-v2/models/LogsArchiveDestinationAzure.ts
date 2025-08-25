@@ -6,40 +6,35 @@
 import { LogsArchiveDestinationAzureType } from "./LogsArchiveDestinationAzureType";
 import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The Azure archive destination.
-*/
+ */
 export class LogsArchiveDestinationAzure {
   /**
    * The container where the archive will be stored.
-  */
+   */
   "container": string;
   /**
    * The Azure archive's integration destination.
-  */
+   */
   "integration": LogsArchiveIntegrationAzure;
   /**
    * The archive path.
-  */
+   */
   "path"?: string;
   /**
    * The region where the archive will be stored.
-  */
+   */
   "region"?: string;
   /**
    * The associated storage account.
-  */
+   */
   "storageAccount": string;
   /**
    * Type of the Azure archive destination.
-  */
+   */
   "type": LogsArchiveDestinationAzureType;
 
   /**
@@ -58,72 +53,46 @@ export class LogsArchiveDestinationAzure {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "container": {
-      "baseName": "container",
-      "type": "string",
-      "required": true,
+    container: {
+      baseName: "container",
+      type: "string",
+      required: true,
     },
-    "integration": {
-      "baseName": "integration",
-      "type": "LogsArchiveIntegrationAzure",
-      "required": true,
+    integration: {
+      baseName: "integration",
+      type: "LogsArchiveIntegrationAzure",
+      required: true,
     },
-    "path": {
-      "baseName": "path",
-      "type": "string",
+    path: {
+      baseName: "path",
+      type: "string",
     },
-    "region": {
-      "baseName": "region",
-      "type": "string",
+    region: {
+      baseName: "region",
+      type: "string",
     },
-    "storageAccount": {
-      "baseName": "storage_account",
-      "type": "string",
-      "required": true,
+    storageAccount: {
+      baseName: "storage_account",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "LogsArchiveDestinationAzureType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "LogsArchiveDestinationAzureType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsArchiveDestinationAzure.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

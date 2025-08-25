@@ -6,15 +6,13 @@
 import { SecurityMonitoringSignalRulePayload } from "./SecurityMonitoringSignalRulePayload";
 import { SecurityMonitoringStandardRulePayload } from "./SecurityMonitoringStandardRulePayload";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Convert a rule from JSON to Terraform.
-*/
+ */
 
-export type SecurityMonitoringRuleConvertPayload = SecurityMonitoringStandardRulePayload | SecurityMonitoringSignalRulePayload | UnparsedObject;
+export type SecurityMonitoringRuleConvertPayload =
+  | SecurityMonitoringStandardRulePayload
+  | SecurityMonitoringSignalRulePayload
+  | UnparsedObject;

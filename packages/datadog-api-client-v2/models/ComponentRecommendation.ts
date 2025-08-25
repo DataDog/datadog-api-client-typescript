@@ -5,20 +5,15 @@
  */
 import { Estimation } from "./Estimation";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
-*/
+ */
 export class ComponentRecommendation {
   /**
    * Recommended resource values for a Spark driver or executor, derived from recent real usage metrics. Used by SPA to propose more efficient pod sizing.
-  */
+   */
   "estimation": Estimation;
 
   /**
@@ -37,49 +32,23 @@ export class ComponentRecommendation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "estimation": {
-      "baseName": "estimation",
-      "type": "Estimation",
-      "required": true,
+    estimation: {
+      baseName: "estimation",
+      type: "Estimation",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ComponentRecommendation.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

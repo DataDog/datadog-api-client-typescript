@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Source from which to query items to display in the funnel.
-*/
+ */
 
 export type FunnelSource = typeof RUM | UnparsedObject;
-export const RUM = 'rum';
+export const RUM = "rum";

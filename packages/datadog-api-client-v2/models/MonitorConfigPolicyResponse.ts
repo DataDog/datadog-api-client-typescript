@@ -5,20 +5,15 @@
  */
 import { MonitorConfigPolicyResponseData } from "./MonitorConfigPolicyResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response for retrieving a monitor configuration policy.
-*/
+ */
 export class MonitorConfigPolicyResponse {
   /**
    * A monitor configuration policy data.
-  */
+   */
   "data"?: MonitorConfigPolicyResponseData;
 
   /**
@@ -37,48 +32,22 @@ export class MonitorConfigPolicyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "MonitorConfigPolicyResponseData",
+    data: {
+      baseName: "data",
+      type: "MonitorConfigPolicyResponseData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MonitorConfigPolicyResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

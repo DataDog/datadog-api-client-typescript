@@ -7,28 +7,23 @@ import { MetricPaginationMeta } from "./MetricPaginationMeta";
 import { MetricsAndMetricTagConfigurations } from "./MetricsAndMetricTagConfigurations";
 import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object that includes metrics and metric tag configurations.
-*/
+ */
 export class MetricsAndMetricTagConfigurationsResponse {
   /**
    * Array of metrics and metric tag configurations.
-  */
+   */
   "data"?: Array<MetricsAndMetricTagConfigurations>;
   /**
    * Pagination links. Only present if pagination query parameters were provided.
-  */
+   */
   "links"?: MetricsListResponseLinks;
   /**
    * Response metadata object.
-  */
+   */
   "meta"?: MetricPaginationMeta;
 
   /**
@@ -47,56 +42,30 @@ export class MetricsAndMetricTagConfigurationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<MetricsAndMetricTagConfigurations>",
+    data: {
+      baseName: "data",
+      type: "Array<MetricsAndMetricTagConfigurations>",
     },
-    "links": {
-      "baseName": "links",
-      "type": "MetricsListResponseLinks",
+    links: {
+      baseName: "links",
+      type: "MetricsListResponseLinks",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "MetricPaginationMeta",
+    meta: {
+      baseName: "meta",
+      type: "MetricPaginationMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MetricsAndMetricTagConfigurationsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -6,24 +6,19 @@
 import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttributes";
 import { AwsCURConfigPostRequestType } from "./AwsCURConfigPostRequestType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * AWS CUR config Post data.
-*/
+ */
 export class AwsCURConfigPostData {
   /**
    * Attributes for AWS CUR config Post Request.
-  */
+   */
   "attributes": AwsCURConfigPostRequestAttributes;
   /**
    * Type of AWS CUR config Post Request.
-  */
+   */
   "type": AwsCURConfigPostRequestType;
 
   /**
@@ -42,54 +37,28 @@ export class AwsCURConfigPostData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "AwsCURConfigPostRequestAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "AwsCURConfigPostRequestAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "AwsCURConfigPostRequestType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "AwsCURConfigPostRequestType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AwsCURConfigPostData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

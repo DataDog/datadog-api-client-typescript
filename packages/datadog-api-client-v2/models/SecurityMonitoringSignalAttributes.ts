@@ -4,33 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object containing all signal attributes and their
  * associated values.
-*/
+ */
 export class SecurityMonitoringSignalAttributes {
   /**
    * A JSON object of attributes in the security signal.
-  */
-  "custom"?: { [key: string]: any; };
+   */
+  "custom"?: { [key: string]: any };
   /**
    * The message in the security signal defined by the rule that generated the signal.
-  */
+   */
   "message"?: string;
   /**
    * An array of tags associated with the security signal.
-  */
+   */
   "tags"?: Array<string>;
   /**
    * The timestamp of the security signal.
-  */
+   */
   "timestamp"?: Date;
 
   /**
@@ -49,61 +44,35 @@ export class SecurityMonitoringSignalAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "custom": {
-      "baseName": "custom",
-      "type": "{ [key: string]: any; }",
+    custom: {
+      baseName: "custom",
+      type: "{ [key: string]: any; }",
     },
-    "message": {
-      "baseName": "message",
-      "type": "string",
+    message: {
+      baseName: "message",
+      type: "string",
     },
-    "tags": {
-      "baseName": "tags",
-      "type": "Array<string>",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
-    "timestamp": {
-      "baseName": "timestamp",
-      "type": "Date",
-      "format": "date-time",
+    timestamp: {
+      baseName: "timestamp",
+      type: "Date",
+      format: "date-time",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SecurityMonitoringSignalAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

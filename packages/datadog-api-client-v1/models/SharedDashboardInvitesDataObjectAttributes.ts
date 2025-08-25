@@ -4,40 +4,35 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes of the shared dashboard invitation
-*/
+ */
 export class SharedDashboardInvitesDataObjectAttributes {
   /**
    * When the invitation was sent.
-  */
+   */
   "createdAt"?: Date;
   /**
    * An email address that an invitation has been (or if used in invitation request, will be) sent to.
-  */
+   */
   "email"?: string;
   /**
    * Indicates whether an active session exists for the invitation (produced when a user clicks the link in the email).
-  */
+   */
   "hasSession"?: boolean;
   /**
    * When the invitation expires.
-  */
+   */
   "invitationExpiry"?: Date;
   /**
    * When the invited user's session expires. null if the invitation has no associated session.
-  */
+   */
   "sessionExpiry"?: Date;
   /**
    * The unique token of the shared dashboard that was (or is to be) shared.
-  */
+   */
   "shareToken"?: string;
 
   /**
@@ -56,71 +51,45 @@ export class SharedDashboardInvitesDataObjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "createdAt": {
-      "baseName": "created_at",
-      "type": "Date",
-      "format": "date-time",
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
     },
-    "email": {
-      "baseName": "email",
-      "type": "string",
+    email: {
+      baseName: "email",
+      type: "string",
     },
-    "hasSession": {
-      "baseName": "has_session",
-      "type": "boolean",
+    hasSession: {
+      baseName: "has_session",
+      type: "boolean",
     },
-    "invitationExpiry": {
-      "baseName": "invitation_expiry",
-      "type": "Date",
-      "format": "date-time",
+    invitationExpiry: {
+      baseName: "invitation_expiry",
+      type: "Date",
+      format: "date-time",
     },
-    "sessionExpiry": {
-      "baseName": "session_expiry",
-      "type": "Date",
-      "format": "date-time",
+    sessionExpiry: {
+      baseName: "session_expiry",
+      type: "Date",
+      format: "date-time",
     },
-    "shareToken": {
-      "baseName": "share_token",
-      "type": "string",
+    shareToken: {
+      baseName: "share_token",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SharedDashboardInvitesDataObjectAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

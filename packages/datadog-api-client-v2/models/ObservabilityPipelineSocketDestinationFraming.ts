@@ -7,15 +7,14 @@ import { ObservabilityPipelineSocketDestinationFramingBytes } from "./Observabil
 import { ObservabilityPipelineSocketDestinationFramingCharacterDelimited } from "./ObservabilityPipelineSocketDestinationFramingCharacterDelimited";
 import { ObservabilityPipelineSocketDestinationFramingNewlineDelimited } from "./ObservabilityPipelineSocketDestinationFramingNewlineDelimited";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Framing method configuration.
-*/
+ */
 
-export type ObservabilityPipelineSocketDestinationFraming = ObservabilityPipelineSocketDestinationFramingNewlineDelimited | ObservabilityPipelineSocketDestinationFramingBytes | ObservabilityPipelineSocketDestinationFramingCharacterDelimited | UnparsedObject;
+export type ObservabilityPipelineSocketDestinationFraming =
+  | ObservabilityPipelineSocketDestinationFramingNewlineDelimited
+  | ObservabilityPipelineSocketDestinationFramingBytes
+  | ObservabilityPipelineSocketDestinationFramingCharacterDelimited
+  | UnparsedObject;

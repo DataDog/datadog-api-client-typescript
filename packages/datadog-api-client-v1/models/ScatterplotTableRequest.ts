@@ -7,28 +7,23 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Scatterplot request containing formulas and functions.
-*/
+ */
 export class ScatterplotTableRequest {
   /**
    * List of Scatterplot formulas that operate on queries.
-  */
+   */
   "formulas"?: Array<ScatterplotWidgetFormula>;
   /**
    * List of queries that can be returned directly or used in formulas.
-  */
+   */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   /**
    * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
-  */
+   */
   "responseFormat"?: FormulaAndFunctionResponseFormat;
 
   /**
@@ -47,56 +42,30 @@ export class ScatterplotTableRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "formulas": {
-      "baseName": "formulas",
-      "type": "Array<ScatterplotWidgetFormula>",
+    formulas: {
+      baseName: "formulas",
+      type: "Array<ScatterplotWidgetFormula>",
     },
-    "queries": {
-      "baseName": "queries",
-      "type": "Array<FormulaAndFunctionQueryDefinition>",
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
     },
-    "responseFormat": {
-      "baseName": "response_format",
-      "type": "FormulaAndFunctionResponseFormat",
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScatterplotTableRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

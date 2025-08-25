@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The type of custom unit.
-*/
+ */
 
-export type NumberFormatUnitCustomType = typeof CUSTOM_UNIT_LABEL | UnparsedObject;
-export const CUSTOM_UNIT_LABEL = 'custom_unit_label';
+export type NumberFormatUnitCustomType =
+  | typeof CUSTOM_UNIT_LABEL
+  | UnparsedObject;
+export const CUSTOM_UNIT_LABEL = "custom_unit_label";

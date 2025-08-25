@@ -6,24 +6,19 @@
 import { UserInvitationRelationships } from "./UserInvitationRelationships";
 import { UserInvitationsType } from "./UserInvitationsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object to create a user invitation.
-*/
+ */
 export class UserInvitationData {
   /**
    * Relationships data for user invitation.
-  */
+   */
   "relationships": UserInvitationRelationships;
   /**
    * User invitations type.
-  */
+   */
   "type": UserInvitationsType;
 
   /**
@@ -42,54 +37,28 @@ export class UserInvitationData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "relationships": {
-      "baseName": "relationships",
-      "type": "UserInvitationRelationships",
-      "required": true,
+    relationships: {
+      baseName: "relationships",
+      type: "UserInvitationRelationships",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "UserInvitationsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "UserInvitationsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UserInvitationData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Team permission setting type
-*/
+ */
 
-export type TeamPermissionSettingType = typeof TEAM_PERMISSION_SETTINGS | UnparsedObject;
-export const TEAM_PERMISSION_SETTINGS = 'team_permission_settings';
+export type TeamPermissionSettingType =
+  | typeof TEAM_PERMISSION_SETTINGS
+  | UnparsedObject;
+export const TEAM_PERMISSION_SETTINGS = "team_permission_settings";

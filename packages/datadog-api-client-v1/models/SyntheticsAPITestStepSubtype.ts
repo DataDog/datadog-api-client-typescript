@@ -4,23 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The subtype of the Synthetic multi-step API test step.
-*/
+ */
 
-export type SyntheticsAPITestStepSubtype = typeof HTTP| typeof GRPC| typeof SSL| typeof DNS| typeof TCP| typeof UDP| typeof ICMP| typeof WEBSOCKET | UnparsedObject;
-export const HTTP = 'http';
-export const GRPC = 'grpc';
-export const SSL = 'ssl';
-export const DNS = 'dns';
-export const TCP = 'tcp';
-export const UDP = 'udp';
-export const ICMP = 'icmp';
-export const WEBSOCKET = 'websocket';
+export type SyntheticsAPITestStepSubtype =
+  | typeof HTTP
+  | typeof GRPC
+  | typeof SSL
+  | typeof DNS
+  | typeof TCP
+  | typeof UDP
+  | typeof ICMP
+  | typeof WEBSOCKET
+  | UnparsedObject;
+export const HTTP = "http";
+export const GRPC = "grpc";
+export const SSL = "ssl";
+export const DNS = "dns";
+export const TCP = "tcp";
+export const UDP = "udp";
+export const ICMP = "icmp";
+export const WEBSOCKET = "websocket";

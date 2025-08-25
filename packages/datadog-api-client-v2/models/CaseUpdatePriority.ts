@@ -6,24 +6,19 @@
 import { CaseResourceType } from "./CaseResourceType";
 import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Case priority status
-*/
+ */
 export class CaseUpdatePriority {
   /**
    * Case update priority attributes
-  */
+   */
   "attributes": CaseUpdatePriorityAttributes;
   /**
    * Case resource type
-  */
+   */
   "type": CaseResourceType;
 
   /**
@@ -42,54 +37,28 @@ export class CaseUpdatePriority {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CaseUpdatePriorityAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "CaseUpdatePriorityAttributes",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "CaseResourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CaseResourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CaseUpdatePriority.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object to delete a custom framework.
-*/
+ */
 export class DeleteCustomFrameworkResponse {
   /**
    * Metadata for custom frameworks.
-  */
+   */
   "data": CustomFrameworkMetadata;
 
   /**
@@ -37,49 +32,23 @@ export class DeleteCustomFrameworkResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CustomFrameworkMetadata",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "CustomFrameworkMetadata",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return DeleteCustomFrameworkResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

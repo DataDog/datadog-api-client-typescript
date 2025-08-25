@@ -4,26 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IncidentTrigger } from "./IncidentTrigger";
-import { StartStepNamesItem } from "./StartStepNamesItem";
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-
-
-
 /**
  * Schema for an Incident-based trigger.
-*/
+ */
 export class IncidentTriggerWrapper {
   /**
    * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
-  */
+   */
   "incidentTrigger": IncidentTrigger;
   /**
    * A list of steps that run first after a trigger fires.
-  */
+   */
   "startStepNames"?: Array<string>;
 
   /**
@@ -42,53 +36,27 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "incidentTrigger": {
-      "baseName": "incidentTrigger",
-      "type": "IncidentTrigger",
-      "required": true,
+    incidentTrigger: {
+      baseName: "incidentTrigger",
+      type: "IncidentTrigger",
+      required: true,
     },
-    "startStepNames": {
-      "baseName": "startStepNames",
-      "type": "Array<string>",
+    startStepNames: {
+      baseName: "startStepNames",
+      type: "Array<string>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentTriggerWrapper.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

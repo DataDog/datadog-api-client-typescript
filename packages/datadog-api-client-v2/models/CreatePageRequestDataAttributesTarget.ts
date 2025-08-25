@@ -5,24 +5,19 @@
  */
 import { OnCallPageTargetType } from "./OnCallPageTargetType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Information about the target to notify (such as a team or user).
-*/
+ */
 export class CreatePageRequestDataAttributesTarget {
   /**
    * Identifier for the target (for example, team handle or user ID).
-  */
+   */
   "identifier"?: string;
   /**
    * The kind of target, `team_id` | `team_handle` | `user_id`.
-  */
+   */
   "type"?: OnCallPageTargetType;
 
   /**
@@ -41,52 +36,26 @@ export class CreatePageRequestDataAttributesTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "identifier": {
-      "baseName": "identifier",
-      "type": "string",
+    identifier: {
+      baseName: "identifier",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "OnCallPageTargetType",
+    type: {
+      baseName: "type",
+      type: "OnCallPageTargetType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CreatePageRequestDataAttributesTarget.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

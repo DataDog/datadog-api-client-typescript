@@ -5,20 +5,15 @@
  */
 import { SpansAggregateData } from "./SpansAggregateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object sent with the request to retrieve a list of aggregated spans from your organization.
-*/
+ */
 export class SpansAggregateRequest {
   /**
    * The object containing the query content.
-  */
+   */
   "data"?: SpansAggregateData;
 
   /**
@@ -37,48 +32,22 @@ export class SpansAggregateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SpansAggregateData",
+    data: {
+      baseName: "data",
+      type: "SpansAggregateData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansAggregateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

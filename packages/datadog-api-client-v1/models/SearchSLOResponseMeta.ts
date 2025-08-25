@@ -5,20 +5,15 @@
  */
 import { SearchSLOResponseMetaPage } from "./SearchSLOResponseMetaPage";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Searches metadata returned by the API.
-*/
+ */
 export class SearchSLOResponseMeta {
   /**
    * Pagination metadata returned by the API.
-  */
+   */
   "pagination"?: SearchSLOResponseMetaPage;
 
   /**
@@ -37,48 +32,22 @@ export class SearchSLOResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "pagination": {
-      "baseName": "pagination",
-      "type": "SearchSLOResponseMetaPage",
+    pagination: {
+      baseName: "pagination",
+      type: "SearchSLOResponseMetaPage",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SearchSLOResponseMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

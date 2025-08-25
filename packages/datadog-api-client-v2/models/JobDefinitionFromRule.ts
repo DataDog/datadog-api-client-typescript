@@ -4,36 +4,31 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Definition of a historical job based on a security monitoring rule.
-*/
+ */
 export class JobDefinitionFromRule {
   /**
    * Starting time of data analyzed by the job.
-  */
+   */
   "from": number;
   /**
    * ID of the detection rule used to create the job.
-  */
+   */
   "id": string;
   /**
    * Index used to load the data.
-  */
+   */
   "index": string;
   /**
    * Notifications sent when the job is completed.
-  */
+   */
   "notifications"?: Array<string>;
   /**
    * Ending time of data analyzed by the job.
-  */
+   */
   "to": number;
 
   /**
@@ -52,70 +47,44 @@ export class JobDefinitionFromRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "from": {
-      "baseName": "from",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    from: {
+      baseName: "from",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "index": {
-      "baseName": "index",
-      "type": "string",
-      "required": true,
+    index: {
+      baseName: "index",
+      type: "string",
+      required: true,
     },
-    "notifications": {
-      "baseName": "notifications",
-      "type": "Array<string>",
+    notifications: {
+      baseName: "notifications",
+      type: "Array<string>",
     },
-    "to": {
-      "baseName": "to",
-      "type": "number",
-      "required": true,
-      "format": "int64",
+    to: {
+      baseName: "to",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return JobDefinitionFromRule.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

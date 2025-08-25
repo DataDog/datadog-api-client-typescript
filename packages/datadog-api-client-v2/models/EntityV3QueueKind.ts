@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of Entity V3 Queue Kind object.
-*/
+ */
 
 export type EntityV3QueueKind = typeof QUEUE | UnparsedObject;
-export const QUEUE = 'queue';
+export const QUEUE = "queue";

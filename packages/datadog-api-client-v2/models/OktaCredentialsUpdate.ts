@@ -5,15 +5,10 @@
  */
 import { OktaAPITokenUpdate } from "./OktaAPITokenUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `OktaCredentialsUpdate` object.
-*/
+ */
 
 export type OktaCredentialsUpdate = OktaAPITokenUpdate | UnparsedObject;

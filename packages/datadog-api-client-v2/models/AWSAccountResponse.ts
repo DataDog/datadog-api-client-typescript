@@ -5,20 +5,15 @@
  */
 import { AWSAccountResponseData } from "./AWSAccountResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * AWS Account response body.
-*/
+ */
 export class AWSAccountResponse {
   /**
    * AWS Account response data.
-  */
+   */
   "data": AWSAccountResponseData;
 
   /**
@@ -37,49 +32,23 @@ export class AWSAccountResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "AWSAccountResponseData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "AWSAccountResponseData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSAccountResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

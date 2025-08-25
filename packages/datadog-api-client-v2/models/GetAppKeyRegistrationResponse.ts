@@ -5,20 +5,15 @@
  */
 import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response object after getting an app key registration.
-*/
+ */
 export class GetAppKeyRegistrationResponse {
   /**
    * Data related to the app key registration.
-  */
+   */
   "data"?: AppKeyRegistrationData;
 
   /**
@@ -37,48 +32,22 @@ export class GetAppKeyRegistrationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "AppKeyRegistrationData",
+    data: {
+      baseName: "data",
+      type: "AppKeyRegistrationData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GetAppKeyRegistrationResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relationship to role.
-*/
+ */
 export class RelationshipToRole {
   /**
    * Relationship to role object.
-  */
+   */
   "data"?: RelationshipToRoleData;
 
   /**
@@ -37,48 +32,22 @@ export class RelationshipToRole {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "RelationshipToRoleData",
+    data: {
+      baseName: "data",
+      type: "RelationshipToRoleData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RelationshipToRole.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

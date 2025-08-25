@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the S3 archive destination.
-*/
+ */
 
 export type LogsArchiveDestinationS3Type = typeof S3 | UnparsedObject;
-export const S3 = 's3';
+export const S3 = "s3";

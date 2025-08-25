@@ -4,21 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Additional information for creating a workflow instance.
-*/
+ */
 export class WorkflowInstanceCreateMeta {
   /**
    * The input parameters to the workflow.
-  */
-  "payload"?: { [key: string]: any; };
+   */
+  "payload"?: { [key: string]: any };
 
   /**
    * A container for additional, undeclared properties.
@@ -36,48 +31,22 @@ export class WorkflowInstanceCreateMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "payload": {
-      "baseName": "payload",
-      "type": "{ [key: string]: any; }",
+    payload: {
+      baseName: "payload",
+      type: "{ [key: string]: any; }",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return WorkflowInstanceCreateMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

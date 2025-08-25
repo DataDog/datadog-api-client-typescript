@@ -5,15 +5,12 @@
  */
 import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Configuration for the policy.
-*/
+ */
 
-export type MonitorConfigPolicyPolicy = MonitorConfigPolicyTagPolicy | UnparsedObject;
+export type MonitorConfigPolicyPolicy =
+  | MonitorConfigPolicyTagPolicy
+  | UnparsedObject;

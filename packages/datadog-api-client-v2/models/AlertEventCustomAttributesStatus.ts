@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The status of the alert.
-*/
+ */
 
-export type AlertEventCustomAttributesStatus = typeof WARN| typeof ERROR| typeof OK | UnparsedObject;
-export const WARN = 'warn';
-export const ERROR = 'error';
-export const OK = 'ok';
+export type AlertEventCustomAttributesStatus =
+  | typeof WARN
+  | typeof ERROR
+  | typeof OK
+  | UnparsedObject;
+export const WARN = "warn";
+export const ERROR = "error";
+export const OK = "ok";

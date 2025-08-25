@@ -6,28 +6,23 @@
 import { GetRuleVersionHistoryDataType } from "./GetRuleVersionHistoryDataType";
 import { RuleVersionHistory } from "./RuleVersionHistory";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data for the rule version history.
-*/
+ */
 export class GetRuleVersionHistoryData {
   /**
    * Response object containing the version history of a rule.
-  */
+   */
   "attributes"?: RuleVersionHistory;
   /**
    * ID of the rule.
-  */
+   */
   "id"?: string;
   /**
    * Type of data.
-  */
+   */
   "type"?: GetRuleVersionHistoryDataType;
 
   /**
@@ -46,56 +41,30 @@ export class GetRuleVersionHistoryData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "RuleVersionHistory",
+    attributes: {
+      baseName: "attributes",
+      type: "RuleVersionHistory",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "GetRuleVersionHistoryDataType",
+    type: {
+      baseName: "type",
+      type: "GetRuleVersionHistoryDataType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GetRuleVersionHistoryData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

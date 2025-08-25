@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of Azure config Patch Request.
-*/
+ */
 
-export type AzureUCConfigPatchRequestType = typeof AZURE_UC_CONFIG_PATCH_REQUEST | UnparsedObject;
-export const AZURE_UC_CONFIG_PATCH_REQUEST = 'azure_uc_config_patch_request';
+export type AzureUCConfigPatchRequestType =
+  | typeof AZURE_UC_CONFIG_PATCH_REQUEST
+  | UnparsedObject;
+export const AZURE_UC_CONFIG_PATCH_REQUEST = "azure_uc_config_patch_request";

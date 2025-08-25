@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the Azure archive destination.
-*/
+ */
 
 export type LogsArchiveDestinationAzureType = typeof AZURE | UnparsedObject;
-export const AZURE = 'azure';
+export const AZURE = "azure";

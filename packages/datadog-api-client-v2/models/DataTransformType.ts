@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The data transform type.
-*/
+ */
 
 export type DataTransformType = typeof DATATRANSFORM | UnparsedObject;
-export const DATATRANSFORM = 'dataTransform';
+export const DATATRANSFORM = "dataTransform";

@@ -5,20 +5,15 @@
  */
 import { OktaAccount } from "./OktaAccount";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object for an Okta account.
-*/
+ */
 export class OktaAccountResponse {
   /**
    * Schema for an Okta account.
-  */
+   */
   "data"?: OktaAccount;
 
   /**
@@ -37,48 +32,22 @@ export class OktaAccountResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "OktaAccount",
+    data: {
+      baseName: "data",
+      type: "OktaAccount",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OktaAccountResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

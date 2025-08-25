@@ -7,32 +7,27 @@ import { ContainerGroupAttributes } from "./ContainerGroupAttributes";
 import { ContainerGroupRelationships } from "./ContainerGroupRelationships";
 import { ContainerGroupType } from "./ContainerGroupType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Container group object.
-*/
+ */
 export class ContainerGroup {
   /**
    * Attributes for a container group.
-  */
+   */
   "attributes"?: ContainerGroupAttributes;
   /**
    * Container Group ID.
-  */
+   */
   "id"?: string;
   /**
    * Relationships to containers inside a container group.
-  */
+   */
   "relationships"?: ContainerGroupRelationships;
   /**
    * Type of container group.
-  */
+   */
   "type"?: ContainerGroupType;
 
   /**
@@ -51,60 +46,34 @@ export class ContainerGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ContainerGroupAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "ContainerGroupAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "ContainerGroupRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "ContainerGroupRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ContainerGroupType",
+    type: {
+      baseName: "type",
+      type: "ContainerGroupType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ContainerGroup.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

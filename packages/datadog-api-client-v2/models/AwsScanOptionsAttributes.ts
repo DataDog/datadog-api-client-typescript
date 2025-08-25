@@ -4,32 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes for the AWS scan options.
-*/
+ */
 export class AwsScanOptionsAttributes {
   /**
    * Indicates if scanning of Lambda functions is enabled.
-  */
+   */
   "lambda"?: boolean;
   /**
    * Indicates if scanning for sensitive data is enabled.
-  */
+   */
   "sensitiveData"?: boolean;
   /**
    * Indicates if scanning for vulnerabilities in containers is enabled.
-  */
+   */
   "vulnContainersOs"?: boolean;
   /**
    * Indicates if scanning for vulnerabilities in hosts is enabled.
-  */
+   */
   "vulnHostOs"?: boolean;
 
   /**
@@ -48,60 +43,34 @@ export class AwsScanOptionsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "lambda": {
-      "baseName": "lambda",
-      "type": "boolean",
+    lambda: {
+      baseName: "lambda",
+      type: "boolean",
     },
-    "sensitiveData": {
-      "baseName": "sensitive_data",
-      "type": "boolean",
+    sensitiveData: {
+      baseName: "sensitive_data",
+      type: "boolean",
     },
-    "vulnContainersOs": {
-      "baseName": "vuln_containers_os",
-      "type": "boolean",
+    vulnContainersOs: {
+      baseName: "vuln_containers_os",
+      type: "boolean",
     },
-    "vulnHostOs": {
-      "baseName": "vuln_host_os",
-      "type": "boolean",
+    vulnHostOs: {
+      baseName: "vuln_host_os",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AwsScanOptionsAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

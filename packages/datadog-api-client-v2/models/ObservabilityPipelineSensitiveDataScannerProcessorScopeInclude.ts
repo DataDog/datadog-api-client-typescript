@@ -6,24 +6,19 @@
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeIncludeTarget } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeIncludeTarget";
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Includes only specific fields for sensitive data scanning.
-*/
+ */
 export class ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude {
   /**
    * Fields to which the scope rule applies.
-  */
+   */
   "options": ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions;
   /**
    * Applies the rule only to included fields.
-  */
+   */
   "target": ObservabilityPipelineSensitiveDataScannerProcessorScopeIncludeTarget;
 
   /**
@@ -42,54 +37,28 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "options": {
-      "baseName": "options",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions",
-      "required": true,
+    options: {
+      baseName: "options",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions",
+      required: true,
     },
-    "target": {
-      "baseName": "target",
-      "type": "ObservabilityPipelineSensitiveDataScannerProcessorScopeIncludeTarget",
-      "required": true,
+    target: {
+      baseName: "target",
+      type: "ObservabilityPipelineSensitiveDataScannerProcessorScopeIncludeTarget",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

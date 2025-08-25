@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The JSON:API type.
-*/
+ */
 
 export type AssetEntityType = typeof ASSETS | UnparsedObject;
-export const ASSETS = 'assets';
+export const ASSETS = "assets";

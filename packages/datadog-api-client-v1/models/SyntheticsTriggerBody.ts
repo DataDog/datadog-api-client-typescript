@@ -5,20 +5,15 @@
  */
 import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object describing the Synthetic tests to trigger.
-*/
+ */
 export class SyntheticsTriggerBody {
   /**
    * List of Synthetic tests.
-  */
+   */
   "tests": Array<SyntheticsTriggerTest>;
 
   /**
@@ -37,49 +32,23 @@ export class SyntheticsTriggerBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "tests": {
-      "baseName": "tests",
-      "type": "Array<SyntheticsTriggerTest>",
-      "required": true,
+    tests: {
+      baseName: "tests",
+      type: "Array<SyntheticsTriggerTest>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsTriggerBody.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

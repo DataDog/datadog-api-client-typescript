@@ -8,33 +8,28 @@ import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppSort } from "./CIAppSort";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The request for a tests search.
-*/
+ */
 export class CIAppTestEventsRequest {
   /**
    * The search and filter query settings.
-  */
+   */
   "filter"?: CIAppTestsQueryFilter;
   /**
    * Global query options that are used during the query.
    * Only supply timezone or time offset, not both. Otherwise, the query fails.
-  */
+   */
   "options"?: CIAppQueryOptions;
   /**
    * Paging attributes for listing events.
-  */
+   */
   "page"?: CIAppQueryPageOptions;
   /**
    * Sort parameters when querying events.
-  */
+   */
   "sort"?: CIAppSort;
 
   /**
@@ -53,60 +48,34 @@ export class CIAppTestEventsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "filter": {
-      "baseName": "filter",
-      "type": "CIAppTestsQueryFilter",
+    filter: {
+      baseName: "filter",
+      type: "CIAppTestsQueryFilter",
     },
-    "options": {
-      "baseName": "options",
-      "type": "CIAppQueryOptions",
+    options: {
+      baseName: "options",
+      type: "CIAppQueryOptions",
     },
-    "page": {
-      "baseName": "page",
-      "type": "CIAppQueryPageOptions",
+    page: {
+      baseName: "page",
+      type: "CIAppQueryPageOptions",
     },
-    "sort": {
-      "baseName": "sort",
-      "type": "CIAppSort",
+    sort: {
+      baseName: "sort",
+      type: "CIAppSort",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppTestEventsRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

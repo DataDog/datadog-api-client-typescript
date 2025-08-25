@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Oncall type.
-*/
+ */
 
 export type EntityResponseIncludedOncallType = typeof ONCALL | UnparsedObject;
-export const ONCALL = 'oncall';
+export const ONCALL = "oncall";

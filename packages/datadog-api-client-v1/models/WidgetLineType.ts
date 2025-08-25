@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of lines displayed.
-*/
+ */
 
-export type WidgetLineType = typeof DASHED| typeof DOTTED| typeof SOLID | UnparsedObject;
-export const DASHED = 'dashed';
-export const DOTTED = 'dotted';
-export const SOLID = 'solid';
+export type WidgetLineType =
+  | typeof DASHED
+  | typeof DOTTED
+  | typeof SOLID
+  | UnparsedObject;
+export const DASHED = "dashed";
+export const DOTTED = "dotted";
+export const SOLID = "solid";

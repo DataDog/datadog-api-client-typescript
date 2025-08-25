@@ -4,48 +4,43 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Powerpack response pagination metadata.
-*/
+ */
 export class PowerpacksResponseMetaPagination {
   /**
    * The first offset.
-  */
+   */
   "firstOffset"?: number;
   /**
    * The last offset.
-  */
+   */
   "lastOffset"?: number;
   /**
    * Pagination limit.
-  */
+   */
   "limit"?: number;
   /**
    * The next offset.
-  */
+   */
   "nextOffset"?: number;
   /**
    * The offset.
-  */
+   */
   "offset"?: number;
   /**
    * The previous offset.
-  */
+   */
   "prevOffset"?: number;
   /**
    * Total results.
-  */
+   */
   "total"?: number;
   /**
    * Offset type.
-  */
+   */
   "type"?: string;
 
   /**
@@ -64,83 +59,57 @@ export class PowerpacksResponseMetaPagination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "firstOffset": {
-      "baseName": "first_offset",
-      "type": "number",
-      "format": "int64",
+    firstOffset: {
+      baseName: "first_offset",
+      type: "number",
+      format: "int64",
     },
-    "lastOffset": {
-      "baseName": "last_offset",
-      "type": "number",
-      "format": "int64",
+    lastOffset: {
+      baseName: "last_offset",
+      type: "number",
+      format: "int64",
     },
-    "limit": {
-      "baseName": "limit",
-      "type": "number",
-      "format": "int64",
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
     },
-    "nextOffset": {
-      "baseName": "next_offset",
-      "type": "number",
-      "format": "int64",
+    nextOffset: {
+      baseName: "next_offset",
+      type: "number",
+      format: "int64",
     },
-    "offset": {
-      "baseName": "offset",
-      "type": "number",
-      "format": "int64",
+    offset: {
+      baseName: "offset",
+      type: "number",
+      format: "int64",
     },
-    "prevOffset": {
-      "baseName": "prev_offset",
-      "type": "number",
-      "format": "int64",
+    prevOffset: {
+      baseName: "prev_offset",
+      type: "number",
+      format: "int64",
     },
-    "total": {
-      "baseName": "total",
-      "type": "number",
-      "format": "int64",
+    total: {
+      baseName: "total",
+      type: "number",
+      format: "int64",
     },
-    "type": {
-      "baseName": "type",
-      "type": "string",
+    type: {
+      baseName: "type",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return PowerpacksResponseMetaPagination.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

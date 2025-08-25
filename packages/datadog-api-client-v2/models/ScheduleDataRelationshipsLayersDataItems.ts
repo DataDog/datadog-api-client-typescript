@@ -5,24 +5,19 @@
  */
 import { ScheduleDataRelationshipsLayersDataItemsType } from "./ScheduleDataRelationshipsLayersDataItemsType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Relates a layer to this schedule, identified by `id` and `type` (must be `layers`).
-*/
+ */
 export class ScheduleDataRelationshipsLayersDataItems {
   /**
    * The unique identifier of the layer in this relationship.
-  */
+   */
   "id": string;
   /**
    * Layers resource type.
-  */
+   */
   "type": ScheduleDataRelationshipsLayersDataItemsType;
 
   /**
@@ -41,54 +36,28 @@ export class ScheduleDataRelationshipsLayersDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ScheduleDataRelationshipsLayersDataItemsType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ScheduleDataRelationshipsLayersDataItemsType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScheduleDataRelationshipsLayersDataItems.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

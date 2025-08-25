@@ -5,20 +5,15 @@
  */
 import { SharedDashboardInvitesMetaPage } from "./SharedDashboardInvitesMetaPage";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Pagination metadata returned by the API.
-*/
+ */
 export class SharedDashboardInvitesMeta {
   /**
    * Object containing the total count of invitations across all pages
-  */
+   */
   "page"?: SharedDashboardInvitesMetaPage;
 
   /**
@@ -37,48 +32,22 @@ export class SharedDashboardInvitesMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "page": {
-      "baseName": "page",
-      "type": "SharedDashboardInvitesMetaPage",
+    page: {
+      baseName: "page",
+      type: "SharedDashboardInvitesMetaPage",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SharedDashboardInvitesMeta.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

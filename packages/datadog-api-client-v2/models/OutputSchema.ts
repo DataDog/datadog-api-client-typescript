@@ -5,20 +5,15 @@
  */
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A list of output parameters for the workflow.
-*/
+ */
 export class OutputSchema {
   /**
    * The `OutputSchema` `parameters`.
-  */
+   */
   "parameters"?: Array<OutputSchemaParameters>;
 
   /**
@@ -37,48 +32,22 @@ export class OutputSchema {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "parameters": {
-      "baseName": "parameters",
-      "type": "Array<OutputSchemaParameters>",
+    parameters: {
+      baseName: "parameters",
+      type: "Array<OutputSchemaParameters>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OutputSchema.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

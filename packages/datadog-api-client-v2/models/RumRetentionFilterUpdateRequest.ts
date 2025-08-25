@@ -5,20 +5,15 @@
  */
 import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The RUM retention filter body to update.
-*/
+ */
 export class RumRetentionFilterUpdateRequest {
   /**
    * The new RUM retention filter properties to update.
-  */
+   */
   "data": RumRetentionFilterUpdateData;
 
   /**
@@ -37,49 +32,23 @@ export class RumRetentionFilterUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "RumRetentionFilterUpdateData",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "RumRetentionFilterUpdateData",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RumRetentionFilterUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

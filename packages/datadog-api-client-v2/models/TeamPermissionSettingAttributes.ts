@@ -6,36 +6,31 @@
 import { TeamPermissionSettingSerializerAction } from "./TeamPermissionSettingSerializerAction";
 import { TeamPermissionSettingValue } from "./TeamPermissionSettingValue";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Team permission setting attributes
-*/
+ */
 export class TeamPermissionSettingAttributes {
   /**
    * The identifier for the action
-  */
+   */
   "action"?: TeamPermissionSettingSerializerAction;
   /**
    * Whether or not the permission setting is editable by the current user
-  */
+   */
   "editable"?: boolean;
   /**
    * Possible values for action
-  */
+   */
   "options"?: Array<TeamPermissionSettingValue>;
   /**
    * The team permission name
-  */
+   */
   "title"?: string;
   /**
    * What type of user is allowed to perform the specified action
-  */
+   */
   "value"?: TeamPermissionSettingValue;
 
   /**
@@ -54,64 +49,38 @@ export class TeamPermissionSettingAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "action": {
-      "baseName": "action",
-      "type": "TeamPermissionSettingSerializerAction",
+    action: {
+      baseName: "action",
+      type: "TeamPermissionSettingSerializerAction",
     },
-    "editable": {
-      "baseName": "editable",
-      "type": "boolean",
+    editable: {
+      baseName: "editable",
+      type: "boolean",
     },
-    "options": {
-      "baseName": "options",
-      "type": "Array<TeamPermissionSettingValue>",
+    options: {
+      baseName: "options",
+      type: "Array<TeamPermissionSettingValue>",
     },
-    "title": {
-      "baseName": "title",
-      "type": "string",
+    title: {
+      baseName: "title",
+      type: "string",
     },
-    "value": {
-      "baseName": "value",
-      "type": "TeamPermissionSettingValue",
+    value: {
+      baseName: "value",
+      type: "TeamPermissionSettingValue",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TeamPermissionSettingAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

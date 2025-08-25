@@ -7,28 +7,23 @@ import { ObservabilityPipelineConfigDestinationItem } from "./ObservabilityPipel
 import { ObservabilityPipelineConfigProcessorItem } from "./ObservabilityPipelineConfigProcessorItem";
 import { ObservabilityPipelineConfigSourceItem } from "./ObservabilityPipelineConfigSourceItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Specifies the pipeline's configuration, including its sources, processors, and destinations.
-*/
+ */
 export class ObservabilityPipelineConfig {
   /**
    * A list of destination components where processed logs are sent.
-  */
+   */
   "destinations": Array<ObservabilityPipelineConfigDestinationItem>;
   /**
    * A list of processors that transform or enrich log data.
-  */
+   */
   "processors"?: Array<ObservabilityPipelineConfigProcessorItem>;
   /**
    * A list of configured data sources for the pipeline.
-  */
+   */
   "sources": Array<ObservabilityPipelineConfigSourceItem>;
 
   /**
@@ -47,58 +42,32 @@ export class ObservabilityPipelineConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "destinations": {
-      "baseName": "destinations",
-      "type": "Array<ObservabilityPipelineConfigDestinationItem>",
-      "required": true,
+    destinations: {
+      baseName: "destinations",
+      type: "Array<ObservabilityPipelineConfigDestinationItem>",
+      required: true,
     },
-    "processors": {
-      "baseName": "processors",
-      "type": "Array<ObservabilityPipelineConfigProcessorItem>",
+    processors: {
+      baseName: "processors",
+      type: "Array<ObservabilityPipelineConfigProcessorItem>",
     },
-    "sources": {
-      "baseName": "sources",
-      "type": "Array<ObservabilityPipelineConfigSourceItem>",
-      "required": true,
+    sources: {
+      baseName: "sources",
+      type: "Array<ObservabilityPipelineConfigSourceItem>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineConfig.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

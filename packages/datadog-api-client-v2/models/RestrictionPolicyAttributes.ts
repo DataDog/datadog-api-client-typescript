@@ -5,20 +5,15 @@
  */
 import { RestrictionPolicyBinding } from "./RestrictionPolicyBinding";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Restriction policy attributes.
-*/
+ */
 export class RestrictionPolicyAttributes {
   /**
    * An array of bindings.
-  */
+   */
   "bindings": Array<RestrictionPolicyBinding>;
 
   /**
@@ -37,49 +32,23 @@ export class RestrictionPolicyAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "bindings": {
-      "baseName": "bindings",
-      "type": "Array<RestrictionPolicyBinding>",
-      "required": true,
+    bindings: {
+      baseName: "bindings",
+      type: "Array<RestrictionPolicyBinding>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RestrictionPolicyAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

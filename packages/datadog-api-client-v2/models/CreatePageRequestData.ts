@@ -6,24 +6,19 @@
 import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttributes";
 import { CreatePageRequestDataType } from "./CreatePageRequestDataType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The main request body, including attributes and resource type.
-*/
+ */
 export class CreatePageRequestData {
   /**
    * Details about the On-Call Page you want to create.
-  */
+   */
   "attributes"?: CreatePageRequestDataAttributes;
   /**
    * The type of resource used when creating an On-Call Page.
-  */
+   */
   "type": CreatePageRequestDataType;
 
   /**
@@ -42,53 +37,27 @@ export class CreatePageRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "CreatePageRequestDataAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "CreatePageRequestDataAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CreatePageRequestDataType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CreatePageRequestDataType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CreatePageRequestData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

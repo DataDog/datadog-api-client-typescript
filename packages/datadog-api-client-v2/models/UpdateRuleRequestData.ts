@@ -6,24 +6,19 @@
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleType } from "./RuleType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data for the request to update a scorecard rule.
-*/
+ */
 export class UpdateRuleRequestData {
   /**
    * Details of a rule.
-  */
+   */
   "attributes"?: RuleAttributes;
   /**
    * The JSON:API type for scorecard rules.
-  */
+   */
   "type"?: RuleType;
 
   /**
@@ -42,52 +37,26 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "RuleAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "RuleAttributes",
     },
-    "type": {
-      "baseName": "type",
-      "type": "RuleType",
+    type: {
+      baseName: "type",
+      type: "RuleType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateRuleRequestData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

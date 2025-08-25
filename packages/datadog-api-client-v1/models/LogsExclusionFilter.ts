@@ -4,26 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
-*/
+ */
 export class LogsExclusionFilter {
   /**
    * Default query is `*`, meaning all logs flowing in the index would be excluded.
    * Scope down exclusion filter to only a subset of logs with a log query.
-  */
+   */
   "query"?: string;
   /**
    * Sample rate to apply to logs going through this exclusion filter,
    * a value of 1.0 excludes all logs matching the query.
-  */
+   */
   "sampleRate": number;
 
   /**
@@ -42,54 +37,28 @@ export class LogsExclusionFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "query": {
-      "baseName": "query",
-      "type": "string",
+    query: {
+      baseName: "query",
+      type: "string",
     },
-    "sampleRate": {
-      "baseName": "sample_rate",
-      "type": "number",
-      "required": true,
-      "format": "double",
+    sampleRate: {
+      baseName: "sample_rate",
+      type: "number",
+      required: true,
+      format: "double",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsExclusionFilter.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

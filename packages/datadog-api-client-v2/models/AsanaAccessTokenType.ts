@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `AsanaAccessToken` object.
-*/
+ */
 
 export type AsanaAccessTokenType = typeof ASANAACCESSTOKEN | UnparsedObject;
-export const ASANAACCESSTOKEN = 'AsanaAccessToken';
+export const ASANAACCESSTOKEN = "AsanaAccessToken";

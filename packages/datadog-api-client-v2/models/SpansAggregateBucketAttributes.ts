@@ -5,29 +5,24 @@
  */
 import { SpansAggregateBucketValue } from "./SpansAggregateBucketValue";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * A bucket values.
-*/
+ */
 export class SpansAggregateBucketAttributes {
   /**
    * The key, value pairs for each group by.
-  */
-  "by"?: { [key: string]: any; };
+   */
+  "by"?: { [key: string]: any };
   /**
    * The compute data.
-  */
+   */
   "compute"?: any;
   /**
    * A map of the metric name -> value for regular compute or list of values for a timeseries.
-  */
-  "computes"?: { [key: string]: SpansAggregateBucketValue; };
+   */
+  "computes"?: { [key: string]: SpansAggregateBucketValue };
 
   /**
    * A container for additional, undeclared properties.
@@ -45,56 +40,30 @@ export class SpansAggregateBucketAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "by": {
-      "baseName": "by",
-      "type": "{ [key: string]: any; }",
+    by: {
+      baseName: "by",
+      type: "{ [key: string]: any; }",
     },
-    "compute": {
-      "baseName": "compute",
-      "type": "any",
+    compute: {
+      baseName: "compute",
+      type: "any",
     },
-    "computes": {
-      "baseName": "computes",
-      "type": "{ [key: string]: SpansAggregateBucketValue; }",
+    computes: {
+      baseName: "computes",
+      type: "{ [key: string]: SpansAggregateBucketValue; }",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SpansAggregateBucketAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

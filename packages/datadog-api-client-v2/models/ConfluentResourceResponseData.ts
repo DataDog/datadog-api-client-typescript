@@ -6,28 +6,23 @@
 import { ConfluentResourceResponseAttributes } from "./ConfluentResourceResponseAttributes";
 import { ConfluentResourceType } from "./ConfluentResourceType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Confluent Cloud resource data.
-*/
+ */
 export class ConfluentResourceResponseData {
   /**
    * Model representation of a Confluent Cloud resource.
-  */
+   */
   "attributes": ConfluentResourceResponseAttributes;
   /**
    * The ID associated with the Confluent resource.
-  */
+   */
   "id": string;
   /**
    * The JSON:API type for this request.
-  */
+   */
   "type": ConfluentResourceType;
 
   /**
@@ -46,59 +41,33 @@ export class ConfluentResourceResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "ConfluentResourceResponseAttributes",
-      "required": true,
+    attributes: {
+      baseName: "attributes",
+      type: "ConfluentResourceResponseAttributes",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ConfluentResourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ConfluentResourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ConfluentResourceResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

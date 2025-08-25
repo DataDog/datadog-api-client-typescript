@@ -5,24 +5,19 @@
  */
 import { CloudflareAPITokenType } from "./CloudflareAPITokenType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `CloudflareAPIToken` object.
-*/
+ */
 export class CloudflareAPITokenUpdate {
   /**
    * The `CloudflareAPITokenUpdate` `api_token`.
-  */
+   */
   "apiToken"?: string;
   /**
    * The definition of the `CloudflareAPIToken` object.
-  */
+   */
   "type": CloudflareAPITokenType;
 
   /**
@@ -41,53 +36,27 @@ export class CloudflareAPITokenUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiToken": {
-      "baseName": "api_token",
-      "type": "string",
+    apiToken: {
+      baseName: "api_token",
+      type: "string",
     },
-    "type": {
-      "baseName": "type",
-      "type": "CloudflareAPITokenType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "CloudflareAPITokenType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudflareAPITokenUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

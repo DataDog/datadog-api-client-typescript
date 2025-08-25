@@ -5,20 +5,15 @@
  */
 import { GCPSTSServiceAccountData } from "./GCPSTSServiceAccountData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Data on your newly generated service account.
-*/
+ */
 export class GCPSTSServiceAccountCreateRequest {
   /**
    * Additional metadata on your generated service account.
-  */
+   */
   "data"?: GCPSTSServiceAccountData;
 
   /**
@@ -37,48 +32,22 @@ export class GCPSTSServiceAccountCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "GCPSTSServiceAccountData",
+    data: {
+      baseName: "data",
+      type: "GCPSTSServiceAccountData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return GCPSTSServiceAccountCreateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

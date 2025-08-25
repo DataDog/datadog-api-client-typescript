@@ -5,15 +5,10 @@
  */
 import { ClickupAPIKeyUpdate } from "./ClickupAPIKeyUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `ClickupCredentialsUpdate` object.
-*/
+ */
 
 export type ClickupCredentialsUpdate = ClickupAPIKeyUpdate | UnparsedObject;

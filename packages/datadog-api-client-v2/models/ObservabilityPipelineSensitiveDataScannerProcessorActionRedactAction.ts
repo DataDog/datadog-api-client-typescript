@@ -4,16 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Action type that completely replaces the matched sensitive data with a fixed replacement string to remove all visibility.
-*/
+ */
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction = typeof REDACT | UnparsedObject;
-export const REDACT = 'redact';
+export type ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction =
+  typeof REDACT | UnparsedObject;
+export const REDACT = "redact";

@@ -6,24 +6,19 @@
 import { SyntheticsPrivateLocationSecretsAuthentication } from "./SyntheticsPrivateLocationSecretsAuthentication";
 import { SyntheticsPrivateLocationSecretsConfigDecryption } from "./SyntheticsPrivateLocationSecretsConfigDecryption";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Secrets for the private location. Only present in the response when creating the private location.
-*/
+ */
 export class SyntheticsPrivateLocationSecrets {
   /**
    * Authentication part of the secrets.
-  */
+   */
   "authentication"?: SyntheticsPrivateLocationSecretsAuthentication;
   /**
    * Private key for the private location.
-  */
+   */
   "configDecryption"?: SyntheticsPrivateLocationSecretsConfigDecryption;
 
   /**
@@ -42,52 +37,26 @@ export class SyntheticsPrivateLocationSecrets {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "authentication": {
-      "baseName": "authentication",
-      "type": "SyntheticsPrivateLocationSecretsAuthentication",
+    authentication: {
+      baseName: "authentication",
+      type: "SyntheticsPrivateLocationSecretsAuthentication",
     },
-    "configDecryption": {
-      "baseName": "config_decryption",
-      "type": "SyntheticsPrivateLocationSecretsConfigDecryption",
+    configDecryption: {
+      baseName: "config_decryption",
+      type: "SyntheticsPrivateLocationSecretsConfigDecryption",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SyntheticsPrivateLocationSecrets.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

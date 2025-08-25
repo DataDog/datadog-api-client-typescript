@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `GeminiAPIKey` object.
-*/
+ */
 
 export type GeminiAPIKeyType = typeof GEMINIAPIKEY | UnparsedObject;
-export const GEMINIAPIKEY = 'GeminiAPIKey';
+export const GEMINIAPIKEY = "GeminiAPIKey";

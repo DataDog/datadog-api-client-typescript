@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `GitlabIntegrationType` object.
-*/
+ */
 
 export type GitlabIntegrationType = typeof GITLAB | UnparsedObject;
-export const GITLAB = 'Gitlab';
+export const GITLAB = "Gitlab";

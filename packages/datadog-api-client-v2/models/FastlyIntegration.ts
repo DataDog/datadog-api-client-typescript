@@ -6,24 +6,19 @@
 import { FastlyCredentials } from "./FastlyCredentials";
 import { FastlyIntegrationType } from "./FastlyIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `FastlyIntegration` object.
-*/
+ */
 export class FastlyIntegration {
   /**
    * The definition of the `FastlyCredentials` object.
-  */
+   */
   "credentials": FastlyCredentials;
   /**
    * The definition of the `FastlyIntegrationType` object.
-  */
+   */
   "type": FastlyIntegrationType;
 
   /**
@@ -42,54 +37,28 @@ export class FastlyIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "FastlyCredentials",
-      "required": true,
+    credentials: {
+      baseName: "credentials",
+      type: "FastlyCredentials",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "FastlyIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "FastlyIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FastlyIntegration.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

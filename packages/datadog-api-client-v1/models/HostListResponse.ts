@@ -5,28 +5,23 @@
  */
 import { Host } from "./Host";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response with Host information from Datadog.
-*/
+ */
 export class HostListResponse {
   /**
    * Array of hosts.
-  */
+   */
   "hostList"?: Array<Host>;
   /**
    * Number of host matching the query.
-  */
+   */
   "totalMatching"?: number;
   /**
    * Number of host returned.
-  */
+   */
   "totalReturned"?: number;
 
   /**
@@ -45,58 +40,32 @@ export class HostListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "hostList": {
-      "baseName": "host_list",
-      "type": "Array<Host>",
+    hostList: {
+      baseName: "host_list",
+      type: "Array<Host>",
     },
-    "totalMatching": {
-      "baseName": "total_matching",
-      "type": "number",
-      "format": "int64",
+    totalMatching: {
+      baseName: "total_matching",
+      type: "number",
+      format: "int64",
     },
-    "totalReturned": {
-      "baseName": "total_returned",
-      "type": "number",
-      "format": "int64",
+    totalReturned: {
+      baseName: "total_returned",
+      type: "number",
+      format: "int64",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return HostListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

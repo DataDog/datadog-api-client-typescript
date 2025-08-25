@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The `AWSLogsServicesResponseData` `type`.
-*/
+ */
 
-export type AWSLogsServicesResponseDataType = typeof LOGS_SERVICES | UnparsedObject;
-export const LOGS_SERVICES = 'logs_services';
+export type AWSLogsServicesResponseDataType =
+  | typeof LOGS_SERVICES
+  | UnparsedObject;
+export const LOGS_SERVICES = "logs_services";

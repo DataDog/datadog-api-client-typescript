@@ -7,28 +7,23 @@ import { LogsMetricFilter } from "./LogsMetricFilter";
 import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
 import { LogsMetricUpdateCompute } from "./LogsMetricUpdateCompute";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The log-based metric properties that will be updated.
-*/
+ */
 export class LogsMetricUpdateAttributes {
   /**
    * The compute rule to compute the log-based metric.
-  */
+   */
   "compute"?: LogsMetricUpdateCompute;
   /**
    * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
-  */
+   */
   "filter"?: LogsMetricFilter;
   /**
    * The rules for the group by.
-  */
+   */
   "groupBy"?: Array<LogsMetricGroupBy>;
 
   /**
@@ -47,56 +42,30 @@ export class LogsMetricUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "compute": {
-      "baseName": "compute",
-      "type": "LogsMetricUpdateCompute",
+    compute: {
+      baseName: "compute",
+      type: "LogsMetricUpdateCompute",
     },
-    "filter": {
-      "baseName": "filter",
-      "type": "LogsMetricFilter",
+    filter: {
+      baseName: "filter",
+      type: "LogsMetricFilter",
     },
-    "groupBy": {
-      "baseName": "group_by",
-      "type": "Array<LogsMetricGroupBy>",
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<LogsMetricGroupBy>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsMetricUpdateAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

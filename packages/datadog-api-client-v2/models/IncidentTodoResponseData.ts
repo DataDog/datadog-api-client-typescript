@@ -7,32 +7,27 @@ import { IncidentTodoAttributes } from "./IncidentTodoAttributes";
 import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoType } from "./IncidentTodoType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident todo response data.
-*/
+ */
 export class IncidentTodoResponseData {
   /**
    * Incident todo's attributes.
-  */
+   */
   "attributes"?: IncidentTodoAttributes;
   /**
    * The incident todo's ID.
-  */
+   */
   "id": string;
   /**
    * The incident's relationships from a response.
-  */
+   */
   "relationships"?: IncidentTodoRelationships;
   /**
    * Todo resource type.
-  */
+   */
   "type": IncidentTodoType;
 
   /**
@@ -51,62 +46,36 @@ export class IncidentTodoResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentTodoAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentTodoAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentTodoRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentTodoRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentTodoType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentTodoType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentTodoResponseData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

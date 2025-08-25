@@ -4,20 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Fields to which the scope rule applies.
-*/
+ */
 export class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
   /**
    * The `ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions` `fields`.
-  */
+   */
   "fields": Array<string>;
 
   /**
@@ -36,49 +31,23 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "fields": {
-      "baseName": "fields",
-      "type": "Array<string>",
-      "required": true,
+    fields: {
+      baseName: "fields",
+      type: "Array<string>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

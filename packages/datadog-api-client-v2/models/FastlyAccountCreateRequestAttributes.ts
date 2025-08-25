@@ -5,28 +5,23 @@
  */
 import { FastlyService } from "./FastlyService";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Attributes object for creating a Fastly account.
-*/
+ */
 export class FastlyAccountCreateRequestAttributes {
   /**
    * The API key for the Fastly account.
-  */
+   */
   "apiKey": string;
   /**
    * The name of the Fastly account.
-  */
+   */
   "name": string;
   /**
    * A list of services belonging to the parent account.
-  */
+   */
   "services"?: Array<FastlyService>;
 
   /**
@@ -45,58 +40,32 @@ export class FastlyAccountCreateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "apiKey": {
-      "baseName": "api_key",
-      "type": "string",
-      "required": true,
+    apiKey: {
+      baseName: "api_key",
+      type: "string",
+      required: true,
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "services": {
-      "baseName": "services",
-      "type": "Array<FastlyService>",
+    services: {
+      baseName: "services",
+      type: "Array<FastlyService>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return FastlyAccountCreateRequestAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

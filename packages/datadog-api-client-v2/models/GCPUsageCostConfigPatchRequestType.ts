@@ -4,16 +4,14 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of GCP Usage Cost config patch request.
-*/
+ */
 
-export type GCPUsageCostConfigPatchRequestType = typeof GCP_USAGE_COST_CONFIG_PATCH_REQUEST | UnparsedObject;
-export const GCP_USAGE_COST_CONFIG_PATCH_REQUEST = 'gcp_uc_config_patch_request';
+export type GCPUsageCostConfigPatchRequestType =
+  | typeof GCP_USAGE_COST_CONFIG_PATCH_REQUEST
+  | UnparsedObject;
+export const GCP_USAGE_COST_CONFIG_PATCH_REQUEST =
+  "gcp_uc_config_patch_request";

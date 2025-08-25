@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Widget request type.
-*/
+ */
 
 export type TopologyRequestType = typeof TOPOLOGY | UnparsedObject;
-export const TOPOLOGY = 'topology';
+export const TOPOLOGY = "topology";

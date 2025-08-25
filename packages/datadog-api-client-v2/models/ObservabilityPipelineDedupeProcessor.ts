@@ -6,40 +6,35 @@
 import { ObservabilityPipelineDedupeProcessorMode } from "./ObservabilityPipelineDedupeProcessorMode";
 import { ObservabilityPipelineDedupeProcessorType } from "./ObservabilityPipelineDedupeProcessorType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `dedupe` processor removes duplicate fields in log events.
-*/
+ */
 export class ObservabilityPipelineDedupeProcessor {
   /**
    * A list of log field paths to check for duplicates.
-  */
+   */
   "fields": Array<string>;
   /**
    * The unique identifier for this processor.
-  */
+   */
   "id": string;
   /**
    * A Datadog search query used to determine which logs this processor targets.
-  */
+   */
   "include": string;
   /**
    * A list of component IDs whose output is used as the input for this processor.
-  */
+   */
   "inputs": Array<string>;
   /**
    * The deduplication mode to apply to the fields.
-  */
+   */
   "mode": ObservabilityPipelineDedupeProcessorMode;
   /**
    * The processor type. The value should always be `dedupe`.
-  */
+   */
   "type": ObservabilityPipelineDedupeProcessorType;
 
   /**
@@ -58,74 +53,48 @@ export class ObservabilityPipelineDedupeProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "fields": {
-      "baseName": "fields",
-      "type": "Array<string>",
-      "required": true,
+    fields: {
+      baseName: "fields",
+      type: "Array<string>",
+      required: true,
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "include": {
-      "baseName": "include",
-      "type": "string",
-      "required": true,
+    include: {
+      baseName: "include",
+      type: "string",
+      required: true,
     },
-    "inputs": {
-      "baseName": "inputs",
-      "type": "Array<string>",
-      "required": true,
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
     },
-    "mode": {
-      "baseName": "mode",
-      "type": "ObservabilityPipelineDedupeProcessorMode",
-      "required": true,
+    mode: {
+      baseName: "mode",
+      type: "ObservabilityPipelineDedupeProcessorMode",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineDedupeProcessorType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineDedupeProcessorType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineDedupeProcessor.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

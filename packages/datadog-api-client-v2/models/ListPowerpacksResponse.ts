@@ -8,32 +8,27 @@ import { PowerpackResponseLinks } from "./PowerpackResponseLinks";
 import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
 import { User } from "./User";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response object which includes all powerpack configurations.
-*/
+ */
 export class ListPowerpacksResponse {
   /**
    * List of powerpack definitions.
-  */
+   */
   "data"?: Array<PowerpackData>;
   /**
    * Array of objects related to the users.
-  */
+   */
   "included"?: Array<User>;
   /**
    * Links attributes.
-  */
+   */
   "links"?: PowerpackResponseLinks;
   /**
    * Powerpack response metadata.
-  */
+   */
   "meta"?: PowerpacksResponseMeta;
 
   /**
@@ -52,60 +47,34 @@ export class ListPowerpacksResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<PowerpackData>",
+    data: {
+      baseName: "data",
+      type: "Array<PowerpackData>",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<User>",
+    included: {
+      baseName: "included",
+      type: "Array<User>",
     },
-    "links": {
-      "baseName": "links",
-      "type": "PowerpackResponseLinks",
+    links: {
+      baseName: "links",
+      type: "PowerpackResponseLinks",
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "PowerpacksResponseMeta",
+    meta: {
+      baseName: "meta",
+      type: "PowerpacksResponseMeta",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ListPowerpacksResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

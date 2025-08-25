@@ -7,32 +7,27 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { WidgetFormula } from "./WidgetFormula";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An updated treemap widget.
-*/
+ */
 export class TreeMapWidgetRequest {
   /**
    * List of formulas that operate on queries.
-  */
+   */
   "formulas"?: Array<WidgetFormula>;
   /**
    * The widget metrics query.
-  */
+   */
   "q"?: string;
   /**
    * List of queries that can be returned directly or used in formulas.
-  */
+   */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   /**
    * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
-  */
+   */
   "responseFormat"?: FormulaAndFunctionResponseFormat;
 
   /**
@@ -51,60 +46,34 @@ export class TreeMapWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "formulas": {
-      "baseName": "formulas",
-      "type": "Array<WidgetFormula>",
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
     },
-    "q": {
-      "baseName": "q",
-      "type": "string",
+    q: {
+      baseName: "q",
+      type: "string",
     },
-    "queries": {
-      "baseName": "queries",
-      "type": "Array<FormulaAndFunctionQueryDefinition>",
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
     },
-    "responseFormat": {
-      "baseName": "response_format",
-      "type": "FormulaAndFunctionResponseFormat",
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return TreeMapWidgetRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

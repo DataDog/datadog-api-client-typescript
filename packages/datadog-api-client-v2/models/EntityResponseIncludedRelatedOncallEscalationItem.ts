@@ -4,28 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Oncall escalation.
-*/
+ */
 export class EntityResponseIncludedRelatedOncallEscalationItem {
   /**
    * Oncall email.
-  */
+   */
   "email"?: string;
   /**
    * Oncall level.
-  */
+   */
   "escalationLevel"?: number;
   /**
    * Oncall name.
-  */
+   */
   "name"?: string;
 
   /**
@@ -44,57 +39,31 @@ export class EntityResponseIncludedRelatedOncallEscalationItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "email": {
-      "baseName": "email",
-      "type": "string",
+    email: {
+      baseName: "email",
+      type: "string",
     },
-    "escalationLevel": {
-      "baseName": "escalationLevel",
-      "type": "number",
-      "format": "int64",
+    escalationLevel: {
+      baseName: "escalationLevel",
+      type: "number",
+      format: "int64",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EntityResponseIncludedRelatedOncallEscalationItem.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

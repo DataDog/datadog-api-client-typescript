@@ -5,20 +5,15 @@
  */
 import { MicrosoftTeamsWorkflowsWebhookHandleResponseData } from "./MicrosoftTeamsWorkflowsWebhookHandleResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response with a list of Workflows webhook handles.
-*/
+ */
 export class MicrosoftTeamsWorkflowsWebhookHandlesResponse {
   /**
    * An array of Workflows webhook handles.
-  */
+   */
   "data": Array<MicrosoftTeamsWorkflowsWebhookHandleResponseData>;
 
   /**
@@ -37,49 +32,23 @@ export class MicrosoftTeamsWorkflowsWebhookHandlesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<MicrosoftTeamsWorkflowsWebhookHandleResponseData>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<MicrosoftTeamsWorkflowsWebhookHandleResponseData>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return MicrosoftTeamsWorkflowsWebhookHandlesResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

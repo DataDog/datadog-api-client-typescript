@@ -4,16 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Type of the assertion.
-*/
+ */
 
-export type SyntheticsAssertionJavascriptType = typeof JAVASCRIPT | UnparsedObject;
-export const JAVASCRIPT = 'javascript';
+export type SyntheticsAssertionJavascriptType =
+  | typeof JAVASCRIPT
+  | UnparsedObject;
+export const JAVASCRIPT = "javascript";

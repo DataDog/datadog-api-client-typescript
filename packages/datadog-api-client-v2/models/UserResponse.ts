@@ -6,24 +6,19 @@
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing information about a single user.
-*/
+ */
 export class UserResponse {
   /**
    * User object returned by the API.
-  */
+   */
   "data"?: User;
   /**
    * Array of objects related to the user.
-  */
+   */
   "included"?: Array<UserResponseIncludedItem>;
 
   /**
@@ -42,52 +37,26 @@ export class UserResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "User",
+    data: {
+      baseName: "data",
+      type: "User",
     },
-    "included": {
-      "baseName": "included",
-      "type": "Array<UserResponseIncludedItem>",
+    included: {
+      baseName: "included",
+      type: "Array<UserResponseIncludedItem>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UserResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

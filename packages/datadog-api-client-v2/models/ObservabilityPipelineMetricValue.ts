@@ -6,15 +6,13 @@
 import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./ObservabilityPipelineGeneratedMetricIncrementByField";
 import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Specifies how the value of the generated metric is computed.
-*/
+ */
 
-export type ObservabilityPipelineMetricValue = ObservabilityPipelineGeneratedMetricIncrementByOne | ObservabilityPipelineGeneratedMetricIncrementByField | UnparsedObject;
+export type ObservabilityPipelineMetricValue =
+  | ObservabilityPipelineGeneratedMetricIncrementByOne
+  | ObservabilityPipelineGeneratedMetricIncrementByField
+  | UnparsedObject;

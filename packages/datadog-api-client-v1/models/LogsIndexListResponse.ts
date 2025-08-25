@@ -5,20 +5,15 @@
  */
 import { LogsIndex } from "./LogsIndex";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Object with all Index configurations for a given organization.
-*/
+ */
 export class LogsIndexListResponse {
   /**
    * Array of Log index configurations.
-  */
+   */
   "indexes"?: Array<LogsIndex>;
 
   /**
@@ -37,48 +32,22 @@ export class LogsIndexListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "indexes": {
-      "baseName": "indexes",
-      "type": "Array<LogsIndex>",
+    indexes: {
+      baseName: "indexes",
+      type: "Array<LogsIndex>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LogsIndexListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,19 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
  * This time is calculated from the first seen timestamp.
-*/
+ */
 
-export type SecurityMonitoringRuleMaxSignalDuration = typeof ZERO_MINUTES| typeof ONE_MINUTE| typeof FIVE_MINUTES| typeof TEN_MINUTES| typeof FIFTEEN_MINUTES| typeof THIRTY_MINUTES| typeof ONE_HOUR| typeof TWO_HOURS| typeof THREE_HOURS| typeof SIX_HOURS| typeof TWELVE_HOURS| typeof ONE_DAY | UnparsedObject;
+export type SecurityMonitoringRuleMaxSignalDuration =
+  | typeof ZERO_MINUTES
+  | typeof ONE_MINUTE
+  | typeof FIVE_MINUTES
+  | typeof TEN_MINUTES
+  | typeof FIFTEEN_MINUTES
+  | typeof THIRTY_MINUTES
+  | typeof ONE_HOUR
+  | typeof TWO_HOURS
+  | typeof THREE_HOURS
+  | typeof SIX_HOURS
+  | typeof TWELVE_HOURS
+  | typeof ONE_DAY
+  | UnparsedObject;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;

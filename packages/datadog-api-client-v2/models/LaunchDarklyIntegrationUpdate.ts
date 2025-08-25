@@ -6,24 +6,19 @@
 import { LaunchDarklyCredentialsUpdate } from "./LaunchDarklyCredentialsUpdate";
 import { LaunchDarklyIntegrationType } from "./LaunchDarklyIntegrationType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The definition of the `LaunchDarklyIntegrationUpdate` object.
-*/
+ */
 export class LaunchDarklyIntegrationUpdate {
   /**
    * The definition of the `LaunchDarklyCredentialsUpdate` object.
-  */
+   */
   "credentials"?: LaunchDarklyCredentialsUpdate;
   /**
    * The definition of the `LaunchDarklyIntegrationType` object.
-  */
+   */
   "type": LaunchDarklyIntegrationType;
 
   /**
@@ -42,53 +37,27 @@ export class LaunchDarklyIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "credentials": {
-      "baseName": "credentials",
-      "type": "LaunchDarklyCredentialsUpdate",
+    credentials: {
+      baseName: "credentials",
+      type: "LaunchDarklyCredentialsUpdate",
     },
-    "type": {
-      "baseName": "type",
-      "type": "LaunchDarklyIntegrationType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "LaunchDarklyIntegrationType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return LaunchDarklyIntegrationUpdate.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

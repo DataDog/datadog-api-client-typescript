@@ -6,28 +6,23 @@
 import { ObservabilityPipelineFluentdSourceType } from "./ObservabilityPipelineFluentdSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The `fluentd` source ingests logs from a Fluentd-compatible service.
-*/
+ */
 export class ObservabilityPipelineFluentdSource {
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
-  */
+   */
   "id": string;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-  */
+   */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The source type. The value should always be `fluentd.
-  */
+   */
   "type": ObservabilityPipelineFluentdSourceType;
 
   /**
@@ -46,58 +41,32 @@ export class ObservabilityPipelineFluentdSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "tls": {
-      "baseName": "tls",
-      "type": "ObservabilityPipelineTls",
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
     },
-    "type": {
-      "baseName": "type",
-      "type": "ObservabilityPipelineFluentdSourceType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineFluentdSourceType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ObservabilityPipelineFluentdSource.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

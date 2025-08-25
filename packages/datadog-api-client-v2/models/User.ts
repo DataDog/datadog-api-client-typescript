@@ -7,32 +7,27 @@ import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
 import { UsersType } from "./UsersType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * User object returned by the API.
-*/
+ */
 export class User {
   /**
    * Attributes of user object returned by the API.
-  */
+   */
   "attributes"?: UserAttributes;
   /**
    * ID of the user.
-  */
+   */
   "id"?: string;
   /**
    * Relationships of the user object returned by the API.
-  */
+   */
   "relationships"?: UserResponseRelationships;
   /**
    * Users resource type.
-  */
+   */
   "type"?: UsersType;
 
   /**
@@ -51,60 +46,34 @@ export class User {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "UserAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "UserAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "UserResponseRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "UserResponseRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "UsersType",
+    type: {
+      baseName: "type",
+      type: "UsersType",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return User.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

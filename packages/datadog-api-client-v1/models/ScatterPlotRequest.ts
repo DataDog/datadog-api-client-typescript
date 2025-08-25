@@ -7,56 +7,51 @@ import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { ScatterplotWidgetAggregator } from "./ScatterplotWidgetAggregator";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Updated scatter plot.
-*/
+ */
 export class ScatterPlotRequest {
   /**
    * Aggregator used for the request.
-  */
+   */
   "aggregator"?: ScatterplotWidgetAggregator;
   /**
    * The log query.
-  */
+   */
   "apmQuery"?: LogQueryDefinition;
   /**
    * The log query.
-  */
+   */
   "eventQuery"?: LogQueryDefinition;
   /**
    * The log query.
-  */
+   */
   "logQuery"?: LogQueryDefinition;
   /**
    * The log query.
-  */
+   */
   "networkQuery"?: LogQueryDefinition;
   /**
    * The process query to use in the widget.
-  */
+   */
   "processQuery"?: ProcessQueryDefinition;
   /**
    * The log query.
-  */
+   */
   "profileMetricsQuery"?: LogQueryDefinition;
   /**
    * Query definition.
-  */
+   */
   "q"?: string;
   /**
    * The log query.
-  */
+   */
   "rumQuery"?: LogQueryDefinition;
   /**
    * The log query.
-  */
+   */
   "securityQuery"?: LogQueryDefinition;
 
   /**
@@ -75,84 +70,58 @@ export class ScatterPlotRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "aggregator": {
-      "baseName": "aggregator",
-      "type": "ScatterplotWidgetAggregator",
+    aggregator: {
+      baseName: "aggregator",
+      type: "ScatterplotWidgetAggregator",
     },
-    "apmQuery": {
-      "baseName": "apm_query",
-      "type": "LogQueryDefinition",
+    apmQuery: {
+      baseName: "apm_query",
+      type: "LogQueryDefinition",
     },
-    "eventQuery": {
-      "baseName": "event_query",
-      "type": "LogQueryDefinition",
+    eventQuery: {
+      baseName: "event_query",
+      type: "LogQueryDefinition",
     },
-    "logQuery": {
-      "baseName": "log_query",
-      "type": "LogQueryDefinition",
+    logQuery: {
+      baseName: "log_query",
+      type: "LogQueryDefinition",
     },
-    "networkQuery": {
-      "baseName": "network_query",
-      "type": "LogQueryDefinition",
+    networkQuery: {
+      baseName: "network_query",
+      type: "LogQueryDefinition",
     },
-    "processQuery": {
-      "baseName": "process_query",
-      "type": "ProcessQueryDefinition",
+    processQuery: {
+      baseName: "process_query",
+      type: "ProcessQueryDefinition",
     },
-    "profileMetricsQuery": {
-      "baseName": "profile_metrics_query",
-      "type": "LogQueryDefinition",
+    profileMetricsQuery: {
+      baseName: "profile_metrics_query",
+      type: "LogQueryDefinition",
     },
-    "q": {
-      "baseName": "q",
-      "type": "string",
+    q: {
+      baseName: "q",
+      type: "string",
     },
-    "rumQuery": {
-      "baseName": "rum_query",
-      "type": "LogQueryDefinition",
+    rumQuery: {
+      baseName: "rum_query",
+      type: "LogQueryDefinition",
     },
-    "securityQuery": {
-      "baseName": "security_query",
-      "type": "LogQueryDefinition",
+    securityQuery: {
+      baseName: "security_query",
+      type: "LogQueryDefinition",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ScatterPlotRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

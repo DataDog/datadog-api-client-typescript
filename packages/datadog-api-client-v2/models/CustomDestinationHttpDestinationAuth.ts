@@ -6,15 +6,13 @@
 import { CustomDestinationHttpDestinationAuthBasic } from "./CustomDestinationHttpDestinationAuthBasic";
 import { CustomDestinationHttpDestinationAuthCustomHeader } from "./CustomDestinationHttpDestinationAuthCustomHeader";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Authentication method of the HTTP requests.
-*/
+ */
 
-export type CustomDestinationHttpDestinationAuth = CustomDestinationHttpDestinationAuthBasic | CustomDestinationHttpDestinationAuthCustomHeader | UnparsedObject;
+export type CustomDestinationHttpDestinationAuth =
+  | CustomDestinationHttpDestinationAuthBasic
+  | CustomDestinationHttpDestinationAuthCustomHeader
+  | UnparsedObject;

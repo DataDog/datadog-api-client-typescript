@@ -5,24 +5,19 @@
  */
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An object describing the EventBridge configuration for multiple accounts.
-*/
+ */
 export class AWSEventBridgeListResponse {
   /**
    * List of accounts with their event sources.
-  */
+   */
   "accounts"?: Array<AWSEventBridgeAccountConfiguration>;
   /**
    * True if the EventBridge sub-integration is enabled for your organization.
-  */
+   */
   "isInstalled"?: boolean;
 
   /**
@@ -41,52 +36,26 @@ export class AWSEventBridgeListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "accounts": {
-      "baseName": "accounts",
-      "type": "Array<AWSEventBridgeAccountConfiguration>",
+    accounts: {
+      baseName: "accounts",
+      type: "Array<AWSEventBridgeAccountConfiguration>",
     },
-    "isInstalled": {
-      "baseName": "isInstalled",
-      "type": "boolean",
+    isInstalled: {
+      baseName: "isInstalled",
+      type: "boolean",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return AWSEventBridgeListResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -6,32 +6,27 @@
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetSort } from "./WidgetSort";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Column properties.
-*/
+ */
 export class ApmStatsQueryColumnType {
   /**
    * A user-assigned alias for the column.
-  */
+   */
   "alias"?: string;
   /**
    * Define a display mode for the table cell.
-  */
+   */
   "cellDisplayMode"?: TableWidgetCellDisplayMode;
   /**
    * Column name.
-  */
+   */
   "name": string;
   /**
    * Widget sorting methods.
-  */
+   */
   "order"?: WidgetSort;
 
   /**
@@ -50,61 +45,35 @@ export class ApmStatsQueryColumnType {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "alias": {
-      "baseName": "alias",
-      "type": "string",
+    alias: {
+      baseName: "alias",
+      type: "string",
     },
-    "cellDisplayMode": {
-      "baseName": "cell_display_mode",
-      "type": "TableWidgetCellDisplayMode",
+    cellDisplayMode: {
+      baseName: "cell_display_mode",
+      type: "TableWidgetCellDisplayMode",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
-      "required": true,
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    "order": {
-      "baseName": "order",
-      "type": "WidgetSort",
+    order: {
+      baseName: "order",
+      type: "WidgetSort",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ApmStatsQueryColumnType.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -5,20 +5,15 @@
  */
 import { CaseEmpty } from "./CaseEmpty";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Case empty request
-*/
+ */
 export class CaseEmptyRequest {
   /**
    * Case empty request data
-  */
+   */
   "data": CaseEmpty;
 
   /**
@@ -37,49 +32,23 @@ export class CaseEmptyRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "CaseEmpty",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "CaseEmpty",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CaseEmptyRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

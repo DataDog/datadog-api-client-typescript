@@ -5,20 +5,15 @@
  */
 import { Organization } from "./Organization";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response with an organization.
-*/
+ */
 export class OrganizationResponse {
   /**
    * Create, edit, and manage organizations.
-  */
+   */
   "org"?: Organization;
 
   /**
@@ -37,48 +32,22 @@ export class OrganizationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "org": {
-      "baseName": "org",
-      "type": "Organization",
+    org: {
+      baseName: "org",
+      type: "Organization",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return OrganizationResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * JSON:API type for DORA deployment events.
-*/
+ */
 
 export type DORADeploymentType = typeof DORA_DEPLOYMENT | UnparsedObject;
-export const DORA_DEPLOYMENT = 'dora_deployment';
+export const DORA_DEPLOYMENT = "dora_deployment";

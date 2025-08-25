@@ -5,24 +5,19 @@
  */
 import { ViewingPreferencesTheme } from "./ViewingPreferencesTheme";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The viewing preferences for a shared dashboard.
-*/
+ */
 export class ViewingPreferences {
   /**
    * Whether the widgets on the shared dashboard should be displayed with high density.
-  */
+   */
   "highDensity"?: boolean;
   /**
    * The theme of the shared dashboard view. "system" follows your system's default viewing theme.
-  */
+   */
   "theme"?: ViewingPreferencesTheme;
 
   /**
@@ -41,52 +36,26 @@ export class ViewingPreferences {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "highDensity": {
-      "baseName": "high_density",
-      "type": "boolean",
+    highDensity: {
+      baseName: "high_density",
+      type: "boolean",
     },
-    "theme": {
-      "baseName": "theme",
-      "type": "ViewingPreferencesTheme",
+    theme: {
+      baseName: "theme",
+      type: "ViewingPreferencesTheme",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ViewingPreferences.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

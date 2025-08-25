@@ -5,15 +5,10 @@
  */
 import { DatadogAPIKey } from "./DatadogAPIKey";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The definition of the `DatadogCredentials` object.
-*/
+ */
 
 export type DatadogCredentials = DatadogAPIKey | UnparsedObject;

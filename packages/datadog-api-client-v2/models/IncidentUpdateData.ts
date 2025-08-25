@@ -7,32 +7,27 @@ import { IncidentType } from "./IncidentType";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Incident data for an update request.
-*/
+ */
 export class IncidentUpdateData {
   /**
    * The incident's attributes for an update request.
-  */
+   */
   "attributes"?: IncidentUpdateAttributes;
   /**
    * The incident's ID.
-  */
+   */
   "id": string;
   /**
    * The incident's relationships for an update request.
-  */
+   */
   "relationships"?: IncidentUpdateRelationships;
   /**
    * Incident resource type.
-  */
+   */
   "type": IncidentType;
 
   /**
@@ -51,62 +46,36 @@ export class IncidentUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "attributes": {
-      "baseName": "attributes",
-      "type": "IncidentUpdateAttributes",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentUpdateAttributes",
     },
-    "id": {
-      "baseName": "id",
-      "type": "string",
-      "required": true,
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    "relationships": {
-      "baseName": "relationships",
-      "type": "IncidentUpdateRelationships",
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentUpdateRelationships",
     },
-    "type": {
-      "baseName": "type",
-      "type": "IncidentType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "IncidentType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return IncidentUpdateData.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

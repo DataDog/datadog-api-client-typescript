@@ -5,20 +5,15 @@
  */
 import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The response from a rule update request.
-*/
+ */
 export class UpdateRuleResponse {
   /**
    * The data for a rule update response.
-  */
+   */
   "data"?: UpdateRuleResponseData;
 
   /**
@@ -37,48 +32,22 @@ export class UpdateRuleResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "UpdateRuleResponseData",
+    data: {
+      baseName: "data",
+      type: "UpdateRuleResponseData",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UpdateRuleResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

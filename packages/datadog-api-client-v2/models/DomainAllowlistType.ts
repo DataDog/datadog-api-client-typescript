@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Email domain allowlist allowlist type.
-*/
+ */
 
 export type DomainAllowlistType = typeof DOMAIN_ALLOWLIST | UnparsedObject;
-export const DOMAIN_ALLOWLIST = 'domain_allowlist';
+export const DOMAIN_ALLOWLIST = "domain_allowlist";

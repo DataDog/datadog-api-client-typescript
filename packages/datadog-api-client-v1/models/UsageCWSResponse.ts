@@ -5,20 +5,15 @@
  */
 import { UsageCWSHour } from "./UsageCWSHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the Cloud Workload Security usage for each hour for a given organization.
-*/
+ */
 export class UsageCWSResponse {
   /**
    * Get hourly usage for Cloud Workload Security.
-  */
+   */
   "usage"?: Array<UsageCWSHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageCWSResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageCWSHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageCWSHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageCWSResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

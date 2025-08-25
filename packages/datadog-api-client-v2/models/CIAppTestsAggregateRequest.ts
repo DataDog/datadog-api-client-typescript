@@ -8,33 +8,28 @@ import { CIAppQueryOptions } from "./CIAppQueryOptions";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The object sent with the request to retrieve aggregation buckets of test events from your organization.
-*/
+ */
 export class CIAppTestsAggregateRequest {
   /**
    * The list of metrics or timeseries to compute for the retrieved buckets.
-  */
+   */
   "compute"?: Array<CIAppCompute>;
   /**
    * The search and filter query settings.
-  */
+   */
   "filter"?: CIAppTestsQueryFilter;
   /**
    * The rules for the group-by.
-  */
+   */
   "groupBy"?: Array<CIAppTestsGroupBy>;
   /**
    * Global query options that are used during the query.
    * Only supply timezone or time offset, not both. Otherwise, the query fails.
-  */
+   */
   "options"?: CIAppQueryOptions;
 
   /**
@@ -53,60 +48,34 @@ export class CIAppTestsAggregateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "compute": {
-      "baseName": "compute",
-      "type": "Array<CIAppCompute>",
+    compute: {
+      baseName: "compute",
+      type: "Array<CIAppCompute>",
     },
-    "filter": {
-      "baseName": "filter",
-      "type": "CIAppTestsQueryFilter",
+    filter: {
+      baseName: "filter",
+      type: "CIAppTestsQueryFilter",
     },
-    "groupBy": {
-      "baseName": "group_by",
-      "type": "Array<CIAppTestsGroupBy>",
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<CIAppTestsGroupBy>",
     },
-    "options": {
-      "baseName": "options",
-      "type": "CIAppQueryOptions",
+    options: {
+      baseName: "options",
+      type: "CIAppQueryOptions",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppTestsAggregateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

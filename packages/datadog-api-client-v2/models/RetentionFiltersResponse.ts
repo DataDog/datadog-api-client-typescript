@@ -5,20 +5,15 @@
  */
 import { RetentionFilterAll } from "./RetentionFilterAll";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * An ordered list of retention filters.
-*/
+ */
 export class RetentionFiltersResponse {
   /**
    * A list of retention filters objects.
-  */
+   */
   "data": Array<RetentionFilterAll>;
 
   /**
@@ -37,49 +32,23 @@ export class RetentionFiltersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "Array<RetentionFilterAll>",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "Array<RetentionFilterAll>",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return RetentionFiltersResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

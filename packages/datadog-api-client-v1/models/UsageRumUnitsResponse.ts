@@ -5,20 +5,15 @@
  */
 import { UsageRumUnitsHour } from "./UsageRumUnitsHour";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Response containing the number of RUM Units for each hour for a given organization.
-*/
+ */
 export class UsageRumUnitsResponse {
   /**
    * Get hourly usage for RUM Units.
-  */
+   */
   "usage"?: Array<UsageRumUnitsHour>;
 
   /**
@@ -37,48 +32,22 @@ export class UsageRumUnitsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "usage": {
-      "baseName": "usage",
-      "type": "Array<UsageRumUnitsHour>",
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageRumUnitsHour>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return UsageRumUnitsResponse.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

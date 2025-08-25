@@ -6,33 +6,28 @@
 import { CIAppResponseStatus } from "./CIAppResponseStatus";
 import { CIAppWarning } from "./CIAppWarning";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The metadata associated with a request.
-*/
+ */
 export class CIAppResponseMetadata {
   /**
    * The time elapsed in milliseconds.
-  */
+   */
   "elapsed"?: number;
   /**
    * The identifier of the request.
-  */
+   */
   "requestId"?: string;
   /**
    * The status of the response.
-  */
+   */
   "status"?: CIAppResponseStatus;
   /**
    * A list of warnings (non-fatal errors) encountered. Partial results may return if
    * warnings are present in the response.
-  */
+   */
   "warnings"?: Array<CIAppWarning>;
 
   /**
@@ -51,61 +46,35 @@ export class CIAppResponseMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "elapsed": {
-      "baseName": "elapsed",
-      "type": "number",
-      "format": "int64",
+    elapsed: {
+      baseName: "elapsed",
+      type: "number",
+      format: "int64",
     },
-    "requestId": {
-      "baseName": "request_id",
-      "type": "string",
+    requestId: {
+      baseName: "request_id",
+      type: "string",
     },
-    "status": {
-      "baseName": "status",
-      "type": "CIAppResponseStatus",
+    status: {
+      baseName: "status",
+      type: "CIAppResponseStatus",
     },
-    "warnings": {
-      "baseName": "warnings",
-      "type": "Array<CIAppWarning>",
+    warnings: {
+      baseName: "warnings",
+      type: "Array<CIAppWarning>",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CIAppResponseMetadata.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

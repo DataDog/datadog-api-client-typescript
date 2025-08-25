@@ -5,20 +5,15 @@
  */
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Represents relationships in an escalation policy creation request, including references to teams.
-*/
+ */
 export class EscalationPolicyCreateRequestDataRelationships {
   /**
    * Associates teams with this schedule in a data structure.
-  */
+   */
   "teams"?: DataRelationshipsTeams;
 
   /**
@@ -37,48 +32,22 @@ export class EscalationPolicyCreateRequestDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "teams": {
-      "baseName": "teams",
-      "type": "DataRelationshipsTeams",
+    teams: {
+      baseName: "teams",
+      type: "DataRelationshipsTeams",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return EscalationPolicyCreateRequestDataRelationships.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

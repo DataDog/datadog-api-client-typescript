@@ -4,24 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * The attributes of the user who last updated the Agent rule
-*/
+ */
 export class CloudWorkloadSecurityAgentRuleUpdaterAttributes {
   /**
    * The handle of the user
-  */
+   */
   "handle"?: string;
   /**
    * The name of the user
-  */
+   */
   "name"?: string;
 
   /**
@@ -40,52 +35,26 @@ export class CloudWorkloadSecurityAgentRuleUpdaterAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "handle": {
-      "baseName": "handle",
-      "type": "string",
+    handle: {
+      baseName: "handle",
+      type: "string",
     },
-    "name": {
-      "baseName": "name",
-      "type": "string",
+    name: {
+      baseName: "name",
+      type: "string",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return CloudWorkloadSecurityAgentRuleUpdaterAttributes.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

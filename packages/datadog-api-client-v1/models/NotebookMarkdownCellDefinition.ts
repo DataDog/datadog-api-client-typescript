@@ -5,24 +5,19 @@
  */
 import { NotebookMarkdownCellDefinitionType } from "./NotebookMarkdownCellDefinitionType";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
-*/
+ */
 export class NotebookMarkdownCellDefinition {
   /**
    * The markdown content.
-  */
+   */
   "text": string;
   /**
    * Type of the markdown cell.
-  */
+   */
   "type": NotebookMarkdownCellDefinitionType;
 
   /**
@@ -41,54 +36,28 @@ export class NotebookMarkdownCellDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "text": {
-      "baseName": "text",
-      "type": "string",
-      "required": true,
+    text: {
+      baseName: "text",
+      type: "string",
+      required: true,
     },
-    "type": {
-      "baseName": "type",
-      "type": "NotebookMarkdownCellDefinitionType",
-      "required": true,
+    type: {
+      baseName: "type",
+      type: "NotebookMarkdownCellDefinitionType",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return NotebookMarkdownCellDefinition.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

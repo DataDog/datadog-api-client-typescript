@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * The incident impacts type.
-*/
+ */
 
 export type IncidentImpactsType = typeof INCIDENT_IMPACTS | UnparsedObject;
-export const INCIDENT_IMPACTS = 'incident_impacts';
+export const INCIDENT_IMPACTS = "incident_impacts";

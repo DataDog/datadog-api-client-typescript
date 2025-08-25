@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * (deprecated) The attribute formerly used to group elements in the widget.
-*/
+ */
 
-export type TreeMapGroupBy = typeof USER| typeof FAMILY| typeof PROCESS | UnparsedObject;
-export const USER = 'user';
-export const FAMILY = 'family';
-export const PROCESS = 'process';
+export type TreeMapGroupBy =
+  | typeof USER
+  | typeof FAMILY
+  | typeof PROCESS
+  | UnparsedObject;
+export const USER = "user";
+export const FAMILY = "family";
+export const PROCESS = "process";

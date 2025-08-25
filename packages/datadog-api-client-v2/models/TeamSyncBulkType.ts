@@ -4,16 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * Team sync bulk type.
-*/
+ */
 
 export type TeamSyncBulkType = typeof TEAM_SYNC_BULK | UnparsedObject;
-export const TEAM_SYNC_BULK = 'team_sync_bulk';
+export const TEAM_SYNC_BULK = "team_sync_bulk";

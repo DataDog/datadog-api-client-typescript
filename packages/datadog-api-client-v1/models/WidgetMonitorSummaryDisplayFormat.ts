@@ -4,18 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
-
-
 import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 
 /**
  * What to display on the widget.
-*/
+ */
 
-export type WidgetMonitorSummaryDisplayFormat = typeof COUNTS| typeof COUNTS_AND_LIST| typeof LIST | UnparsedObject;
-export const COUNTS = 'counts';
-export const COUNTS_AND_LIST = 'countsAndList';
-export const LIST = 'list';
+export type WidgetMonitorSummaryDisplayFormat =
+  | typeof COUNTS
+  | typeof COUNTS_AND_LIST
+  | typeof LIST
+  | UnparsedObject;
+export const COUNTS = "counts";
+export const COUNTS_AND_LIST = "countsAndList";
+export const LIST = "list";

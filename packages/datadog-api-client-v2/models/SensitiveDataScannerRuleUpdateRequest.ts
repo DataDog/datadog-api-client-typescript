@@ -6,24 +6,19 @@
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 import { SensitiveDataScannerRuleUpdate } from "./SensitiveDataScannerRuleUpdate";
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Update rule request.
-*/
+ */
 export class SensitiveDataScannerRuleUpdateRequest {
   /**
    * Data related to the update of a rule.
-  */
+   */
   "data": SensitiveDataScannerRuleUpdate;
   /**
    * Meta payload containing information about the API.
-  */
+   */
   "meta": SensitiveDataScannerMetaVersionOnly;
 
   /**
@@ -42,54 +37,28 @@ export class SensitiveDataScannerRuleUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "data": {
-      "baseName": "data",
-      "type": "SensitiveDataScannerRuleUpdate",
-      "required": true,
+    data: {
+      baseName: "data",
+      type: "SensitiveDataScannerRuleUpdate",
+      required: true,
     },
-    "meta": {
-      "baseName": "meta",
-      "type": "SensitiveDataScannerMetaVersionOnly",
-      "required": true,
+    meta: {
+      baseName: "meta",
+      type: "SensitiveDataScannerMetaVersionOnly",
+      required: true,
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return SensitiveDataScannerRuleUpdateRequest.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-

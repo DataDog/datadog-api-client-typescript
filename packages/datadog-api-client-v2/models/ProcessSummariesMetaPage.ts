@@ -4,25 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../../datadog-api-client-common/http/http";
-
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
-
-
-
 
 /**
  * Paging attributes.
-*/
+ */
 export class ProcessSummariesMetaPage {
   /**
    * The cursor used to get the next results, if any. To make the next request, use the same
    * parameters with the addition of the `page[cursor]`.
-  */
+   */
   "after"?: string;
   /**
    * Number of results returned.
-  */
+   */
   "size"?: number;
 
   /**
@@ -41,53 +36,27 @@ export class ProcessSummariesMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    "after": {
-      "baseName": "after",
-      "type": "string",
+    after: {
+      baseName: "after",
+      type: "string",
     },
-    "size": {
-      "baseName": "size",
-      "type": "number",
-      "format": "int32",
+    size: {
+      baseName: "size",
+      type: "number",
+      format: "int32",
     },
-    "additionalProperties": {
-      "baseName": "additionalProperties",
-      "type": "any",
-    }
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-
-
-
-
     return ProcessSummariesMetaPage.attributeTypeMap;
-
   }
 
-  public constructor() {
-
-
-
-
-
-
-
-
-
-
-
-  }
+  public constructor() {}
 }
-
-
-
-
-
-
-
-
-
