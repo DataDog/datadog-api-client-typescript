@@ -682,6 +682,8 @@ export {
   SoftwareCatalogApi,
 } from "./apis/SoftwareCatalogApi";
 
+export { SpaApiGetSPARecommendationsRequest, SpaApi } from "./apis/SpaApi";
+
 export {
   SpansApiAggregateSpansRequest,
   SpansApiListSpansRequest,
@@ -1286,6 +1288,7 @@ export { ComponentGridPropertiesIsVisible } from "./models/ComponentGridProperti
 export { ComponentGridType } from "./models/ComponentGridType";
 export { ComponentProperties } from "./models/ComponentProperties";
 export { ComponentPropertiesIsVisible } from "./models/ComponentPropertiesIsVisible";
+export { ComponentRecommendation } from "./models/ComponentRecommendation";
 export { ComponentType } from "./models/ComponentType";
 export { ConfigCatCredentials } from "./models/ConfigCatCredentials";
 export { ConfigCatCredentialsUpdate } from "./models/ConfigCatCredentialsUpdate";
@@ -1362,6 +1365,7 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { Cpu } from "./models/Cpu";
 export { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
 export { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";
 export { CreateAppRequest } from "./models/CreateAppRequest";
@@ -1713,6 +1717,7 @@ export { EscalationRelationshipsRespondersDataItemsType } from "./models/Escalat
 export { EscalationTarget } from "./models/EscalationTarget";
 export { EscalationTargets } from "./models/EscalationTargets";
 export { EscalationType } from "./models/EscalationType";
+export { Estimation } from "./models/Estimation";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventCategory } from "./models/EventCategory";
@@ -2777,6 +2782,10 @@ export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
+export { RecommendationAttributes } from "./models/RecommendationAttributes";
+export { RecommendationData } from "./models/RecommendationData";
+export { RecommendationDocument } from "./models/RecommendationDocument";
+export { RecommendationType } from "./models/RecommendationType";
 export { RegisterAppKeyResponse } from "./models/RegisterAppKeyResponse";
 export { RelationAttributes } from "./models/RelationAttributes";
 export { RelationEntity } from "./models/RelationEntity";

@@ -7466,6 +7466,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SLOReportStatusGetResponse",
     },
+    "v2.GetSPARecommendations": {
+        "shard": {
+            "type": "string",
+            "format": "",
+            },
+        "service": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RecommendationDocument",
+    },
     "v2.AggregateSpans": {
         "body": {
             "type": "SpansAggregateRequest",
