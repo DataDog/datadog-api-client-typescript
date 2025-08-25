@@ -946,6 +946,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-spa@workspace:services/spa":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-spa@workspace:services/spa"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-spans-metrics@workspace:services/spans_metrics":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-spans-metrics@workspace:services/spans_metrics"

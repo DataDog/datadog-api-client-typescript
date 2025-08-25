@@ -423,6 +423,7 @@ apiInstance
 | Slack Integration | @datadog/datadog-api-client-slack-integration | [README.md](../../services/slack-integration/README.md) |
 | Snapshots | @datadog/datadog-api-client-snapshots | [README.md](../../services/snapshots/README.md) |
 | Software Catalog | @datadog/datadog-api-client-software-catalog | [README.md](../../services/software-catalog/README.md) |
+| Spa | @datadog/datadog-api-client-spa | [README.md](../../services/spa/README.md) |
 | Spans | @datadog/datadog-api-client-spans | [README.md](../../services/spans/README.md) |
 | Spans Metrics | @datadog/datadog-api-client-spans-metrics | [README.md](../../services/spans-metrics/README.md) |
 | Synthetics | @datadog/datadog-api-client-synthetics | [README.md](../../services/synthetics/README.md) |
