@@ -3,6 +3,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { LogsAPIError } from "./LogsAPIError";
 import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
+import { LogsAPILimitReachedResponse } from "./LogsAPILimitReachedResponse";
 import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
@@ -19,6 +20,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     LogsAPIError: LogsAPIError,
     LogsAPIErrorResponse: LogsAPIErrorResponse,
+    LogsAPILimitReachedResponse: LogsAPILimitReachedResponse,
     LogsDailyLimitReset: LogsDailyLimitReset,
     LogsExclusion: LogsExclusion,
     LogsExclusionFilter: LogsExclusionFilter,

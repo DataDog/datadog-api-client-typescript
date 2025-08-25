@@ -10,6 +10,7 @@ export {
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { LogsAPIError } from "./models/LogsAPIError";
 export { LogsAPIErrorResponse } from "./models/LogsAPIErrorResponse";
+export { LogsAPILimitReachedResponse } from "./models/LogsAPILimitReachedResponse";
 export { LogsDailyLimitReset } from "./models/LogsDailyLimitReset";
 export { LogsExclusion } from "./models/LogsExclusion";
 export { LogsExclusionFilter } from "./models/LogsExclusionFilter";
