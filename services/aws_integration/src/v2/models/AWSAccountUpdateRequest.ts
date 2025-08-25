@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
 
 /**
- * AWS Account Update Request body.
+ * AWS Account update request body.
  */
 export class AWSAccountUpdateRequest {
   /**
