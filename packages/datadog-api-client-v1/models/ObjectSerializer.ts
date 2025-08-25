@@ -153,6 +153,7 @@ import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
 import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { LogsAPIError } from "./LogsAPIError";
 import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
+import { LogsAPILimitReachedResponse } from "./LogsAPILimitReachedResponse";
 import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
 import { LogsArrayProcessor } from "./LogsArrayProcessor";
 import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
@@ -1870,6 +1871,7 @@ const typeMap: { [index: string]: any } = {
   LogStreamWidgetDefinition: LogStreamWidgetDefinition,
   LogsAPIError: LogsAPIError,
   LogsAPIErrorResponse: LogsAPIErrorResponse,
+  LogsAPILimitReachedResponse: LogsAPILimitReachedResponse,
   LogsArithmeticProcessor: LogsArithmeticProcessor,
   LogsArrayProcessor: LogsArrayProcessor,
   LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
