@@ -11,7 +11,7 @@ const params: v2.AgentlessScanningApiCreateAwsOnDemandTaskRequest = {
   body: {
     data: {
       attributes: {
-        arn: "arn:aws:lambda:eu-west-3:376334461865:function:This-Is-An-Api-Spec-Test",
+        arn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
       },
       type: "aws_resource",
     },
