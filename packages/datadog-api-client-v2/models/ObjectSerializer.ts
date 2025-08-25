@@ -374,6 +374,7 @@ import { Component } from "./Component";
 import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
 import { ComponentProperties } from "./ComponentProperties";
+import { ComponentRecommendation } from "./ComponentRecommendation";
 import { ConfigCatIntegration } from "./ConfigCatIntegration";
 import { ConfigCatIntegrationUpdate } from "./ConfigCatIntegrationUpdate";
 import { ConfigCatSDKKey } from "./ConfigCatSDKKey";
@@ -430,6 +431,7 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { Cpu } from "./Cpu";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
 import { CreateAppRequest } from "./CreateAppRequest";
@@ -705,6 +707,7 @@ import { EscalationRelationships } from "./EscalationRelationships";
 import { EscalationRelationshipsResponders } from "./EscalationRelationshipsResponders";
 import { EscalationRelationshipsRespondersDataItems } from "./EscalationRelationshipsRespondersDataItems";
 import { EscalationTargets } from "./EscalationTargets";
+import { Estimation } from "./Estimation";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -1493,6 +1496,9 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { ReadinessGate } from "./ReadinessGate";
+import { RecommendationAttributes } from "./RecommendationAttributes";
+import { RecommendationData } from "./RecommendationData";
+import { RecommendationDocument } from "./RecommendationDocument";
 import { RegisterAppKeyResponse } from "./RegisterAppKeyResponse";
 import { RelationAttributes } from "./RelationAttributes";
 import { RelationEntity } from "./RelationEntity";
@@ -3047,6 +3053,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
+  RecommendationType: ["recommendation"],
   RelationIncludeType: ["entity", "schema"],
   RelationResponseType: ["relation"],
   RelationType: [
@@ -3966,6 +3973,7 @@ const typeMap: { [index: string]: any } = {
   ComponentGrid: ComponentGrid,
   ComponentGridProperties: ComponentGridProperties,
   ComponentProperties: ComponentProperties,
+  ComponentRecommendation: ComponentRecommendation,
   ConfigCatIntegration: ConfigCatIntegration,
   ConfigCatIntegrationUpdate: ConfigCatIntegrationUpdate,
   ConfigCatSDKKey: ConfigCatSDKKey,
@@ -4025,6 +4033,7 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  Cpu: Cpu,
   CreateActionConnectionRequest: CreateActionConnectionRequest,
   CreateActionConnectionResponse: CreateActionConnectionResponse,
   CreateAppRequest: CreateAppRequest,
@@ -4348,6 +4357,7 @@ const typeMap: { [index: string]: any } = {
   EscalationRelationshipsRespondersDataItems:
     EscalationRelationshipsRespondersDataItems,
   EscalationTargets: EscalationTargets,
+  Estimation: Estimation,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
@@ -5271,6 +5281,9 @@ const typeMap: { [index: string]: any } = {
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
   ReadinessGate: ReadinessGate,
+  RecommendationAttributes: RecommendationAttributes,
+  RecommendationData: RecommendationData,
+  RecommendationDocument: RecommendationDocument,
   RegisterAppKeyResponse: RegisterAppKeyResponse,
   RelationAttributes: RelationAttributes,
   RelationEntity: RelationEntity,
