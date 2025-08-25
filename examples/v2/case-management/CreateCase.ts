@@ -16,7 +16,7 @@ const params: v2.CaseManagementApiCreateCaseRequest = {
       attributes: {
         priority: "NOT_DEFINED",
         title: "Security breach investigation in 0cfbc5cbc676ee71",
-        type: "STANDARD",
+        typeId: "00000000-0000-0000-0000-000000000001",
       },
       relationships: {
         assignee: {
