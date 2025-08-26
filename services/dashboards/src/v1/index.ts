@@ -309,6 +309,7 @@ export { WidgetSummaryType } from "./models/WidgetSummaryType";
 export { WidgetTextAlign } from "./models/WidgetTextAlign";
 export { WidgetTickEdge } from "./models/WidgetTickEdge";
 export { WidgetTime } from "./models/WidgetTime";
+export { WidgetTimeHideIncompleteData } from "./models/WidgetTimeHideIncompleteData";
 export { WidgetTimeWindows } from "./models/WidgetTimeWindows";
 export { WidgetVerticalAlign } from "./models/WidgetVerticalAlign";
 export { WidgetViewMode } from "./models/WidgetViewMode";

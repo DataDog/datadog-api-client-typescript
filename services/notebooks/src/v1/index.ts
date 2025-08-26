@@ -161,3 +161,4 @@ export { WidgetSortOrderBy } from "./models/WidgetSortOrderBy";
 export { WidgetStyle } from "./models/WidgetStyle";
 export { WidgetTextAlign } from "./models/WidgetTextAlign";
 export { WidgetTime } from "./models/WidgetTime";
+export { WidgetTimeHideIncompleteData } from "./models/WidgetTimeHideIncompleteData";

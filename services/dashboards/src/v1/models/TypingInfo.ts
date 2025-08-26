@@ -155,6 +155,7 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
+import { WidgetTimeHideIncompleteData } from "./WidgetTimeHideIncompleteData";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -575,6 +576,7 @@ export const TypingInfo: ModelTypingInfo = {
       "WidgetLegacyLiveSpan",
       "WidgetNewLiveSpan",
       "WidgetNewFixedSpan",
+      "WidgetTimeHideIncompleteData",
     ],
   },
   typeMap: {
@@ -745,5 +747,6 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetRequestStyle: WidgetRequestStyle,
     WidgetSortBy: WidgetSortBy,
     WidgetStyle: WidgetStyle,
+    WidgetTimeHideIncompleteData: WidgetTimeHideIncompleteData,
   },
 };
