@@ -101,7 +101,7 @@ export class ServiceDefinitionV1 {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

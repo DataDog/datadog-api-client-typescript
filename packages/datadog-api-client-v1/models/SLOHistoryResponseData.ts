@@ -125,11 +125,10 @@ export class SLOHistoryResponseData {
     typeId: {
       baseName: "type_id",
       type: "SLOTypeNumeric",
-      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

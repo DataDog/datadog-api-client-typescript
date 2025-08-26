@@ -197,7 +197,7 @@ export class CIAppPipelineEventStep {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

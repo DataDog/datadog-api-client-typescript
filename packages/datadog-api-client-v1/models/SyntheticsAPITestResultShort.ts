@@ -72,11 +72,10 @@ export class SyntheticsAPITestResultShort {
     status: {
       baseName: "status",
       type: "SyntheticsTestMonitorStatus",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

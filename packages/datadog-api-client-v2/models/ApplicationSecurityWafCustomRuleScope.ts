@@ -47,7 +47,7 @@ export class ApplicationSecurityWafCustomRuleScope {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

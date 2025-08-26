@@ -75,7 +75,7 @@ export class ObservabilityPipelineParseJSONProcessor {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

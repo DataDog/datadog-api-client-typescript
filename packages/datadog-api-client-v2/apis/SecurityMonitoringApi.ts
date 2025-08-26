@@ -43,6 +43,7 @@ import { ListHistoricalJobsResponse } from "../models/ListHistoricalJobsResponse
 import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
 import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
+import { NotificationRulesList } from "../models/NotificationRulesList";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
 import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
 import { SBOMComponentLicenseType } from "../models/SBOMComponentLicenseType";
@@ -3285,12 +3286,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -3410,12 +3406,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -3974,12 +3965,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -4030,12 +4016,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -4088,12 +4069,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -4146,12 +4122,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -4204,12 +4175,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -4262,12 +4228,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -5189,15 +5150,15 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async getSignalNotificationRules(
     response: ResponseContext
-  ): Promise<any> {
+  ): Promise<NotificationRulesList> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: any = ObjectSerializer.deserialize(
+      const body: NotificationRulesList = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
-      ) as any;
+        "NotificationRulesList"
+      ) as NotificationRulesList;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
@@ -5223,11 +5184,11 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: any = ObjectSerializer.deserialize(
+      const body: NotificationRulesList = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any",
+        "NotificationRulesList",
         ""
-      ) as any;
+      ) as NotificationRulesList;
       return body;
     }
 
@@ -5310,15 +5271,15 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async getVulnerabilityNotificationRules(
     response: ResponseContext
-  ): Promise<any> {
+  ): Promise<NotificationRulesList> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: any = ObjectSerializer.deserialize(
+      const body: NotificationRulesList = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
-      ) as any;
+        "NotificationRulesList"
+      ) as NotificationRulesList;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
@@ -5344,11 +5305,11 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: any = ObjectSerializer.deserialize(
+      const body: NotificationRulesList = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any",
+        "NotificationRulesList",
         ""
-      ) as any;
+      ) as NotificationRulesList;
       return body;
     }
 
@@ -6846,12 +6807,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -8541,7 +8497,9 @@ export class SecurityMonitoringApi {
    * Returns the list of notification rules for security signals.
    * @param param The request object
    */
-  public getSignalNotificationRules(options?: Configuration): Promise<any> {
+  public getSignalNotificationRules(
+    options?: Configuration
+  ): Promise<NotificationRulesList> {
     const requestContextPromise =
       this.requestFactory.getSignalNotificationRules(options);
     return requestContextPromise.then((requestContext) => {
@@ -8582,7 +8540,7 @@ export class SecurityMonitoringApi {
    */
   public getVulnerabilityNotificationRules(
     options?: Configuration
-  ): Promise<any> {
+  ): Promise<NotificationRulesList> {
     const requestContextPromise =
       this.requestFactory.getVulnerabilityNotificationRules(options);
     return requestContextPromise.then((requestContext) => {

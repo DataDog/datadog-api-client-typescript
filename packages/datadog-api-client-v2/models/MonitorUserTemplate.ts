@@ -68,7 +68,6 @@ export class MonitorUserTemplate {
     created: {
       baseName: "created",
       type: "Date",
-      format: "date-time",
     },
     description: {
       baseName: "description",
@@ -77,7 +76,6 @@ export class MonitorUserTemplate {
     modified: {
       baseName: "modified",
       type: "Date",
-      format: "date-time",
     },
     monitorDefinition: {
       baseName: "monitor_definition",
@@ -98,7 +96,6 @@ export class MonitorUserTemplate {
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     versions: {
       baseName: "versions",
@@ -106,7 +103,7 @@ export class MonitorUserTemplate {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

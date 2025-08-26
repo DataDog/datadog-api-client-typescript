@@ -43,11 +43,10 @@ export class UpdateOpenAPIResponseData {
     id: {
       baseName: "id",
       type: "string",
-      format: "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

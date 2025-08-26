@@ -57,7 +57,7 @@ export class AzureUCConfigPair {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

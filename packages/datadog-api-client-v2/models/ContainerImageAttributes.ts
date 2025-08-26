@@ -156,7 +156,6 @@ export class ContainerImageAttributes {
     sizes: {
       baseName: "sizes",
       type: "Array<number>",
-      format: "int64",
     },
     sources: {
       baseName: "sources",
@@ -172,7 +171,7 @@ export class ContainerImageAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 
