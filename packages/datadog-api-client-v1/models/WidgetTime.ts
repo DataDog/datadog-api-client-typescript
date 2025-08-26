@@ -6,6 +6,7 @@
 import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
 import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
 import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
+import { WidgetTimeHideIncompleteData } from "./WidgetTimeHideIncompleteData";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -17,4 +18,5 @@ export type WidgetTime =
   | WidgetLegacyLiveSpan
   | WidgetNewLiveSpan
   | WidgetNewFixedSpan
+  | WidgetTimeHideIncompleteData
   | UnparsedObject;

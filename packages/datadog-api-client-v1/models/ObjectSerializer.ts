@@ -642,6 +642,7 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
+import { WidgetTimeHideIncompleteData } from "./WidgetTimeHideIncompleteData";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
@@ -2397,6 +2398,7 @@ const typeMap: { [index: string]: any } = {
   WidgetRequestStyle: WidgetRequestStyle,
   WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
+  WidgetTimeHideIncompleteData: WidgetTimeHideIncompleteData,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
@@ -2564,6 +2566,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "WidgetLegacyLiveSpan",
     "WidgetNewLiveSpan",
     "WidgetNewFixedSpan",
+    "WidgetTimeHideIncompleteData",
   ],
 };
 
