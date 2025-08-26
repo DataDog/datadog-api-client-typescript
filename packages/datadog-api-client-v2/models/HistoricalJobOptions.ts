@@ -72,7 +72,6 @@ export class HistoricalJobOptions {
     evaluationWindow: {
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
-      format: "int32",
     },
     impossibleTravelOptions: {
       baseName: "impossibleTravelOptions",
@@ -81,12 +80,10 @@ export class HistoricalJobOptions {
     keepAlive: {
       baseName: "keepAlive",
       type: "SecurityMonitoringRuleKeepAlive",
-      format: "int32",
     },
     maxSignalDuration: {
       baseName: "maxSignalDuration",
       type: "SecurityMonitoringRuleMaxSignalDuration",
-      format: "int32",
     },
     newValueOptions: {
       baseName: "newValueOptions",
@@ -98,7 +95,7 @@ export class HistoricalJobOptions {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

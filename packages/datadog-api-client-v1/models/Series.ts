@@ -70,7 +70,6 @@ export class Series {
       baseName: "points",
       type: "Array<[number, number]>",
       required: true,
-      format: "double",
     },
     tags: {
       baseName: "tags",
@@ -82,7 +81,7 @@ export class Series {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

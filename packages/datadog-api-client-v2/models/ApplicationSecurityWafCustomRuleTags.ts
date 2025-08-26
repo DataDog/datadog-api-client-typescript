@@ -49,7 +49,7 @@ export class ApplicationSecurityWafCustomRuleTags {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "string",
+      type: "{ [key: string]: string; }",
     },
   };
 

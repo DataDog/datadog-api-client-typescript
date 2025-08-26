@@ -45,7 +45,7 @@ export class ApplicationSecurityWafExclusionFilterRulesTargetTags {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "string",
+      type: "{ [key: string]: string; }",
     },
   };
 

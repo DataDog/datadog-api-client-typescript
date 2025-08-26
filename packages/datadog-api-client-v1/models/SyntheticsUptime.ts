@@ -63,7 +63,6 @@ export class SyntheticsUptime {
     history: {
       baseName: "history",
       type: "Array<[number, number]>",
-      format: "double",
     },
     spanPrecision: {
       baseName: "span_precision",
@@ -77,7 +76,7 @@ export class SyntheticsUptime {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

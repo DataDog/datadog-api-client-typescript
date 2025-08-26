@@ -47,7 +47,7 @@ export class ApplicationKeyResponseMeta {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

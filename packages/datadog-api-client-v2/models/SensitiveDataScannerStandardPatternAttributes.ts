@@ -78,7 +78,7 @@ export class SensitiveDataScannerStandardPatternAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

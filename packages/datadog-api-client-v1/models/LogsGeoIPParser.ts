@@ -74,7 +74,7 @@ export class LogsGeoIPParser {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

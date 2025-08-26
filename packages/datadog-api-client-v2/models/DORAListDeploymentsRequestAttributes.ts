@@ -72,7 +72,7 @@ export class DORAListDeploymentsRequestAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

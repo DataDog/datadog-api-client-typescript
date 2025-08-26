@@ -46,7 +46,7 @@ export class NotebookTriggerWrapper {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

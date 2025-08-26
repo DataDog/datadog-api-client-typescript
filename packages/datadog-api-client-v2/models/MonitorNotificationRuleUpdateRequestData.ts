@@ -57,7 +57,7 @@ export class MonitorNotificationRuleUpdateRequestData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -46,7 +46,7 @@ export class CIAppTestsBucketResponse {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 
