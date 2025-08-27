@@ -65,10 +65,6 @@ export class SyntheticsCITest {
    */
   "variables"?: { [key: string]: string };
   /**
-   * The version number of the Synthetic test version to trigger.
-   */
-  "version"?: number;
-  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -139,11 +135,6 @@ export class SyntheticsCITest {
     variables: {
       baseName: "variables",
       type: "{ [key: string]: string; }",
-    },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
