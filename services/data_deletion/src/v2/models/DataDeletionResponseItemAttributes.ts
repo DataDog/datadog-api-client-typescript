@@ -13,6 +13,10 @@ export class DataDeletionResponseItemAttributes {
    */
   "createdBy": string;
   /**
+   * Total number of elements to be deleted according to the UI.
+   */
+  "displayedTotal": number;
+  /**
    * Start of requested time window, milliseconds since Unix epoch.
    */
   "fromTime": number;
@@ -80,6 +84,12 @@ export class DataDeletionResponseItemAttributes {
       baseName: "created_by",
       type: "string",
       required: true,
+    },
+    displayedTotal: {
+      baseName: "displayed_total",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     fromTime: {
       baseName: "from_time",
