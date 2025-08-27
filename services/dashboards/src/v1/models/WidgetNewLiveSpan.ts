@@ -8,6 +8,10 @@ import { WidgetNewLiveSpanType } from "./WidgetNewLiveSpanType";
  */
 export class WidgetNewLiveSpan {
   /**
+   * Whether to hide incomplete cost data in the widget.
+   */
+  "hideIncompleteCostData"?: boolean;
+  /**
    * Type "live" denotes a live span in the new format.
    */
   "type": WidgetNewLiveSpanType;
@@ -34,6 +38,10 @@ export class WidgetNewLiveSpan {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    hideIncompleteCostData: {
+      baseName: "hide_incomplete_cost_data",
+      type: "boolean",
+    },
     type: {
       baseName: "type",
       type: "WidgetNewLiveSpanType",

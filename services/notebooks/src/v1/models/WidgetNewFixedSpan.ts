@@ -11,6 +11,10 @@ export class WidgetNewFixedSpan {
    */
   "from": number;
   /**
+   * Whether to hide incomplete cost data in the widget.
+   */
+  "hideIncompleteCostData"?: boolean;
+  /**
    * End time in seconds since epoch.
    */
   "to": number;
@@ -38,6 +42,10 @@ export class WidgetNewFixedSpan {
       type: "number",
       required: true,
       format: "int64",
+    },
+    hideIncompleteCostData: {
+      baseName: "hide_incomplete_cost_data",
+      type: "boolean",
     },
     to: {
       baseName: "to",
