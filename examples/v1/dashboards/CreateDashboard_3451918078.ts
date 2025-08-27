@@ -21,6 +21,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
             type: "fixed",
             from: 1712080128,
             to: 1712083128,
+            hideIncompleteCostData: true,
           },
           type: "timeseries",
           requests: [
