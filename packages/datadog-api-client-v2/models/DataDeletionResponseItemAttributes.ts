@@ -55,6 +55,10 @@ export class DataDeletionResponseItemAttributes {
    */
   "toTime": number;
   /**
+   * Total number of elements to be deleted according to the UI.
+   */
+  "totalDisplayed": number;
+  /**
    * Total number of elements to be deleted. Only the data accessible to the current user that matches the query and timeframe provided will be deleted.
    */
   "totalUnrestricted": number;
@@ -132,6 +136,12 @@ export class DataDeletionResponseItemAttributes {
     },
     toTime: {
       baseName: "to_time",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    totalDisplayed: {
+      baseName: "total_displayed",
       type: "number",
       required: true,
       format: "int64",

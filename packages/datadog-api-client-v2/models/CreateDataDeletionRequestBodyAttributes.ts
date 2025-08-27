@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CreateDataDeletionRequestBodyAttributes {
   /**
+   * The total number of elements to be deleted that the UI shows to the user.
+   */
+  "displayedTotal": number;
+  /**
    * Start of requested time window, milliseconds since Unix epoch.
    */
   "from": number;
@@ -43,6 +47,12 @@ export class CreateDataDeletionRequestBodyAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    displayedTotal: {
+      baseName: "displayed_total",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
     from: {
       baseName: "from",
       type: "number",
