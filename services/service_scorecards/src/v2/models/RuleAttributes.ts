@@ -25,6 +25,10 @@ export class RuleAttributes {
    */
   "enabled"?: boolean;
   /**
+   * The maturity level of the rule (1, 2, or 3).
+   */
+  "level"?: number;
+  /**
    * Time of the last rule outcome modification.
    */
   "modifiedAt"?: Date;
@@ -75,6 +79,11 @@ export class RuleAttributes {
     enabled: {
       baseName: "enabled",
       type: "boolean",
+    },
+    level: {
+      baseName: "level",
+      type: "number",
+      format: "int32",
     },
     modifiedAt: {
       baseName: "modified_at",

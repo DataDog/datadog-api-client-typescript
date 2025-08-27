@@ -31,6 +31,7 @@ import { OutcomesBatchRequest } from "./models/OutcomesBatchRequest";
 import { OutcomesBatchResponse } from "./models/OutcomesBatchResponse";
 import { OutcomesResponse } from "./models/OutcomesResponse";
 import { OutcomesResponseDataItem } from "./models/OutcomesResponseDataItem";
+import { UpdateOutcomesAsyncRequest } from "./models/UpdateOutcomesAsyncRequest";
 import { UpdateRuleRequest } from "./models/UpdateRuleRequest";
 import { UpdateRuleResponse } from "./models/UpdateRuleResponse";
 import { version } from "../version";
@@ -471,6 +472,67 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateScorecardOutcomesAsync(
+    body: UpdateOutcomesAsyncRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ServiceScorecardsApi.v2.updateScorecardOutcomesAsync"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateScorecardOutcomesAsync' is disabled. Enable it by setting `configuration.unstableOperations['ServiceScorecardsApi.v2.updateScorecardOutcomesAsync'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateScorecardOutcomesAsync");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/scorecard/outcomes";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceScorecardsApi.v2.updateScorecardOutcomesAsync",
+      ServiceScorecardsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpdateOutcomesAsyncRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateScorecardRule(
     ruleId: string,
     body: UpdateRuleRequest,
@@ -833,6 +895,56 @@ export class ServiceScorecardsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateScorecardOutcomesAsync
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateScorecardOutcomesAsync(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateScorecardRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1018,6 +1130,14 @@ export interface ServiceScorecardsApiListScorecardRulesRequest {
    * @type string
    */
   fieldsScorecard?: string;
+}
+
+export interface ServiceScorecardsApiUpdateScorecardOutcomesAsyncRequest {
+  /**
+   * Set of scorecard outcomes.
+   * @type UpdateOutcomesAsyncRequest
+   */
+  body: UpdateOutcomesAsyncRequest;
 }
 
 export interface ServiceScorecardsApiUpdateScorecardRuleRequest {
@@ -1274,6 +1394,27 @@ export class ServiceScorecardsApi {
         param.pageOffset = param.pageOffset + pageSize;
       }
     }
+  }
+
+  /**
+   * Updates multiple scorecard rule outcomes in a single batched request.
+   * @param param The request object
+   */
+  public updateScorecardOutcomesAsync(
+    param: ServiceScorecardsApiUpdateScorecardOutcomesAsyncRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateScorecardOutcomesAsync(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateScorecardOutcomesAsync(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**
