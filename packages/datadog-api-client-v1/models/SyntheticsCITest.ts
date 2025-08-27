@@ -69,6 +69,10 @@ export class SyntheticsCITest {
    * Variables to replace in the test.
    */
   "variables"?: { [key: string]: string };
+  /**
+   * The version number of the Synthetic test version to trigger.
+   */
+  "version"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -142,6 +146,11 @@ export class SyntheticsCITest {
     variables: {
       baseName: "variables",
       type: "{ [key: string]: string; }",
+    },
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
