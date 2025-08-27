@@ -98,64 +98,6 @@ export const servers = [server1, server2, server3];
 export const operationServers: {
   [endpoint: string]: BaseServerConfiguration[];
 } = {
-  "v1.IPRangesApi.getIPRanges": [
-    new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "ap2.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "ip-ranges",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "ip-ranges.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      subdomain: string;
-    }>("https://{subdomain}.datadoghq.com", {
-      subdomain: "ip-ranges",
-    }),
-  ],
-  "v1.LogsApi.submitLog": [
-    new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "ap2.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "http-intake.logs.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
-    }),
-  ],
   "v2.EventsApi.createEvent": [
     new ServerConfiguration<{
       site:
@@ -321,6 +263,64 @@ export const operationServers: {
     }>("https://{subdomain}.{site}", {
       site: "datadoghq.com",
       subdomain: "api",
+    }),
+  ],
+  "v1.IPRangesApi.getIPRanges": [
+    new ServerConfiguration<{
+      site:
+        | "datadoghq.com"
+        | "us3.datadoghq.com"
+        | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
+        | "ap2.datadoghq.com"
+        | "datadoghq.eu"
+        | "ddog-gov.com";
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "ip-ranges",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "ip-ranges.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      subdomain: string;
+    }>("https://{subdomain}.datadoghq.com", {
+      subdomain: "ip-ranges",
+    }),
+  ],
+  "v1.LogsApi.submitLog": [
+    new ServerConfiguration<{
+      site:
+        | "datadoghq.com"
+        | "us3.datadoghq.com"
+        | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
+        | "ap2.datadoghq.com"
+        | "datadoghq.eu"
+        | "ddog-gov.com";
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "http-intake.logs",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "http-intake.logs.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "http-intake.logs",
     }),
   ],
 };
