@@ -667,6 +667,7 @@ export {
   ServiceScorecardsApiDeleteScorecardRuleRequest,
   ServiceScorecardsApiListScorecardOutcomesRequest,
   ServiceScorecardsApiListScorecardRulesRequest,
+  ServiceScorecardsApiUpdateScorecardOutcomesAsyncRequest,
   ServiceScorecardsApiUpdateScorecardRuleRequest,
   ServiceScorecardsApi,
 } from "./apis/ServiceScorecardsApi";
@@ -3535,6 +3536,11 @@ export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkRes
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
+export { UpdateOutcomesAsyncAttributes } from "./models/UpdateOutcomesAsyncAttributes";
+export { UpdateOutcomesAsyncRequest } from "./models/UpdateOutcomesAsyncRequest";
+export { UpdateOutcomesAsyncRequestData } from "./models/UpdateOutcomesAsyncRequestData";
+export { UpdateOutcomesAsyncRequestItem } from "./models/UpdateOutcomesAsyncRequestItem";
+export { UpdateOutcomesAsyncType } from "./models/UpdateOutcomesAsyncType";
 export { UpdateResourceEvaluationFiltersRequest } from "./models/UpdateResourceEvaluationFiltersRequest";
 export { UpdateResourceEvaluationFiltersRequestData } from "./models/UpdateResourceEvaluationFiltersRequestData";
 export { UpdateResourceEvaluationFiltersResponse } from "./models/UpdateResourceEvaluationFiltersResponse";
