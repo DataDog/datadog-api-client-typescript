@@ -12,6 +12,7 @@ const params: v2.DataDeletionApiCreateDataDeletionRequestRequest = {
   body: {
     data: {
       attributes: {
+        displayedTotal: 25000,
         from: 1672527600000,
         indexes: ["test-index", "test-index-2"],
         query: {
