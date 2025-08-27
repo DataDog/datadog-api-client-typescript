@@ -298,6 +298,7 @@ export function createConfiguration(
       "v2.deleteScorecardRule": false,
       "v2.listScorecardOutcomes": false,
       "v2.listScorecardRules": false,
+      "v2.updateScorecardOutcomesAsync": false,
       "v2.updateScorecardRule": false,
       "v2.createIncidentService": false,
       "v2.deleteIncidentService": false,
