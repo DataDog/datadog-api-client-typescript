@@ -21,6 +21,10 @@ export class SensitiveDataScannerTextReplacement {
    */
   "replacementString"?: string;
   /**
+   * Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
+   */
+  "shouldSaveMatch"?: boolean;
+  /**
    * Type of the replacement text. None means no replacement.
    * hash means the data will be stubbed. replacement_string means that
    * one can chose a text to replace the data. partial_replacement_from_beginning
@@ -54,6 +58,10 @@ export class SensitiveDataScannerTextReplacement {
     replacementString: {
       baseName: "replacement_string",
       type: "string",
+    },
+    shouldSaveMatch: {
+      baseName: "should_save_match",
+      type: "boolean",
     },
     type: {
       baseName: "type",
