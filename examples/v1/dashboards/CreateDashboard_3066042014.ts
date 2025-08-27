@@ -21,6 +21,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
             type: "live",
             unit: "minute",
             value: 8,
+            hideIncompleteCostData: true,
           },
           type: "timeseries",
           requests: [

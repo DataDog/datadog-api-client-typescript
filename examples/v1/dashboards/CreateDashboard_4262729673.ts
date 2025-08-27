@@ -19,6 +19,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           legendColumns: ["avg", "min", "max", "value", "sum"],
           time: {
             liveSpan: "5m",
+            hideIncompleteCostData: true,
           },
           type: "timeseries",
           requests: [
