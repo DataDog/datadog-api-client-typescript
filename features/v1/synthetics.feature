@@ -810,7 +810,6 @@ Feature: Synthetics
     And request contains "include_full_config" parameter with value true
     And request contains "search_suites" parameter with value true
     And request contains "facets_only" parameter with value true
-    And request contains "start" parameter with value 10
     And request contains "count" parameter with value 5
     And request contains "sort" parameter with value "name,desc"
     When the request is sent

@@ -1354,7 +1354,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     includeFullConfig?: boolean,
     searchSuites?: boolean,
     facetsOnly?: boolean,
-    start?: number,
     count?: number,
     sort?: string,
     _options?: Configuration,
@@ -1408,13 +1407,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "facets_only",
         serialize(facetsOnly, TypingInfo, "boolean", ""),
-        "",
-      );
-    }
-    if (start !== undefined) {
-      requestContext.setQueryParam(
-        "start",
-        serialize(start, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -4101,11 +4093,6 @@ export interface SyntheticsApiSearchTestsRequest {
    */
   facetsOnly?: boolean;
   /**
-   * The offset from which to start returning results.
-   * @type number
-   */
-  start?: number;
-  /**
    * The maximum number of results to return.
    * @type number
    */
@@ -4826,7 +4813,6 @@ export class SyntheticsApi {
       param.includeFullConfig,
       param.searchSuites,
       param.facetsOnly,
-      param.start,
       param.count,
       param.sort,
       options,
