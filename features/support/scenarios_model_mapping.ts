@@ -2418,6 +2418,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AwsScanOptionsResponse",
     },
+    "v2.GetAwsScanOptions": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AwsScanOptionsResponse",
+    },
     "v2.DeleteAwsScanOptions": {
         "accountId": {
             "type": "string",

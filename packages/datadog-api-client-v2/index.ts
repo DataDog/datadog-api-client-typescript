@@ -44,6 +44,7 @@ export {
   AgentlessScanningApiCreateAwsScanOptionsRequest,
   AgentlessScanningApiDeleteAwsScanOptionsRequest,
   AgentlessScanningApiGetAwsOnDemandTaskRequest,
+  AgentlessScanningApiGetAwsScanOptionsRequest,
   AgentlessScanningApiUpdateAwsScanOptionsRequest,
   AgentlessScanningApi,
 } from "./apis/AgentlessScanningApi";
