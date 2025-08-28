@@ -2128,10 +2128,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
-    start: {
-      type: "number",
-      format: "int64",
-    },
     count: {
       type: "number",
       format: "int64",
@@ -6425,34 +6421,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "binary",
     },
     operationResponseType: "{}",
-  },
-  "OrgConnectionsApi.V2.ListOrgConnections": {
-    operationResponseType: "OrgConnectionListResponse",
-  },
-  "OrgConnectionsApi.V2.CreateOrgConnections": {
-    body: {
-      type: "OrgConnectionCreateRequest",
-      format: "",
-    },
-    operationResponseType: "OrgConnectionResponse",
-  },
-  "OrgConnectionsApi.V2.DeleteOrgConnections": {
-    connectionId: {
-      type: "string",
-      format: "uuid",
-    },
-    operationResponseType: "{}",
-  },
-  "OrgConnectionsApi.V2.UpdateOrgConnections": {
-    connectionId: {
-      type: "string",
-      format: "uuid",
-    },
-    body: {
-      type: "OrgConnectionUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "OrgConnectionResponse",
   },
   "RolesApi.V2.ListPermissions": {
     operationResponseType: "PermissionsResponse",
