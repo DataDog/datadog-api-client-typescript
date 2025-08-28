@@ -1395,6 +1395,24 @@ import { OrgConfigReadAttributes } from "./OrgConfigReadAttributes";
 import { OrgConfigWrite } from "./OrgConfigWrite";
 import { OrgConfigWriteAttributes } from "./OrgConfigWriteAttributes";
 import { OrgConfigWriteRequest } from "./OrgConfigWriteRequest";
+import { OrgConnection } from "./OrgConnection";
+import { OrgConnectionAttributes } from "./OrgConnectionAttributes";
+import { OrgConnectionCreate } from "./OrgConnectionCreate";
+import { OrgConnectionCreateAttributes } from "./OrgConnectionCreateAttributes";
+import { OrgConnectionCreateRelationships } from "./OrgConnectionCreateRelationships";
+import { OrgConnectionCreateRequest } from "./OrgConnectionCreateRequest";
+import { OrgConnectionListResponse } from "./OrgConnectionListResponse";
+import { OrgConnectionListResponseMeta } from "./OrgConnectionListResponseMeta";
+import { OrgConnectionListResponseMetaPage } from "./OrgConnectionListResponseMetaPage";
+import { OrgConnectionOrgRelationship } from "./OrgConnectionOrgRelationship";
+import { OrgConnectionOrgRelationshipData } from "./OrgConnectionOrgRelationshipData";
+import { OrgConnectionRelationships } from "./OrgConnectionRelationships";
+import { OrgConnectionResponse } from "./OrgConnectionResponse";
+import { OrgConnectionUpdate } from "./OrgConnectionUpdate";
+import { OrgConnectionUpdateAttributes } from "./OrgConnectionUpdateAttributes";
+import { OrgConnectionUpdateRequest } from "./OrgConnectionUpdateRequest";
+import { OrgConnectionUserRelationship } from "./OrgConnectionUserRelationship";
+import { OrgConnectionUserRelationshipData } from "./OrgConnectionUserRelationshipData";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OutboundEdge } from "./OutboundEdge";
@@ -3010,6 +3028,10 @@ const enumsMap: { [key: string]: any[] } = {
   OpsgenieServiceType: ["opsgenie-service"],
   OrderDirection: ["asc", "desc"],
   OrgConfigType: ["org_configs"],
+  OrgConnectionOrgRelationshipDataType: ["orgs"],
+  OrgConnectionType: ["org_connection"],
+  OrgConnectionTypeEnum: ["logs", "metrics"],
+  OrgConnectionUserRelationshipDataType: ["users"],
   OrganizationsType: ["orgs"],
   OutcomeType: ["outcome"],
   OutcomesBatchType: ["batched-outcome"],
@@ -5181,6 +5203,24 @@ const typeMap: { [index: string]: any } = {
   OrgConfigWrite: OrgConfigWrite,
   OrgConfigWriteAttributes: OrgConfigWriteAttributes,
   OrgConfigWriteRequest: OrgConfigWriteRequest,
+  OrgConnection: OrgConnection,
+  OrgConnectionAttributes: OrgConnectionAttributes,
+  OrgConnectionCreate: OrgConnectionCreate,
+  OrgConnectionCreateAttributes: OrgConnectionCreateAttributes,
+  OrgConnectionCreateRelationships: OrgConnectionCreateRelationships,
+  OrgConnectionCreateRequest: OrgConnectionCreateRequest,
+  OrgConnectionListResponse: OrgConnectionListResponse,
+  OrgConnectionListResponseMeta: OrgConnectionListResponseMeta,
+  OrgConnectionListResponseMetaPage: OrgConnectionListResponseMetaPage,
+  OrgConnectionOrgRelationship: OrgConnectionOrgRelationship,
+  OrgConnectionOrgRelationshipData: OrgConnectionOrgRelationshipData,
+  OrgConnectionRelationships: OrgConnectionRelationships,
+  OrgConnectionResponse: OrgConnectionResponse,
+  OrgConnectionUpdate: OrgConnectionUpdate,
+  OrgConnectionUpdateAttributes: OrgConnectionUpdateAttributes,
+  OrgConnectionUpdateRequest: OrgConnectionUpdateRequest,
+  OrgConnectionUserRelationship: OrgConnectionUserRelationship,
+  OrgConnectionUserRelationshipData: OrgConnectionUserRelationshipData,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   OutboundEdge: OutboundEdge,
