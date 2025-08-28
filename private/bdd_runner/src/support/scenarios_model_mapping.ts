@@ -2428,6 +2428,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsScanOptionsResponse",
   },
+  "AgentlessScanningApi.V2.GetAwsScanOptions": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AwsScanOptionsResponse",
+  },
   "AgentlessScanningApi.V2.DeleteAwsScanOptions": {
     accountId: {
       type: "string",
