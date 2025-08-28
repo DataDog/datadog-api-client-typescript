@@ -176,6 +176,40 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getAwsScanOptions(
+    accountId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'accountId' is not null or undefined
+    if (accountId === null || accountId === undefined) {
+      throw new RequiredError("accountId", "getAwsScanOptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AgentlessScanningApi.getAwsScanOptions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAwsOnDemandTasks(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -521,6 +555,69 @@ export class AgentlessScanningApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getAwsScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAwsScanOptions(
+    response: ResponseContext
+  ): Promise<AwsScanOptionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AwsScanOptionsResponse"
+      ) as AwsScanOptionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AwsScanOptionsResponse",
+        ""
+      ) as AwsScanOptionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAwsOnDemandTasks
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -718,6 +815,14 @@ export interface AgentlessScanningApiGetAwsOnDemandTaskRequest {
   taskId: string;
 }
 
+export interface AgentlessScanningApiGetAwsScanOptionsRequest {
+  /**
+   * The ID of an AWS account.
+   * @type string
+   */
+  accountId: string;
+}
+
 export interface AgentlessScanningApiUpdateAwsScanOptionsRequest {
   /**
    * The ID of an AWS account.
@@ -828,6 +933,27 @@ export class AgentlessScanningApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAwsOnDemandTask(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Fetches the Agentless scan options for an activated account.
+   * @param param The request object
+   */
+  public getAwsScanOptions(
+    param: AgentlessScanningApiGetAwsScanOptionsRequest,
+    options?: Configuration
+  ): Promise<AwsScanOptionsResponse> {
+    const requestContextPromise = this.requestFactory.getAwsScanOptions(
+      param.accountId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAwsScanOptions(responseContext);
         });
     });
   }
