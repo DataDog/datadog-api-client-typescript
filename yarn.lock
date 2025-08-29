@@ -532,6 +532,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-error-tracking@workspace:services/error_tracking":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-error-tracking@workspace:services/error_tracking"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-events@workspace:services/events":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-events@workspace:services/events"

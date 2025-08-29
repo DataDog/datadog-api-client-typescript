@@ -4816,6 +4816,50 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MonitorDowntimeMatchResponse",
   },
+  "ErrorTrackingApi.V2.SearchIssues": {
+    include: {
+      type: "Array<SearchIssuesIncludeQueryParameterItem>",
+      format: "",
+    },
+    body: {
+      type: "IssuesSearchRequest",
+      format: "",
+    },
+    operationResponseType: "IssuesSearchResponse",
+  },
+  "ErrorTrackingApi.V2.GetIssue": {
+    issueId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "Array<GetIssueIncludeQueryParameterItem>",
+      format: "",
+    },
+    operationResponseType: "IssueResponse",
+  },
+  "ErrorTrackingApi.V2.UpdateIssueAssignee": {
+    issueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IssueUpdateAssigneeRequest",
+      format: "",
+    },
+    operationResponseType: "IssueResponse",
+  },
+  "ErrorTrackingApi.V2.UpdateIssueState": {
+    issueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IssueUpdateStateRequest",
+      format: "",
+    },
+    operationResponseType: "IssueResponse",
+  },
   "EventsApi.V2.ListEvents": {
     filterQuery: {
       type: "string",
