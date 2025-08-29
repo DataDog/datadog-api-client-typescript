@@ -3834,7 +3834,7 @@ export interface SyntheticsApiSearchTestsRequest {
    */
   facetsOnly?: boolean;
   /**
-   * The offset from which to start returning results.
+   * (Only available on legacy search backend. Contact support for more info.) The offset from which to start returning results.
    * @type number
    */
   start?: number;
