@@ -4806,6 +4806,50 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorDowntimeMatchResponse",
     },
+    "v2.SearchIssues": {
+        "include": {
+            "type": "Array<SearchIssuesIncludeQueryParameterItem>",
+            "format": "",
+            },
+        "body": {
+            "type": "IssuesSearchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IssuesSearchResponse",
+    },
+    "v2.GetIssue": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<GetIssueIncludeQueryParameterItem>",
+            "format": "",
+            },
+        "operationResponseType": "IssueResponse",
+    },
+    "v2.UpdateIssueAssignee": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IssueUpdateAssigneeRequest",
+            "format": "",
+            },
+        "operationResponseType": "IssueResponse",
+    },
+    "v2.UpdateIssueState": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IssueUpdateStateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IssueResponse",
+    },
     "v2.ListEvents": {
         "filterQuery": {
             "type": "string",
