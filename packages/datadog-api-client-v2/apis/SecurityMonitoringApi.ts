@@ -1454,6 +1454,88 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSuppressionsAffectingFutureRule(
+    body: SecurityMonitoringRuleCreatePayload,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "getSuppressionsAffectingFutureRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions/rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSuppressionsAffectingFutureRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringRuleCreatePayload",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSuppressionsAffectingRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getSuppressionsAffectingRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions/rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSuppressionsAffectingRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getVulnerabilityNotificationRule(
     id: string,
     _options?: Configuration
@@ -5203,6 +5285,134 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSuppressionsAffectingFutureRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSuppressionsAffectingFutureRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringSuppressionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringSuppressionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse"
+        ) as SecurityMonitoringSuppressionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSuppressionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse",
+          ""
+        ) as SecurityMonitoringSuppressionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSuppressionsAffectingRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSuppressionsAffectingRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringSuppressionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringSuppressionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse"
+        ) as SecurityMonitoringSuppressionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSuppressionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse",
+          ""
+        ) as SecurityMonitoringSuppressionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getVulnerabilityNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7124,6 +7334,21 @@ export interface SecurityMonitoringApiGetSignalNotificationRuleRequest {
   id: string;
 }
 
+export interface SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest {
+  /**
+   * @type SecurityMonitoringRuleCreatePayload
+   */
+  body: SecurityMonitoringRuleCreatePayload;
+}
+
+export interface SecurityMonitoringApiGetSuppressionsAffectingRuleRequest {
+  /**
+   * The ID of the rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
 export interface SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest {
   /**
    * ID of the notification rule.
@@ -8507,6 +8732,51 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSignalNotificationRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the list of suppressions that would affect a rule.
+   * @param param The request object
+   */
+  public getSuppressionsAffectingFutureRule(
+    param: SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringSuppressionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSuppressionsAffectingFutureRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSuppressionsAffectingFutureRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the list of suppressions that affect a specific existing rule by its ID.
+   * @param param The request object
+   */
+  public getSuppressionsAffectingRule(
+    param: SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringSuppressionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSuppressionsAffectingRule(param.ruleId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSuppressionsAffectingRule(
             responseContext
           );
         });
