@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricTagConfigurationAttributes {
   /**
-   * Deprecated. You no longer need to configure specific time and space aggregations for Metrics Without Limits.
+   * Deprecated. You no longer need to configure specific time and space aggregations for Metrics without Limits™.
    */
   "aggregations"?: Array<MetricCustomAggregation>;
   /**
