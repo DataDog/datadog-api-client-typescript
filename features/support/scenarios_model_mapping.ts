@@ -3881,6 +3881,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSuppressionResponse",
     },
+    "v2.GetSuppressionsAffectingFutureRule": {
+        "body": {
+            "type": "SecurityMonitoringRuleCreatePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
+    },
+    "v2.GetSuppressionsAffectingRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
+    },
     "v2.GetSecurityMonitoringSuppression": {
         "suppressionId": {
             "type": "string",
