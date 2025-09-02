@@ -6234,6 +6234,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "CIAppPipelineEventJob",
     "CIAppPipelineEventStep",
   ],
+  CIAppCreatePipelineEventRequestDataSingleOrArray: [
+    "CIAppCreatePipelineEventRequestData",
+    "Array<CIAppCreatePipelineEventRequestData>",
+  ],
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],
   CIAppPipelineEventPipeline: [

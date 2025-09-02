@@ -1155,6 +1155,7 @@ export { CIAppCreatePipelineEventRequest } from "./models/CIAppCreatePipelineEve
 export { CIAppCreatePipelineEventRequestAttributes } from "./models/CIAppCreatePipelineEventRequestAttributes";
 export { CIAppCreatePipelineEventRequestAttributesResource } from "./models/CIAppCreatePipelineEventRequestAttributesResource";
 export { CIAppCreatePipelineEventRequestData } from "./models/CIAppCreatePipelineEventRequestData";
+export { CIAppCreatePipelineEventRequestDataSingleOrArray } from "./models/CIAppCreatePipelineEventRequestDataSingleOrArray";
 export { CIAppCreatePipelineEventRequestDataType } from "./models/CIAppCreatePipelineEventRequestDataType";
 export { CIAppEventAttributes } from "./models/CIAppEventAttributes";
 export { CIAppGitInfo } from "./models/CIAppGitInfo";

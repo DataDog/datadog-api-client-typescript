@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CIAppCreatePipelineEventRequestData } from "./CIAppCreatePipelineEventRequestData";
+import { CIAppCreatePipelineEventRequestDataSingleOrArray } from "./CIAppCreatePipelineEventRequestDataSingleOrArray";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CIAppCreatePipelineEventRequest {
   /**
-   * Data of the pipeline event to create.
+   * Data of the pipeline events to create.
    */
-  "data"?: CIAppCreatePipelineEventRequestData;
+  "data"?: CIAppCreatePipelineEventRequestDataSingleOrArray;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class CIAppCreatePipelineEventRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "CIAppCreatePipelineEventRequestData",
+      type: "CIAppCreatePipelineEventRequestDataSingleOrArray",
     },
     additionalProperties: {
       baseName: "additionalProperties",
