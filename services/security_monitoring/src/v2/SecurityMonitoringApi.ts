@@ -3919,6 +3919,63 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async validateSecurityMonitoringSuppression(
+    body: SecurityMonitoringSuppressionUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "validateSecurityMonitoringSuppression");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions/validation";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.validateSecurityMonitoringSuppression",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringSuppressionUpdateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class SecurityMonitoringApiResponseProcessor {
@@ -7440,6 +7497,55 @@ export class SecurityMonitoringApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateSecurityMonitoringSuppression
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateSecurityMonitoringSuppression(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface SecurityMonitoringApiCancelHistoricalJobRequest {
@@ -8403,6 +8509,13 @@ export interface SecurityMonitoringApiValidateSecurityMonitoringRuleRequest {
    * @type SecurityMonitoringRuleValidatePayload
    */
   body: SecurityMonitoringRuleValidatePayload;
+}
+
+export interface SecurityMonitoringApiValidateSecurityMonitoringSuppressionRequest {
+  /**
+   * @type SecurityMonitoringSuppressionUpdateRequest
+   */
+  body: SecurityMonitoringSuppressionUpdateRequest;
 }
 
 export class SecurityMonitoringApi {
@@ -10144,6 +10257,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.validateSecurityMonitoringRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Validate a suppression rule.
+   * @param param The request object
+   */
+  public validateSecurityMonitoringSuppression(
+    param: SecurityMonitoringApiValidateSecurityMonitoringSuppressionRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.validateSecurityMonitoringSuppression(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateSecurityMonitoringSuppression(
             responseContext,
           );
         });
