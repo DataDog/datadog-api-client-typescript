@@ -1590,6 +1590,174 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSecurityMonitoringHistsignal(
+    histsignalId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.getSecurityMonitoringHistsignal"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityMonitoringHistsignal' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSecurityMonitoringHistsignal'] = true`",
+      );
+    }
+
+    // verify required parameter 'histsignalId' is not null or undefined
+    if (histsignalId === null || histsignalId === undefined) {
+      throw new RequiredError(
+        "histsignalId",
+        "getSecurityMonitoringHistsignal",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/siem-historical-detections/histsignals/{histsignal_id}".replace(
+        "{histsignal_id}",
+        encodeURIComponent(String(histsignalId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringHistsignal",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityMonitoringHistsignalsByJobId(
+    jobId: string,
+    filterQuery?: string,
+    filterFrom?: Date,
+    filterTo?: Date,
+    sort?: SecurityMonitoringSignalsSort,
+    pageCursor?: string,
+    pageLimit?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.getSecurityMonitoringHistsignalsByJobId"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityMonitoringHistsignalsByJobId' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSecurityMonitoringHistsignalsByJobId'] = true`",
+      );
+    }
+
+    // verify required parameter 'jobId' is not null or undefined
+    if (jobId === null || jobId === undefined) {
+      throw new RequiredError(
+        "jobId",
+        "getSecurityMonitoringHistsignalsByJobId",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/siem-historical-detections/jobs/{job_id}/histsignals".replace(
+        "{job_id}",
+        encodeURIComponent(String(jobId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringHistsignalsByJobId",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        serialize(filterQuery, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterFrom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from]",
+        serialize(filterFrom, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (filterTo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to]",
+        serialize(filterTo, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "SecurityMonitoringSignalsSort", ""),
+        "",
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        serialize(pageCursor, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int32"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityMonitoringRule(
     ruleId: string,
     _options?: Configuration,
@@ -2374,6 +2542,102 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityMonitoringHistsignals(
+    filterQuery?: string,
+    filterFrom?: Date,
+    filterTo?: Date,
+    sort?: SecurityMonitoringSignalsSort,
+    pageCursor?: string,
+    pageLimit?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.listSecurityMonitoringHistsignals"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityMonitoringHistsignals' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listSecurityMonitoringHistsignals'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/siem-historical-detections/histsignals";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityMonitoringHistsignals",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        serialize(filterQuery, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterFrom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from]",
+        serialize(filterFrom, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (filterTo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to]",
+        serialize(filterTo, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "SecurityMonitoringSignalsSort", ""),
+        "",
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        serialize(pageCursor, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int32"),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -3390,6 +3654,63 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RunHistoricalJobRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchSecurityMonitoringHistsignals(
+    body?: SecurityMonitoringSignalListRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.searchSecurityMonitoringHistsignals"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'searchSecurityMonitoringHistsignals' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.searchSecurityMonitoringHistsignals'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/siem-historical-detections/histsignals/search";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.searchSecurityMonitoringHistsignals",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringSignalListRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -5551,6 +5872,128 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecurityMonitoringHistsignal
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringHistsignal(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringSignalResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringSignalResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalResponse",
+      ) as SecurityMonitoringSignalResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignalResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalResponse",
+        "",
+      ) as SecurityMonitoringSignalResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityMonitoringHistsignalsByJobId
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringHistsignalsByJobId(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+      ) as SecurityMonitoringSignalsListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+        "",
+      ) as SecurityMonitoringSignalsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6338,6 +6781,67 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSecurityMonitoringHistsignals
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityMonitoringHistsignals(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+      ) as SecurityMonitoringSignalsListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+        "",
+      ) as SecurityMonitoringSignalsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityMonitoringRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6949,6 +7453,67 @@ export class SecurityMonitoringApiResponseProcessor {
         "JobCreateResponse",
         "",
       ) as JobCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to searchSecurityMonitoringHistsignals
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchSecurityMonitoringHistsignals(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+      ) as SecurityMonitoringSignalsListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+        "",
+      ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
 
@@ -7822,6 +8387,52 @@ export interface SecurityMonitoringApiGetSecurityFilterRequest {
   securityFilterId: string;
 }
 
+export interface SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest {
+  /**
+   * The ID of the historical signal.
+   * @type string
+   */
+  histsignalId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdRequest {
+  /**
+   * The ID of the job.
+   * @type string
+   */
+  jobId: string;
+  /**
+   * The search query for security signals.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * The minimum timestamp for requested security signals.
+   * @type Date
+   */
+  filterFrom?: Date;
+  /**
+   * The maximum timestamp for requested security signals.
+   * @type Date
+   */
+  filterTo?: Date;
+  /**
+   * The order of the security signals in results.
+   * @type SecurityMonitoringSignalsSort
+   */
+  sort?: SecurityMonitoringSignalsSort;
+  /**
+   * A list of results using the cursor provided in the previous query.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * The maximum number of security signals in the response.
+   * @type number
+   */
+  pageLimit?: number;
+}
+
 export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -8019,6 +8630,39 @@ export interface SecurityMonitoringApiListHistoricalJobsRequest {
    * @type string
    */
   filterQuery?: string;
+}
+
+export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
+  /**
+   * The search query for security signals.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * The minimum timestamp for requested security signals.
+   * @type Date
+   */
+  filterFrom?: Date;
+  /**
+   * The maximum timestamp for requested security signals.
+   * @type Date
+   */
+  filterTo?: Date;
+  /**
+   * The order of the security signals in results.
+   * @type SecurityMonitoringSignalsSort
+   */
+  sort?: SecurityMonitoringSignalsSort;
+  /**
+   * A list of results using the cursor provided in the previous query.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * The maximum number of security signals in the response.
+   * @type number
+   */
+  pageLimit?: number;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
@@ -8414,6 +9058,13 @@ export interface SecurityMonitoringApiRunHistoricalJobRequest {
    * @type RunHistoricalJobRequest
    */
   body: RunHistoricalJobRequest;
+}
+
+export interface SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest {
+  /**
+   * @type SecurityMonitoringSignalListRequest
+   */
+  body?: SecurityMonitoringSignalListRequest;
 }
 
 export interface SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest {
@@ -9158,6 +9809,60 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get a hist signal's details.
+   * @param param The request object
+   */
+  public getSecurityMonitoringHistsignal(
+    param: SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringSignalResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringHistsignal(
+        param.histsignalId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringHistsignal(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a job's hist signals.
+   * @param param The request object
+   */
+  public getSecurityMonitoringHistsignalsByJobId(
+    param: SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringHistsignalsByJobId(
+        param.jobId,
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringHistsignalsByJobId(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get a rule's details.
    * @param param The request object
    */
@@ -9579,6 +10284,35 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * List hist signals.
+   * @param param The request object
+   */
+  public listSecurityMonitoringHistsignals(
+    param: SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest = {},
+    options?: Configuration,
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringHistsignals(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityMonitoringHistsignals(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List rules.
    * @param param The request object
    */
@@ -9990,6 +10724,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.runHistoricalJob(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Search hist signals.
+   * @param param The request object
+   */
+  public searchSecurityMonitoringHistsignals(
+    param: SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest = {},
+    options?: Configuration,
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.searchSecurityMonitoringHistsignals(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchSecurityMonitoringHistsignals(
+            responseContext,
+          );
         });
     });
   }

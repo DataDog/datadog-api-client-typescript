@@ -4108,6 +4108,47 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityMonitoringSignalTriageUpdateResponse",
   },
+  "SecurityMonitoringApi.V2.ListSecurityMonitoringHistsignals": {
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    filterFrom: {
+      type: "Date",
+      format: "date-time",
+    },
+    filterTo: {
+      type: "Date",
+      format: "date-time",
+    },
+    sort: {
+      type: "SecurityMonitoringSignalsSort",
+      format: "",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "SecurityMonitoringSignalsListResponse",
+  },
+  "SecurityMonitoringApi.V2.SearchSecurityMonitoringHistsignals": {
+    body: {
+      type: "SecurityMonitoringSignalListRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringSignalsListResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringHistsignal": {
+    histsignalId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringSignalResponse",
+  },
   "SecurityMonitoringApi.V2.ListHistoricalJobs": {
     pageSize: {
       type: "number",
@@ -4161,6 +4202,37 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringHistsignalsByJobId": {
+    jobId: {
+      type: "string",
+      format: "",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    filterFrom: {
+      type: "Date",
+      format: "date-time",
+    },
+    filterTo: {
+      type: "Date",
+      format: "date-time",
+    },
+    sort: {
+      type: "SecurityMonitoringSignalsSort",
+      format: "",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "SecurityMonitoringSignalsListResponse",
   },
   "ContainerImagesApi.V2.ListContainerImages": {
     filterTags: {
