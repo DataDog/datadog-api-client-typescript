@@ -4098,6 +4098,47 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
+    "v2.ListSecurityMonitoringHistsignals": {
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "SecurityMonitoringSignalsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
+    },
+    "v2.SearchSecurityMonitoringHistsignals": {
+        "body": {
+            "type": "SecurityMonitoringSignalListRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
+    },
+    "v2.GetSecurityMonitoringHistsignal": {
+        "histsignalId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalResponse",
+    },
     "v2.ListHistoricalJobs": {
         "pageSize": {
             "type": "number",
@@ -4151,6 +4192,37 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.GetSecurityMonitoringHistsignalsByJobId": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "SecurityMonitoringSignalsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
     "v2.ListContainerImages": {
         "filterTags": {
