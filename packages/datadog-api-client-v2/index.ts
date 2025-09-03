@@ -633,6 +633,7 @@ export {
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiValidateSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiValidateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApi,
 } from "./apis/SecurityMonitoringApi";
 
