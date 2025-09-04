@@ -2,6 +2,8 @@ export {
   DORAMetricsApiCreateDORADeploymentRequest,
   DORAMetricsApiCreateDORAFailureRequest,
   DORAMetricsApiCreateDORAIncidentRequest,
+  DORAMetricsApiDeleteDORADeploymentRequest,
+  DORAMetricsApiDeleteDORAFailureRequest,
   DORAMetricsApiGetDORADeploymentRequest,
   DORAMetricsApiGetDORAFailureRequest,
   DORAMetricsApiListDORADeploymentsRequest,
