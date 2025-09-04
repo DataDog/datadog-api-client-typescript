@@ -3907,7 +3907,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "SecurityMonitoringApi.V2.ValidateSecurityMonitoringSuppression": {
     body: {
-      type: "SecurityMonitoringSuppressionUpdateRequest",
+      type: "SecurityMonitoringSuppressionCreateRequest",
       format: "",
     },
     operationResponseType: "{}",
