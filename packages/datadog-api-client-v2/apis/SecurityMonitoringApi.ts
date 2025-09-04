@@ -3602,7 +3602,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async validateSecurityMonitoringSuppression(
-    body: SecurityMonitoringSuppressionUpdateRequest,
+    body: SecurityMonitoringSuppressionCreateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3633,7 +3633,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
         body,
-        "SecurityMonitoringSuppressionUpdateRequest",
+        "SecurityMonitoringSuppressionCreateRequest",
         ""
       ),
       contentType
@@ -8720,9 +8720,9 @@ export interface SecurityMonitoringApiValidateSecurityMonitoringRuleRequest {
 
 export interface SecurityMonitoringApiValidateSecurityMonitoringSuppressionRequest {
   /**
-   * @type SecurityMonitoringSuppressionUpdateRequest
+   * @type SecurityMonitoringSuppressionCreateRequest
    */
-  body: SecurityMonitoringSuppressionUpdateRequest;
+  body: SecurityMonitoringSuppressionCreateRequest;
 }
 
 export class SecurityMonitoringApi {
