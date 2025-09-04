@@ -10,7 +10,7 @@ Feature: Incidents
     And a valid "appKeyAuth" key in the system
     And an instance of "Incidents" API
 
-  @team:DataDog/incident-app
+  @skip @team:DataDog/incident-app
   Scenario: Add commander to an incident returns "OK" response
     Given operation "UpdateIncident" enabled
     And there is a valid "user" in the system
@@ -34,6 +34,33 @@ Feature: Incidents
     And the response "data[0].type" is equal to "incident_attachments"
     And the response "data[0].attributes.attachment_type" is equal to "link"
     And the response "data[0].attributes.attachment.documentUrl" is equal to "https://www.example.com/doc"
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Create an incident impact returns "Bad Request" response
+    Given operation "CreateIncidentImpact" enabled
+    And new "CreateIncidentImpact" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"description": "Service was unavailable for external users", "end_at": "2025-08-29T13:17:00Z", "fields": {"customers_impacted": "all", "products_impacted": ["shopping", "marketing"]}, "start_at": "2025-08-28T13:17:00Z"}, "type": "incident_impacts"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Create an incident impact returns "CREATED" response
+    Given operation "CreateIncidentImpact" enabled
+    And new "CreateIncidentImpact" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"description": "Service was unavailable for external users", "end_at": "2025-08-29T13:17:00Z", "fields": {"customers_impacted": "all", "products_impacted": ["shopping", "marketing"]}, "start_at": "2025-08-28T13:17:00Z"}, "type": "incident_impacts"}}
+    When the request is sent
+    Then the response status is 201 CREATED
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Create an incident impact returns "Not Found" response
+    Given operation "CreateIncidentImpact" enabled
+    And new "CreateIncidentImpact" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"description": "Service was unavailable for external users", "end_at": "2025-08-29T13:17:00Z", "fields": {"customers_impacted": "all", "products_impacted": ["shopping", "marketing"]}, "start_at": "2025-08-28T13:17:00Z"}, "type": "incident_impacts"}}
+    When the request is sent
+    Then the response status is 404 Not Found
 
   @generated @skip @team:DataDog/incident-app
   Scenario: Create an incident integration metadata returns "Bad Request" response
@@ -195,6 +222,33 @@ Feature: Incidents
     And there is a valid "incident" in the system
     And new "DeleteIncident" request
     And request contains "incident_id" parameter from "incident.data.id"
+    When the request is sent
+    Then the response status is 204 OK
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Delete an incident impact returns "Bad Request" response
+    Given operation "DeleteIncidentImpact" enabled
+    And new "DeleteIncidentImpact" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    And request contains "impact_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Delete an incident impact returns "Not Found" response
+    Given operation "DeleteIncidentImpact" enabled
+    And new "DeleteIncidentImpact" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    And request contains "impact_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Delete an incident impact returns "OK" response
+    Given operation "DeleteIncidentImpact" enabled
+    And new "DeleteIncidentImpact" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    And request contains "impact_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 204 OK
 
@@ -530,6 +584,30 @@ Feature: Incidents
     When the request is sent
     Then the response status is 200 OK
     And the response "data.attributes.title" has the same value as "incident.data.attributes.title"
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: List an incident's impacts returns "Bad Request" response
+    Given operation "ListIncidentImpacts" enabled
+    And new "ListIncidentImpacts" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: List an incident's impacts returns "Not Found" response
+    Given operation "ListIncidentImpacts" enabled
+    And new "ListIncidentImpacts" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: List an incident's impacts returns "OK" response
+    Given operation "ListIncidentImpacts" enabled
+    And new "ListIncidentImpacts" request
+    And request contains "incident_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 200 OK
 
   @team:DataDog/incident-app
   Scenario: Remove commander from an incident returns "OK" response

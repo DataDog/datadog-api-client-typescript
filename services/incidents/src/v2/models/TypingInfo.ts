@@ -17,6 +17,14 @@ import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentImpactAttributes } from "./IncidentImpactAttributes";
+import { IncidentImpactCreateAttributes } from "./IncidentImpactCreateAttributes";
+import { IncidentImpactCreateData } from "./IncidentImpactCreateData";
+import { IncidentImpactCreateRequest } from "./IncidentImpactCreateRequest";
+import { IncidentImpactRelationships } from "./IncidentImpactRelationships";
+import { IncidentImpactResponse } from "./IncidentImpactResponse";
+import { IncidentImpactResponseData } from "./IncidentImpactResponseData";
+import { IncidentImpactsResponse } from "./IncidentImpactsResponse";
 import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
 import { IncidentIntegrationMetadataCreateData } from "./IncidentIntegrationMetadataCreateData";
 import { IncidentIntegrationMetadataCreateRequest } from "./IncidentIntegrationMetadataCreateRequest";
@@ -119,6 +127,8 @@ export const TypingInfo: ModelTypingInfo = {
       "metrictag",
       "autocomplete",
     ],
+    IncidentImpactRelatedObject: ["created_by_user", "last_modified_by_user"],
+    IncidentImpactType: ["incident_impacts"],
     IncidentImpactsType: ["incident_impacts"],
     IncidentIntegrationMetadataType: ["incident_integrations"],
     IncidentPostmortemType: ["incident_postmortems"],
@@ -196,6 +206,14 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentCreateRequest: IncidentCreateRequest,
     IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
     IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+    IncidentImpactAttributes: IncidentImpactAttributes,
+    IncidentImpactCreateAttributes: IncidentImpactCreateAttributes,
+    IncidentImpactCreateData: IncidentImpactCreateData,
+    IncidentImpactCreateRequest: IncidentImpactCreateRequest,
+    IncidentImpactRelationships: IncidentImpactRelationships,
+    IncidentImpactResponse: IncidentImpactResponse,
+    IncidentImpactResponseData: IncidentImpactResponseData,
+    IncidentImpactsResponse: IncidentImpactsResponse,
     IncidentIntegrationMetadataAttributes:
       IncidentIntegrationMetadataAttributes,
     IncidentIntegrationMetadataCreateData:
