@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsAPIWaitStep {
   /**
+   * ID of the step.
+   */
+  "id"?: string;
+  /**
    * The name of the step.
    */
   "name": string;
@@ -40,6 +44,10 @@ export class SyntheticsAPIWaitStep {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    id: {
+      baseName: "id",
+      type: "string",
+    },
     name: {
       baseName: "name",
       type: "string",
