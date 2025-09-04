@@ -6563,6 +6563,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "OrgConnectionsApi.V2.ListOrgConnections": {
+    operationResponseType: "OrgConnectionListResponse",
+  },
+  "OrgConnectionsApi.V2.CreateOrgConnections": {
+    body: {
+      type: "OrgConnectionCreateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgConnectionResponse",
+  },
+  "OrgConnectionsApi.V2.DeleteOrgConnections": {
+    connectionId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OrgConnectionsApi.V2.UpdateOrgConnections": {
+    connectionId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "OrgConnectionUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgConnectionResponse",
+  },
   "RolesApi.V2.ListPermissions": {
     operationResponseType: "PermissionsResponse",
   },
