@@ -404,6 +404,7 @@ apiInstance
 | On-Call | @datadog/datadog-api-client-on-call | [README.md](../../services/on-call/README.md) |
 | On-Call Paging | @datadog/datadog-api-client-on-call-paging | [README.md](../../services/on-call-paging/README.md) |
 | Opsgenie Integration | @datadog/datadog-api-client-opsgenie-integration | [README.md](../../services/opsgenie-integration/README.md) |
+| Org Connections | @datadog/datadog-api-client-org-connections | [README.md](../../services/org-connections/README.md) |
 | Organizations | @datadog/datadog-api-client-organizations | [README.md](../../services/organizations/README.md) |
 | PagerDuty Integration | @datadog/datadog-api-client-pager-duty-integration | [README.md](../../services/pager-duty-integration/README.md) |
 | Powerpack | @datadog/datadog-api-client-powerpack | [README.md](../../services/powerpack/README.md) |
