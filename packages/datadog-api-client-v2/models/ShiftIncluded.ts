@@ -8,7 +8,7 @@ import { ScheduleUser } from "./ScheduleUser";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ShiftIncluded` object.
+ * Included data for shift operations.
  */
 
 export type ShiftIncluded = ScheduleUser | UnparsedObject;
