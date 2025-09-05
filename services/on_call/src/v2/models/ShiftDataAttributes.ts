@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `ShiftDataAttributes` object.
+ * Attributes for an on-call shift.
  */
 export class ShiftDataAttributes {
   /**

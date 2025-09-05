@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ShiftDataRelationshipsUser } from "./ShiftDataRelationshipsUser";
 
 /**
- * The definition of `ShiftDataRelationships` object.
+ * Relationships for an on-call shift.
  */
 export class ShiftDataRelationships {
   /**

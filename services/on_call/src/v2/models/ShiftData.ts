@@ -5,11 +5,11 @@ import { ShiftDataRelationships } from "./ShiftDataRelationships";
 import { ShiftDataType } from "./ShiftDataType";
 
 /**
- * The definition of `ShiftData` object.
+ * Data for an on-call shift.
  */
 export class ShiftData {
   /**
-   * The definition of `ShiftDataAttributes` object.
+   * Attributes for an on-call shift.
    */
   "attributes"?: ShiftDataAttributes;
   /**
@@ -17,7 +17,7 @@ export class ShiftData {
    */
   "id"?: string;
   /**
-   * The definition of `ShiftDataRelationships` object.
+   * Relationships for an on-call shift.
    */
   "relationships"?: ShiftDataRelationships;
   /**
