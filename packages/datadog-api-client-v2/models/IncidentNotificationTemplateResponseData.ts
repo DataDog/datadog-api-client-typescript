@@ -3,32 +3,32 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
-import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
-import { IncidentTypeType } from "./IncidentTypeType";
+import { IncidentNotificationTemplateAttributes } from "./IncidentNotificationTemplateAttributes";
+import { IncidentNotificationTemplateRelationships } from "./IncidentNotificationTemplateRelationships";
+import { IncidentNotificationTemplateType } from "./IncidentNotificationTemplateType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident type response data.
+ * Notification template data from a response.
  */
-export class IncidentTypeObject {
+export class IncidentNotificationTemplateResponseData {
   /**
-   * Incident type's attributes.
+   * The notification template's attributes.
    */
-  "attributes"?: IncidentTypeAttributes;
+  "attributes"?: IncidentNotificationTemplateAttributes;
   /**
-   * The incident type's ID.
+   * The unique identifier of the notification template.
    */
   "id": string;
   /**
-   * The incident type's resource relationships.
+   * The notification template's resource relationships.
    */
-  "relationships"?: IncidentTypeRelationships;
+  "relationships"?: IncidentNotificationTemplateRelationships;
   /**
-   * Incident type resource type.
+   * Notification templates resource type.
    */
-  "type": IncidentTypeType;
+  "type": IncidentNotificationTemplateType;
 
   /**
    * A container for additional, undeclared properties.
@@ -48,20 +48,21 @@ export class IncidentTypeObject {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "IncidentTypeAttributes",
+      type: "IncidentNotificationTemplateAttributes",
     },
     id: {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     relationships: {
       baseName: "relationships",
-      type: "IncidentTypeRelationships",
+      type: "IncidentNotificationTemplateRelationships",
     },
     type: {
       baseName: "type",
-      type: "IncidentTypeType",
+      type: "IncidentNotificationTemplateType",
       required: true,
     },
     additionalProperties: {
@@ -74,7 +75,7 @@ export class IncidentTypeObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTypeObject.attributeTypeMap;
+    return IncidentNotificationTemplateResponseData.attributeTypeMap;
   }
 
   public constructor() {}

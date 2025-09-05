@@ -445,6 +445,7 @@ import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -895,6 +896,18 @@ import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMe
 import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
 import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { IncidentNotificationTemplate } from "./IncidentNotificationTemplate";
+import { IncidentNotificationTemplateArray } from "./IncidentNotificationTemplateArray";
+import { IncidentNotificationTemplateArrayMeta } from "./IncidentNotificationTemplateArrayMeta";
+import { IncidentNotificationTemplateArrayMetaPage } from "./IncidentNotificationTemplateArrayMetaPage";
+import { IncidentNotificationTemplateAttributes } from "./IncidentNotificationTemplateAttributes";
+import { IncidentNotificationTemplateCreateAttributes } from "./IncidentNotificationTemplateCreateAttributes";
+import { IncidentNotificationTemplateCreateData } from "./IncidentNotificationTemplateCreateData";
+import { IncidentNotificationTemplateCreateDataRelationships } from "./IncidentNotificationTemplateCreateDataRelationships";
+import { IncidentNotificationTemplateRelationships } from "./IncidentNotificationTemplateRelationships";
+import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
+import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
+import { IncidentNotificationTemplateUpdateData } from "./IncidentNotificationTemplateUpdateData";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
@@ -955,6 +968,13 @@ import { IncidentTypeListResponse } from "./IncidentTypeListResponse";
 import { IncidentTypeObject } from "./IncidentTypeObject";
 import { IncidentTypePatchData } from "./IncidentTypePatchData";
 import { IncidentTypePatchRequest } from "./IncidentTypePatchRequest";
+import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
+import { IncidentTypeRelationshipsGoogleMeetConfiguration } from "./IncidentTypeRelationshipsGoogleMeetConfiguration";
+import { IncidentTypeRelationshipsGoogleMeetConfigurationData } from "./IncidentTypeRelationshipsGoogleMeetConfigurationData";
+import { IncidentTypeRelationshipsMicrosoftTeamsConfiguration } from "./IncidentTypeRelationshipsMicrosoftTeamsConfiguration";
+import { IncidentTypeRelationshipsMicrosoftTeamsConfigurationData } from "./IncidentTypeRelationshipsMicrosoftTeamsConfigurationData";
+import { IncidentTypeRelationshipsZoomConfiguration } from "./IncidentTypeRelationshipsZoomConfiguration";
+import { IncidentTypeRelationshipsZoomConfigurationData } from "./IncidentTypeRelationshipsZoomConfigurationData";
 import { IncidentTypeResponse } from "./IncidentTypeResponse";
 import { IncidentTypeUpdateAttributes } from "./IncidentTypeUpdateAttributes";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
@@ -1471,6 +1491,7 @@ import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
 import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
+import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
@@ -1569,6 +1590,8 @@ import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmo
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
 import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
+import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
+import { RelationshipToIncidentTypeData } from "./RelationshipToIncidentTypeData";
 import { RelationshipToIncidentUserDefinedFieldData } from "./RelationshipToIncidentUserDefinedFieldData";
 import { RelationshipToIncidentUserDefinedFields } from "./RelationshipToIncidentUserDefinedFields";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
@@ -2695,6 +2718,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentImpactsType: ["incident_impacts"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
+  IncidentNotificationTemplateType: ["notification_templates"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
   IncidentRespondersType: ["incident_responders"],
@@ -4176,6 +4200,8 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateIncidentNotificationTemplateRequest:
+    CreateIncidentNotificationTemplateRequest,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
   CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
   CreateNotificationRuleParametersDataAttributes:
@@ -4685,6 +4711,27 @@ const typeMap: { [index: string]: any } = {
   IncidentIntegrationRelationships: IncidentIntegrationRelationships,
   IncidentNonDatadogCreator: IncidentNonDatadogCreator,
   IncidentNotificationHandle: IncidentNotificationHandle,
+  IncidentNotificationTemplate: IncidentNotificationTemplate,
+  IncidentNotificationTemplateArray: IncidentNotificationTemplateArray,
+  IncidentNotificationTemplateArrayMeta: IncidentNotificationTemplateArrayMeta,
+  IncidentNotificationTemplateArrayMetaPage:
+    IncidentNotificationTemplateArrayMetaPage,
+  IncidentNotificationTemplateAttributes:
+    IncidentNotificationTemplateAttributes,
+  IncidentNotificationTemplateCreateAttributes:
+    IncidentNotificationTemplateCreateAttributes,
+  IncidentNotificationTemplateCreateData:
+    IncidentNotificationTemplateCreateData,
+  IncidentNotificationTemplateCreateDataRelationships:
+    IncidentNotificationTemplateCreateDataRelationships,
+  IncidentNotificationTemplateRelationships:
+    IncidentNotificationTemplateRelationships,
+  IncidentNotificationTemplateResponseData:
+    IncidentNotificationTemplateResponseData,
+  IncidentNotificationTemplateUpdateAttributes:
+    IncidentNotificationTemplateUpdateAttributes,
+  IncidentNotificationTemplateUpdateData:
+    IncidentNotificationTemplateUpdateData,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
   IncidentResponseData: IncidentResponseData,
@@ -4750,6 +4797,19 @@ const typeMap: { [index: string]: any } = {
   IncidentTypeObject: IncidentTypeObject,
   IncidentTypePatchData: IncidentTypePatchData,
   IncidentTypePatchRequest: IncidentTypePatchRequest,
+  IncidentTypeRelationships: IncidentTypeRelationships,
+  IncidentTypeRelationshipsGoogleMeetConfiguration:
+    IncidentTypeRelationshipsGoogleMeetConfiguration,
+  IncidentTypeRelationshipsGoogleMeetConfigurationData:
+    IncidentTypeRelationshipsGoogleMeetConfigurationData,
+  IncidentTypeRelationshipsMicrosoftTeamsConfiguration:
+    IncidentTypeRelationshipsMicrosoftTeamsConfiguration,
+  IncidentTypeRelationshipsMicrosoftTeamsConfigurationData:
+    IncidentTypeRelationshipsMicrosoftTeamsConfigurationData,
+  IncidentTypeRelationshipsZoomConfiguration:
+    IncidentTypeRelationshipsZoomConfiguration,
+  IncidentTypeRelationshipsZoomConfigurationData:
+    IncidentTypeRelationshipsZoomConfigurationData,
   IncidentTypeResponse: IncidentTypeResponse,
   IncidentTypeUpdateAttributes: IncidentTypeUpdateAttributes,
   IncidentUpdateAttributes: IncidentUpdateAttributes,
@@ -5382,6 +5442,8 @@ const typeMap: { [index: string]: any } = {
   PartialApplicationKey: PartialApplicationKey,
   PartialApplicationKeyAttributes: PartialApplicationKeyAttributes,
   PartialApplicationKeyResponse: PartialApplicationKeyResponse,
+  PatchIncidentNotificationTemplateRequest:
+    PatchIncidentNotificationTemplateRequest,
   PatchNotificationRuleParameters: PatchNotificationRuleParameters,
   PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
   PatchNotificationRuleParametersDataAttributes:
@@ -5484,6 +5546,8 @@ const typeMap: { [index: string]: any } = {
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
   RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
   RelationshipToIncidentResponders: RelationshipToIncidentResponders,
+  RelationshipToIncidentType: RelationshipToIncidentType,
+  RelationshipToIncidentTypeData: RelationshipToIncidentTypeData,
   RelationshipToIncidentUserDefinedFieldData:
     RelationshipToIncidentUserDefinedFieldData,
   RelationshipToIncidentUserDefinedFields:
@@ -6389,6 +6453,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "MSTeamsIntegrationMetadata",
   ],
   IncidentIntegrationMetadataResponseIncludedItem: ["User"],
+  IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
   IncidentResponseIncludedItem: ["IncidentUserData", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
   IncidentTeamIncludedItems: ["User"],

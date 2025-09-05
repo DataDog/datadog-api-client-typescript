@@ -3,32 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
-import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
-import { IncidentTypeType } from "./IncidentTypeType";
+import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
+import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident type response data.
+ * The notification template's resource relationships.
  */
-export class IncidentTypeObject {
+export class IncidentNotificationTemplateRelationships {
   /**
-   * Incident type's attributes.
+   * Relationship to user.
    */
-  "attributes"?: IncidentTypeAttributes;
+  "createdByUser"?: RelationshipToUser;
   /**
-   * The incident type's ID.
+   * Relationship to an incident type.
    */
-  "id": string;
+  "incidentType"?: RelationshipToIncidentType;
   /**
-   * The incident type's resource relationships.
+   * Relationship to user.
    */
-  "relationships"?: IncidentTypeRelationships;
-  /**
-   * Incident type resource type.
-   */
-  "type": IncidentTypeType;
+  "lastModifiedByUser"?: RelationshipToUser;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,23 +41,17 @@ export class IncidentTypeObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTypeAttributes",
+    createdByUser: {
+      baseName: "created_by_user",
+      type: "RelationshipToUser",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    incidentType: {
+      baseName: "incident_type",
+      type: "RelationshipToIncidentType",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTypeRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentTypeType",
-      required: true,
+    lastModifiedByUser: {
+      baseName: "last_modified_by_user",
+      type: "RelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,7 +63,7 @@ export class IncidentTypeObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTypeObject.attributeTypeMap;
+    return IncidentNotificationTemplateRelationships.attributeTypeMap;
   }
 
   public constructor() {}
