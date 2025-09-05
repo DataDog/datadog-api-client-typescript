@@ -1,0 +1,114 @@
+name: Reusable Complete CI Workflow
+
+on:
+  workflow_call:
+    inputs:
+      target-branch:
+        description: 'Branch to checkout and test (defaults to the calling branch)'
+        required: false
+        type: string
+        default: ''
+      enable-commit-changes:
+        description: 'Whether to commit and push pre-commit fixes'
+        required: false
+        type: boolean
+        default: true
+      enable-status-reporting:
+        description: 'Whether to enable status reporting'
+        required: false
+        type: boolean
+        default: true
+      status-context:
+        description: 'Context for status checks'
+        required: false
+        type: string
+        default: 'master/unit'
+      target-repo:
+        description: 'Repository to post status to'
+        required: false
+        type: string
+        default: 'datadog-api-spec'
+      node-version:
+        description: 'Node.js version to use'
+        required: false
+        type: string
+        default: '16'
+
+    secrets:
+      PIPELINE_GITHUB_APP_ID:
+        required: false
+      PIPELINE_GITHUB_APP_PRIVATE_KEY:
+        required: false
+      # Integration test secrets
+      DD_API_KEY:
+        required: false
+      DD_CLIENT_API_KEY:
+        required: false
+      DD_CLIENT_APP_KEY:
+        required: false
+      SLEEP_AFTER_REQUEST:
+        required: false
+
+jobs:
+  pre-commit:
+    uses: ./.github/workflows/reusable-pre-commit.yml
+    with:
+      target-branch: ${{ inputs.target-branch }}
+      enable-commit-changes: ${{ inputs.enable-commit-changes }}
+    secrets:
+      PIPELINE_GITHUB_APP_ID: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+      PIPELINE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+
+  test:
+    uses: ./.github/workflows/reusable-typescript-test.yml
+    with:
+      target-branch: ${{ inputs.target-branch }}
+      node-versions: '["16", "18"]'
+      platforms: '["ubuntu-latest"]'
+      test-script: './run-tests.sh'
+      enable-status-reporting: false  # We handle reporting in the main report job
+      status-context: ${{ inputs.status-context }}
+    secrets:
+      PIPELINE_GITHUB_APP_ID: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+      PIPELINE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+
+  examples:
+    uses: ./.github/workflows/reusable-examples.yml
+    with:
+      target-branch: ${{ inputs.target-branch }}
+      examples-script: './check-examples.sh'
+      node-version: ${{ inputs.node-version }}
+
+  integration:
+    uses: ./.github/workflows/reusable-integration-test.yml
+    with:
+      target-branch: ${{ inputs.target-branch }}
+      enable-status-reporting: false  # We handle reporting in the main report job
+      status-context: 'integration'
+      target-repo: ${{ inputs.target-repo }}
+      node-version: ${{ inputs.node-version }}
+    secrets:
+      PIPELINE_GITHUB_APP_ID: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+      PIPELINE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+      DD_API_KEY: ${{ secrets.DD_API_KEY }}
+      DD_CLIENT_API_KEY: ${{ secrets.DD_CLIENT_API_KEY }}
+      DD_CLIENT_APP_KEY: ${{ secrets.DD_CLIENT_APP_KEY }}
+      SLEEP_AFTER_REQUEST: ${{ secrets.SLEEP_AFTER_REQUEST }}
+
+  report:
+    uses: ./.github/workflows/reusable-report.yml
+    needs:
+      - test
+      - examples
+      - integration
+    if: always()
+    with:
+      test-result: ${{ needs.test.result }}
+      examples-result: ${{ needs.examples.result }}
+      integration-result: ${{ needs.integration.result }}
+      context: ${{ inputs.status-context }}
+      target-repo: ${{ inputs.target-repo }}
+      enable-status-reporting: ${{ inputs.enable-status-reporting }}
+    secrets:
+      PIPELINE_GITHUB_APP_ID: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+      PIPELINE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
