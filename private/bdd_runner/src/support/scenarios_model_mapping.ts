@@ -5023,6 +5023,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentResponse",
   },
+  "IncidentsApi.V2.ListIncidentNotificationTemplates": {
+    filterIncidentType: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplateArray",
+  },
+  "IncidentsApi.V2.CreateIncidentNotificationTemplate": {
+    body: {
+      type: "CreateIncidentNotificationTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplate",
+  },
+  "IncidentsApi.V2.GetIncidentNotificationTemplate": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplate",
+  },
+  "IncidentsApi.V2.DeleteIncidentNotificationTemplate": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentNotificationTemplate": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PatchIncidentNotificationTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplate",
+  },
   "IncidentsApi.V2.ListIncidentTypes": {
     includeDeleted: {
       type: "boolean",
