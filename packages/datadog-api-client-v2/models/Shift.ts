@@ -9,11 +9,11 @@ import { ShiftIncluded } from "./ShiftIncluded";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `Shift` object.
+ * An on-call shift with its associated data and relationships.
  */
 export class Shift {
   /**
-   * The definition of `ShiftData` object.
+   * Data for an on-call shift.
    */
   "data"?: ShiftData;
   /**

@@ -10,11 +10,11 @@ import { ShiftDataType } from "./ShiftDataType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ShiftData` object.
+ * Data for an on-call shift.
  */
 export class ShiftData {
   /**
-   * The definition of `ShiftDataAttributes` object.
+   * Attributes for an on-call shift.
    */
   "attributes"?: ShiftDataAttributes;
   /**
@@ -22,7 +22,7 @@ export class ShiftData {
    */
   "id"?: string;
   /**
-   * The definition of `ShiftDataRelationships` object.
+   * Relationships for an on-call shift.
    */
   "relationships"?: ShiftDataRelationships;
   /**
