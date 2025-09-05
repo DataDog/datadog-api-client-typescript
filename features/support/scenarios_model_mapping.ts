@@ -5013,6 +5013,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentResponse",
     },
+    "v2.ListIncidentNotificationTemplates": {
+        "filterIncidentType": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplateArray",
+    },
+    "v2.CreateIncidentNotificationTemplate": {
+        "body": {
+            "type": "CreateIncidentNotificationTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplate",
+    },
+    "v2.GetIncidentNotificationTemplate": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplate",
+    },
+    "v2.DeleteIncidentNotificationTemplate": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentNotificationTemplate": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchIncidentNotificationTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplate",
+    },
     "v2.ListIncidentTypes": {
         "includeDeleted": {
             "type": "boolean",

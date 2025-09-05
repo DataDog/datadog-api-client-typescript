@@ -3,32 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
-import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
-import { IncidentTypeType } from "./IncidentTypeType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident type response data.
+ * Pagination metadata.
  */
-export class IncidentTypeObject {
+export class IncidentNotificationTemplateArrayMetaPage {
   /**
-   * Incident type's attributes.
+   * Total number of notification templates.
    */
-  "attributes"?: IncidentTypeAttributes;
+  "totalCount"?: number;
   /**
-   * The incident type's ID.
+   * Total number of notification templates matching the filter.
    */
-  "id": string;
-  /**
-   * The incident type's resource relationships.
-   */
-  "relationships"?: IncidentTypeRelationships;
-  /**
-   * Incident type resource type.
-   */
-  "type": IncidentTypeType;
+  "totalFilteredCount"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,23 +35,15 @@ export class IncidentTypeObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTypeAttributes",
+    totalCount: {
+      baseName: "total_count",
+      type: "number",
+      format: "int64",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTypeRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentTypeType",
-      required: true,
+    totalFilteredCount: {
+      baseName: "total_filtered_count",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,7 +55,7 @@ export class IncidentTypeObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTypeObject.attributeTypeMap;
+    return IncidentNotificationTemplateArrayMetaPage.attributeTypeMap;
   }
 
   public constructor() {}

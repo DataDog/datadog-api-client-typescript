@@ -3,32 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
-import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
-import { IncidentTypeType } from "./IncidentTypeType";
+import { IncidentTypeRelationshipsMicrosoftTeamsConfigurationData } from "./IncidentTypeRelationshipsMicrosoftTeamsConfigurationData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident type response data.
+ * The definition of `IncidentTypeRelationshipsMicrosoftTeamsConfiguration` object.
  */
-export class IncidentTypeObject {
+export class IncidentTypeRelationshipsMicrosoftTeamsConfiguration {
   /**
-   * Incident type's attributes.
+   * The Microsoft Teams configuration relationship data object.
    */
-  "attributes"?: IncidentTypeAttributes;
-  /**
-   * The incident type's ID.
-   */
-  "id": string;
-  /**
-   * The incident type's resource relationships.
-   */
-  "relationships"?: IncidentTypeRelationships;
-  /**
-   * Incident type resource type.
-   */
-  "type": IncidentTypeType;
+  "data": IncidentTypeRelationshipsMicrosoftTeamsConfigurationData | null;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,22 +32,9 @@ export class IncidentTypeObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTypeAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTypeRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentTypeType",
+    data: {
+      baseName: "data",
+      type: "IncidentTypeRelationshipsMicrosoftTeamsConfigurationData",
       required: true,
     },
     additionalProperties: {
@@ -74,7 +47,7 @@ export class IncidentTypeObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTypeObject.attributeTypeMap;
+    return IncidentTypeRelationshipsMicrosoftTeamsConfiguration.attributeTypeMap;
   }
 
   public constructor() {}
