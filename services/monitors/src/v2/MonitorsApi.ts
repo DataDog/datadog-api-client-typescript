@@ -446,6 +446,10 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getMonitorNotificationRules(
+    page?: number,
+    perPage?: number,
+    sort?: string,
+    filters?: string,
     include?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -473,6 +477,34 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (page !== undefined) {
+      requestContext.setQueryParam(
+        "page",
+        serialize(page, TypingInfo, "number", "int32"),
+        "",
+      );
+    }
+    if (perPage !== undefined) {
+      requestContext.setQueryParam(
+        "per_page",
+        serialize(perPage, TypingInfo, "number", "int32"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filters !== undefined) {
+      requestContext.setQueryParam(
+        "filters",
+        serialize(filters, TypingInfo, "string", ""),
+        "",
+      );
+    }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
@@ -1962,6 +1994,29 @@ export interface MonitorsApiGetMonitorNotificationRuleRequest {
 
 export interface MonitorsApiGetMonitorNotificationRulesRequest {
   /**
+   * The page to start paginating from. If `page` is not specified, the argument defaults to the first page.
+   * @type number
+   */
+  page?: number;
+  /**
+   * The number of rules to return per page. If `per_page` is not specified, the argument defaults to 100.
+   * @type number
+   */
+  perPage?: number;
+  /**
+   * String for sort order, composed of field and sort order separated by a colon, for example `name:asc`. Supported sort directions: `asc`, `desc`. Supported fields: `name`, `created_at`.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * JSON-encoded filter object. Supported keys:
+   * * `text`: Free-text query matched against rule name, tags, and recipients.
+   * * `tags`: Array of strings. Return rules that have any of these tags.
+   * * `recipients`: Array of strings. Return rules that have any of these recipients.
+   * @type string
+   */
+  filters?: string;
+  /**
    * Comma-separated list of resource paths for related resources to include in the response. Supported resource
    * path is `created_by`.
    * @type string
@@ -2247,7 +2302,14 @@ export class MonitorsApi {
     options?: Configuration,
   ): Promise<MonitorNotificationRuleListResponse> {
     const requestContextPromise =
-      this.requestFactory.getMonitorNotificationRules(param.include, options);
+      this.requestFactory.getMonitorNotificationRules(
+        param.page,
+        param.perPage,
+        param.sort,
+        param.filters,
+        param.include,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
