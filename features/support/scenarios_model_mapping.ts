@@ -6122,6 +6122,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "IntakePayloadAccepted",
     },
     "v2.GetMonitorNotificationRules": {
+        "page": {
+            "type": "number",
+            "format": "int32",
+            },
+        "perPage": {
+            "type": "number",
+            "format": "int32",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filters": {
+            "type": "string",
+            "format": "",
+            },
         "include": {
             "type": "string",
             "format": "",
