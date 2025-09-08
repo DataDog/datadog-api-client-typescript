@@ -3,32 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
-import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
-import { IncidentTypeType } from "./IncidentTypeType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident type response data.
+ * The Google Meet configuration relationship data object.
  */
-export class IncidentTypeObject {
+export class GoogleMeetConfigurationReferenceData {
   /**
-   * Incident type's attributes.
-   */
-  "attributes"?: IncidentTypeAttributes;
-  /**
-   * The incident type's ID.
+   * The unique identifier of the Google Meet configuration.
    */
   "id": string;
   /**
-   * The incident type's resource relationships.
+   * The type of the Google Meet configuration.
    */
-  "relationships"?: IncidentTypeRelationships;
-  /**
-   * Incident type resource type.
-   */
-  "type": IncidentTypeType;
+  "type": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,22 +35,14 @@ export class IncidentTypeObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTypeAttributes",
-    },
     id: {
       baseName: "id",
       type: "string",
       required: true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTypeRelationships",
-    },
     type: {
       baseName: "type",
-      type: "IncidentTypeType",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -74,7 +55,7 @@ export class IncidentTypeObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTypeObject.attributeTypeMap;
+    return GoogleMeetConfigurationReferenceData.attributeTypeMap;
   }
 
   public constructor() {}
