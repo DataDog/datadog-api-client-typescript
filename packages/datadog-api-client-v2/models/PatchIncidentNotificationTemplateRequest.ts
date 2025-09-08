@@ -3,32 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
-import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
-import { IncidentTypeType } from "./IncidentTypeType";
+import { IncidentNotificationTemplateUpdateData } from "./IncidentNotificationTemplateUpdateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident type response data.
+ * Update request for a notification template.
  */
-export class IncidentTypeObject {
+export class PatchIncidentNotificationTemplateRequest {
   /**
-   * Incident type's attributes.
+   * Notification template data for an update request.
    */
-  "attributes"?: IncidentTypeAttributes;
-  /**
-   * The incident type's ID.
-   */
-  "id": string;
-  /**
-   * The incident type's resource relationships.
-   */
-  "relationships"?: IncidentTypeRelationships;
-  /**
-   * Incident type resource type.
-   */
-  "type": IncidentTypeType;
+  "data": IncidentNotificationTemplateUpdateData;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,22 +32,9 @@ export class IncidentTypeObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTypeAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTypeRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentTypeType",
+    data: {
+      baseName: "data",
+      type: "IncidentNotificationTemplateUpdateData",
       required: true,
     },
     additionalProperties: {
@@ -74,7 +47,7 @@ export class IncidentTypeObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTypeObject.attributeTypeMap;
+    return PatchIncidentNotificationTemplateRequest.attributeTypeMap;
   }
 
   public constructor() {}
