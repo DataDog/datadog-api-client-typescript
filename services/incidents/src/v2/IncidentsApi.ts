@@ -23,6 +23,7 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 import { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
 import { IncidentAttachmentRelatedObject } from "./models/IncidentAttachmentRelatedObject";
 import { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsResponse";
@@ -33,6 +34,8 @@ import { IncidentIntegrationMetadataCreateRequest } from "./models/IncidentInteg
 import { IncidentIntegrationMetadataListResponse } from "./models/IncidentIntegrationMetadataListResponse";
 import { IncidentIntegrationMetadataPatchRequest } from "./models/IncidentIntegrationMetadataPatchRequest";
 import { IncidentIntegrationMetadataResponse } from "./models/IncidentIntegrationMetadataResponse";
+import { IncidentNotificationTemplate } from "./models/IncidentNotificationTemplate";
+import { IncidentNotificationTemplateArray } from "./models/IncidentNotificationTemplateArray";
 import { IncidentRelatedObject } from "./models/IncidentRelatedObject";
 import { IncidentResponse } from "./models/IncidentResponse";
 import { IncidentResponseData } from "./models/IncidentResponseData";
@@ -49,6 +52,7 @@ import { IncidentTypeListResponse } from "./models/IncidentTypeListResponse";
 import { IncidentTypePatchRequest } from "./models/IncidentTypePatchRequest";
 import { IncidentTypeResponse } from "./models/IncidentTypeResponse";
 import { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
+import { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
 import { version } from "../version";
 
 export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
@@ -175,6 +179,72 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         body,
         TypingInfo,
         "IncidentIntegrationMetadataCreateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentNotificationTemplate(
+    body: CreateIncidentNotificationTemplateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createIncidentNotificationTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentNotificationTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentNotificationTemplate");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/notification-templates";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentNotificationTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "CreateIncidentNotificationTemplateRequest",
         "",
       ),
       contentType,
@@ -431,6 +501,72 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentNotificationTemplate(
+    id: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.deleteIncidentNotificationTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentNotificationTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteIncidentNotificationTemplate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/notification-templates/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteIncidentNotificationTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteIncidentTodo(
     incidentId: string,
     todoId: string,
@@ -652,6 +788,72 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIncidentNotificationTemplate(
+    id: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.getIncidentNotificationTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentNotificationTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getIncidentNotificationTemplate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/notification-templates/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.getIncidentNotificationTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -895,6 +1097,70 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentNotificationTemplates(
+    filterIncidentType?: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.listIncidentNotificationTemplates"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listIncidentNotificationTemplates' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentNotificationTemplates'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/notification-templates";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listIncidentNotificationTemplates",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterIncidentType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[incident-type]",
+        serialize(filterIncidentType, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -1411,6 +1677,92 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateIncidentNotificationTemplate(
+    id: string,
+    body: PatchIncidentNotificationTemplateRequest,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.updateIncidentNotificationTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentNotificationTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateIncidentNotificationTemplate");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentNotificationTemplate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/notification-templates/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentNotificationTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "PatchIncidentNotificationTemplateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateIncidentTodo(
     incidentId: string,
     todoId: string,
@@ -1680,6 +2032,68 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentNotificationTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentNotificationTemplate(
+    response: ResponseContext,
+  ): Promise<IncidentNotificationTemplate> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentNotificationTemplate = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplate",
+      ) as IncidentNotificationTemplate;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationTemplate = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplate",
+        "",
+      ) as IncidentNotificationTemplate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1857,6 +2271,57 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentIntegration(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentNotificationTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentNotificationTemplate(
     response: ResponseContext,
   ): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
@@ -2126,6 +2591,68 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getIncidentNotificationTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentNotificationTemplate(
+    response: ResponseContext,
+  ): Promise<IncidentNotificationTemplate> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentNotificationTemplate = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplate",
+      ) as IncidentNotificationTemplate;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationTemplate = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplate",
+        "",
+      ) as IncidentNotificationTemplate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2360,6 +2887,68 @@ export class IncidentsApiResponseProcessor {
         "IncidentIntegrationMetadataListResponse",
         "",
       ) as IncidentIntegrationMetadataListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentNotificationTemplates
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentNotificationTemplates(
+    response: ResponseContext,
+  ): Promise<IncidentNotificationTemplateArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentNotificationTemplateArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplateArray",
+      ) as IncidentNotificationTemplateArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationTemplateArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplateArray",
+        "",
+      ) as IncidentNotificationTemplateArray;
       return body;
     }
 
@@ -2807,6 +3396,68 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateIncidentNotificationTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentNotificationTemplate(
+    response: ResponseContext,
+  ): Promise<IncidentNotificationTemplate> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentNotificationTemplate = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplate",
+      ) as IncidentNotificationTemplate;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationTemplate = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentNotificationTemplate",
+        "",
+      ) as IncidentNotificationTemplate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2949,6 +3600,13 @@ export interface IncidentsApiCreateIncidentIntegrationRequest {
   body: IncidentIntegrationMetadataCreateRequest;
 }
 
+export interface IncidentsApiCreateIncidentNotificationTemplateRequest {
+  /**
+   * @type CreateIncidentNotificationTemplateRequest
+   */
+  body: CreateIncidentNotificationTemplateRequest;
+}
+
 export interface IncidentsApiCreateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -2989,6 +3647,19 @@ export interface IncidentsApiDeleteIncidentIntegrationRequest {
    * @type string
    */
   integrationMetadataId: string;
+}
+
+export interface IncidentsApiDeleteIncidentNotificationTemplateRequest {
+  /**
+   * The ID of the notification template.
+   * @type string
+   */
+  id: string;
+  /**
+   * Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
+   * @type string
+   */
+  include?: string;
 }
 
 export interface IncidentsApiDeleteIncidentTodoRequest {
@@ -3038,6 +3709,19 @@ export interface IncidentsApiGetIncidentIntegrationRequest {
   integrationMetadataId: string;
 }
 
+export interface IncidentsApiGetIncidentNotificationTemplateRequest {
+  /**
+   * The ID of the notification template.
+   * @type string
+   */
+  id: string;
+  /**
+   * Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiGetIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -3083,6 +3767,19 @@ export interface IncidentsApiListIncidentIntegrationsRequest {
    * @type string
    */
   incidentId: string;
+}
+
+export interface IncidentsApiListIncidentNotificationTemplatesRequest {
+  /**
+   * Optional incident type ID filter.
+   * @type string
+   */
+  filterIncidentType?: string;
+  /**
+   * Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
+   * @type string
+   */
+  include?: string;
 }
 
 export interface IncidentsApiListIncidentsRequest {
@@ -3203,6 +3900,23 @@ export interface IncidentsApiUpdateIncidentIntegrationRequest {
   body: IncidentIntegrationMetadataPatchRequest;
 }
 
+export interface IncidentsApiUpdateIncidentNotificationTemplateRequest {
+  /**
+   * The ID of the notification template.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type PatchIncidentNotificationTemplateRequest
+   */
+  body: PatchIncidentNotificationTemplateRequest;
+  /**
+   * Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiUpdateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -3299,6 +4013,30 @@ export class IncidentsApi {
   }
 
   /**
+   * Creates a new notification template.
+   * @param param The request object
+   */
+  public createIncidentNotificationTemplate(
+    param: IncidentsApiCreateIncidentNotificationTemplateRequest,
+    options?: Configuration,
+  ): Promise<IncidentNotificationTemplate> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentNotificationTemplate(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentNotificationTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create an incident todo.
    * @param param The request object
    */
@@ -3380,6 +4118,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentIntegration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Deletes a notification template by its ID.
+   * @param param The request object
+   */
+  public deleteIncidentNotificationTemplate(
+    param: IncidentsApiDeleteIncidentNotificationTemplateRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteIncidentNotificationTemplate(
+        param.id,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentNotificationTemplate(
             responseContext,
           );
         });
@@ -3474,6 +4237,31 @@ export class IncidentsApi {
   }
 
   /**
+   * Retrieves a specific notification template by its ID.
+   * @param param The request object
+   */
+  public getIncidentNotificationTemplate(
+    param: IncidentsApiGetIncidentNotificationTemplateRequest,
+    options?: Configuration,
+  ): Promise<IncidentNotificationTemplate> {
+    const requestContextPromise =
+      this.requestFactory.getIncidentNotificationTemplate(
+        param.id,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentNotificationTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get incident todo details.
    * @param param The request object
    */
@@ -3558,6 +4346,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentIntegrations(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Lists all notification templates. Optionally filter by incident type.
+   * @param param The request object
+   */
+  public listIncidentNotificationTemplates(
+    param: IncidentsApiListIncidentNotificationTemplatesRequest = {},
+    options?: Configuration,
+  ): Promise<IncidentNotificationTemplateArray> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentNotificationTemplates(
+        param.filterIncidentType,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentNotificationTemplates(
             responseContext,
           );
         });
@@ -3817,6 +4630,32 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentIntegration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Updates an existing notification template's attributes.
+   * @param param The request object
+   */
+  public updateIncidentNotificationTemplate(
+    param: IncidentsApiUpdateIncidentNotificationTemplateRequest,
+    options?: Configuration,
+  ): Promise<IncidentNotificationTemplate> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentNotificationTemplate(
+        param.id,
+        param.body,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentNotificationTemplate(
             responseContext,
           );
         });
