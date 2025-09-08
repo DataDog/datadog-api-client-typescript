@@ -1,29 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
-import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
-import { IncidentTypeType } from "./IncidentTypeType";
-
 /**
- * Incident type response data.
+ * The Microsoft Teams configuration relationship data object.
  */
-export class IncidentTypeObject {
+export class MicrosoftTeamsConfigurationReferenceData {
   /**
-   * Incident type's attributes.
-   */
-  "attributes"?: IncidentTypeAttributes;
-  /**
-   * The incident type's ID.
+   * The unique identifier of the Microsoft Teams configuration.
    */
   "id": string;
   /**
-   * The incident type's resource relationships.
+   * The type of the Microsoft Teams configuration.
    */
-  "relationships"?: IncidentTypeRelationships;
-  /**
-   * Incident type resource type.
-   */
-  "type": IncidentTypeType;
+  "type": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -39,22 +27,14 @@ export class IncidentTypeObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTypeAttributes",
-    },
     id: {
       baseName: "id",
       type: "string",
       required: true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTypeRelationships",
-    },
     type: {
       baseName: "type",
-      type: "IncidentTypeType",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -67,7 +47,7 @@ export class IncidentTypeObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTypeObject.attributeTypeMap;
+    return MicrosoftTeamsConfigurationReferenceData.attributeTypeMap;
   }
 
   public constructor() {}
