@@ -26,14 +26,6 @@ import { AWSIntegrationApiV2 } from "@datadog/datadog-api-client-aws-integration
 import { v2 } from "@datadog/datadog-api-client-aws-integration";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "AWSIntegrationApi.v2.listAWSAccounts": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new AWSIntegrationApiV2(configuration);
 const params = {/* parameters */};
 

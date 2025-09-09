@@ -40,16 +40,6 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "AWSLogsIntegrationApi.v2.listAWSLogsServices"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listAWSLogsServices' is disabled. Enable it by setting `configuration.unstableOperations['AWSLogsIntegrationApi.v2.listAWSLogsServices'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/integration/aws/logs/services";
 

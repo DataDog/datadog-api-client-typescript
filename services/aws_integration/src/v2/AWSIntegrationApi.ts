@@ -47,12 +47,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["AWSIntegrationApi.v2.createAWSAccount"]) {
-      throw new Error(
-        "Unstable operation 'createAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.createAWSAccount'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createAWSAccount");
@@ -102,14 +96,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["AWSIntegrationApi.v2.createNewAWSExternalID"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createNewAWSExternalID' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.createNewAWSExternalID'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/integration/aws/generate_new_external_id";
 
@@ -145,12 +131,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["AWSIntegrationApi.v2.deleteAWSAccount"]) {
-      throw new Error(
-        "Unstable operation 'deleteAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.deleteAWSAccount'] = true`",
-      );
-    }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
@@ -196,12 +176,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["AWSIntegrationApi.v2.getAWSAccount"]) {
-      throw new Error(
-        "Unstable operation 'getAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.getAWSAccount'] = true`",
-      );
-    }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
@@ -283,12 +257,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["AWSIntegrationApi.v2.listAWSAccounts"]) {
-      throw new Error(
-        "Unstable operation 'listAWSAccounts' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.listAWSAccounts'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/integration/aws/accounts";
 
@@ -333,12 +301,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["AWSIntegrationApi.v2.listAWSNamespaces"]) {
-      throw new Error(
-        "Unstable operation 'listAWSNamespaces' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.listAWSNamespaces'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/integration/aws/available_namespaces";
 
@@ -375,12 +337,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["AWSIntegrationApi.v2.updateAWSAccount"]) {
-      throw new Error(
-        "Unstable operation 'updateAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.updateAWSAccount'] = true`",
-      );
-    }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
