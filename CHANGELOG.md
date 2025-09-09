@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## 1.42.0/2025-09-09
+
+### Added
+* Add Incident Notification Template Public Docs [#2760](https://github.com/DataDog/datadog-api-client-typescript/pull/2760)
+* Add Cross Org API to Open API specs [#2759](https://github.com/DataDog/datadog-api-client-typescript/pull/2759)
+* Update Get All Notification Rules API docs to include pagination, sorting, and filtering params [#2752](https://github.com/DataDog/datadog-api-client-typescript/pull/2752)
+* Add readonly ID of synthetics test steps [#2748](https://github.com/DataDog/datadog-api-client-typescript/pull/2748)
+* Create Cloud SIEM histsignals endpoints [#2746](https://github.com/DataDog/datadog-api-client-typescript/pull/2746)
+* Security Monitoring - Validation Endpoint for Suppressions [#2741](https://github.com/DataDog/datadog-api-client-typescript/pull/2741)
+* Security Monitoring - Related Suppressions for a Rule [#2734](https://github.com/DataDog/datadog-api-client-typescript/pull/2734)
+* Extend Widget time schema with support for hide_incomplete_cost_data [#2708](https://github.com/DataDog/datadog-api-client-typescript/pull/2708)
+* Add SDS rule `should_save_match` field [#2704](https://github.com/DataDog/datadog-api-client-typescript/pull/2704)
+* Add spec for Agentless GetAwsScanOptions [#2697](https://github.com/DataDog/datadog-api-client-typescript/pull/2697)
+* Add Cross Org API to Open API specs [#2693](https://github.com/DataDog/datadog-api-client-typescript/pull/2693)
+* Add DNAP Spark Pod Autosizing service to API client [#2686](https://github.com/DataDog/datadog-api-client-typescript/pull/2686)
+* Add version parameter to synthetic test trigger ci endpoint [#2684](https://github.com/DataDog/datadog-api-client-typescript/pull/2684)
+* Document Error Tracking public APIs [#2680](https://github.com/DataDog/datadog-api-client-typescript/pull/2680)
+* Add docs for 404 not found error in cost-onboarding-api [#2668](https://github.com/DataDog/datadog-api-client-typescript/pull/2668)
+* Adds async Scorecard outcomes batch update endpoint [#2646](https://github.com/DataDog/datadog-api-client-typescript/pull/2646)
+
+### Fixed
+* Security Monitoring - Fix payload of Validation Endpoint for Suppressions [#2750](https://github.com/DataDog/datadog-api-client-typescript/pull/2750)
+* [CCA-938][CCC-883] Audit existing CCM endpoints in OpenAPI spec [#2659](https://github.com/DataDog/datadog-api-client-typescript/pull/2659)
+* Add enum Dataset type to Dataset API spec [#2655](https://github.com/DataDog/datadog-api-client-typescript/pull/2655)
+
+### Changed
+* Update public cost permissions [#2702](https://github.com/DataDog/datadog-api-client-typescript/pull/2702)
+* Add Product Scales support to RUM v2 Applications API [#2664](https://github.com/DataDog/datadog-api-client-typescript/pull/2664)
+
 ## 1.41.0/2025-08-12
 
 ### Added
