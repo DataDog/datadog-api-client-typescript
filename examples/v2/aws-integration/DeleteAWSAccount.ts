@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.deleteAWSAccount"] = true;
 const apiInstance = new v2.AWSIntegrationApi(configuration);
 
 // there is a valid "aws_account_v2" in the system
