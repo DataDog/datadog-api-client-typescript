@@ -36,6 +36,10 @@ export class SyntheticsAPITestStep {
    */
   "extractedValuesFromScript"?: string;
   /**
+   * ID of the step.
+   */
+  "id"?: string;
+  /**
    * Determines whether or not to consider the entire test as failed if this step fails.
    * Can be used only if `allowFailure` is `true`.
    */
@@ -92,6 +96,10 @@ export class SyntheticsAPITestStep {
     },
     extractedValuesFromScript: {
       baseName: "extractedValuesFromScript",
+      type: "string",
+    },
+    id: {
+      baseName: "id",
       type: "string",
     },
     isCritical: {

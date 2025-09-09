@@ -3897,7 +3897,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.ValidateSecurityMonitoringSuppression": {
         "body": {
-            "type": "SecurityMonitoringSuppressionUpdateRequest",
+            "type": "SecurityMonitoringSuppressionCreateRequest",
             "format": "",
             },
         "operationResponseType": "{}",
@@ -5013,6 +5013,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentResponse",
     },
+    "v2.ListIncidentNotificationTemplates": {
+        "filterIncidentType": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplateArray",
+    },
+    "v2.CreateIncidentNotificationTemplate": {
+        "body": {
+            "type": "CreateIncidentNotificationTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplate",
+    },
+    "v2.GetIncidentNotificationTemplate": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplate",
+    },
+    "v2.DeleteIncidentNotificationTemplate": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentNotificationTemplate": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchIncidentNotificationTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationTemplate",
+    },
     "v2.ListIncidentTypes": {
         "includeDeleted": {
             "type": "boolean",
@@ -6122,6 +6177,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "IntakePayloadAccepted",
     },
     "v2.GetMonitorNotificationRules": {
+        "page": {
+            "type": "number",
+            "format": "int32",
+            },
+        "perPage": {
+            "type": "number",
+            "format": "int32",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filters": {
+            "type": "string",
+            "format": "",
+            },
         "include": {
             "type": "string",
             "format": "",
@@ -6552,6 +6623,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "binary",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListOrgConnections": {
+        "operationResponseType": "OrgConnectionListResponse",
+    },
+    "v2.CreateOrgConnections": {
+        "body": {
+            "type": "OrgConnectionCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgConnectionResponse",
+    },
+    "v2.DeleteOrgConnections": {
+        "connectionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOrgConnections": {
+        "connectionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "OrgConnectionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgConnectionResponse",
     },
     "v2.ListPermissions": {
         "operationResponseType": "PermissionsResponse",

@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
+import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
 import { IncidentTypeType } from "./IncidentTypeType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,6 +21,10 @@ export class IncidentTypeObject {
    * The incident type's ID.
    */
   "id": string;
+  /**
+   * The incident type's resource relationships.
+   */
+  "relationships"?: IncidentTypeRelationships;
   /**
    * Incident type resource type.
    */
@@ -49,6 +54,10 @@ export class IncidentTypeObject {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentTypeRelationships",
     },
     type: {
       baseName: "type",

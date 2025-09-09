@@ -314,18 +314,22 @@ export {
 export {
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
+  IncidentsApiCreateIncidentNotificationTemplateRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
+  IncidentsApiDeleteIncidentNotificationTemplateRequest,
   IncidentsApiDeleteIncidentTodoRequest,
   IncidentsApiDeleteIncidentTypeRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiGetIncidentIntegrationRequest,
+  IncidentsApiGetIncidentNotificationTemplateRequest,
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentIntegrationsRequest,
+  IncidentsApiListIncidentNotificationTemplatesRequest,
   IncidentsApiListIncidentTodosRequest,
   IncidentsApiListIncidentTypesRequest,
   IncidentsApiListIncidentsRequest,
@@ -333,6 +337,7 @@ export {
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentsRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
+  IncidentsApiUpdateIncidentNotificationTemplateRequest,
   IncidentsApiUpdateIncidentTodoRequest,
   IncidentsApiUpdateIncidentTypeRequest,
   IncidentsApi,
@@ -504,6 +509,13 @@ export {
   OpsgenieIntegrationApiUpdateOpsgenieServiceRequest,
   OpsgenieIntegrationApi,
 } from "./apis/OpsgenieIntegrationApi";
+
+export {
+  OrgConnectionsApiCreateOrgConnectionsRequest,
+  OrgConnectionsApiDeleteOrgConnectionsRequest,
+  OrgConnectionsApiUpdateOrgConnectionsRequest,
+  OrgConnectionsApi,
+} from "./apis/OrgConnectionsApi";
 
 export {
   OrganizationsApiGetOrgConfigRequest,
@@ -1397,6 +1409,7 @@ export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDele
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
 export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
+export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
@@ -1905,6 +1918,8 @@ export { GitlabCredentialsUpdate } from "./models/GitlabCredentialsUpdate";
 export { GitlabIntegration } from "./models/GitlabIntegration";
 export { GitlabIntegrationType } from "./models/GitlabIntegrationType";
 export { GitlabIntegrationUpdate } from "./models/GitlabIntegrationUpdate";
+export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
+export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
 export { GreyNoiseAPIKey } from "./models/GreyNoiseAPIKey";
 export { GreyNoiseAPIKeyType } from "./models/GreyNoiseAPIKeyType";
 export { GreyNoiseAPIKeyUpdate } from "./models/GreyNoiseAPIKeyUpdate";
@@ -1988,6 +2003,20 @@ export { IncidentIntegrationMetadataType } from "./models/IncidentIntegrationMet
 export { IncidentIntegrationRelationships } from "./models/IncidentIntegrationRelationships";
 export { IncidentNonDatadogCreator } from "./models/IncidentNonDatadogCreator";
 export { IncidentNotificationHandle } from "./models/IncidentNotificationHandle";
+export { IncidentNotificationTemplate } from "./models/IncidentNotificationTemplate";
+export { IncidentNotificationTemplateArray } from "./models/IncidentNotificationTemplateArray";
+export { IncidentNotificationTemplateArrayMeta } from "./models/IncidentNotificationTemplateArrayMeta";
+export { IncidentNotificationTemplateArrayMetaPage } from "./models/IncidentNotificationTemplateArrayMetaPage";
+export { IncidentNotificationTemplateAttributes } from "./models/IncidentNotificationTemplateAttributes";
+export { IncidentNotificationTemplateCreateAttributes } from "./models/IncidentNotificationTemplateCreateAttributes";
+export { IncidentNotificationTemplateCreateData } from "./models/IncidentNotificationTemplateCreateData";
+export { IncidentNotificationTemplateCreateDataRelationships } from "./models/IncidentNotificationTemplateCreateDataRelationships";
+export { IncidentNotificationTemplateIncludedItems } from "./models/IncidentNotificationTemplateIncludedItems";
+export { IncidentNotificationTemplateRelationships } from "./models/IncidentNotificationTemplateRelationships";
+export { IncidentNotificationTemplateResponseData } from "./models/IncidentNotificationTemplateResponseData";
+export { IncidentNotificationTemplateType } from "./models/IncidentNotificationTemplateType";
+export { IncidentNotificationTemplateUpdateAttributes } from "./models/IncidentNotificationTemplateUpdateAttributes";
+export { IncidentNotificationTemplateUpdateData } from "./models/IncidentNotificationTemplateUpdateData";
 export { IncidentPostmortemType } from "./models/IncidentPostmortemType";
 export { IncidentRelatedObject } from "./models/IncidentRelatedObject";
 export { IncidentRespondersType } from "./models/IncidentRespondersType";
@@ -2067,6 +2096,7 @@ export { IncidentTypeListResponse } from "./models/IncidentTypeListResponse";
 export { IncidentTypeObject } from "./models/IncidentTypeObject";
 export { IncidentTypePatchData } from "./models/IncidentTypePatchData";
 export { IncidentTypePatchRequest } from "./models/IncidentTypePatchRequest";
+export { IncidentTypeRelationships } from "./models/IncidentTypeRelationships";
 export { IncidentTypeResponse } from "./models/IncidentTypeResponse";
 export { IncidentTypeType } from "./models/IncidentTypeType";
 export { IncidentTypeUpdateAttributes } from "./models/IncidentTypeUpdateAttributes";
@@ -2399,6 +2429,8 @@ export { MicrosoftSentinelDestinationType } from "./models/MicrosoftSentinelDest
 export { MicrosoftTeamsChannelInfoResponseAttributes } from "./models/MicrosoftTeamsChannelInfoResponseAttributes";
 export { MicrosoftTeamsChannelInfoResponseData } from "./models/MicrosoftTeamsChannelInfoResponseData";
 export { MicrosoftTeamsChannelInfoType } from "./models/MicrosoftTeamsChannelInfoType";
+export { MicrosoftTeamsConfigurationReference } from "./models/MicrosoftTeamsConfigurationReference";
+export { MicrosoftTeamsConfigurationReferenceData } from "./models/MicrosoftTeamsConfigurationReferenceData";
 export { MicrosoftTeamsCreateTenantBasedHandleRequest } from "./models/MicrosoftTeamsCreateTenantBasedHandleRequest";
 export { MicrosoftTeamsCreateWorkflowsWebhookHandleRequest } from "./models/MicrosoftTeamsCreateWorkflowsWebhookHandleRequest";
 export { MicrosoftTeamsGetChannelByNameResponse } from "./models/MicrosoftTeamsGetChannelByNameResponse";
@@ -2775,6 +2807,28 @@ export { OrgConfigType } from "./models/OrgConfigType";
 export { OrgConfigWrite } from "./models/OrgConfigWrite";
 export { OrgConfigWriteAttributes } from "./models/OrgConfigWriteAttributes";
 export { OrgConfigWriteRequest } from "./models/OrgConfigWriteRequest";
+export { OrgConnection } from "./models/OrgConnection";
+export { OrgConnectionAttributes } from "./models/OrgConnectionAttributes";
+export { OrgConnectionCreate } from "./models/OrgConnectionCreate";
+export { OrgConnectionCreateAttributes } from "./models/OrgConnectionCreateAttributes";
+export { OrgConnectionCreateRelationships } from "./models/OrgConnectionCreateRelationships";
+export { OrgConnectionCreateRequest } from "./models/OrgConnectionCreateRequest";
+export { OrgConnectionListResponse } from "./models/OrgConnectionListResponse";
+export { OrgConnectionListResponseMeta } from "./models/OrgConnectionListResponseMeta";
+export { OrgConnectionListResponseMetaPage } from "./models/OrgConnectionListResponseMetaPage";
+export { OrgConnectionOrgRelationship } from "./models/OrgConnectionOrgRelationship";
+export { OrgConnectionOrgRelationshipData } from "./models/OrgConnectionOrgRelationshipData";
+export { OrgConnectionOrgRelationshipDataType } from "./models/OrgConnectionOrgRelationshipDataType";
+export { OrgConnectionRelationships } from "./models/OrgConnectionRelationships";
+export { OrgConnectionResponse } from "./models/OrgConnectionResponse";
+export { OrgConnectionType } from "./models/OrgConnectionType";
+export { OrgConnectionTypeEnum } from "./models/OrgConnectionTypeEnum";
+export { OrgConnectionUpdate } from "./models/OrgConnectionUpdate";
+export { OrgConnectionUpdateAttributes } from "./models/OrgConnectionUpdateAttributes";
+export { OrgConnectionUpdateRequest } from "./models/OrgConnectionUpdateRequest";
+export { OrgConnectionUserRelationship } from "./models/OrgConnectionUserRelationship";
+export { OrgConnectionUserRelationshipData } from "./models/OrgConnectionUserRelationshipData";
+export { OrgConnectionUserRelationshipDataType } from "./models/OrgConnectionUserRelationshipDataType";
 export { OutboundEdge } from "./models/OutboundEdge";
 export { OutcomesBatchAttributes } from "./models/OutcomesBatchAttributes";
 export { OutcomesBatchRequest } from "./models/OutcomesBatchRequest";
@@ -2801,6 +2855,7 @@ export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
 export { PartialApplicationKeyAttributes } from "./models/PartialApplicationKeyAttributes";
 export { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
+export { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
 export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
 export { PatchNotificationRuleParametersData } from "./models/PatchNotificationRuleParametersData";
 export { PatchNotificationRuleParametersDataAttributes } from "./models/PatchNotificationRuleParametersDataAttributes";
@@ -2873,6 +2928,8 @@ export { RelationshipToIncidentPostmortem } from "./models/RelationshipToInciden
 export { RelationshipToIncidentPostmortemData } from "./models/RelationshipToIncidentPostmortemData";
 export { RelationshipToIncidentResponderData } from "./models/RelationshipToIncidentResponderData";
 export { RelationshipToIncidentResponders } from "./models/RelationshipToIncidentResponders";
+export { RelationshipToIncidentType } from "./models/RelationshipToIncidentType";
+export { RelationshipToIncidentTypeData } from "./models/RelationshipToIncidentTypeData";
 export { RelationshipToIncidentUserDefinedFieldData } from "./models/RelationshipToIncidentUserDefinedFieldData";
 export { RelationshipToIncidentUserDefinedFields } from "./models/RelationshipToIncidentUserDefinedFields";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
@@ -3736,5 +3793,7 @@ export { WorklflowGetInstanceResponseDataAttributes } from "./models/WorklflowGe
 export { XRayServicesIncludeAll } from "./models/XRayServicesIncludeAll";
 export { XRayServicesIncludeOnly } from "./models/XRayServicesIncludeOnly";
 export { XRayServicesList } from "./models/XRayServicesList";
+export { ZoomConfigurationReference } from "./models/ZoomConfigurationReference";
+export { ZoomConfigurationReferenceData } from "./models/ZoomConfigurationReferenceData";
 
 export { ObjectSerializer } from "./models/ObjectSerializer";
