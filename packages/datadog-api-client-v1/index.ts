@@ -477,6 +477,8 @@ export { FunnelWidgetDefinition } from "./models/FunnelWidgetDefinition";
 export { FunnelWidgetDefinitionType } from "./models/FunnelWidgetDefinitionType";
 export { FunnelWidgetRequest } from "./models/FunnelWidgetRequest";
 export { GCPAccount } from "./models/GCPAccount";
+export { GCPMonitoredResourceConfig } from "./models/GCPMonitoredResourceConfig";
+export { GCPMonitoredResourceConfigType } from "./models/GCPMonitoredResourceConfigType";
 export { GeomapWidgetDefinition } from "./models/GeomapWidgetDefinition";
 export { GeomapWidgetDefinitionStyle } from "./models/GeomapWidgetDefinitionStyle";
 export { GeomapWidgetDefinitionType } from "./models/GeomapWidgetDefinitionType";
