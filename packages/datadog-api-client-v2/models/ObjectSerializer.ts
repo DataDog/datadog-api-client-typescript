@@ -445,6 +445,7 @@ import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
@@ -898,6 +899,18 @@ import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMe
 import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
 import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { IncidentNotificationRule } from "./IncidentNotificationRule";
+import { IncidentNotificationRuleArray } from "./IncidentNotificationRuleArray";
+import { IncidentNotificationRuleArrayMeta } from "./IncidentNotificationRuleArrayMeta";
+import { IncidentNotificationRuleArrayMetaPage } from "./IncidentNotificationRuleArrayMetaPage";
+import { IncidentNotificationRuleAttributes } from "./IncidentNotificationRuleAttributes";
+import { IncidentNotificationRuleConditionsItems } from "./IncidentNotificationRuleConditionsItems";
+import { IncidentNotificationRuleCreateAttributes } from "./IncidentNotificationRuleCreateAttributes";
+import { IncidentNotificationRuleCreateData } from "./IncidentNotificationRuleCreateData";
+import { IncidentNotificationRuleCreateDataRelationships } from "./IncidentNotificationRuleCreateDataRelationships";
+import { IncidentNotificationRuleRelationships } from "./IncidentNotificationRuleRelationships";
+import { IncidentNotificationRuleResponseData } from "./IncidentNotificationRuleResponseData";
+import { IncidentNotificationRuleUpdateData } from "./IncidentNotificationRuleUpdateData";
 import { IncidentNotificationTemplate } from "./IncidentNotificationTemplate";
 import { IncidentNotificationTemplateArray } from "./IncidentNotificationTemplateArray";
 import { IncidentNotificationTemplateArrayMeta } from "./IncidentNotificationTemplateArrayMeta";
@@ -906,6 +919,7 @@ import { IncidentNotificationTemplateAttributes } from "./IncidentNotificationTe
 import { IncidentNotificationTemplateCreateAttributes } from "./IncidentNotificationTemplateCreateAttributes";
 import { IncidentNotificationTemplateCreateData } from "./IncidentNotificationTemplateCreateData";
 import { IncidentNotificationTemplateCreateDataRelationships } from "./IncidentNotificationTemplateCreateDataRelationships";
+import { IncidentNotificationTemplateObject } from "./IncidentNotificationTemplateObject";
 import { IncidentNotificationTemplateRelationships } from "./IncidentNotificationTemplateRelationships";
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
@@ -1529,6 +1543,7 @@ import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
+import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
@@ -1584,6 +1599,8 @@ import { RelationshipToIncidentImpactData } from "./RelationshipToIncidentImpact
 import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
+import { RelationshipToIncidentNotificationTemplate } from "./RelationshipToIncidentNotificationTemplate";
+import { RelationshipToIncidentNotificationTemplateData } from "./RelationshipToIncidentNotificationTemplateData";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
@@ -2718,6 +2735,17 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentImpactsType: ["incident_impacts"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
+  IncidentNotificationRuleAttributesVisibility: [
+    "all",
+    "organization",
+    "private",
+  ],
+  IncidentNotificationRuleCreateAttributesVisibility: [
+    "all",
+    "organization",
+    "private",
+  ],
+  IncidentNotificationRuleType: ["incident_notification_rules"],
   IncidentNotificationTemplateType: ["notification_templates"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
@@ -4200,6 +4228,7 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
@@ -4713,6 +4742,21 @@ const typeMap: { [index: string]: any } = {
   IncidentIntegrationRelationships: IncidentIntegrationRelationships,
   IncidentNonDatadogCreator: IncidentNonDatadogCreator,
   IncidentNotificationHandle: IncidentNotificationHandle,
+  IncidentNotificationRule: IncidentNotificationRule,
+  IncidentNotificationRuleArray: IncidentNotificationRuleArray,
+  IncidentNotificationRuleArrayMeta: IncidentNotificationRuleArrayMeta,
+  IncidentNotificationRuleArrayMetaPage: IncidentNotificationRuleArrayMetaPage,
+  IncidentNotificationRuleAttributes: IncidentNotificationRuleAttributes,
+  IncidentNotificationRuleConditionsItems:
+    IncidentNotificationRuleConditionsItems,
+  IncidentNotificationRuleCreateAttributes:
+    IncidentNotificationRuleCreateAttributes,
+  IncidentNotificationRuleCreateData: IncidentNotificationRuleCreateData,
+  IncidentNotificationRuleCreateDataRelationships:
+    IncidentNotificationRuleCreateDataRelationships,
+  IncidentNotificationRuleRelationships: IncidentNotificationRuleRelationships,
+  IncidentNotificationRuleResponseData: IncidentNotificationRuleResponseData,
+  IncidentNotificationRuleUpdateData: IncidentNotificationRuleUpdateData,
   IncidentNotificationTemplate: IncidentNotificationTemplate,
   IncidentNotificationTemplateArray: IncidentNotificationTemplateArray,
   IncidentNotificationTemplateArrayMeta: IncidentNotificationTemplateArrayMeta,
@@ -4726,6 +4770,7 @@ const typeMap: { [index: string]: any } = {
     IncidentNotificationTemplateCreateData,
   IncidentNotificationTemplateCreateDataRelationships:
     IncidentNotificationTemplateCreateDataRelationships,
+  IncidentNotificationTemplateObject: IncidentNotificationTemplateObject,
   IncidentNotificationTemplateRelationships:
     IncidentNotificationTemplateRelationships,
   IncidentNotificationTemplateResponseData:
@@ -5477,6 +5522,7 @@ const typeMap: { [index: string]: any } = {
   ProjectedCostResponse: ProjectedCostResponse,
   ProjectsResponse: ProjectsResponse,
   PublishAppResponse: PublishAppResponse,
+  PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
@@ -5535,6 +5581,10 @@ const typeMap: { [index: string]: any } = {
     RelationshipToIncidentIntegrationMetadataData,
   RelationshipToIncidentIntegrationMetadatas:
     RelationshipToIncidentIntegrationMetadatas,
+  RelationshipToIncidentNotificationTemplate:
+    RelationshipToIncidentNotificationTemplate,
+  RelationshipToIncidentNotificationTemplateData:
+    RelationshipToIncidentNotificationTemplateData,
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
   RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
@@ -6448,6 +6498,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "MSTeamsIntegrationMetadata",
   ],
   IncidentIntegrationMetadataResponseIncludedItem: ["User"],
+  IncidentNotificationRuleIncludedItems: [
+    "User",
+    "IncidentTypeObject",
+    "IncidentNotificationTemplateObject",
+  ],
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
   IncidentResponseIncludedItem: ["IncidentUserData", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
