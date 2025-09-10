@@ -5013,6 +5013,57 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentResponse",
     },
+    "v2.ListIncidentNotificationRules": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRuleArray",
+    },
+    "v2.CreateIncidentNotificationRule": {
+        "body": {
+            "type": "CreateIncidentNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRule",
+    },
+    "v2.GetIncidentNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRule",
+    },
+    "v2.UpdateIncidentNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PutIncidentNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRule",
+    },
+    "v2.DeleteIncidentNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListIncidentNotificationTemplates": {
         "filterIncidentType": {
             "type": "string",
