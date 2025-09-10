@@ -1,21 +1,25 @@
 export {
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
+  IncidentsApiCreateIncidentNotificationRuleRequest,
   IncidentsApiCreateIncidentNotificationTemplateRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
+  IncidentsApiDeleteIncidentNotificationRuleRequest,
   IncidentsApiDeleteIncidentNotificationTemplateRequest,
   IncidentsApiDeleteIncidentTodoRequest,
   IncidentsApiDeleteIncidentTypeRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiGetIncidentIntegrationRequest,
+  IncidentsApiGetIncidentNotificationRuleRequest,
   IncidentsApiGetIncidentNotificationTemplateRequest,
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentIntegrationsRequest,
+  IncidentsApiListIncidentNotificationRulesRequest,
   IncidentsApiListIncidentNotificationTemplatesRequest,
   IncidentsApiListIncidentTodosRequest,
   IncidentsApiListIncidentTypesRequest,
@@ -24,6 +28,7 @@ export {
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentsRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
+  IncidentsApiUpdateIncidentNotificationRuleRequest,
   IncidentsApiUpdateIncidentNotificationTemplateRequest,
   IncidentsApiUpdateIncidentTodoRequest,
   IncidentsApiUpdateIncidentTypeRequest,
@@ -31,6 +36,7 @@ export {
 } from "./IncidentsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
@@ -76,6 +82,22 @@ export { IncidentIntegrationMetadataType } from "./models/IncidentIntegrationMet
 export { IncidentIntegrationRelationships } from "./models/IncidentIntegrationRelationships";
 export { IncidentNonDatadogCreator } from "./models/IncidentNonDatadogCreator";
 export { IncidentNotificationHandle } from "./models/IncidentNotificationHandle";
+export { IncidentNotificationRule } from "./models/IncidentNotificationRule";
+export { IncidentNotificationRuleArray } from "./models/IncidentNotificationRuleArray";
+export { IncidentNotificationRuleArrayMeta } from "./models/IncidentNotificationRuleArrayMeta";
+export { IncidentNotificationRuleArrayMetaPage } from "./models/IncidentNotificationRuleArrayMetaPage";
+export { IncidentNotificationRuleAttributes } from "./models/IncidentNotificationRuleAttributes";
+export { IncidentNotificationRuleAttributesVisibility } from "./models/IncidentNotificationRuleAttributesVisibility";
+export { IncidentNotificationRuleConditionsItems } from "./models/IncidentNotificationRuleConditionsItems";
+export { IncidentNotificationRuleCreateAttributes } from "./models/IncidentNotificationRuleCreateAttributes";
+export { IncidentNotificationRuleCreateAttributesVisibility } from "./models/IncidentNotificationRuleCreateAttributesVisibility";
+export { IncidentNotificationRuleCreateData } from "./models/IncidentNotificationRuleCreateData";
+export { IncidentNotificationRuleCreateDataRelationships } from "./models/IncidentNotificationRuleCreateDataRelationships";
+export { IncidentNotificationRuleIncludedItems } from "./models/IncidentNotificationRuleIncludedItems";
+export { IncidentNotificationRuleRelationships } from "./models/IncidentNotificationRuleRelationships";
+export { IncidentNotificationRuleResponseData } from "./models/IncidentNotificationRuleResponseData";
+export { IncidentNotificationRuleType } from "./models/IncidentNotificationRuleType";
+export { IncidentNotificationRuleUpdateData } from "./models/IncidentNotificationRuleUpdateData";
 export { IncidentNotificationTemplate } from "./models/IncidentNotificationTemplate";
 export { IncidentNotificationTemplateArray } from "./models/IncidentNotificationTemplateArray";
 export { IncidentNotificationTemplateArrayMeta } from "./models/IncidentNotificationTemplateArrayMeta";
@@ -85,6 +107,7 @@ export { IncidentNotificationTemplateCreateAttributes } from "./models/IncidentN
 export { IncidentNotificationTemplateCreateData } from "./models/IncidentNotificationTemplateCreateData";
 export { IncidentNotificationTemplateCreateDataRelationships } from "./models/IncidentNotificationTemplateCreateDataRelationships";
 export { IncidentNotificationTemplateIncludedItems } from "./models/IncidentNotificationTemplateIncludedItems";
+export { IncidentNotificationTemplateObject } from "./models/IncidentNotificationTemplateObject";
 export { IncidentNotificationTemplateRelationships } from "./models/IncidentNotificationTemplateRelationships";
 export { IncidentNotificationTemplateResponseData } from "./models/IncidentNotificationTemplateResponseData";
 export { IncidentNotificationTemplateType } from "./models/IncidentNotificationTemplateType";
@@ -162,12 +185,15 @@ export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser"
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OrganizationsType } from "./models/OrganizationsType";
 export { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
+export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
 export { RelationshipToIncidentImpactData } from "./models/RelationshipToIncidentImpactData";
 export { RelationshipToIncidentImpacts } from "./models/RelationshipToIncidentImpacts";
 export { RelationshipToIncidentIntegrationMetadataData } from "./models/RelationshipToIncidentIntegrationMetadataData";
 export { RelationshipToIncidentIntegrationMetadatas } from "./models/RelationshipToIncidentIntegrationMetadatas";
+export { RelationshipToIncidentNotificationTemplate } from "./models/RelationshipToIncidentNotificationTemplate";
+export { RelationshipToIncidentNotificationTemplateData } from "./models/RelationshipToIncidentNotificationTemplateData";
 export { RelationshipToIncidentPostmortem } from "./models/RelationshipToIncidentPostmortem";
 export { RelationshipToIncidentPostmortemData } from "./models/RelationshipToIncidentPostmortemData";
 export { RelationshipToIncidentResponderData } from "./models/RelationshipToIncidentResponderData";
