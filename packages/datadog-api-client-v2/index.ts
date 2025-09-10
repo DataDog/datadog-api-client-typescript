@@ -1854,6 +1854,8 @@ export { GCPIntegration } from "./models/GCPIntegration";
 export { GCPIntegrationType } from "./models/GCPIntegrationType";
 export { GCPIntegrationUpdate } from "./models/GCPIntegrationUpdate";
 export { GCPMetricNamespaceConfig } from "./models/GCPMetricNamespaceConfig";
+export { GCPMonitoredResourceConfig } from "./models/GCPMonitoredResourceConfig";
+export { GCPMonitoredResourceConfigType } from "./models/GCPMonitoredResourceConfigType";
 export { GCPServiceAccount } from "./models/GCPServiceAccount";
 export { GCPServiceAccountCredentialType } from "./models/GCPServiceAccountCredentialType";
 export { GCPServiceAccountMeta } from "./models/GCPServiceAccountMeta";
