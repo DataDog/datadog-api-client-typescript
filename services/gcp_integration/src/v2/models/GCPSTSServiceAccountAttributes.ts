@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
+import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
 
 /**
  * Attributes associated with your service account.
@@ -21,10 +22,13 @@ export class GCPSTSServiceAccountAttributes {
   /**
    * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
    * Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+   * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
    */
   "cloudRunRevisionFilters"?: Array<string>;
   /**
-   * Your Host Filters.
+   * List of filters to limit the VM instances that are pulled into Datadog by using tags.
+   * Only VM instance resources that apply to specified filters are imported into Datadog.
+   * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
    */
   "hostFilters"?: Array<string>;
   /**
@@ -47,6 +51,10 @@ export class GCPSTSServiceAccountAttributes {
    * Configurations for GCP metric namespaces.
    */
   "metricNamespaceConfigs"?: Array<GCPMetricNamespaceConfig>;
+  /**
+   * Configurations for GCP monitored resources.
+   */
+  "monitoredResourceConfigs"?: Array<GCPMonitoredResourceConfig>;
   /**
    * When enabled, Datadog scans for all resources in your GCP environment.
    */
@@ -105,6 +113,10 @@ export class GCPSTSServiceAccountAttributes {
     metricNamespaceConfigs: {
       baseName: "metric_namespace_configs",
       type: "Array<GCPMetricNamespaceConfig>",
+    },
+    monitoredResourceConfigs: {
+      baseName: "monitored_resource_configs",
+      type: "Array<GCPMonitoredResourceConfig>",
     },
     resourceCollectionEnabled: {
       baseName: "resource_collection_enabled",
