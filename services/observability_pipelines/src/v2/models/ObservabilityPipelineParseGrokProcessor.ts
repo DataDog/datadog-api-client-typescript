@@ -12,6 +12,10 @@ export class ObservabilityPipelineParseGrokProcessor {
    */
   "disableLibraryRules"?: boolean;
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * A unique identifier for this processor.
    */
   "id": string;
@@ -48,6 +52,10 @@ export class ObservabilityPipelineParseGrokProcessor {
   static readonly attributeTypeMap: AttributeTypeMap = {
     disableLibraryRules: {
       baseName: "disable_library_rules",
+      type: "boolean",
+    },
+    enabled: {
+      baseName: "enabled",
       type: "boolean",
     },
     id: {

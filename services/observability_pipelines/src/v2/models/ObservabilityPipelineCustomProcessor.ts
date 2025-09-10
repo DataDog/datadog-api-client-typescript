@@ -8,6 +8,10 @@ import { ObservabilityPipelineCustomProcessorType } from "./ObservabilityPipelin
  */
 export class ObservabilityPipelineCustomProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this processor.
    */
   "id": string;
@@ -42,6 +46,10 @@ export class ObservabilityPipelineCustomProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",

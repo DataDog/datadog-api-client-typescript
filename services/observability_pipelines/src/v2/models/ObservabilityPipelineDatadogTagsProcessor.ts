@@ -13,6 +13,10 @@ export class ObservabilityPipelineDatadogTagsProcessor {
    */
   "action": ObservabilityPipelineDatadogTagsProcessorAction;
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -55,6 +59,10 @@ export class ObservabilityPipelineDatadogTagsProcessor {
       baseName: "action",
       type: "ObservabilityPipelineDatadogTagsProcessorAction",
       required: true,
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
     id: {
       baseName: "id",

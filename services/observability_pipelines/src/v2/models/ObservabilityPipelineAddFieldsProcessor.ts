@@ -8,6 +8,10 @@ import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldVal
  */
 export class ObservabilityPipelineAddFieldsProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * A list of static fields (key-value pairs) that is added to each log event processed by this component.
    */
   "fields": Array<ObservabilityPipelineFieldValue>;
@@ -42,6 +46,10 @@ export class ObservabilityPipelineAddFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     fields: {
       baseName: "fields",
       type: "Array<ObservabilityPipelineFieldValue>",

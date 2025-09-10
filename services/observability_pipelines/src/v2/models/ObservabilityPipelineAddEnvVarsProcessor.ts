@@ -8,6 +8,10 @@ import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./Observabilit
  */
 export class ObservabilityPipelineAddEnvVarsProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this processor in the pipeline.
    */
   "id": string;
@@ -42,6 +46,10 @@ export class ObservabilityPipelineAddEnvVarsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",

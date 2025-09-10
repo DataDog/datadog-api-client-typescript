@@ -7,6 +7,10 @@ import { ObservabilityPipelineRemoveFieldsProcessorType } from "./ObservabilityP
  */
 export class ObservabilityPipelineRemoveFieldsProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * A list of field names to be removed from each log event.
    */
   "fields": Array<string>;
@@ -41,6 +45,10 @@ export class ObservabilityPipelineRemoveFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     fields: {
       baseName: "fields",
       type: "Array<string>",
