@@ -779,6 +779,7 @@ import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttr
 import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
+import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
 import { GCPSTSDelegateAccountResponse } from "./GCPSTSDelegateAccountResponse";
@@ -2687,6 +2688,11 @@ const enumsMap: { [key: string]: any[] } = {
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
   FreshserviceIntegrationType: ["Freshservice"],
   GCPIntegrationType: ["GCP"],
+  GCPMonitoredResourceConfigType: [
+    "cloud_function",
+    "cloud_run_revision",
+    "gce_instance",
+  ],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountCredentialType: ["GCPServiceAccount"],
   GCPServiceAccountType: ["gcp_service_account"],
@@ -4612,6 +4618,7 @@ const typeMap: { [index: string]: any } = {
   GCPIntegration: GCPIntegration,
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
+  GCPMonitoredResourceConfig: GCPMonitoredResourceConfig,
   GCPSTSDelegateAccount: GCPSTSDelegateAccount,
   GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
   GCPSTSDelegateAccountResponse: GCPSTSDelegateAccountResponse,
