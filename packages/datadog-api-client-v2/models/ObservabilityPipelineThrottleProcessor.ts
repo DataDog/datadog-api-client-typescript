@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineThrottleProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * Optional list of fields used to group events before the threshold has been reached.
    */
   "groupBy"?: Array<string>;
@@ -56,6 +60,10 @@ export class ObservabilityPipelineThrottleProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     groupBy: {
       baseName: "group_by",
       type: "Array<string>",

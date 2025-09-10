@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineDedupeProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * A list of log field paths to check for duplicates.
    */
   "fields": Array<string>;
@@ -53,6 +57,10 @@ export class ObservabilityPipelineDedupeProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     fields: {
       baseName: "fields",
       type: "Array<string>",

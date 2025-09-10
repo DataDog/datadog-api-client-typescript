@@ -14,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineEnrichmentTableProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * Defines a static enrichment table loaded from a CSV file.
    */
   "file"?: ObservabilityPipelineEnrichmentTableFile;
@@ -58,6 +62,10 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     file: {
       baseName: "file",
       type: "ObservabilityPipelineEnrichmentTableFile",

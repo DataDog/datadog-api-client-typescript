@@ -19,6 +19,10 @@ export class ObservabilityPipelineQuotaProcessor {
    */
   "dropEvents": boolean;
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -82,6 +86,10 @@ export class ObservabilityPipelineQuotaProcessor {
       baseName: "drop_events",
       type: "boolean",
       required: true,
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
     id: {
       baseName: "id",

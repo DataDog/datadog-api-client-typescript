@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineReduceProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * A list of fields used to group log events for merging.
    */
   "groupBy": Array<string>;
@@ -53,6 +57,10 @@ export class ObservabilityPipelineReduceProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     groupBy: {
       baseName: "group_by",
       type: "Array<string>",

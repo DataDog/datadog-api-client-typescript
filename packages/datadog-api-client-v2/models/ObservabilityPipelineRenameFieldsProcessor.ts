@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineRenameFieldsProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * A list of rename rules specifying which fields to rename in the event, what to rename them to, and whether to preserve the original fields.
    */
   "fields": Array<ObservabilityPipelineRenameFieldsProcessorField>;
@@ -49,6 +53,10 @@ export class ObservabilityPipelineRenameFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     fields: {
       baseName: "fields",
       type: "Array<ObservabilityPipelineRenameFieldsProcessorField>",

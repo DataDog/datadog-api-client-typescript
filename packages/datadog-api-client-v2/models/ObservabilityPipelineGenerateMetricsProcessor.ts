@@ -14,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineGenerateMetricsProcessor {
   /**
+   * The processor passes through all events if it is set to `false`. Defaults to `true`.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline.
    */
   "id": string;
@@ -50,6 +54,10 @@ export class ObservabilityPipelineGenerateMetricsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
