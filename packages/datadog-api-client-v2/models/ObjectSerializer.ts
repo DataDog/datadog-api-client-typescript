@@ -228,9 +228,10 @@ import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucket
 import { CIAppAggregateSort } from "./CIAppAggregateSort";
 import { CIAppCIError } from "./CIAppCIError";
 import { CIAppCompute } from "./CIAppCompute";
-import { CIAppCreatePipelineEventRequest } from "./CIAppCreatePipelineEventRequest";
 import { CIAppCreatePipelineEventRequestAttributes } from "./CIAppCreatePipelineEventRequestAttributes";
 import { CIAppCreatePipelineEventRequestData } from "./CIAppCreatePipelineEventRequestData";
+import { CIAppCreatePipelineEventRequestRootDataArray } from "./CIAppCreatePipelineEventRequestRootDataArray";
+import { CIAppCreatePipelineEventRequestRootDataSingle } from "./CIAppCreatePipelineEventRequestRootDataSingle";
 import { CIAppEventAttributes } from "./CIAppEventAttributes";
 import { CIAppGitInfo } from "./CIAppGitInfo";
 import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
@@ -3946,10 +3947,13 @@ const typeMap: { [index: string]: any } = {
   CIAppAggregateSort: CIAppAggregateSort,
   CIAppCIError: CIAppCIError,
   CIAppCompute: CIAppCompute,
-  CIAppCreatePipelineEventRequest: CIAppCreatePipelineEventRequest,
   CIAppCreatePipelineEventRequestAttributes:
     CIAppCreatePipelineEventRequestAttributes,
   CIAppCreatePipelineEventRequestData: CIAppCreatePipelineEventRequestData,
+  CIAppCreatePipelineEventRequestRootDataArray:
+    CIAppCreatePipelineEventRequestRootDataArray,
+  CIAppCreatePipelineEventRequestRootDataSingle:
+    CIAppCreatePipelineEventRequestRootDataSingle,
   CIAppEventAttributes: CIAppEventAttributes,
   CIAppGitInfo: CIAppGitInfo,
   CIAppGroupByHistogram: CIAppGroupByHistogram,
@@ -6326,6 +6330,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "string",
     "number",
     "Array<CIAppAggregateBucketValueTimeseriesPoint>",
+  ],
+  CIAppCreatePipelineEventRequest: [
+    "CIAppCreatePipelineEventRequestRootDataSingle",
+    "CIAppCreatePipelineEventRequestRootDataArray",
   ],
   CIAppCreatePipelineEventRequestAttributesResource: [
     "CIAppPipelineEventPipeline",

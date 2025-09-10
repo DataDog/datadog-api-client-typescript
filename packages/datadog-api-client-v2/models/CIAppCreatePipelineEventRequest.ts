@@ -3,51 +3,16 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CIAppCreatePipelineEventRequestData } from "./CIAppCreatePipelineEventRequestData";
+import { CIAppCreatePipelineEventRequestRootDataArray } from "./CIAppCreatePipelineEventRequestRootDataArray";
+import { CIAppCreatePipelineEventRequestRootDataSingle } from "./CIAppCreatePipelineEventRequestRootDataSingle";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * Request object.
  */
-export class CIAppCreatePipelineEventRequest {
-  /**
-   * Data of the pipeline event to create.
-   */
-  "data"?: CIAppCreatePipelineEventRequestData;
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
-
-  /**
-   * @ignore
-   */
-  "_unparsed"?: boolean;
-
-  /**
-   * @ignore
-   */
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CIAppCreatePipelineEventRequestData",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
-    },
-  };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCreatePipelineEventRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
-}
+export type CIAppCreatePipelineEventRequest =
+  | CIAppCreatePipelineEventRequestRootDataSingle
+  | CIAppCreatePipelineEventRequestRootDataArray
+  | UnparsedObject;
