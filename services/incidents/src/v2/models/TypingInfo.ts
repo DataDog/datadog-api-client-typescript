@@ -1,6 +1,7 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
@@ -31,6 +32,18 @@ import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMe
 import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
 import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { IncidentNotificationRule } from "./IncidentNotificationRule";
+import { IncidentNotificationRuleArray } from "./IncidentNotificationRuleArray";
+import { IncidentNotificationRuleArrayMeta } from "./IncidentNotificationRuleArrayMeta";
+import { IncidentNotificationRuleArrayMetaPage } from "./IncidentNotificationRuleArrayMetaPage";
+import { IncidentNotificationRuleAttributes } from "./IncidentNotificationRuleAttributes";
+import { IncidentNotificationRuleConditionsItems } from "./IncidentNotificationRuleConditionsItems";
+import { IncidentNotificationRuleCreateAttributes } from "./IncidentNotificationRuleCreateAttributes";
+import { IncidentNotificationRuleCreateData } from "./IncidentNotificationRuleCreateData";
+import { IncidentNotificationRuleCreateDataRelationships } from "./IncidentNotificationRuleCreateDataRelationships";
+import { IncidentNotificationRuleRelationships } from "./IncidentNotificationRuleRelationships";
+import { IncidentNotificationRuleResponseData } from "./IncidentNotificationRuleResponseData";
+import { IncidentNotificationRuleUpdateData } from "./IncidentNotificationRuleUpdateData";
 import { IncidentNotificationTemplate } from "./IncidentNotificationTemplate";
 import { IncidentNotificationTemplateArray } from "./IncidentNotificationTemplateArray";
 import { IncidentNotificationTemplateArrayMeta } from "./IncidentNotificationTemplateArrayMeta";
@@ -39,6 +52,7 @@ import { IncidentNotificationTemplateAttributes } from "./IncidentNotificationTe
 import { IncidentNotificationTemplateCreateAttributes } from "./IncidentNotificationTemplateCreateAttributes";
 import { IncidentNotificationTemplateCreateData } from "./IncidentNotificationTemplateCreateData";
 import { IncidentNotificationTemplateCreateDataRelationships } from "./IncidentNotificationTemplateCreateDataRelationships";
+import { IncidentNotificationTemplateObject } from "./IncidentNotificationTemplateObject";
 import { IncidentNotificationTemplateRelationships } from "./IncidentNotificationTemplateRelationships";
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
@@ -98,12 +112,15 @@ import { MicrosoftTeamsConfigurationReferenceData } from "./MicrosoftTeamsConfig
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
+import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
 import { RelationshipToIncidentImpactData } from "./RelationshipToIncidentImpactData";
 import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
+import { RelationshipToIncidentNotificationTemplate } from "./RelationshipToIncidentNotificationTemplate";
+import { RelationshipToIncidentNotificationTemplateData } from "./RelationshipToIncidentNotificationTemplateData";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
@@ -144,6 +161,17 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     IncidentImpactsType: ["incident_impacts"],
     IncidentIntegrationMetadataType: ["incident_integrations"],
+    IncidentNotificationRuleAttributesVisibility: [
+      "all",
+      "organization",
+      "private",
+    ],
+    IncidentNotificationRuleCreateAttributesVisibility: [
+      "all",
+      "organization",
+      "private",
+    ],
+    IncidentNotificationRuleType: ["incident_notification_rules"],
     IncidentNotificationTemplateType: ["notification_templates"],
     IncidentPostmortemType: ["incident_postmortems"],
     IncidentRelatedObject: ["users", "attachments"],
@@ -189,6 +217,11 @@ export const TypingInfo: ModelTypingInfo = {
       "MSTeamsIntegrationMetadata",
     ],
     IncidentIntegrationMetadataResponseIncludedItem: ["User"],
+    IncidentNotificationRuleIncludedItems: [
+      "User",
+      "IncidentTypeObject",
+      "IncidentNotificationTemplateObject",
+    ],
     IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
     IncidentResponseIncludedItem: [
       "IncidentUserData",
@@ -202,6 +235,8 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    CreateIncidentNotificationRuleRequest:
+      CreateIncidentNotificationRuleRequest,
     CreateIncidentNotificationTemplateRequest:
       CreateIncidentNotificationTemplateRequest,
     GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
@@ -242,6 +277,23 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentIntegrationRelationships: IncidentIntegrationRelationships,
     IncidentNonDatadogCreator: IncidentNonDatadogCreator,
     IncidentNotificationHandle: IncidentNotificationHandle,
+    IncidentNotificationRule: IncidentNotificationRule,
+    IncidentNotificationRuleArray: IncidentNotificationRuleArray,
+    IncidentNotificationRuleArrayMeta: IncidentNotificationRuleArrayMeta,
+    IncidentNotificationRuleArrayMetaPage:
+      IncidentNotificationRuleArrayMetaPage,
+    IncidentNotificationRuleAttributes: IncidentNotificationRuleAttributes,
+    IncidentNotificationRuleConditionsItems:
+      IncidentNotificationRuleConditionsItems,
+    IncidentNotificationRuleCreateAttributes:
+      IncidentNotificationRuleCreateAttributes,
+    IncidentNotificationRuleCreateData: IncidentNotificationRuleCreateData,
+    IncidentNotificationRuleCreateDataRelationships:
+      IncidentNotificationRuleCreateDataRelationships,
+    IncidentNotificationRuleRelationships:
+      IncidentNotificationRuleRelationships,
+    IncidentNotificationRuleResponseData: IncidentNotificationRuleResponseData,
+    IncidentNotificationRuleUpdateData: IncidentNotificationRuleUpdateData,
     IncidentNotificationTemplate: IncidentNotificationTemplate,
     IncidentNotificationTemplateArray: IncidentNotificationTemplateArray,
     IncidentNotificationTemplateArrayMeta:
@@ -256,6 +308,7 @@ export const TypingInfo: ModelTypingInfo = {
       IncidentNotificationTemplateCreateData,
     IncidentNotificationTemplateCreateDataRelationships:
       IncidentNotificationTemplateCreateDataRelationships,
+    IncidentNotificationTemplateObject: IncidentNotificationTemplateObject,
     IncidentNotificationTemplateRelationships:
       IncidentNotificationTemplateRelationships,
     IncidentNotificationTemplateResponseData:
@@ -326,6 +379,7 @@ export const TypingInfo: ModelTypingInfo = {
     NullableRelationshipToUserData: NullableRelationshipToUserData,
     PatchIncidentNotificationTemplateRequest:
       PatchIncidentNotificationTemplateRequest,
+    PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
     RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
     RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
     RelationshipToIncidentImpactData: RelationshipToIncidentImpactData,
@@ -334,6 +388,10 @@ export const TypingInfo: ModelTypingInfo = {
       RelationshipToIncidentIntegrationMetadataData,
     RelationshipToIncidentIntegrationMetadatas:
       RelationshipToIncidentIntegrationMetadatas,
+    RelationshipToIncidentNotificationTemplate:
+      RelationshipToIncidentNotificationTemplate,
+    RelationshipToIncidentNotificationTemplateData:
+      RelationshipToIncidentNotificationTemplateData,
     RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
     RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
     RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
