@@ -224,6 +224,9 @@ import { BulkMuteFindingsRequestMetaFindings } from "./BulkMuteFindingsRequestMe
 import { BulkMuteFindingsRequestProperties } from "./BulkMuteFindingsRequestProperties";
 import { BulkMuteFindingsResponse } from "./BulkMuteFindingsResponse";
 import { BulkMuteFindingsResponseData } from "./BulkMuteFindingsResponseData";
+import { BulkPutAppsDatastoreItemsRequest } from "./BulkPutAppsDatastoreItemsRequest";
+import { BulkPutAppsDatastoreItemsRequestData } from "./BulkPutAppsDatastoreItemsRequestData";
+import { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./BulkPutAppsDatastoreItemsRequestDataAttributes";
 import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
 import { CIAppAggregateSort } from "./CIAppAggregateSort";
 import { CIAppCIError } from "./CIAppCIError";
@@ -439,6 +442,11 @@ import { CreateAppRequestData } from "./CreateAppRequestData";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
 import { CreateAppResponse } from "./CreateAppResponse";
 import { CreateAppResponseData } from "./CreateAppResponseData";
+import { CreateAppsDatastoreRequest } from "./CreateAppsDatastoreRequest";
+import { CreateAppsDatastoreRequestData } from "./CreateAppsDatastoreRequestData";
+import { CreateAppsDatastoreRequestDataAttributes } from "./CreateAppsDatastoreRequestDataAttributes";
+import { CreateAppsDatastoreResponse } from "./CreateAppsDatastoreResponse";
+import { CreateAppsDatastoreResponseData } from "./CreateAppsDatastoreResponseData";
 import { CreateCustomFrameworkRequest } from "./CreateCustomFrameworkRequest";
 import { CreateCustomFrameworkResponse } from "./CreateCustomFrameworkResponse";
 import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
@@ -577,8 +585,17 @@ import { DatasetResponse } from "./DatasetResponse";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
 import { DatasetResponseSingle } from "./DatasetResponseSingle";
 import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
+import { Datastore } from "./Datastore";
+import { DatastoreArray } from "./DatastoreArray";
+import { DatastoreData } from "./DatastoreData";
+import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
+import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest";
+import { DeleteAppsDatastoreItemRequestData } from "./DeleteAppsDatastoreItemRequestData";
+import { DeleteAppsDatastoreItemRequestDataAttributes } from "./DeleteAppsDatastoreItemRequestDataAttributes";
+import { DeleteAppsDatastoreItemResponse } from "./DeleteAppsDatastoreItemResponse";
+import { DeleteAppsDatastoreItemResponseData } from "./DeleteAppsDatastoreItemResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
 import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
@@ -1033,6 +1050,14 @@ import { IssuesSearchResult } from "./IssuesSearchResult";
 import { IssuesSearchResultAttributes } from "./IssuesSearchResultAttributes";
 import { IssuesSearchResultIssueRelationship } from "./IssuesSearchResultIssueRelationship";
 import { IssuesSearchResultRelationships } from "./IssuesSearchResultRelationships";
+import { ItemApiPayload } from "./ItemApiPayload";
+import { ItemApiPayloadArray } from "./ItemApiPayloadArray";
+import { ItemApiPayloadData } from "./ItemApiPayloadData";
+import { ItemApiPayloadDataAttributes } from "./ItemApiPayloadDataAttributes";
+import { ItemApiPayloadMeta } from "./ItemApiPayloadMeta";
+import { ItemApiPayloadMetaPage } from "./ItemApiPayloadMetaPage";
+import { ItemApiPayloadMetaSchema } from "./ItemApiPayloadMetaSchema";
+import { ItemApiPayloadMetaSchemaField } from "./ItemApiPayloadMetaSchemaField";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -1544,6 +1569,8 @@ import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
+import { PutAppsDatastoreItemResponseArray } from "./PutAppsDatastoreItemResponseArray";
+import { PutAppsDatastoreItemResponseData } from "./PutAppsDatastoreItemResponseData";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
@@ -2112,6 +2139,13 @@ import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes
 import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
+import { UpdateAppsDatastoreItemRequest } from "./UpdateAppsDatastoreItemRequest";
+import { UpdateAppsDatastoreItemRequestData } from "./UpdateAppsDatastoreItemRequestData";
+import { UpdateAppsDatastoreItemRequestDataAttributes } from "./UpdateAppsDatastoreItemRequestDataAttributes";
+import { UpdateAppsDatastoreItemRequestDataAttributesItemChanges } from "./UpdateAppsDatastoreItemRequestDataAttributesItemChanges";
+import { UpdateAppsDatastoreRequest } from "./UpdateAppsDatastoreRequest";
+import { UpdateAppsDatastoreRequestData } from "./UpdateAppsDatastoreRequestData";
+import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreRequestDataAttributes";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
@@ -2544,6 +2578,11 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CreateAppsDatastoreRequestDataAttributesOrgAccess: [
+    "contributor",
+    "viewer",
+    "manager",
+  ],
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
@@ -2590,6 +2629,10 @@ const enumsMap: { [key: string]: any[] } = {
   DatadogAPIKeyType: ["DatadogAPIKey"],
   DatadogIntegrationType: ["Datadog"],
   DatasetType: ["dataset"],
+  DatastoreDataType: ["datastores"],
+  DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
+  DatastoreItemsDataType: ["items"],
+  DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
   DetailedFindingType: ["detailed_finding"],
   DnsMetricKey: [
     "dns_total_requests",
@@ -3594,6 +3637,7 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
+  UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateOutcomesAsyncType: ["batched-outcome"],
   Urgency: ["low", "high", "dynamic"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -3975,6 +4019,10 @@ const typeMap: { [index: string]: any } = {
   BulkMuteFindingsRequestProperties: BulkMuteFindingsRequestProperties,
   BulkMuteFindingsResponse: BulkMuteFindingsResponse,
   BulkMuteFindingsResponseData: BulkMuteFindingsResponseData,
+  BulkPutAppsDatastoreItemsRequest: BulkPutAppsDatastoreItemsRequest,
+  BulkPutAppsDatastoreItemsRequestData: BulkPutAppsDatastoreItemsRequestData,
+  BulkPutAppsDatastoreItemsRequestDataAttributes:
+    BulkPutAppsDatastoreItemsRequestDataAttributes,
   CIAppAggregateBucketValueTimeseriesPoint:
     CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
@@ -4227,6 +4275,12 @@ const typeMap: { [index: string]: any } = {
   CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
   CreateAppResponse: CreateAppResponse,
   CreateAppResponseData: CreateAppResponseData,
+  CreateAppsDatastoreRequest: CreateAppsDatastoreRequest,
+  CreateAppsDatastoreRequestData: CreateAppsDatastoreRequestData,
+  CreateAppsDatastoreRequestDataAttributes:
+    CreateAppsDatastoreRequestDataAttributes,
+  CreateAppsDatastoreResponse: CreateAppsDatastoreResponse,
+  CreateAppsDatastoreResponseData: CreateAppsDatastoreResponseData,
   CreateCustomFrameworkRequest: CreateCustomFrameworkRequest,
   CreateCustomFrameworkResponse: CreateCustomFrameworkResponse,
   CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
@@ -4393,8 +4447,18 @@ const typeMap: { [index: string]: any } = {
   DatasetResponseMulti: DatasetResponseMulti,
   DatasetResponseSingle: DatasetResponseSingle,
   DatasetUpdateRequest: DatasetUpdateRequest,
+  Datastore: Datastore,
+  DatastoreArray: DatastoreArray,
+  DatastoreData: DatastoreData,
+  DatastoreDataAttributes: DatastoreDataAttributes,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
+  DeleteAppsDatastoreItemRequest: DeleteAppsDatastoreItemRequest,
+  DeleteAppsDatastoreItemRequestData: DeleteAppsDatastoreItemRequestData,
+  DeleteAppsDatastoreItemRequestDataAttributes:
+    DeleteAppsDatastoreItemRequestDataAttributes,
+  DeleteAppsDatastoreItemResponse: DeleteAppsDatastoreItemResponse,
+  DeleteAppsDatastoreItemResponseData: DeleteAppsDatastoreItemResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
   DeleteAppsRequestDataItems: DeleteAppsRequestDataItems,
   DeleteAppsResponse: DeleteAppsResponse,
@@ -4899,6 +4963,14 @@ const typeMap: { [index: string]: any } = {
   IssuesSearchResultAttributes: IssuesSearchResultAttributes,
   IssuesSearchResultIssueRelationship: IssuesSearchResultIssueRelationship,
   IssuesSearchResultRelationships: IssuesSearchResultRelationships,
+  ItemApiPayload: ItemApiPayload,
+  ItemApiPayloadArray: ItemApiPayloadArray,
+  ItemApiPayloadData: ItemApiPayloadData,
+  ItemApiPayloadDataAttributes: ItemApiPayloadDataAttributes,
+  ItemApiPayloadMeta: ItemApiPayloadMeta,
+  ItemApiPayloadMetaPage: ItemApiPayloadMetaPage,
+  ItemApiPayloadMetaSchema: ItemApiPayloadMetaSchema,
+  ItemApiPayloadMetaSchemaField: ItemApiPayloadMetaSchemaField,
   JSONAPIErrorItem: JSONAPIErrorItem,
   JSONAPIErrorItemSource: JSONAPIErrorItemSource,
   JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -5529,6 +5601,8 @@ const typeMap: { [index: string]: any } = {
   ProjectedCostResponse: ProjectedCostResponse,
   ProjectsResponse: ProjectsResponse,
   PublishAppResponse: PublishAppResponse,
+  PutAppsDatastoreItemResponseArray: PutAppsDatastoreItemResponseArray,
+  PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
   PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
@@ -6178,6 +6252,16 @@ const typeMap: { [index: string]: any } = {
   UpdateAppResponse: UpdateAppResponse,
   UpdateAppResponseData: UpdateAppResponseData,
   UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
+  UpdateAppsDatastoreItemRequest: UpdateAppsDatastoreItemRequest,
+  UpdateAppsDatastoreItemRequestData: UpdateAppsDatastoreItemRequestData,
+  UpdateAppsDatastoreItemRequestDataAttributes:
+    UpdateAppsDatastoreItemRequestDataAttributes,
+  UpdateAppsDatastoreItemRequestDataAttributesItemChanges:
+    UpdateAppsDatastoreItemRequestDataAttributesItemChanges,
+  UpdateAppsDatastoreRequest: UpdateAppsDatastoreRequest,
+  UpdateAppsDatastoreRequestData: UpdateAppsDatastoreRequestData,
+  UpdateAppsDatastoreRequestDataAttributes:
+    UpdateAppsDatastoreRequestDataAttributes,
   UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
   UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
