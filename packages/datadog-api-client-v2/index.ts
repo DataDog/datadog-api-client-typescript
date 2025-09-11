@@ -40,6 +40,18 @@ export {
 } from "./apis/ActionConnectionApi";
 
 export {
+  ActionsDatastoresApiBulkWriteDatastoreItemsRequest,
+  ActionsDatastoresApiCreateDatastoreRequest,
+  ActionsDatastoresApiDeleteDatastoreRequest,
+  ActionsDatastoresApiDeleteDatastoreItemRequest,
+  ActionsDatastoresApiGetDatastoreRequest,
+  ActionsDatastoresApiListDatastoreItemsRequest,
+  ActionsDatastoresApiUpdateDatastoreRequest,
+  ActionsDatastoresApiUpdateDatastoreItemRequest,
+  ActionsDatastoresApi,
+} from "./apis/ActionsDatastoresApi";
+
+export {
   AgentlessScanningApiCreateAwsOnDemandTaskRequest,
   AgentlessScanningApiCreateAwsScanOptionsRequest,
   AgentlessScanningApiDeleteAwsScanOptionsRequest,
@@ -1115,6 +1127,9 @@ export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRe
 export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
+export { BulkPutAppsDatastoreItemsRequest } from "./models/BulkPutAppsDatastoreItemsRequest";
+export { BulkPutAppsDatastoreItemsRequestData } from "./models/BulkPutAppsDatastoreItemsRequestData";
+export { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./models/BulkPutAppsDatastoreItemsRequestDataAttributes";
 export { CalculatedField } from "./models/CalculatedField";
 export { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionResponseBody";
 export { Case } from "./models/Case";
@@ -1407,6 +1422,12 @@ export { CreateAppRequestData } from "./models/CreateAppRequestData";
 export { CreateAppRequestDataAttributes } from "./models/CreateAppRequestDataAttributes";
 export { CreateAppResponse } from "./models/CreateAppResponse";
 export { CreateAppResponseData } from "./models/CreateAppResponseData";
+export { CreateAppsDatastoreRequest } from "./models/CreateAppsDatastoreRequest";
+export { CreateAppsDatastoreRequestData } from "./models/CreateAppsDatastoreRequestData";
+export { CreateAppsDatastoreRequestDataAttributes } from "./models/CreateAppsDatastoreRequestDataAttributes";
+export { CreateAppsDatastoreRequestDataAttributesOrgAccess } from "./models/CreateAppsDatastoreRequestDataAttributesOrgAccess";
+export { CreateAppsDatastoreResponse } from "./models/CreateAppsDatastoreResponse";
+export { CreateAppsDatastoreResponseData } from "./models/CreateAppsDatastoreResponseData";
 export { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequest";
 export { CreateCustomFrameworkResponse } from "./models/CreateCustomFrameworkResponse";
 export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
@@ -1556,11 +1577,24 @@ export { DatasetResponseMulti } from "./models/DatasetResponseMulti";
 export { DatasetResponseSingle } from "./models/DatasetResponseSingle";
 export { DatasetType } from "./models/DatasetType";
 export { DatasetUpdateRequest } from "./models/DatasetUpdateRequest";
+export { Datastore } from "./models/Datastore";
+export { DatastoreArray } from "./models/DatastoreArray";
+export { DatastoreData } from "./models/DatastoreData";
+export { DatastoreDataAttributes } from "./models/DatastoreDataAttributes";
+export { DatastoreDataType } from "./models/DatastoreDataType";
+export { DatastoreItemConflictMode } from "./models/DatastoreItemConflictMode";
+export { DatastoreItemsDataType } from "./models/DatastoreItemsDataType";
+export { DatastorePrimaryKeyGenerationStrategy } from "./models/DatastorePrimaryKeyGenerationStrategy";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";
 export { DeleteAppResponse } from "./models/DeleteAppResponse";
 export { DeleteAppResponseData } from "./models/DeleteAppResponseData";
+export { DeleteAppsDatastoreItemRequest } from "./models/DeleteAppsDatastoreItemRequest";
+export { DeleteAppsDatastoreItemRequestData } from "./models/DeleteAppsDatastoreItemRequestData";
+export { DeleteAppsDatastoreItemRequestDataAttributes } from "./models/DeleteAppsDatastoreItemRequestDataAttributes";
+export { DeleteAppsDatastoreItemResponse } from "./models/DeleteAppsDatastoreItemResponse";
+export { DeleteAppsDatastoreItemResponseData } from "./models/DeleteAppsDatastoreItemResponseData";
 export { DeleteAppsRequest } from "./models/DeleteAppsRequest";
 export { DeleteAppsRequestDataItems } from "./models/DeleteAppsRequestDataItems";
 export { DeleteAppsResponse } from "./models/DeleteAppsResponse";
@@ -2198,6 +2232,14 @@ export { IssueUser } from "./models/IssueUser";
 export { IssueUserAttributes } from "./models/IssueUserAttributes";
 export { IssueUserReference } from "./models/IssueUserReference";
 export { IssueUserType } from "./models/IssueUserType";
+export { ItemApiPayload } from "./models/ItemApiPayload";
+export { ItemApiPayloadArray } from "./models/ItemApiPayloadArray";
+export { ItemApiPayloadData } from "./models/ItemApiPayloadData";
+export { ItemApiPayloadDataAttributes } from "./models/ItemApiPayloadDataAttributes";
+export { ItemApiPayloadMeta } from "./models/ItemApiPayloadMeta";
+export { ItemApiPayloadMetaPage } from "./models/ItemApiPayloadMetaPage";
+export { ItemApiPayloadMetaSchema } from "./models/ItemApiPayloadMetaSchema";
+export { ItemApiPayloadMetaSchemaField } from "./models/ItemApiPayloadMetaSchemaField";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { JiraIssue } from "./models/JiraIssue";
@@ -2924,6 +2966,8 @@ export { ProjectResourceType } from "./models/ProjectResourceType";
 export { ProjectResponse } from "./models/ProjectResponse";
 export { ProjectsResponse } from "./models/ProjectsResponse";
 export { PublishAppResponse } from "./models/PublishAppResponse";
+export { PutAppsDatastoreItemResponseArray } from "./models/PutAppsDatastoreItemResponseArray";
+export { PutAppsDatastoreItemResponseData } from "./models/PutAppsDatastoreItemResponseData";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 export { Query } from "./models/Query";
 export { QueryFormula } from "./models/QueryFormula";
@@ -3684,6 +3728,14 @@ export { UpdateAppRequestDataAttributes } from "./models/UpdateAppRequestDataAtt
 export { UpdateAppResponse } from "./models/UpdateAppResponse";
 export { UpdateAppResponseData } from "./models/UpdateAppResponseData";
 export { UpdateAppResponseDataAttributes } from "./models/UpdateAppResponseDataAttributes";
+export { UpdateAppsDatastoreItemRequest } from "./models/UpdateAppsDatastoreItemRequest";
+export { UpdateAppsDatastoreItemRequestData } from "./models/UpdateAppsDatastoreItemRequestData";
+export { UpdateAppsDatastoreItemRequestDataAttributes } from "./models/UpdateAppsDatastoreItemRequestDataAttributes";
+export { UpdateAppsDatastoreItemRequestDataAttributesItemChanges } from "./models/UpdateAppsDatastoreItemRequestDataAttributesItemChanges";
+export { UpdateAppsDatastoreItemRequestDataType } from "./models/UpdateAppsDatastoreItemRequestDataType";
+export { UpdateAppsDatastoreRequest } from "./models/UpdateAppsDatastoreRequest";
+export { UpdateAppsDatastoreRequestData } from "./models/UpdateAppsDatastoreRequestData";
+export { UpdateAppsDatastoreRequestDataAttributes } from "./models/UpdateAppsDatastoreRequestDataAttributes";
 export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";

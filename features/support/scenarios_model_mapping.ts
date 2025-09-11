@@ -2344,6 +2344,101 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v2.ListDatastores": {
+        "operationResponseType": "DatastoreArray",
+    },
+    "v2.CreateDatastore": {
+        "body": {
+            "type": "CreateAppsDatastoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateAppsDatastoreResponse",
+    },
+    "v2.GetDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Datastore",
+    },
+    "v2.DeleteDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateAppsDatastoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "Datastore",
+    },
+    "v2.ListDatastoreItems": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "itemKey": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ItemApiPayloadArray",
+    },
+    "v2.DeleteDatastoreItem": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DeleteAppsDatastoreItemRequest",
+            "format": "",
+            },
+        "operationResponseType": "DeleteAppsDatastoreItemResponse",
+    },
+    "v2.UpdateDatastoreItem": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateAppsDatastoreItemRequest",
+            "format": "",
+            },
+        "operationResponseType": "ItemApiPayload",
+    },
+    "v2.BulkWriteDatastoreItems": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "BulkPutAppsDatastoreItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "PutAppsDatastoreItemResponseArray",
+    },
     "v2.ListAppKeyRegistrations": {
         "pageSize": {
             "type": "number",
