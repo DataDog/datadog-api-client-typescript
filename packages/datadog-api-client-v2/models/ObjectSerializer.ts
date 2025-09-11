@@ -1369,6 +1369,7 @@ import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelin
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
+import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
 import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
 import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./ObservabilityPipelineParseGrokProcessorRuleMatchRule";
@@ -3067,6 +3068,7 @@ const enumsMap: { [key: string]: any[] } = {
     "Palo Alto Networks Firewall Traffic",
   ],
   ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
+  ObservabilityPipelineOpentelemetrySourceType: ["opentelemetry"],
   ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
   ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
   ObservabilityPipelinePipelineKafkaSourceSaslMechanism: [
@@ -5308,6 +5310,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineOcsfMapperProcessorMapping,
   ObservabilityPipelineOpenSearchDestination:
     ObservabilityPipelineOpenSearchDestination,
+  ObservabilityPipelineOpentelemetrySource:
+    ObservabilityPipelineOpentelemetrySource,
   ObservabilityPipelineParseGrokProcessor:
     ObservabilityPipelineParseGrokProcessor,
   ObservabilityPipelineParseGrokProcessorRule:
@@ -6619,6 +6623,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineGooglePubSubSource",
     "ObservabilityPipelineHttpClientSource",
     "ObservabilityPipelineLogstashSource",
+    "ObservabilityPipelineOpentelemetrySource",
     "ObservabilityPipelineSocketSource",
   ],
   ObservabilityPipelineMetricValue: [
