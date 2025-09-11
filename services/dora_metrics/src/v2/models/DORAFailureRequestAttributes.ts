@@ -15,7 +15,7 @@ export class DORAFailureRequestAttributes {
    */
   "env"?: string;
   /**
-   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
+   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds.
    */
   "finishedAt"?: number;
   /**
