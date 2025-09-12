@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of GCP Usage Cost config patch request.
+ * Type of Google Cloud Usage Cost config patch request.
  */
 
 export type GCPUsageCostConfigPatchRequestType =

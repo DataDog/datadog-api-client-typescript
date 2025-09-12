@@ -9,15 +9,15 @@ import { GCPUsageCostConfigPatchRequestType } from "./GCPUsageCostConfigPatchReq
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * GCP Usage Cost config patch data.
+ * Google Cloud Usage Cost config patch data.
  */
 export class GCPUsageCostConfigPatchData {
   /**
-   * Attributes for GCP Usage Cost config patch request.
+   * Attributes for Google Cloud Usage Cost config patch request.
    */
   "attributes": GCPUsageCostConfigPatchRequestAttributes;
   /**
-   * Type of GCP Usage Cost config patch request.
+   * Type of Google Cloud Usage Cost config patch request.
    */
   "type": GCPUsageCostConfigPatchRequestType;
 

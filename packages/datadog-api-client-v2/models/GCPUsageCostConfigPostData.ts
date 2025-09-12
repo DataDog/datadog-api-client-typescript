@@ -9,15 +9,15 @@ import { GCPUsageCostConfigPostRequestType } from "./GCPUsageCostConfigPostReque
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * GCP Usage Cost config post data.
+ * Google Cloud Usage Cost config post data.
  */
 export class GCPUsageCostConfigPostData {
   /**
-   * Attributes for GCP Usage Cost config post request.
+   * Attributes for Google Cloud Usage Cost config post request.
    */
-  "attributes": GCPUsageCostConfigPostRequestAttributes;
+  "attributes"?: GCPUsageCostConfigPostRequestAttributes;
   /**
-   * Type of GCP Usage Cost config post request.
+   * Type of Google Cloud Usage Cost config post request.
    */
   "type": GCPUsageCostConfigPostRequestType;
 
@@ -40,7 +40,6 @@ export class GCPUsageCostConfigPostData {
     attributes: {
       baseName: "attributes",
       type: "GCPUsageCostConfigPostRequestAttributes",
-      required: true,
     },
     type: {
       baseName: "type",

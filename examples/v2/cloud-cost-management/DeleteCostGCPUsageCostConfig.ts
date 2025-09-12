@@ -1,5 +1,5 @@
 /**
- * Delete Cloud Cost Management GCP Usage Cost config returns "No Content" response
+ * Delete Google Cloud Usage Cost config returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

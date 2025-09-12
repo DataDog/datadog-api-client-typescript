@@ -8,11 +8,11 @@ import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * GCP Usage Cost config patch request.
+ * Google Cloud Usage Cost config patch request.
  */
 export class GCPUsageCostConfigPatchRequest {
   /**
-   * GCP Usage Cost config patch data.
+   * Google Cloud Usage Cost config patch data.
    */
   "data": GCPUsageCostConfigPatchData;
 

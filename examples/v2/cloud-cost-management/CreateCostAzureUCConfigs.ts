@@ -25,7 +25,6 @@ const params: v2.CloudCostManagementApiCreateCostAzureUCConfigsRequest = {
           storageContainer: "dd-storage-container",
         },
         clientId: "1234abcd-1234-abcd-1234-1234abcd1234",
-        isEnabled: true,
         scope: "subscriptions/1234abcd-1234-abcd-1234-1234abcd1234",
       },
       type: "azure_uc_config_post_request",

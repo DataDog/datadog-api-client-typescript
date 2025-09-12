@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AzureUCConfig {
   /**
-   * The tenant ID of the azure account.
+   * The tenant ID of the Azure account.
    */
   "accountId": string;
   /**
