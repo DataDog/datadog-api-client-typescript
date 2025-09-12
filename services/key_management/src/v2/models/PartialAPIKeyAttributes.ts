@@ -13,6 +13,10 @@ export class PartialAPIKeyAttributes {
    */
   "createdAt"?: string;
   /**
+   * Date the API Key was last used.
+   */
+  "dateLastUsed"?: Date;
+  /**
    * The last four characters of the API key.
    */
   "last4"?: string;
@@ -50,6 +54,11 @@ export class PartialAPIKeyAttributes {
     createdAt: {
       baseName: "created_at",
       type: "string",
+    },
+    dateLastUsed: {
+      baseName: "date_last_used",
+      type: "Date",
+      format: "date-time",
     },
     last4: {
       baseName: "last4",

@@ -17,6 +17,10 @@ export class FullApplicationKeyAttributes {
    */
   "last4"?: string;
   /**
+   * Last usage timestamp of the application key.
+   */
+  "lastUsedAt"?: Date;
+  /**
    * Name of the application key.
    */
   "name"?: string;
@@ -51,6 +55,11 @@ export class FullApplicationKeyAttributes {
     last4: {
       baseName: "last4",
       type: "string",
+    },
+    lastUsedAt: {
+      baseName: "last_used_at",
+      type: "Date",
+      format: "date-time",
     },
     name: {
       baseName: "name",
