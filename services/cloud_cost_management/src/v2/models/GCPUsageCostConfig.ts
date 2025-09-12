@@ -4,19 +4,19 @@ import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
 import { GCPUsageCostConfigType } from "./GCPUsageCostConfigType";
 
 /**
- * GCP Usage Cost config.
+ * Google Cloud Usage Cost config.
  */
 export class GCPUsageCostConfig {
   /**
-   * Attributes for a GCP Usage Cost config.
+   * Attributes for a Google Cloud Usage Cost config.
    */
   "attributes": GCPUsageCostConfigAttributes;
   /**
-   * The ID of the GCP Usage Cost config.
+   * The ID of the Google Cloud Usage Cost config.
    */
   "id"?: string;
   /**
-   * Type of GCP Usage Cost config.
+   * Type of Google Cloud Usage Cost config.
    */
   "type": GCPUsageCostConfigType;
   /**

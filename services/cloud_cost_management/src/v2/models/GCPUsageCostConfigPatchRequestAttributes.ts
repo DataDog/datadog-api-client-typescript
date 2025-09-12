@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes for GCP Usage Cost config patch request.
+ * Attributes for Google Cloud Usage Cost config patch request.
  */
 export class GCPUsageCostConfigPatchRequestAttributes {
   /**

@@ -1,0 +1,54 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * The definition of `RulesetRespDataAttributesModified` object.
+ */
+export class RulesetRespDataAttributesModified {
+  /**
+   * The `modified` `nanos`.
+   */
+  "nanos"?: number;
+  /**
+   * The `modified` `seconds`.
+   */
+  "seconds"?: number;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    nanos: {
+      baseName: "nanos",
+      type: "number",
+      format: "int32",
+    },
+    seconds: {
+      baseName: "seconds",
+      type: "number",
+      format: "int64",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return RulesetRespDataAttributesModified.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
