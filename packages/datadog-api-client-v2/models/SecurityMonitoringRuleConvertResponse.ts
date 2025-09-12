@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringRuleConvertResponse {
   /**
+   * the ID of the rule.
+   */
+  "ruleId"?: string;
+  /**
    * Terraform string as a result of converting the rule from JSON.
    */
   "terraformContent"?: string;
@@ -31,6 +35,10 @@ export class SecurityMonitoringRuleConvertResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    ruleId: {
+      baseName: "ruleId",
+      type: "string",
+    },
     terraformContent: {
       baseName: "terraformContent",
       type: "string",
