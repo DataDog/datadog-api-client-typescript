@@ -530,6 +530,7 @@ export {
 export {
   OrgConnectionsApiCreateOrgConnectionsRequest,
   OrgConnectionsApiDeleteOrgConnectionsRequest,
+  OrgConnectionsApiListOrgConnectionsRequest,
   OrgConnectionsApiUpdateOrgConnectionsRequest,
   OrgConnectionsApi,
 } from "./apis/OrgConnectionsApi";

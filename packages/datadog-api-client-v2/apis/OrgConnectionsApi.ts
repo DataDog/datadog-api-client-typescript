@@ -100,6 +100,10 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listOrgConnections(
+    sinkOrgId?: string,
+    sourceOrgId?: string,
+    limit?: number,
+    offset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -113,6 +117,36 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (sinkOrgId !== undefined) {
+      requestContext.setQueryParam(
+        "sink_org_id",
+        ObjectSerializer.serialize(sinkOrgId, "string", ""),
+        ""
+      );
+    }
+    if (sourceOrgId !== undefined) {
+      requestContext.setQueryParam(
+        "source_org_id",
+        ObjectSerializer.serialize(sourceOrgId, "string", ""),
+        ""
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        ObjectSerializer.serialize(offset, "number", "int64"),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -437,6 +471,29 @@ export interface OrgConnectionsApiDeleteOrgConnectionsRequest {
   connectionId: string;
 }
 
+export interface OrgConnectionsApiListOrgConnectionsRequest {
+  /**
+   * The Org ID of the sink org.
+   * @type string
+   */
+  sinkOrgId?: string;
+  /**
+   * The Org ID of the source org.
+   * @type string
+   */
+  sourceOrgId?: string;
+  /**
+   * The limit of number of entries you want to return. Default is 1000.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * The pagination offset which you want to query from. Default is 0.
+   * @type number
+   */
+  offset?: number;
+}
+
 export interface OrgConnectionsApiUpdateOrgConnectionsRequest {
   /**
    * The unique identifier of the org connection.
@@ -513,10 +570,16 @@ export class OrgConnectionsApi {
    * @param param The request object
    */
   public listOrgConnections(
+    param: OrgConnectionsApiListOrgConnectionsRequest = {},
     options?: Configuration
   ): Promise<OrgConnectionListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOrgConnections(options);
+    const requestContextPromise = this.requestFactory.listOrgConnections(
+      param.sinkOrgId,
+      param.sourceOrgId,
+      param.limit,
+      param.offset,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

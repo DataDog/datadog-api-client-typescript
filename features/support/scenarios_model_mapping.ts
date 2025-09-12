@@ -6771,6 +6771,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "{}",
     },
     "v2.ListOrgConnections": {
+        "sinkOrgId": {
+            "type": "string",
+            "format": "",
+            },
+        "sourceOrgId": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "OrgConnectionListResponse",
     },
     "v2.CreateOrgConnections": {
