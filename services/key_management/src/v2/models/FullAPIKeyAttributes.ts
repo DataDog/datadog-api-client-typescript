@@ -13,6 +13,10 @@ export class FullAPIKeyAttributes {
    */
   "createdAt"?: Date;
   /**
+   * Date the API Key was last used
+   */
+  "dateLastUsed"?: Date;
+  /**
    * The API key.
    */
   "key"?: string;
@@ -53,6 +57,11 @@ export class FullAPIKeyAttributes {
     },
     createdAt: {
       baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    dateLastUsed: {
+      baseName: "date_last_used",
       type: "Date",
       format: "date-time",
     },
