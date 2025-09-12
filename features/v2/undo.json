@@ -1016,6 +1016,12 @@
       "type": "safe"
     }
   },
+  "DeleteDORADeployment": {
+    "tag": "DORA Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "GetDORADeployment": {
     "tag": "DORA Metrics",
     "undo": {
@@ -1032,6 +1038,12 @@
     "tag": "DORA Metrics",
     "undo": {
       "type": "safe"
+    }
+  },
+  "DeleteDORAFailure": {
+    "tag": "DORA Metrics",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "GetDORAFailure": {
