@@ -10,7 +10,7 @@ export class AzureUCConfigPostData {
   /**
    * Attributes for Azure config Post Request.
    */
-  "attributes": AzureUCConfigPostRequestAttributes;
+  "attributes"?: AzureUCConfigPostRequestAttributes;
   /**
    * Type of Azure config Post Request.
    */
@@ -33,7 +33,6 @@ export class AzureUCConfigPostData {
     attributes: {
       baseName: "attributes",
       type: "AzureUCConfigPostRequestAttributes",
-      required: true,
     },
     type: {
       baseName: "type",

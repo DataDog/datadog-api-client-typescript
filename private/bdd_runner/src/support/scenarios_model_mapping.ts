@@ -4375,6 +4375,48 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ContainersResponse",
   },
+  "CloudCostManagementApi.V2.ListArbitraryCostRules": {
+    operationResponseType: "ArbitraryRuleResponseArray",
+  },
+  "CloudCostManagementApi.V2.CreateArbitraryCostRule": {
+    body: {
+      type: "ArbitraryCostUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "ArbitraryRuleResponse",
+  },
+  "CloudCostManagementApi.V2.ReorderArbitraryCostRules": {
+    body: {
+      type: "ReorderRuleResourceArray",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.GetArbitraryCostRule": {
+    ruleId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ArbitraryRuleResponse",
+  },
+  "CloudCostManagementApi.V2.DeleteArbitraryCostRule": {
+    ruleId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateArbitraryCostRule": {
+    ruleId: {
+      type: "number",
+      format: "int64",
+    },
+    body: {
+      type: "ArbitraryCostUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "ArbitraryRuleResponse",
+  },
   "CloudCostManagementApi.V2.ListCostAWSCURConfigs": {
     operationResponseType: "AwsCURConfigsResponse",
   },
@@ -4383,7 +4425,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "AwsCURConfigPostRequest",
       format: "",
     },
-    operationResponseType: "AwsCURConfigResponse",
+    operationResponseType: "AwsCurConfigResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostAWSCURConfig": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "AwsCurConfigResponse",
   },
   "CloudCostManagementApi.V2.DeleteCostAWSCURConfig": {
     cloudAccountId: {
@@ -4412,6 +4461,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "AzureUCConfigPairsResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostAzureUCConfig": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "UCConfigPair",
   },
   "CloudCostManagementApi.V2.DeleteCostAzureUCConfig": {
     cloudAccountId: {
@@ -4505,6 +4561,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GCPUsageCostConfigResponse",
   },
+  "CloudCostManagementApi.V2.GetCostGCPUsageCostConfig": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "GcpUcConfigResponse",
+  },
   "CloudCostManagementApi.V2.DeleteCostGCPUsageCostConfig": {
     cloudAccountId: {
       type: "number",
@@ -4522,6 +4585,55 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "GCPUsageCostConfigResponse",
+  },
+  "CloudCostManagementApi.V2.ListRulesets": {
+    operationResponseType: "RulesetRespArray",
+  },
+  "CloudCostManagementApi.V2.CreateRuleset": {
+    body: {
+      type: "CreateRulesetRequest",
+      format: "",
+    },
+    operationResponseType: "RulesetResp",
+  },
+  "CloudCostManagementApi.V2.ReorderRulesets": {
+    body: {
+      type: "ReorderRulesetResourceArray",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.ValidateQuery": {
+    body: {
+      type: "RulesValidateQueryRequest",
+      format: "",
+    },
+    operationResponseType: "RulesValidateQueryResponse",
+  },
+  "CloudCostManagementApi.V2.GetRuleset": {
+    rulesetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RulesetResp",
+  },
+  "CloudCostManagementApi.V2.DeleteRuleset": {
+    rulesetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateRuleset": {
+    rulesetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateRulesetRequest",
+      format: "",
+    },
+    operationResponseType: "RulesetResp",
   },
   "UsageMeteringApi.V2.GetActiveBillingDimensions": {
     operationResponseType: "ActiveBillingDimensionsResponse",

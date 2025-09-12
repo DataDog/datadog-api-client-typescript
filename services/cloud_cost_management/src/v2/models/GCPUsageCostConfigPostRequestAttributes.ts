@@ -1,31 +1,31 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes for GCP Usage Cost config post request.
+ * Attributes for Google Cloud Usage Cost config post request.
  */
 export class GCPUsageCostConfigPostRequestAttributes {
   /**
-   * The GCP account ID.
+   * The Google Cloud account ID.
    */
   "billingAccountId": string;
   /**
-   * The GCP bucket name used to store the Usage Cost export.
+   * The Google Cloud bucket name used to store the Usage Cost export.
    */
   "bucketName": string;
   /**
-   * The export dataset name used for the GCP Usage Cost report.
+   * The export dataset name used for the Google Cloud Usage Cost report.
    */
   "exportDatasetName": string;
   /**
-   * The export prefix used for the GCP Usage Cost report.
+   * The export prefix used for the Google Cloud Usage Cost report.
    */
   "exportPrefix"?: string;
   /**
-   * The name of the GCP Usage Cost report.
+   * The name of the Google Cloud Usage Cost report.
    */
   "exportProjectName": string;
   /**
-   * The unique GCP service account email.
+   * The unique Google Cloud service account email.
    */
   "serviceAccount": string;
   /**

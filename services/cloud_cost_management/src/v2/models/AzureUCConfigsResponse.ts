@@ -9,7 +9,7 @@ export class AzureUCConfigsResponse {
   /**
    * An Azure config pair.
    */
-  "data"?: Array<AzureUCConfigPair>;
+  "data": Array<AzureUCConfigPair>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +28,7 @@ export class AzureUCConfigsResponse {
     data: {
       baseName: "data",
       type: "Array<AzureUCConfigPair>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
