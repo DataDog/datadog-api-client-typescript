@@ -24,7 +24,7 @@ const params: v2.CloudCostManagementApiCreateCostAWSCURConfigRequest = {
 
 apiInstance
   .createCostAWSCURConfig(params)
-  .then((data: v2.AwsCURConfigResponse) => {
+  .then((data: v2.AwsCurConfigResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

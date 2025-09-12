@@ -15,7 +15,7 @@ export class AzureUCConfigPatchData {
   /**
    * Attributes for Azure config Patch Request.
    */
-  "attributes": AzureUCConfigPatchRequestAttributes;
+  "attributes"?: AzureUCConfigPatchRequestAttributes;
   /**
    * Type of Azure config Patch Request.
    */
@@ -40,7 +40,6 @@ export class AzureUCConfigPatchData {
     attributes: {
       baseName: "attributes",
       type: "AzureUCConfigPatchRequestAttributes",
-      required: true,
     },
     type: {
       baseName: "type",
