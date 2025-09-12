@@ -8,6 +8,7 @@ import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitor
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
+import { SecurityMonitoringRuleSequenceDetectionOptions } from "./SecurityMonitoringRuleSequenceDetectionOptions";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 
 /**
@@ -56,6 +57,10 @@ export class SecurityMonitoringRuleOptions {
    * Options on new value detection method.
    */
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
+  /**
+   * Options on sequence detection method.
+   */
+  "sequenceDetectionOptions"?: SecurityMonitoringRuleSequenceDetectionOptions;
   /**
    * Options on third party detection method.
    */
@@ -113,6 +118,10 @@ export class SecurityMonitoringRuleOptions {
     newValueOptions: {
       baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
+    },
+    sequenceDetectionOptions: {
+      baseName: "sequenceDetectionOptions",
+      type: "SecurityMonitoringRuleSequenceDetectionOptions",
     },
     thirdPartyRuleOptions: {
       baseName: "thirdPartyRuleOptions",
