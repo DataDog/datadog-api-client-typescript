@@ -7,8 +7,11 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
+// there is a valid "application_key" in the system
+const APPLICATION_KEY_DATA_ID = process.env.APPLICATION_KEY_DATA_ID as string;
+
 const params: v2.KeyManagementApiGetCurrentUserApplicationKeyRequest = {
-  appKeyId: "app_key_id",
+  appKeyId: APPLICATION_KEY_DATA_ID,
 };
 
 apiInstance
