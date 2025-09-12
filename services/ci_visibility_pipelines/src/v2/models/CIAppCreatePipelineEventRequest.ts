@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CIAppCreatePipelineEventRequestData } from "./CIAppCreatePipelineEventRequestData";
+import { CIAppCreatePipelineEventRequestDataSingleOrArray } from "./CIAppCreatePipelineEventRequestDataSingleOrArray";
 
 /**
  * Request object.
  */
 export class CIAppCreatePipelineEventRequest {
   /**
-   * Data of the pipeline event to create.
+   * Data of the pipeline events to create.
    */
-  "data"?: CIAppCreatePipelineEventRequestData;
+  "data"?: CIAppCreatePipelineEventRequestDataSingleOrArray;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class CIAppCreatePipelineEventRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "CIAppCreatePipelineEventRequestData",
+      type: "CIAppCreatePipelineEventRequestDataSingleOrArray",
     },
     additionalProperties: {
       baseName: "additionalProperties",
