@@ -1,6 +1,7 @@
 export {
   OrgConnectionsApiCreateOrgConnectionsRequest,
   OrgConnectionsApiDeleteOrgConnectionsRequest,
+  OrgConnectionsApiListOrgConnectionsRequest,
   OrgConnectionsApiUpdateOrgConnectionsRequest,
   OrgConnectionsApi,
 } from "./OrgConnectionsApi";

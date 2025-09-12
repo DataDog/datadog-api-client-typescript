@@ -6781,6 +6781,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "{}",
   },
   "OrgConnectionsApi.V2.ListOrgConnections": {
+    sinkOrgId: {
+      type: "string",
+      format: "",
+    },
+    sourceOrgId: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    offset: {
+      type: "number",
+      format: "int64",
+    },
     operationResponseType: "OrgConnectionListResponse",
   },
   "OrgConnectionsApi.V2.CreateOrgConnections": {

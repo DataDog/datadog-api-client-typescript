@@ -26,8 +26,9 @@ import { v2 } from "@datadog/datadog-api-client-org-connections";
 
 const configuration = createConfiguration();
 const apiInstance = new OrgConnectionsApiV2(configuration);
+const params = {/* parameters */};
 
-apiInstance.listOrgConnections().then((data) => {
+apiInstance.listOrgConnections(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
