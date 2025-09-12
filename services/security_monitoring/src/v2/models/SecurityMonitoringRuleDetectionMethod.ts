@@ -11,6 +11,7 @@ export type SecurityMonitoringRuleDetectionMethod =
   | typeof HARDCODED
   | typeof THIRD_PARTY
   | typeof ANOMALY_THRESHOLD
+  | typeof SEQUENCE_DETECTION
   | UnparsedObject;
 export const THRESHOLD = "threshold";
 export const NEW_VALUE = "new_value";
@@ -19,3 +20,4 @@ export const IMPOSSIBLE_TRAVEL = "impossible_travel";
 export const HARDCODED = "hardcoded";
 export const THIRD_PARTY = "third_party";
 export const ANOMALY_THRESHOLD = "anomaly_threshold";
+export const SEQUENCE_DETECTION = "sequence_detection";
