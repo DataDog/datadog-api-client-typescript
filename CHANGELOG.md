@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 1.43.0/2025-09-15
+
+### Added
+* Add Query Parameters to ListOrgConnections Endpoint [#2784](https://github.com/DataDog/datadog-api-client-typescript/pull/2784)
+* Add Incident Notification Rules Public Spec [#2772](https://github.com/DataDog/datadog-api-client-typescript/pull/2772)
+* Update v1 and v2 GCP API specs to support `monitored_resource_configs` [#2769](https://github.com/DataDog/datadog-api-client-typescript/pull/2769)
+* Add action datastore API [#2731](https://github.com/DataDog/datadog-api-client-typescript/pull/2731)
+* Security Monitoring - Make hasOptionalGroupByFields updatable [#2639](https://github.com/DataDog/datadog-api-client-typescript/pull/2639)
+
+### Deprecated
+* Promote unstable aws v2 APIs and deprecate v1 [#2767](https://github.com/DataDog/datadog-api-client-typescript/pull/2767)
+
+### Changed
+* Allow to send batches of events in pipelines API [#2737](https://github.com/DataDog/datadog-api-client-typescript/pull/2737)
+
 ## 1.42.0/2025-09-09
 
 ### Added
