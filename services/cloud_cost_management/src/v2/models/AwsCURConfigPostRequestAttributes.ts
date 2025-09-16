@@ -7,7 +7,7 @@ import { AccountFilteringConfig } from "./AccountFilteringConfig";
  */
 export class AwsCURConfigPostRequestAttributes {
   /**
-   * The account filtering configuration.
+   * The account filtering configuration object.
    */
   "accountFilters"?: AccountFilteringConfig;
   /**

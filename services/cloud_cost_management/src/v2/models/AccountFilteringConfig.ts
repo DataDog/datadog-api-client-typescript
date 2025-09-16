@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The account filtering configuration.
+ * The account filtering configuration object.
  */
 export class AccountFilteringConfig {
   /**
