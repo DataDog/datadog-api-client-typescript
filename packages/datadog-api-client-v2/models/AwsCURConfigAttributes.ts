@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AwsCURConfigAttributes {
   /**
-   * The account filtering configuration.
+   * The account filtering configuration object.
    */
   "accountFilters"?: AccountFilteringConfig;
   /**
