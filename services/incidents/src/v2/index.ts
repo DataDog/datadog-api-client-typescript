@@ -1,11 +1,13 @@
 export {
   IncidentsApiCreateIncidentRequest,
+  IncidentsApiCreateIncidentImpactRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentNotificationRuleRequest,
   IncidentsApiCreateIncidentNotificationTemplateRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
+  IncidentsApiDeleteIncidentImpactRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentNotificationRuleRequest,
   IncidentsApiDeleteIncidentNotificationTemplateRequest,
@@ -18,6 +20,7 @@ export {
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
   IncidentsApiListIncidentAttachmentsRequest,
+  IncidentsApiListIncidentImpactsRequest,
   IncidentsApiListIncidentIntegrationsRequest,
   IncidentsApiListIncidentNotificationRulesRequest,
   IncidentsApiListIncidentNotificationTemplatesRequest,
@@ -67,7 +70,17 @@ export { IncidentFieldAttributesMultipleValue } from "./models/IncidentFieldAttr
 export { IncidentFieldAttributesSingleValue } from "./models/IncidentFieldAttributesSingleValue";
 export { IncidentFieldAttributesSingleValueType } from "./models/IncidentFieldAttributesSingleValueType";
 export { IncidentFieldAttributesValueType } from "./models/IncidentFieldAttributesValueType";
+export { IncidentImpactAttributes } from "./models/IncidentImpactAttributes";
+export { IncidentImpactCreateAttributes } from "./models/IncidentImpactCreateAttributes";
+export { IncidentImpactCreateData } from "./models/IncidentImpactCreateData";
+export { IncidentImpactCreateRequest } from "./models/IncidentImpactCreateRequest";
+export { IncidentImpactRelatedObject } from "./models/IncidentImpactRelatedObject";
+export { IncidentImpactRelationships } from "./models/IncidentImpactRelationships";
+export { IncidentImpactResponse } from "./models/IncidentImpactResponse";
+export { IncidentImpactResponseData } from "./models/IncidentImpactResponseData";
+export { IncidentImpactsResponse } from "./models/IncidentImpactsResponse";
 export { IncidentImpactsType } from "./models/IncidentImpactsType";
+export { IncidentImpactType } from "./models/IncidentImpactType";
 export { IncidentIntegrationMetadataAttributes } from "./models/IncidentIntegrationMetadataAttributes";
 export { IncidentIntegrationMetadataCreateData } from "./models/IncidentIntegrationMetadataCreateData";
 export { IncidentIntegrationMetadataCreateRequest } from "./models/IncidentIntegrationMetadataCreateRequest";
@@ -186,8 +199,10 @@ export { NullableRelationshipToUserData } from "./models/NullableRelationshipToU
 export { OrganizationsType } from "./models/OrganizationsType";
 export { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
+export { RelationshipToIncident } from "./models/RelationshipToIncident";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
+export { RelationshipToIncidentData } from "./models/RelationshipToIncidentData";
 export { RelationshipToIncidentImpactData } from "./models/RelationshipToIncidentImpactData";
 export { RelationshipToIncidentImpacts } from "./models/RelationshipToIncidentImpacts";
 export { RelationshipToIncidentIntegrationMetadataData } from "./models/RelationshipToIncidentIntegrationMetadataData";

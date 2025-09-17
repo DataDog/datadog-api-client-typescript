@@ -31,6 +31,10 @@ import { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsRespons
 import { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpdateRequest";
 import { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";
 import { IncidentCreateRequest } from "./models/IncidentCreateRequest";
+import { IncidentImpactCreateRequest } from "./models/IncidentImpactCreateRequest";
+import { IncidentImpactRelatedObject } from "./models/IncidentImpactRelatedObject";
+import { IncidentImpactResponse } from "./models/IncidentImpactResponse";
+import { IncidentImpactsResponse } from "./models/IncidentImpactsResponse";
 import { IncidentIntegrationMetadataCreateRequest } from "./models/IncidentIntegrationMetadataCreateRequest";
 import { IncidentIntegrationMetadataListResponse } from "./models/IncidentIntegrationMetadataListResponse";
 import { IncidentIntegrationMetadataPatchRequest } from "./models/IncidentIntegrationMetadataPatchRequest";
@@ -111,6 +115,87 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentImpact(
+    incidentId: string,
+    body: IncidentImpactCreateRequest,
+    include?: Array<IncidentImpactRelatedObject>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentImpact"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentImpact' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentImpact'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentImpact");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentImpact");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentImpact",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(
+          include,
+          TypingInfo,
+          "Array<IncidentImpactRelatedObject>",
+          "",
+        ),
+        "csv",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentImpactCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -476,6 +561,62 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.deleteIncident",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteIncidentImpact(
+    incidentId: string,
+    impactId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentImpact"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentImpact' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentImpact'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "deleteIncidentImpact");
+    }
+
+    // verify required parameter 'impactId' is not null or undefined
+    if (impactId === null || impactId === undefined) {
+      throw new RequiredError("impactId", "deleteIncidentImpact");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts/{impact_id}"
+      .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+      .replace("{impact_id}", encodeURIComponent(String(impactId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteIncidentImpact",
       IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1245,6 +1386,72 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentImpacts(
+    incidentId: string,
+    include?: Array<IncidentImpactRelatedObject>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentImpacts"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentImpacts' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentImpacts'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "listIncidentImpacts");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listIncidentImpacts",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(
+          include,
+          TypingInfo,
+          "Array<IncidentImpactRelatedObject>",
+          "",
+        ),
+        "csv",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2302,6 +2509,68 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentImpact
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentImpact(
+    response: ResponseContext,
+  ): Promise<IncidentImpactResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactResponse",
+      ) as IncidentImpactResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactResponse",
+        "",
+      ) as IncidentImpactResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2622,6 +2891,54 @@ export class IncidentsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentImpact
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentImpact(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
@@ -3332,6 +3649,68 @@ export class IncidentsApiResponseProcessor {
         "IncidentAttachmentsResponse",
         "",
       ) as IncidentAttachmentsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentImpacts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentImpacts(
+    response: ResponseContext,
+  ): Promise<IncidentImpactsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentImpactsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactsResponse",
+      ) as IncidentImpactsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactsResponse",
+        "",
+      ) as IncidentImpactsResponse;
       return body;
     }
 
@@ -4218,6 +4597,24 @@ export interface IncidentsApiCreateIncidentRequest {
   body: IncidentCreateRequest;
 }
 
+export interface IncidentsApiCreateIncidentImpactRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Incident impact payload.
+   * @type IncidentImpactCreateRequest
+   */
+  body: IncidentImpactCreateRequest;
+  /**
+   * Specifies which related resources should be included in the response.
+   * @type Array<IncidentImpactRelatedObject>
+   */
+  include?: Array<IncidentImpactRelatedObject>;
+}
+
 export interface IncidentsApiCreateIncidentIntegrationRequest {
   /**
    * The UUID of the incident.
@@ -4272,6 +4669,19 @@ export interface IncidentsApiDeleteIncidentRequest {
    * @type string
    */
   incidentId: string;
+}
+
+export interface IncidentsApiDeleteIncidentImpactRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the incident impact.
+   * @type string
+   */
+  impactId: string;
 }
 
 export interface IncidentsApiDeleteIncidentIntegrationRequest {
@@ -4423,6 +4833,19 @@ export interface IncidentsApiListIncidentAttachmentsRequest {
    * @type Array<IncidentAttachmentAttachmentType>
    */
   filterAttachmentType?: Array<IncidentAttachmentAttachmentType>;
+}
+
+export interface IncidentsApiListIncidentImpactsRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Specifies which related resources should be included in the response.
+   * @type Array<IncidentImpactRelatedObject>
+   */
+  include?: Array<IncidentImpactRelatedObject>;
 }
 
 export interface IncidentsApiListIncidentIntegrationsRequest {
@@ -4678,6 +5101,29 @@ export class IncidentsApi {
   }
 
   /**
+   * Create an impact for an incident.
+   * @param param The request object
+   */
+  public createIncidentImpact(
+    param: IncidentsApiCreateIncidentImpactRequest,
+    options?: Configuration,
+  ): Promise<IncidentImpactResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentImpact(
+      param.incidentId,
+      param.body,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentImpact(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create an incident integration metadata.
    * @param param The request object
    */
@@ -4806,6 +5252,28 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an incident impact.
+   * @param param The request object
+   */
+  public deleteIncidentImpact(
+    param: IncidentsApiDeleteIncidentImpactRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentImpact(
+      param.incidentId,
+      param.impactId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentImpact(responseContext);
         });
     });
   }
@@ -5085,6 +5553,28 @@ export class IncidentsApi {
           return this.responseProcessor.listIncidentAttachments(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Get all impacts for an incident.
+   * @param param The request object
+   */
+  public listIncidentImpacts(
+    param: IncidentsApiListIncidentImpactsRequest,
+    options?: Configuration,
+  ): Promise<IncidentImpactsResponse> {
+    const requestContextPromise = this.requestFactory.listIncidentImpacts(
+      param.incidentId,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentImpacts(responseContext);
         });
     });
   }
