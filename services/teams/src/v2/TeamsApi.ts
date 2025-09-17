@@ -2573,7 +2573,7 @@ export interface TeamsApiGetTeamMembershipsRequest {
    */
   teamId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
@@ -2617,7 +2617,7 @@ export interface TeamsApiListMemberTeamsRequest {
    */
   superTeamId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
@@ -2640,7 +2640,7 @@ export interface TeamsApiListTeamsRequest {
    */
   pageNumber?: number;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;

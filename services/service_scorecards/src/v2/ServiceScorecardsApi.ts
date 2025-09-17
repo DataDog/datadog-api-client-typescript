@@ -1028,7 +1028,7 @@ export interface ServiceScorecardsApiDeleteScorecardRuleRequest {
 
 export interface ServiceScorecardsApiListScorecardOutcomesRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
@@ -1081,7 +1081,7 @@ export interface ServiceScorecardsApiListScorecardOutcomesRequest {
 
 export interface ServiceScorecardsApiListScorecardRulesRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;

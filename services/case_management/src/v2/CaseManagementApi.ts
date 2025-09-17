@@ -1722,7 +1722,7 @@ export interface CaseManagementApiGetProjectRequest {
 
 export interface CaseManagementApiSearchCasesRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
