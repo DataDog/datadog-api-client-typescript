@@ -21,6 +21,14 @@ import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentImpactAttributes } from "./IncidentImpactAttributes";
+import { IncidentImpactCreateAttributes } from "./IncidentImpactCreateAttributes";
+import { IncidentImpactCreateData } from "./IncidentImpactCreateData";
+import { IncidentImpactCreateRequest } from "./IncidentImpactCreateRequest";
+import { IncidentImpactRelationships } from "./IncidentImpactRelationships";
+import { IncidentImpactResponse } from "./IncidentImpactResponse";
+import { IncidentImpactResponseData } from "./IncidentImpactResponseData";
+import { IncidentImpactsResponse } from "./IncidentImpactsResponse";
 import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
 import { IncidentIntegrationMetadataCreateData } from "./IncidentIntegrationMetadataCreateData";
 import { IncidentIntegrationMetadataCreateRequest } from "./IncidentIntegrationMetadataCreateRequest";
@@ -113,8 +121,10 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
+import { RelationshipToIncident } from "./RelationshipToIncident";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
+import { RelationshipToIncidentData } from "./RelationshipToIncidentData";
 import { RelationshipToIncidentImpactData } from "./RelationshipToIncidentImpactData";
 import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
@@ -159,6 +169,12 @@ export const TypingInfo: ModelTypingInfo = {
       "metrictag",
       "autocomplete",
     ],
+    IncidentImpactRelatedObject: [
+      "incident",
+      "created_by_user",
+      "last_modified_by_user",
+    ],
+    IncidentImpactType: ["incident_impacts"],
     IncidentImpactsType: ["incident_impacts"],
     IncidentIntegrationMetadataType: ["incident_integrations"],
     IncidentNotificationRuleAttributesVisibility: [
@@ -260,6 +276,14 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentCreateRequest: IncidentCreateRequest,
     IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
     IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+    IncidentImpactAttributes: IncidentImpactAttributes,
+    IncidentImpactCreateAttributes: IncidentImpactCreateAttributes,
+    IncidentImpactCreateData: IncidentImpactCreateData,
+    IncidentImpactCreateRequest: IncidentImpactCreateRequest,
+    IncidentImpactRelationships: IncidentImpactRelationships,
+    IncidentImpactResponse: IncidentImpactResponse,
+    IncidentImpactResponseData: IncidentImpactResponseData,
+    IncidentImpactsResponse: IncidentImpactsResponse,
     IncidentIntegrationMetadataAttributes:
       IncidentIntegrationMetadataAttributes,
     IncidentIntegrationMetadataCreateData:
@@ -380,8 +404,10 @@ export const TypingInfo: ModelTypingInfo = {
     PatchIncidentNotificationTemplateRequest:
       PatchIncidentNotificationTemplateRequest,
     PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
+    RelationshipToIncident: RelationshipToIncident,
     RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
     RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
+    RelationshipToIncidentData: RelationshipToIncidentData,
     RelationshipToIncidentImpactData: RelationshipToIncidentImpactData,
     RelationshipToIncidentImpacts: RelationshipToIncidentImpacts,
     RelationshipToIncidentIntegrationMetadataData:
