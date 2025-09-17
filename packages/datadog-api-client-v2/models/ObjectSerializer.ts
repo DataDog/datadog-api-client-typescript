@@ -280,6 +280,9 @@ import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseAssignRequest } from "./CaseAssignRequest";
 import { CaseAttributes } from "./CaseAttributes";
+import { CaseComment } from "./CaseComment";
+import { CaseCommentAttributes } from "./CaseCommentAttributes";
+import { CaseCommentRequest } from "./CaseCommentRequest";
 import { CaseCreate } from "./CaseCreate";
 import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
@@ -290,15 +293,29 @@ import { CaseRelationships } from "./CaseRelationships";
 import { CaseResponse } from "./CaseResponse";
 import { CaseTrigger } from "./CaseTrigger";
 import { CaseTriggerWrapper } from "./CaseTriggerWrapper";
+import { CaseTypeCreate } from "./CaseTypeCreate";
+import { CaseTypeCreateRequest } from "./CaseTypeCreateRequest";
+import { CaseTypeResource } from "./CaseTypeResource";
+import { CaseTypeResourceAttributes } from "./CaseTypeResourceAttributes";
+import { CaseTypeResponse } from "./CaseTypeResponse";
+import { CaseTypesResponse } from "./CaseTypesResponse";
 import { CaseUpdateAttributes } from "./CaseUpdateAttributes";
 import { CaseUpdateAttributesAttributes } from "./CaseUpdateAttributesAttributes";
 import { CaseUpdateAttributesRequest } from "./CaseUpdateAttributesRequest";
+import { CaseUpdateCustomAttribute } from "./CaseUpdateCustomAttribute";
+import { CaseUpdateCustomAttributeRequest } from "./CaseUpdateCustomAttributeRequest";
+import { CaseUpdateDescription } from "./CaseUpdateDescription";
+import { CaseUpdateDescriptionAttributes } from "./CaseUpdateDescriptionAttributes";
+import { CaseUpdateDescriptionRequest } from "./CaseUpdateDescriptionRequest";
 import { CaseUpdatePriority } from "./CaseUpdatePriority";
 import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 import { CaseUpdatePriorityRequest } from "./CaseUpdatePriorityRequest";
 import { CaseUpdateStatus } from "./CaseUpdateStatus";
 import { CaseUpdateStatusAttributes } from "./CaseUpdateStatusAttributes";
 import { CaseUpdateStatusRequest } from "./CaseUpdateStatusRequest";
+import { CaseUpdateTitle } from "./CaseUpdateTitle";
+import { CaseUpdateTitleAttributes } from "./CaseUpdateTitleAttributes";
+import { CaseUpdateTitleRequest } from "./CaseUpdateTitleRequest";
 import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
@@ -487,6 +504,14 @@ import { CsmHostsAndContainersCoverageAnalysisResponse } from "./CsmHostsAndCont
 import { CsmServerlessCoverageAnalysisAttributes } from "./CsmServerlessCoverageAnalysisAttributes";
 import { CsmServerlessCoverageAnalysisData } from "./CsmServerlessCoverageAnalysisData";
 import { CsmServerlessCoverageAnalysisResponse } from "./CsmServerlessCoverageAnalysisResponse";
+import { CustomAttributeConfig } from "./CustomAttributeConfig";
+import { CustomAttributeConfigAttributesCreate } from "./CustomAttributeConfigAttributesCreate";
+import { CustomAttributeConfigCreate } from "./CustomAttributeConfigCreate";
+import { CustomAttributeConfigCreateRequest } from "./CustomAttributeConfigCreateRequest";
+import { CustomAttributeConfigResourceAttributes } from "./CustomAttributeConfigResourceAttributes";
+import { CustomAttributeConfigResponse } from "./CustomAttributeConfigResponse";
+import { CustomAttributeConfigsResponse } from "./CustomAttributeConfigsResponse";
+import { CustomAttributeValue } from "./CustomAttributeValue";
 import { CustomConnection } from "./CustomConnection";
 import { CustomConnectionAttributes } from "./CustomConnectionAttributes";
 import { CustomConnectionAttributesOnPremRunner } from "./CustomConnectionAttributesOnPremRunner";
@@ -2131,6 +2156,12 @@ import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
+import { TimelineCell } from "./TimelineCell";
+import { TimelineCellAuthorUser } from "./TimelineCellAuthorUser";
+import { TimelineCellAuthorUserContent } from "./TimelineCellAuthorUserContent";
+import { TimelineCellContentComment } from "./TimelineCellContentComment";
+import { TimelineCellResource } from "./TimelineCellResource";
+import { TimelineResponse } from "./TimelineResponse";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -2509,6 +2540,7 @@ const enumsMap: { [key: string]: any[] } = {
   CaseSortableField: ["created_at", "priority", "status"],
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
+  CaseTypeResourceType: ["case_type"],
   ChangeEventAttributesAuthorType: ["user", "system", "api", "automation"],
   ChangeEventAttributesChangedResourceType: ["feature_flag", "configuration"],
   ChangeEventAttributesImpactedResourcesItemType: ["service"],
@@ -2596,6 +2628,8 @@ const enumsMap: { [key: string]: any[] } = {
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
+  CustomAttributeConfigResourceType: ["custom_attribute"],
+  CustomAttributeType: ["URL", "TEXT", "NUMBER"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
@@ -3649,6 +3683,9 @@ const enumsMap: { [key: string]: any[] } = {
     "team_links",
     "user_team_permissions",
   ],
+  TimelineCellAuthorUserType: ["USER"],
+  TimelineCellResourceType: ["timeline_cell"],
+  TimelineCellType: ["COMMENT"],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
@@ -4096,6 +4133,9 @@ const typeMap: { [index: string]: any } = {
   CaseAssignAttributes: CaseAssignAttributes,
   CaseAssignRequest: CaseAssignRequest,
   CaseAttributes: CaseAttributes,
+  CaseComment: CaseComment,
+  CaseCommentAttributes: CaseCommentAttributes,
+  CaseCommentRequest: CaseCommentRequest,
   CaseCreate: CaseCreate,
   CaseCreateAttributes: CaseCreateAttributes,
   CaseCreateRelationships: CaseCreateRelationships,
@@ -4106,15 +4146,29 @@ const typeMap: { [index: string]: any } = {
   CaseResponse: CaseResponse,
   CaseTrigger: CaseTrigger,
   CaseTriggerWrapper: CaseTriggerWrapper,
+  CaseTypeCreate: CaseTypeCreate,
+  CaseTypeCreateRequest: CaseTypeCreateRequest,
+  CaseTypeResource: CaseTypeResource,
+  CaseTypeResourceAttributes: CaseTypeResourceAttributes,
+  CaseTypeResponse: CaseTypeResponse,
+  CaseTypesResponse: CaseTypesResponse,
   CaseUpdateAttributes: CaseUpdateAttributes,
   CaseUpdateAttributesAttributes: CaseUpdateAttributesAttributes,
   CaseUpdateAttributesRequest: CaseUpdateAttributesRequest,
+  CaseUpdateCustomAttribute: CaseUpdateCustomAttribute,
+  CaseUpdateCustomAttributeRequest: CaseUpdateCustomAttributeRequest,
+  CaseUpdateDescription: CaseUpdateDescription,
+  CaseUpdateDescriptionAttributes: CaseUpdateDescriptionAttributes,
+  CaseUpdateDescriptionRequest: CaseUpdateDescriptionRequest,
   CaseUpdatePriority: CaseUpdatePriority,
   CaseUpdatePriorityAttributes: CaseUpdatePriorityAttributes,
   CaseUpdatePriorityRequest: CaseUpdatePriorityRequest,
   CaseUpdateStatus: CaseUpdateStatus,
   CaseUpdateStatusAttributes: CaseUpdateStatusAttributes,
   CaseUpdateStatusRequest: CaseUpdateStatusRequest,
+  CaseUpdateTitle: CaseUpdateTitle,
+  CaseUpdateTitleAttributes: CaseUpdateTitleAttributes,
+  CaseUpdateTitleRequest: CaseUpdateTitleRequest,
   CasesResponse: CasesResponse,
   CasesResponseMeta: CasesResponseMeta,
   CasesResponseMetaPagination: CasesResponseMetaPagination,
@@ -4346,6 +4400,15 @@ const typeMap: { [index: string]: any } = {
     CsmServerlessCoverageAnalysisAttributes,
   CsmServerlessCoverageAnalysisData: CsmServerlessCoverageAnalysisData,
   CsmServerlessCoverageAnalysisResponse: CsmServerlessCoverageAnalysisResponse,
+  CustomAttributeConfig: CustomAttributeConfig,
+  CustomAttributeConfigAttributesCreate: CustomAttributeConfigAttributesCreate,
+  CustomAttributeConfigCreate: CustomAttributeConfigCreate,
+  CustomAttributeConfigCreateRequest: CustomAttributeConfigCreateRequest,
+  CustomAttributeConfigResourceAttributes:
+    CustomAttributeConfigResourceAttributes,
+  CustomAttributeConfigResponse: CustomAttributeConfigResponse,
+  CustomAttributeConfigsResponse: CustomAttributeConfigsResponse,
+  CustomAttributeValue: CustomAttributeValue,
   CustomConnection: CustomConnection,
   CustomConnectionAttributes: CustomConnectionAttributes,
   CustomConnectionAttributesOnPremRunner:
@@ -6260,6 +6323,12 @@ const typeMap: { [index: string]: any } = {
   TeamsResponseMetaPagination: TeamsResponseMetaPagination,
   TimeRestriction: TimeRestriction,
   TimeRestrictions: TimeRestrictions,
+  TimelineCell: TimelineCell,
+  TimelineCellAuthorUser: TimelineCellAuthorUser,
+  TimelineCellAuthorUserContent: TimelineCellAuthorUserContent,
+  TimelineCellContentComment: TimelineCellContentComment,
+  TimelineCellResource: TimelineCellResource,
+  TimelineResponse: TimelineResponse,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
   TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
   TimeseriesFormulaRequest: TimeseriesFormulaRequest,
@@ -6525,6 +6594,12 @@ const oneOfMap: { [index: string]: string[] } = {
   ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
+  CustomAttributeValuesUnion: [
+    "string",
+    "Array<string>",
+    "number",
+    "Array<number>",
+  ],
   CustomDestinationForwardDestination: [
     "CustomDestinationForwardDestinationHttp",
     "CustomDestinationForwardDestinationSplunk",
@@ -6857,6 +6932,8 @@ const oneOfMap: { [index: string]: string[] } = {
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TeamOnCallRespondersIncluded: ["User", "Escalation"],
   TeamRoutingRulesIncluded: ["RoutingRule"],
+  TimelineCellAuthor: ["TimelineCellAuthorUser"],
+  TimelineCellContent: ["TimelineCellContentComment"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   Trigger: [
     "APITriggerWrapper",
