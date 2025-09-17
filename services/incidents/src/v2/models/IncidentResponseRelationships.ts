@@ -25,6 +25,10 @@ export class IncidentResponseRelationships {
    */
   "createdByUser"?: RelationshipToUser;
   /**
+   * Relationship to user.
+   */
+  "declaredByUser"?: RelationshipToUser;
+  /**
    * Relationship to impacts.
    */
   "impacts"?: RelationshipToIncidentImpacts;
@@ -69,6 +73,10 @@ export class IncidentResponseRelationships {
     },
     createdByUser: {
       baseName: "created_by_user",
+      type: "RelationshipToUser",
+    },
+    declaredByUser: {
+      baseName: "declared_by_user",
       type: "RelationshipToUser",
     },
     impacts: {

@@ -5349,6 +5349,43 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentAttachmentUpdateResponse",
   },
+  "IncidentsApi.V2.ListIncidentImpacts": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "Array<IncidentImpactRelatedObject>",
+      format: "",
+    },
+    operationResponseType: "IncidentImpactsResponse",
+  },
+  "IncidentsApi.V2.CreateIncidentImpact": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "Array<IncidentImpactRelatedObject>",
+      format: "",
+    },
+    body: {
+      type: "IncidentImpactCreateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentImpactResponse",
+  },
+  "IncidentsApi.V2.DeleteIncidentImpact": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    impactId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "IncidentsApi.V2.ListIncidentIntegrations": {
     incidentId: {
       type: "string",
