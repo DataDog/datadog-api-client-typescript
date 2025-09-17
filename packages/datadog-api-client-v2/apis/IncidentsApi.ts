@@ -4157,7 +4157,7 @@ export interface IncidentsApiListIncidentsRequest {
    */
   include?: Array<IncidentRelatedObject>;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
@@ -4203,7 +4203,7 @@ export interface IncidentsApiSearchIncidentsRequest {
    */
   sort?: IncidentSearchSortOrder;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;

@@ -7906,7 +7906,7 @@ export interface SecurityMonitoringApiGetRuleVersionHistoryRequest {
    */
   ruleId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
@@ -8167,7 +8167,7 @@ export interface SecurityMonitoringApiListFindingsRequest {
 
 export interface SecurityMonitoringApiListHistoricalJobsRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
@@ -8223,7 +8223,7 @@ export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
 
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 100. Test change to trigger client generation.
    * @type number
    */
   pageSize?: number;
