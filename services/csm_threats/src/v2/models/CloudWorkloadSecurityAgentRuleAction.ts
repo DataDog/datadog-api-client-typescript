@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CloudWorkloadSecurityAgentRuleActionHash } from "./CloudWorkloadSecurityAgentRuleActionHash";
 import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgentRuleKill";
@@ -15,7 +16,7 @@ export class CloudWorkloadSecurityAgentRuleAction {
   /**
    * An empty object indicating the hash action
    */
-  "hash"?: { [key: string]: any };
+  "hash"?: CloudWorkloadSecurityAgentRuleActionHash;
   /**
    * Kill system call applied on the container matching the rule
    */
@@ -49,7 +50,7 @@ export class CloudWorkloadSecurityAgentRuleAction {
     },
     hash: {
       baseName: "hash",
-      type: "{ [key: string]: any; }",
+      type: "CloudWorkloadSecurityAgentRuleActionHash",
     },
     kill: {
       baseName: "kill",
