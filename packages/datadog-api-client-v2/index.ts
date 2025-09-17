@@ -2724,6 +2724,8 @@ export { ObservabilityPipelineOcsfMapperProcessorType } from "./models/Observabi
 export { ObservabilityPipelineOcsfMappingLibrary } from "./models/ObservabilityPipelineOcsfMappingLibrary";
 export { ObservabilityPipelineOpenSearchDestination } from "./models/ObservabilityPipelineOpenSearchDestination";
 export { ObservabilityPipelineOpenSearchDestinationType } from "./models/ObservabilityPipelineOpenSearchDestinationType";
+export { ObservabilityPipelineOpentelemetrySource } from "./models/ObservabilityPipelineOpentelemetrySource";
+export { ObservabilityPipelineOpentelemetrySourceType } from "./models/ObservabilityPipelineOpentelemetrySourceType";
 export { ObservabilityPipelineParseGrokProcessor } from "./models/ObservabilityPipelineParseGrokProcessor";
 export { ObservabilityPipelineParseGrokProcessorRule } from "./models/ObservabilityPipelineParseGrokProcessorRule";
 export { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./models/ObservabilityPipelineParseGrokProcessorRuleMatchRule";
