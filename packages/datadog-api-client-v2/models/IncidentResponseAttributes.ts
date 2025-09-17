@@ -48,6 +48,18 @@ export class IncidentResponseAttributes {
    */
   "customerImpacted"?: boolean;
   /**
+   * Timestamp when the incident was declared.
+   */
+  "declared"?: Date;
+  /**
+   * Incident's non Datadog creator.
+   */
+  "declaredBy"?: IncidentNonDatadogCreator;
+  /**
+   * UUID of the user who declared the incident.
+   */
+  "declaredByUuid"?: string;
+  /**
    * Timestamp when the incident was detected.
    */
   "detected"?: Date;
@@ -170,6 +182,19 @@ export class IncidentResponseAttributes {
     customerImpacted: {
       baseName: "customer_impacted",
       type: "boolean",
+    },
+    declared: {
+      baseName: "declared",
+      type: "Date",
+      format: "date-time",
+    },
+    declaredBy: {
+      baseName: "declared_by",
+      type: "IncidentNonDatadogCreator",
+    },
+    declaredByUuid: {
+      baseName: "declared_by_uuid",
+      type: "string",
     },
     detected: {
       baseName: "detected",
