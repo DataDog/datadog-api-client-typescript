@@ -7,35 +7,35 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for a GCP Usage Cost config.
+ * Attributes for a Google Cloud Usage Cost config.
  */
 export class GCPUsageCostConfigAttributes {
   /**
-   * The GCP account ID.
+   * The Google Cloud account ID.
    */
   "accountId": string;
   /**
-   * The GCP bucket name used to store the Usage Cost export.
+   * The Google Cloud bucket name used to store the Usage Cost export.
    */
   "bucketName": string;
   /**
-   * The timestamp when the GCP Usage Cost config was created.
+   * The timestamp when the Google Cloud Usage Cost config was created.
    */
   "createdAt"?: string;
   /**
-   * The export dataset name used for the GCP Usage Cost Report.
+   * The export dataset name used for the Google Cloud Usage Cost Report.
    */
   "dataset": string;
   /**
-   * The error messages for the GCP Usage Cost config.
+   * The error messages for the Google Cloud Usage Cost config.
    */
   "errorMessages"?: Array<string>;
   /**
-   * The export prefix used for the GCP Usage Cost Report.
+   * The export prefix used for the Google Cloud Usage Cost Report.
    */
   "exportPrefix": string;
   /**
-   * The name of the GCP Usage Cost Report.
+   * The name of the Google Cloud Usage Cost Report.
    */
   "exportProjectName": string;
   /**
@@ -43,23 +43,23 @@ export class GCPUsageCostConfigAttributes {
    */
   "months"?: number;
   /**
-   * The `project_id` of the GCP Usage Cost report.
+   * The `project_id` of the Google Cloud Usage Cost report.
    */
   "projectId"?: string;
   /**
-   * The unique GCP service account email.
+   * The unique Google Cloud service account email.
    */
   "serviceAccount": string;
   /**
-   * The status of the GCP Usage Cost config.
+   * The status of the Google Cloud Usage Cost config.
    */
   "status": string;
   /**
-   * The timestamp when the GCP Usage Cost config status was updated.
+   * The timestamp when the Google Cloud Usage Cost config status was updated.
    */
   "statusUpdatedAt"?: string;
   /**
-   * The timestamp when the GCP Usage Cost config status was updated.
+   * The timestamp when the Google Cloud Usage Cost config status was updated.
    */
   "updatedAt"?: string;
 

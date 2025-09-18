@@ -1,5 +1,5 @@
 /**
- * Create Cloud Cost Management GCP Usage Cost config returns "OK" response
+ * Create Google Cloud Usage Cost config returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

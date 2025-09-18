@@ -4365,6 +4365,48 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainersResponse",
     },
+    "v2.ListArbitraryCostRules": {
+        "operationResponseType": "ArbitraryRuleResponseArray",
+    },
+    "v2.CreateArbitraryCostRule": {
+        "body": {
+            "type": "ArbitraryCostUpsertRequest",
+            "format": "",
+            },
+        "operationResponseType": "ArbitraryRuleResponse",
+    },
+    "v2.ReorderArbitraryCostRules": {
+        "body": {
+            "type": "ReorderRuleResourceArray",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetArbitraryCostRule": {
+        "ruleId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ArbitraryRuleResponse",
+    },
+    "v2.DeleteArbitraryCostRule": {
+        "ruleId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateArbitraryCostRule": {
+        "ruleId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "ArbitraryCostUpsertRequest",
+            "format": "",
+            },
+        "operationResponseType": "ArbitraryRuleResponse",
+    },
     "v2.ListCostAWSCURConfigs": {
         "operationResponseType": "AwsCURConfigsResponse",
     },
@@ -4373,7 +4415,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "AwsCURConfigPostRequest",
             "format": "",
             },
-        "operationResponseType": "AwsCURConfigResponse",
+        "operationResponseType": "AwsCurConfigResponse",
+    },
+    "v2.GetCostAWSCURConfig": {
+        "cloudAccountId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AwsCurConfigResponse",
     },
     "v2.DeleteCostAWSCURConfig": {
         "cloudAccountId": {
@@ -4402,6 +4451,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "AzureUCConfigPairsResponse",
+    },
+    "v2.GetCostAzureUCConfig": {
+        "cloudAccountId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "UCConfigPair",
     },
     "v2.DeleteCostAzureUCConfig": {
         "cloudAccountId": {
@@ -4495,6 +4551,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GCPUsageCostConfigResponse",
     },
+    "v2.GetCostGCPUsageCostConfig": {
+        "cloudAccountId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GcpUcConfigResponse",
+    },
     "v2.DeleteCostGCPUsageCostConfig": {
         "cloudAccountId": {
             "type": "number",
@@ -4512,6 +4575,55 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GCPUsageCostConfigResponse",
+    },
+    "v2.ListRulesets": {
+        "operationResponseType": "RulesetRespArray",
+    },
+    "v2.CreateRuleset": {
+        "body": {
+            "type": "CreateRulesetRequest",
+            "format": "",
+            },
+        "operationResponseType": "RulesetResp",
+    },
+    "v2.ReorderRulesets": {
+        "body": {
+            "type": "ReorderRulesetResourceArray",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ValidateQuery": {
+        "body": {
+            "type": "RulesValidateQueryRequest",
+            "format": "",
+            },
+        "operationResponseType": "RulesValidateQueryResponse",
+    },
+    "v2.GetRuleset": {
+        "rulesetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RulesetResp",
+    },
+    "v2.DeleteRuleset": {
+        "rulesetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateRuleset": {
+        "rulesetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateRulesetRequest",
+            "format": "",
+            },
+        "operationResponseType": "RulesetResp",
     },
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
