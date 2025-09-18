@@ -1,6 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { CustomDestinationResponseForwardDestinationElasticsearch } from "./CustomDestinationResponseForwardDestinationElasticsearch";
+import { CustomDestinationResponseForwardDestinationGoogleSecurityOperations } from "./CustomDestinationResponseForwardDestinationGoogleSecurityOperations";
 import { CustomDestinationResponseForwardDestinationHttp } from "./CustomDestinationResponseForwardDestinationHttp";
 import { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinel";
 import { CustomDestinationResponseForwardDestinationSplunk } from "./CustomDestinationResponseForwardDestinationSplunk";
@@ -13,4 +14,5 @@ export type CustomDestinationResponseForwardDestination =
   | CustomDestinationResponseForwardDestinationSplunk
   | CustomDestinationResponseForwardDestinationElasticsearch
   | CustomDestinationResponseForwardDestinationMicrosoftSentinel
+  | CustomDestinationResponseForwardDestinationGoogleSecurityOperations
   | UnparsedObject;
