@@ -10,7 +10,7 @@ export class AwsCURConfigPostData {
   /**
    * Attributes for AWS CUR config Post Request.
    */
-  "attributes": AwsCURConfigPostRequestAttributes;
+  "attributes"?: AwsCURConfigPostRequestAttributes;
   /**
    * Type of AWS CUR config Post Request.
    */
@@ -33,7 +33,6 @@ export class AwsCURConfigPostData {
     attributes: {
       baseName: "attributes",
       type: "AwsCURConfigPostRequestAttributes",
-      required: true,
     },
     type: {
       baseName: "type",
