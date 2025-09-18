@@ -127,6 +127,27 @@ import { ApplicationSecurityWafExclusionFilterUpdateAttributes } from "./Applica
 import { ApplicationSecurityWafExclusionFilterUpdateData } from "./ApplicationSecurityWafExclusionFilterUpdateData";
 import { ApplicationSecurityWafExclusionFilterUpdateRequest } from "./ApplicationSecurityWafExclusionFilterUpdateRequest";
 import { ApplicationSecurityWafExclusionFiltersResponse } from "./ApplicationSecurityWafExclusionFiltersResponse";
+import { ArbitraryCostUpsertRequest } from "./ArbitraryCostUpsertRequest";
+import { ArbitraryCostUpsertRequestData } from "./ArbitraryCostUpsertRequestData";
+import { ArbitraryCostUpsertRequestDataAttributes } from "./ArbitraryCostUpsertRequestDataAttributes";
+import { ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems } from "./ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategy } from "./ArbitraryCostUpsertRequestDataAttributesStrategy";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleResponse } from "./ArbitraryRuleResponse";
+import { ArbitraryRuleResponseArray } from "./ArbitraryRuleResponseArray";
+import { ArbitraryRuleResponseData } from "./ArbitraryRuleResponseData";
+import { ArbitraryRuleResponseDataAttributes } from "./ArbitraryRuleResponseDataAttributes";
+import { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
+import { ArbitraryRuleResponseDataAttributesStrategy } from "./ArbitraryRuleResponseDataAttributesStrategy";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
+import { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
+import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
 import { AsanaAccessToken } from "./AsanaAccessToken";
 import { AsanaAccessTokenUpdate } from "./AsanaAccessTokenUpdate";
 import { AsanaIntegration } from "./AsanaIntegration";
@@ -170,8 +191,11 @@ import { AwsCURConfigPatchRequestAttributes } from "./AwsCURConfigPatchRequestAt
 import { AwsCURConfigPostData } from "./AwsCURConfigPostData";
 import { AwsCURConfigPostRequest } from "./AwsCURConfigPostRequest";
 import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttributes";
-import { AwsCURConfigResponse } from "./AwsCURConfigResponse";
 import { AwsCURConfigsResponse } from "./AwsCURConfigsResponse";
+import { AwsCurConfigResponse } from "./AwsCurConfigResponse";
+import { AwsCurConfigResponseData } from "./AwsCurConfigResponseData";
+import { AwsCurConfigResponseDataAttributes } from "./AwsCurConfigResponseDataAttributes";
+import { AwsCurConfigResponseDataAttributesAccountFilters } from "./AwsCurConfigResponseDataAttributesAccountFilters";
 import { AwsOnDemandAttributes } from "./AwsOnDemandAttributes";
 import { AwsOnDemandCreateAttributes } from "./AwsOnDemandCreateAttributes";
 import { AwsOnDemandCreateData } from "./AwsOnDemandCreateData";
@@ -471,6 +495,15 @@ import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
+import { CreateRulesetRequest } from "./CreateRulesetRequest";
+import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
+import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
+import { CreateRulesetRequestDataAttributesRulesItems } from "./CreateRulesetRequestDataAttributesRulesItems";
+import { CreateRulesetRequestDataAttributesRulesItemsMapping } from "./CreateRulesetRequestDataAttributesRulesItemsMapping";
+import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRulesetRequestDataAttributesRulesItemsQuery";
+import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
+import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
+import { CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
 import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
@@ -821,6 +854,9 @@ import { GCPUsageCostConfigPostRequest } from "./GCPUsageCostConfigPostRequest";
 import { GCPUsageCostConfigPostRequestAttributes } from "./GCPUsageCostConfigPostRequestAttributes";
 import { GCPUsageCostConfigResponse } from "./GCPUsageCostConfigResponse";
 import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
+import { GcpUcConfigResponse } from "./GcpUcConfigResponse";
+import { GcpUcConfigResponseData } from "./GcpUcConfigResponseData";
+import { GcpUcConfigResponseDataAttributes } from "./GcpUcConfigResponseDataAttributes";
 import { GeminiAPIKey } from "./GeminiAPIKey";
 import { GeminiAPIKeyUpdate } from "./GeminiAPIKeyUpdate";
 import { GeminiIntegration } from "./GeminiIntegration";
@@ -1678,6 +1714,10 @@ import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Remediation } from "./Remediation";
 import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
+import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
+import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
+import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
+import { ReorderRulesetResourceData } from "./ReorderRulesetResourceData";
 import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
@@ -1731,6 +1771,24 @@ import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
 import { RuleVersionUpdate } from "./RuleVersionUpdate";
 import { RuleVersions } from "./RuleVersions";
+import { RulesValidateQueryRequest } from "./RulesValidateQueryRequest";
+import { RulesValidateQueryRequestData } from "./RulesValidateQueryRequestData";
+import { RulesValidateQueryRequestDataAttributes } from "./RulesValidateQueryRequestDataAttributes";
+import { RulesValidateQueryResponse } from "./RulesValidateQueryResponse";
+import { RulesValidateQueryResponseData } from "./RulesValidateQueryResponseData";
+import { RulesValidateQueryResponseDataAttributes } from "./RulesValidateQueryResponseDataAttributes";
+import { RulesetResp } from "./RulesetResp";
+import { RulesetRespArray } from "./RulesetRespArray";
+import { RulesetRespData } from "./RulesetRespData";
+import { RulesetRespDataAttributes } from "./RulesetRespDataAttributes";
+import { RulesetRespDataAttributesCreated } from "./RulesetRespDataAttributesCreated";
+import { RulesetRespDataAttributesModified } from "./RulesetRespDataAttributesModified";
+import { RulesetRespDataAttributesRulesItems } from "./RulesetRespDataAttributesRulesItems";
+import { RulesetRespDataAttributesRulesItemsMapping } from "./RulesetRespDataAttributesRulesItemsMapping";
+import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttributesRulesItemsQuery";
+import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
+import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
+import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -2139,6 +2197,10 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { TriggerRateLimit } from "./TriggerRateLimit";
+import { UCConfigPair } from "./UCConfigPair";
+import { UCConfigPairData } from "./UCConfigPairData";
+import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
+import { UCConfigPairDataAttributesConfigsItems } from "./UCConfigPairDataAttributesConfigsItems";
 import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
@@ -2173,6 +2235,15 @@ import { UpdateRuleRequest } from "./UpdateRuleRequest";
 import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
 import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
+import { UpdateRulesetRequest } from "./UpdateRulesetRequest";
+import { UpdateRulesetRequestData } from "./UpdateRulesetRequestData";
+import { UpdateRulesetRequestDataAttributes } from "./UpdateRulesetRequestDataAttributes";
+import { UpdateRulesetRequestDataAttributesRulesItems } from "./UpdateRulesetRequestDataAttributesRulesItems";
+import { UpdateRulesetRequestDataAttributesRulesItemsMapping } from "./UpdateRulesetRequestDataAttributesRulesItemsMapping";
+import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRulesetRequestDataAttributesRulesItemsQuery";
+import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
+import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
+import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
@@ -2420,6 +2491,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-updated_at",
     "-user_name",
   ],
+  ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
+  ArbitraryRuleResponseDataType: ["arbitrary_rule"],
   AsanaAccessTokenType: ["AsanaAccessToken"],
   AsanaIntegrationType: ["Asana"],
   AssetEntityType: ["assets"],
@@ -2446,6 +2519,7 @@ const enumsMap: { [key: string]: any[] } = {
   AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
   AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
   AwsCURConfigType: ["aws_cur_config"],
+  AwsCurConfigResponseDataType: ["aws_cur_config"],
   AwsOnDemandType: ["aws_resource"],
   AwsScanOptionsType: ["aws_scan_options"],
   AzureIntegrationType: ["Azure"],
@@ -2596,6 +2670,7 @@ const enumsMap: { [key: string]: any[] } = {
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
+  CreateRulesetRequestDataType: ["create_ruleset"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
@@ -2752,6 +2827,7 @@ const enumsMap: { [key: string]: any[] } = {
   GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
   GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
   GCPUsageCostConfigType: ["gcp_uc_config"],
+  GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
@@ -3306,6 +3382,8 @@ const enumsMap: { [key: string]: any[] } = {
     "RelationTypeImplementedBy",
     "RelationTypeImplements",
   ],
+  ReorderRuleResourceDataType: ["arbitrary_rule"],
+  ReorderRulesetResourceDataType: ["ruleset"],
   ResourceFilterRequestType: ["csm_resource_filter"],
   RestrictionPolicyType: ["restriction_policy"],
   RetentionFilterAllType: [
@@ -3346,6 +3424,9 @@ const enumsMap: { [key: string]: any[] } = {
     "iac_misconfiguration",
   ],
   RuleVersionUpdateType: ["create", "update", "delete"],
+  RulesValidateQueryRequestDataType: ["validate_query"],
+  RulesValidateQueryResponseDataType: ["validate_response"],
+  RulesetRespDataType: ["ruleset"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -3653,8 +3734,10 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
+  UCConfigPairDataType: ["azure_uc_configs"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateOutcomesAsyncType: ["batched-outcome"],
+  UpdateRulesetRequestDataType: ["update_ruleset"],
   Urgency: ["low", "high", "dynamic"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
@@ -3936,6 +4019,42 @@ const typeMap: { [index: string]: any } = {
     ApplicationSecurityWafExclusionFilterUpdateRequest,
   ApplicationSecurityWafExclusionFiltersResponse:
     ApplicationSecurityWafExclusionFiltersResponse,
+  ArbitraryCostUpsertRequest: ArbitraryCostUpsertRequest,
+  ArbitraryCostUpsertRequestData: ArbitraryCostUpsertRequestData,
+  ArbitraryCostUpsertRequestDataAttributes:
+    ArbitraryCostUpsertRequestDataAttributes,
+  ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems:
+    ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategy:
+    ArbitraryCostUpsertRequestDataAttributesStrategy,
+  ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems,
+  ArbitraryRuleResponse: ArbitraryRuleResponse,
+  ArbitraryRuleResponseArray: ArbitraryRuleResponseArray,
+  ArbitraryRuleResponseData: ArbitraryRuleResponseData,
+  ArbitraryRuleResponseDataAttributes: ArbitraryRuleResponseDataAttributes,
+  ArbitraryRuleResponseDataAttributesCostsToAllocateItems:
+    ArbitraryRuleResponseDataAttributesCostsToAllocateItems,
+  ArbitraryRuleResponseDataAttributesStrategy:
+    ArbitraryRuleResponseDataAttributesStrategy,
+  ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems:
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems,
+  ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems:
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems,
+  ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+  ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems:
+    ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
+  ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems:
+    ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
   AsanaAccessToken: AsanaAccessToken,
   AsanaAccessTokenUpdate: AsanaAccessTokenUpdate,
   AsanaIntegration: AsanaIntegration,
@@ -3979,8 +4098,12 @@ const typeMap: { [index: string]: any } = {
   AwsCURConfigPostData: AwsCURConfigPostData,
   AwsCURConfigPostRequest: AwsCURConfigPostRequest,
   AwsCURConfigPostRequestAttributes: AwsCURConfigPostRequestAttributes,
-  AwsCURConfigResponse: AwsCURConfigResponse,
   AwsCURConfigsResponse: AwsCURConfigsResponse,
+  AwsCurConfigResponse: AwsCurConfigResponse,
+  AwsCurConfigResponseData: AwsCurConfigResponseData,
+  AwsCurConfigResponseDataAttributes: AwsCurConfigResponseDataAttributes,
+  AwsCurConfigResponseDataAttributesAccountFilters:
+    AwsCurConfigResponseDataAttributesAccountFilters,
   AwsOnDemandAttributes: AwsOnDemandAttributes,
   AwsOnDemandCreateAttributes: AwsOnDemandCreateAttributes,
   AwsOnDemandCreateData: AwsOnDemandCreateData,
@@ -4324,6 +4447,21 @@ const typeMap: { [index: string]: any } = {
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
+  CreateRulesetRequest: CreateRulesetRequest,
+  CreateRulesetRequestData: CreateRulesetRequestData,
+  CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
+  CreateRulesetRequestDataAttributesRulesItems:
+    CreateRulesetRequestDataAttributesRulesItems,
+  CreateRulesetRequestDataAttributesRulesItemsMapping:
+    CreateRulesetRequestDataAttributesRulesItemsMapping,
+  CreateRulesetRequestDataAttributesRulesItemsQuery:
+    CreateRulesetRequestDataAttributesRulesItemsQuery,
+  CreateRulesetRequestDataAttributesRulesItemsQueryAddition:
+    CreateRulesetRequestDataAttributesRulesItemsQueryAddition,
+  CreateRulesetRequestDataAttributesRulesItemsReferenceTable:
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
+  CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
   CreateWorkflowRequest: CreateWorkflowRequest,
   CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
@@ -4725,6 +4863,9 @@ const typeMap: { [index: string]: any } = {
     GCPUsageCostConfigPostRequestAttributes,
   GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
   GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
+  GcpUcConfigResponse: GcpUcConfigResponse,
+  GcpUcConfigResponseData: GcpUcConfigResponseData,
+  GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,
   GeminiAPIKey: GeminiAPIKey,
   GeminiAPIKeyUpdate: GeminiAPIKeyUpdate,
   GeminiIntegration: GeminiIntegration,
@@ -5734,6 +5875,10 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUsers: RelationshipToUsers,
   Remediation: Remediation,
   ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
+  ReorderRuleResourceArray: ReorderRuleResourceArray,
+  ReorderRuleResourceData: ReorderRuleResourceData,
+  ReorderRulesetResourceArray: ReorderRulesetResourceArray,
+  ReorderRulesetResourceData: ReorderRulesetResourceData,
   ResourceFilterAttributes: ResourceFilterAttributes,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
@@ -5787,6 +5932,31 @@ const typeMap: { [index: string]: any } = {
   RuleVersionHistory: RuleVersionHistory,
   RuleVersionUpdate: RuleVersionUpdate,
   RuleVersions: RuleVersions,
+  RulesValidateQueryRequest: RulesValidateQueryRequest,
+  RulesValidateQueryRequestData: RulesValidateQueryRequestData,
+  RulesValidateQueryRequestDataAttributes:
+    RulesValidateQueryRequestDataAttributes,
+  RulesValidateQueryResponse: RulesValidateQueryResponse,
+  RulesValidateQueryResponseData: RulesValidateQueryResponseData,
+  RulesValidateQueryResponseDataAttributes:
+    RulesValidateQueryResponseDataAttributes,
+  RulesetResp: RulesetResp,
+  RulesetRespArray: RulesetRespArray,
+  RulesetRespData: RulesetRespData,
+  RulesetRespDataAttributes: RulesetRespDataAttributes,
+  RulesetRespDataAttributesCreated: RulesetRespDataAttributesCreated,
+  RulesetRespDataAttributesModified: RulesetRespDataAttributesModified,
+  RulesetRespDataAttributesRulesItems: RulesetRespDataAttributesRulesItems,
+  RulesetRespDataAttributesRulesItemsMapping:
+    RulesetRespDataAttributesRulesItemsMapping,
+  RulesetRespDataAttributesRulesItemsQuery:
+    RulesetRespDataAttributesRulesItemsQuery,
+  RulesetRespDataAttributesRulesItemsQueryAddition:
+    RulesetRespDataAttributesRulesItemsQueryAddition,
+  RulesetRespDataAttributesRulesItemsReferenceTable:
+    RulesetRespDataAttributesRulesItemsReferenceTable,
+  RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
+    RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
@@ -6268,6 +6438,11 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   TriggerRateLimit: TriggerRateLimit,
+  UCConfigPair: UCConfigPair,
+  UCConfigPairData: UCConfigPairData,
+  UCConfigPairDataAttributes: UCConfigPairDataAttributes,
+  UCConfigPairDataAttributesConfigsItems:
+    UCConfigPairDataAttributesConfigsItems,
   Unit: Unit,
   UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,
@@ -6309,6 +6484,21 @@ const typeMap: { [index: string]: any } = {
   UpdateRuleRequestData: UpdateRuleRequestData,
   UpdateRuleResponse: UpdateRuleResponse,
   UpdateRuleResponseData: UpdateRuleResponseData,
+  UpdateRulesetRequest: UpdateRulesetRequest,
+  UpdateRulesetRequestData: UpdateRulesetRequestData,
+  UpdateRulesetRequestDataAttributes: UpdateRulesetRequestDataAttributes,
+  UpdateRulesetRequestDataAttributesRulesItems:
+    UpdateRulesetRequestDataAttributesRulesItems,
+  UpdateRulesetRequestDataAttributesRulesItemsMapping:
+    UpdateRulesetRequestDataAttributesRulesItemsMapping,
+  UpdateRulesetRequestDataAttributesRulesItemsQuery:
+    UpdateRulesetRequestDataAttributesRulesItemsQuery,
+  UpdateRulesetRequestDataAttributesRulesItemsQueryAddition:
+    UpdateRulesetRequestDataAttributesRulesItemsQueryAddition,
+  UpdateRulesetRequestDataAttributesRulesItemsReferenceTable:
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTable,
+  UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
