@@ -3,13 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
 
 /**
- * List of GCP Usage Cost configs.
+ * List of Google Cloud Usage Cost configs.
  */
 export class GCPUsageCostConfigsResponse {
   /**
-   * A GCP Usage Cost config.
+   * A Google Cloud Usage Cost config.
    */
-  "data"?: Array<GCPUsageCostConfig>;
+  "data": Array<GCPUsageCostConfig>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +28,7 @@ export class GCPUsageCostConfigsResponse {
     data: {
       baseName: "data",
       type: "Array<GCPUsageCostConfig>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

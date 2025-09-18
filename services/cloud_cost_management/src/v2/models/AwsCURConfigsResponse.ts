@@ -9,7 +9,7 @@ export class AwsCURConfigsResponse {
   /**
    * An AWS CUR config.
    */
-  "data"?: Array<AwsCURConfig>;
+  "data": Array<AwsCURConfig>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +28,7 @@ export class AwsCURConfigsResponse {
     data: {
       baseName: "data",
       type: "Array<AwsCURConfig>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
