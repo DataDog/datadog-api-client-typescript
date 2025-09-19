@@ -39,6 +39,10 @@ export class ChangeWidgetRequest {
    */
   "increaseGood"?: boolean;
   /**
+   * The number of items to show.
+   */
+  "limit"?: number;
+  /**
    * The log query.
    */
   "logQuery"?: LogQueryDefinition;
@@ -124,6 +128,11 @@ export class ChangeWidgetRequest {
     increaseGood: {
       baseName: "increase_good",
       type: "boolean",
+    },
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
     },
     logQuery: {
       baseName: "log_query",
