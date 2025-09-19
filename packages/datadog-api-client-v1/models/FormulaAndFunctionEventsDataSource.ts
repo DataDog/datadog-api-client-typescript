@@ -22,6 +22,7 @@ export type FormulaAndFunctionEventsDataSource =
   | typeof CI_TESTS
   | typeof CI_PIPELINES
   | typeof INCIDENT_ANALYTICS
+  | typeof PRODUCT_ANALYTICS
   | UnparsedObject;
 export const LOGS = "logs";
 export const SPANS = "spans";
@@ -34,3 +35,4 @@ export const EVENTS = "events";
 export const CI_TESTS = "ci_tests";
 export const CI_PIPELINES = "ci_pipelines";
 export const INCIDENT_ANALYTICS = "incident_analytics";
+export const PRODUCT_ANALYTICS = "product_analytics";
