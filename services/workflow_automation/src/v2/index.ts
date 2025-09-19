@@ -32,6 +32,8 @@ export { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 export { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
 export { DashboardTriggerWrapper } from "./models/DashboardTriggerWrapper";
 export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTriggerWrapper";
+export { DatastoreTrigger } from "./models/DatastoreTrigger";
+export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
 export { ErrorHandler } from "./models/ErrorHandler";
 export { GetWorkflowResponse } from "./models/GetWorkflowResponse";
 export { GithubWebhookTrigger } from "./models/GithubWebhookTrigger";

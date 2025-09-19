@@ -20,6 +20,8 @@ import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
 import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
+import { DatastoreTrigger } from "./DatastoreTrigger";
+import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
 import { ErrorHandler } from "./ErrorHandler";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
@@ -126,6 +128,7 @@ export const TypingInfo: ModelTypingInfo = {
       "CaseTriggerWrapper",
       "ChangeEventTriggerWrapper",
       "DatabaseMonitoringTriggerWrapper",
+      "DatastoreTriggerWrapper",
       "DashboardTriggerWrapper",
       "GithubWebhookTriggerWrapper",
       "IncidentTriggerWrapper",
@@ -160,6 +163,8 @@ export const TypingInfo: ModelTypingInfo = {
     CreateWorkflowResponse: CreateWorkflowResponse,
     DashboardTriggerWrapper: DashboardTriggerWrapper,
     DatabaseMonitoringTriggerWrapper: DatabaseMonitoringTriggerWrapper,
+    DatastoreTrigger: DatastoreTrigger,
+    DatastoreTriggerWrapper: DatastoreTriggerWrapper,
     ErrorHandler: ErrorHandler,
     GetWorkflowResponse: GetWorkflowResponse,
     GithubWebhookTrigger: GithubWebhookTrigger,
