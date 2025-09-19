@@ -3411,6 +3411,9 @@ export { SecurityMonitoringRuleQueryAggregation } from "./models/SecurityMonitor
 export { SecurityMonitoringRuleQueryPayload } from "./models/SecurityMonitoringRuleQueryPayload";
 export { SecurityMonitoringRuleQueryPayloadData } from "./models/SecurityMonitoringRuleQueryPayloadData";
 export { SecurityMonitoringRuleResponse } from "./models/SecurityMonitoringRuleResponse";
+export { SecurityMonitoringRuleSequenceDetectionOptions } from "./models/SecurityMonitoringRuleSequenceDetectionOptions";
+export { SecurityMonitoringRuleSequenceDetectionStep } from "./models/SecurityMonitoringRuleSequenceDetectionStep";
+export { SecurityMonitoringRuleSequenceDetectionStepTransition } from "./models/SecurityMonitoringRuleSequenceDetectionStepTransition";
 export { SecurityMonitoringRuleSeverity } from "./models/SecurityMonitoringRuleSeverity";
 export { SecurityMonitoringRuleTestPayload } from "./models/SecurityMonitoringRuleTestPayload";
 export { SecurityMonitoringRuleTestRequest } from "./models/SecurityMonitoringRuleTestRequest";

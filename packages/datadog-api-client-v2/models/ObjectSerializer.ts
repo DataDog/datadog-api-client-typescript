@@ -1902,6 +1902,9 @@ import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleN
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
 import { SecurityMonitoringRuleQueryPayloadData } from "./SecurityMonitoringRuleQueryPayloadData";
+import { SecurityMonitoringRuleSequenceDetectionOptions } from "./SecurityMonitoringRuleSequenceDetectionOptions";
+import { SecurityMonitoringRuleSequenceDetectionStep } from "./SecurityMonitoringRuleSequenceDetectionStep";
+import { SecurityMonitoringRuleSequenceDetectionStepTransition } from "./SecurityMonitoringRuleSequenceDetectionStepTransition";
 import { SecurityMonitoringRuleTestRequest } from "./SecurityMonitoringRuleTestRequest";
 import { SecurityMonitoringRuleTestResponse } from "./SecurityMonitoringRuleTestResponse";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
@@ -3523,6 +3526,7 @@ const enumsMap: { [key: string]: any[] } = {
     "hardcoded",
     "third_party",
     "anomaly_threshold",
+    "sequence_detection",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
@@ -6080,6 +6084,12 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleQueryPayload: SecurityMonitoringRuleQueryPayload,
   SecurityMonitoringRuleQueryPayloadData:
     SecurityMonitoringRuleQueryPayloadData,
+  SecurityMonitoringRuleSequenceDetectionOptions:
+    SecurityMonitoringRuleSequenceDetectionOptions,
+  SecurityMonitoringRuleSequenceDetectionStep:
+    SecurityMonitoringRuleSequenceDetectionStep,
+  SecurityMonitoringRuleSequenceDetectionStepTransition:
+    SecurityMonitoringRuleSequenceDetectionStepTransition,
   SecurityMonitoringRuleTestRequest: SecurityMonitoringRuleTestRequest,
   SecurityMonitoringRuleTestResponse: SecurityMonitoringRuleTestResponse,
   SecurityMonitoringRuleThirdPartyOptions:
