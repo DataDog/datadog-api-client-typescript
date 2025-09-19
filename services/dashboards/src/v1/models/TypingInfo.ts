@@ -234,6 +234,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ci_tests",
       "ci_pipelines",
       "incident_analytics",
+      "product_analytics",
     ],
     FormulaAndFunctionMetricAggregation: [
       "avg",
