@@ -142,6 +142,72 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteDORADeployment(
+    deploymentId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'deploymentId' is not null or undefined
+    if (deploymentId === null || deploymentId === undefined) {
+      throw new RequiredError("deploymentId", "deleteDORADeployment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/dora/deployment/{deployment_id}".replace(
+      "{deployment_id}",
+      encodeURIComponent(String(deploymentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.DORAMetricsApi.deleteDORADeployment")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteDORAFailure(
+    failureId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'failureId' is not null or undefined
+    if (failureId === null || failureId === undefined) {
+      throw new RequiredError("failureId", "deleteDORAFailure");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/dora/failure/{failure_id}".replace(
+      "{failure_id}",
+      encodeURIComponent(String(failureId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.DORAMetricsApi.deleteDORAFailure")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getDORADeployment(
     deploymentId: string,
     _options?: Configuration
@@ -539,6 +605,146 @@ export class DORAMetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteDORADeployment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteDORADeployment(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteDORAFailure
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteDORAFailure(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getDORADeployment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -881,6 +1087,22 @@ export interface DORAMetricsApiCreateDORAIncidentRequest {
   body: DORAFailureRequest;
 }
 
+export interface DORAMetricsApiDeleteDORADeploymentRequest {
+  /**
+   * The ID of the deployment event to delete.
+   * @type string
+   */
+  deploymentId: string;
+}
+
+export interface DORAMetricsApiDeleteDORAFailureRequest {
+  /**
+   * The ID of the failure event to delete.
+   * @type string
+   */
+  failureId: string;
+}
+
 export interface DORAMetricsApiGetDORADeploymentRequest {
   /**
    * The ID of the deployment event.
@@ -1002,6 +1224,48 @@ export class DORAMetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createDORAIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Use this API endpoint to delete a deployment event.
+   * @param param The request object
+   */
+  public deleteDORADeployment(
+    param: DORAMetricsApiDeleteDORADeploymentRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteDORADeployment(
+      param.deploymentId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteDORADeployment(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Use this API endpoint to delete a failure event.
+   * @param param The request object
+   */
+  public deleteDORAFailure(
+    param: DORAMetricsApiDeleteDORAFailureRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteDORAFailure(
+      param.failureId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteDORAFailure(responseContext);
         });
     });
   }
