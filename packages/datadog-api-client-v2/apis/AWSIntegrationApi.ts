@@ -183,6 +183,57 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getAWSIntegrationIAMPermissionsResourceCollection(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/aws/iam_permissions/resource_collection";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.AWSIntegrationApi.getAWSIntegrationIAMPermissionsResourceCollection"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAWSIntegrationIAMPermissionsStandard(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/integration/aws/iam_permissions/standard";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AWSIntegrationApi.getAWSIntegrationIAMPermissionsStandard")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAWSAccounts(
     awsAccountId?: string,
     _options?: Configuration
@@ -594,6 +645,126 @@ export class AWSIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getAWSIntegrationIAMPermissionsResourceCollection
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAWSIntegrationIAMPermissionsResourceCollection(
+    response: ResponseContext
+  ): Promise<AWSIntegrationIamPermissionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AWSIntegrationIamPermissionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AWSIntegrationIamPermissionsResponse"
+        ) as AWSIntegrationIamPermissionsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSIntegrationIamPermissionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AWSIntegrationIamPermissionsResponse",
+          ""
+        ) as AWSIntegrationIamPermissionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getAWSIntegrationIAMPermissionsStandard
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAWSIntegrationIAMPermissionsStandard(
+    response: ResponseContext
+  ): Promise<AWSIntegrationIamPermissionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AWSIntegrationIamPermissionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AWSIntegrationIamPermissionsResponse"
+        ) as AWSIntegrationIamPermissionsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSIntegrationIamPermissionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AWSIntegrationIamPermissionsResponse",
+          ""
+        ) as AWSIntegrationIamPermissionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSAccounts
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -928,6 +1099,48 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAWSIntegrationIAMPermissions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get all resource collection AWS IAM permissions required for the AWS integration.
+   * @param param The request object
+   */
+  public getAWSIntegrationIAMPermissionsResourceCollection(
+    options?: Configuration
+  ): Promise<AWSIntegrationIamPermissionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getAWSIntegrationIAMPermissionsResourceCollection(
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAWSIntegrationIAMPermissionsResourceCollection(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get all standard AWS IAM permissions required for the AWS integration.
+   * @param param The request object
+   */
+  public getAWSIntegrationIAMPermissionsStandard(
+    options?: Configuration
+  ): Promise<AWSIntegrationIamPermissionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getAWSIntegrationIAMPermissionsStandard(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAWSIntegrationIAMPermissionsStandard(
             responseContext
           );
         });
