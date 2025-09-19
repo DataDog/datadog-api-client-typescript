@@ -327,6 +327,7 @@ export function createConfiguration(
       "v2.getIncidentTeam": false,
       "v2.listIncidentTeams": false,
       "v2.updateIncidentTeam": false,
+      "v2.searchFlakyTests": false,
     }
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
