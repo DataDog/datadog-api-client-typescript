@@ -2110,10 +2110,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
-        "searchSuites": {
-            "type": "boolean",
-            "format": "",
-            },
         "facetsOnly": {
             "type": "boolean",
             "format": "",

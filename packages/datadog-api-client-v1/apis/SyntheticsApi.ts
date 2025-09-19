@@ -1069,7 +1069,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
   public async searchTests(
     text?: string,
     includeFullConfig?: boolean,
-    searchSuites?: boolean,
     facetsOnly?: boolean,
     start?: number,
     count?: number,
@@ -1100,13 +1099,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include_full_config",
         ObjectSerializer.serialize(includeFullConfig, "boolean", ""),
-        ""
-      );
-    }
-    if (searchSuites !== undefined) {
-      requestContext.setQueryParam(
-        "search_suites",
-        ObjectSerializer.serialize(searchSuites, "boolean", ""),
         ""
       );
     }
@@ -3824,11 +3816,6 @@ export interface SyntheticsApiSearchTestsRequest {
    */
   includeFullConfig?: boolean;
   /**
-   * If true, returns suites instead of tests.
-   * @type boolean
-   */
-  searchSuites?: boolean;
-  /**
    * If true, return only facets instead of full test details.
    * @type boolean
    */
@@ -4546,7 +4533,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Search for Synthetic tests and Test Suites.
+   * Search for Synthetic tests.
    * @param param The request object
    */
   public searchTests(
@@ -4556,7 +4543,6 @@ export class SyntheticsApi {
     const requestContextPromise = this.requestFactory.searchTests(
       param.text,
       param.includeFullConfig,
-      param.searchSuites,
       param.facetsOnly,
       param.start,
       param.count,
