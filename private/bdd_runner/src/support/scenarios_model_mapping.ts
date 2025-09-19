@@ -2120,10 +2120,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
-    searchSuites: {
-      type: "boolean",
-      format: "",
-    },
     facetsOnly: {
       type: "boolean",
       format: "",
