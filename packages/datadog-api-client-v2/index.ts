@@ -1643,6 +1643,8 @@ export { DatastoreDataType } from "./models/DatastoreDataType";
 export { DatastoreItemConflictMode } from "./models/DatastoreItemConflictMode";
 export { DatastoreItemsDataType } from "./models/DatastoreItemsDataType";
 export { DatastorePrimaryKeyGenerationStrategy } from "./models/DatastorePrimaryKeyGenerationStrategy";
+export { DatastoreTrigger } from "./models/DatastoreTrigger";
+export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";
