@@ -5004,6 +5004,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DORADeploymentResponse",
   },
+  "DORAMetricsApi.V2.DeleteDORADeployment": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "DORAMetricsApi.V2.ListDORADeployments": {
     body: {
       type: "DORAListDeploymentsRequest",
@@ -5024,6 +5031,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "DORAFailureResponse",
+  },
+  "DORAMetricsApi.V2.DeleteDORAFailure": {
+    failureId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "DORAMetricsApi.V2.ListDORAFailures": {
     body: {
