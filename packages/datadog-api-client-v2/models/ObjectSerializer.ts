@@ -622,6 +622,8 @@ import { Datastore } from "./Datastore";
 import { DatastoreArray } from "./DatastoreArray";
 import { DatastoreData } from "./DatastoreData";
 import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
+import { DatastoreTrigger } from "./DatastoreTrigger";
+import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest";
@@ -4609,6 +4611,8 @@ const typeMap: { [index: string]: any } = {
   DatastoreArray: DatastoreArray,
   DatastoreData: DatastoreData,
   DatastoreDataAttributes: DatastoreDataAttributes,
+  DatastoreTrigger: DatastoreTrigger,
+  DatastoreTriggerWrapper: DatastoreTriggerWrapper,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsDatastoreItemRequest: DeleteAppsDatastoreItemRequest,
@@ -7064,6 +7068,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "CaseTriggerWrapper",
     "ChangeEventTriggerWrapper",
     "DatabaseMonitoringTriggerWrapper",
+    "DatastoreTriggerWrapper",
     "DashboardTriggerWrapper",
     "GithubWebhookTriggerWrapper",
     "IncidentTriggerWrapper",
