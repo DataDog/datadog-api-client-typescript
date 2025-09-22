@@ -12,8 +12,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AzureAccount {
   /**
-   * Limit the Azure app service plans that are pulled into Datadog using tags.
-   * Only app service plans that match one of the defined tags are imported into Datadog.
+   * Limit the Azure app service plans (and Consumption Function Apps) that are pulled into Datadog using tags.
+   * Filtering an App Service Plan applies to all Apps running on that plan.
    */
   "appServicePlanFilters"?: string;
   /**
