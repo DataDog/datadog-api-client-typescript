@@ -13,6 +13,7 @@ import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipe
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
+import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
@@ -47,4 +48,5 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineSocketDestination
   | ObservabilityPipelineAmazonSecurityLakeDestination
   | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+  | ObservabilityPipelineGooglePubSubDestination
   | UnparsedObject;
