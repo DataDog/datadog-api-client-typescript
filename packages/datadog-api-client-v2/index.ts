@@ -2757,6 +2757,9 @@ export { ObservabilityPipelineGoogleCloudStorageDestination } from "./models/Obs
 export { ObservabilityPipelineGoogleCloudStorageDestinationAcl } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationAcl";
 export { ObservabilityPipelineGoogleCloudStorageDestinationStorageClass } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationStorageClass";
 export { ObservabilityPipelineGoogleCloudStorageDestinationType } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationType";
+export { ObservabilityPipelineGooglePubSubDestination } from "./models/ObservabilityPipelineGooglePubSubDestination";
+export { ObservabilityPipelineGooglePubSubDestinationEncoding } from "./models/ObservabilityPipelineGooglePubSubDestinationEncoding";
+export { ObservabilityPipelineGooglePubSubDestinationType } from "./models/ObservabilityPipelineGooglePubSubDestinationType";
 export { ObservabilityPipelineGooglePubSubSource } from "./models/ObservabilityPipelineGooglePubSubSource";
 export { ObservabilityPipelineGooglePubSubSourceType } from "./models/ObservabilityPipelineGooglePubSubSourceType";
 export { ObservabilityPipelineHttpClientSource } from "./models/ObservabilityPipelineHttpClientSource";
