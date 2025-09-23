@@ -45,6 +45,7 @@ import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./Observab
 import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
+import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
 import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
 import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
 import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
@@ -219,6 +220,11 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineGoogleCloudStorageDestinationType: [
       "google_cloud_storage",
     ],
+    ObservabilityPipelineGooglePubSubDestinationEncoding: [
+      "json",
+      "raw_message",
+    ],
+    ObservabilityPipelineGooglePubSubDestinationType: ["google_pubsub"],
     ObservabilityPipelineGooglePubSubSourceType: ["google_pubsub"],
     ObservabilityPipelineHttpClientSourceAuthStrategy: ["basic", "bearer"],
     ObservabilityPipelineHttpClientSourceType: ["http_client"],
@@ -369,6 +375,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSocketDestination",
       "ObservabilityPipelineAmazonSecurityLakeDestination",
       "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
+      "ObservabilityPipelineGooglePubSubDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
       "ObservabilityPipelineFilterProcessor",
@@ -514,6 +521,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineGoogleChronicleDestination,
     ObservabilityPipelineGoogleCloudStorageDestination:
       ObservabilityPipelineGoogleCloudStorageDestination,
+    ObservabilityPipelineGooglePubSubDestination:
+      ObservabilityPipelineGooglePubSubDestination,
     ObservabilityPipelineGooglePubSubSource:
       ObservabilityPipelineGooglePubSubSource,
     ObservabilityPipelineHttpClientSource:
