@@ -5660,6 +5660,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetAWSIntegrationIAMPermissions": {
         "operationResponseType": "AWSIntegrationIamPermissionsResponse",
     },
+    "v2.GetAWSIntegrationIAMPermissionsResourceCollection": {
+        "operationResponseType": "AWSIntegrationIamPermissionsResponse",
+    },
+    "v2.GetAWSIntegrationIAMPermissionsStandard": {
+        "operationResponseType": "AWSIntegrationIamPermissionsResponse",
+    },
     "v2.ListAWSLogsServices": {
         "operationResponseType": "AWSLogsServicesResponse",
     },
