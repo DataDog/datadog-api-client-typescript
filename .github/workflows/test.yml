@@ -20,99 +20,43 @@ concurrency:
 
 jobs:
   pre-commit:
-    runs-on: ubuntu-latest
     if: >
       (github.event.pull_request.draft == false &&
        !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
        !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) ||
       github.event_name == 'schedule'
-    steps:
-      # Run only in this repository
-      - name: Get GitHub App token
-        id: get_token
-        if: github.event.pull_request.head.repo.full_name == github.repository
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-      - uses: actions/checkout@v3
-        if: github.event.pull_request.head.repo.full_name == github.repository
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          token: ${{ steps.get_token.outputs.token }}
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      # Fetch a fork of the repo
-      - uses: actions/checkout@v3
-        if: github.event.pull_request.head.repo.full_name != github.repository
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Install pre-commit
-        run: python -m pip install pre-commit
-      - name: set PY
-        run: echo "PY=$(python -c 'import hashlib, sys, platform;print(hashlib.sha256(platform.python_version().encode()+sys.executable.encode()).hexdigest())')" >> $GITHUB_ENV
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit|split-package|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
-      - id: pre_commit
-        name: Run generate to fix lint and format
-        if: github.event.action != 'closed' && github.event.pull_request.merged != true
-        run: bash -c "./generate.sh"
-      - name: Commit changes
-        if: github.event.pull_request.head.repo.full_name == github.repository && failure()
-        run: |-
-          git add -A
-          git config user.name "${GIT_AUTHOR_NAME}"
-          git config user.email "${GIT_AUTHOR_EMAIL}"
-          git commit -m "pre-commit fixes"
-          git push origin "HEAD:${HEAD_REF}"
-          exit 1
-        env:
-          HEAD_REF: ${{ github.event.pull_request.head.ref }}
-      - id: pre_commit_schedule
-        name: Run pre-commit in schedule
-        if: github.event_name == 'schedule'
-        run: |
-          pre-commit run --all-files --show-diff-on-failure --color=always
+    uses: ./.github/workflows/reusable-pre-commit.yml
+    with:
+      enable-commit-changes: true
+    secrets:
+      PIPELINE_GITHUB_APP_ID: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+      PIPELINE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
 
   test:
-    strategy:
-      matrix:
-        node-version: ["18", "20"]
-        platform: [ubuntu-latest]
-    runs-on: ${{ matrix.platform }}
-    if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
-    steps:
-      - uses: actions/checkout@v3
-      - name: Enable Corepack
-        run: corepack enable
-        env:
-          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
-      - name: Set up Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-      - name: Test
-        run: ./run-tests.sh
-        shell: bash
+    if: >
+      (github.event.pull_request.draft == false &&
+       !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
+       !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) ||
+      github.event_name == 'schedule'
+    uses: ./.github/workflows/reusable-typescript-test.yml
+    with:
+      node-versions: '["18", "20"]'
+      platforms: '["ubuntu-latest"]'
+      test-script: './run-tests.sh'
+    secrets:
+      PIPELINE_GITHUB_APP_ID: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+      PIPELINE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
 
   # examples:
-  #   runs-on: ubuntu-latest
-  #   if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Set up Node 16
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: 'yarn'
-  #     - name: Check examples
-  #       run: ./check-examples.sh
-  #       shell: bash
+  #   if: >
+  #     (github.event.pull_request.draft == false &&
+  #      !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
+  #      !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) ||
+  #     github.event_name == 'schedule'
+  #   uses: ./.github/workflows/reusable-examples.yml
+  #   with:
+  #     examples-script: './check-examples.sh'
+  #     node-version: '16'
 
   report:
     runs-on: ubuntu-latest
@@ -139,7 +83,7 @@ jobs:
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
-          # status: ${{ (needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
+          # status: ${{ (needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || (needs.test.result == 'success' && needs.examples.result == 'success') && 'success' || 'failure' }}
           status: ${{ needs.test.result == 'cancelled' && 'pending' || needs.test.result == 'success' && 'success' || 'failure' }}
           context: v2/unit
           pull-request: ${{ steps.get_pr_number.outputs.spec_pr }}
