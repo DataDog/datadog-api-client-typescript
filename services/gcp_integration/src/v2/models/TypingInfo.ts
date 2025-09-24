@@ -2,6 +2,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
+import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
 import { GCPSTSDelegateAccountResponse } from "./GCPSTSDelegateAccountResponse";
@@ -17,6 +18,11 @@ import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    GCPMonitoredResourceConfigType: [
+      "cloud_function",
+      "cloud_run_revision",
+      "gce_instance",
+    ],
     GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
     GCPServiceAccountType: ["gcp_service_account"],
   },
@@ -24,6 +30,7 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
+    GCPMonitoredResourceConfig: GCPMonitoredResourceConfig,
     GCPSTSDelegateAccount: GCPSTSDelegateAccount,
     GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
     GCPSTSDelegateAccountResponse: GCPSTSDelegateAccountResponse,

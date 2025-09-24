@@ -2354,6 +2354,101 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
   },
+  "ActionsDatastoresApi.V2.ListDatastores": {
+    operationResponseType: "DatastoreArray",
+  },
+  "ActionsDatastoresApi.V2.CreateDatastore": {
+    body: {
+      type: "CreateAppsDatastoreRequest",
+      format: "",
+    },
+    operationResponseType: "CreateAppsDatastoreResponse",
+  },
+  "ActionsDatastoresApi.V2.GetDatastore": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "Datastore",
+  },
+  "ActionsDatastoresApi.V2.DeleteDatastore": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ActionsDatastoresApi.V2.UpdateDatastore": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateAppsDatastoreRequest",
+      format: "",
+    },
+    operationResponseType: "Datastore",
+  },
+  "ActionsDatastoresApi.V2.ListDatastoreItems": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    itemKey: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ItemApiPayloadArray",
+  },
+  "ActionsDatastoresApi.V2.DeleteDatastoreItem": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DeleteAppsDatastoreItemRequest",
+      format: "",
+    },
+    operationResponseType: "DeleteAppsDatastoreItemResponse",
+  },
+  "ActionsDatastoresApi.V2.UpdateDatastoreItem": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateAppsDatastoreItemRequest",
+      format: "",
+    },
+    operationResponseType: "ItemApiPayload",
+  },
+  "ActionsDatastoresApi.V2.BulkWriteDatastoreItems": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "BulkPutAppsDatastoreItemsRequest",
+      format: "",
+    },
+    operationResponseType: "PutAppsDatastoreItemResponseArray",
+  },
   "ActionConnectionApi.V2.ListAppKeyRegistrations": {
     pageSize: {
       type: "number",
@@ -4280,6 +4375,48 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ContainersResponse",
   },
+  "CloudCostManagementApi.V2.ListArbitraryCostRules": {
+    operationResponseType: "ArbitraryRuleResponseArray",
+  },
+  "CloudCostManagementApi.V2.CreateArbitraryCostRule": {
+    body: {
+      type: "ArbitraryCostUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "ArbitraryRuleResponse",
+  },
+  "CloudCostManagementApi.V2.ReorderArbitraryCostRules": {
+    body: {
+      type: "ReorderRuleResourceArray",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.GetArbitraryCostRule": {
+    ruleId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ArbitraryRuleResponse",
+  },
+  "CloudCostManagementApi.V2.DeleteArbitraryCostRule": {
+    ruleId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateArbitraryCostRule": {
+    ruleId: {
+      type: "number",
+      format: "int64",
+    },
+    body: {
+      type: "ArbitraryCostUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "ArbitraryRuleResponse",
+  },
   "CloudCostManagementApi.V2.ListCostAWSCURConfigs": {
     operationResponseType: "AwsCURConfigsResponse",
   },
@@ -4288,7 +4425,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "AwsCURConfigPostRequest",
       format: "",
     },
-    operationResponseType: "AwsCURConfigResponse",
+    operationResponseType: "AwsCurConfigResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostAWSCURConfig": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "AwsCurConfigResponse",
   },
   "CloudCostManagementApi.V2.DeleteCostAWSCURConfig": {
     cloudAccountId: {
@@ -4317,6 +4461,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "AzureUCConfigPairsResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostAzureUCConfig": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "UCConfigPair",
   },
   "CloudCostManagementApi.V2.DeleteCostAzureUCConfig": {
     cloudAccountId: {
@@ -4410,6 +4561,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GCPUsageCostConfigResponse",
   },
+  "CloudCostManagementApi.V2.GetCostGCPUsageCostConfig": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "GcpUcConfigResponse",
+  },
   "CloudCostManagementApi.V2.DeleteCostGCPUsageCostConfig": {
     cloudAccountId: {
       type: "number",
@@ -4427,6 +4585,55 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "GCPUsageCostConfigResponse",
+  },
+  "CloudCostManagementApi.V2.ListRulesets": {
+    operationResponseType: "RulesetRespArray",
+  },
+  "CloudCostManagementApi.V2.CreateRuleset": {
+    body: {
+      type: "CreateRulesetRequest",
+      format: "",
+    },
+    operationResponseType: "RulesetResp",
+  },
+  "CloudCostManagementApi.V2.ReorderRulesets": {
+    body: {
+      type: "ReorderRulesetResourceArray",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.ValidateQuery": {
+    body: {
+      type: "RulesValidateQueryRequest",
+      format: "",
+    },
+    operationResponseType: "RulesValidateQueryResponse",
+  },
+  "CloudCostManagementApi.V2.GetRuleset": {
+    rulesetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RulesetResp",
+  },
+  "CloudCostManagementApi.V2.DeleteRuleset": {
+    rulesetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateRuleset": {
+    rulesetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateRulesetRequest",
+      format: "",
+    },
+    operationResponseType: "RulesetResp",
   },
   "UsageMeteringApi.V2.GetActiveBillingDimensions": {
     operationResponseType: "ActiveBillingDimensionsResponse",
@@ -4797,6 +5004,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DORADeploymentResponse",
   },
+  "DORAMetricsApi.V2.DeleteDORADeployment": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "DORAMetricsApi.V2.ListDORADeployments": {
     body: {
       type: "DORAListDeploymentsRequest",
@@ -4817,6 +5031,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "DORAFailureResponse",
+  },
+  "DORAMetricsApi.V2.DeleteDORAFailure": {
+    failureId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "DORAMetricsApi.V2.ListDORAFailures": {
     body: {
@@ -5023,6 +5244,112 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentResponse",
   },
+  "IncidentsApi.V2.ListIncidentNotificationRules": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationRuleArray",
+  },
+  "IncidentsApi.V2.CreateIncidentNotificationRule": {
+    body: {
+      type: "CreateIncidentNotificationRuleRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationRule",
+  },
+  "IncidentsApi.V2.GetIncidentNotificationRule": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationRule",
+  },
+  "IncidentsApi.V2.UpdateIncidentNotificationRule": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PutIncidentNotificationRuleRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationRule",
+  },
+  "IncidentsApi.V2.DeleteIncidentNotificationRule": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.ListIncidentNotificationTemplates": {
+    filterIncidentType: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplateArray",
+  },
+  "IncidentsApi.V2.CreateIncidentNotificationTemplate": {
+    body: {
+      type: "CreateIncidentNotificationTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplate",
+  },
+  "IncidentsApi.V2.GetIncidentNotificationTemplate": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplate",
+  },
+  "IncidentsApi.V2.DeleteIncidentNotificationTemplate": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentNotificationTemplate": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PatchIncidentNotificationTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentNotificationTemplate",
+  },
   "IncidentsApi.V2.ListIncidentTypes": {
     includeDeleted: {
       type: "boolean",
@@ -5147,6 +5474,43 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "IncidentAttachmentUpdateResponse",
+  },
+  "IncidentsApi.V2.ListIncidentImpacts": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "Array<IncidentImpactRelatedObject>",
+      format: "",
+    },
+    operationResponseType: "IncidentImpactsResponse",
+  },
+  "IncidentsApi.V2.CreateIncidentImpact": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "Array<IncidentImpactRelatedObject>",
+      format: "",
+    },
+    body: {
+      type: "IncidentImpactCreateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentImpactResponse",
+  },
+  "IncidentsApi.V2.DeleteIncidentImpact": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    impactId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "IncidentsApi.V2.ListIncidentIntegrations": {
     incidentId: {
@@ -5304,6 +5668,12 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "AWSNewExternalIDResponse",
   },
   "AWSIntegrationApi.V2.GetAWSIntegrationIAMPermissions": {
+    operationResponseType: "AWSIntegrationIamPermissionsResponse",
+  },
+  "AWSIntegrationApi.V2.GetAWSIntegrationIAMPermissionsResourceCollection": {
+    operationResponseType: "AWSIntegrationIamPermissionsResponse",
+  },
+  "AWSIntegrationApi.V2.GetAWSIntegrationIAMPermissionsStandard": {
     operationResponseType: "AWSIntegrationIamPermissionsResponse",
   },
   "AWSLogsIntegrationApi.V2.ListAWSLogsServices": {
@@ -6132,6 +6502,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "IntakePayloadAccepted",
   },
   "MonitorsApi.V2.GetMonitorNotificationRules": {
+    page: {
+      type: "number",
+      format: "int32",
+    },
+    perPage: {
+      type: "number",
+      format: "int32",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    filters: {
+      type: "string",
+      format: "",
+    },
     include: {
       type: "string",
       format: "",
@@ -6564,6 +6950,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "{}",
   },
   "OrgConnectionsApi.V2.ListOrgConnections": {
+    sinkOrgId: {
+      type: "string",
+      format: "",
+    },
+    sourceOrgId: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    offset: {
+      type: "number",
+      format: "int64",
+    },
     operationResponseType: "OrgConnectionListResponse",
   },
   "OrgConnectionsApi.V2.CreateOrgConnections": {

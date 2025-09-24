@@ -26,14 +26,6 @@ import { AWSLogsIntegrationApiV2 } from "@datadog/datadog-api-client-aws-logs-in
 import { v2 } from "@datadog/datadog-api-client-aws-logs-integration";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "AWSLogsIntegrationApi.v2.listAWSLogsServices": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new AWSLogsIntegrationApiV2(configuration);
 
 apiInstance.listAWSLogsServices().then((data) => {

@@ -8,6 +8,8 @@ export {
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { GCPMetricNamespaceConfig } from "./models/GCPMetricNamespaceConfig";
+export { GCPMonitoredResourceConfig } from "./models/GCPMonitoredResourceConfig";
+export { GCPMonitoredResourceConfigType } from "./models/GCPMonitoredResourceConfigType";
 export { GCPServiceAccountMeta } from "./models/GCPServiceAccountMeta";
 export { GCPServiceAccountType } from "./models/GCPServiceAccountType";
 export { GCPSTSDelegateAccount } from "./models/GCPSTSDelegateAccount";

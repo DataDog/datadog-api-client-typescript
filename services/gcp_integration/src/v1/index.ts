@@ -7,3 +7,5 @@ export {
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { GCPAccount } from "./models/GCPAccount";
+export { GCPMonitoredResourceConfig } from "./models/GCPMonitoredResourceConfig";
+export { GCPMonitoredResourceConfigType } from "./models/GCPMonitoredResourceConfigType";

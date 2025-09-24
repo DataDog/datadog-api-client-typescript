@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
+import { IncidentTypeRelationships } from "./IncidentTypeRelationships";
 import { IncidentTypeType } from "./IncidentTypeType";
 
 /**
@@ -15,6 +16,10 @@ export class IncidentTypeObject {
    * The incident type's ID.
    */
   "id": string;
+  /**
+   * The incident type's resource relationships.
+   */
+  "relationships"?: IncidentTypeRelationships;
   /**
    * Incident type resource type.
    */
@@ -42,6 +47,10 @@ export class IncidentTypeObject {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentTypeRelationships",
     },
     type: {
       baseName: "type",
