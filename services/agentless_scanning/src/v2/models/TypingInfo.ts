@@ -18,11 +18,20 @@ import { AwsScanOptionsResponse } from "./AwsScanOptionsResponse";
 import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
 import { AwsScanOptionsUpdateData } from "./AwsScanOptionsUpdateData";
 import { AwsScanOptionsUpdateRequest } from "./AwsScanOptionsUpdateRequest";
+import { AzureScanOptions } from "./AzureScanOptions";
+import { AzureScanOptionsArray } from "./AzureScanOptionsArray";
+import { AzureScanOptionsData } from "./AzureScanOptionsData";
+import { AzureScanOptionsDataAttributes } from "./AzureScanOptionsDataAttributes";
+import { AzureScanOptionsInputUpdate } from "./AzureScanOptionsInputUpdate";
+import { AzureScanOptionsInputUpdateData } from "./AzureScanOptionsInputUpdateData";
+import { AzureScanOptionsInputUpdateDataAttributes } from "./AzureScanOptionsInputUpdateDataAttributes";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AwsOnDemandType: ["aws_resource"],
     AwsScanOptionsType: ["aws_scan_options"],
+    AzureScanOptionsDataType: ["azure_scan_options"],
+    AzureScanOptionsInputUpdateDataType: ["azure_scan_options"],
   },
   oneOfMap: {},
   typeMap: {
@@ -44,5 +53,13 @@ export const TypingInfo: ModelTypingInfo = {
     AwsScanOptionsUpdateAttributes: AwsScanOptionsUpdateAttributes,
     AwsScanOptionsUpdateData: AwsScanOptionsUpdateData,
     AwsScanOptionsUpdateRequest: AwsScanOptionsUpdateRequest,
+    AzureScanOptions: AzureScanOptions,
+    AzureScanOptionsArray: AzureScanOptionsArray,
+    AzureScanOptionsData: AzureScanOptionsData,
+    AzureScanOptionsDataAttributes: AzureScanOptionsDataAttributes,
+    AzureScanOptionsInputUpdate: AzureScanOptionsInputUpdate,
+    AzureScanOptionsInputUpdateData: AzureScanOptionsInputUpdateData,
+    AzureScanOptionsInputUpdateDataAttributes:
+      AzureScanOptionsInputUpdateDataAttributes,
   },
 };
