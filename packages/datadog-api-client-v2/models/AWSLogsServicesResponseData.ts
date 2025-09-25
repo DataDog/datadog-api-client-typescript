@@ -21,7 +21,7 @@ export class AWSLogsServicesResponseData {
    */
   "id": string;
   /**
-   * The `AWSLogsServicesResponseData` `type`.
+   * The `AWSLogsServicesResponseData` `type`. Test to trigger client generation.
    */
   "type": AWSLogsServicesResponseDataType;
 
