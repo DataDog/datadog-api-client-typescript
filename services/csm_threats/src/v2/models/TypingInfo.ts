@@ -13,6 +13,7 @@ import { CloudWorkloadSecurityAgentPolicyUpdateData } from "./CloudWorkloadSecur
 import { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./CloudWorkloadSecurityAgentPolicyUpdateRequest";
 import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
+import { CloudWorkloadSecurityAgentRuleActionHash } from "./CloudWorkloadSecurityAgentRuleActionHash";
 import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
@@ -59,6 +60,8 @@ export const TypingInfo: ModelTypingInfo = {
     CloudWorkloadSecurityAgentPolicyUpdaterAttributes:
       CloudWorkloadSecurityAgentPolicyUpdaterAttributes,
     CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
+    CloudWorkloadSecurityAgentRuleActionHash:
+      CloudWorkloadSecurityAgentRuleActionHash,
     CloudWorkloadSecurityAgentRuleActionMetadata:
       CloudWorkloadSecurityAgentRuleActionMetadata,
     CloudWorkloadSecurityAgentRuleActionSet:
