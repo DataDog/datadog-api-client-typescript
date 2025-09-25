@@ -53,7 +53,7 @@ on:
         required: false
 
 concurrency:
-  group: integration-${{ github.head_ref }}
+  group: integration-typescript-${{ inputs.target-branch || github.head_ref }}
   cancel-in-progress: true
 
 jobs:
