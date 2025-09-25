@@ -4,6 +4,7 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { Case } from "./Case";
 import { CaseAttributes } from "./CaseAttributes";
 import { CaseRelationships } from "./CaseRelationships";
+import { CustomAttributeValue } from "./CustomAttributeValue";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueAttributes } from "./IssueAttributes";
@@ -54,6 +55,7 @@ export const TypingInfo: ModelTypingInfo = {
     CaseResourceType: ["case"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
     CaseType: ["STANDARD"],
+    CustomAttributeType: ["URL", "TEXT", "NUMBER"],
     GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
     IssueCaseResourceType: ["case"],
     IssueLanguage: [
@@ -126,6 +128,12 @@ export const TypingInfo: ModelTypingInfo = {
     UserResourceType: ["user"],
   },
   oneOfMap: {
+    CustomAttributeValuesUnion: [
+      "string",
+      "Array<string>",
+      "number",
+      "Array<number>",
+    ],
     IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam"],
     IssuesSearchResultIncluded: ["Issue", "Case", "IssueUser", "IssueTeam"],
   },
@@ -134,6 +142,7 @@ export const TypingInfo: ModelTypingInfo = {
     Case: Case,
     CaseAttributes: CaseAttributes,
     CaseRelationships: CaseRelationships,
+    CustomAttributeValue: CustomAttributeValue,
     Issue: Issue,
     IssueAssigneeRelationship: IssueAssigneeRelationship,
     IssueAttributes: IssueAttributes,
