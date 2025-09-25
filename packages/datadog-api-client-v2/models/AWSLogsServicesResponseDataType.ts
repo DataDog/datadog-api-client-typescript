@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The `AWSLogsServicesResponseData` `type`.
+ * The `AWSLogsServicesResponseData` `type`. Test to trigger client generation.
  */
 
 export type AWSLogsServicesResponseDataType =
