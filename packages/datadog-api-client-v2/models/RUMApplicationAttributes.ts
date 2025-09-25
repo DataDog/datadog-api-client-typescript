@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RUMApplicationAttributes {
   /**
+   * ID of the API key associated with the application.
+   */
+  "apiKeyId"?: number;
+  /**
    * ID of the RUM application.
    */
   "applicationId": string;
@@ -76,6 +80,11 @@ export class RUMApplicationAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    apiKeyId: {
+      baseName: "api_key_id",
+      type: "number",
+      format: "int32",
+    },
     applicationId: {
       baseName: "application_id",
       type: "string",
