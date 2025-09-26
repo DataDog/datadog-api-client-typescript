@@ -1342,6 +1342,8 @@ import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 import { MonitorNotificationRuleAttributes } from "./MonitorNotificationRuleAttributes";
+import { MonitorNotificationRuleCondition } from "./MonitorNotificationRuleCondition";
+import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleCreateRequest } from "./MonitorNotificationRuleCreateRequest";
 import { MonitorNotificationRuleCreateRequestData } from "./MonitorNotificationRuleCreateRequestData";
 import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
@@ -5419,6 +5421,9 @@ const typeMap: { [index: string]: any } = {
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   MonitorNotificationRuleAttributes: MonitorNotificationRuleAttributes,
+  MonitorNotificationRuleCondition: MonitorNotificationRuleCondition,
+  MonitorNotificationRuleConditionalRecipients:
+    MonitorNotificationRuleConditionalRecipients,
   MonitorNotificationRuleCreateRequest: MonitorNotificationRuleCreateRequest,
   MonitorNotificationRuleCreateRequestData:
     MonitorNotificationRuleCreateRequestData,

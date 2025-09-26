@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleFilter } from "./MonitorNotificationRuleFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes of the monitor notification rule.
  */
 export class MonitorNotificationRuleAttributes {
+  /**
+   * Use conditional recipients to define different recipients for different situations.
+   */
+  "conditionalRecipients"?: MonitorNotificationRuleConditionalRecipients;
   /**
    * Filter used to associate the notification rule with monitors.
    */
@@ -22,7 +27,7 @@ export class MonitorNotificationRuleAttributes {
   /**
    * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
    */
-  "recipients": Array<string>;
+  "recipients"?: Array<string>;
 
   /**
    * @ignore
@@ -33,6 +38,10 @@ export class MonitorNotificationRuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    conditionalRecipients: {
+      baseName: "conditional_recipients",
+      type: "MonitorNotificationRuleConditionalRecipients",
+    },
     filter: {
       baseName: "filter",
       type: "MonitorNotificationRuleFilter",
@@ -45,7 +54,6 @@ export class MonitorNotificationRuleAttributes {
     recipients: {
       baseName: "recipients",
       type: "Array<string>",
-      required: true,
     },
   };
 
