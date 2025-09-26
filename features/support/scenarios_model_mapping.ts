@@ -3963,6 +3963,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "SecurityFilterResponse",
     },
     "v2.ListSecurityMonitoringSuppressions": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "SecurityMonitoringSuppressionsResponse",
     },
     "v2.CreateSecurityMonitoringSuppression": {
