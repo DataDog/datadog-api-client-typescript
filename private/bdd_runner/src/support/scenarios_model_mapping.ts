@@ -3973,6 +3973,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "SecurityFilterResponse",
   },
   "SecurityMonitoringApi.V2.ListSecurityMonitoringSuppressions": {
+    query: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "SecurityMonitoringSuppressionsResponse",
   },
   "SecurityMonitoringApi.V2.CreateSecurityMonitoringSuppression": {

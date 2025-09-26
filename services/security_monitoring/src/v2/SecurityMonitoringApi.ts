@@ -2791,6 +2791,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityMonitoringSuppressions(
+    query?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2815,6 +2816,15 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        serialize(query, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -8711,6 +8721,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
   pageLimit?: number;
 }
 
+export interface SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest {
+  /**
+   * Query string.
+   * @type string
+   */
+  query?: string;
+}
+
 export interface SecurityMonitoringApiListVulnerabilitiesRequest {
   /**
    * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
@@ -10431,10 +10449,14 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public listSecurityMonitoringSuppressions(
+    param: SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest = {},
     options?: Configuration,
   ): Promise<SecurityMonitoringSuppressionsResponse> {
     const requestContextPromise =
-      this.requestFactory.listSecurityMonitoringSuppressions(options);
+      this.requestFactory.listSecurityMonitoringSuppressions(
+        param.query,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
