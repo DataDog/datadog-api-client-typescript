@@ -767,6 +767,12 @@ export {
 } from "./apis/SpansMetricsApi";
 
 export {
+  StaticAnalysisApiPostSCAResolveVulnerableSymbolsRequest,
+  StaticAnalysisApiPostSCAResultRequest,
+  StaticAnalysisApi,
+} from "./apis/StaticAnalysisApi";
+
+export {
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
   SyntheticsApi,
 } from "./apis/SyntheticsApi";
@@ -3123,6 +3129,17 @@ export { ReorderRuleResourceDataType } from "./models/ReorderRuleResourceDataTyp
 export { ReorderRulesetResourceArray } from "./models/ReorderRulesetResourceArray";
 export { ReorderRulesetResourceData } from "./models/ReorderRulesetResourceData";
 export { ReorderRulesetResourceDataType } from "./models/ReorderRulesetResourceDataType";
+export { ResolveVulnerableSymbolsRequest } from "./models/ResolveVulnerableSymbolsRequest";
+export { ResolveVulnerableSymbolsRequestData } from "./models/ResolveVulnerableSymbolsRequestData";
+export { ResolveVulnerableSymbolsRequestDataAttributes } from "./models/ResolveVulnerableSymbolsRequestDataAttributes";
+export { ResolveVulnerableSymbolsRequestDataType } from "./models/ResolveVulnerableSymbolsRequestDataType";
+export { ResolveVulnerableSymbolsResponse } from "./models/ResolveVulnerableSymbolsResponse";
+export { ResolveVulnerableSymbolsResponseData } from "./models/ResolveVulnerableSymbolsResponseData";
+export { ResolveVulnerableSymbolsResponseDataAttributes } from "./models/ResolveVulnerableSymbolsResponseDataAttributes";
+export { ResolveVulnerableSymbolsResponseDataAttributesResultsItems } from "./models/ResolveVulnerableSymbolsResponseDataAttributesResultsItems";
+export { ResolveVulnerableSymbolsResponseDataAttributesResultsItemsVulnerableSymbolsItems } from "./models/ResolveVulnerableSymbolsResponseDataAttributesResultsItemsVulnerableSymbolsItems";
+export { ResolveVulnerableSymbolsResponseDataAttributesResultsItemsVulnerableSymbolsItemsSymbolsItems } from "./models/ResolveVulnerableSymbolsResponseDataAttributesResultsItemsVulnerableSymbolsItemsSymbolsItems";
+export { ResolveVulnerableSymbolsResponseDataType } from "./models/ResolveVulnerableSymbolsResponseDataType";
 export { ResourceFilterAttributes } from "./models/ResourceFilterAttributes";
 export { ResourceFilterRequestType } from "./models/ResourceFilterRequestType";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
@@ -3334,6 +3351,21 @@ export { ScalarFormulaResponseType } from "./models/ScalarFormulaResponseType";
 export { ScalarMeta } from "./models/ScalarMeta";
 export { ScalarQuery } from "./models/ScalarQuery";
 export { ScalarResponse } from "./models/ScalarResponse";
+export { ScaRequest } from "./models/ScaRequest";
+export { ScaRequestData } from "./models/ScaRequestData";
+export { ScaRequestDataAttributes } from "./models/ScaRequestDataAttributes";
+export { ScaRequestDataAttributesCommit } from "./models/ScaRequestDataAttributesCommit";
+export { ScaRequestDataAttributesDependenciesItems } from "./models/ScaRequestDataAttributesDependenciesItems";
+export { ScaRequestDataAttributesDependenciesItemsLocationsItems } from "./models/ScaRequestDataAttributesDependenciesItemsLocationsItems";
+export { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } from "./models/ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition";
+export { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from "./models/ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition";
+export { ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems } from "./models/ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems";
+export { ScaRequestDataAttributesFilesItems } from "./models/ScaRequestDataAttributesFilesItems";
+export { ScaRequestDataAttributesRelationsItems } from "./models/ScaRequestDataAttributesRelationsItems";
+export { ScaRequestDataAttributesRepository } from "./models/ScaRequestDataAttributesRepository";
+export { ScaRequestDataAttributesVulnerabilitiesItems } from "./models/ScaRequestDataAttributesVulnerabilitiesItems";
+export { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./models/ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems";
+export { ScaRequestDataType } from "./models/ScaRequestDataType";
 export { Schedule } from "./models/Schedule";
 export { ScheduleCreateRequest } from "./models/ScheduleCreateRequest";
 export { ScheduleCreateRequestData } from "./models/ScheduleCreateRequestData";
