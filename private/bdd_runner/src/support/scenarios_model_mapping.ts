@@ -8109,6 +8109,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SpansListResponse",
   },
+  "StaticAnalysisApi.V2.PostSCAResult": {
+    body: {
+      type: "ScaRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.PostSCAResolveVulnerableSymbols": {
+    body: {
+      type: "ResolveVulnerableSymbolsRequest",
+      format: "",
+    },
+    operationResponseType: "ResolveVulnerableSymbolsResponse",
+  },
   "SyntheticsApi.V2.GetOnDemandConcurrencyCap": {
     operationResponseType: "OnDemandConcurrencyCapResponse",
   },
