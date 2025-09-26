@@ -14,6 +14,8 @@ import { MonitorConfigPolicyResponseData } from "./MonitorConfigPolicyResponseDa
 import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
 import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicyTagPolicyCreateRequest";
 import { MonitorNotificationRuleAttributes } from "./MonitorNotificationRuleAttributes";
+import { MonitorNotificationRuleCondition } from "./MonitorNotificationRuleCondition";
+import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleCreateRequest } from "./MonitorNotificationRuleCreateRequest";
 import { MonitorNotificationRuleCreateRequestData } from "./MonitorNotificationRuleCreateRequestData";
 import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
@@ -87,6 +89,9 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorConfigPolicyTagPolicyCreateRequest:
       MonitorConfigPolicyTagPolicyCreateRequest,
     MonitorNotificationRuleAttributes: MonitorNotificationRuleAttributes,
+    MonitorNotificationRuleCondition: MonitorNotificationRuleCondition,
+    MonitorNotificationRuleConditionalRecipients:
+      MonitorNotificationRuleConditionalRecipients,
     MonitorNotificationRuleCreateRequest: MonitorNotificationRuleCreateRequest,
     MonitorNotificationRuleCreateRequestData:
       MonitorNotificationRuleCreateRequestData,
