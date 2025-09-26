@@ -1,0 +1,51 @@
+name: Reusable TypeScript Testing Workflow
+
+on:
+  workflow_call:
+    inputs:
+      target-branch:
+        description: 'Branch to checkout and test (defaults to the calling branch)'
+        required: false
+        type: string
+        default: ''
+      node-versions:
+        description: 'JSON array of Node.js versions to test against'
+        required: false
+        type: string
+        default: '["16", "18"]'
+      platforms:
+        description: 'JSON array of platforms to run tests on'
+        required: false
+        type: string
+        default: '["ubuntu-latest"]'
+      test-script:
+        description: 'Test script to execute'
+        required: false
+        type: string
+        default: './run-tests.sh'
+    secrets:
+      PIPELINE_GITHUB_APP_ID:
+        required: false
+      PIPELINE_GITHUB_APP_PRIVATE_KEY:
+        required: false
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        node-version: ${{ fromJSON(inputs.node-versions) }}
+        platform: ${{ fromJSON(inputs.platforms) }}
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: DataDog/datadog-api-client-typescript
+          ref: ${{ inputs.target-branch || github.ref }}
+      - name: Set up Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - name: Test
+        run: ${{ inputs.test-script }}
+        shell: bash

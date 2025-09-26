@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -36,8 +37,9 @@ export class GCPAccount {
    */
   "clientX509CertUrl"?: string;
   /**
-   * Limit the Cloud Run revisions that are pulled into Datadog by using tags.
+   * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
    * Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+   * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`
    */
   "cloudRunRevisionFilters"?: Array<string>;
   /**
@@ -45,8 +47,9 @@ export class GCPAccount {
    */
   "errors"?: Array<string>;
   /**
-   * Limit the GCE instances that are pulled into Datadog by using tags.
-   * Only hosts that match one of the defined tags are imported into Datadog.
+   * A comma-separated list of filters to limit the VM instances that are pulled into Datadog by using tags.
+   * Only VM instance resources that apply to specified filters are imported into Datadog.
+   * **Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`
    */
   "hostFilters"?: string;
   /**
@@ -61,6 +64,10 @@ export class GCPAccount {
    * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
    */
   "isSecurityCommandCenterEnabled"?: boolean;
+  /**
+   * Configurations for GCP monitored resources.
+   */
+  "monitoredResourceConfigs"?: Array<GCPMonitoredResourceConfig>;
   /**
    * Your private key name found in your JSON service account key.
    */
@@ -149,6 +156,10 @@ export class GCPAccount {
     isSecurityCommandCenterEnabled: {
       baseName: "is_security_command_center_enabled",
       type: "boolean",
+    },
+    monitoredResourceConfigs: {
+      baseName: "monitored_resource_configs",
+      type: "Array<GCPMonitoredResourceConfig>",
     },
     privateKey: {
       baseName: "private_key",

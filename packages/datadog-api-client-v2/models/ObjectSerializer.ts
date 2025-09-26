@@ -127,6 +127,27 @@ import { ApplicationSecurityWafExclusionFilterUpdateAttributes } from "./Applica
 import { ApplicationSecurityWafExclusionFilterUpdateData } from "./ApplicationSecurityWafExclusionFilterUpdateData";
 import { ApplicationSecurityWafExclusionFilterUpdateRequest } from "./ApplicationSecurityWafExclusionFilterUpdateRequest";
 import { ApplicationSecurityWafExclusionFiltersResponse } from "./ApplicationSecurityWafExclusionFiltersResponse";
+import { ArbitraryCostUpsertRequest } from "./ArbitraryCostUpsertRequest";
+import { ArbitraryCostUpsertRequestData } from "./ArbitraryCostUpsertRequestData";
+import { ArbitraryCostUpsertRequestDataAttributes } from "./ArbitraryCostUpsertRequestDataAttributes";
+import { ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems } from "./ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategy } from "./ArbitraryCostUpsertRequestDataAttributesStrategy";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems";
+import { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleResponse } from "./ArbitraryRuleResponse";
+import { ArbitraryRuleResponseArray } from "./ArbitraryRuleResponseArray";
+import { ArbitraryRuleResponseData } from "./ArbitraryRuleResponseData";
+import { ArbitraryRuleResponseDataAttributes } from "./ArbitraryRuleResponseDataAttributes";
+import { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
+import { ArbitraryRuleResponseDataAttributesStrategy } from "./ArbitraryRuleResponseDataAttributesStrategy";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems";
+import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
+import { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
+import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
 import { AsanaAccessToken } from "./AsanaAccessToken";
 import { AsanaAccessTokenUpdate } from "./AsanaAccessTokenUpdate";
 import { AsanaIntegration } from "./AsanaIntegration";
@@ -170,8 +191,11 @@ import { AwsCURConfigPatchRequestAttributes } from "./AwsCURConfigPatchRequestAt
 import { AwsCURConfigPostData } from "./AwsCURConfigPostData";
 import { AwsCURConfigPostRequest } from "./AwsCURConfigPostRequest";
 import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttributes";
-import { AwsCURConfigResponse } from "./AwsCURConfigResponse";
 import { AwsCURConfigsResponse } from "./AwsCURConfigsResponse";
+import { AwsCurConfigResponse } from "./AwsCurConfigResponse";
+import { AwsCurConfigResponseData } from "./AwsCurConfigResponseData";
+import { AwsCurConfigResponseDataAttributes } from "./AwsCurConfigResponseDataAttributes";
+import { AwsCurConfigResponseDataAttributesAccountFilters } from "./AwsCurConfigResponseDataAttributesAccountFilters";
 import { AwsOnDemandAttributes } from "./AwsOnDemandAttributes";
 import { AwsOnDemandCreateAttributes } from "./AwsOnDemandCreateAttributes";
 import { AwsOnDemandCreateData } from "./AwsOnDemandCreateData";
@@ -224,6 +248,9 @@ import { BulkMuteFindingsRequestMetaFindings } from "./BulkMuteFindingsRequestMe
 import { BulkMuteFindingsRequestProperties } from "./BulkMuteFindingsRequestProperties";
 import { BulkMuteFindingsResponse } from "./BulkMuteFindingsResponse";
 import { BulkMuteFindingsResponseData } from "./BulkMuteFindingsResponseData";
+import { BulkPutAppsDatastoreItemsRequest } from "./BulkPutAppsDatastoreItemsRequest";
+import { BulkPutAppsDatastoreItemsRequestData } from "./BulkPutAppsDatastoreItemsRequestData";
+import { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./BulkPutAppsDatastoreItemsRequestDataAttributes";
 import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
 import { CIAppAggregateSort } from "./CIAppAggregateSort";
 import { CIAppCIError } from "./CIAppCIError";
@@ -439,12 +466,18 @@ import { CreateAppRequestData } from "./CreateAppRequestData";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
 import { CreateAppResponse } from "./CreateAppResponse";
 import { CreateAppResponseData } from "./CreateAppResponseData";
+import { CreateAppsDatastoreRequest } from "./CreateAppsDatastoreRequest";
+import { CreateAppsDatastoreRequestData } from "./CreateAppsDatastoreRequestData";
+import { CreateAppsDatastoreRequestDataAttributes } from "./CreateAppsDatastoreRequestDataAttributes";
+import { CreateAppsDatastoreResponse } from "./CreateAppsDatastoreResponse";
+import { CreateAppsDatastoreResponseData } from "./CreateAppsDatastoreResponseData";
 import { CreateCustomFrameworkRequest } from "./CreateCustomFrameworkRequest";
 import { CreateCustomFrameworkResponse } from "./CreateCustomFrameworkResponse";
 import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
@@ -462,6 +495,15 @@ import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
+import { CreateRulesetRequest } from "./CreateRulesetRequest";
+import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
+import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
+import { CreateRulesetRequestDataAttributesRulesItems } from "./CreateRulesetRequestDataAttributesRulesItems";
+import { CreateRulesetRequestDataAttributesRulesItemsMapping } from "./CreateRulesetRequestDataAttributesRulesItemsMapping";
+import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRulesetRequestDataAttributesRulesItemsQuery";
+import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
+import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
+import { CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
 import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
@@ -576,8 +618,19 @@ import { DatasetResponse } from "./DatasetResponse";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
 import { DatasetResponseSingle } from "./DatasetResponseSingle";
 import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
+import { Datastore } from "./Datastore";
+import { DatastoreArray } from "./DatastoreArray";
+import { DatastoreData } from "./DatastoreData";
+import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
+import { DatastoreTrigger } from "./DatastoreTrigger";
+import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
+import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest";
+import { DeleteAppsDatastoreItemRequestData } from "./DeleteAppsDatastoreItemRequestData";
+import { DeleteAppsDatastoreItemRequestDataAttributes } from "./DeleteAppsDatastoreItemRequestDataAttributes";
+import { DeleteAppsDatastoreItemResponse } from "./DeleteAppsDatastoreItemResponse";
+import { DeleteAppsDatastoreItemResponseData } from "./DeleteAppsDatastoreItemResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
 import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
@@ -778,6 +831,7 @@ import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttr
 import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
+import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
 import { GCPSTSDelegateAccountResponse } from "./GCPSTSDelegateAccountResponse";
@@ -802,6 +856,9 @@ import { GCPUsageCostConfigPostRequest } from "./GCPUsageCostConfigPostRequest";
 import { GCPUsageCostConfigPostRequestAttributes } from "./GCPUsageCostConfigPostRequestAttributes";
 import { GCPUsageCostConfigResponse } from "./GCPUsageCostConfigResponse";
 import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
+import { GcpUcConfigResponse } from "./GcpUcConfigResponse";
+import { GcpUcConfigResponseData } from "./GcpUcConfigResponseData";
+import { GcpUcConfigResponseDataAttributes } from "./GcpUcConfigResponseDataAttributes";
 import { GeminiAPIKey } from "./GeminiAPIKey";
 import { GeminiAPIKeyUpdate } from "./GeminiAPIKeyUpdate";
 import { GeminiIntegration } from "./GeminiIntegration";
@@ -887,6 +944,14 @@ import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentImpactAttributes } from "./IncidentImpactAttributes";
+import { IncidentImpactCreateAttributes } from "./IncidentImpactCreateAttributes";
+import { IncidentImpactCreateData } from "./IncidentImpactCreateData";
+import { IncidentImpactCreateRequest } from "./IncidentImpactCreateRequest";
+import { IncidentImpactRelationships } from "./IncidentImpactRelationships";
+import { IncidentImpactResponse } from "./IncidentImpactResponse";
+import { IncidentImpactResponseData } from "./IncidentImpactResponseData";
+import { IncidentImpactsResponse } from "./IncidentImpactsResponse";
 import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
 import { IncidentIntegrationMetadataCreateData } from "./IncidentIntegrationMetadataCreateData";
 import { IncidentIntegrationMetadataCreateRequest } from "./IncidentIntegrationMetadataCreateRequest";
@@ -898,6 +963,18 @@ import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMe
 import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
 import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { IncidentNotificationRule } from "./IncidentNotificationRule";
+import { IncidentNotificationRuleArray } from "./IncidentNotificationRuleArray";
+import { IncidentNotificationRuleArrayMeta } from "./IncidentNotificationRuleArrayMeta";
+import { IncidentNotificationRuleArrayMetaPage } from "./IncidentNotificationRuleArrayMetaPage";
+import { IncidentNotificationRuleAttributes } from "./IncidentNotificationRuleAttributes";
+import { IncidentNotificationRuleConditionsItems } from "./IncidentNotificationRuleConditionsItems";
+import { IncidentNotificationRuleCreateAttributes } from "./IncidentNotificationRuleCreateAttributes";
+import { IncidentNotificationRuleCreateData } from "./IncidentNotificationRuleCreateData";
+import { IncidentNotificationRuleCreateDataRelationships } from "./IncidentNotificationRuleCreateDataRelationships";
+import { IncidentNotificationRuleRelationships } from "./IncidentNotificationRuleRelationships";
+import { IncidentNotificationRuleResponseData } from "./IncidentNotificationRuleResponseData";
+import { IncidentNotificationRuleUpdateData } from "./IncidentNotificationRuleUpdateData";
 import { IncidentNotificationTemplate } from "./IncidentNotificationTemplate";
 import { IncidentNotificationTemplateArray } from "./IncidentNotificationTemplateArray";
 import { IncidentNotificationTemplateArrayMeta } from "./IncidentNotificationTemplateArrayMeta";
@@ -906,6 +983,7 @@ import { IncidentNotificationTemplateAttributes } from "./IncidentNotificationTe
 import { IncidentNotificationTemplateCreateAttributes } from "./IncidentNotificationTemplateCreateAttributes";
 import { IncidentNotificationTemplateCreateData } from "./IncidentNotificationTemplateCreateData";
 import { IncidentNotificationTemplateCreateDataRelationships } from "./IncidentNotificationTemplateCreateDataRelationships";
+import { IncidentNotificationTemplateObject } from "./IncidentNotificationTemplateObject";
 import { IncidentNotificationTemplateRelationships } from "./IncidentNotificationTemplateRelationships";
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
@@ -1018,6 +1096,14 @@ import { IssuesSearchResult } from "./IssuesSearchResult";
 import { IssuesSearchResultAttributes } from "./IssuesSearchResultAttributes";
 import { IssuesSearchResultIssueRelationship } from "./IssuesSearchResultIssueRelationship";
 import { IssuesSearchResultRelationships } from "./IssuesSearchResultRelationships";
+import { ItemApiPayload } from "./ItemApiPayload";
+import { ItemApiPayloadArray } from "./ItemApiPayloadArray";
+import { ItemApiPayloadData } from "./ItemApiPayloadData";
+import { ItemApiPayloadDataAttributes } from "./ItemApiPayloadDataAttributes";
+import { ItemApiPayloadMeta } from "./ItemApiPayloadMeta";
+import { ItemApiPayloadMetaPage } from "./ItemApiPayloadMetaPage";
+import { ItemApiPayloadMetaSchema } from "./ItemApiPayloadMetaSchema";
+import { ItemApiPayloadMetaSchemaField } from "./ItemApiPayloadMetaSchemaField";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -1342,6 +1428,7 @@ import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./Observab
 import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
+import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
 import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
 import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
 import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
@@ -1529,6 +1616,9 @@ import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
+import { PutAppsDatastoreItemResponseArray } from "./PutAppsDatastoreItemResponseArray";
+import { PutAppsDatastoreItemResponseData } from "./PutAppsDatastoreItemResponseData";
+import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
@@ -1578,12 +1668,16 @@ import { RelationResponse } from "./RelationResponse";
 import { RelationResponseMeta } from "./RelationResponseMeta";
 import { RelationToEntity } from "./RelationToEntity";
 import { RelationshipItem } from "./RelationshipItem";
+import { RelationshipToIncident } from "./RelationshipToIncident";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
+import { RelationshipToIncidentData } from "./RelationshipToIncidentData";
 import { RelationshipToIncidentImpactData } from "./RelationshipToIncidentImpactData";
 import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
+import { RelationshipToIncidentNotificationTemplate } from "./RelationshipToIncidentNotificationTemplate";
+import { RelationshipToIncidentNotificationTemplateData } from "./RelationshipToIncidentNotificationTemplateData";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
@@ -1623,6 +1717,10 @@ import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Remediation } from "./Remediation";
 import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
+import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
+import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
+import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
+import { ReorderRulesetResourceData } from "./ReorderRulesetResourceData";
 import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
@@ -1676,6 +1774,24 @@ import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
 import { RuleVersionUpdate } from "./RuleVersionUpdate";
 import { RuleVersions } from "./RuleVersions";
+import { RulesValidateQueryRequest } from "./RulesValidateQueryRequest";
+import { RulesValidateQueryRequestData } from "./RulesValidateQueryRequestData";
+import { RulesValidateQueryRequestDataAttributes } from "./RulesValidateQueryRequestDataAttributes";
+import { RulesValidateQueryResponse } from "./RulesValidateQueryResponse";
+import { RulesValidateQueryResponseData } from "./RulesValidateQueryResponseData";
+import { RulesValidateQueryResponseDataAttributes } from "./RulesValidateQueryResponseDataAttributes";
+import { RulesetResp } from "./RulesetResp";
+import { RulesetRespArray } from "./RulesetRespArray";
+import { RulesetRespData } from "./RulesetRespData";
+import { RulesetRespDataAttributes } from "./RulesetRespDataAttributes";
+import { RulesetRespDataAttributesCreated } from "./RulesetRespDataAttributesCreated";
+import { RulesetRespDataAttributesModified } from "./RulesetRespDataAttributesModified";
+import { RulesetRespDataAttributesRulesItems } from "./RulesetRespDataAttributesRulesItems";
+import { RulesetRespDataAttributesRulesItemsMapping } from "./RulesetRespDataAttributesRulesItemsMapping";
+import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttributesRulesItemsQuery";
+import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
+import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
+import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -1789,6 +1905,9 @@ import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleN
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
 import { SecurityMonitoringRuleQueryPayloadData } from "./SecurityMonitoringRuleQueryPayloadData";
+import { SecurityMonitoringRuleSequenceDetectionOptions } from "./SecurityMonitoringRuleSequenceDetectionOptions";
+import { SecurityMonitoringRuleSequenceDetectionStep } from "./SecurityMonitoringRuleSequenceDetectionStep";
+import { SecurityMonitoringRuleSequenceDetectionStepTransition } from "./SecurityMonitoringRuleSequenceDetectionStepTransition";
 import { SecurityMonitoringRuleTestRequest } from "./SecurityMonitoringRuleTestRequest";
 import { SecurityMonitoringRuleTestResponse } from "./SecurityMonitoringRuleTestResponse";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
@@ -2084,6 +2203,10 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { TriggerRateLimit } from "./TriggerRateLimit";
+import { UCConfigPair } from "./UCConfigPair";
+import { UCConfigPairData } from "./UCConfigPairData";
+import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
+import { UCConfigPairDataAttributesConfigsItems } from "./UCConfigPairDataAttributesConfigsItems";
 import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
@@ -2094,6 +2217,13 @@ import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes
 import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
+import { UpdateAppsDatastoreItemRequest } from "./UpdateAppsDatastoreItemRequest";
+import { UpdateAppsDatastoreItemRequestData } from "./UpdateAppsDatastoreItemRequestData";
+import { UpdateAppsDatastoreItemRequestDataAttributes } from "./UpdateAppsDatastoreItemRequestDataAttributes";
+import { UpdateAppsDatastoreItemRequestDataAttributesItemChanges } from "./UpdateAppsDatastoreItemRequestDataAttributesItemChanges";
+import { UpdateAppsDatastoreRequest } from "./UpdateAppsDatastoreRequest";
+import { UpdateAppsDatastoreRequestData } from "./UpdateAppsDatastoreRequestData";
+import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreRequestDataAttributes";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
@@ -2111,6 +2241,15 @@ import { UpdateRuleRequest } from "./UpdateRuleRequest";
 import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
 import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
+import { UpdateRulesetRequest } from "./UpdateRulesetRequest";
+import { UpdateRulesetRequestData } from "./UpdateRulesetRequestData";
+import { UpdateRulesetRequestDataAttributes } from "./UpdateRulesetRequestDataAttributes";
+import { UpdateRulesetRequestDataAttributesRulesItems } from "./UpdateRulesetRequestDataAttributesRulesItems";
+import { UpdateRulesetRequestDataAttributesRulesItemsMapping } from "./UpdateRulesetRequestDataAttributesRulesItemsMapping";
+import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRulesetRequestDataAttributesRulesItemsQuery";
+import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
+import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
+import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
@@ -2358,6 +2497,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-updated_at",
     "-user_name",
   ],
+  ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
+  ArbitraryRuleResponseDataType: ["arbitrary_rule"],
   AsanaAccessTokenType: ["AsanaAccessToken"],
   AsanaIntegrationType: ["Asana"],
   AssetEntityType: ["assets"],
@@ -2384,6 +2525,7 @@ const enumsMap: { [key: string]: any[] } = {
   AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
   AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
   AwsCURConfigType: ["aws_cur_config"],
+  AwsCurConfigResponseDataType: ["aws_cur_config"],
   AwsOnDemandType: ["aws_resource"],
   AwsScanOptionsType: ["aws_scan_options"],
   AzureIntegrationType: ["Azure"],
@@ -2526,9 +2668,15 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CreateAppsDatastoreRequestDataAttributesOrgAccess: [
+    "contributor",
+    "viewer",
+    "manager",
+  ],
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
+  CreateRulesetRequestDataType: ["create_ruleset"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
@@ -2572,6 +2720,10 @@ const enumsMap: { [key: string]: any[] } = {
   DatadogAPIKeyType: ["DatadogAPIKey"],
   DatadogIntegrationType: ["Datadog"],
   DatasetType: ["dataset"],
+  DatastoreDataType: ["datastores"],
+  DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
+  DatastoreItemsDataType: ["items"],
+  DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
   DetailedFindingType: ["detailed_finding"],
   DnsMetricKey: [
     "dns_total_requests",
@@ -2670,12 +2822,18 @@ const enumsMap: { [key: string]: any[] } = {
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
   FreshserviceIntegrationType: ["Freshservice"],
   GCPIntegrationType: ["GCP"],
+  GCPMonitoredResourceConfigType: [
+    "cloud_function",
+    "cloud_run_revision",
+    "gce_instance",
+  ],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountCredentialType: ["GCPServiceAccount"],
   GCPServiceAccountType: ["gcp_service_account"],
   GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
   GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
   GCPUsageCostConfigType: ["gcp_uc_config"],
+  GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
@@ -2716,8 +2874,25 @@ const enumsMap: { [key: string]: any[] } = {
     "metrictag",
     "autocomplete",
   ],
+  IncidentImpactRelatedObject: [
+    "incident",
+    "created_by_user",
+    "last_modified_by_user",
+  ],
+  IncidentImpactType: ["incident_impacts"],
   IncidentImpactsType: ["incident_impacts"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
+  IncidentNotificationRuleAttributesVisibility: [
+    "all",
+    "organization",
+    "private",
+  ],
+  IncidentNotificationRuleCreateAttributesVisibility: [
+    "all",
+    "organization",
+    "private",
+  ],
+  IncidentNotificationRuleType: ["incident_notification_rules"],
   IncidentNotificationTemplateType: ["notification_templates"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
@@ -3009,6 +3184,8 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineGoogleCloudStorageDestinationType: [
     "google_cloud_storage",
   ],
+  ObservabilityPipelineGooglePubSubDestinationEncoding: ["json", "raw_message"],
+  ObservabilityPipelineGooglePubSubDestinationType: ["google_pubsub"],
   ObservabilityPipelineGooglePubSubSourceType: ["google_pubsub"],
   ObservabilityPipelineHttpClientSourceAuthStrategy: ["basic", "bearer"],
   ObservabilityPipelineHttpClientSourceType: ["http_client"],
@@ -3213,6 +3390,8 @@ const enumsMap: { [key: string]: any[] } = {
     "RelationTypeImplementedBy",
     "RelationTypeImplements",
   ],
+  ReorderRuleResourceDataType: ["arbitrary_rule"],
+  ReorderRulesetResourceDataType: ["ruleset"],
   ResourceFilterRequestType: ["csm_resource_filter"],
   RestrictionPolicyType: ["restriction_policy"],
   RetentionFilterAllType: [
@@ -3253,6 +3432,9 @@ const enumsMap: { [key: string]: any[] } = {
     "iac_misconfiguration",
   ],
   RuleVersionUpdateType: ["create", "update", "delete"],
+  RulesValidateQueryRequestDataType: ["validate_query"],
+  RulesValidateQueryResponseDataType: ["validate_response"],
+  RulesetRespDataType: ["ruleset"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -3349,6 +3531,7 @@ const enumsMap: { [key: string]: any[] } = {
     "hardcoded",
     "third_party",
     "anomaly_threshold",
+    "sequence_detection",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
@@ -3560,7 +3743,10 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
+  UCConfigPairDataType: ["azure_uc_configs"],
+  UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateOutcomesAsyncType: ["batched-outcome"],
+  UpdateRulesetRequestDataType: ["update_ruleset"],
   Urgency: ["low", "high", "dynamic"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
@@ -3842,6 +4028,42 @@ const typeMap: { [index: string]: any } = {
     ApplicationSecurityWafExclusionFilterUpdateRequest,
   ApplicationSecurityWafExclusionFiltersResponse:
     ApplicationSecurityWafExclusionFiltersResponse,
+  ArbitraryCostUpsertRequest: ArbitraryCostUpsertRequest,
+  ArbitraryCostUpsertRequestData: ArbitraryCostUpsertRequestData,
+  ArbitraryCostUpsertRequestDataAttributes:
+    ArbitraryCostUpsertRequestDataAttributes,
+  ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems:
+    ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategy:
+    ArbitraryCostUpsertRequestDataAttributesStrategy,
+  ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems,
+  ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems:
+    ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems,
+  ArbitraryRuleResponse: ArbitraryRuleResponse,
+  ArbitraryRuleResponseArray: ArbitraryRuleResponseArray,
+  ArbitraryRuleResponseData: ArbitraryRuleResponseData,
+  ArbitraryRuleResponseDataAttributes: ArbitraryRuleResponseDataAttributes,
+  ArbitraryRuleResponseDataAttributesCostsToAllocateItems:
+    ArbitraryRuleResponseDataAttributesCostsToAllocateItems,
+  ArbitraryRuleResponseDataAttributesStrategy:
+    ArbitraryRuleResponseDataAttributesStrategy,
+  ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems:
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems,
+  ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems:
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems,
+  ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+  ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems:
+    ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
+  ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems:
+    ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
   AsanaAccessToken: AsanaAccessToken,
   AsanaAccessTokenUpdate: AsanaAccessTokenUpdate,
   AsanaIntegration: AsanaIntegration,
@@ -3885,8 +4107,12 @@ const typeMap: { [index: string]: any } = {
   AwsCURConfigPostData: AwsCURConfigPostData,
   AwsCURConfigPostRequest: AwsCURConfigPostRequest,
   AwsCURConfigPostRequestAttributes: AwsCURConfigPostRequestAttributes,
-  AwsCURConfigResponse: AwsCURConfigResponse,
   AwsCURConfigsResponse: AwsCURConfigsResponse,
+  AwsCurConfigResponse: AwsCurConfigResponse,
+  AwsCurConfigResponseData: AwsCurConfigResponseData,
+  AwsCurConfigResponseDataAttributes: AwsCurConfigResponseDataAttributes,
+  AwsCurConfigResponseDataAttributesAccountFilters:
+    AwsCurConfigResponseDataAttributesAccountFilters,
   AwsOnDemandAttributes: AwsOnDemandAttributes,
   AwsOnDemandCreateAttributes: AwsOnDemandCreateAttributes,
   AwsOnDemandCreateData: AwsOnDemandCreateData,
@@ -3941,6 +4167,10 @@ const typeMap: { [index: string]: any } = {
   BulkMuteFindingsRequestProperties: BulkMuteFindingsRequestProperties,
   BulkMuteFindingsResponse: BulkMuteFindingsResponse,
   BulkMuteFindingsResponseData: BulkMuteFindingsResponseData,
+  BulkPutAppsDatastoreItemsRequest: BulkPutAppsDatastoreItemsRequest,
+  BulkPutAppsDatastoreItemsRequestData: BulkPutAppsDatastoreItemsRequestData,
+  BulkPutAppsDatastoreItemsRequestDataAttributes:
+    BulkPutAppsDatastoreItemsRequestDataAttributes,
   CIAppAggregateBucketValueTimeseriesPoint:
     CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
@@ -4193,6 +4423,12 @@ const typeMap: { [index: string]: any } = {
   CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
   CreateAppResponse: CreateAppResponse,
   CreateAppResponseData: CreateAppResponseData,
+  CreateAppsDatastoreRequest: CreateAppsDatastoreRequest,
+  CreateAppsDatastoreRequestData: CreateAppsDatastoreRequestData,
+  CreateAppsDatastoreRequestDataAttributes:
+    CreateAppsDatastoreRequestDataAttributes,
+  CreateAppsDatastoreResponse: CreateAppsDatastoreResponse,
+  CreateAppsDatastoreResponseData: CreateAppsDatastoreResponseData,
   CreateCustomFrameworkRequest: CreateCustomFrameworkRequest,
   CreateCustomFrameworkResponse: CreateCustomFrameworkResponse,
   CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
@@ -4200,6 +4436,7 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
@@ -4219,6 +4456,21 @@ const typeMap: { [index: string]: any } = {
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
+  CreateRulesetRequest: CreateRulesetRequest,
+  CreateRulesetRequestData: CreateRulesetRequestData,
+  CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
+  CreateRulesetRequestDataAttributesRulesItems:
+    CreateRulesetRequestDataAttributesRulesItems,
+  CreateRulesetRequestDataAttributesRulesItemsMapping:
+    CreateRulesetRequestDataAttributesRulesItemsMapping,
+  CreateRulesetRequestDataAttributesRulesItemsQuery:
+    CreateRulesetRequestDataAttributesRulesItemsQuery,
+  CreateRulesetRequestDataAttributesRulesItemsQueryAddition:
+    CreateRulesetRequestDataAttributesRulesItemsQueryAddition,
+  CreateRulesetRequestDataAttributesRulesItemsReferenceTable:
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
+  CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
   CreateWorkflowRequest: CreateWorkflowRequest,
   CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
@@ -4358,8 +4610,20 @@ const typeMap: { [index: string]: any } = {
   DatasetResponseMulti: DatasetResponseMulti,
   DatasetResponseSingle: DatasetResponseSingle,
   DatasetUpdateRequest: DatasetUpdateRequest,
+  Datastore: Datastore,
+  DatastoreArray: DatastoreArray,
+  DatastoreData: DatastoreData,
+  DatastoreDataAttributes: DatastoreDataAttributes,
+  DatastoreTrigger: DatastoreTrigger,
+  DatastoreTriggerWrapper: DatastoreTriggerWrapper,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
+  DeleteAppsDatastoreItemRequest: DeleteAppsDatastoreItemRequest,
+  DeleteAppsDatastoreItemRequestData: DeleteAppsDatastoreItemRequestData,
+  DeleteAppsDatastoreItemRequestDataAttributes:
+    DeleteAppsDatastoreItemRequestDataAttributes,
+  DeleteAppsDatastoreItemResponse: DeleteAppsDatastoreItemResponse,
+  DeleteAppsDatastoreItemResponseData: DeleteAppsDatastoreItemResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
   DeleteAppsRequestDataItems: DeleteAppsRequestDataItems,
   DeleteAppsResponse: DeleteAppsResponse,
@@ -4583,6 +4847,7 @@ const typeMap: { [index: string]: any } = {
   GCPIntegration: GCPIntegration,
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
+  GCPMonitoredResourceConfig: GCPMonitoredResourceConfig,
   GCPSTSDelegateAccount: GCPSTSDelegateAccount,
   GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
   GCPSTSDelegateAccountResponse: GCPSTSDelegateAccountResponse,
@@ -4609,6 +4874,9 @@ const typeMap: { [index: string]: any } = {
     GCPUsageCostConfigPostRequestAttributes,
   GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
   GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
+  GcpUcConfigResponse: GcpUcConfigResponse,
+  GcpUcConfigResponseData: GcpUcConfigResponseData,
+  GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,
   GeminiAPIKey: GeminiAPIKey,
   GeminiAPIKeyUpdate: GeminiAPIKeyUpdate,
   GeminiIntegration: GeminiIntegration,
@@ -4698,6 +4966,14 @@ const typeMap: { [index: string]: any } = {
   IncidentCreateRequest: IncidentCreateRequest,
   IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
   IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+  IncidentImpactAttributes: IncidentImpactAttributes,
+  IncidentImpactCreateAttributes: IncidentImpactCreateAttributes,
+  IncidentImpactCreateData: IncidentImpactCreateData,
+  IncidentImpactCreateRequest: IncidentImpactCreateRequest,
+  IncidentImpactRelationships: IncidentImpactRelationships,
+  IncidentImpactResponse: IncidentImpactResponse,
+  IncidentImpactResponseData: IncidentImpactResponseData,
+  IncidentImpactsResponse: IncidentImpactsResponse,
   IncidentIntegrationMetadataAttributes: IncidentIntegrationMetadataAttributes,
   IncidentIntegrationMetadataCreateData: IncidentIntegrationMetadataCreateData,
   IncidentIntegrationMetadataCreateRequest:
@@ -4713,6 +4989,21 @@ const typeMap: { [index: string]: any } = {
   IncidentIntegrationRelationships: IncidentIntegrationRelationships,
   IncidentNonDatadogCreator: IncidentNonDatadogCreator,
   IncidentNotificationHandle: IncidentNotificationHandle,
+  IncidentNotificationRule: IncidentNotificationRule,
+  IncidentNotificationRuleArray: IncidentNotificationRuleArray,
+  IncidentNotificationRuleArrayMeta: IncidentNotificationRuleArrayMeta,
+  IncidentNotificationRuleArrayMetaPage: IncidentNotificationRuleArrayMetaPage,
+  IncidentNotificationRuleAttributes: IncidentNotificationRuleAttributes,
+  IncidentNotificationRuleConditionsItems:
+    IncidentNotificationRuleConditionsItems,
+  IncidentNotificationRuleCreateAttributes:
+    IncidentNotificationRuleCreateAttributes,
+  IncidentNotificationRuleCreateData: IncidentNotificationRuleCreateData,
+  IncidentNotificationRuleCreateDataRelationships:
+    IncidentNotificationRuleCreateDataRelationships,
+  IncidentNotificationRuleRelationships: IncidentNotificationRuleRelationships,
+  IncidentNotificationRuleResponseData: IncidentNotificationRuleResponseData,
+  IncidentNotificationRuleUpdateData: IncidentNotificationRuleUpdateData,
   IncidentNotificationTemplate: IncidentNotificationTemplate,
   IncidentNotificationTemplateArray: IncidentNotificationTemplateArray,
   IncidentNotificationTemplateArrayMeta: IncidentNotificationTemplateArrayMeta,
@@ -4726,6 +5017,7 @@ const typeMap: { [index: string]: any } = {
     IncidentNotificationTemplateCreateData,
   IncidentNotificationTemplateCreateDataRelationships:
     IncidentNotificationTemplateCreateDataRelationships,
+  IncidentNotificationTemplateObject: IncidentNotificationTemplateObject,
   IncidentNotificationTemplateRelationships:
     IncidentNotificationTemplateRelationships,
   IncidentNotificationTemplateResponseData:
@@ -4847,6 +5139,14 @@ const typeMap: { [index: string]: any } = {
   IssuesSearchResultAttributes: IssuesSearchResultAttributes,
   IssuesSearchResultIssueRelationship: IssuesSearchResultIssueRelationship,
   IssuesSearchResultRelationships: IssuesSearchResultRelationships,
+  ItemApiPayload: ItemApiPayload,
+  ItemApiPayloadArray: ItemApiPayloadArray,
+  ItemApiPayloadData: ItemApiPayloadData,
+  ItemApiPayloadDataAttributes: ItemApiPayloadDataAttributes,
+  ItemApiPayloadMeta: ItemApiPayloadMeta,
+  ItemApiPayloadMetaPage: ItemApiPayloadMetaPage,
+  ItemApiPayloadMetaSchema: ItemApiPayloadMetaSchema,
+  ItemApiPayloadMetaSchemaField: ItemApiPayloadMetaSchemaField,
   JSONAPIErrorItem: JSONAPIErrorItem,
   JSONAPIErrorItemSource: JSONAPIErrorItemSource,
   JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -5238,6 +5538,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineGoogleChronicleDestination,
   ObservabilityPipelineGoogleCloudStorageDestination:
     ObservabilityPipelineGoogleCloudStorageDestination,
+  ObservabilityPipelineGooglePubSubDestination:
+    ObservabilityPipelineGooglePubSubDestination,
   ObservabilityPipelineGooglePubSubSource:
     ObservabilityPipelineGooglePubSubSource,
   ObservabilityPipelineHttpClientSource: ObservabilityPipelineHttpClientSource,
@@ -5477,6 +5779,9 @@ const typeMap: { [index: string]: any } = {
   ProjectedCostResponse: ProjectedCostResponse,
   ProjectsResponse: ProjectsResponse,
   PublishAppResponse: PublishAppResponse,
+  PutAppsDatastoreItemResponseArray: PutAppsDatastoreItemResponseArray,
+  PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
+  PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
@@ -5527,14 +5832,20 @@ const typeMap: { [index: string]: any } = {
   RelationResponseMeta: RelationResponseMeta,
   RelationToEntity: RelationToEntity,
   RelationshipItem: RelationshipItem,
+  RelationshipToIncident: RelationshipToIncident,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
+  RelationshipToIncidentData: RelationshipToIncidentData,
   RelationshipToIncidentImpactData: RelationshipToIncidentImpactData,
   RelationshipToIncidentImpacts: RelationshipToIncidentImpacts,
   RelationshipToIncidentIntegrationMetadataData:
     RelationshipToIncidentIntegrationMetadataData,
   RelationshipToIncidentIntegrationMetadatas:
     RelationshipToIncidentIntegrationMetadatas,
+  RelationshipToIncidentNotificationTemplate:
+    RelationshipToIncidentNotificationTemplate,
+  RelationshipToIncidentNotificationTemplateData:
+    RelationshipToIncidentNotificationTemplateData,
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
   RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
@@ -5577,6 +5888,10 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUsers: RelationshipToUsers,
   Remediation: Remediation,
   ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
+  ReorderRuleResourceArray: ReorderRuleResourceArray,
+  ReorderRuleResourceData: ReorderRuleResourceData,
+  ReorderRulesetResourceArray: ReorderRulesetResourceArray,
+  ReorderRulesetResourceData: ReorderRulesetResourceData,
   ResourceFilterAttributes: ResourceFilterAttributes,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
@@ -5630,6 +5945,31 @@ const typeMap: { [index: string]: any } = {
   RuleVersionHistory: RuleVersionHistory,
   RuleVersionUpdate: RuleVersionUpdate,
   RuleVersions: RuleVersions,
+  RulesValidateQueryRequest: RulesValidateQueryRequest,
+  RulesValidateQueryRequestData: RulesValidateQueryRequestData,
+  RulesValidateQueryRequestDataAttributes:
+    RulesValidateQueryRequestDataAttributes,
+  RulesValidateQueryResponse: RulesValidateQueryResponse,
+  RulesValidateQueryResponseData: RulesValidateQueryResponseData,
+  RulesValidateQueryResponseDataAttributes:
+    RulesValidateQueryResponseDataAttributes,
+  RulesetResp: RulesetResp,
+  RulesetRespArray: RulesetRespArray,
+  RulesetRespData: RulesetRespData,
+  RulesetRespDataAttributes: RulesetRespDataAttributes,
+  RulesetRespDataAttributesCreated: RulesetRespDataAttributesCreated,
+  RulesetRespDataAttributesModified: RulesetRespDataAttributesModified,
+  RulesetRespDataAttributesRulesItems: RulesetRespDataAttributesRulesItems,
+  RulesetRespDataAttributesRulesItemsMapping:
+    RulesetRespDataAttributesRulesItemsMapping,
+  RulesetRespDataAttributesRulesItemsQuery:
+    RulesetRespDataAttributesRulesItemsQuery,
+  RulesetRespDataAttributesRulesItemsQueryAddition:
+    RulesetRespDataAttributesRulesItemsQueryAddition,
+  RulesetRespDataAttributesRulesItemsReferenceTable:
+    RulesetRespDataAttributesRulesItemsReferenceTable,
+  RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
+    RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
@@ -5753,6 +6093,12 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleQueryPayload: SecurityMonitoringRuleQueryPayload,
   SecurityMonitoringRuleQueryPayloadData:
     SecurityMonitoringRuleQueryPayloadData,
+  SecurityMonitoringRuleSequenceDetectionOptions:
+    SecurityMonitoringRuleSequenceDetectionOptions,
+  SecurityMonitoringRuleSequenceDetectionStep:
+    SecurityMonitoringRuleSequenceDetectionStep,
+  SecurityMonitoringRuleSequenceDetectionStepTransition:
+    SecurityMonitoringRuleSequenceDetectionStepTransition,
   SecurityMonitoringRuleTestRequest: SecurityMonitoringRuleTestRequest,
   SecurityMonitoringRuleTestResponse: SecurityMonitoringRuleTestResponse,
   SecurityMonitoringRuleThirdPartyOptions:
@@ -6111,6 +6457,11 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   TriggerRateLimit: TriggerRateLimit,
+  UCConfigPair: UCConfigPair,
+  UCConfigPairData: UCConfigPairData,
+  UCConfigPairDataAttributes: UCConfigPairDataAttributes,
+  UCConfigPairDataAttributesConfigsItems:
+    UCConfigPairDataAttributesConfigsItems,
   Unit: Unit,
   UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,
@@ -6121,6 +6472,16 @@ const typeMap: { [index: string]: any } = {
   UpdateAppResponse: UpdateAppResponse,
   UpdateAppResponseData: UpdateAppResponseData,
   UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
+  UpdateAppsDatastoreItemRequest: UpdateAppsDatastoreItemRequest,
+  UpdateAppsDatastoreItemRequestData: UpdateAppsDatastoreItemRequestData,
+  UpdateAppsDatastoreItemRequestDataAttributes:
+    UpdateAppsDatastoreItemRequestDataAttributes,
+  UpdateAppsDatastoreItemRequestDataAttributesItemChanges:
+    UpdateAppsDatastoreItemRequestDataAttributesItemChanges,
+  UpdateAppsDatastoreRequest: UpdateAppsDatastoreRequest,
+  UpdateAppsDatastoreRequestData: UpdateAppsDatastoreRequestData,
+  UpdateAppsDatastoreRequestDataAttributes:
+    UpdateAppsDatastoreRequestDataAttributes,
   UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
   UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
@@ -6142,6 +6503,21 @@ const typeMap: { [index: string]: any } = {
   UpdateRuleRequestData: UpdateRuleRequestData,
   UpdateRuleResponse: UpdateRuleResponse,
   UpdateRuleResponseData: UpdateRuleResponseData,
+  UpdateRulesetRequest: UpdateRulesetRequest,
+  UpdateRulesetRequestData: UpdateRulesetRequestData,
+  UpdateRulesetRequestDataAttributes: UpdateRulesetRequestDataAttributes,
+  UpdateRulesetRequestDataAttributesRulesItems:
+    UpdateRulesetRequestDataAttributesRulesItems,
+  UpdateRulesetRequestDataAttributesRulesItemsMapping:
+    UpdateRulesetRequestDataAttributesRulesItemsMapping,
+  UpdateRulesetRequestDataAttributesRulesItemsQuery:
+    UpdateRulesetRequestDataAttributesRulesItemsQuery,
+  UpdateRulesetRequestDataAttributesRulesItemsQueryAddition:
+    UpdateRulesetRequestDataAttributesRulesItemsQueryAddition,
+  UpdateRulesetRequestDataAttributesRulesItemsReferenceTable:
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTable,
+  UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
@@ -6333,6 +6709,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "CIAppPipelineEventJob",
     "CIAppPipelineEventStep",
   ],
+  CIAppCreatePipelineEventRequestDataSingleOrArray: [
+    "CIAppCreatePipelineEventRequestData",
+    "Array<CIAppCreatePipelineEventRequestData>",
+  ],
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],
   CIAppPipelineEventPipeline: [
@@ -6448,6 +6828,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "MSTeamsIntegrationMetadata",
   ],
   IncidentIntegrationMetadataResponseIncludedItem: ["User"],
+  IncidentNotificationRuleIncludedItems: [
+    "User",
+    "IncidentTypeObject",
+    "IncidentNotificationTemplateObject",
+  ],
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
   IncidentResponseIncludedItem: ["IncidentUserData", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
@@ -6520,6 +6905,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSocketDestination",
     "ObservabilityPipelineAmazonSecurityLakeDestination",
     "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
+    "ObservabilityPipelineGooglePubSubDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
@@ -6688,6 +7074,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "CaseTriggerWrapper",
     "ChangeEventTriggerWrapper",
     "DatabaseMonitoringTriggerWrapper",
+    "DatastoreTriggerWrapper",
     "DashboardTriggerWrapper",
     "GithubWebhookTriggerWrapper",
     "IncidentTriggerWrapper",

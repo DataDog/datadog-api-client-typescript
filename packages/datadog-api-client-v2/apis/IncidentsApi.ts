@@ -17,6 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { CreateIncidentNotificationRuleRequest } from "../models/CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "../models/CreateIncidentNotificationTemplateRequest";
 import { IncidentAttachmentAttachmentType } from "../models/IncidentAttachmentAttachmentType";
 import { IncidentAttachmentRelatedObject } from "../models/IncidentAttachmentRelatedObject";
@@ -24,10 +25,16 @@ import { IncidentAttachmentsResponse } from "../models/IncidentAttachmentsRespon
 import { IncidentAttachmentUpdateRequest } from "../models/IncidentAttachmentUpdateRequest";
 import { IncidentAttachmentUpdateResponse } from "../models/IncidentAttachmentUpdateResponse";
 import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
+import { IncidentImpactCreateRequest } from "../models/IncidentImpactCreateRequest";
+import { IncidentImpactRelatedObject } from "../models/IncidentImpactRelatedObject";
+import { IncidentImpactResponse } from "../models/IncidentImpactResponse";
+import { IncidentImpactsResponse } from "../models/IncidentImpactsResponse";
 import { IncidentIntegrationMetadataCreateRequest } from "../models/IncidentIntegrationMetadataCreateRequest";
 import { IncidentIntegrationMetadataListResponse } from "../models/IncidentIntegrationMetadataListResponse";
 import { IncidentIntegrationMetadataPatchRequest } from "../models/IncidentIntegrationMetadataPatchRequest";
 import { IncidentIntegrationMetadataResponse } from "../models/IncidentIntegrationMetadataResponse";
+import { IncidentNotificationRule } from "../models/IncidentNotificationRule";
+import { IncidentNotificationRuleArray } from "../models/IncidentNotificationRuleArray";
 import { IncidentNotificationTemplate } from "../models/IncidentNotificationTemplate";
 import { IncidentNotificationTemplateArray } from "../models/IncidentNotificationTemplateArray";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
@@ -47,6 +54,7 @@ import { IncidentTypePatchRequest } from "../models/IncidentTypePatchRequest";
 import { IncidentTypeResponse } from "../models/IncidentTypeResponse";
 import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
 import { PatchIncidentNotificationTemplateRequest } from "../models/PatchIncidentNotificationTemplateRequest";
+import { PutIncidentNotificationRuleRequest } from "../models/PutIncidentNotificationRuleRequest";
 
 export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   public async createIncident(
@@ -82,6 +90,76 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentImpact(
+    incidentId: string,
+    body: IncidentImpactCreateRequest,
+    include?: Array<IncidentImpactRelatedObject>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentImpact'");
+    if (!_config.unstableOperations["v2.createIncidentImpact"]) {
+      throw new Error("Unstable operation 'createIncidentImpact' is disabled");
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentImpact");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentImpact");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentImpact")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentImpactRelatedObject>",
+          ""
+        ),
+        "csv"
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentImpactCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -143,6 +221,59 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       ObjectSerializer.serialize(
         body,
         "IncidentIntegrationMetadataCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentNotificationRule(
+    body: CreateIncidentNotificationRuleRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentNotificationRule'");
+    if (!_config.unstableOperations["v2.createIncidentNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/notification-rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CreateIncidentNotificationRuleRequest",
         ""
       ),
       contentType
@@ -357,6 +488,50 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentImpact(
+    incidentId: string,
+    impactId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteIncidentImpact'");
+    if (!_config.unstableOperations["v2.deleteIncidentImpact"]) {
+      throw new Error("Unstable operation 'deleteIncidentImpact' is disabled");
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "deleteIncidentImpact");
+    }
+
+    // verify required parameter 'impactId' is not null or undefined
+    if (impactId === null || impactId === undefined) {
+      throw new RequiredError("impactId", "deleteIncidentImpact");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts/{impact_id}"
+      .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+      .replace("{impact_id}", encodeURIComponent(String(impactId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentImpact")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteIncidentIntegration(
     incidentId: string,
     integrationMetadataId: string,
@@ -399,6 +574,58 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteIncidentNotificationRule(
+    id: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteIncidentNotificationRule'");
+    if (!_config.unstableOperations["v2.deleteIncidentNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteIncidentNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/notification-rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -651,6 +878,58 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getIncidentNotificationRule(
+    id: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getIncidentNotificationRule'");
+    if (!_config.unstableOperations["v2.getIncidentNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'getIncidentNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getIncidentNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/notification-rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getIncidentNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getIncidentNotificationTemplate(
     id: string,
     include?: string,
@@ -854,6 +1133,59 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listIncidentImpacts(
+    incidentId: string,
+    include?: Array<IncidentImpactRelatedObject>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIncidentImpacts'");
+    if (!_config.unstableOperations["v2.listIncidentImpacts"]) {
+      throw new Error("Unstable operation 'listIncidentImpacts' is disabled");
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "listIncidentImpacts");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentImpacts")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentImpactRelatedObject>",
+          ""
+        ),
+        "csv"
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listIncidentIntegrations(
     incidentId: string,
     _options?: Configuration
@@ -885,6 +1217,48 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentNotificationRules(
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIncidentNotificationRules'");
+    if (!_config.unstableOperations["v2.listIncidentNotificationRules"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentNotificationRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/notification-rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentNotificationRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1370,6 +1744,79 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateIncidentNotificationRule(
+    id: string,
+    body: PutIncidentNotificationRuleRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncidentNotificationRule'");
+    if (!_config.unstableOperations["v2.updateIncidentNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateIncidentNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/notification-rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "PutIncidentNotificationRuleRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateIncidentNotificationTemplate(
     id: string,
     body: PatchIncidentNotificationTemplateRequest,
@@ -1634,6 +2081,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentImpact
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentImpact(
+    response: ResponseContext
+  ): Promise<IncidentImpactResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentImpactResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentImpactResponse"
+      ) as IncidentImpactResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentImpactResponse",
+        ""
+      ) as IncidentImpactResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1686,6 +2197,70 @@ export class IncidentsApiResponseProcessor {
           "IncidentIntegrationMetadataResponse",
           ""
         ) as IncidentIntegrationMetadataResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIncidentNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentNotificationRule(
+    response: ResponseContext
+  ): Promise<IncidentNotificationRule> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRule"
+      ) as IncidentNotificationRule;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRule",
+        ""
+      ) as IncidentNotificationRule;
       return body;
     }
 
@@ -1945,10 +2520,117 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteIncidentImpact
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentImpact(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteIncidentIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentIntegration(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentNotificationRule(
     response: ResponseContext
   ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -2291,6 +2973,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getIncidentNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentNotificationRule(
+    response: ResponseContext
+  ): Promise<IncidentNotificationRule> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRule"
+      ) as IncidentNotificationRule;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRule",
+        ""
+      ) as IncidentNotificationRule;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getIncidentNotificationTemplate
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2547,6 +3293,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listIncidentImpacts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentImpacts(
+    response: ResponseContext
+  ): Promise<IncidentImpactsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentImpactsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentImpactsResponse"
+      ) as IncidentImpactsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentImpactsResponse",
+        ""
+      ) as IncidentImpactsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listIncidentIntegrations
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2599,6 +3409,70 @@ export class IncidentsApiResponseProcessor {
           "IncidentIntegrationMetadataListResponse",
           ""
         ) as IncidentIntegrationMetadataListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentNotificationRules(
+    response: ResponseContext
+  ): Promise<IncidentNotificationRuleArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentNotificationRuleArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRuleArray"
+      ) as IncidentNotificationRuleArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationRuleArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRuleArray",
+        ""
+      ) as IncidentNotificationRuleArray;
       return body;
     }
 
@@ -3130,6 +4004,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateIncidentNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentNotificationRule(
+    response: ResponseContext
+  ): Promise<IncidentNotificationRule> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRule"
+      ) as IncidentNotificationRule;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentNotificationRule",
+        ""
+      ) as IncidentNotificationRule;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncidentNotificationTemplate
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3327,6 +4265,24 @@ export interface IncidentsApiCreateIncidentRequest {
   body: IncidentCreateRequest;
 }
 
+export interface IncidentsApiCreateIncidentImpactRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Incident impact payload.
+   * @type IncidentImpactCreateRequest
+   */
+  body: IncidentImpactCreateRequest;
+  /**
+   * Specifies which related resources should be included in the response.
+   * @type Array<IncidentImpactRelatedObject>
+   */
+  include?: Array<IncidentImpactRelatedObject>;
+}
+
 export interface IncidentsApiCreateIncidentIntegrationRequest {
   /**
    * The UUID of the incident.
@@ -3338,6 +4294,13 @@ export interface IncidentsApiCreateIncidentIntegrationRequest {
    * @type IncidentIntegrationMetadataCreateRequest
    */
   body: IncidentIntegrationMetadataCreateRequest;
+}
+
+export interface IncidentsApiCreateIncidentNotificationRuleRequest {
+  /**
+   * @type CreateIncidentNotificationRuleRequest
+   */
+  body: CreateIncidentNotificationRuleRequest;
 }
 
 export interface IncidentsApiCreateIncidentNotificationTemplateRequest {
@@ -3376,6 +4339,19 @@ export interface IncidentsApiDeleteIncidentRequest {
   incidentId: string;
 }
 
+export interface IncidentsApiDeleteIncidentImpactRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the incident impact.
+   * @type string
+   */
+  impactId: string;
+}
+
 export interface IncidentsApiDeleteIncidentIntegrationRequest {
   /**
    * The UUID of the incident.
@@ -3387,6 +4363,19 @@ export interface IncidentsApiDeleteIncidentIntegrationRequest {
    * @type string
    */
   integrationMetadataId: string;
+}
+
+export interface IncidentsApiDeleteIncidentNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  id: string;
+  /**
+   * Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
+   * @type string
+   */
+  include?: string;
 }
 
 export interface IncidentsApiDeleteIncidentNotificationTemplateRequest {
@@ -3449,6 +4438,19 @@ export interface IncidentsApiGetIncidentIntegrationRequest {
   integrationMetadataId: string;
 }
 
+export interface IncidentsApiGetIncidentNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  id: string;
+  /**
+   * Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiGetIncidentNotificationTemplateRequest {
   /**
    * The ID of the notification template.
@@ -3501,12 +4503,33 @@ export interface IncidentsApiListIncidentAttachmentsRequest {
   filterAttachmentType?: Array<IncidentAttachmentAttachmentType>;
 }
 
+export interface IncidentsApiListIncidentImpactsRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Specifies which related resources should be included in the response.
+   * @type Array<IncidentImpactRelatedObject>
+   */
+  include?: Array<IncidentImpactRelatedObject>;
+}
+
 export interface IncidentsApiListIncidentIntegrationsRequest {
   /**
    * The UUID of the incident.
    * @type string
    */
   incidentId: string;
+}
+
+export interface IncidentsApiListIncidentNotificationRulesRequest {
+  /**
+   * Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
+   * @type string
+   */
+  include?: string;
 }
 
 export interface IncidentsApiListIncidentNotificationTemplatesRequest {
@@ -3640,6 +4663,23 @@ export interface IncidentsApiUpdateIncidentIntegrationRequest {
   body: IncidentIntegrationMetadataPatchRequest;
 }
 
+export interface IncidentsApiUpdateIncidentNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type PutIncidentNotificationRuleRequest
+   */
+  body: PutIncidentNotificationRuleRequest;
+  /**
+   * Comma-separated list of resources to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`, `notification_template`
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiUpdateIncidentNotificationTemplateRequest {
   /**
    * The ID of the notification template.
@@ -3727,6 +4767,29 @@ export class IncidentsApi {
   }
 
   /**
+   * Create an impact for an incident.
+   * @param param The request object
+   */
+  public createIncidentImpact(
+    param: IncidentsApiCreateIncidentImpactRequest,
+    options?: Configuration
+  ): Promise<IncidentImpactResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentImpact(
+      param.incidentId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentImpact(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create an incident integration metadata.
    * @param param The request object
    */
@@ -3744,6 +4807,27 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentIntegration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Creates a new notification rule.
+   * @param param The request object
+   */
+  public createIncidentNotificationRule(
+    param: IncidentsApiCreateIncidentNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<IncidentNotificationRule> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentNotificationRule(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentNotificationRule(
             responseContext
           );
         });
@@ -3839,6 +4923,28 @@ export class IncidentsApi {
   }
 
   /**
+   * Delete an incident impact.
+   * @param param The request object
+   */
+  public deleteIncidentImpact(
+    param: IncidentsApiDeleteIncidentImpactRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentImpact(
+      param.incidentId,
+      param.impactId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentImpact(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete an incident integration metadata.
    * @param param The request object
    */
@@ -3856,6 +4962,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentIntegration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Deletes a notification rule by its ID.
+   * @param param The request object
+   */
+  public deleteIncidentNotificationRule(
+    param: IncidentsApiDeleteIncidentNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteIncidentNotificationRule(
+        param.id,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentNotificationRule(
             responseContext
           );
         });
@@ -3975,6 +5106,31 @@ export class IncidentsApi {
   }
 
   /**
+   * Retrieves a specific notification rule by its ID.
+   * @param param The request object
+   */
+  public getIncidentNotificationRule(
+    param: IncidentsApiGetIncidentNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<IncidentNotificationRule> {
+    const requestContextPromise =
+      this.requestFactory.getIncidentNotificationRule(
+        param.id,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Retrieves a specific notification template by its ID.
    * @param param The request object
    */
@@ -4068,6 +5224,28 @@ export class IncidentsApi {
   }
 
   /**
+   * Get all impacts for an incident.
+   * @param param The request object
+   */
+  public listIncidentImpacts(
+    param: IncidentsApiListIncidentImpactsRequest,
+    options?: Configuration
+  ): Promise<IncidentImpactsResponse> {
+    const requestContextPromise = this.requestFactory.listIncidentImpacts(
+      param.incidentId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentImpacts(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get all integration metadata for an incident.
    * @param param The request object
    */
@@ -4084,6 +5262,27 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentIntegrations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Lists all notification rules for the organization. Optionally filter by incident type.
+   * @param param The request object
+   */
+  public listIncidentNotificationRules(
+    param: IncidentsApiListIncidentNotificationRulesRequest = {},
+    options?: Configuration
+  ): Promise<IncidentNotificationRuleArray> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentNotificationRules(param.include, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentNotificationRules(
             responseContext
           );
         });
@@ -4372,6 +5571,32 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentIntegration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Updates an existing notification rule with a complete replacement.
+   * @param param The request object
+   */
+  public updateIncidentNotificationRule(
+    param: IncidentsApiUpdateIncidentNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<IncidentNotificationRule> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentNotificationRule(
+        param.id,
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentNotificationRule(
             responseContext
           );
         });

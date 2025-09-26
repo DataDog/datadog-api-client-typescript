@@ -1,4 +1,65 @@
 {
+  "ListDatastores": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateDatastore": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "operationId": "DeleteDatastore",
+      "parameters": [
+        {
+          "name": "datastore_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteDatastore": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetDatastore": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateDatastore": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "DeleteDatastoreItem": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListDatastoreItems": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateDatastoreItem": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "BulkWriteDatastoreItems": {
+    "tag": "Actions Datastores",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListAppKeyRegistrations": {
     "tag": "Action Connection",
     "undo": {
@@ -639,6 +700,42 @@
       "type": "safe"
     }
   },
+  "ListArbitraryCostRules": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateArbitraryCostRule": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ReorderArbitraryCostRules": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "DeleteArbitraryCostRule": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetArbitraryCostRule": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateArbitraryCostRule": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListCostAWSCURConfigs": {
     "tag": "Cloud Cost Management",
     "undo": {
@@ -655,6 +752,12 @@
     "tag": "Cloud Cost Management",
     "undo": {
       "type": "idempotent"
+    }
+  },
+  "GetCostAWSCURConfig": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
     }
   },
   "UpdateCostAWSCURConfig": {
@@ -679,6 +782,12 @@
     "tag": "Cloud Cost Management",
     "undo": {
       "type": "idempotent"
+    }
+  },
+  "GetCostAzureUCConfig": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
     }
   },
   "UpdateCostAzureUCConfigs": {
@@ -758,6 +867,12 @@
     "tag": "Cloud Cost Management",
     "undo": {
       "type": "idempotent"
+    }
+  },
+  "GetCostGCPUsageCostConfig": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
     }
   },
   "UpdateCostGCPUsageCostConfig": {
@@ -949,6 +1064,12 @@
       "type": "idempotent"
     }
   },
+  "DeleteDORADeployment": {
+    "tag": "DORA Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListDORADeployments": {
     "tag": "DORA Metrics",
     "undo": {
@@ -962,6 +1083,12 @@
     }
   },
   "CreateDORAFailure": {
+    "tag": "DORA Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "DeleteDORAFailure": {
     "tag": "DORA Metrics",
     "undo": {
       "type": "idempotent"
@@ -1089,6 +1216,43 @@
       "type": "unsafe"
     }
   },
+  "ListIncidentNotificationRules": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateIncidentNotificationRule": {
+    "tag": "Incidents",
+    "undo": {
+      "operationId": "DeleteIncidentNotificationRule",
+      "parameters": [
+        {
+          "name": "id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteIncidentNotificationRule": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetIncidentNotificationRule": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateIncidentNotificationRule": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListIncidentNotificationTemplates": {
     "tag": "Incidents",
     "undo": {
@@ -1194,6 +1358,35 @@
     }
   },
   "UpdateIncidentAttachments": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListIncidentImpacts": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateIncidentImpact": {
+    "tag": "Incidents",
+    "undo": {
+      "operationId": "DeleteIncidentImpact",
+      "parameters": [
+        {
+          "name": "incident_id",
+          "source": "data.relationships.incident.data.id"
+        },
+        {
+          "name": "impact_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteIncidentImpact": {
     "tag": "Incidents",
     "undo": {
       "type": "idempotent"
@@ -1331,6 +1524,18 @@
     }
   },
   "GetAWSIntegrationIAMPermissions": {
+    "tag": "AWS Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetAWSIntegrationIAMPermissionsResourceCollection": {
+    "tag": "AWS Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetAWSIntegrationIAMPermissionsStandard": {
     "tag": "AWS Integration",
     "undo": {
       "type": "safe"
@@ -3542,6 +3747,48 @@
     "tag": "Synthetics",
     "undo": {
       "type": "safe"
+    }
+  },
+  "ListRulesets": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateRuleset": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ReorderRulesets": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ValidateQuery": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "DeleteRuleset": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetRuleset": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateRuleset": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "ListTeams": {

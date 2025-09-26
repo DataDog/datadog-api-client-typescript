@@ -2110,10 +2110,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
-        "searchSuites": {
-            "type": "boolean",
-            "format": "",
-            },
         "facetsOnly": {
             "type": "boolean",
             "format": "",
@@ -2343,6 +2339,101 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
+    },
+    "v2.ListDatastores": {
+        "operationResponseType": "DatastoreArray",
+    },
+    "v2.CreateDatastore": {
+        "body": {
+            "type": "CreateAppsDatastoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateAppsDatastoreResponse",
+    },
+    "v2.GetDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Datastore",
+    },
+    "v2.DeleteDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateAppsDatastoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "Datastore",
+    },
+    "v2.ListDatastoreItems": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "itemKey": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ItemApiPayloadArray",
+    },
+    "v2.DeleteDatastoreItem": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DeleteAppsDatastoreItemRequest",
+            "format": "",
+            },
+        "operationResponseType": "DeleteAppsDatastoreItemResponse",
+    },
+    "v2.UpdateDatastoreItem": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateAppsDatastoreItemRequest",
+            "format": "",
+            },
+        "operationResponseType": "ItemApiPayload",
+    },
+    "v2.BulkWriteDatastoreItems": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "BulkPutAppsDatastoreItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "PutAppsDatastoreItemResponseArray",
     },
     "v2.ListAppKeyRegistrations": {
         "pageSize": {
@@ -3872,6 +3963,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "SecurityFilterResponse",
     },
     "v2.ListSecurityMonitoringSuppressions": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "SecurityMonitoringSuppressionsResponse",
     },
     "v2.CreateSecurityMonitoringSuppression": {
@@ -4270,6 +4365,48 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainersResponse",
     },
+    "v2.ListArbitraryCostRules": {
+        "operationResponseType": "ArbitraryRuleResponseArray",
+    },
+    "v2.CreateArbitraryCostRule": {
+        "body": {
+            "type": "ArbitraryCostUpsertRequest",
+            "format": "",
+            },
+        "operationResponseType": "ArbitraryRuleResponse",
+    },
+    "v2.ReorderArbitraryCostRules": {
+        "body": {
+            "type": "ReorderRuleResourceArray",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetArbitraryCostRule": {
+        "ruleId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ArbitraryRuleResponse",
+    },
+    "v2.DeleteArbitraryCostRule": {
+        "ruleId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateArbitraryCostRule": {
+        "ruleId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "ArbitraryCostUpsertRequest",
+            "format": "",
+            },
+        "operationResponseType": "ArbitraryRuleResponse",
+    },
     "v2.ListCostAWSCURConfigs": {
         "operationResponseType": "AwsCURConfigsResponse",
     },
@@ -4278,7 +4415,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "AwsCURConfigPostRequest",
             "format": "",
             },
-        "operationResponseType": "AwsCURConfigResponse",
+        "operationResponseType": "AwsCurConfigResponse",
+    },
+    "v2.GetCostAWSCURConfig": {
+        "cloudAccountId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AwsCurConfigResponse",
     },
     "v2.DeleteCostAWSCURConfig": {
         "cloudAccountId": {
@@ -4307,6 +4451,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "AzureUCConfigPairsResponse",
+    },
+    "v2.GetCostAzureUCConfig": {
+        "cloudAccountId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "UCConfigPair",
     },
     "v2.DeleteCostAzureUCConfig": {
         "cloudAccountId": {
@@ -4400,6 +4551,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GCPUsageCostConfigResponse",
     },
+    "v2.GetCostGCPUsageCostConfig": {
+        "cloudAccountId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GcpUcConfigResponse",
+    },
     "v2.DeleteCostGCPUsageCostConfig": {
         "cloudAccountId": {
             "type": "number",
@@ -4417,6 +4575,55 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GCPUsageCostConfigResponse",
+    },
+    "v2.ListRulesets": {
+        "operationResponseType": "RulesetRespArray",
+    },
+    "v2.CreateRuleset": {
+        "body": {
+            "type": "CreateRulesetRequest",
+            "format": "",
+            },
+        "operationResponseType": "RulesetResp",
+    },
+    "v2.ReorderRulesets": {
+        "body": {
+            "type": "ReorderRulesetResourceArray",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ValidateQuery": {
+        "body": {
+            "type": "RulesValidateQueryRequest",
+            "format": "",
+            },
+        "operationResponseType": "RulesValidateQueryResponse",
+    },
+    "v2.GetRuleset": {
+        "rulesetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RulesetResp",
+    },
+    "v2.DeleteRuleset": {
+        "rulesetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateRuleset": {
+        "rulesetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateRulesetRequest",
+            "format": "",
+            },
+        "operationResponseType": "RulesetResp",
     },
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
@@ -4787,6 +4994,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DORADeploymentResponse",
     },
+    "v2.DeleteDORADeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListDORADeployments": {
         "body": {
             "type": "DORAListDeploymentsRequest",
@@ -4807,6 +5021,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DORAFailureResponse",
+    },
+    "v2.DeleteDORAFailure": {
+        "failureId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListDORAFailures": {
         "body": {
@@ -5013,6 +5234,57 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentResponse",
     },
+    "v2.ListIncidentNotificationRules": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRuleArray",
+    },
+    "v2.CreateIncidentNotificationRule": {
+        "body": {
+            "type": "CreateIncidentNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRule",
+    },
+    "v2.GetIncidentNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRule",
+    },
+    "v2.UpdateIncidentNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PutIncidentNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRule",
+    },
+    "v2.DeleteIncidentNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListIncidentNotificationTemplates": {
         "filterIncidentType": {
             "type": "string",
@@ -5193,6 +5465,43 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentAttachmentUpdateResponse",
     },
+    "v2.ListIncidentImpacts": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentImpactRelatedObject>",
+            "format": "",
+            },
+        "operationResponseType": "IncidentImpactsResponse",
+    },
+    "v2.CreateIncidentImpact": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentImpactRelatedObject>",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentImpactCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentImpactResponse",
+    },
+    "v2.DeleteIncidentImpact": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "impactId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListIncidentIntegrations": {
         "incidentId": {
             "type": "string",
@@ -5349,6 +5658,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "AWSNewExternalIDResponse",
     },
     "v2.GetAWSIntegrationIAMPermissions": {
+        "operationResponseType": "AWSIntegrationIamPermissionsResponse",
+    },
+    "v2.GetAWSIntegrationIAMPermissionsResourceCollection": {
+        "operationResponseType": "AWSIntegrationIamPermissionsResponse",
+    },
+    "v2.GetAWSIntegrationIAMPermissionsStandard": {
         "operationResponseType": "AWSIntegrationIamPermissionsResponse",
     },
     "v2.ListAWSLogsServices": {
@@ -6625,6 +6940,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "{}",
     },
     "v2.ListOrgConnections": {
+        "sinkOrgId": {
+            "type": "string",
+            "format": "",
+            },
+        "sourceOrgId": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "OrgConnectionListResponse",
     },
     "v2.CreateOrgConnections": {

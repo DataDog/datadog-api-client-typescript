@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AzureUCConfigPostRequestAttributes {
   /**
-   * The tenant ID of the azure account.
+   * The tenant ID of the Azure account.
    */
   "accountId": string;
   /**
@@ -24,13 +24,9 @@ export class AzureUCConfigPostRequestAttributes {
    */
   "amortizedBillConfig": BillConfig;
   /**
-   * The client ID of the azure account.
+   * The client ID of the Azure account.
    */
   "clientId": string;
-  /**
-   * Whether or not the Cloud Cost Management account is enabled.
-   */
-  "isEnabled"?: boolean;
   /**
    * The scope of your observed subscription.
    */
@@ -71,10 +67,6 @@ export class AzureUCConfigPostRequestAttributes {
       baseName: "client_id",
       type: "string",
       required: true,
-    },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
     },
     scope: {
       baseName: "scope",

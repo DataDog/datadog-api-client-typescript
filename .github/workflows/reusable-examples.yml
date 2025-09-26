@@ -1,0 +1,42 @@
+name: Reusable Examples Workflow
+
+on:
+  workflow_call:
+    inputs:
+      target-branch:
+        description: 'Branch to checkout and test (defaults to the calling branch)'
+        required: false
+        type: string
+        default: ''
+      examples-script:
+        description: 'Examples script to execute'
+        required: false
+        type: string
+        default: './check-examples.sh'
+      node-version:
+        description: 'Node.js version to use for examples'
+        required: false
+        type: string
+        default: '16'
+    secrets:
+      PIPELINE_GITHUB_APP_ID:
+        required: false
+      PIPELINE_GITHUB_APP_PRIVATE_KEY:
+        required: false
+
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: DataDog/datadog-api-client-typescript
+          ref: ${{ inputs.target-branch || github.ref }}
+      - name: Set up Node ${{ inputs.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: 'yarn'
+      - name: Check examples
+        run: ${{ inputs.examples-script }}
+        shell: bash

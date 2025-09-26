@@ -94,6 +94,7 @@ import { FunnelStep } from "./FunnelStep";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { GCPAccount } from "./GCPAccount";
+import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
 import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
@@ -772,6 +773,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ci_tests",
     "ci_pipelines",
     "incident_analytics",
+    "product_analytics",
   ],
   FormulaAndFunctionMetricAggregation: [
     "avg",
@@ -804,6 +806,11 @@ const enumsMap: { [key: string]: any[] } = {
   FunnelRequestType: ["funnel"],
   FunnelSource: ["rum"],
   FunnelWidgetDefinitionType: ["funnel"],
+  GCPMonitoredResourceConfigType: [
+    "cloud_function",
+    "cloud_run_revision",
+    "gce_instance",
+  ],
   GeomapWidgetDefinitionType: ["geomap"],
   GroupType: ["group"],
   GroupWidgetDefinitionType: ["group"],
@@ -1811,6 +1818,7 @@ const typeMap: { [index: string]: any } = {
   FunnelWidgetDefinition: FunnelWidgetDefinition,
   FunnelWidgetRequest: FunnelWidgetRequest,
   GCPAccount: GCPAccount,
+  GCPMonitoredResourceConfig: GCPMonitoredResourceConfig,
   GeomapWidgetDefinition: GeomapWidgetDefinition,
   GeomapWidgetDefinitionStyle: GeomapWidgetDefinitionStyle,
   GeomapWidgetDefinitionView: GeomapWidgetDefinitionView,
