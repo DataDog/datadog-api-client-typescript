@@ -670,6 +670,7 @@ export {
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
+  SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest,
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
