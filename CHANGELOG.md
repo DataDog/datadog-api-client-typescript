@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 1.44.0/2025-09-30
+
+### Added
+* Add API Key ID to rum application response [#2836](https://github.com/DataDog/datadog-api-client-typescript/pull/2836)
+* Add suppression list query string parameter [#2834](https://github.com/DataDog/datadog-api-client-typescript/pull/2834)
+* Add datastore trigger to workflows public API  [#2828](https://github.com/DataDog/datadog-api-client-typescript/pull/2828)
+* Add Google PubSub destination to the Observability Pipelines API [#2810](https://github.com/DataDog/datadog-api-client-typescript/pull/2810)
+* Add API spec for AWS Integrations standard and resource collection IAM permissions [#2805](https://github.com/DataDog/datadog-api-client-typescript/pull/2805)
+* Publish new incident impact APIs [#2797](https://github.com/DataDog/datadog-api-client-typescript/pull/2797)
+* Add product analytics to FormulaAndFunctionEventsDataSource [#2795](https://github.com/DataDog/datadog-api-client-typescript/pull/2795)
+* Add sequence detection to security monitoring rules [#2790](https://github.com/DataDog/datadog-api-client-typescript/pull/2790)
+* Add Public Delete Dora Events Endpoints [#2757](https://github.com/DataDog/datadog-api-client-typescript/pull/2757)
+
+### Fixed
+* Remove any references to synthetics test suites [#2818](https://github.com/DataDog/datadog-api-client-typescript/pull/2818)
+
+### Changed
+* Add tag pipeline, custom allocation rule and get cloud account by id for AWS/Azure/GCP configs APIs [#2786](https://github.com/DataDog/datadog-api-client-typescript/pull/2786)
+
 ## 1.43.0/2025-09-15
 
 ### Added
