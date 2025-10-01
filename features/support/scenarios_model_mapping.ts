@@ -8419,6 +8419,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTeamResponse",
     },
+    "v2.SearchFlakyTests": {
+        "body": {
+            "type": "FlakyTestsSearchRequest",
+            "format": "",
+            },
+        "operationResponseType": "FlakyTestsSearchResponse",
+    },
     "v2.SendInvitations": {
         "body": {
             "type": "UserInvitationsRequest",
