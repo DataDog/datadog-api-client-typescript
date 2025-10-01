@@ -960,6 +960,11 @@ import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./Incid
 import { IncidentAttachmentsResponse } from "./IncidentAttachmentsResponse";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
+import { IncidentCreatePageAttributes } from "./IncidentCreatePageAttributes";
+import { IncidentCreatePageFromIncidentData } from "./IncidentCreatePageFromIncidentData";
+import { IncidentCreatePageFromIncidentRequest } from "./IncidentCreatePageFromIncidentRequest";
+import { IncidentCreatePageResponse } from "./IncidentCreatePageResponse";
+import { IncidentCreatePageResponseData } from "./IncidentCreatePageResponseData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
@@ -1008,6 +1013,7 @@ import { IncidentNotificationTemplateRelationships } from "./IncidentNotificatio
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
 import { IncidentNotificationTemplateUpdateData } from "./IncidentNotificationTemplateUpdateData";
+import { IncidentPageTarget } from "./IncidentPageTarget";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
@@ -2933,6 +2939,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentNotificationRuleType: ["incident_notification_rules"],
   IncidentNotificationTemplateType: ["notification_templates"],
+  IncidentPageIdType: ["page_uuid"],
+  IncidentPageTargetType: ["team_handle", "team_uuid", "user_uuid"],
+  IncidentPageType: ["page"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
   IncidentRespondersType: ["incident_responders"],
@@ -5022,6 +5031,11 @@ const typeMap: { [index: string]: any } = {
   IncidentAttachmentsResponse: IncidentAttachmentsResponse,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
+  IncidentCreatePageAttributes: IncidentCreatePageAttributes,
+  IncidentCreatePageFromIncidentData: IncidentCreatePageFromIncidentData,
+  IncidentCreatePageFromIncidentRequest: IncidentCreatePageFromIncidentRequest,
+  IncidentCreatePageResponse: IncidentCreatePageResponse,
+  IncidentCreatePageResponseData: IncidentCreatePageResponseData,
   IncidentCreateRelationships: IncidentCreateRelationships,
   IncidentCreateRequest: IncidentCreateRequest,
   IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
@@ -5086,6 +5100,7 @@ const typeMap: { [index: string]: any } = {
     IncidentNotificationTemplateUpdateAttributes,
   IncidentNotificationTemplateUpdateData:
     IncidentNotificationTemplateUpdateData,
+  IncidentPageTarget: IncidentPageTarget,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
   IncidentResponseData: IncidentResponseData,

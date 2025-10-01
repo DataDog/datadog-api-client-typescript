@@ -260,6 +260,7 @@ export function createConfiguration(
       "v2.createIncidentNotificationTemplate": false,
       "v2.createIncidentTodo": false,
       "v2.createIncidentType": false,
+      "v2.createPageFromIncident": false,
       "v2.deleteIncident": false,
       "v2.deleteIncidentImpact": false,
       "v2.deleteIncidentIntegration": false,
