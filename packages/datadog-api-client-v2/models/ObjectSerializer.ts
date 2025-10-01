@@ -215,6 +215,13 @@ import { AwsScanOptionsUpdateData } from "./AwsScanOptionsUpdateData";
 import { AwsScanOptionsUpdateRequest } from "./AwsScanOptionsUpdateRequest";
 import { AzureIntegration } from "./AzureIntegration";
 import { AzureIntegrationUpdate } from "./AzureIntegrationUpdate";
+import { AzureScanOptions } from "./AzureScanOptions";
+import { AzureScanOptionsArray } from "./AzureScanOptionsArray";
+import { AzureScanOptionsData } from "./AzureScanOptionsData";
+import { AzureScanOptionsDataAttributes } from "./AzureScanOptionsDataAttributes";
+import { AzureScanOptionsInputUpdate } from "./AzureScanOptionsInputUpdate";
+import { AzureScanOptionsInputUpdateData } from "./AzureScanOptionsInputUpdateData";
+import { AzureScanOptionsInputUpdateDataAttributes } from "./AzureScanOptionsInputUpdateDataAttributes";
 import { AzureStorageDestination } from "./AzureStorageDestination";
 import { AzureTenant } from "./AzureTenant";
 import { AzureTenantUpdate } from "./AzureTenantUpdate";
@@ -2542,6 +2549,8 @@ const enumsMap: { [key: string]: any[] } = {
   AwsOnDemandType: ["aws_resource"],
   AwsScanOptionsType: ["aws_scan_options"],
   AzureIntegrationType: ["Azure"],
+  AzureScanOptionsDataType: ["azure_scan_options"],
+  AzureScanOptionsInputUpdateDataType: ["azure_scan_options"],
   AzureStorageDestinationType: ["azure_storage"],
   AzureTenantType: ["AzureTenant"],
   AzureUCConfigPairType: ["azure_uc_configs"],
@@ -4162,6 +4171,14 @@ const typeMap: { [index: string]: any } = {
   AwsScanOptionsUpdateRequest: AwsScanOptionsUpdateRequest,
   AzureIntegration: AzureIntegration,
   AzureIntegrationUpdate: AzureIntegrationUpdate,
+  AzureScanOptions: AzureScanOptions,
+  AzureScanOptionsArray: AzureScanOptionsArray,
+  AzureScanOptionsData: AzureScanOptionsData,
+  AzureScanOptionsDataAttributes: AzureScanOptionsDataAttributes,
+  AzureScanOptionsInputUpdate: AzureScanOptionsInputUpdate,
+  AzureScanOptionsInputUpdateData: AzureScanOptionsInputUpdateData,
+  AzureScanOptionsInputUpdateDataAttributes:
+    AzureScanOptionsInputUpdateDataAttributes,
   AzureStorageDestination: AzureStorageDestination,
   AzureTenant: AzureTenant,
   AzureTenantUpdate: AzureTenantUpdate,

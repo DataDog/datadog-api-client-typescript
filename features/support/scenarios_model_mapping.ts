@@ -2534,6 +2534,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListAzureScanOptions": {
+        "operationResponseType": "AzureScanOptionsArray",
+    },
+    "v2.CreateAzureScanOptions": {
+        "body": {
+            "type": "AzureScanOptions",
+            "format": "",
+            },
+        "operationResponseType": "AzureScanOptions",
+    },
+    "v2.DeleteAzureScanOptions": {
+        "subscriptionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAzureScanOptions": {
+        "subscriptionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AzureScanOptionsInputUpdate",
+            "format": "",
+            },
+        "operationResponseType": "AzureScanOptions",
+    },
     "v2.ListAwsOnDemandTasks": {
         "operationResponseType": "AwsOnDemandListResponse",
     },

@@ -54,10 +54,13 @@ export {
 export {
   AgentlessScanningApiCreateAwsOnDemandTaskRequest,
   AgentlessScanningApiCreateAwsScanOptionsRequest,
+  AgentlessScanningApiCreateAzureScanOptionsRequest,
   AgentlessScanningApiDeleteAwsScanOptionsRequest,
+  AgentlessScanningApiDeleteAzureScanOptionsRequest,
   AgentlessScanningApiGetAwsOnDemandTaskRequest,
   AgentlessScanningApiGetAwsScanOptionsRequest,
   AgentlessScanningApiUpdateAwsScanOptionsRequest,
+  AgentlessScanningApiUpdateAzureScanOptionsRequest,
   AgentlessScanningApi,
 } from "./apis/AgentlessScanningApi";
 
@@ -1141,6 +1144,15 @@ export { AzureCredentialsUpdate } from "./models/AzureCredentialsUpdate";
 export { AzureIntegration } from "./models/AzureIntegration";
 export { AzureIntegrationType } from "./models/AzureIntegrationType";
 export { AzureIntegrationUpdate } from "./models/AzureIntegrationUpdate";
+export { AzureScanOptions } from "./models/AzureScanOptions";
+export { AzureScanOptionsArray } from "./models/AzureScanOptionsArray";
+export { AzureScanOptionsData } from "./models/AzureScanOptionsData";
+export { AzureScanOptionsDataAttributes } from "./models/AzureScanOptionsDataAttributes";
+export { AzureScanOptionsDataType } from "./models/AzureScanOptionsDataType";
+export { AzureScanOptionsInputUpdate } from "./models/AzureScanOptionsInputUpdate";
+export { AzureScanOptionsInputUpdateData } from "./models/AzureScanOptionsInputUpdateData";
+export { AzureScanOptionsInputUpdateDataAttributes } from "./models/AzureScanOptionsInputUpdateDataAttributes";
+export { AzureScanOptionsInputUpdateDataType } from "./models/AzureScanOptionsInputUpdateDataType";
 export { AzureStorageDestination } from "./models/AzureStorageDestination";
 export { AzureStorageDestinationType } from "./models/AzureStorageDestinationType";
 export { AzureTenant } from "./models/AzureTenant";
