@@ -30,6 +30,8 @@ import { IncidentAttachmentRelatedObject } from "./models/IncidentAttachmentRela
 import { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsResponse";
 import { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpdateRequest";
 import { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";
+import { IncidentCreatePageFromIncidentRequest } from "./models/IncidentCreatePageFromIncidentRequest";
+import { IncidentCreatePageResponse } from "./models/IncidentCreatePageResponse";
 import { IncidentCreateRequest } from "./models/IncidentCreateRequest";
 import { IncidentImpactCreateRequest } from "./models/IncidentImpactCreateRequest";
 import { IncidentImpactRelatedObject } from "./models/IncidentImpactRelatedObject";
@@ -521,6 +523,72 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentTypeCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createPageFromIncident(
+    incidentId: string,
+    body: IncidentCreatePageFromIncidentRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.createPageFromIncident"]) {
+      throw new Error(
+        "Unstable operation 'createPageFromIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createPageFromIncident'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createPageFromIncident");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPageFromIncident");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/page".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createPageFromIncident",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentCreatePageFromIncidentRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2881,6 +2949,68 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createPageFromIncident
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPageFromIncident(
+    response: ResponseContext,
+  ): Promise<IncidentCreatePageResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentCreatePageResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentCreatePageResponse",
+      ) as IncidentCreatePageResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentCreatePageResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentCreatePageResponse",
+        "",
+      ) as IncidentCreatePageResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4663,6 +4793,19 @@ export interface IncidentsApiCreateIncidentTypeRequest {
   body: IncidentTypeCreateRequest;
 }
 
+export interface IncidentsApiCreatePageFromIncidentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Page creation request payload.
+   * @type IncidentCreatePageFromIncidentRequest
+   */
+  body: IncidentCreatePageFromIncidentRequest;
+}
+
 export interface IncidentsApiDeleteIncidentRequest {
   /**
    * The UUID of the incident.
@@ -5231,6 +5374,28 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a page from an incident.
+   * @param param The request object
+   */
+  public createPageFromIncident(
+    param: IncidentsApiCreatePageFromIncidentRequest,
+    options?: Configuration,
+  ): Promise<IncidentCreatePageResponse> {
+    const requestContextPromise = this.requestFactory.createPageFromIncident(
+      param.incidentId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPageFromIncident(responseContext);
         });
     });
   }
