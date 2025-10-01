@@ -70,7 +70,7 @@
     "buffer-from": "^1.1.2",
     "cross-fetch": "^3.1.5",
     "es6-promise": "^4.2.8",
-    "form-data": "^4.0.0",
+    "form-data": "^4.0.4",
     "loglevel": "^1.8.1",
     "pako": "^2.0.4"
   },
