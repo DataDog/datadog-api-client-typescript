@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.45.0/2025-10-01
+
+### Security
+* Update minimum required version of form-data [#2852](https://github.com/DataDog/datadog-api-client-typescript/pull/2852)
+
+### Added
+* Add AzureScanOptions to agentless scanning API [#2838](https://github.com/DataDog/datadog-api-client-typescript/pull/2838)
+* Documenting the new Flaky Test Management API endpoint for public beta [#2788](https://github.com/DataDog/datadog-api-client-typescript/pull/2788)
+
 ## 1.44.0/2025-09-30
 
 ### Added
