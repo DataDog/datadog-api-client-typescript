@@ -2544,6 +2544,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "AgentlessScanningApi.V2.ListAzureScanOptions": {
+    operationResponseType: "AzureScanOptionsArray",
+  },
+  "AgentlessScanningApi.V2.CreateAzureScanOptions": {
+    body: {
+      type: "AzureScanOptions",
+      format: "",
+    },
+    operationResponseType: "AzureScanOptions",
+  },
+  "AgentlessScanningApi.V2.DeleteAzureScanOptions": {
+    subscriptionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AgentlessScanningApi.V2.UpdateAzureScanOptions": {
+    subscriptionId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AzureScanOptionsInputUpdate",
+      format: "",
+    },
+    operationResponseType: "AzureScanOptions",
+  },
   "AgentlessScanningApi.V2.ListAwsOnDemandTasks": {
     operationResponseType: "AwsOnDemandListResponse",
   },
