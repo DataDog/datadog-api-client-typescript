@@ -432,6 +432,7 @@ apiInstance
 | Synthetics | @datadog/datadog-api-client-synthetics | [README.md](../../services/synthetics/README.md) |
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
+| Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
 | Users | @datadog/datadog-api-client-users | [README.md](../../services/users/README.md) |
 | Webhooks Integration | @datadog/datadog-api-client-webhooks-integration | [README.md](../../services/webhooks-integration/README.md) |
