@@ -32,6 +32,9 @@ import { RoleCreateResponseData } from "./RoleCreateResponseData";
 import { RoleRelationships } from "./RoleRelationships";
 import { RoleResponse } from "./RoleResponse";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
+import { RoleTemplateArray } from "./RoleTemplateArray";
+import { RoleTemplateData } from "./RoleTemplateData";
+import { RoleTemplateDataAttributes } from "./RoleTemplateDataAttributes";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 import { RoleUpdateData } from "./RoleUpdateData";
 import { RoleUpdateRequest } from "./RoleUpdateRequest";
@@ -47,6 +50,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
+    RoleTemplateDataType: ["roles"],
     RolesSort: [
       "name",
       "-name",
@@ -94,6 +98,9 @@ export const TypingInfo: ModelTypingInfo = {
     RoleRelationships: RoleRelationships,
     RoleResponse: RoleResponse,
     RoleResponseRelationships: RoleResponseRelationships,
+    RoleTemplateArray: RoleTemplateArray,
+    RoleTemplateData: RoleTemplateData,
+    RoleTemplateDataAttributes: RoleTemplateDataAttributes,
     RoleUpdateAttributes: RoleUpdateAttributes,
     RoleUpdateData: RoleUpdateData,
     RoleUpdateRequest: RoleUpdateRequest,
