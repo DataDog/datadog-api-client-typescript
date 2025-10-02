@@ -30,6 +30,9 @@ import { AwsScanOptionsCreateRequest } from "./models/AwsScanOptionsCreateReques
 import { AwsScanOptionsListResponse } from "./models/AwsScanOptionsListResponse";
 import { AwsScanOptionsResponse } from "./models/AwsScanOptionsResponse";
 import { AwsScanOptionsUpdateRequest } from "./models/AwsScanOptionsUpdateRequest";
+import { AzureScanOptions } from "./models/AzureScanOptions";
+import { AzureScanOptionsArray } from "./models/AzureScanOptionsArray";
+import { AzureScanOptionsInputUpdate } from "./models/AzureScanOptionsInputUpdate";
 import { version } from "../version";
 
 export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
@@ -86,6 +89,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -136,6 +140,58 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createAzureScanOptions(
+    body: AzureScanOptions,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createAzureScanOptions");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/agentless_scanning/accounts/azure";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.createAzureScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AzureScanOptions", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -181,6 +237,53 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteAzureScanOptions(
+    subscriptionId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'subscriptionId' is not null or undefined
+    if (subscriptionId === null || subscriptionId === undefined) {
+      throw new RequiredError("subscriptionId", "deleteAzureScanOptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
+        "{subscription_id}",
+        encodeURIComponent(String(subscriptionId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.deleteAzureScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -226,6 +329,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -271,6 +375,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -306,6 +411,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -341,6 +447,43 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listAzureScanOptions(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/agentless_scanning/accounts/azure";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.listAzureScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -401,6 +544,68 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateAzureScanOptions(
+    subscriptionId: string,
+    body: AzureScanOptionsInputUpdate,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'subscriptionId' is not null or undefined
+    if (subscriptionId === null || subscriptionId === undefined) {
+      throw new RequiredError("subscriptionId", "updateAzureScanOptions");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAzureScanOptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
+        "{subscription_id}",
+        encodeURIComponent(String(subscriptionId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.updateAzureScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AzureScanOptionsInputUpdate", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -533,6 +738,62 @@ export class AgentlessScanningApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createAzureScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createAzureScanOptions(
+    response: ResponseContext,
+  ): Promise<AzureScanOptions> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: AzureScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptions",
+      ) as AzureScanOptions;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AzureScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptions",
+        "",
+      ) as AzureScanOptions;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -547,6 +808,51 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteAzureScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteAzureScanOptions(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -815,6 +1121,62 @@ export class AgentlessScanningApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAzureScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAzureScanOptions(
+    response: ResponseContext,
+  ): Promise<AzureScanOptionsArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AzureScanOptionsArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptionsArray",
+      ) as AzureScanOptionsArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AzureScanOptionsArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptionsArray",
+        "",
+      ) as AzureScanOptionsArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -858,6 +1220,62 @@ export class AgentlessScanningApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateAzureScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAzureScanOptions(
+    response: ResponseContext,
+  ): Promise<AzureScanOptions> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AzureScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptions",
+      ) as AzureScanOptions;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AzureScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptions",
+        "",
+      ) as AzureScanOptions;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface AgentlessScanningApiCreateAwsOnDemandTaskRequest {
@@ -876,12 +1294,27 @@ export interface AgentlessScanningApiCreateAwsScanOptionsRequest {
   body: AwsScanOptionsCreateRequest;
 }
 
+export interface AgentlessScanningApiCreateAzureScanOptionsRequest {
+  /**
+   * @type AzureScanOptions
+   */
+  body: AzureScanOptions;
+}
+
 export interface AgentlessScanningApiDeleteAwsScanOptionsRequest {
   /**
    * The ID of an AWS account.
    * @type string
    */
   accountId: string;
+}
+
+export interface AgentlessScanningApiDeleteAzureScanOptionsRequest {
+  /**
+   * The Azure subscription ID.
+   * @type string
+   */
+  subscriptionId: string;
 }
 
 export interface AgentlessScanningApiGetAwsOnDemandTaskRequest {
@@ -911,6 +1344,18 @@ export interface AgentlessScanningApiUpdateAwsScanOptionsRequest {
    * @type AwsScanOptionsUpdateRequest
    */
   body: AwsScanOptionsUpdateRequest;
+}
+
+export interface AgentlessScanningApiUpdateAzureScanOptionsRequest {
+  /**
+   * The Azure subscription ID.
+   * @type string
+   */
+  subscriptionId: string;
+  /**
+   * @type AzureScanOptionsInputUpdate
+   */
+  body: AzureScanOptionsInputUpdate;
 }
 
 export class AgentlessScanningApi {
@@ -976,6 +1421,27 @@ export class AgentlessScanningApi {
   }
 
   /**
+   * Activate Agentless scan options for an Azure subscription.
+   * @param param The request object
+   */
+  public createAzureScanOptions(
+    param: AgentlessScanningApiCreateAzureScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<AzureScanOptions> {
+    const requestContextPromise = this.requestFactory.createAzureScanOptions(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAzureScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete Agentless scan options for an AWS account.
    * @param param The request object
    */
@@ -992,6 +1458,27 @@ export class AgentlessScanningApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteAwsScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete Agentless scan options for an Azure subscription.
+   * @param param The request object
+   */
+  public deleteAzureScanOptions(
+    param: AgentlessScanningApiDeleteAzureScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteAzureScanOptions(
+      param.subscriptionId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAzureScanOptions(responseContext);
         });
     });
   }
@@ -1075,6 +1562,24 @@ export class AgentlessScanningApi {
   }
 
   /**
+   * Fetches the scan options configured for Azure accounts.
+   * @param param The request object
+   */
+  public listAzureScanOptions(
+    options?: Configuration,
+  ): Promise<AzureScanOptionsArray> {
+    const requestContextPromise =
+      this.requestFactory.listAzureScanOptions(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAzureScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
    * Update the Agentless scan options for an activated account.
    * @param param The request object
    */
@@ -1092,6 +1597,28 @@ export class AgentlessScanningApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateAwsScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the Agentless scan options for an activated subscription.
+   * @param param The request object
+   */
+  public updateAzureScanOptions(
+    param: AgentlessScanningApiUpdateAzureScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<AzureScanOptions> {
+    const requestContextPromise = this.requestFactory.updateAzureScanOptions(
+      param.subscriptionId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAzureScanOptions(responseContext);
         });
     });
   }
