@@ -21,6 +21,10 @@ export class SyntheticsTestOptions {
    */
   "allowInsecure"?: boolean;
   /**
+   * Array of URL patterns to block.
+   */
+  "blockedRequestPatterns"?: Array<string>;
+  /**
    * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
    */
   "checkCertificateRevocation"?: boolean;
@@ -146,6 +150,10 @@ export class SyntheticsTestOptions {
     allowInsecure: {
       baseName: "allow_insecure",
       type: "boolean",
+    },
+    blockedRequestPatterns: {
+      baseName: "blockedRequestPatterns",
+      type: "Array<string>",
     },
     checkCertificateRevocation: {
       baseName: "checkCertificateRevocation",
