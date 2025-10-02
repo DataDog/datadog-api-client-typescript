@@ -1,7 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CasePriority } from "./CasePriority";
-import { CaseType } from "./CaseType";
 
 /**
  * Case creation attributes
@@ -20,9 +19,9 @@ export class CaseCreateAttributes {
    */
   "title": string;
   /**
-   * Case type
+   * Case type UUID
    */
-  "type": CaseType;
+  "typeId": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -51,9 +50,9 @@ export class CaseCreateAttributes {
       type: "string",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseType",
+    typeId: {
+      baseName: "type_id",
+      type: "string",
       required: true,
     },
     additionalProperties: {
