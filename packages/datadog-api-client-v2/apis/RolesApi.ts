@@ -26,6 +26,7 @@ import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
 import { RolesResponse } from "../models/RolesResponse";
 import { RolesSort } from "../models/RolesSort";
+import { RoleTemplateArray } from "../models/RoleTemplateArray";
 import { RoleUpdateRequest } from "../models/RoleUpdateRequest";
 import { RoleUpdateResponse } from "../models/RoleUpdateResponse";
 import { UsersResponse } from "../models/UsersResponse";
@@ -409,6 +410,36 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listRoleTemplates(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listRoleTemplates'");
+    if (!_config.unstableOperations["v2.listRoleTemplates"]) {
+      throw new Error("Unstable operation 'listRoleTemplates' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/roles/templates";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RolesApi.listRoleTemplates")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1188,6 +1219,64 @@ export class RolesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listRoleTemplates
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRoleTemplates(
+    response: ResponseContext
+  ): Promise<RoleTemplateArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RoleTemplateArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RoleTemplateArray"
+      ) as RoleTemplateArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RoleTemplateArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RoleTemplateArray",
+        ""
+      ) as RoleTemplateArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listRoleUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1805,6 +1894,24 @@ export class RolesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listRoles(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all role templates
+   * @param param The request object
+   */
+  public listRoleTemplates(
+    options?: Configuration
+  ): Promise<RoleTemplateArray> {
+    const requestContextPromise =
+      this.requestFactory.listRoleTemplates(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoleTemplates(responseContext);
         });
     });
   }

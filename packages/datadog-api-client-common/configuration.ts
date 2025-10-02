@@ -296,6 +296,7 @@ export function createConfiguration(
       "v2.updateMonitorUserTemplate": false,
       "v2.validateExistingMonitorUserTemplate": false,
       "v2.validateMonitorUserTemplate": false,
+      "v2.listRoleTemplates": false,
       "v2.createPipeline": false,
       "v2.deletePipeline": false,
       "v2.getPipeline": false,
