@@ -26,6 +26,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     message: "Notification message",
     name: "Example test name",
     options: {
+      blockedRequestPatterns: [],
       ci: {
         executionRule: "blocking",
       },
