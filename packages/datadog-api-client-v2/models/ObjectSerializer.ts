@@ -1777,6 +1777,9 @@ import { RoleCreateResponseData } from "./RoleCreateResponseData";
 import { RoleRelationships } from "./RoleRelationships";
 import { RoleResponse } from "./RoleResponse";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
+import { RoleTemplateArray } from "./RoleTemplateArray";
+import { RoleTemplateData } from "./RoleTemplateData";
+import { RoleTemplateDataAttributes } from "./RoleTemplateDataAttributes";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 import { RoleUpdateData } from "./RoleUpdateData";
 import { RoleUpdateRequest } from "./RoleUpdateRequest";
@@ -3440,6 +3443,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RetentionFilterType: ["spans-sampling-processor"],
   RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
+  RoleTemplateDataType: ["roles"],
   RolesSort: [
     "name",
     "-name",
@@ -5988,6 +5992,9 @@ const typeMap: { [index: string]: any } = {
   RoleRelationships: RoleRelationships,
   RoleResponse: RoleResponse,
   RoleResponseRelationships: RoleResponseRelationships,
+  RoleTemplateArray: RoleTemplateArray,
+  RoleTemplateData: RoleTemplateData,
+  RoleTemplateDataAttributes: RoleTemplateDataAttributes,
   RoleUpdateAttributes: RoleUpdateAttributes,
   RoleUpdateData: RoleUpdateData,
   RoleUpdateRequest: RoleUpdateRequest,

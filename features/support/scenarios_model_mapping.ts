@@ -7044,6 +7044,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RoleCreateResponse",
     },
+    "v2.ListRoleTemplates": {
+        "operationResponseType": "RoleTemplateArray",
+    },
     "v2.GetRole": {
         "roleId": {
             "type": "string",
