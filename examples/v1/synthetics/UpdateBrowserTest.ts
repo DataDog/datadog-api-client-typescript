@@ -50,6 +50,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
     message: "",
     name: "Example test name",
     options: {
+      blockedRequestPatterns: [],
       ci: {
         executionRule: "blocking",
       },
