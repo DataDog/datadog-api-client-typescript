@@ -2445,6 +2445,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PutAppsDatastoreItemResponseArray",
   },
+  "ActionsDatastoresApi.V2.BulkDeleteDatastoreItems": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "BulkDeleteAppsDatastoreItemsRequest",
+      format: "",
+    },
+    operationResponseType: "DeleteAppsDatastoreItemResponseArray",
+  },
   "ActionConnectionApi.V2.ListAppKeyRegistrations": {
     pageSize: {
       type: "number",

@@ -1,4 +1,5 @@
 export {
+  ActionsDatastoresApiBulkDeleteDatastoreItemsRequest,
   ActionsDatastoresApiBulkWriteDatastoreItemsRequest,
   ActionsDatastoresApiCreateDatastoreRequest,
   ActionsDatastoresApiDeleteDatastoreRequest,
@@ -11,6 +12,10 @@ export {
 } from "./ActionsDatastoresApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { BulkDeleteAppsDatastoreItemsRequest } from "./models/BulkDeleteAppsDatastoreItemsRequest";
+export { BulkDeleteAppsDatastoreItemsRequestData } from "./models/BulkDeleteAppsDatastoreItemsRequestData";
+export { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./models/BulkDeleteAppsDatastoreItemsRequestDataAttributes";
+export { BulkDeleteAppsDatastoreItemsRequestDataType } from "./models/BulkDeleteAppsDatastoreItemsRequestDataType";
 export { BulkPutAppsDatastoreItemsRequest } from "./models/BulkPutAppsDatastoreItemsRequest";
 export { BulkPutAppsDatastoreItemsRequestData } from "./models/BulkPutAppsDatastoreItemsRequestData";
 export { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./models/BulkPutAppsDatastoreItemsRequestDataAttributes";
@@ -32,6 +37,7 @@ export { DeleteAppsDatastoreItemRequest } from "./models/DeleteAppsDatastoreItem
 export { DeleteAppsDatastoreItemRequestData } from "./models/DeleteAppsDatastoreItemRequestData";
 export { DeleteAppsDatastoreItemRequestDataAttributes } from "./models/DeleteAppsDatastoreItemRequestDataAttributes";
 export { DeleteAppsDatastoreItemResponse } from "./models/DeleteAppsDatastoreItemResponse";
+export { DeleteAppsDatastoreItemResponseArray } from "./models/DeleteAppsDatastoreItemResponseArray";
 export { DeleteAppsDatastoreItemResponseData } from "./models/DeleteAppsDatastoreItemResponseData";
 export { ItemApiPayload } from "./models/ItemApiPayload";
 export { ItemApiPayloadArray } from "./models/ItemApiPayloadArray";
