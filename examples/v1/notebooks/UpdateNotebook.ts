@@ -23,7 +23,7 @@ const params: v1.NotebooksApiUpdateNotebookRequest = {
 
 ` +
                   "```" +
-                  `js
+                  `
 var x, y;
 x = 5;
 y = 6;
