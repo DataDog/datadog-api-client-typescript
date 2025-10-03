@@ -2435,6 +2435,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PutAppsDatastoreItemResponseArray",
     },
+    "v2.BulkDeleteDatastoreItems": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "BulkDeleteAppsDatastoreItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DeleteAppsDatastoreItemResponseArray",
+    },
     "v2.ListAppKeyRegistrations": {
         "pageSize": {
             "type": "number",

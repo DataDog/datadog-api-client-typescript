@@ -247,6 +247,9 @@ import { BudgetAttributes } from "./BudgetAttributes";
 import { BudgetEntry } from "./BudgetEntry";
 import { BudgetWithEntries } from "./BudgetWithEntries";
 import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
+import { BulkDeleteAppsDatastoreItemsRequest } from "./BulkDeleteAppsDatastoreItemsRequest";
+import { BulkDeleteAppsDatastoreItemsRequestData } from "./BulkDeleteAppsDatastoreItemsRequestData";
+import { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./BulkDeleteAppsDatastoreItemsRequestDataAttributes";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -637,6 +640,7 @@ import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest
 import { DeleteAppsDatastoreItemRequestData } from "./DeleteAppsDatastoreItemRequestData";
 import { DeleteAppsDatastoreItemRequestDataAttributes } from "./DeleteAppsDatastoreItemRequestDataAttributes";
 import { DeleteAppsDatastoreItemResponse } from "./DeleteAppsDatastoreItemResponse";
+import { DeleteAppsDatastoreItemResponseArray } from "./DeleteAppsDatastoreItemResponseArray";
 import { DeleteAppsDatastoreItemResponseData } from "./DeleteAppsDatastoreItemResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
 import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
@@ -2563,6 +2567,7 @@ const enumsMap: { [key: string]: any[] } = {
     "OK",
     "NOT_FOUND",
   ],
+  BulkDeleteAppsDatastoreItemsRequestDataType: ["items"],
   CIAppAggregateSortType: ["alphabetical", "measure"],
   CIAppAggregationFunction: [
     "count",
@@ -4210,6 +4215,11 @@ const typeMap: { [index: string]: any } = {
   BudgetEntry: BudgetEntry,
   BudgetWithEntries: BudgetWithEntries,
   BudgetWithEntriesData: BudgetWithEntriesData,
+  BulkDeleteAppsDatastoreItemsRequest: BulkDeleteAppsDatastoreItemsRequest,
+  BulkDeleteAppsDatastoreItemsRequestData:
+    BulkDeleteAppsDatastoreItemsRequestData,
+  BulkDeleteAppsDatastoreItemsRequestDataAttributes:
+    BulkDeleteAppsDatastoreItemsRequestDataAttributes,
   BulkMuteFindingsRequest: BulkMuteFindingsRequest,
   BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
   BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
@@ -4674,6 +4684,7 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsDatastoreItemRequestDataAttributes:
     DeleteAppsDatastoreItemRequestDataAttributes,
   DeleteAppsDatastoreItemResponse: DeleteAppsDatastoreItemResponse,
+  DeleteAppsDatastoreItemResponseArray: DeleteAppsDatastoreItemResponseArray,
   DeleteAppsDatastoreItemResponseData: DeleteAppsDatastoreItemResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
   DeleteAppsRequestDataItems: DeleteAppsRequestDataItems,
