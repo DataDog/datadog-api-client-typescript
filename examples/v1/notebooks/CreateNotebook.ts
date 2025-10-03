@@ -20,7 +20,7 @@ const params: v1.NotebooksApiCreateNotebookRequest = {
 
 ` +
                   "```" +
-                  `js
+                  `
 var x, y;
 x = 5;
 y = 6;
