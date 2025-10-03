@@ -17,6 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { BulkDeleteAppsDatastoreItemsRequest } from "../models/BulkDeleteAppsDatastoreItemsRequest";
 import { BulkPutAppsDatastoreItemsRequest } from "../models/BulkPutAppsDatastoreItemsRequest";
 import { CreateAppsDatastoreRequest } from "../models/CreateAppsDatastoreRequest";
 import { CreateAppsDatastoreResponse } from "../models/CreateAppsDatastoreResponse";
@@ -24,6 +25,7 @@ import { Datastore } from "../models/Datastore";
 import { DatastoreArray } from "../models/DatastoreArray";
 import { DeleteAppsDatastoreItemRequest } from "../models/DeleteAppsDatastoreItemRequest";
 import { DeleteAppsDatastoreItemResponse } from "../models/DeleteAppsDatastoreItemResponse";
+import { DeleteAppsDatastoreItemResponseArray } from "../models/DeleteAppsDatastoreItemResponseArray";
 import { ItemApiPayload } from "../models/ItemApiPayload";
 import { ItemApiPayloadArray } from "../models/ItemApiPayloadArray";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -32,6 +34,61 @@ import { UpdateAppsDatastoreItemRequest } from "../models/UpdateAppsDatastoreIte
 import { UpdateAppsDatastoreRequest } from "../models/UpdateAppsDatastoreRequest";
 
 export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
+  public async bulkDeleteDatastoreItems(
+    datastoreId: string,
+    body: BulkDeleteAppsDatastoreItemsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'datastoreId' is not null or undefined
+    if (datastoreId === null || datastoreId === undefined) {
+      throw new RequiredError("datastoreId", "bulkDeleteDatastoreItems");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "bulkDeleteDatastoreItems");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/actions-datastores/{datastore_id}/items/bulk".replace(
+        "{datastore_id}",
+        encodeURIComponent(String(datastoreId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ActionsDatastoresApi.bulkDeleteDatastoreItems")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "BulkDeleteAppsDatastoreItemsRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async bulkWriteDatastoreItems(
     datastoreId: string,
     body: BulkPutAppsDatastoreItemsRequest,
@@ -444,6 +501,93 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ActionsDatastoresApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to bulkDeleteDatastoreItems
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async bulkDeleteDatastoreItems(
+    response: ResponseContext
+  ): Promise<DeleteAppsDatastoreItemResponseArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DeleteAppsDatastoreItemResponseArray =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DeleteAppsDatastoreItemResponseArray"
+        ) as DeleteAppsDatastoreItemResponseArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DeleteAppsDatastoreItemResponseArray =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DeleteAppsDatastoreItemResponseArray",
+          ""
+        ) as DeleteAppsDatastoreItemResponseArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1140,6 +1284,18 @@ export class ActionsDatastoresApiResponseProcessor {
   }
 }
 
+export interface ActionsDatastoresApiBulkDeleteDatastoreItemsRequest {
+  /**
+   * The ID of the datastore.
+   * @type string
+   */
+  datastoreId: string;
+  /**
+   * @type BulkDeleteAppsDatastoreItemsRequest
+   */
+  body: BulkDeleteAppsDatastoreItemsRequest;
+}
+
 export interface ActionsDatastoresApiBulkWriteDatastoreItemsRequest {
   /**
    * The unique identifier of the datastore to retrieve.
@@ -1259,6 +1415,30 @@ export class ActionsDatastoresApi {
       requestFactory || new ActionsDatastoresApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new ActionsDatastoresApiResponseProcessor();
+  }
+
+  /**
+   * Deletes multiple items from a datastore by their keys in a single operation.
+   * @param param The request object
+   */
+  public bulkDeleteDatastoreItems(
+    param: ActionsDatastoresApiBulkDeleteDatastoreItemsRequest,
+    options?: Configuration
+  ): Promise<DeleteAppsDatastoreItemResponseArray> {
+    const requestContextPromise = this.requestFactory.bulkDeleteDatastoreItems(
+      param.datastoreId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.bulkDeleteDatastoreItems(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
