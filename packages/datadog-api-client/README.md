@@ -410,6 +410,7 @@ apiInstance
 | PagerDuty Integration | @datadog/datadog-api-client-pager-duty-integration | [README.md](../../services/pager-duty-integration/README.md) |
 | Powerpack | @datadog/datadog-api-client-powerpack | [README.md](../../services/powerpack/README.md) |
 | Processes | @datadog/datadog-api-client-processes | [README.md](../../services/processes/README.md) |
+| Reference Tables | @datadog/datadog-api-client-reference-tables | [README.md](../../services/reference-tables/README.md) |
 | Restriction Policies | @datadog/datadog-api-client-restriction-policies | [README.md](../../services/restriction-policies/README.md) |
 | Roles | @datadog/datadog-api-client-roles | [README.md](../../services/roles/README.md) |
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
