@@ -1,8 +1,11 @@
 export {
   CaseManagementApiArchiveCaseRequest,
   CaseManagementApiAssignCaseRequest,
+  CaseManagementApiCommentCaseRequest,
   CaseManagementApiCreateCaseRequest,
   CaseManagementApiCreateProjectRequest,
+  CaseManagementApiDeleteCaseCommentRequest,
+  CaseManagementApiDeleteCaseCustomAttributeRequest,
   CaseManagementApiDeleteProjectRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
@@ -10,6 +13,9 @@ export {
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
   CaseManagementApiUpdateAttributesRequest,
+  CaseManagementApiUpdateCaseCustomAttributeRequest,
+  CaseManagementApiUpdateCaseDescriptionRequest,
+  CaseManagementApiUpdateCaseTitleRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateStatusRequest,
   CaseManagementApi,
@@ -22,6 +28,9 @@ export { CaseAssign } from "./models/CaseAssign";
 export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
 export { CaseAssignRequest } from "./models/CaseAssignRequest";
 export { CaseAttributes } from "./models/CaseAttributes";
+export { CaseComment } from "./models/CaseComment";
+export { CaseCommentAttributes } from "./models/CaseCommentAttributes";
+export { CaseCommentRequest } from "./models/CaseCommentRequest";
 export { CaseCreate } from "./models/CaseCreate";
 export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
 export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
@@ -41,12 +50,23 @@ export { CaseType } from "./models/CaseType";
 export { CaseUpdateAttributes } from "./models/CaseUpdateAttributes";
 export { CaseUpdateAttributesAttributes } from "./models/CaseUpdateAttributesAttributes";
 export { CaseUpdateAttributesRequest } from "./models/CaseUpdateAttributesRequest";
+export { CaseUpdateCustomAttribute } from "./models/CaseUpdateCustomAttribute";
+export { CaseUpdateCustomAttributeRequest } from "./models/CaseUpdateCustomAttributeRequest";
+export { CaseUpdateDescription } from "./models/CaseUpdateDescription";
+export { CaseUpdateDescriptionAttributes } from "./models/CaseUpdateDescriptionAttributes";
+export { CaseUpdateDescriptionRequest } from "./models/CaseUpdateDescriptionRequest";
 export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
 export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
 export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
 export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
 export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
+export { CaseUpdateTitle } from "./models/CaseUpdateTitle";
+export { CaseUpdateTitleAttributes } from "./models/CaseUpdateTitleAttributes";
+export { CaseUpdateTitleRequest } from "./models/CaseUpdateTitleRequest";
+export { CustomAttributeType } from "./models/CustomAttributeType";
+export { CustomAttributeValue } from "./models/CustomAttributeValue";
+export { CustomAttributeValuesUnion } from "./models/CustomAttributeValuesUnion";
 export { JiraIssue } from "./models/JiraIssue";
 export { JiraIssueResult } from "./models/JiraIssueResult";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
@@ -68,6 +88,17 @@ export { ServiceNowTicket } from "./models/ServiceNowTicket";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
 export { TeamLinkType } from "./models/TeamLinkType";
 export { TeamRelationshipsLinks } from "./models/TeamRelationshipsLinks";
+export { TimelineCell } from "./models/TimelineCell";
+export { TimelineCellAuthor } from "./models/TimelineCellAuthor";
+export { TimelineCellAuthorUser } from "./models/TimelineCellAuthorUser";
+export { TimelineCellAuthorUserContent } from "./models/TimelineCellAuthorUserContent";
+export { TimelineCellAuthorUserType } from "./models/TimelineCellAuthorUserType";
+export { TimelineCellContent } from "./models/TimelineCellContent";
+export { TimelineCellContentComment } from "./models/TimelineCellContentComment";
+export { TimelineCellResource } from "./models/TimelineCellResource";
+export { TimelineCellResourceType } from "./models/TimelineCellResourceType";
+export { TimelineCellType } from "./models/TimelineCellType";
+export { TimelineResponse } from "./models/TimelineResponse";
 export { UserRelationshipData } from "./models/UserRelationshipData";
 export { UserResourceType } from "./models/UserResourceType";
 export { UsersRelationship } from "./models/UsersRelationship";

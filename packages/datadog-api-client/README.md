@@ -360,6 +360,8 @@ apiInstance
 | AWS Logs Integration | @datadog/datadog-api-client-aws-logs-integration | [README.md](../../services/aws-logs-integration/README.md) |
 | Azure Integration | @datadog/datadog-api-client-azure-integration | [README.md](../../services/azure-integration/README.md) |
 | Case Management | @datadog/datadog-api-client-case-management | [README.md](../../services/case-management/README.md) |
+| Case Management Attribute | @datadog/datadog-api-client-case-management-attribute | [README.md](../../services/case-management-attribute/README.md) |
+| Case Management Type | @datadog/datadog-api-client-case-management-type | [README.md](../../services/case-management-type/README.md) |
 | CI Visibility Pipelines | @datadog/datadog-api-client-ci-visibility-pipelines | [README.md](../../services/ci-visibility-pipelines/README.md) |
 | CI Visibility Tests | @datadog/datadog-api-client-ci-visibility-tests | [README.md](../../services/ci-visibility-tests/README.md) |
 | Cloud Cost Management | @datadog/datadog-api-client-cloud-cost-management | [README.md](../../services/cloud-cost-management/README.md) |
