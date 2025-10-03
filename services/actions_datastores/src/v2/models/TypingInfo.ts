@@ -1,6 +1,9 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { BulkDeleteAppsDatastoreItemsRequest } from "./BulkDeleteAppsDatastoreItemsRequest";
+import { BulkDeleteAppsDatastoreItemsRequestData } from "./BulkDeleteAppsDatastoreItemsRequestData";
+import { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./BulkDeleteAppsDatastoreItemsRequestDataAttributes";
 import { BulkPutAppsDatastoreItemsRequest } from "./BulkPutAppsDatastoreItemsRequest";
 import { BulkPutAppsDatastoreItemsRequestData } from "./BulkPutAppsDatastoreItemsRequestData";
 import { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./BulkPutAppsDatastoreItemsRequestDataAttributes";
@@ -17,6 +20,7 @@ import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest
 import { DeleteAppsDatastoreItemRequestData } from "./DeleteAppsDatastoreItemRequestData";
 import { DeleteAppsDatastoreItemRequestDataAttributes } from "./DeleteAppsDatastoreItemRequestDataAttributes";
 import { DeleteAppsDatastoreItemResponse } from "./DeleteAppsDatastoreItemResponse";
+import { DeleteAppsDatastoreItemResponseArray } from "./DeleteAppsDatastoreItemResponseArray";
 import { DeleteAppsDatastoreItemResponseData } from "./DeleteAppsDatastoreItemResponseData";
 import { ItemApiPayload } from "./ItemApiPayload";
 import { ItemApiPayloadArray } from "./ItemApiPayloadArray";
@@ -41,6 +45,7 @@ import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreR
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    BulkDeleteAppsDatastoreItemsRequestDataType: ["items"],
     CreateAppsDatastoreRequestDataAttributesOrgAccess: [
       "contributor",
       "viewer",
@@ -55,6 +60,11 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    BulkDeleteAppsDatastoreItemsRequest: BulkDeleteAppsDatastoreItemsRequest,
+    BulkDeleteAppsDatastoreItemsRequestData:
+      BulkDeleteAppsDatastoreItemsRequestData,
+    BulkDeleteAppsDatastoreItemsRequestDataAttributes:
+      BulkDeleteAppsDatastoreItemsRequestDataAttributes,
     BulkPutAppsDatastoreItemsRequest: BulkPutAppsDatastoreItemsRequest,
     BulkPutAppsDatastoreItemsRequestData: BulkPutAppsDatastoreItemsRequestData,
     BulkPutAppsDatastoreItemsRequestDataAttributes:
@@ -74,6 +84,7 @@ export const TypingInfo: ModelTypingInfo = {
     DeleteAppsDatastoreItemRequestDataAttributes:
       DeleteAppsDatastoreItemRequestDataAttributes,
     DeleteAppsDatastoreItemResponse: DeleteAppsDatastoreItemResponse,
+    DeleteAppsDatastoreItemResponseArray: DeleteAppsDatastoreItemResponseArray,
     DeleteAppsDatastoreItemResponseData: DeleteAppsDatastoreItemResponseData,
     ItemApiPayload: ItemApiPayload,
     ItemApiPayloadArray: ItemApiPayloadArray,
