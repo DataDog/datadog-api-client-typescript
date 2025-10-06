@@ -1,6 +1,19 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { ApplicationSecurityPolicyAttributes } from "./ApplicationSecurityPolicyAttributes";
+import { ApplicationSecurityPolicyCreateAttributes } from "./ApplicationSecurityPolicyCreateAttributes";
+import { ApplicationSecurityPolicyCreateData } from "./ApplicationSecurityPolicyCreateData";
+import { ApplicationSecurityPolicyCreateRequest } from "./ApplicationSecurityPolicyCreateRequest";
+import { ApplicationSecurityPolicyData } from "./ApplicationSecurityPolicyData";
+import { ApplicationSecurityPolicyListResponse } from "./ApplicationSecurityPolicyListResponse";
+import { ApplicationSecurityPolicyMetadata } from "./ApplicationSecurityPolicyMetadata";
+import { ApplicationSecurityPolicyResponse } from "./ApplicationSecurityPolicyResponse";
+import { ApplicationSecurityPolicyRuleOverride } from "./ApplicationSecurityPolicyRuleOverride";
+import { ApplicationSecurityPolicyScope } from "./ApplicationSecurityPolicyScope";
+import { ApplicationSecurityPolicyUpdateAttributes } from "./ApplicationSecurityPolicyUpdateAttributes";
+import { ApplicationSecurityPolicyUpdateData } from "./ApplicationSecurityPolicyUpdateData";
+import { ApplicationSecurityPolicyUpdateRequest } from "./ApplicationSecurityPolicyUpdateRequest";
 import { ApplicationSecurityWafCustomRuleAction } from "./ApplicationSecurityWafCustomRuleAction";
 import { ApplicationSecurityWafCustomRuleActionParameters } from "./ApplicationSecurityWafCustomRuleActionParameters";
 import { ApplicationSecurityWafCustomRuleAttributes } from "./ApplicationSecurityWafCustomRuleAttributes";
@@ -37,6 +50,7 @@ import { ApplicationSecurityWafExclusionFiltersResponse } from "./ApplicationSec
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    ApplicationSecurityPolicyType: ["policy"],
     ApplicationSecurityWafCustomRuleActionAction: [
       "redirect_request",
       "block_request",
@@ -89,6 +103,25 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    ApplicationSecurityPolicyAttributes: ApplicationSecurityPolicyAttributes,
+    ApplicationSecurityPolicyCreateAttributes:
+      ApplicationSecurityPolicyCreateAttributes,
+    ApplicationSecurityPolicyCreateData: ApplicationSecurityPolicyCreateData,
+    ApplicationSecurityPolicyCreateRequest:
+      ApplicationSecurityPolicyCreateRequest,
+    ApplicationSecurityPolicyData: ApplicationSecurityPolicyData,
+    ApplicationSecurityPolicyListResponse:
+      ApplicationSecurityPolicyListResponse,
+    ApplicationSecurityPolicyMetadata: ApplicationSecurityPolicyMetadata,
+    ApplicationSecurityPolicyResponse: ApplicationSecurityPolicyResponse,
+    ApplicationSecurityPolicyRuleOverride:
+      ApplicationSecurityPolicyRuleOverride,
+    ApplicationSecurityPolicyScope: ApplicationSecurityPolicyScope,
+    ApplicationSecurityPolicyUpdateAttributes:
+      ApplicationSecurityPolicyUpdateAttributes,
+    ApplicationSecurityPolicyUpdateData: ApplicationSecurityPolicyUpdateData,
+    ApplicationSecurityPolicyUpdateRequest:
+      ApplicationSecurityPolicyUpdateRequest,
     ApplicationSecurityWafCustomRuleAction:
       ApplicationSecurityWafCustomRuleAction,
     ApplicationSecurityWafCustomRuleActionParameters:

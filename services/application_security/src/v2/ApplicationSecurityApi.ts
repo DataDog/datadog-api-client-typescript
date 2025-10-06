@@ -23,6 +23,10 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { ApplicationSecurityPolicyCreateRequest } from "./models/ApplicationSecurityPolicyCreateRequest";
+import { ApplicationSecurityPolicyListResponse } from "./models/ApplicationSecurityPolicyListResponse";
+import { ApplicationSecurityPolicyResponse } from "./models/ApplicationSecurityPolicyResponse";
+import { ApplicationSecurityPolicyUpdateRequest } from "./models/ApplicationSecurityPolicyUpdateRequest";
 import { ApplicationSecurityWafCustomRuleCreateRequest } from "./models/ApplicationSecurityWafCustomRuleCreateRequest";
 import { ApplicationSecurityWafCustomRuleListResponse } from "./models/ApplicationSecurityWafCustomRuleListResponse";
 import { ApplicationSecurityWafCustomRuleResponse } from "./models/ApplicationSecurityWafCustomRuleResponse";
@@ -156,6 +160,56 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async createApplicationSecurityWafPolicy(
+    body: ApplicationSecurityPolicyCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createApplicationSecurityWafPolicy");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.createApplicationSecurityWafPolicy",
+      ApplicationSecurityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ApplicationSecurityPolicyCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteApplicationSecurityWafCustomRule(
     customRuleId: string,
     _options?: Configuration,
@@ -228,6 +282,51 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.deleteApplicationSecurityWafExclusionFilter",
+      ApplicationSecurityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteApplicationSecurityWafPolicy(
+    policyId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "deleteApplicationSecurityWafPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.deleteApplicationSecurityWafPolicy",
       ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -348,6 +447,51 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getApplicationSecurityWafPolicy(
+    policyId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "getApplicationSecurityWafPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.getApplicationSecurityWafPolicy",
+      ApplicationSecurityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listApplicationSecurityWAFCustomRules(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -395,6 +539,41 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.listApplicationSecurityWafExclusionFilters",
+      ApplicationSecurityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listApplicationSecurityWAFPolicies(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.listApplicationSecurityWAFPolicies",
       ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -557,6 +736,66 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     return requestContext;
   }
+
+  public async updateApplicationSecurityWafPolicy(
+    policyId: string,
+    body: ApplicationSecurityPolicyUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "updateApplicationSecurityWafPolicy");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateApplicationSecurityWafPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.updateApplicationSecurityWafPolicy",
+      ApplicationSecurityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ApplicationSecurityPolicyUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class ApplicationSecurityApiResponseProcessor {
@@ -686,6 +925,67 @@ export class ApplicationSecurityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createApplicationSecurityWafPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createApplicationSecurityWafPolicy(
+    response: ResponseContext,
+  ): Promise<ApplicationSecurityPolicyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: ApplicationSecurityPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyResponse",
+      ) as ApplicationSecurityPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ApplicationSecurityPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyResponse",
+        "",
+      ) as ApplicationSecurityPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteApplicationSecurityWafCustomRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -740,6 +1040,56 @@ export class ApplicationSecurityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteApplicationSecurityWafExclusionFilter(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteApplicationSecurityWafPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteApplicationSecurityWafPolicy(
     response: ResponseContext,
   ): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
@@ -902,6 +1252,62 @@ export class ApplicationSecurityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getApplicationSecurityWafPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getApplicationSecurityWafPolicy(
+    response: ResponseContext,
+  ): Promise<ApplicationSecurityPolicyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ApplicationSecurityPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyResponse",
+      ) as ApplicationSecurityPolicyResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ApplicationSecurityPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyResponse",
+        "",
+      ) as ApplicationSecurityPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listApplicationSecurityWAFCustomRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1000,6 +1406,62 @@ export class ApplicationSecurityApiResponseProcessor {
         "ApplicationSecurityWafExclusionFiltersResponse",
         "",
       ) as ApplicationSecurityWafExclusionFiltersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listApplicationSecurityWAFPolicies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listApplicationSecurityWAFPolicies(
+    response: ResponseContext,
+  ): Promise<ApplicationSecurityPolicyListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ApplicationSecurityPolicyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyListResponse",
+      ) as ApplicationSecurityPolicyListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ApplicationSecurityPolicyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyListResponse",
+        "",
+      ) as ApplicationSecurityPolicyListResponse;
       return body;
     }
 
@@ -1133,6 +1595,68 @@ export class ApplicationSecurityApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateApplicationSecurityWafPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateApplicationSecurityWafPolicy(
+    response: ResponseContext,
+  ): Promise<ApplicationSecurityPolicyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ApplicationSecurityPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyResponse",
+      ) as ApplicationSecurityPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ApplicationSecurityPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityPolicyResponse",
+        "",
+      ) as ApplicationSecurityPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface ApplicationSecurityApiCreateApplicationSecurityWafCustomRuleRequest {
@@ -1151,6 +1675,14 @@ export interface ApplicationSecurityApiCreateApplicationSecurityWafExclusionFilt
   body: ApplicationSecurityWafExclusionFilterCreateRequest;
 }
 
+export interface ApplicationSecurityApiCreateApplicationSecurityWafPolicyRequest {
+  /**
+   * The new WAF policy.
+   * @type ApplicationSecurityPolicyCreateRequest
+   */
+  body: ApplicationSecurityPolicyCreateRequest;
+}
+
 export interface ApplicationSecurityApiDeleteApplicationSecurityWafCustomRuleRequest {
   /**
    * The ID of the custom rule.
@@ -1167,6 +1699,14 @@ export interface ApplicationSecurityApiDeleteApplicationSecurityWafExclusionFilt
   exclusionFilterId: string;
 }
 
+export interface ApplicationSecurityApiDeleteApplicationSecurityWafPolicyRequest {
+  /**
+   * The ID of the policy.
+   * @type string
+   */
+  policyId: string;
+}
+
 export interface ApplicationSecurityApiGetApplicationSecurityWafCustomRuleRequest {
   /**
    * The ID of the custom rule.
@@ -1181,6 +1721,14 @@ export interface ApplicationSecurityApiGetApplicationSecurityWafExclusionFilterR
    * @type string
    */
   exclusionFilterId: string;
+}
+
+export interface ApplicationSecurityApiGetApplicationSecurityWafPolicyRequest {
+  /**
+   * The ID of the policy.
+   * @type string
+   */
+  policyId: string;
 }
 
 export interface ApplicationSecurityApiUpdateApplicationSecurityWafCustomRuleRequest {
@@ -1207,6 +1755,19 @@ export interface ApplicationSecurityApiUpdateApplicationSecurityWafExclusionFilt
    * @type ApplicationSecurityWafExclusionFilterUpdateRequest
    */
   body: ApplicationSecurityWafExclusionFilterUpdateRequest;
+}
+
+export interface ApplicationSecurityApiUpdateApplicationSecurityWafPolicyRequest {
+  /**
+   * The ID of the policy.
+   * @type string
+   */
+  policyId: string;
+  /**
+   * New WAF Policy.
+   * @type ApplicationSecurityPolicyUpdateRequest
+   */
+  body: ApplicationSecurityPolicyUpdateRequest;
 }
 
 export class ApplicationSecurityApi {
@@ -1281,6 +1842,30 @@ export class ApplicationSecurityApi {
   }
 
   /**
+   * Create a new WAF policy.
+   * @param param The request object
+   */
+  public createApplicationSecurityWafPolicy(
+    param: ApplicationSecurityApiCreateApplicationSecurityWafPolicyRequest,
+    options?: Configuration,
+  ): Promise<ApplicationSecurityPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.createApplicationSecurityWafPolicy(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createApplicationSecurityWafPolicy(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a specific WAF custom rule.
    * @param param The request object
    */
@@ -1322,6 +1907,30 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteApplicationSecurityWafExclusionFilter(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a specific WAF policy.
+   * @param param The request object
+   */
+  public deleteApplicationSecurityWafPolicy(
+    param: ApplicationSecurityApiDeleteApplicationSecurityWafPolicyRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteApplicationSecurityWafPolicy(
+        param.policyId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteApplicationSecurityWafPolicy(
             responseContext,
           );
         });
@@ -1377,6 +1986,30 @@ export class ApplicationSecurityApi {
   }
 
   /**
+   * Retrieve a WAF policy by ID.
+   * @param param The request object
+   */
+  public getApplicationSecurityWafPolicy(
+    param: ApplicationSecurityApiGetApplicationSecurityWafPolicyRequest,
+    options?: Configuration,
+  ): Promise<ApplicationSecurityPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.getApplicationSecurityWafPolicy(
+        param.policyId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getApplicationSecurityWafPolicy(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Retrieve a list of WAF custom rule.
    * @param param The request object
    */
@@ -1410,6 +2043,26 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listApplicationSecurityWafExclusionFilters(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve a list of WAF policies.
+   * @param param The request object
+   */
+  public listApplicationSecurityWAFPolicies(
+    options?: Configuration,
+  ): Promise<ApplicationSecurityPolicyListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listApplicationSecurityWAFPolicies(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listApplicationSecurityWAFPolicies(
             responseContext,
           );
         });
@@ -1462,6 +2115,32 @@ export class ApplicationSecurityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateApplicationSecurityWafExclusionFilter(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a specific WAF policy.
+   * Returns the Policy object when the request is successful.
+   * @param param The request object
+   */
+  public updateApplicationSecurityWafPolicy(
+    param: ApplicationSecurityApiUpdateApplicationSecurityWafPolicyRequest,
+    options?: Configuration,
+  ): Promise<ApplicationSecurityPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateApplicationSecurityWafPolicy(
+        param.policyId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateApplicationSecurityWafPolicy(
             responseContext,
           );
         });
