@@ -94,6 +94,19 @@ import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { ApplicationSecurityPolicyAttributes } from "./ApplicationSecurityPolicyAttributes";
+import { ApplicationSecurityPolicyCreateAttributes } from "./ApplicationSecurityPolicyCreateAttributes";
+import { ApplicationSecurityPolicyCreateData } from "./ApplicationSecurityPolicyCreateData";
+import { ApplicationSecurityPolicyCreateRequest } from "./ApplicationSecurityPolicyCreateRequest";
+import { ApplicationSecurityPolicyData } from "./ApplicationSecurityPolicyData";
+import { ApplicationSecurityPolicyListResponse } from "./ApplicationSecurityPolicyListResponse";
+import { ApplicationSecurityPolicyMetadata } from "./ApplicationSecurityPolicyMetadata";
+import { ApplicationSecurityPolicyResponse } from "./ApplicationSecurityPolicyResponse";
+import { ApplicationSecurityPolicyRuleOverride } from "./ApplicationSecurityPolicyRuleOverride";
+import { ApplicationSecurityPolicyScope } from "./ApplicationSecurityPolicyScope";
+import { ApplicationSecurityPolicyUpdateAttributes } from "./ApplicationSecurityPolicyUpdateAttributes";
+import { ApplicationSecurityPolicyUpdateData } from "./ApplicationSecurityPolicyUpdateData";
+import { ApplicationSecurityPolicyUpdateRequest } from "./ApplicationSecurityPolicyUpdateRequest";
 import { ApplicationSecurityWafCustomRuleAction } from "./ApplicationSecurityWafCustomRuleAction";
 import { ApplicationSecurityWafCustomRuleActionParameters } from "./ApplicationSecurityWafCustomRuleActionParameters";
 import { ApplicationSecurityWafCustomRuleAttributes } from "./ApplicationSecurityWafCustomRuleAttributes";
@@ -2468,6 +2481,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  ApplicationSecurityPolicyType: ["policy"],
   ApplicationSecurityWafCustomRuleActionAction: [
     "redirect_request",
     "block_request",
@@ -4015,6 +4029,23 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  ApplicationSecurityPolicyAttributes: ApplicationSecurityPolicyAttributes,
+  ApplicationSecurityPolicyCreateAttributes:
+    ApplicationSecurityPolicyCreateAttributes,
+  ApplicationSecurityPolicyCreateData: ApplicationSecurityPolicyCreateData,
+  ApplicationSecurityPolicyCreateRequest:
+    ApplicationSecurityPolicyCreateRequest,
+  ApplicationSecurityPolicyData: ApplicationSecurityPolicyData,
+  ApplicationSecurityPolicyListResponse: ApplicationSecurityPolicyListResponse,
+  ApplicationSecurityPolicyMetadata: ApplicationSecurityPolicyMetadata,
+  ApplicationSecurityPolicyResponse: ApplicationSecurityPolicyResponse,
+  ApplicationSecurityPolicyRuleOverride: ApplicationSecurityPolicyRuleOverride,
+  ApplicationSecurityPolicyScope: ApplicationSecurityPolicyScope,
+  ApplicationSecurityPolicyUpdateAttributes:
+    ApplicationSecurityPolicyUpdateAttributes,
+  ApplicationSecurityPolicyUpdateData: ApplicationSecurityPolicyUpdateData,
+  ApplicationSecurityPolicyUpdateRequest:
+    ApplicationSecurityPolicyUpdateRequest,
   ApplicationSecurityWafCustomRuleAction:
     ApplicationSecurityWafCustomRuleAction,
   ApplicationSecurityWafCustomRuleActionParameters:

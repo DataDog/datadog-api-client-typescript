@@ -7308,6 +7308,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListApplicationSecurityWAFPolicies": {
+        "operationResponseType": "ApplicationSecurityPolicyListResponse",
+    },
+    "v2.CreateApplicationSecurityWafPolicy": {
+        "body": {
+            "type": "ApplicationSecurityPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityPolicyResponse",
+    },
+    "v2.GetApplicationSecurityWafPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityPolicyResponse",
+    },
+    "v2.UpdateApplicationSecurityWafPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationSecurityPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityPolicyResponse",
+    },
+    "v2.DeleteApplicationSecurityWafPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListCSMThreatsAgentRules": {
         "policyId": {
             "type": "string",
