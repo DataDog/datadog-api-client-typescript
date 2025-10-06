@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleFilter } from "./MonitorNotificationRuleFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes of the monitor notification rule.
  */
 export class MonitorNotificationRuleResponseAttributes {
+  /**
+   * Use conditional recipients to define different recipients for different situations.
+   */
+  "conditionalRecipients"?: MonitorNotificationRuleConditionalRecipients;
   /**
    * Creation time of the monitor notification rule.
    */
@@ -48,6 +53,10 @@ export class MonitorNotificationRuleResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    conditionalRecipients: {
+      baseName: "conditional_recipients",
+      type: "MonitorNotificationRuleConditionalRecipients",
+    },
     created: {
       baseName: "created",
       type: "Date",
