@@ -1,11 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleFilter } from "./MonitorNotificationRuleFilter";
 
 /**
  * Attributes of the monitor notification rule.
  */
 export class MonitorNotificationRuleResponseAttributes {
+  /**
+   * Use conditional recipients to define different recipients for different situations.
+   */
+  "conditionalRecipients"?: MonitorNotificationRuleConditionalRecipients;
   /**
    * Creation time of the monitor notification rule.
    */
@@ -41,6 +46,10 @@ export class MonitorNotificationRuleResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    conditionalRecipients: {
+      baseName: "conditional_recipients",
+      type: "MonitorNotificationRuleConditionalRecipients",
+    },
     created: {
       baseName: "created",
       type: "Date",
