@@ -20,7 +20,7 @@ export class DORADeploymentRequestAttributes {
    */
   "env"?: string;
   /**
-   * Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
+   * Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds.
    */
   "finishedAt": number;
   /**

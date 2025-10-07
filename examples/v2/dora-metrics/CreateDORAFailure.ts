@@ -1,5 +1,5 @@
 /**
- * Send a failure event for DORA Metrics returns "OK - but delayed due to incident" response
+ * Send a failure event returns "OK - but delayed due to incident" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

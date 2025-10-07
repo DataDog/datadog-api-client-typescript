@@ -1,5 +1,5 @@
 /**
- * Send a deployment event for DORA Metrics returns "OK" response
+ * Send a deployment event returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
