@@ -2,12 +2,17 @@ export {
   AgentlessScanningApiCreateAwsOnDemandTaskRequest,
   AgentlessScanningApiCreateAwsScanOptionsRequest,
   AgentlessScanningApiCreateAzureScanOptionsRequest,
+  AgentlessScanningApiCreateGcpScanOptionsRequest,
   AgentlessScanningApiDeleteAwsScanOptionsRequest,
   AgentlessScanningApiDeleteAzureScanOptionsRequest,
+  AgentlessScanningApiDeleteGcpScanOptionsRequest,
   AgentlessScanningApiGetAwsOnDemandTaskRequest,
   AgentlessScanningApiGetAwsScanOptionsRequest,
+  AgentlessScanningApiGetAzureScanOptionsRequest,
+  AgentlessScanningApiGetGcpScanOptionsRequest,
   AgentlessScanningApiUpdateAwsScanOptionsRequest,
   AgentlessScanningApiUpdateAzureScanOptionsRequest,
+  AgentlessScanningApiUpdateGcpScanOptionsRequest,
   AgentlessScanningApi,
 } from "./AgentlessScanningApi";
 
@@ -40,3 +45,12 @@ export { AzureScanOptionsInputUpdate } from "./models/AzureScanOptionsInputUpdat
 export { AzureScanOptionsInputUpdateData } from "./models/AzureScanOptionsInputUpdateData";
 export { AzureScanOptionsInputUpdateDataAttributes } from "./models/AzureScanOptionsInputUpdateDataAttributes";
 export { AzureScanOptionsInputUpdateDataType } from "./models/AzureScanOptionsInputUpdateDataType";
+export { GcpScanOptions } from "./models/GcpScanOptions";
+export { GcpScanOptionsArray } from "./models/GcpScanOptionsArray";
+export { GcpScanOptionsData } from "./models/GcpScanOptionsData";
+export { GcpScanOptionsDataAttributes } from "./models/GcpScanOptionsDataAttributes";
+export { GcpScanOptionsDataType } from "./models/GcpScanOptionsDataType";
+export { GcpScanOptionsInputUpdate } from "./models/GcpScanOptionsInputUpdate";
+export { GcpScanOptionsInputUpdateData } from "./models/GcpScanOptionsInputUpdateData";
+export { GcpScanOptionsInputUpdateDataAttributes } from "./models/GcpScanOptionsInputUpdateDataAttributes";
+export { GcpScanOptionsInputUpdateDataType } from "./models/GcpScanOptionsInputUpdateDataType";
