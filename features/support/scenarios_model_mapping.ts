@@ -7238,6 +7238,83 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.ListTables": {
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "ReferenceTableSortType",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTableNameExact": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTableNameContains": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TableResultV2Array",
+    },
+    "v2.CreateReferenceTable": {
+        "body": {
+            "type": "CreateTableRequest",
+            "format": "",
+            },
+        "operationResponseType": "TableResultV2",
+    },
+    "v2.GetTable": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TableResultV2",
+    },
+    "v2.DeleteTable": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateReferenceTable": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchTableRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetRowsByID": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "rowId": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "TableRowResourceArray",
+    },
+    "v2.CreateReferenceTableUpload": {
+        "body": {
+            "type": "CreateUploadRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateUploadResponse",
+    },
     "v2.ListApplicationSecurityWAFCustomRules": {
         "operationResponseType": "ApplicationSecurityWafCustomRuleListResponse",
     },
