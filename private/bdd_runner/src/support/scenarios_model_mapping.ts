@@ -7248,6 +7248,83 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProcessSummariesResponse",
   },
+  "ReferenceTablesApi.V2.ListTables": {
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    offset: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "ReferenceTableSortType",
+      format: "",
+    },
+    filterStatus: {
+      type: "string",
+      format: "",
+    },
+    filterTableNameExact: {
+      type: "string",
+      format: "",
+    },
+    filterTableNameContains: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TableResultV2Array",
+  },
+  "ReferenceTablesApi.V2.CreateReferenceTable": {
+    body: {
+      type: "CreateTableRequest",
+      format: "",
+    },
+    operationResponseType: "TableResultV2",
+  },
+  "ReferenceTablesApi.V2.GetTable": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TableResultV2",
+  },
+  "ReferenceTablesApi.V2.DeleteTable": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ReferenceTablesApi.V2.UpdateReferenceTable": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PatchTableRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ReferenceTablesApi.V2.GetRowsByID": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    rowId: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "TableRowResourceArray",
+  },
+  "ReferenceTablesApi.V2.CreateReferenceTableUpload": {
+    body: {
+      type: "CreateUploadRequest",
+      format: "",
+    },
+    operationResponseType: "CreateUploadResponse",
+  },
   "ApplicationSecurityApi.V2.ListApplicationSecurityWAFCustomRules": {
     operationResponseType: "ApplicationSecurityWafCustomRuleListResponse",
   },
