@@ -38,6 +38,10 @@ export class RulesetRespDataAttributes {
    */
   "position": number;
   /**
+   * The `attributes` `processing_status`.
+   */
+  "processingStatus"?: string;
+  /**
    * The `attributes` `rules`.
    */
   "rules": Array<RulesetRespDataAttributesRulesItems>;
@@ -92,6 +96,10 @@ export class RulesetRespDataAttributes {
       type: "number",
       required: true,
       format: "int32",
+    },
+    processingStatus: {
+      baseName: "processing_status",
+      type: "string",
     },
     rules: {
       baseName: "rules",

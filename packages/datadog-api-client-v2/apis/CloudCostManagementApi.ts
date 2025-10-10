@@ -50,48 +50,6 @@ import { UCConfigPair } from "../models/UCConfigPair";
 import { UpdateRulesetRequest } from "../models/UpdateRulesetRequest";
 
 export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory {
-  public async createArbitraryCostRule(
-    body: ArbitraryCostUpsertRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "createArbitraryCostRule");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/arbitrary_rule";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.createArbitraryCostRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ArbitraryCostUpsertRequest", ""),
-      contentType
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async createCostAWSCURConfig(
     body: AwsCURConfigPostRequest,
     _options?: Configuration
@@ -218,23 +176,23 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async createRuleset(
-    body: CreateRulesetRequest,
+  public async createCustomAllocationRule(
+    body: ArbitraryCostUpsertRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createRuleset");
+      throw new RequiredError("body", "createCustomAllocationRule");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tags/enrichment";
+    const localVarPath = "/api/v2/cost/arbitrary_rule";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.createRuleset")
+      .getServer("v2.CloudCostManagementApi.createCustomAllocationRule")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -245,7 +203,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CreateRulesetRequest", ""),
+      ObjectSerializer.serialize(body, "ArbitraryCostUpsertRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -260,29 +218,37 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async deleteArbitraryCostRule(
-    ruleId: number,
+  public async createTagPipelinesRuleset(
+    body: CreateRulesetRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'ruleId' is not null or undefined
-    if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "deleteArbitraryCostRule");
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createTagPipelinesRuleset");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cost/arbitrary_rule/{rule_id}".replace(
-      "{rule_id}",
-      encodeURIComponent(String(ruleId))
-    );
+    const localVarPath = "/api/v2/tags/enrichment";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.deleteArbitraryCostRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
+      .getServer("v2.CloudCostManagementApi.createTagPipelinesRuleset")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateRulesetRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -433,6 +399,40 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async deleteCustomAllocationRule(
+    ruleId: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "deleteCustomAllocationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/arbitrary_rule/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.deleteCustomAllocationRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteCustomCostsFile(
     fileId: string,
     _options?: Configuration
@@ -467,7 +467,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async deleteRuleset(
+  public async deleteTagPipelinesRuleset(
     rulesetId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -475,7 +475,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'rulesetId' is not null or undefined
     if (rulesetId === null || rulesetId === undefined) {
-      throw new RequiredError("rulesetId", "deleteRuleset");
+      throw new RequiredError("rulesetId", "deleteTagPipelinesRuleset");
     }
 
     // Path Params
@@ -486,43 +486,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.deleteRuleset")
+      .getServer("v2.CloudCostManagementApi.deleteTagPipelinesRuleset")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getArbitraryCostRule(
-    ruleId: number,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'ruleId' is not null or undefined
-    if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "getArbitraryCostRule");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/arbitrary_rule/{rule_id}".replace(
-      "{rule_id}",
-      encodeURIComponent(String(ruleId))
-    );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.getArbitraryCostRule")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -674,6 +640,40 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCustomAllocationRule(
+    ruleId: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getCustomAllocationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/arbitrary_rule/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCustomAllocationRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCustomCostsFile(
     fileId: string,
     _options?: Configuration
@@ -708,7 +708,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async getRuleset(
+  public async getTagPipelinesRuleset(
     rulesetId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -716,7 +716,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'rulesetId' is not null or undefined
     if (rulesetId === null || rulesetId === undefined) {
-      throw new RequiredError("rulesetId", "getRuleset");
+      throw new RequiredError("rulesetId", "getTagPipelinesRuleset");
     }
 
     // Path Params
@@ -727,32 +727,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.getRuleset")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listArbitraryCostRules(
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/arbitrary_rule";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listArbitraryCostRules")
+      .getServer("v2.CloudCostManagementApi.getTagPipelinesRuleset")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -865,6 +840,31 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async listCustomAllocationRules(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/arbitrary_rule";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.listCustomAllocationRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listCustomCostsFiles(
     pageNumber?: number,
     pageSize?: number,
@@ -924,7 +924,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async listRulesets(_options?: Configuration): Promise<RequestContext> {
+  public async listTagPipelinesRulesets(
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -932,7 +934,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listRulesets")
+      .getServer("v2.CloudCostManagementApi.listTagPipelinesRulesets")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -947,7 +949,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async reorderArbitraryCostRules(
+  public async reorderCustomAllocationRules(
     body: ReorderRuleResourceArray,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -955,7 +957,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "reorderArbitraryCostRules");
+      throw new RequiredError("body", "reorderCustomAllocationRules");
     }
 
     // Path Params
@@ -963,7 +965,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.reorderArbitraryCostRules")
+      .getServer("v2.CloudCostManagementApi.reorderCustomAllocationRules")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -989,7 +991,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async reorderRulesets(
+  public async reorderTagPipelinesRulesets(
     body: ReorderRulesetResourceArray,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -997,7 +999,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "reorderRulesets");
+      throw new RequiredError("body", "reorderTagPipelinesRulesets");
     }
 
     // Path Params
@@ -1005,7 +1007,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.reorderRulesets")
+      .getServer("v2.CloudCostManagementApi.reorderTagPipelinesRulesets")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1017,57 +1019,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ReorderRulesetResourceArray", ""),
-      contentType
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async updateArbitraryCostRule(
-    ruleId: number,
-    body: ArbitraryCostUpsertRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'ruleId' is not null or undefined
-    if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "updateArbitraryCostRule");
-    }
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateArbitraryCostRule");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/arbitrary_rule/{rule_id}".replace(
-      "{rule_id}",
-      encodeURIComponent(String(ruleId))
-    );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.updateArbitraryCostRule")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ArbitraryCostUpsertRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1238,7 +1189,58 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async updateRuleset(
+  public async updateCustomAllocationRule(
+    ruleId: number,
+    body: ArbitraryCostUpsertRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "updateCustomAllocationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCustomAllocationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/arbitrary_rule/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.updateCustomAllocationRule")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ArbitraryCostUpsertRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateTagPipelinesRuleset(
     rulesetId: string,
     body: UpdateRulesetRequest,
     _options?: Configuration
@@ -1247,12 +1249,12 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'rulesetId' is not null or undefined
     if (rulesetId === null || rulesetId === undefined) {
-      throw new RequiredError("rulesetId", "updateRuleset");
+      throw new RequiredError("rulesetId", "updateTagPipelinesRuleset");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateRuleset");
+      throw new RequiredError("body", "updateTagPipelinesRuleset");
     }
 
     // Path Params
@@ -1263,7 +1265,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.updateRuleset")
+      .getServer("v2.CloudCostManagementApi.updateTagPipelinesRuleset")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1417,64 +1419,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class CloudCostManagementApiResponseProcessor {
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to createArbitraryCostRule
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async createArbitraryCostRule(
-    response: ResponseContext
-  ): Promise<ArbitraryRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse"
-      ) as ArbitraryRuleResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse",
-        ""
-      ) as ArbitraryRuleResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1665,10 +1609,70 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to createRuleset
+   * @params response Response returned by the server for a request to createCustomAllocationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createRuleset(response: ResponseContext): Promise<RulesetResp> {
+  public async createCustomAllocationRule(
+    response: ResponseContext
+  ): Promise<ArbitraryRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponse"
+      ) as ArbitraryRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponse",
+        ""
+      ) as ArbitraryRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createTagPipelinesRuleset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createTagPipelinesRuleset(
+    response: ResponseContext
+  ): Promise<RulesetResp> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1708,55 +1712,6 @@ export class CloudCostManagementApiResponseProcessor {
         ""
       ) as RulesetResp;
       return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to deleteArbitraryCostRule
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async deleteArbitraryCostRule(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 204) {
-      return;
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -1976,6 +1931,55 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteCustomAllocationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCustomAllocationRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteCustomCostsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2027,10 +2031,12 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deleteRuleset
+   * @params response Response returned by the server for a request to deleteTagPipelinesRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRuleset(response: ResponseContext): Promise<void> {
+  public async deleteTagPipelinesRuleset(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2061,64 +2067,6 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getArbitraryCostRule
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getArbitraryCostRule(
-    response: ResponseContext
-  ): Promise<ArbitraryRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse"
-      ) as ArbitraryRuleResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse",
-        ""
-      ) as ArbitraryRuleResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -2368,6 +2316,64 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCustomAllocationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCustomAllocationRule(
+    response: ResponseContext
+  ): Promise<ArbitraryRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponse"
+      ) as ArbitraryRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponse",
+        ""
+      ) as ArbitraryRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCustomCostsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2430,10 +2436,12 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getRuleset
+   * @params response Response returned by the server for a request to getTagPipelinesRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getRuleset(response: ResponseContext): Promise<RulesetResp> {
+  public async getTagPipelinesRuleset(
+    response: ResponseContext
+  ): Promise<RulesetResp> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2472,64 +2480,6 @@ export class CloudCostManagementApiResponseProcessor {
         "RulesetResp",
         ""
       ) as RulesetResp;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to listArbitraryCostRules
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listArbitraryCostRules(
-    response: ResponseContext
-  ): Promise<ArbitraryRuleResponseArray> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: ArbitraryRuleResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponseArray"
-      ) as ArbitraryRuleResponseArray;
-      return body;
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ArbitraryRuleResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponseArray",
-        ""
-      ) as ArbitraryRuleResponseArray;
       return body;
     }
 
@@ -2774,6 +2724,64 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCustomAllocationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCustomAllocationRules(
+    response: ResponseContext
+  ): Promise<ArbitraryRuleResponseArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ArbitraryRuleResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponseArray"
+      ) as ArbitraryRuleResponseArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ArbitraryRuleResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponseArray",
+        ""
+      ) as ArbitraryRuleResponseArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listCustomCostsFiles
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2836,10 +2844,10 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listRulesets
+   * @params response Response returned by the server for a request to listTagPipelinesRulesets
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listRulesets(
+  public async listTagPipelinesRulesets(
     response: ResponseContext
   ): Promise<RulesetRespArray> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -2894,10 +2902,10 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to reorderArbitraryCostRules
+   * @params response Response returned by the server for a request to reorderCustomAllocationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async reorderArbitraryCostRules(
+  public async reorderCustomAllocationRules(
     response: ResponseContext
   ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -2943,10 +2951,12 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to reorderRulesets
+   * @params response Response returned by the server for a request to reorderTagPipelinesRulesets
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async reorderRulesets(response: ResponseContext): Promise<void> {
+  public async reorderTagPipelinesRulesets(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2977,64 +2987,6 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to updateArbitraryCostRule
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async updateArbitraryCostRule(
-    response: ResponseContext
-  ): Promise<ArbitraryRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse"
-      ) as ArbitraryRuleResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ArbitraryRuleResponse",
-        ""
-      ) as ArbitraryRuleResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -3236,10 +3188,70 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateRuleset
+   * @params response Response returned by the server for a request to updateCustomAllocationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateRuleset(response: ResponseContext): Promise<RulesetResp> {
+  public async updateCustomAllocationRule(
+    response: ResponseContext
+  ): Promise<ArbitraryRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponse"
+      ) as ArbitraryRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ArbitraryRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ArbitraryRuleResponse",
+        ""
+      ) as ArbitraryRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateTagPipelinesRuleset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateTagPipelinesRuleset(
+    response: ResponseContext
+  ): Promise<RulesetResp> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3471,13 +3483,6 @@ export class CloudCostManagementApiResponseProcessor {
   }
 }
 
-export interface CloudCostManagementApiCreateArbitraryCostRuleRequest {
-  /**
-   * @type ArbitraryCostUpsertRequest
-   */
-  body: ArbitraryCostUpsertRequest;
-}
-
 export interface CloudCostManagementApiCreateCostAWSCURConfigRequest {
   /**
    * @type AwsCURConfigPostRequest
@@ -3499,19 +3504,18 @@ export interface CloudCostManagementApiCreateCostGCPUsageCostConfigRequest {
   body: GCPUsageCostConfigPostRequest;
 }
 
-export interface CloudCostManagementApiCreateRulesetRequest {
+export interface CloudCostManagementApiCreateCustomAllocationRuleRequest {
+  /**
+   * @type ArbitraryCostUpsertRequest
+   */
+  body: ArbitraryCostUpsertRequest;
+}
+
+export interface CloudCostManagementApiCreateTagPipelinesRulesetRequest {
   /**
    * @type CreateRulesetRequest
    */
   body: CreateRulesetRequest;
-}
-
-export interface CloudCostManagementApiDeleteArbitraryCostRuleRequest {
-  /**
-   * The unique identifier of the arbitrary cost rule
-   * @type number
-   */
-  ruleId: number;
 }
 
 export interface CloudCostManagementApiDeleteBudgetRequest {
@@ -3546,6 +3550,14 @@ export interface CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest {
   cloudAccountId: number;
 }
 
+export interface CloudCostManagementApiDeleteCustomAllocationRuleRequest {
+  /**
+   * The unique identifier of the custom allocation rule
+   * @type number
+   */
+  ruleId: number;
+}
+
 export interface CloudCostManagementApiDeleteCustomCostsFileRequest {
   /**
    * File ID.
@@ -3554,20 +3566,12 @@ export interface CloudCostManagementApiDeleteCustomCostsFileRequest {
   fileId: string;
 }
 
-export interface CloudCostManagementApiDeleteRulesetRequest {
+export interface CloudCostManagementApiDeleteTagPipelinesRulesetRequest {
   /**
    * The unique identifier of the ruleset
    * @type string
    */
   rulesetId: string;
-}
-
-export interface CloudCostManagementApiGetArbitraryCostRuleRequest {
-  /**
-   * The unique identifier of the arbitrary cost rule
-   * @type number
-   */
-  ruleId: number;
 }
 
 export interface CloudCostManagementApiGetBudgetRequest {
@@ -3602,6 +3606,14 @@ export interface CloudCostManagementApiGetCostGCPUsageCostConfigRequest {
   cloudAccountId: number;
 }
 
+export interface CloudCostManagementApiGetCustomAllocationRuleRequest {
+  /**
+   * The unique identifier of the custom allocation rule
+   * @type number
+   */
+  ruleId: number;
+}
+
 export interface CloudCostManagementApiGetCustomCostsFileRequest {
   /**
    * File ID.
@@ -3610,7 +3622,7 @@ export interface CloudCostManagementApiGetCustomCostsFileRequest {
   fileId: string;
 }
 
-export interface CloudCostManagementApiGetRulesetRequest {
+export interface CloudCostManagementApiGetTagPipelinesRulesetRequest {
   /**
    * The unique identifier of the ruleset
    * @type string
@@ -3641,30 +3653,18 @@ export interface CloudCostManagementApiListCustomCostsFilesRequest {
   sort?: string;
 }
 
-export interface CloudCostManagementApiReorderArbitraryCostRulesRequest {
+export interface CloudCostManagementApiReorderCustomAllocationRulesRequest {
   /**
    * @type ReorderRuleResourceArray
    */
   body: ReorderRuleResourceArray;
 }
 
-export interface CloudCostManagementApiReorderRulesetsRequest {
+export interface CloudCostManagementApiReorderTagPipelinesRulesetsRequest {
   /**
    * @type ReorderRulesetResourceArray
    */
   body: ReorderRulesetResourceArray;
-}
-
-export interface CloudCostManagementApiUpdateArbitraryCostRuleRequest {
-  /**
-   * The unique identifier of the arbitrary cost rule
-   * @type number
-   */
-  ruleId: number;
-  /**
-   * @type ArbitraryCostUpsertRequest
-   */
-  body: ArbitraryCostUpsertRequest;
 }
 
 export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
@@ -3703,7 +3703,19 @@ export interface CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest {
   body: GCPUsageCostConfigPatchRequest;
 }
 
-export interface CloudCostManagementApiUpdateRulesetRequest {
+export interface CloudCostManagementApiUpdateCustomAllocationRuleRequest {
+  /**
+   * The unique identifier of the custom allocation rule
+   * @type number
+   */
+  ruleId: number;
+  /**
+   * @type ArbitraryCostUpsertRequest
+   */
+  body: ArbitraryCostUpsertRequest;
+}
+
+export interface CloudCostManagementApiUpdateTagPipelinesRulesetRequest {
   /**
    * The unique identifier of the ruleset
    * @type string
@@ -3751,41 +3763,6 @@ export class CloudCostManagementApi {
       requestFactory || new CloudCostManagementApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new CloudCostManagementApiResponseProcessor();
-  }
-
-  /**
-   * Create a new arbitrary cost rule with the specified filters and allocation strategy.
-   *
-   * **Strategy Methods:**
-   * - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
-   * - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
-   * - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
-   *
-   * **Filter Conditions:**
-   * - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
-   * - Use **values** for multi-value conditions: "in", "not in"
-   * - Cannot use both value and values simultaneously.
-   *
-   * **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
-   * @param param The request object
-   */
-  public createArbitraryCostRule(
-    param: CloudCostManagementApiCreateArbitraryCostRuleRequest,
-    options?: Configuration
-  ): Promise<ArbitraryRuleResponse> {
-    const requestContextPromise = this.requestFactory.createArbitraryCostRule(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createArbitraryCostRule(
-            responseContext
-          );
-        });
-    });
   }
 
   /**
@@ -3854,14 +3831,47 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Create a new custom allocation rule with the specified filters and allocation strategy.
+   *
+   * **Strategy Methods:**
+   * - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
+   * - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
+   * - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
+   *
+   * **Filter Conditions:**
+   * - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+   * - Use **values** for multi-value conditions: "in", "not in"
+   * - Cannot use both value and values simultaneously.
+   *
+   * **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+   * @param param The request object
+   */
+  public createCustomAllocationRule(
+    param: CloudCostManagementApiCreateCustomAllocationRuleRequest,
+    options?: Configuration
+  ): Promise<ArbitraryRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCustomAllocationRule(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCustomAllocationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new tag pipeline ruleset with the specified rules and configuration
    * @param param The request object
    */
-  public createRuleset(
-    param: CloudCostManagementApiCreateRulesetRequest,
+  public createTagPipelinesRuleset(
+    param: CloudCostManagementApiCreateTagPipelinesRulesetRequest,
     options?: Configuration
   ): Promise<RulesetResp> {
-    const requestContextPromise = this.requestFactory.createRuleset(
+    const requestContextPromise = this.requestFactory.createTagPipelinesRuleset(
       param.body,
       options
     );
@@ -3869,28 +3879,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createRuleset(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Delete an arbitrary cost rule - Delete an existing arbitrary cost rule by its ID
-   * @param param The request object
-   */
-  public deleteArbitraryCostRule(
-    param: CloudCostManagementApiDeleteArbitraryCostRuleRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteArbitraryCostRule(
-      param.ruleId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteArbitraryCostRule(
+          return this.responseProcessor.createTagPipelinesRuleset(
             responseContext
           );
         });
@@ -3987,6 +3976,27 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Delete a custom allocation rule - Delete an existing custom allocation rule by its ID
+   * @param param The request object
+   */
+  public deleteCustomAllocationRule(
+    param: CloudCostManagementApiDeleteCustomAllocationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCustomAllocationRule(param.ruleId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCustomAllocationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete the specified Custom Costs file.
    * @param param The request object
    */
@@ -4011,11 +4021,11 @@ export class CloudCostManagementApi {
    * Delete a tag pipeline ruleset - Delete an existing tag pipeline ruleset by its ID
    * @param param The request object
    */
-  public deleteRuleset(
-    param: CloudCostManagementApiDeleteRulesetRequest,
+  public deleteTagPipelinesRuleset(
+    param: CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
     options?: Configuration
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteRuleset(
+    const requestContextPromise = this.requestFactory.deleteTagPipelinesRuleset(
       param.rulesetId,
       options
     );
@@ -4023,28 +4033,9 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRuleset(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get a specific arbitrary cost rule - Retrieve a specific arbitrary cost rule by its ID
-   * @param param The request object
-   */
-  public getArbitraryCostRule(
-    param: CloudCostManagementApiGetArbitraryCostRuleRequest,
-    options?: Configuration
-  ): Promise<ArbitraryRuleResponse> {
-    const requestContextPromise = this.requestFactory.getArbitraryCostRule(
-      param.ruleId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getArbitraryCostRule(responseContext);
+          return this.responseProcessor.deleteTagPipelinesRuleset(
+            responseContext
+          );
         });
     });
   }
@@ -4136,6 +4127,29 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Get a specific custom allocation rule - Retrieve a specific custom allocation rule by its ID
+   * @param param The request object
+   */
+  public getCustomAllocationRule(
+    param: CloudCostManagementApiGetCustomAllocationRuleRequest,
+    options?: Configuration
+  ): Promise<ArbitraryRuleResponse> {
+    const requestContextPromise = this.requestFactory.getCustomAllocationRule(
+      param.ruleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCustomAllocationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Fetch the specified Custom Costs file.
    * @param param The request object
    */
@@ -4160,11 +4174,11 @@ export class CloudCostManagementApi {
    * Get a specific tag pipeline ruleset - Retrieve a specific tag pipeline ruleset by its ID
    * @param param The request object
    */
-  public getRuleset(
-    param: CloudCostManagementApiGetRulesetRequest,
+  public getTagPipelinesRuleset(
+    param: CloudCostManagementApiGetTagPipelinesRulesetRequest,
     options?: Configuration
   ): Promise<RulesetResp> {
-    const requestContextPromise = this.requestFactory.getRuleset(
+    const requestContextPromise = this.requestFactory.getTagPipelinesRuleset(
       param.rulesetId,
       options
     );
@@ -4172,25 +4186,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRuleset(responseContext);
-        });
-    });
-  }
-
-  /**
-   * List all arbitrary cost rules - Retrieve a list of all arbitrary cost rules for the organization
-   * @param param The request object
-   */
-  public listArbitraryCostRules(
-    options?: Configuration
-  ): Promise<ArbitraryRuleResponseArray> {
-    const requestContextPromise =
-      this.requestFactory.listArbitraryCostRules(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listArbitraryCostRules(responseContext);
+          return this.responseProcessor.getTagPipelinesRuleset(responseContext);
         });
     });
   }
@@ -4267,6 +4263,26 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * List all custom allocation rules - Retrieve a list of all custom allocation rules for the organization
+   * @param param The request object
+   */
+  public listCustomAllocationRules(
+    options?: Configuration
+  ): Promise<ArbitraryRuleResponseArray> {
+    const requestContextPromise =
+      this.requestFactory.listCustomAllocationRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCustomAllocationRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List the Custom Costs files.
    * @param param The request object
    */
@@ -4294,19 +4310,24 @@ export class CloudCostManagementApi {
    * List all tag pipeline rulesets - Retrieve a list of all tag pipeline rulesets for the organization
    * @param param The request object
    */
-  public listRulesets(options?: Configuration): Promise<RulesetRespArray> {
-    const requestContextPromise = this.requestFactory.listRulesets(options);
+  public listTagPipelinesRulesets(
+    options?: Configuration
+  ): Promise<RulesetRespArray> {
+    const requestContextPromise =
+      this.requestFactory.listTagPipelinesRulesets(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRulesets(responseContext);
+          return this.responseProcessor.listTagPipelinesRulesets(
+            responseContext
+          );
         });
     });
   }
 
   /**
-   * Reorder arbitrary cost rules - Change the execution order of arbitrary cost rules.
+   * Reorder custom allocation rules - Change the execution order of custom allocation rules.
    *
    * **Important**: You must provide the **complete list** of all rule IDs in the desired execution order. The API will reorder ALL rules according to the provided sequence.
    *
@@ -4315,19 +4336,17 @@ export class CloudCostManagementApi {
    * **Example**: If you have rules with IDs [123, 456, 789] and want to change order from 123→456→789 to 456→123→789, send: [{"id": "456"}, {"id": "123"}, {"id": "789"}]
    * @param param The request object
    */
-  public reorderArbitraryCostRules(
-    param: CloudCostManagementApiReorderArbitraryCostRulesRequest,
+  public reorderCustomAllocationRules(
+    param: CloudCostManagementApiReorderCustomAllocationRulesRequest,
     options?: Configuration
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.reorderArbitraryCostRules(
-      param.body,
-      options
-    );
+    const requestContextPromise =
+      this.requestFactory.reorderCustomAllocationRules(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.reorderArbitraryCostRules(
+          return this.responseProcessor.reorderCustomAllocationRules(
             responseContext
           );
         });
@@ -4338,54 +4357,17 @@ export class CloudCostManagementApi {
    * Reorder tag pipeline rulesets - Change the execution order of tag pipeline rulesets
    * @param param The request object
    */
-  public reorderRulesets(
-    param: CloudCostManagementApiReorderRulesetsRequest,
+  public reorderTagPipelinesRulesets(
+    param: CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
     options?: Configuration
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.reorderRulesets(
-      param.body,
-      options
-    );
+    const requestContextPromise =
+      this.requestFactory.reorderTagPipelinesRulesets(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.reorderRulesets(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Update an existing arbitrary cost rule with new filters and allocation strategy.
-   *
-   * **Strategy Methods:**
-   * - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
-   * - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
-   * - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
-   * - **USAGE_METRIC**: Allocates based on usage metrics (implementation varies).
-   *
-   * **Filter Conditions:**
-   * - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
-   * - Use **values** for multi-value conditions: "in", "not in"
-   * - Cannot use both value and values simultaneously.
-   *
-   * **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
-   * @param param The request object
-   */
-  public updateArbitraryCostRule(
-    param: CloudCostManagementApiUpdateArbitraryCostRuleRequest,
-    options?: Configuration
-  ): Promise<ArbitraryRuleResponse> {
-    const requestContextPromise = this.requestFactory.updateArbitraryCostRule(
-      param.ruleId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateArbitraryCostRule(
+          return this.responseProcessor.reorderTagPipelinesRulesets(
             responseContext
           );
         });
@@ -4464,14 +4446,52 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Update an existing custom allocation rule with new filters and allocation strategy.
+   *
+   * **Strategy Methods:**
+   * - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
+   * - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
+   * - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
+   * - **USAGE_METRIC**: Allocates based on usage metrics (implementation varies).
+   *
+   * **Filter Conditions:**
+   * - Use **value** for single-value conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is all values", "is untagged"
+   * - Use **values** for multi-value conditions: "in", "not in"
+   * - Cannot use both value and values simultaneously.
+   *
+   * **Supported operators**: is, is not, is all values, is untagged, contains, does not contain, in, not in, =, !=, like, not like
+   * @param param The request object
+   */
+  public updateCustomAllocationRule(
+    param: CloudCostManagementApiUpdateCustomAllocationRuleRequest,
+    options?: Configuration
+  ): Promise<ArbitraryRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCustomAllocationRule(
+        param.ruleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCustomAllocationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Update a tag pipeline ruleset - Update an existing tag pipeline ruleset with new rules and configuration
    * @param param The request object
    */
-  public updateRuleset(
-    param: CloudCostManagementApiUpdateRulesetRequest,
+  public updateTagPipelinesRuleset(
+    param: CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
     options?: Configuration
   ): Promise<RulesetResp> {
-    const requestContextPromise = this.requestFactory.updateRuleset(
+    const requestContextPromise = this.requestFactory.updateTagPipelinesRuleset(
       param.rulesetId,
       param.body,
       options
@@ -4480,7 +4500,9 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRuleset(responseContext);
+          return this.responseProcessor.updateTagPipelinesRuleset(
+            responseContext
+          );
         });
     });
   }

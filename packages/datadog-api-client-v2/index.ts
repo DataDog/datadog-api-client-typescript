@@ -162,33 +162,33 @@ export {
 } from "./apis/CaseManagementApi";
 
 export {
-  CloudCostManagementApiCreateArbitraryCostRuleRequest,
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
   CloudCostManagementApiCreateCostAzureUCConfigsRequest,
   CloudCostManagementApiCreateCostGCPUsageCostConfigRequest,
-  CloudCostManagementApiCreateRulesetRequest,
-  CloudCostManagementApiDeleteArbitraryCostRuleRequest,
+  CloudCostManagementApiCreateCustomAllocationRuleRequest,
+  CloudCostManagementApiCreateTagPipelinesRulesetRequest,
   CloudCostManagementApiDeleteBudgetRequest,
   CloudCostManagementApiDeleteCostAWSCURConfigRequest,
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
   CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiDeleteCustomAllocationRuleRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
-  CloudCostManagementApiDeleteRulesetRequest,
-  CloudCostManagementApiGetArbitraryCostRuleRequest,
+  CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
   CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCostAWSCURConfigRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
-  CloudCostManagementApiGetRulesetRequest,
+  CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
-  CloudCostManagementApiReorderArbitraryCostRulesRequest,
-  CloudCostManagementApiReorderRulesetsRequest,
-  CloudCostManagementApiUpdateArbitraryCostRuleRequest,
+  CloudCostManagementApiReorderCustomAllocationRulesRequest,
+  CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
-  CloudCostManagementApiUpdateRulesetRequest,
+  CloudCostManagementApiUpdateCustomAllocationRuleRequest,
+  CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
   CloudCostManagementApiValidateQueryRequest,
@@ -1002,6 +1002,7 @@ export { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFilter
 export { ArbitraryCostUpsertRequestDataType } from "./models/ArbitraryCostUpsertRequestDataType";
 export { ArbitraryRuleResponse } from "./models/ArbitraryRuleResponse";
 export { ArbitraryRuleResponseArray } from "./models/ArbitraryRuleResponseArray";
+export { ArbitraryRuleResponseArrayMeta } from "./models/ArbitraryRuleResponseArrayMeta";
 export { ArbitraryRuleResponseData } from "./models/ArbitraryRuleResponseData";
 export { ArbitraryRuleResponseDataAttributes } from "./models/ArbitraryRuleResponseDataAttributes";
 export { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./models/ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
