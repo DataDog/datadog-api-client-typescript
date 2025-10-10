@@ -139,6 +139,7 @@ import { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } fro
 import { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
 import { ArbitraryRuleResponse } from "./ArbitraryRuleResponse";
 import { ArbitraryRuleResponseArray } from "./ArbitraryRuleResponseArray";
+import { ArbitraryRuleResponseArrayMeta } from "./ArbitraryRuleResponseArrayMeta";
 import { ArbitraryRuleResponseData } from "./ArbitraryRuleResponseData";
 import { ArbitraryRuleResponseDataAttributes } from "./ArbitraryRuleResponseDataAttributes";
 import { ArbitraryRuleResponseDataAttributesCostsToAllocateItems } from "./ArbitraryRuleResponseDataAttributesCostsToAllocateItems";
@@ -4178,6 +4179,7 @@ const typeMap: { [index: string]: any } = {
     ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems,
   ArbitraryRuleResponse: ArbitraryRuleResponse,
   ArbitraryRuleResponseArray: ArbitraryRuleResponseArray,
+  ArbitraryRuleResponseArrayMeta: ArbitraryRuleResponseArrayMeta,
   ArbitraryRuleResponseData: ArbitraryRuleResponseData,
   ArbitraryRuleResponseDataAttributes: ArbitraryRuleResponseDataAttributes,
   ArbitraryRuleResponseDataAttributesCostsToAllocateItems:

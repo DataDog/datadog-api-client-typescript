@@ -33,6 +33,10 @@ export class ArbitraryRuleResponseDataAttributes {
    */
   "orderId": number;
   /**
+   * The `attributes` `processing_status`.
+   */
+  "processingStatus"?: string;
+  /**
    * The `attributes` `provider`.
    */
   "provider": Array<string>;
@@ -103,6 +107,10 @@ export class ArbitraryRuleResponseDataAttributes {
       type: "number",
       required: true,
       format: "int64",
+    },
+    processingStatus: {
+      baseName: "processing_status",
+      type: "string",
     },
     provider: {
       baseName: "provider",

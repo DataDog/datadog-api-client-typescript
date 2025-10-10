@@ -4404,38 +4404,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainersResponse",
     },
-    "v2.ListArbitraryCostRules": {
+    "v2.ListCustomAllocationRules": {
         "operationResponseType": "ArbitraryRuleResponseArray",
     },
-    "v2.CreateArbitraryCostRule": {
+    "v2.CreateCustomAllocationRule": {
         "body": {
             "type": "ArbitraryCostUpsertRequest",
             "format": "",
             },
         "operationResponseType": "ArbitraryRuleResponse",
     },
-    "v2.ReorderArbitraryCostRules": {
+    "v2.ReorderCustomAllocationRules": {
         "body": {
             "type": "ReorderRuleResourceArray",
             "format": "",
             },
         "operationResponseType": "{}",
     },
-    "v2.GetArbitraryCostRule": {
+    "v2.GetCustomAllocationRule": {
         "ruleId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "ArbitraryRuleResponse",
     },
-    "v2.DeleteArbitraryCostRule": {
+    "v2.DeleteCustomAllocationRule": {
         "ruleId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "{}",
     },
-    "v2.UpdateArbitraryCostRule": {
+    "v2.UpdateCustomAllocationRule": {
         "ruleId": {
             "type": "number",
             "format": "int64",
@@ -4615,17 +4615,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GCPUsageCostConfigResponse",
     },
-    "v2.ListRulesets": {
+    "v2.ListTagPipelinesRulesets": {
         "operationResponseType": "RulesetRespArray",
     },
-    "v2.CreateRuleset": {
+    "v2.CreateTagPipelinesRuleset": {
         "body": {
             "type": "CreateRulesetRequest",
             "format": "",
             },
         "operationResponseType": "RulesetResp",
     },
-    "v2.ReorderRulesets": {
+    "v2.ReorderTagPipelinesRulesets": {
         "body": {
             "type": "ReorderRulesetResourceArray",
             "format": "",
@@ -4639,21 +4639,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RulesValidateQueryResponse",
     },
-    "v2.GetRuleset": {
+    "v2.GetTagPipelinesRuleset": {
         "rulesetId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RulesetResp",
     },
-    "v2.DeleteRuleset": {
+    "v2.DeleteTagPipelinesRuleset": {
         "rulesetId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "{}",
     },
-    "v2.UpdateRuleset": {
+    "v2.UpdateTagPipelinesRuleset": {
         "rulesetId": {
             "type": "string",
             "format": "",
