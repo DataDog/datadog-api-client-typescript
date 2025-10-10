@@ -1,20 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ArbitraryRuleResponseArrayMeta } from "./ArbitraryRuleResponseArrayMeta";
-import { ArbitraryRuleResponseData } from "./ArbitraryRuleResponseData";
-
 /**
- * The definition of `ArbitraryRuleResponseArray` object.
+ * The `ArbitraryRuleResponseArray` `meta`.
  */
-export class ArbitraryRuleResponseArray {
+export class ArbitraryRuleResponseArrayMeta {
   /**
-   * The `ArbitraryRuleResponseArray` `data`.
+   * The `meta` `total_count`.
    */
-  "data": Array<ArbitraryRuleResponseData>;
-  /**
-   * The `ArbitraryRuleResponseArray` `meta`.
-   */
-  "meta"?: ArbitraryRuleResponseArrayMeta;
+  "totalCount"?: number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,14 +23,10 @@ export class ArbitraryRuleResponseArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ArbitraryRuleResponseData>",
-      required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "ArbitraryRuleResponseArrayMeta",
+    totalCount: {
+      baseName: "total_count",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -49,7 +38,7 @@ export class ArbitraryRuleResponseArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ArbitraryRuleResponseArray.attributeTypeMap;
+    return ArbitraryRuleResponseArrayMeta.attributeTypeMap;
   }
 
   public constructor() {}

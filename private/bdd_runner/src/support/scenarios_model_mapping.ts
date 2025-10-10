@@ -4414,38 +4414,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ContainersResponse",
   },
-  "CloudCostManagementApi.V2.ListArbitraryCostRules": {
+  "CloudCostManagementApi.V2.ListCustomAllocationRules": {
     operationResponseType: "ArbitraryRuleResponseArray",
   },
-  "CloudCostManagementApi.V2.CreateArbitraryCostRule": {
+  "CloudCostManagementApi.V2.CreateCustomAllocationRule": {
     body: {
       type: "ArbitraryCostUpsertRequest",
       format: "",
     },
     operationResponseType: "ArbitraryRuleResponse",
   },
-  "CloudCostManagementApi.V2.ReorderArbitraryCostRules": {
+  "CloudCostManagementApi.V2.ReorderCustomAllocationRules": {
     body: {
       type: "ReorderRuleResourceArray",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "CloudCostManagementApi.V2.GetArbitraryCostRule": {
+  "CloudCostManagementApi.V2.GetCustomAllocationRule": {
     ruleId: {
       type: "number",
       format: "int64",
     },
     operationResponseType: "ArbitraryRuleResponse",
   },
-  "CloudCostManagementApi.V2.DeleteArbitraryCostRule": {
+  "CloudCostManagementApi.V2.DeleteCustomAllocationRule": {
     ruleId: {
       type: "number",
       format: "int64",
     },
     operationResponseType: "{}",
   },
-  "CloudCostManagementApi.V2.UpdateArbitraryCostRule": {
+  "CloudCostManagementApi.V2.UpdateCustomAllocationRule": {
     ruleId: {
       type: "number",
       format: "int64",
@@ -4625,17 +4625,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GCPUsageCostConfigResponse",
   },
-  "CloudCostManagementApi.V2.ListRulesets": {
+  "CloudCostManagementApi.V2.ListTagPipelinesRulesets": {
     operationResponseType: "RulesetRespArray",
   },
-  "CloudCostManagementApi.V2.CreateRuleset": {
+  "CloudCostManagementApi.V2.CreateTagPipelinesRuleset": {
     body: {
       type: "CreateRulesetRequest",
       format: "",
     },
     operationResponseType: "RulesetResp",
   },
-  "CloudCostManagementApi.V2.ReorderRulesets": {
+  "CloudCostManagementApi.V2.ReorderTagPipelinesRulesets": {
     body: {
       type: "ReorderRulesetResourceArray",
       format: "",
@@ -4649,21 +4649,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RulesValidateQueryResponse",
   },
-  "CloudCostManagementApi.V2.GetRuleset": {
+  "CloudCostManagementApi.V2.GetTagPipelinesRuleset": {
     rulesetId: {
       type: "string",
       format: "",
     },
     operationResponseType: "RulesetResp",
   },
-  "CloudCostManagementApi.V2.DeleteRuleset": {
+  "CloudCostManagementApi.V2.DeleteTagPipelinesRuleset": {
     rulesetId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "CloudCostManagementApi.V2.UpdateRuleset": {
+  "CloudCostManagementApi.V2.UpdateTagPipelinesRuleset": {
     rulesetId: {
       type: "string",
       format: "",
