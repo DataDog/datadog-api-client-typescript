@@ -3,6 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CasePriority } from "./CasePriority";
 import { CaseStatus } from "./CaseStatus";
 import { CaseType } from "./CaseType";
+import { CustomAttributeValue } from "./CustomAttributeValue";
 import { JiraIssue } from "./JiraIssue";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 
@@ -26,6 +27,10 @@ export class CaseAttributes {
    * Timestamp of when the case was created
    */
   "createdAt"?: Date;
+  /**
+   * Case custom attributes
+   */
+  "customAttributes"?: { [key: string]: CustomAttributeValue };
   /**
    * Description
    */
@@ -63,6 +68,10 @@ export class CaseAttributes {
    */
   "type"?: CaseType;
   /**
+   * Case type UUID
+   */
+  "typeId"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -95,6 +104,10 @@ export class CaseAttributes {
       baseName: "created_at",
       type: "Date",
       format: "date-time",
+    },
+    customAttributes: {
+      baseName: "custom_attributes",
+      type: "{ [key: string]: CustomAttributeValue; }",
     },
     description: {
       baseName: "description",
@@ -132,6 +145,10 @@ export class CaseAttributes {
     type: {
       baseName: "type",
       type: "CaseType",
+    },
+    typeId: {
+      baseName: "type_id",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
