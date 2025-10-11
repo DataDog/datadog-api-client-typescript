@@ -5551,6 +5551,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "IncidentsApi.V2.CreatePageFromIncident": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentCreatePageFromIncidentRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentCreatePageResponse",
+  },
   "IncidentsApi.V2.ListIncidentIntegrations": {
     incidentId: {
       type: "string",
