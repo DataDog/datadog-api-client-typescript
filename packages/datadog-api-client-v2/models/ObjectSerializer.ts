@@ -373,6 +373,7 @@ import { CloudWorkloadSecurityAgentPolicyUpdateAttributes } from "./CloudWorkloa
 import { CloudWorkloadSecurityAgentPolicyUpdateData } from "./CloudWorkloadSecurityAgentPolicyUpdateData";
 import { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./CloudWorkloadSecurityAgentPolicyUpdateRequest";
 import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
+import { CloudWorkloadSecurityAgentPolicyVersion } from "./CloudWorkloadSecurityAgentPolicyVersion";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
@@ -4446,6 +4447,8 @@ const typeMap: { [index: string]: any } = {
     CloudWorkloadSecurityAgentPolicyUpdateRequest,
   CloudWorkloadSecurityAgentPolicyUpdaterAttributes:
     CloudWorkloadSecurityAgentPolicyUpdaterAttributes,
+  CloudWorkloadSecurityAgentPolicyVersion:
+    CloudWorkloadSecurityAgentPolicyVersion,
   CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
   CloudWorkloadSecurityAgentRuleActionMetadata:
     CloudWorkloadSecurityAgentRuleActionMetadata,
