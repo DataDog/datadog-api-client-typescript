@@ -56,12 +56,17 @@ export {
   AgentlessScanningApiCreateAwsOnDemandTaskRequest,
   AgentlessScanningApiCreateAwsScanOptionsRequest,
   AgentlessScanningApiCreateAzureScanOptionsRequest,
+  AgentlessScanningApiCreateGcpScanOptionsRequest,
   AgentlessScanningApiDeleteAwsScanOptionsRequest,
   AgentlessScanningApiDeleteAzureScanOptionsRequest,
+  AgentlessScanningApiDeleteGcpScanOptionsRequest,
   AgentlessScanningApiGetAwsOnDemandTaskRequest,
   AgentlessScanningApiGetAwsScanOptionsRequest,
+  AgentlessScanningApiGetAzureScanOptionsRequest,
+  AgentlessScanningApiGetGcpScanOptionsRequest,
   AgentlessScanningApiUpdateAwsScanOptionsRequest,
   AgentlessScanningApiUpdateAzureScanOptionsRequest,
+  AgentlessScanningApiUpdateGcpScanOptionsRequest,
   AgentlessScanningApi,
 } from "./apis/AgentlessScanningApi";
 
@@ -2024,6 +2029,15 @@ export { GCPIntegrationUpdate } from "./models/GCPIntegrationUpdate";
 export { GCPMetricNamespaceConfig } from "./models/GCPMetricNamespaceConfig";
 export { GCPMonitoredResourceConfig } from "./models/GCPMonitoredResourceConfig";
 export { GCPMonitoredResourceConfigType } from "./models/GCPMonitoredResourceConfigType";
+export { GcpScanOptions } from "./models/GcpScanOptions";
+export { GcpScanOptionsArray } from "./models/GcpScanOptionsArray";
+export { GcpScanOptionsData } from "./models/GcpScanOptionsData";
+export { GcpScanOptionsDataAttributes } from "./models/GcpScanOptionsDataAttributes";
+export { GcpScanOptionsDataType } from "./models/GcpScanOptionsDataType";
+export { GcpScanOptionsInputUpdate } from "./models/GcpScanOptionsInputUpdate";
+export { GcpScanOptionsInputUpdateData } from "./models/GcpScanOptionsInputUpdateData";
+export { GcpScanOptionsInputUpdateDataAttributes } from "./models/GcpScanOptionsInputUpdateDataAttributes";
+export { GcpScanOptionsInputUpdateDataType } from "./models/GcpScanOptionsInputUpdateDataType";
 export { GCPServiceAccount } from "./models/GCPServiceAccount";
 export { GCPServiceAccountCredentialType } from "./models/GCPServiceAccountCredentialType";
 export { GCPServiceAccountMeta } from "./models/GCPServiceAccountMeta";

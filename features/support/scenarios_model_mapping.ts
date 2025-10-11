@@ -2555,6 +2555,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AzureScanOptions",
     },
+    "v2.GetAzureScanOptions": {
+        "subscriptionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AzureScanOptions",
+    },
     "v2.DeleteAzureScanOptions": {
         "subscriptionId": {
             "type": "string",
@@ -2572,6 +2579,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "AzureScanOptions",
+    },
+    "v2.ListGcpScanOptions": {
+        "operationResponseType": "GcpScanOptionsArray",
+    },
+    "v2.CreateGcpScanOptions": {
+        "body": {
+            "type": "GcpScanOptions",
+            "format": "",
+            },
+        "operationResponseType": "GcpScanOptions",
+    },
+    "v2.GetGcpScanOptions": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GcpScanOptions",
+    },
+    "v2.DeleteGcpScanOptions": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateGcpScanOptions": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GcpScanOptionsInputUpdate",
+            "format": "",
+            },
+        "operationResponseType": "GcpScanOptions",
     },
     "v2.ListAwsOnDemandTasks": {
         "operationResponseType": "AwsOnDemandListResponse",
