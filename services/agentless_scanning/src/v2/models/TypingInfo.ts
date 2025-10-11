@@ -25,6 +25,13 @@ import { AzureScanOptionsDataAttributes } from "./AzureScanOptionsDataAttributes
 import { AzureScanOptionsInputUpdate } from "./AzureScanOptionsInputUpdate";
 import { AzureScanOptionsInputUpdateData } from "./AzureScanOptionsInputUpdateData";
 import { AzureScanOptionsInputUpdateDataAttributes } from "./AzureScanOptionsInputUpdateDataAttributes";
+import { GcpScanOptions } from "./GcpScanOptions";
+import { GcpScanOptionsArray } from "./GcpScanOptionsArray";
+import { GcpScanOptionsData } from "./GcpScanOptionsData";
+import { GcpScanOptionsDataAttributes } from "./GcpScanOptionsDataAttributes";
+import { GcpScanOptionsInputUpdate } from "./GcpScanOptionsInputUpdate";
+import { GcpScanOptionsInputUpdateData } from "./GcpScanOptionsInputUpdateData";
+import { GcpScanOptionsInputUpdateDataAttributes } from "./GcpScanOptionsInputUpdateDataAttributes";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -32,6 +39,8 @@ export const TypingInfo: ModelTypingInfo = {
     AwsScanOptionsType: ["aws_scan_options"],
     AzureScanOptionsDataType: ["azure_scan_options"],
     AzureScanOptionsInputUpdateDataType: ["azure_scan_options"],
+    GcpScanOptionsDataType: ["gcp_scan_options"],
+    GcpScanOptionsInputUpdateDataType: ["gcp_scan_options"],
   },
   oneOfMap: {},
   typeMap: {
@@ -61,5 +70,13 @@ export const TypingInfo: ModelTypingInfo = {
     AzureScanOptionsInputUpdateData: AzureScanOptionsInputUpdateData,
     AzureScanOptionsInputUpdateDataAttributes:
       AzureScanOptionsInputUpdateDataAttributes,
+    GcpScanOptions: GcpScanOptions,
+    GcpScanOptionsArray: GcpScanOptionsArray,
+    GcpScanOptionsData: GcpScanOptionsData,
+    GcpScanOptionsDataAttributes: GcpScanOptionsDataAttributes,
+    GcpScanOptionsInputUpdate: GcpScanOptionsInputUpdate,
+    GcpScanOptionsInputUpdateData: GcpScanOptionsInputUpdateData,
+    GcpScanOptionsInputUpdateDataAttributes:
+      GcpScanOptionsInputUpdateDataAttributes,
   },
 };
