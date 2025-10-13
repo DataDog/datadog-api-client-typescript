@@ -898,6 +898,13 @@ import { GCPUsageCostConfigPostRequest } from "./GCPUsageCostConfigPostRequest";
 import { GCPUsageCostConfigPostRequestAttributes } from "./GCPUsageCostConfigPostRequestAttributes";
 import { GCPUsageCostConfigResponse } from "./GCPUsageCostConfigResponse";
 import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
+import { GcpScanOptions } from "./GcpScanOptions";
+import { GcpScanOptionsArray } from "./GcpScanOptionsArray";
+import { GcpScanOptionsData } from "./GcpScanOptionsData";
+import { GcpScanOptionsDataAttributes } from "./GcpScanOptionsDataAttributes";
+import { GcpScanOptionsInputUpdate } from "./GcpScanOptionsInputUpdate";
+import { GcpScanOptionsInputUpdateData } from "./GcpScanOptionsInputUpdateData";
+import { GcpScanOptionsInputUpdateDataAttributes } from "./GcpScanOptionsInputUpdateDataAttributes";
 import { GcpUcConfigResponse } from "./GcpUcConfigResponse";
 import { GcpUcConfigResponseData } from "./GcpUcConfigResponseData";
 import { GcpUcConfigResponseDataAttributes } from "./GcpUcConfigResponseDataAttributes";
@@ -2929,6 +2936,8 @@ const enumsMap: { [key: string]: any[] } = {
   GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
   GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
   GCPUsageCostConfigType: ["gcp_uc_config"],
+  GcpScanOptionsDataType: ["gcp_scan_options"],
+  GcpScanOptionsInputUpdateDataType: ["gcp_scan_options"],
   GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
@@ -5058,6 +5067,14 @@ const typeMap: { [index: string]: any } = {
     GCPUsageCostConfigPostRequestAttributes,
   GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
   GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
+  GcpScanOptions: GcpScanOptions,
+  GcpScanOptionsArray: GcpScanOptionsArray,
+  GcpScanOptionsData: GcpScanOptionsData,
+  GcpScanOptionsDataAttributes: GcpScanOptionsDataAttributes,
+  GcpScanOptionsInputUpdate: GcpScanOptionsInputUpdate,
+  GcpScanOptionsInputUpdateData: GcpScanOptionsInputUpdateData,
+  GcpScanOptionsInputUpdateDataAttributes:
+    GcpScanOptionsInputUpdateDataAttributes,
   GcpUcConfigResponse: GcpUcConfigResponse,
   GcpUcConfigResponseData: GcpUcConfigResponseData,
   GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,

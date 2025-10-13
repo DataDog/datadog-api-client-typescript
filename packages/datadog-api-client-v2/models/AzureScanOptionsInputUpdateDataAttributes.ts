@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AzureScanOptionsInputUpdateDataAttributes` object.
+ * Attributes for updating Azure scan options configuration.
  */
 export class AzureScanOptionsInputUpdateDataAttributes {
   /**
-   * The `attributes` `vuln_containers_os`.
+   * Indicates if scanning for vulnerabilities in containers is enabled.
    */
   "vulnContainersOs"?: boolean;
   /**
-   * The `attributes` `vuln_host_os`.
+   * Indicates if scanning for vulnerabilities in hosts is enabled.
    */
   "vulnHostOs"?: boolean;
 
