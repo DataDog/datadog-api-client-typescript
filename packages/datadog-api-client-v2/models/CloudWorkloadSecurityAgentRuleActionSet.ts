@@ -11,27 +11,39 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CloudWorkloadSecurityAgentRuleActionSet {
   /**
-   * Whether the value should be appended to the field
+   * Whether the value should be appended to the field.
    */
   "append"?: boolean;
+  /**
+   * The default value of the set action
+   */
+  "defaultValue"?: string;
+  /**
+   * The expression of the set action.
+   */
+  "expression"?: string;
   /**
    * The field of the set action
    */
   "field"?: string;
   /**
+   * Whether the value should be inherited.
+   */
+  "inherited"?: boolean;
+  /**
    * The name of the set action
    */
   "name"?: string;
   /**
-   * The scope of the set action
+   * The scope of the set action.
    */
   "scope"?: string;
   /**
-   * The size of the set action
+   * The size of the set action.
    */
   "size"?: number;
   /**
-   * The time to live of the set action
+   * The time to live of the set action.
    */
   "ttl"?: number;
   /**
@@ -59,9 +71,21 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
       baseName: "append",
       type: "boolean",
     },
+    defaultValue: {
+      baseName: "default_value",
+      type: "string",
+    },
+    expression: {
+      baseName: "expression",
+      type: "string",
+    },
     field: {
       baseName: "field",
       type: "string",
+    },
+    inherited: {
+      baseName: "inherited",
+      type: "boolean",
     },
     name: {
       baseName: "name",

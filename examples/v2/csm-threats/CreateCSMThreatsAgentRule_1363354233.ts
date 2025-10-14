@@ -1,5 +1,5 @@
 /**
- * Create a Workload Protection agent rule with set action returns "OK" response
+ * Create a Workload Protection agent rule with set action with expression returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -14,7 +14,7 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentRuleRequest = {
   body: {
     data: {
       attributes: {
-        description: "My Agent rule with set action",
+        description: "My Agent rule with set action with expression",
         enabled: true,
         expression: `exec.file.name == "sh"`,
         filters: [],
@@ -25,13 +25,10 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentRuleRequest = {
           {
             set: {
               name: "test_set",
-              value: "test_value",
+              expression: "open.file.path",
+              defaultValue: "/dev/null",
               scope: "process",
-              inherited: true,
             },
-          },
-          {
-            hash: {},
           },
         ],
       },

@@ -16,7 +16,11 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    */
   "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
   /**
-   * The blocking policies that the rule belongs to
+   * Constrain the rule to specific versions of the Datadog Agent.
+   */
+  "agentVersion"?: string;
+  /**
+   * The blocking policies that the rule belongs to.
    */
   "blocking"?: Array<string>;
   /**
@@ -24,11 +28,11 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    */
   "description"?: string;
   /**
-   * The disabled policies that the rule belongs to
+   * The disabled policies that the rule belongs to.
    */
   "disabled"?: Array<string>;
   /**
-   * Whether the Agent rule is enabled
+   * Whether the Agent rule is enabled.
    */
   "enabled"?: boolean;
   /**
@@ -36,11 +40,11 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    */
   "expression": string;
   /**
-   * The platforms the Agent rule is supported on
+   * The platforms the Agent rule is supported on.
    */
   "filters"?: Array<string>;
   /**
-   * The monitoring policies that the rule belongs to
+   * The monitoring policies that the rule belongs to.
    */
   "monitoring"?: Array<string>;
   /**
@@ -48,13 +52,17 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    */
   "name": string;
   /**
-   * The ID of the policy where the Agent rule is saved
+   * The ID of the policy where the Agent rule is saved.
    */
   "policyId"?: string;
   /**
-   * The list of product tags associated with the rule
+   * The list of product tags associated with the rule.
    */
   "productTags"?: Array<string>;
+  /**
+   * Whether the rule is silent.
+   */
+  "silent"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -75,6 +83,10 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
     actions: {
       baseName: "actions",
       type: "Array<CloudWorkloadSecurityAgentRuleAction>",
+    },
+    agentVersion: {
+      baseName: "agent_version",
+      type: "string",
     },
     blocking: {
       baseName: "blocking",
@@ -117,6 +129,10 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
     productTags: {
       baseName: "product_tags",
       type: "Array<string>",
+    },
+    silent: {
+      baseName: "silent",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
