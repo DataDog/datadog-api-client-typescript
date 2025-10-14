@@ -9,15 +9,15 @@ import { AzureScanOptionsDataType } from "./AzureScanOptionsDataType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AzureScanOptionsData` object.
+ * Single Azure scan options entry.
  */
 export class AzureScanOptionsData {
   /**
-   * The definition of `AzureScanOptionsDataAttributes` object.
+   * Attributes for Azure scan options configuration.
    */
   "attributes"?: AzureScanOptionsDataAttributes;
   /**
-   * The `AzureScanOptionsData` `id`.
+   * The Azure subscription ID.
    */
   "id": string;
   /**
