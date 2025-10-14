@@ -73,6 +73,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   "productTags"?: Array<string>;
   /**
+   * Whether the rule is silent.
+   */
+  "silent"?: boolean;
+  /**
    * The ID of the user who updated the rule
    */
   "updateAuthorUuId"?: string;
@@ -171,6 +175,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
     productTags: {
       baseName: "product_tags",
       type: "Array<string>",
+    },
+    silent: {
+      baseName: "silent",
+      type: "boolean",
     },
     updateAuthorUuId: {
       baseName: "updateAuthorUuId",
