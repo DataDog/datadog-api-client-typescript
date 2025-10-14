@@ -2565,6 +2565,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AzureScanOptions",
   },
+  "AgentlessScanningApi.V2.GetAzureScanOptions": {
+    subscriptionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AzureScanOptions",
+  },
   "AgentlessScanningApi.V2.DeleteAzureScanOptions": {
     subscriptionId: {
       type: "string",
@@ -2582,6 +2589,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "AzureScanOptions",
+  },
+  "AgentlessScanningApi.V2.ListGcpScanOptions": {
+    operationResponseType: "GcpScanOptionsArray",
+  },
+  "AgentlessScanningApi.V2.CreateGcpScanOptions": {
+    body: {
+      type: "GcpScanOptions",
+      format: "",
+    },
+    operationResponseType: "GcpScanOptions",
+  },
+  "AgentlessScanningApi.V2.GetGcpScanOptions": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GcpScanOptions",
+  },
+  "AgentlessScanningApi.V2.DeleteGcpScanOptions": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AgentlessScanningApi.V2.UpdateGcpScanOptions": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GcpScanOptionsInputUpdate",
+      format: "",
+    },
+    operationResponseType: "GcpScanOptions",
   },
   "AgentlessScanningApi.V2.ListAwsOnDemandTasks": {
     operationResponseType: "AwsOnDemandListResponse",

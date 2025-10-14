@@ -33,6 +33,9 @@ import { AwsScanOptionsUpdateRequest } from "./models/AwsScanOptionsUpdateReques
 import { AzureScanOptions } from "./models/AzureScanOptions";
 import { AzureScanOptionsArray } from "./models/AzureScanOptionsArray";
 import { AzureScanOptionsInputUpdate } from "./models/AzureScanOptionsInputUpdate";
+import { GcpScanOptions } from "./models/GcpScanOptions";
+import { GcpScanOptionsArray } from "./models/GcpScanOptionsArray";
+import { GcpScanOptionsInputUpdate } from "./models/GcpScanOptionsInputUpdate";
 import { version } from "../version";
 
 export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
@@ -197,6 +200,57 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createGcpScanOptions(
+    body: GcpScanOptions,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createGcpScanOptions");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.createGcpScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "GcpScanOptions", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteAwsScanOptions(
     accountId: string,
     _options?: Configuration,
@@ -289,6 +343,52 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteGcpScanOptions(
+    projectId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "deleteGcpScanOptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
+        "{project_id}",
+        encodeURIComponent(String(projectId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.deleteGcpScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getAwsOnDemandTask(
     taskId: string,
     _options?: Configuration,
@@ -356,6 +456,98 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.getAwsScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAzureScanOptions(
+    subscriptionId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'subscriptionId' is not null or undefined
+    if (subscriptionId === null || subscriptionId === undefined) {
+      throw new RequiredError("subscriptionId", "getAzureScanOptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
+        "{subscription_id}",
+        encodeURIComponent(String(subscriptionId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.getAzureScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getGcpScanOptions(
+    projectId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "getGcpScanOptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
+        "{project_id}",
+        encodeURIComponent(String(projectId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.getGcpScanOptions",
       AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -489,6 +681,42 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listGcpScanOptions(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.listGcpScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateAwsScanOptions(
     accountId: string,
     body: AwsScanOptionsUpdateRequest,
@@ -597,6 +825,67 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureScanOptionsInputUpdate", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateGcpScanOptions(
+    projectId: string,
+    body: GcpScanOptionsInputUpdate,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "updateGcpScanOptions");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateGcpScanOptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
+        "{project_id}",
+        encodeURIComponent(String(projectId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.updateGcpScanOptions",
+      AgentlessScanningApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "GcpScanOptionsInputUpdate", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -794,6 +1083,67 @@ export class AgentlessScanningApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createGcpScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createGcpScanOptions(
+    response: ResponseContext,
+  ): Promise<GcpScanOptions> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: GcpScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptions",
+      ) as GcpScanOptions;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GcpScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptions",
+        "",
+      ) as GcpScanOptions;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -853,6 +1203,54 @@ export class AgentlessScanningApiResponseProcessor {
       return;
     }
     if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteGcpScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteGcpScanOptions(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -995,6 +1393,128 @@ export class AgentlessScanningApiResponseProcessor {
         "AwsScanOptionsResponse",
         "",
       ) as AwsScanOptionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getAzureScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAzureScanOptions(
+    response: ResponseContext,
+  ): Promise<AzureScanOptions> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AzureScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptions",
+      ) as AzureScanOptions;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AzureScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AzureScanOptions",
+        "",
+      ) as AzureScanOptions;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getGcpScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getGcpScanOptions(
+    response: ResponseContext,
+  ): Promise<GcpScanOptions> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: GcpScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptions",
+      ) as GcpScanOptions;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GcpScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptions",
+        "",
+      ) as GcpScanOptions;
       return body;
     }
 
@@ -1177,6 +1697,62 @@ export class AgentlessScanningApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listGcpScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listGcpScanOptions(
+    response: ResponseContext,
+  ): Promise<GcpScanOptionsArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: GcpScanOptionsArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptionsArray",
+      ) as GcpScanOptionsArray;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GcpScanOptionsArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptionsArray",
+        "",
+      ) as GcpScanOptionsArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1276,6 +1852,67 @@ export class AgentlessScanningApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateGcpScanOptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateGcpScanOptions(
+    response: ResponseContext,
+  ): Promise<GcpScanOptions> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: GcpScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptions",
+      ) as GcpScanOptions;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GcpScanOptions = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GcpScanOptions",
+        "",
+      ) as GcpScanOptions;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface AgentlessScanningApiCreateAwsOnDemandTaskRequest {
@@ -1301,6 +1938,14 @@ export interface AgentlessScanningApiCreateAzureScanOptionsRequest {
   body: AzureScanOptions;
 }
 
+export interface AgentlessScanningApiCreateGcpScanOptionsRequest {
+  /**
+   * The definition of the new scan options.
+   * @type GcpScanOptions
+   */
+  body: GcpScanOptions;
+}
+
 export interface AgentlessScanningApiDeleteAwsScanOptionsRequest {
   /**
    * The ID of an AWS account.
@@ -1317,6 +1962,14 @@ export interface AgentlessScanningApiDeleteAzureScanOptionsRequest {
   subscriptionId: string;
 }
 
+export interface AgentlessScanningApiDeleteGcpScanOptionsRequest {
+  /**
+   * The GCP project ID.
+   * @type string
+   */
+  projectId: string;
+}
+
 export interface AgentlessScanningApiGetAwsOnDemandTaskRequest {
   /**
    * The UUID of the task.
@@ -1331,6 +1984,22 @@ export interface AgentlessScanningApiGetAwsScanOptionsRequest {
    * @type string
    */
   accountId: string;
+}
+
+export interface AgentlessScanningApiGetAzureScanOptionsRequest {
+  /**
+   * The Azure subscription ID.
+   * @type string
+   */
+  subscriptionId: string;
+}
+
+export interface AgentlessScanningApiGetGcpScanOptionsRequest {
+  /**
+   * The GCP project ID.
+   * @type string
+   */
+  projectId: string;
 }
 
 export interface AgentlessScanningApiUpdateAwsScanOptionsRequest {
@@ -1356,6 +2025,19 @@ export interface AgentlessScanningApiUpdateAzureScanOptionsRequest {
    * @type AzureScanOptionsInputUpdate
    */
   body: AzureScanOptionsInputUpdate;
+}
+
+export interface AgentlessScanningApiUpdateGcpScanOptionsRequest {
+  /**
+   * The GCP project ID.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * New definition of the scan options.
+   * @type GcpScanOptionsInputUpdate
+   */
+  body: GcpScanOptionsInputUpdate;
 }
 
 export class AgentlessScanningApi {
@@ -1442,6 +2124,27 @@ export class AgentlessScanningApi {
   }
 
   /**
+   * Activate Agentless scan options for a GCP project.
+   * @param param The request object
+   */
+  public createGcpScanOptions(
+    param: AgentlessScanningApiCreateGcpScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<GcpScanOptions> {
+    const requestContextPromise = this.requestFactory.createGcpScanOptions(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createGcpScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete Agentless scan options for an AWS account.
    * @param param The request object
    */
@@ -1484,6 +2187,27 @@ export class AgentlessScanningApi {
   }
 
   /**
+   * Delete Agentless scan options for a GCP project.
+   * @param param The request object
+   */
+  public deleteGcpScanOptions(
+    param: AgentlessScanningApiDeleteGcpScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteGcpScanOptions(
+      param.projectId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteGcpScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
    * Fetch the data of a specific on demand task.
    * @param param The request object
    */
@@ -1521,6 +2245,48 @@ export class AgentlessScanningApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAwsScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Fetches the Agentless scan options for an activated subscription.
+   * @param param The request object
+   */
+  public getAzureScanOptions(
+    param: AgentlessScanningApiGetAzureScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<AzureScanOptions> {
+    const requestContextPromise = this.requestFactory.getAzureScanOptions(
+      param.subscriptionId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAzureScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Fetches the Agentless scan options for an activated GCP project.
+   * @param param The request object
+   */
+  public getGcpScanOptions(
+    param: AgentlessScanningApiGetGcpScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<GcpScanOptions> {
+    const requestContextPromise = this.requestFactory.getGcpScanOptions(
+      param.projectId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getGcpScanOptions(responseContext);
         });
     });
   }
@@ -1580,6 +2346,24 @@ export class AgentlessScanningApi {
   }
 
   /**
+   * Fetches the scan options configured for all GCP projects.
+   * @param param The request object
+   */
+  public listGcpScanOptions(
+    options?: Configuration,
+  ): Promise<GcpScanOptionsArray> {
+    const requestContextPromise =
+      this.requestFactory.listGcpScanOptions(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listGcpScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
    * Update the Agentless scan options for an activated account.
    * @param param The request object
    */
@@ -1619,6 +2403,28 @@ export class AgentlessScanningApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateAzureScanOptions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the Agentless scan options for an activated GCP project.
+   * @param param The request object
+   */
+  public updateGcpScanOptions(
+    param: AgentlessScanningApiUpdateGcpScanOptionsRequest,
+    options?: Configuration,
+  ): Promise<GcpScanOptions> {
+    const requestContextPromise = this.requestFactory.updateGcpScanOptions(
+      param.projectId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateGcpScanOptions(responseContext);
         });
     });
   }

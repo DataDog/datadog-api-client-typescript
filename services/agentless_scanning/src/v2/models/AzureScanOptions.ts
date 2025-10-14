@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AzureScanOptionsData } from "./AzureScanOptionsData";
 
 /**
- * The definition of `AzureScanOptions` object.
+ * Response object containing Azure scan options for a single subscription.
  */
 export class AzureScanOptions {
   /**
-   * The definition of `AzureScanOptionsData` object.
+   * Single Azure scan options entry.
    */
   "data"?: AzureScanOptionsData;
   /**
