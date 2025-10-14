@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
+import { CloudWorkloadSecurityAgentPolicyVersion } from "./CloudWorkloadSecurityAgentPolicyVersion";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -48,6 +49,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
    */
   "name"?: string;
   /**
+   * Whether the policy is pinned
+   */
+  "pinned"?: boolean;
+  /**
    * The version of the policy
    */
   "policyVersion"?: string;
@@ -71,6 +76,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
    * The attributes of the user who last updated the policy
    */
   "updater"?: CloudWorkloadSecurityAgentPolicyUpdaterAttributes;
+  /**
+   * The versions of the policy
+   */
+  "versions"?: Array<CloudWorkloadSecurityAgentPolicyVersion>;
 
   /**
    * A container for additional, undeclared properties.
@@ -127,6 +136,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
       baseName: "name",
       type: "string",
     },
+    pinned: {
+      baseName: "pinned",
+      type: "boolean",
+    },
     policyVersion: {
       baseName: "policyVersion",
       type: "string",
@@ -154,6 +167,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
     updater: {
       baseName: "updater",
       type: "CloudWorkloadSecurityAgentPolicyUpdaterAttributes",
+    },
+    versions: {
+      baseName: "versions",
+      type: "Array<CloudWorkloadSecurityAgentPolicyVersion>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

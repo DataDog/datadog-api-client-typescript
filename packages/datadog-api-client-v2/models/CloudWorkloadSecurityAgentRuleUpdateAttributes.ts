@@ -16,6 +16,10 @@ export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
    */
   "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
   /**
+   * Constrain the rule to specific versions of the Datadog Agent
+   */
+  "agentVersion"?: string;
+  /**
    * The blocking policies that the rule belongs to
    */
   "blocking"?: Array<string>;
@@ -47,6 +51,10 @@ export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
    * The list of product tags associated with the rule
    */
   "productTags"?: Array<string>;
+  /**
+   * Whether the rule is silent.
+   */
+  "silent"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -67,6 +75,10 @@ export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     actions: {
       baseName: "actions",
       type: "Array<CloudWorkloadSecurityAgentRuleAction>",
+    },
+    agentVersion: {
+      baseName: "agent_version",
+      type: "string",
     },
     blocking: {
       baseName: "blocking",
@@ -99,6 +111,10 @@ export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     productTags: {
       baseName: "product_tags",
       type: "Array<string>",
+    },
+    silent: {
+      baseName: "silent",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
