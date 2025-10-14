@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AzureScanOptionsInputUpdateData } from "./AzureScanOptionsInputUpdateData";
 
 /**
- * The definition of `AzureScanOptionsInputUpdate` object.
+ * Request object for updating Azure scan options.
  */
 export class AzureScanOptionsInputUpdate {
   /**
-   * The definition of `AzureScanOptionsInputUpdateData` object.
+   * Data object for updating the scan options of a single Azure subscription.
    */
   "data"?: AzureScanOptionsInputUpdateData;
   /**

@@ -4,15 +4,15 @@ import { AzureScanOptionsDataAttributes } from "./AzureScanOptionsDataAttributes
 import { AzureScanOptionsDataType } from "./AzureScanOptionsDataType";
 
 /**
- * The definition of `AzureScanOptionsData` object.
+ * Single Azure scan options entry.
  */
 export class AzureScanOptionsData {
   /**
-   * The definition of `AzureScanOptionsDataAttributes` object.
+   * Attributes for Azure scan options configuration.
    */
   "attributes"?: AzureScanOptionsDataAttributes;
   /**
-   * The `AzureScanOptionsData` `id`.
+   * The Azure subscription ID.
    */
   "id": string;
   /**
