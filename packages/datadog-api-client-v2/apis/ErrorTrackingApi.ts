@@ -26,6 +26,41 @@ import { IssueUpdateStateRequest } from "../models/IssueUpdateStateRequest";
 import { SearchIssuesIncludeQueryParameterItem } from "../models/SearchIssuesIncludeQueryParameterItem";
 
 export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
+  public async deleteIssueAssignee(
+    issueId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'issueId' is not null or undefined
+    if (issueId === null || issueId === undefined) {
+      throw new RequiredError("issueId", "deleteIssueAssignee");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/error-tracking/issues/{issue_id}/assignee".replace(
+        "{issue_id}",
+        encodeURIComponent(String(issueId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ErrorTrackingApi.deleteIssueAssignee")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getIssue(
     issueId: string,
     include?: Array<GetIssueIncludeQueryParameterItem>,
@@ -236,6 +271,59 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ErrorTrackingApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIssueAssignee
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIssueAssignee(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -490,6 +578,14 @@ export class ErrorTrackingApiResponseProcessor {
   }
 }
 
+export interface ErrorTrackingApiDeleteIssueAssigneeRequest {
+  /**
+   * The identifier of the issue.
+   * @type string
+   */
+  issueId: string;
+}
+
 export interface ErrorTrackingApiGetIssueRequest {
   /**
    * The identifier of the issue.
@@ -557,6 +653,27 @@ export class ErrorTrackingApi {
       requestFactory || new ErrorTrackingApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new ErrorTrackingApiResponseProcessor();
+  }
+
+  /**
+   * Remove the assignee of an issue by `issue_id`.
+   * @param param The request object
+   */
+  public deleteIssueAssignee(
+    param: ErrorTrackingApiDeleteIssueAssigneeRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIssueAssignee(
+      param.issueId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIssueAssignee(responseContext);
+        });
+    });
   }
 
   /**
