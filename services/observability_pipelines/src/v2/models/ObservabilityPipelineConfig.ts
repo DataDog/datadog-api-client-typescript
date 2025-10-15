@@ -21,6 +21,10 @@ export class ObservabilityPipelineConfig {
    */
   "sources": Array<ObservabilityPipelineConfigSourceItem>;
   /**
+   * Use this field to configure the pipeline's filter queries to use the deprecated search syntax.
+   */
+  "useLegacySearchSyntax"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -48,6 +52,10 @@ export class ObservabilityPipelineConfig {
       baseName: "sources",
       type: "Array<ObservabilityPipelineConfigSourceItem>",
       required: true,
+    },
+    useLegacySearchSyntax: {
+      baseName: "use_legacy_search_syntax",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
