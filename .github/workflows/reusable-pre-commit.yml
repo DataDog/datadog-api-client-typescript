@@ -26,32 +26,20 @@ env:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
-    if: >
-      (github.event.pull_request.draft == false &&
-       !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
-       !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) ||
-      github.event_name == 'schedule'
     steps:
       - name: Get GitHub App token
         id: get_token
-        if: inputs.enable-commit-changes && github.event.pull_request.head.repo.full_name == github.repository
+        if: inputs.enable-commit-changes
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
       - uses: actions/checkout@v3
-        if: github.event.pull_request.head.repo.full_name == github.repository
         with:
+          fetch-depth: 0
           repository: DataDog/datadog-api-client-typescript
           ref: ${{ inputs.target-branch || github.event.pull_request.head.sha || github.ref }}
-          fetch-depth: 50
           token: ${{ inputs.enable-commit-changes && steps.get_token.outputs.token || github.token }}
-      - uses: actions/checkout@v3
-        if: github.event.pull_request.head.repo.full_name != github.repository
-        with:
-          repository: DataDog/datadog-api-client-typescript
-          ref: ${{ inputs.target-branch || github.event.pull_request.head.sha || github.ref }}
-          fetch-depth: 50
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
@@ -78,7 +66,7 @@ jobs:
         if: github.event.action != 'closed' && github.event.pull_request.merged != true
         run: bash -c "./generate.sh"
       - name: Commit changes
-        if: failure() && inputs.enable-commit-changes && github.event.pull_request.head.repo.full_name == github.repository
+        if: ${{ failure() && inputs.enable-commit-changes }}
         run: |-
           git add -A
           git config user.name "${GIT_AUTHOR_NAME}"
