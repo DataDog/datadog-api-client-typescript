@@ -14,7 +14,7 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentPolicyRequest = {
         description: "My agent policy",
         enabled: true,
         hostTagsLists: [["env:test"]],
-        name: "my_agent_policy_2",
+        name: "examplecsmthreat",
       },
       type: "policy",
     },
