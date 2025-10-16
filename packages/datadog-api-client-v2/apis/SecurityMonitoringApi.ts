@@ -20,6 +20,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AssetType } from "../models/AssetType";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
+import { CloudAssetType } from "../models/CloudAssetType";
 import { ConvertJobResultsToSignalsRequest } from "../models/ConvertJobResultsToSignalsRequest";
 import { CreateCustomFrameworkRequest } from "../models/CreateCustomFrameworkRequest";
 import { CreateCustomFrameworkResponse } from "../models/CreateCustomFrameworkResponse";
@@ -47,6 +48,8 @@ import { NotificationRulesList } from "../models/NotificationRulesList";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
 import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
 import { SBOMComponentLicenseType } from "../models/SBOMComponentLicenseType";
+import { SBOMFormat } from "../models/SBOMFormat";
+import { ScannedAssetsMetadata } from "../models/ScannedAssetsMetadata";
 import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
@@ -1197,6 +1200,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     assetType: AssetType,
     filterAssetName: string,
     filterRepoDigest?: string,
+    extFormat?: SBOMFormat,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1241,6 +1245,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[repo_digest]",
         ObjectSerializer.serialize(filterRepoDigest, "string", ""),
+        ""
+      );
+    }
+    if (extFormat !== undefined) {
+      requestContext.setQueryParam(
+        "ext:format",
+        ObjectSerializer.serialize(extFormat, "SBOMFormat", ""),
         ""
       );
     }
@@ -2059,6 +2070,87 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listScannedAssetsMetadata(
+    pageToken?: string,
+    pageNumber?: number,
+    filterAssetType?: CloudAssetType,
+    filterAssetName?: string,
+    filterLastSuccessOrigin?: string,
+    filterLastSuccessEnv?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listScannedAssetsMetadata'");
+    if (!_config.unstableOperations["v2.listScannedAssetsMetadata"]) {
+      throw new Error(
+        "Unstable operation 'listScannedAssetsMetadata' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/scanned-assets-metadata";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listScannedAssetsMetadata")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageToken !== undefined) {
+      requestContext.setQueryParam(
+        "page[token]",
+        ObjectSerializer.serialize(pageToken, "string", ""),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (filterAssetType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.type]",
+        ObjectSerializer.serialize(filterAssetType, "CloudAssetType", ""),
+        ""
+      );
+    }
+    if (filterAssetName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.name]",
+        ObjectSerializer.serialize(filterAssetName, "string", ""),
+        ""
+      );
+    }
+    if (filterLastSuccessOrigin !== undefined) {
+      requestContext.setQueryParam(
+        "filter[last_success.origin]",
+        ObjectSerializer.serialize(filterLastSuccessOrigin, "string", ""),
+        ""
+      );
+    }
+    if (filterLastSuccessEnv !== undefined) {
+      requestContext.setQueryParam(
+        "filter[last_success.env]",
+        ObjectSerializer.serialize(filterLastSuccessEnv, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityFilters(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -2489,7 +2581,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
     if (filterAdvisoryId !== undefined) {
       requestContext.setQueryParam(
-        "filter[advisory_id]",
+        "filter[advisory.id]",
         ObjectSerializer.serialize(filterAdvisoryId, "string", ""),
         ""
       );
@@ -2764,7 +2856,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security/assets";
+    const localVarPath = "/api/v2/security/vulnerable-assets";
 
     // Make Request Context
     const requestContext = _config
@@ -6215,6 +6307,91 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listScannedAssetsMetadata
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listScannedAssetsMetadata(
+    response: ResponseContext
+  ): Promise<ScannedAssetsMetadata> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ScannedAssetsMetadata = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ScannedAssetsMetadata"
+      ) as ScannedAssetsMetadata;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ScannedAssetsMetadata = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ScannedAssetsMetadata",
+        ""
+      ) as ScannedAssetsMetadata;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7943,6 +8120,11 @@ export interface SecurityMonitoringApiGetSBOMRequest {
    * @type string
    */
   filterRepoDigest?: string;
+  /**
+   * The standard of the SBOM.
+   * @type SBOMFormat
+   */
+  extFormat?: SBOMFormat;
 }
 
 export interface SecurityMonitoringApiGetSecurityFilterRequest {
@@ -8198,6 +8380,39 @@ export interface SecurityMonitoringApiListHistoricalJobsRequest {
   filterQuery?: string;
 }
 
+export interface SecurityMonitoringApiListScannedAssetsMetadataRequest {
+  /**
+   * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+   * @type string
+   */
+  pageToken?: string;
+  /**
+   * The page number to be retrieved. It should be equal to or greater than 1.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * The type of the scanned asset.
+   * @type CloudAssetType
+   */
+  filterAssetType?: CloudAssetType;
+  /**
+   * The name of the scanned asset.
+   * @type string
+   */
+  filterAssetName?: string;
+  /**
+   * The origin of last success scan.
+   * @type string
+   */
+  filterLastSuccessOrigin?: string;
+  /**
+   * The environment of last success scan.
+   * @type string
+   */
+  filterLastSuccessEnv?: string;
+}
+
 export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
   /**
    * The search query for security signals.
@@ -8422,7 +8637,7 @@ export interface SecurityMonitoringApiListVulnerabilitiesRequest {
    */
   filterOrigin?: string;
   /**
-   * Filter by asset name.
+   * Filter by asset name. This field supports the usage of wildcards (*).
    * @type string
    */
   filterAssetName?: string;
@@ -8510,7 +8725,7 @@ export interface SecurityMonitoringApiListVulnerableAssetsRequest {
    */
   pageNumber?: number;
   /**
-   * Filter by name.
+   * Filter by name. This field supports the usage of wildcards (*).
    * @type string
    */
   filterName?: string;
@@ -9344,6 +9559,7 @@ export class SecurityMonitoringApi {
       param.assetType,
       param.filterAssetName,
       param.filterRepoDigest,
+      param.extFormat,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -9839,6 +10055,77 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get a list of security scanned assets metadata for an organization.
+   *
+   * ### Pagination
+   *
+   * For the "List Vulnerabilities" endpoint, see the [Pagination section](#pagination).
+   *
+   * ### Filtering
+   *
+   * For the "List Vulnerabilities" endpoint, see the [Filtering section](#filtering).
+   *
+   * ### Metadata
+   *
+   *  For the "List Vulnerabilities" endpoint, see the [Metadata section](#metadata).
+   *
+   * ### Related endpoints
+   *
+   * This endpoint returns additional metadata for cloud resources that is not available from the standard resource endpoints. To access a richer dataset, call this endpoint together with the relevant resource endpoint(s) and merge (join) their results using the resource identifier.
+   *
+   * **Hosts**
+   *
+   * To enrich host data, join the response from the [Hosts](https://docs.datadoghq.com/api/latest/hosts/) endpoint with the response from the scanned-assets-metadata endpoint on the following key fields:
+   *
+   * | ENDPOINT | JOIN KEY | TYPE |
+   * | --- | --- | --- |
+   * | [/api/v1/hosts](https://docs.datadoghq.com/api/latest/hosts/) | host_list.host_name | string |
+   * | /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+   *
+   * **Host Images**
+   *
+   * To enrich host image data, join the response from the [Hosts](https://docs.datadoghq.com/api/latest/hosts/) endpoint with the response from the scanned-assets-metadata endpoint on the following key fields:
+   *
+   * | ENDPOINT | JOIN KEY | TYPE |
+   * | --- | --- | --- |
+   * | [/api/v1/hosts](https://docs.datadoghq.com/api/latest/hosts/) | host_list.tags_by_source["Amazon Web Services"]["image"] | string |
+   * | /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+   *
+   * **Container Images**
+   *
+   * To enrich container image data, join the response from the [Container Images](https://docs.datadoghq.com/api/latest/container-images/) endpoint with the response from the scanned-assets-metadata endpoint on the following key fields:
+   *
+   * | ENDPOINT | JOIN KEY | TYPE |
+   * | --- | --- | --- |
+   * | [/api/v2/container_images](https://docs.datadoghq.com/api/latest/container-images/) | `data.attributes.name`@`data.attributes.repo_digest` | string |
+   * | /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+   * @param param The request object
+   */
+  public listScannedAssetsMetadata(
+    param: SecurityMonitoringApiListScannedAssetsMetadataRequest = {},
+    options?: Configuration
+  ): Promise<ScannedAssetsMetadata> {
+    const requestContextPromise = this.requestFactory.listScannedAssetsMetadata(
+      param.pageToken,
+      param.pageNumber,
+      param.filterAssetType,
+      param.filterAssetName,
+      param.filterLastSuccessOrigin,
+      param.filterLastSuccessEnv,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listScannedAssetsMetadata(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the list of configured security filters with their definitions.
    * @param param The request object
    */
@@ -10066,6 +10353,8 @@ export class SecurityMonitoringApi {
    *
    * This token can then be used in the subsequent paginated requests.
    *
+   * *Note: The first request may take longer to complete than subsequent requests.*
+   *
    * #### Subsequent requests
    *
    * Any request containing valid `page[token]` and `page[number]` parameters will be considered a subsequent request.
@@ -10073,6 +10362,8 @@ export class SecurityMonitoringApi {
    * If the `token` is invalid, a `404` response will be returned.
    *
    * If the page `number` is invalid, a `400` response will be returned.
+   *
+   * The returned `token` is valid for all requests in the pagination sequence. To send paginated requests in parallel, reuse the same `token` and change only the `page[number]` parameter.
    *
    * ### Filtering
    *
@@ -10105,6 +10396,11 @@ export class SecurityMonitoringApi {
    *   "links": {...}
    * }
    * ```
+   * ### Extensions
+   *
+   * Requests may include extensions to modify the behavior of the requested endpoint. The filter parameters follow the [JSON:API format](https://jsonapi.org/extensions/#extensions) format: `ext:$extension_name`, where `extension_name` is the name of the modifier that is being applied.
+   *
+   * Extensions can only include one value: `ext:modifier=value`.
    * @param param The request object
    */
   public listVulnerabilities(

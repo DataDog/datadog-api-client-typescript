@@ -687,6 +687,7 @@ export {
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListHistoricalJobsRequest,
+  SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
@@ -1355,6 +1356,7 @@ export { ClickupCredentialsUpdate } from "./models/ClickupCredentialsUpdate";
 export { ClickupIntegration } from "./models/ClickupIntegration";
 export { ClickupIntegrationType } from "./models/ClickupIntegrationType";
 export { ClickupIntegrationUpdate } from "./models/ClickupIntegrationUpdate";
+export { CloudAssetType } from "./models/CloudAssetType";
 export { CloudConfigurationComplianceRuleOptions } from "./models/CloudConfigurationComplianceRuleOptions";
 export { CloudConfigurationRegoRule } from "./models/CloudConfigurationRegoRule";
 export { CloudConfigurationRuleCaseCreate } from "./models/CloudConfigurationRuleCaseCreate";
@@ -3428,6 +3430,7 @@ export { SBOMComponentLicenseType } from "./models/SBOMComponentLicenseType";
 export { SBOMComponentProperty } from "./models/SBOMComponentProperty";
 export { SBOMComponentSupplier } from "./models/SBOMComponentSupplier";
 export { SBOMComponentType } from "./models/SBOMComponentType";
+export { SBOMFormat } from "./models/SBOMFormat";
 export { SBOMMetadata } from "./models/SBOMMetadata";
 export { SBOMMetadataAuthor } from "./models/SBOMMetadataAuthor";
 export { SBOMMetadataComponent } from "./models/SBOMMetadataComponent";
@@ -3445,6 +3448,11 @@ export { ScalarFormulaResponseType } from "./models/ScalarFormulaResponseType";
 export { ScalarMeta } from "./models/ScalarMeta";
 export { ScalarQuery } from "./models/ScalarQuery";
 export { ScalarResponse } from "./models/ScalarResponse";
+export { ScannedAssetMetadata } from "./models/ScannedAssetMetadata";
+export { ScannedAssetMetadataAsset } from "./models/ScannedAssetMetadataAsset";
+export { ScannedAssetMetadataAttributes } from "./models/ScannedAssetMetadataAttributes";
+export { ScannedAssetMetadataLastSuccess } from "./models/ScannedAssetMetadataLastSuccess";
+export { ScannedAssetsMetadata } from "./models/ScannedAssetsMetadata";
 export { Schedule } from "./models/Schedule";
 export { ScheduleCreateRequest } from "./models/ScheduleCreateRequest";
 export { ScheduleCreateRequestData } from "./models/ScheduleCreateRequestData";
@@ -4088,6 +4096,7 @@ export { VirusTotalIntegrationType } from "./models/VirusTotalIntegrationType";
 export { VirusTotalIntegrationUpdate } from "./models/VirusTotalIntegrationUpdate";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
+export { VulnerabilityAdvisory } from "./models/VulnerabilityAdvisory";
 export { VulnerabilityAttributes } from "./models/VulnerabilityAttributes";
 export { VulnerabilityCvss } from "./models/VulnerabilityCvss";
 export { VulnerabilityDependencyLocations } from "./models/VulnerabilityDependencyLocations";

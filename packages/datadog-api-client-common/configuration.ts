@@ -239,6 +239,7 @@ export function createConfiguration(
       "v2.listAssetsSBOMs": false,
       "v2.listFindings": false,
       "v2.listHistoricalJobs": false,
+      "v2.listScannedAssetsMetadata": false,
       "v2.listSecurityMonitoringHistsignals": false,
       "v2.listVulnerabilities": false,
       "v2.listVulnerableAssets": false,
