@@ -16,7 +16,7 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         aggregation: "count",
         groupByFields: [],
         distinctFields: [],
-        index: "main",
+        indexes: ["main"],
       },
     ],
     filters: [],
