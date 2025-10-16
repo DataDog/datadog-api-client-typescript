@@ -38,6 +38,7 @@ export {
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListHistoricalJobsRequest,
+  SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
@@ -80,6 +81,7 @@ export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequ
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
 export { CalculatedField } from "./models/CalculatedField";
+export { CloudAssetType } from "./models/CloudAssetType";
 export { CloudConfigurationComplianceRuleOptions } from "./models/CloudConfigurationComplianceRuleOptions";
 export { CloudConfigurationRegoRule } from "./models/CloudConfigurationRegoRule";
 export { CloudConfigurationRuleCaseCreate } from "./models/CloudConfigurationRuleCaseCreate";
@@ -191,10 +193,16 @@ export { SBOMComponentLicenseType } from "./models/SBOMComponentLicenseType";
 export { SBOMComponentProperty } from "./models/SBOMComponentProperty";
 export { SBOMComponentSupplier } from "./models/SBOMComponentSupplier";
 export { SBOMComponentType } from "./models/SBOMComponentType";
+export { SBOMFormat } from "./models/SBOMFormat";
 export { SBOMMetadata } from "./models/SBOMMetadata";
 export { SBOMMetadataAuthor } from "./models/SBOMMetadataAuthor";
 export { SBOMMetadataComponent } from "./models/SBOMMetadataComponent";
 export { SBOMType } from "./models/SBOMType";
+export { ScannedAssetMetadata } from "./models/ScannedAssetMetadata";
+export { ScannedAssetMetadataAsset } from "./models/ScannedAssetMetadataAsset";
+export { ScannedAssetMetadataAttributes } from "./models/ScannedAssetMetadataAttributes";
+export { ScannedAssetMetadataLastSuccess } from "./models/ScannedAssetMetadataLastSuccess";
+export { ScannedAssetsMetadata } from "./models/ScannedAssetsMetadata";
 export { SecurityFilter } from "./models/SecurityFilter";
 export { SecurityFilterAttributes } from "./models/SecurityFilterAttributes";
 export { SecurityFilterCreateAttributes } from "./models/SecurityFilterCreateAttributes";
@@ -320,6 +328,7 @@ export { UpdateResourceEvaluationFiltersResponse } from "./models/UpdateResource
 export { UpdateResourceEvaluationFiltersResponseData } from "./models/UpdateResourceEvaluationFiltersResponseData";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
+export { VulnerabilityAdvisory } from "./models/VulnerabilityAdvisory";
 export { VulnerabilityAttributes } from "./models/VulnerabilityAttributes";
 export { VulnerabilityCvss } from "./models/VulnerabilityCvss";
 export { VulnerabilityDependencyLocations } from "./models/VulnerabilityDependencyLocations";
