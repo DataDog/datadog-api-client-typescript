@@ -3656,77 +3656,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GetFindingResponse",
   },
-  "SecurityMonitoringApi.V2.ListVulnerableAssets": {
-    pageToken: {
-      type: "string",
-      format: "",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    filterName: {
-      type: "string",
-      format: "",
-    },
-    filterType: {
-      type: "AssetType",
-      format: "",
-    },
-    filterVersionFirst: {
-      type: "string",
-      format: "",
-    },
-    filterVersionLast: {
-      type: "string",
-      format: "",
-    },
-    filterRepositoryUrl: {
-      type: "string",
-      format: "",
-    },
-    filterRisksInProduction: {
-      type: "boolean",
-      format: "",
-    },
-    filterRisksUnderAttack: {
-      type: "boolean",
-      format: "",
-    },
-    filterRisksIsPubliclyAccessible: {
-      type: "boolean",
-      format: "",
-    },
-    filterRisksHasPrivilegedAccess: {
-      type: "boolean",
-      format: "",
-    },
-    filterRisksHasAccessToSensitiveData: {
-      type: "boolean",
-      format: "",
-    },
-    filterEnvironments: {
-      type: "string",
-      format: "",
-    },
-    filterTeams: {
-      type: "string",
-      format: "",
-    },
-    filterArch: {
-      type: "string",
-      format: "",
-    },
-    filterOperatingSystemName: {
-      type: "string",
-      format: "",
-    },
-    filterOperatingSystemVersion: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "ListVulnerableAssetsResponse",
-  },
   "SecurityMonitoringApi.V2.ListAssetsSBOMs": {
     pageToken: {
       type: "string",
@@ -3775,7 +3704,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    extFormat: {
+      type: "SBOMFormat",
+      format: "",
+    },
     operationResponseType: "GetSBOMResponse",
+  },
+  "SecurityMonitoringApi.V2.ListScannedAssetsMetadata": {
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterAssetType: {
+      type: "CloudAssetType",
+      format: "",
+    },
+    filterAssetName: {
+      type: "string",
+      format: "",
+    },
+    filterLastSuccessOrigin: {
+      type: "string",
+      format: "",
+    },
+    filterLastSuccessEnv: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ScannedAssetsMetadata",
   },
   "SecurityMonitoringApi.V2.GetSignalNotificationRules": {
     operationResponseType: "NotificationRulesList",
@@ -4017,6 +3977,77 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "NotificationRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.ListVulnerableAssets": {
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterName: {
+      type: "string",
+      format: "",
+    },
+    filterType: {
+      type: "AssetType",
+      format: "",
+    },
+    filterVersionFirst: {
+      type: "string",
+      format: "",
+    },
+    filterVersionLast: {
+      type: "string",
+      format: "",
+    },
+    filterRepositoryUrl: {
+      type: "string",
+      format: "",
+    },
+    filterRisksInProduction: {
+      type: "boolean",
+      format: "",
+    },
+    filterRisksUnderAttack: {
+      type: "boolean",
+      format: "",
+    },
+    filterRisksIsPubliclyAccessible: {
+      type: "boolean",
+      format: "",
+    },
+    filterRisksHasPrivilegedAccess: {
+      type: "boolean",
+      format: "",
+    },
+    filterRisksHasAccessToSensitiveData: {
+      type: "boolean",
+      format: "",
+    },
+    filterEnvironments: {
+      type: "string",
+      format: "",
+    },
+    filterTeams: {
+      type: "string",
+      format: "",
+    },
+    filterArch: {
+      type: "string",
+      format: "",
+    },
+    filterOperatingSystemName: {
+      type: "string",
+      format: "",
+    },
+    filterOperatingSystemVersion: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListVulnerableAssetsResponse",
   },
   "SecurityMonitoringApi.V2.ListSecurityFilters": {
     operationResponseType: "SecurityFiltersResponse",

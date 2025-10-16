@@ -111,6 +111,11 @@ import { SBOMComponentSupplier } from "./SBOMComponentSupplier";
 import { SBOMMetadata } from "./SBOMMetadata";
 import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
 import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
+import { ScannedAssetMetadata } from "./ScannedAssetMetadata";
+import { ScannedAssetMetadataAsset } from "./ScannedAssetMetadataAsset";
+import { ScannedAssetMetadataAttributes } from "./ScannedAssetMetadataAttributes";
+import { ScannedAssetMetadataLastSuccess } from "./ScannedAssetMetadataLastSuccess";
+import { ScannedAssetsMetadata } from "./ScannedAssetsMetadata";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -200,6 +205,7 @@ import { UpdateResourceEvaluationFiltersRequestData } from "./UpdateResourceEval
 import { UpdateResourceEvaluationFiltersResponse } from "./UpdateResourceEvaluationFiltersResponse";
 import { UpdateResourceEvaluationFiltersResponseData } from "./UpdateResourceEvaluationFiltersResponseData";
 import { Vulnerability } from "./Vulnerability";
+import { VulnerabilityAdvisory } from "./VulnerabilityAdvisory";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
 import { VulnerabilityCvss } from "./VulnerabilityCvss";
 import { VulnerabilityDependencyLocations } from "./VulnerabilityDependencyLocations";
@@ -212,6 +218,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AssetEntityType: ["assets"],
     AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
+    CloudAssetType: ["Host", "HostImage", "Image"],
     CloudConfigurationRuleType: ["cloud_configuration"],
     ConvertJobResultsToSignalsDataType: [
       "historicalDetectionsJobResultSignalConversion",
@@ -284,6 +291,7 @@ export const TypingInfo: ModelTypingInfo = {
       "operating-system",
       "platform",
     ],
+    SBOMFormat: ["CycloneDX", "SPDX"],
     SBOMType: ["sboms"],
     SecurityFilterFilteredDataType: ["logs"],
     SecurityFilterType: ["security_filters"],
@@ -601,6 +609,11 @@ export const TypingInfo: ModelTypingInfo = {
     SBOMMetadata: SBOMMetadata,
     SBOMMetadataAuthor: SBOMMetadataAuthor,
     SBOMMetadataComponent: SBOMMetadataComponent,
+    ScannedAssetMetadata: ScannedAssetMetadata,
+    ScannedAssetMetadataAsset: ScannedAssetMetadataAsset,
+    ScannedAssetMetadataAttributes: ScannedAssetMetadataAttributes,
+    ScannedAssetMetadataLastSuccess: ScannedAssetMetadataLastSuccess,
+    ScannedAssetsMetadata: ScannedAssetsMetadata,
     SecurityFilter: SecurityFilter,
     SecurityFilterAttributes: SecurityFilterAttributes,
     SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -739,6 +752,7 @@ export const TypingInfo: ModelTypingInfo = {
     UpdateResourceEvaluationFiltersResponseData:
       UpdateResourceEvaluationFiltersResponseData,
     Vulnerability: Vulnerability,
+    VulnerabilityAdvisory: VulnerabilityAdvisory,
     VulnerabilityAttributes: VulnerabilityAttributes,
     VulnerabilityCvss: VulnerabilityCvss,
     VulnerabilityDependencyLocations: VulnerabilityDependencyLocations,
