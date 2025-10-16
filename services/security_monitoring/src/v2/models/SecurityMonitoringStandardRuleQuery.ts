@@ -37,6 +37,10 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "index"?: string;
   /**
+   * List of indexes to query when the `dataSource` is `logs`. Only used for scheduled rules, such as when the `schedulingOptions` field is present in the rule payload.
+   */
+  "indexes"?: Array<string>;
+  /**
    * (Deprecated) The target field to aggregate over when using the sum or max
    * aggregations. `metrics` field should be used instead.
    */
@@ -95,6 +99,10 @@ export class SecurityMonitoringStandardRuleQuery {
     index: {
       baseName: "index",
       type: "string",
+    },
+    indexes: {
+      baseName: "indexes",
+      type: "Array<string>",
     },
     metric: {
       baseName: "metric",
