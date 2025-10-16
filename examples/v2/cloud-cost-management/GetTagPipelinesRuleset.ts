@@ -1,5 +1,5 @@
 /**
- * Get ruleset returns "OK" response
+ * Get a tag pipeline ruleset returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.CloudCostManagementApi(configuration);
 
 const params: v2.CloudCostManagementApiGetTagPipelinesRulesetRequest = {
-  rulesetId: "ruleset_id",
+  rulesetId: "a1e9de9b-b88e-41c6-a0cd-cc0ebd7092de",
 };
 
 apiInstance
