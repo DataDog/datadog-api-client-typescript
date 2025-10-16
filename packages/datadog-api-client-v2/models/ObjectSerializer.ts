@@ -1918,6 +1918,11 @@ import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
+import { ScannedAssetMetadata } from "./ScannedAssetMetadata";
+import { ScannedAssetMetadataAsset } from "./ScannedAssetMetadataAsset";
+import { ScannedAssetMetadataAttributes } from "./ScannedAssetMetadataAttributes";
+import { ScannedAssetMetadataLastSuccess } from "./ScannedAssetMetadataLastSuccess";
+import { ScannedAssetsMetadata } from "./ScannedAssetsMetadata";
 import { Schedule } from "./Schedule";
 import { ScheduleCreateRequest } from "./ScheduleCreateRequest";
 import { ScheduleCreateRequestData } from "./ScheduleCreateRequestData";
@@ -2387,6 +2392,7 @@ import { VirusTotalAPIKeyUpdate } from "./VirusTotalAPIKeyUpdate";
 import { VirusTotalIntegration } from "./VirusTotalIntegration";
 import { VirusTotalIntegrationUpdate } from "./VirusTotalIntegrationUpdate";
 import { Vulnerability } from "./Vulnerability";
+import { VulnerabilityAdvisory } from "./VulnerabilityAdvisory";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
 import { VulnerabilityCvss } from "./VulnerabilityCvss";
 import { VulnerabilityDependencyLocations } from "./VulnerabilityDependencyLocations";
@@ -2691,6 +2697,7 @@ const enumsMap: { [key: string]: any[] } = {
   CircleCIIntegrationType: ["CircleCI"],
   ClickupAPIKeyType: ["ClickupAPIKey"],
   ClickupIntegrationType: ["Clickup"],
+  CloudAssetType: ["Host", "HostImage", "Image"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentPolicyType: ["policy"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
@@ -3611,6 +3618,7 @@ const enumsMap: { [key: string]: any[] } = {
     "operating-system",
     "platform",
   ],
+  SBOMFormat: ["CycloneDX", "SPDX"],
   SBOMType: ["sboms"],
   SLOReportInterval: ["daily", "weekly", "monthly"],
   SLOReportStatus: [
@@ -6258,6 +6266,11 @@ const typeMap: { [index: string]: any } = {
   ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
   ScalarMeta: ScalarMeta,
   ScalarResponse: ScalarResponse,
+  ScannedAssetMetadata: ScannedAssetMetadata,
+  ScannedAssetMetadataAsset: ScannedAssetMetadataAsset,
+  ScannedAssetMetadataAttributes: ScannedAssetMetadataAttributes,
+  ScannedAssetMetadataLastSuccess: ScannedAssetMetadataLastSuccess,
+  ScannedAssetsMetadata: ScannedAssetsMetadata,
   Schedule: Schedule,
   ScheduleCreateRequest: ScheduleCreateRequest,
   ScheduleCreateRequestData: ScheduleCreateRequestData,
@@ -6825,6 +6838,7 @@ const typeMap: { [index: string]: any } = {
   VirusTotalIntegration: VirusTotalIntegration,
   VirusTotalIntegrationUpdate: VirusTotalIntegrationUpdate,
   Vulnerability: Vulnerability,
+  VulnerabilityAdvisory: VulnerabilityAdvisory,
   VulnerabilityAttributes: VulnerabilityAttributes,
   VulnerabilityCvss: VulnerabilityCvss,
   VulnerabilityDependencyLocations: VulnerabilityDependencyLocations,
