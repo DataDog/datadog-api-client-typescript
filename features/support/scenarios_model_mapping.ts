@@ -5234,6 +5234,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IssueResponse",
     },
+    "v2.DeleteIssueAssignee": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.UpdateIssueState": {
         "issueId": {
             "type": "string",
