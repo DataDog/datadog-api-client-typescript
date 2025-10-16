@@ -6,6 +6,7 @@ export {
   IncidentsApiCreateIncidentNotificationTemplateRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
+  IncidentsApiCreatePageFromIncidentRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentImpactRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
@@ -63,6 +64,11 @@ export { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpda
 export { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
+export { IncidentCreatePageAttributes } from "./models/IncidentCreatePageAttributes";
+export { IncidentCreatePageFromIncidentData } from "./models/IncidentCreatePageFromIncidentData";
+export { IncidentCreatePageFromIncidentRequest } from "./models/IncidentCreatePageFromIncidentRequest";
+export { IncidentCreatePageResponse } from "./models/IncidentCreatePageResponse";
+export { IncidentCreatePageResponseData } from "./models/IncidentCreatePageResponseData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
 export { IncidentCreateRequest } from "./models/IncidentCreateRequest";
 export { IncidentFieldAttributes } from "./models/IncidentFieldAttributes";
@@ -126,6 +132,10 @@ export { IncidentNotificationTemplateResponseData } from "./models/IncidentNotif
 export { IncidentNotificationTemplateType } from "./models/IncidentNotificationTemplateType";
 export { IncidentNotificationTemplateUpdateAttributes } from "./models/IncidentNotificationTemplateUpdateAttributes";
 export { IncidentNotificationTemplateUpdateData } from "./models/IncidentNotificationTemplateUpdateData";
+export { IncidentPageIdType } from "./models/IncidentPageIdType";
+export { IncidentPageTarget } from "./models/IncidentPageTarget";
+export { IncidentPageTargetType } from "./models/IncidentPageTargetType";
+export { IncidentPageType } from "./models/IncidentPageType";
 export { IncidentPostmortemType } from "./models/IncidentPostmortemType";
 export { IncidentRelatedObject } from "./models/IncidentRelatedObject";
 export { IncidentRespondersType } from "./models/IncidentRespondersType";
