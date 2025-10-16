@@ -5583,6 +5583,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.CreatePageFromIncident": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentCreatePageFromIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentCreatePageResponse",
+    },
     "v2.ListIncidentIntegrations": {
         "incidentId": {
             "type": "string",
