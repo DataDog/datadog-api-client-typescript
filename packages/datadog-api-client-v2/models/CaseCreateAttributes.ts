@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CasePriority } from "./CasePriority";
-import { CaseType } from "./CaseType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -25,9 +24,9 @@ export class CaseCreateAttributes {
    */
   "title": string;
   /**
-   * Case type
+   * Case type UUID
    */
-  "type": CaseType;
+  "typeId": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -58,9 +57,9 @@ export class CaseCreateAttributes {
       type: "string",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseType",
+    typeId: {
+      baseName: "type_id",
+      type: "string",
       required: true,
     },
     additionalProperties: {

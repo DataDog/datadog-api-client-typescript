@@ -3249,6 +3249,65 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.CommentCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseCommentRequest",
+            "format": "",
+            },
+        "operationResponseType": "TimelineResponse",
+    },
+    "v2.DeleteCaseComment": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "cellId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCaseCustomAttribute": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "customAttributeKey": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdateCustomAttributeRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.DeleteCaseCustomAttribute": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "customAttributeKey": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.UpdateCaseDescription": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdateDescriptionRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
     "v2.UpdatePriority": {
         "caseId": {
             "type": "string",
@@ -3267,6 +3326,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "body": {
             "type": "CaseUpdateStatusRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.UpdateCaseTitle": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdateTitleRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
@@ -3292,6 +3362,55 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CaseResponse",
+    },
+    "v2.GetAllCaseTypes": {
+        "operationResponseType": "CaseTypesResponse",
+    },
+    "v2.CreateCaseType": {
+        "body": {
+            "type": "CaseTypeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseTypeResponse",
+    },
+    "v2.DeleteCaseType": {
+        "caseTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetAllCustomAttributes": {
+        "operationResponseType": "CustomAttributeConfigsResponse",
+    },
+    "v2.GetAllCustomAttributeConfigsByCaseType": {
+        "caseTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomAttributeConfigsResponse",
+    },
+    "v2.CreateCustomAttributeConfig": {
+        "caseTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CustomAttributeConfigCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomAttributeConfigResponse",
+    },
+    "v2.DeleteCustomAttributeConfig": {
+        "caseTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "customAttributeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListCatalogEntity": {
         "pageOffset": {
