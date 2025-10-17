@@ -14,6 +14,7 @@ import { LogsGrokParser } from "./LogsGrokParser";
 import { LogsLookupProcessor } from "./LogsLookupProcessor";
 import { LogsMessageRemapper } from "./LogsMessageRemapper";
 import { LogsPipelineProcessor } from "./LogsPipelineProcessor";
+import { LogsSchemaProcessor } from "./LogsSchemaProcessor";
 import { LogsServiceRemapper } from "./LogsServiceRemapper";
 import { LogsSpanRemapper } from "./LogsSpanRemapper";
 import { LogsStatusRemapper } from "./LogsStatusRemapper";
@@ -49,4 +50,5 @@ export type LogsProcessor =
   | LogsSpanRemapper
   | LogsArrayProcessor
   | LogsDecoderProcessor
+  | LogsSchemaProcessor
   | UnparsedObject;
