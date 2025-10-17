@@ -3259,6 +3259,65 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CaseResponse",
   },
+  "CaseManagementApi.V2.CommentCase": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseCommentRequest",
+      format: "",
+    },
+    operationResponseType: "TimelineResponse",
+  },
+  "CaseManagementApi.V2.DeleteCaseComment": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    cellId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementApi.V2.UpdateCaseCustomAttribute": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    customAttributeKey: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseUpdateCustomAttributeRequest",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
+  "CaseManagementApi.V2.DeleteCaseCustomAttribute": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    customAttributeKey: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
+  "CaseManagementApi.V2.UpdateCaseDescription": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseUpdateDescriptionRequest",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
   "CaseManagementApi.V2.UpdatePriority": {
     caseId: {
       type: "string",
@@ -3277,6 +3336,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     body: {
       type: "CaseUpdateStatusRequest",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
+  "CaseManagementApi.V2.UpdateCaseTitle": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseUpdateTitleRequest",
       format: "",
     },
     operationResponseType: "CaseResponse",
@@ -3302,6 +3372,55 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "CaseResponse",
+  },
+  "CaseManagementTypeApi.V2.GetAllCaseTypes": {
+    operationResponseType: "CaseTypesResponse",
+  },
+  "CaseManagementTypeApi.V2.CreateCaseType": {
+    body: {
+      type: "CaseTypeCreateRequest",
+      format: "",
+    },
+    operationResponseType: "CaseTypeResponse",
+  },
+  "CaseManagementTypeApi.V2.DeleteCaseType": {
+    caseTypeId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementAttributeApi.V2.GetAllCustomAttributes": {
+    operationResponseType: "CustomAttributeConfigsResponse",
+  },
+  "CaseManagementAttributeApi.V2.GetAllCustomAttributeConfigsByCaseType": {
+    caseTypeId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CustomAttributeConfigsResponse",
+  },
+  "CaseManagementAttributeApi.V2.CreateCustomAttributeConfig": {
+    caseTypeId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CustomAttributeConfigCreateRequest",
+      format: "",
+    },
+    operationResponseType: "CustomAttributeConfigResponse",
+  },
+  "CaseManagementAttributeApi.V2.DeleteCustomAttributeConfig": {
+    caseTypeId: {
+      type: "string",
+      format: "",
+    },
+    customAttributeId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "SoftwareCatalogApi.V2.ListCatalogEntity": {
     pageOffset: {

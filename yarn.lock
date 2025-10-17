@@ -370,6 +370,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-case-management-attribute@workspace:services/case_management_attribute":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-case-management-attribute@workspace:services/case_management_attribute"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-case-management-type@workspace:services/case_management_type":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-case-management-type@workspace:services/case_management_type"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-case-management@workspace:services/case_management":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-case-management@workspace:services/case_management"
