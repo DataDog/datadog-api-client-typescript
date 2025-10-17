@@ -152,8 +152,11 @@ export {
 export {
   CaseManagementApiArchiveCaseRequest,
   CaseManagementApiAssignCaseRequest,
+  CaseManagementApiCommentCaseRequest,
   CaseManagementApiCreateCaseRequest,
   CaseManagementApiCreateProjectRequest,
+  CaseManagementApiDeleteCaseCommentRequest,
+  CaseManagementApiDeleteCaseCustomAttributeRequest,
   CaseManagementApiDeleteProjectRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
@@ -161,10 +164,26 @@ export {
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
   CaseManagementApiUpdateAttributesRequest,
+  CaseManagementApiUpdateCaseCustomAttributeRequest,
+  CaseManagementApiUpdateCaseDescriptionRequest,
+  CaseManagementApiUpdateCaseTitleRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateStatusRequest,
   CaseManagementApi,
 } from "./apis/CaseManagementApi";
+
+export {
+  CaseManagementAttributeApiCreateCustomAttributeConfigRequest,
+  CaseManagementAttributeApiDeleteCustomAttributeConfigRequest,
+  CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest,
+  CaseManagementAttributeApi,
+} from "./apis/CaseManagementAttributeApi";
+
+export {
+  CaseManagementTypeApiCreateCaseTypeRequest,
+  CaseManagementTypeApiDeleteCaseTypeRequest,
+  CaseManagementTypeApi,
+} from "./apis/CaseManagementTypeApi";
 
 export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
@@ -1226,6 +1245,9 @@ export { CaseAssign } from "./models/CaseAssign";
 export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
 export { CaseAssignRequest } from "./models/CaseAssignRequest";
 export { CaseAttributes } from "./models/CaseAttributes";
+export { CaseComment } from "./models/CaseComment";
+export { CaseCommentAttributes } from "./models/CaseCommentAttributes";
+export { CaseCommentRequest } from "./models/CaseCommentRequest";
 export { CaseCreate } from "./models/CaseCreate";
 export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
 export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
@@ -1244,15 +1266,30 @@ export { CaseStatus } from "./models/CaseStatus";
 export { CaseTrigger } from "./models/CaseTrigger";
 export { CaseTriggerWrapper } from "./models/CaseTriggerWrapper";
 export { CaseType } from "./models/CaseType";
+export { CaseTypeCreate } from "./models/CaseTypeCreate";
+export { CaseTypeCreateRequest } from "./models/CaseTypeCreateRequest";
+export { CaseTypeResource } from "./models/CaseTypeResource";
+export { CaseTypeResourceAttributes } from "./models/CaseTypeResourceAttributes";
+export { CaseTypeResourceType } from "./models/CaseTypeResourceType";
+export { CaseTypeResponse } from "./models/CaseTypeResponse";
+export { CaseTypesResponse } from "./models/CaseTypesResponse";
 export { CaseUpdateAttributes } from "./models/CaseUpdateAttributes";
 export { CaseUpdateAttributesAttributes } from "./models/CaseUpdateAttributesAttributes";
 export { CaseUpdateAttributesRequest } from "./models/CaseUpdateAttributesRequest";
+export { CaseUpdateCustomAttribute } from "./models/CaseUpdateCustomAttribute";
+export { CaseUpdateCustomAttributeRequest } from "./models/CaseUpdateCustomAttributeRequest";
+export { CaseUpdateDescription } from "./models/CaseUpdateDescription";
+export { CaseUpdateDescriptionAttributes } from "./models/CaseUpdateDescriptionAttributes";
+export { CaseUpdateDescriptionRequest } from "./models/CaseUpdateDescriptionRequest";
 export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
 export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
 export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
 export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
 export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
+export { CaseUpdateTitle } from "./models/CaseUpdateTitle";
+export { CaseUpdateTitleAttributes } from "./models/CaseUpdateTitleAttributes";
+export { CaseUpdateTitleRequest } from "./models/CaseUpdateTitleRequest";
 export { ChangeEventAttributes } from "./models/ChangeEventAttributes";
 export { ChangeEventAttributesAuthor } from "./models/ChangeEventAttributesAuthor";
 export { ChangeEventAttributesAuthorType } from "./models/ChangeEventAttributesAuthorType";
@@ -1595,6 +1632,17 @@ export { CsmHostsAndContainersCoverageAnalysisResponse } from "./models/CsmHosts
 export { CsmServerlessCoverageAnalysisAttributes } from "./models/CsmServerlessCoverageAnalysisAttributes";
 export { CsmServerlessCoverageAnalysisData } from "./models/CsmServerlessCoverageAnalysisData";
 export { CsmServerlessCoverageAnalysisResponse } from "./models/CsmServerlessCoverageAnalysisResponse";
+export { CustomAttributeConfig } from "./models/CustomAttributeConfig";
+export { CustomAttributeConfigAttributesCreate } from "./models/CustomAttributeConfigAttributesCreate";
+export { CustomAttributeConfigCreate } from "./models/CustomAttributeConfigCreate";
+export { CustomAttributeConfigCreateRequest } from "./models/CustomAttributeConfigCreateRequest";
+export { CustomAttributeConfigResourceAttributes } from "./models/CustomAttributeConfigResourceAttributes";
+export { CustomAttributeConfigResourceType } from "./models/CustomAttributeConfigResourceType";
+export { CustomAttributeConfigResponse } from "./models/CustomAttributeConfigResponse";
+export { CustomAttributeConfigsResponse } from "./models/CustomAttributeConfigsResponse";
+export { CustomAttributeType } from "./models/CustomAttributeType";
+export { CustomAttributeValue } from "./models/CustomAttributeValue";
+export { CustomAttributeValuesUnion } from "./models/CustomAttributeValuesUnion";
 export { CustomConnection } from "./models/CustomConnection";
 export { CustomConnectionAttributes } from "./models/CustomConnectionAttributes";
 export { CustomConnectionAttributesOnPremRunner } from "./models/CustomConnectionAttributesOnPremRunner";
@@ -3950,6 +3998,17 @@ export { TeamUpdate } from "./models/TeamUpdate";
 export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
 export { TeamUpdateRelationships } from "./models/TeamUpdateRelationships";
 export { TeamUpdateRequest } from "./models/TeamUpdateRequest";
+export { TimelineCell } from "./models/TimelineCell";
+export { TimelineCellAuthor } from "./models/TimelineCellAuthor";
+export { TimelineCellAuthorUser } from "./models/TimelineCellAuthorUser";
+export { TimelineCellAuthorUserContent } from "./models/TimelineCellAuthorUserContent";
+export { TimelineCellAuthorUserType } from "./models/TimelineCellAuthorUserType";
+export { TimelineCellContent } from "./models/TimelineCellContent";
+export { TimelineCellContentComment } from "./models/TimelineCellContentComment";
+export { TimelineCellResource } from "./models/TimelineCellResource";
+export { TimelineCellResourceType } from "./models/TimelineCellResourceType";
+export { TimelineCellType } from "./models/TimelineCellType";
+export { TimelineResponse } from "./models/TimelineResponse";
 export { TimeRestriction } from "./models/TimeRestriction";
 export { TimeRestrictions } from "./models/TimeRestrictions";
 export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
