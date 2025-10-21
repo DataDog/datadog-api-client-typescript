@@ -3,20 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Logs Collection config.
+ * The EventBridge source to be deleted.
  */
-export class AWSLogsConfig {
+export class AWSEventBridgeDeleteRequestAttributes {
   /**
-   * Log Autosubscription configuration for Datadog Forwarder Lambda functions.
-   * Automatically set up triggers for existing and new logs for some services,
-   * ensuring no logs from new resources are missed and saving time spent on manual configuration.
+   * AWS Account ID.
    */
-  "lambdaForwarder"?: AWSLambdaForwarderConfig;
+  "accountId": string;
+  /**
+   * The event source name.
+   */
+  "eventGeneratorName": string;
+  /**
+   * The event source's
+   * [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
+   */
+  "region": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,9 +40,20 @@ export class AWSLogsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lambdaForwarder: {
-      baseName: "lambda_forwarder",
-      type: "AWSLambdaForwarderConfig",
+    accountId: {
+      baseName: "account_id",
+      type: "string",
+      required: true,
+    },
+    eventGeneratorName: {
+      baseName: "event_generator_name",
+      type: "string",
+      required: true,
+    },
+    region: {
+      baseName: "region",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +65,7 @@ export class AWSLogsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsConfig.attributeTypeMap;
+    return AWSEventBridgeDeleteRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}

@@ -8,8 +8,9 @@ import { AWSLambdaForwarderConfigLogSourceConfig } from "./AWSLambdaForwarderCon
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up triggers for existing
- * and new logs for some services, ensuring no logs from new resources are missed and saving time spent on manual configuration.
+ * Log Autosubscription configuration for Datadog Forwarder Lambda functions.
+ * Automatically set up triggers for existing and new logs for some services,
+ * ensuring no logs from new resources are missed and saving time spent on manual configuration.
  */
 export class AWSLambdaForwarderConfig {
   /**
@@ -21,8 +22,10 @@ export class AWSLambdaForwarderConfig {
    */
   "logSourceConfig"?: AWSLambdaForwarderConfigLogSourceConfig;
   /**
-   * List of service IDs set to enable automatic log collection. Discover the list of available services with the
-   * [Get list of AWS log ready services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services) endpoint.
+   * List of service IDs set to enable automatic log collection.
+   * Discover the list of available services with the
+   * [Get list of AWS log ready services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services)
+   * endpoint.
    */
   "sources"?: Array<string>;
 

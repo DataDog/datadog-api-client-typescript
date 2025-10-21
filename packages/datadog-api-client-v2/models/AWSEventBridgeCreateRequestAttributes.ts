@@ -3,30 +3,32 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AWSAccountResponseAttributes } from "./AWSAccountResponseAttributes";
-import { AWSAccountType } from "./AWSAccountType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Account response data.
+ * The EventBridge source to be created.
  */
-export class AWSAccountResponseData {
+export class AWSEventBridgeCreateRequestAttributes {
   /**
-   * AWS Account response attributes.
+   * AWS Account ID.
    */
-  "attributes"?: AWSAccountResponseAttributes;
+  "accountId": string;
   /**
-   * Unique Datadog ID of the AWS Account Integration Config.
-   * To get the config ID for an account, use the
-   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
-   * endpoint and query by AWS Account ID.
+   * Set to true if Datadog should create the event bus in addition to the event
+   * source. Requires the `events:CreateEventBus` permission.
    */
-  "id": string;
+  "createEventBus"?: boolean;
   /**
-   * AWS Account resource type.
+   * The given part of the event source name, which is then combined with an
+   * assigned suffix to form the full name.
    */
-  "type": AWSAccountType;
+  "eventGeneratorName": string;
+  /**
+   * The event source's
+   * [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
+   */
+  "region": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,18 +46,23 @@ export class AWSAccountResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSAccountResponseAttributes",
-    },
-    id: {
-      baseName: "id",
+    accountId: {
+      baseName: "account_id",
       type: "string",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSAccountType",
+    createEventBus: {
+      baseName: "create_event_bus",
+      type: "boolean",
+    },
+    eventGeneratorName: {
+      baseName: "event_generator_name",
+      type: "string",
+      required: true,
+    },
+    region: {
+      baseName: "region",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -68,7 +75,7 @@ export class AWSAccountResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountResponseData.attributeTypeMap;
+    return AWSEventBridgeCreateRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}
