@@ -2,7 +2,8 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
  * AWS partition your AWS account is scoped to. Defaults to `aws`.
- * See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html) in the AWS documentation for more information.
+ * See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html)
+ * in the AWS documentation for more information.
  */
 export type AWSAccountPartition =
   | typeof AWS

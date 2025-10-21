@@ -2,10 +2,12 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
  * AWS Metrics Collection tag filters list. Defaults to `[]`.
- * The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service.
- * Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported.
- * For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored.
- * For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+ * The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses
+ * when collecting metrics from a specified service.
+ * Wildcards, such as `?` (match a single character) and `*` (match multiple characters),
+ * and exclusion using `!` before the tag are supported.
+ * For EC2, only hosts that match one of the defined tags are imported into Datadog.
+ * The rest are ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
  */
 export class AWSNamespaceTagFilter {
   /**
