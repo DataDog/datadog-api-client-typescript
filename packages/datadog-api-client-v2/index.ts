@@ -308,6 +308,7 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  ErrorTrackingApiDeleteIssueAssigneeRequest,
   ErrorTrackingApiGetIssueRequest,
   ErrorTrackingApiSearchIssuesRequest,
   ErrorTrackingApiUpdateIssueAssigneeRequest,
