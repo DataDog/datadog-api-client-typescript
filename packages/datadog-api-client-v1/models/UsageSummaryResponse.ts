@@ -693,9 +693,113 @@ export class UsageSummaryResponse {
    */
   "sdsTotalScannedBytesSum"?: number;
   /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Azure App Service instances in the current month for all organizations.
+   */
+  "serverlessAppsApmApmAzureAppserviceInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Azure Function instances in the current month for all organizations.
+   */
+  "serverlessAppsApmApmAzureAzurefunctionInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Azure Container App instances in the current month for all organizations.
+   */
+  "serverlessAppsApmApmAzureContainerappInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Fargate Elastic Container Service tasks in the current month for all organizations.
+   */
+  "serverlessAppsApmApmFargateEcsTasksAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Google Cloud Platform Cloud Function instances in the current month for all organizations.
+   */
+  "serverlessAppsApmApmGcpCloudfunctionInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Google Cloud Platform Cloud Run instances in the current month for all organizations.
+   */
+  "serverlessAppsApmApmGcpCloudrunInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring in the current month for all organizations.
+   */
+  "serverlessAppsApmAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure App Service instances in the current month for all organizations.
+   */
+  "serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure Function instances in the current month for all organizations.
+   */
+  "serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure Container App instances in the current month for all organizations.
+   */
+  "serverlessAppsApmExclFargateApmAzureContainerappInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Function instances in the current month for all organizations.
+   */
+  "serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Run instances in the current month for all organizations.
+   */
+  "serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate in the current month for all organizations.
+   */
+  "serverlessAppsApmExclFargateAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Azure Container App instances in the current month for all organizations.
+   */
+  "serverlessAppsAzureContainerAppInstancesAvgSum"?: number;
+  /**
    * Sum of the average number of Serverless Apps for Azure in the current month for all organizations.
    */
   "serverlessAppsAzureCountAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Azure Function App instances in the current month for all organizations.
+   */
+  "serverlessAppsAzureFunctionAppInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Azure Web App instances in the current month for all organizations.
+   */
+  "serverlessAppsAzureWebAppInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Elastic Container Service in the current month for all organizations.
+   */
+  "serverlessAppsEcsAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Elastic Kubernetes Service in the current month for all organizations.
+   */
+  "serverlessAppsEksAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps excluding Fargate in the current month for all organizations.
+   */
+  "serverlessAppsExclFargateAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps excluding Fargate for Azure Container App instances in the current month for all organizations.
+   */
+  "serverlessAppsExclFargateAzureContainerAppInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps excluding Fargate for Azure Function App instances in the current month for all organizations.
+   */
+  "serverlessAppsExclFargateAzureFunctionAppInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps excluding Fargate for Azure Web App instances in the current month for all organizations.
+   */
+  "serverlessAppsExclFargateAzureWebAppInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud Functions instances in the current month for all organizations.
+   */
+  "serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud Run instances in the current month for all organizations.
+   */
+  "serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Google Cloud Platform Cloud Functions instances in the current month for all organizations.
+   */
+  "serverlessAppsGoogleCloudFunctionsInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Google Cloud Platform Cloud Run instances in the current month for all organizations.
+   */
+  "serverlessAppsGoogleCloudRunInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Google Cloud in the current month for all organizations.
    */
@@ -1623,8 +1727,147 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    serverlessAppsApmApmAzureAppserviceInstancesAvgSum: {
+      baseName: "serverless_apps_apm_apm_azure_appservice_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmApmAzureAzurefunctionInstancesAvgSum: {
+      baseName: "serverless_apps_apm_apm_azure_azurefunction_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmApmAzureContainerappInstancesAvgSum: {
+      baseName: "serverless_apps_apm_apm_azure_containerapp_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmApmFargateEcsTasksAvgSum: {
+      baseName: "serverless_apps_apm_apm_fargate_ecs_tasks_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmApmGcpCloudfunctionInstancesAvgSum: {
+      baseName: "serverless_apps_apm_apm_gcp_cloudfunction_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmApmGcpCloudrunInstancesAvgSum: {
+      baseName: "serverless_apps_apm_apm_gcp_cloudrun_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmAvgSum: {
+      baseName: "serverless_apps_apm_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvgSum: {
+      baseName:
+        "serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvgSum: {
+      baseName:
+        "serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateApmAzureContainerappInstancesAvgSum: {
+      baseName:
+        "serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvgSum: {
+      baseName:
+        "serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum: {
+      baseName:
+        "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateAvgSum: {
+      baseName: "serverless_apps_apm_excl_fargate_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsAzureContainerAppInstancesAvgSum: {
+      baseName: "serverless_apps_azure_container_app_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
     serverlessAppsAzureCountAvgSum: {
       baseName: "serverless_apps_azure_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsAzureFunctionAppInstancesAvgSum: {
+      baseName: "serverless_apps_azure_function_app_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsAzureWebAppInstancesAvgSum: {
+      baseName: "serverless_apps_azure_web_app_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsEcsAvgSum: {
+      baseName: "serverless_apps_ecs_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsEksAvgSum: {
+      baseName: "serverless_apps_eks_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsExclFargateAvgSum: {
+      baseName: "serverless_apps_excl_fargate_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsExclFargateAzureContainerAppInstancesAvgSum: {
+      baseName:
+        "serverless_apps_excl_fargate_azure_container_app_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsExclFargateAzureFunctionAppInstancesAvgSum: {
+      baseName:
+        "serverless_apps_excl_fargate_azure_function_app_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsExclFargateAzureWebAppInstancesAvgSum: {
+      baseName: "serverless_apps_excl_fargate_azure_web_app_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvgSum: {
+      baseName:
+        "serverless_apps_excl_fargate_google_cloud_functions_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum: {
+      baseName:
+        "serverless_apps_excl_fargate_google_cloud_run_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsGoogleCloudFunctionsInstancesAvgSum: {
+      baseName: "serverless_apps_google_cloud_functions_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsGoogleCloudRunInstancesAvgSum: {
+      baseName: "serverless_apps_google_cloud_run_instances_avg_sum",
       type: "number",
       format: "int64",
     },
