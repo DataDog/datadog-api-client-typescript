@@ -5394,6 +5394,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IssueResponse",
   },
+  "ErrorTrackingApi.V2.DeleteIssueAssignee": {
+    issueId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "ErrorTrackingApi.V2.UpdateIssueState": {
     issueId: {
       type: "string",
