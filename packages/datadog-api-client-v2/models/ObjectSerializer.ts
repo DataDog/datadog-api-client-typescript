@@ -884,6 +884,16 @@ import { FlakyTestsSearchRequestAttributes } from "./FlakyTestsSearchRequestAttr
 import { FlakyTestsSearchRequestData } from "./FlakyTestsSearchRequestData";
 import { FlakyTestsSearchResponse } from "./FlakyTestsSearchResponse";
 import { FlakyTestsSearchResponseMeta } from "./FlakyTestsSearchResponseMeta";
+import { FleetDeployment } from "./FleetDeployment";
+import { FleetDeploymentAttributes } from "./FleetDeploymentAttributes";
+import { FleetDeploymentConfigureAttributes } from "./FleetDeploymentConfigureAttributes";
+import { FleetDeploymentConfigureCreate } from "./FleetDeploymentConfigureCreate";
+import { FleetDeploymentConfigureCreateRequest } from "./FleetDeploymentConfigureCreateRequest";
+import { FleetDeploymentOperation } from "./FleetDeploymentOperation";
+import { FleetDeploymentResponse } from "./FleetDeploymentResponse";
+import { FleetDeploymentsPage } from "./FleetDeploymentsPage";
+import { FleetDeploymentsResponse } from "./FleetDeploymentsResponse";
+import { FleetDeploymentsResponseMeta } from "./FleetDeploymentsResponseMeta";
 import { FormulaLimit } from "./FormulaLimit";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FreshserviceAPIKey } from "./FreshserviceAPIKey";
@@ -2964,6 +2974,8 @@ const enumsMap: { [key: string]: any[] } = {
     "pipelines_duration_lost",
     "-pipelines_duration_lost",
   ],
+  FleetDeploymentFileOp: ["merge-patch", "delete"],
+  FleetDeploymentResourceType: ["deployment"],
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
   FreshserviceIntegrationType: ["Freshservice"],
   GCPIntegrationType: ["GCP"],
@@ -5099,6 +5111,16 @@ const typeMap: { [index: string]: any } = {
   FlakyTestsSearchRequestData: FlakyTestsSearchRequestData,
   FlakyTestsSearchResponse: FlakyTestsSearchResponse,
   FlakyTestsSearchResponseMeta: FlakyTestsSearchResponseMeta,
+  FleetDeployment: FleetDeployment,
+  FleetDeploymentAttributes: FleetDeploymentAttributes,
+  FleetDeploymentConfigureAttributes: FleetDeploymentConfigureAttributes,
+  FleetDeploymentConfigureCreate: FleetDeploymentConfigureCreate,
+  FleetDeploymentConfigureCreateRequest: FleetDeploymentConfigureCreateRequest,
+  FleetDeploymentOperation: FleetDeploymentOperation,
+  FleetDeploymentResponse: FleetDeploymentResponse,
+  FleetDeploymentsPage: FleetDeploymentsPage,
+  FleetDeploymentsResponse: FleetDeploymentsResponse,
+  FleetDeploymentsResponseMeta: FleetDeploymentsResponseMeta,
   FormulaLimit: FormulaLimit,
   FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
   FreshserviceAPIKey: FreshserviceAPIKey,
