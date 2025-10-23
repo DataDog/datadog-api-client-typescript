@@ -1809,6 +1809,15 @@ import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
 import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
 import { ReorderRulesetResourceData } from "./ReorderRulesetResourceData";
+import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
+import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
+import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
+import { ResolveVulnerableSymbolsResponse } from "./ResolveVulnerableSymbolsResponse";
+import { ResolveVulnerableSymbolsResponseData } from "./ResolveVulnerableSymbolsResponseData";
+import { ResolveVulnerableSymbolsResponseDataAttributes } from "./ResolveVulnerableSymbolsResponseDataAttributes";
+import { ResolveVulnerableSymbolsResponseResults } from "./ResolveVulnerableSymbolsResponseResults";
+import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbols";
+import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols";
 import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
@@ -1936,6 +1945,20 @@ import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
 import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
 import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
+import { ScaRequest } from "./ScaRequest";
+import { ScaRequestData } from "./ScaRequestData";
+import { ScaRequestDataAttributes } from "./ScaRequestDataAttributes";
+import { ScaRequestDataAttributesCommit } from "./ScaRequestDataAttributesCommit";
+import { ScaRequestDataAttributesDependenciesItems } from "./ScaRequestDataAttributesDependenciesItems";
+import { ScaRequestDataAttributesDependenciesItemsLocationsItems } from "./ScaRequestDataAttributesDependenciesItemsLocationsItems";
+import { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition";
+import { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition";
+import { ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems } from "./ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems";
+import { ScaRequestDataAttributesFilesItems } from "./ScaRequestDataAttributesFilesItems";
+import { ScaRequestDataAttributesRelationsItems } from "./ScaRequestDataAttributesRelationsItems";
+import { ScaRequestDataAttributesRepository } from "./ScaRequestDataAttributesRepository";
+import { ScaRequestDataAttributesVulnerabilitiesItems } from "./ScaRequestDataAttributesVulnerabilitiesItems";
+import { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
 import { ScalarFormulaRequest } from "./ScalarFormulaRequest";
@@ -3560,6 +3583,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ReorderRuleResourceDataType: ["arbitrary_rule"],
   ReorderRulesetResourceDataType: ["ruleset"],
+  ResolveVulnerableSymbolsRequestDataType: [
+    "resolve-vulnerable-symbols-request",
+  ],
+  ResolveVulnerableSymbolsResponseDataType: [
+    "resolve-vulnerable-symbols-response",
+  ],
   ResourceFilterRequestType: ["csm_resource_filter"],
   RestrictionPolicyType: ["restriction_policy"],
   RetentionFilterAllType: [
@@ -3661,6 +3690,7 @@ const enumsMap: { [key: string]: any[] } = {
     "completed_with_errors",
     "failed",
   ],
+  ScaRequestDataType: ["scarequests"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
@@ -6188,6 +6218,20 @@ const typeMap: { [index: string]: any } = {
   ReorderRuleResourceData: ReorderRuleResourceData,
   ReorderRulesetResourceArray: ReorderRulesetResourceArray,
   ReorderRulesetResourceData: ReorderRulesetResourceData,
+  ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
+  ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
+  ResolveVulnerableSymbolsRequestDataAttributes:
+    ResolveVulnerableSymbolsRequestDataAttributes,
+  ResolveVulnerableSymbolsResponse: ResolveVulnerableSymbolsResponse,
+  ResolveVulnerableSymbolsResponseData: ResolveVulnerableSymbolsResponseData,
+  ResolveVulnerableSymbolsResponseDataAttributes:
+    ResolveVulnerableSymbolsResponseDataAttributes,
+  ResolveVulnerableSymbolsResponseResults:
+    ResolveVulnerableSymbolsResponseResults,
+  ResolveVulnerableSymbolsResponseResultsVulnerableSymbols:
+    ResolveVulnerableSymbolsResponseResultsVulnerableSymbols,
+  ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols:
+    ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols,
   ResourceFilterAttributes: ResourceFilterAttributes,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
@@ -6322,6 +6366,28 @@ const typeMap: { [index: string]: any } = {
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
   SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
   SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
+  ScaRequest: ScaRequest,
+  ScaRequestData: ScaRequestData,
+  ScaRequestDataAttributes: ScaRequestDataAttributes,
+  ScaRequestDataAttributesCommit: ScaRequestDataAttributesCommit,
+  ScaRequestDataAttributesDependenciesItems:
+    ScaRequestDataAttributesDependenciesItems,
+  ScaRequestDataAttributesDependenciesItemsLocationsItems:
+    ScaRequestDataAttributesDependenciesItemsLocationsItems,
+  ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition:
+    ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition,
+  ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition:
+    ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition,
+  ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems:
+    ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems,
+  ScaRequestDataAttributesFilesItems: ScaRequestDataAttributesFilesItems,
+  ScaRequestDataAttributesRelationsItems:
+    ScaRequestDataAttributesRelationsItems,
+  ScaRequestDataAttributesRepository: ScaRequestDataAttributesRepository,
+  ScaRequestDataAttributesVulnerabilitiesItems:
+    ScaRequestDataAttributesVulnerabilitiesItems,
+  ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems:
+    ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems,
   ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
   ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
   ScalarFormulaRequest: ScalarFormulaRequest,

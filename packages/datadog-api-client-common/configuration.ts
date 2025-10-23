@@ -320,6 +320,8 @@ export function createConfiguration(
       "v2.getSLOReport": false,
       "v2.getSLOReportJobStatus": false,
       "v2.getSPARecommendations": false,
+      "v2.createSCAResolveVulnerableSymbols": false,
+      "v2.createSCAResult": false,
       "v2.addMemberTeam": false,
       "v2.listMemberTeams": false,
       "v2.removeMemberTeam": false,
