@@ -190,6 +190,13 @@ import { LogsPipelinesOrder } from "./LogsPipelinesOrder";
 import { LogsQueryCompute } from "./LogsQueryCompute";
 import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
+import { LogsSchemaCategoryMapper } from "./LogsSchemaCategoryMapper";
+import { LogsSchemaCategoryMapperCategory } from "./LogsSchemaCategoryMapperCategory";
+import { LogsSchemaCategoryMapperFallback } from "./LogsSchemaCategoryMapperFallback";
+import { LogsSchemaCategoryMapperTargets } from "./LogsSchemaCategoryMapperTargets";
+import { LogsSchemaData } from "./LogsSchemaData";
+import { LogsSchemaProcessor } from "./LogsSchemaProcessor";
+import { LogsSchemaRemapper } from "./LogsSchemaRemapper";
 import { LogsServiceRemapper } from "./LogsServiceRemapper";
 import { LogsSpanRemapper } from "./LogsSpanRemapper";
 import { LogsStatusRemapper } from "./LogsStatusRemapper";
@@ -951,6 +958,9 @@ const enumsMap: { [key: string]: any[] } = {
   LogsLookupProcessorType: ["lookup-processor"],
   LogsMessageRemapperType: ["message-remapper"],
   LogsPipelineProcessorType: ["pipeline"],
+  LogsSchemaCategoryMapperType: ["schema-category-mapper"],
+  LogsSchemaProcessorType: ["schema-processor"],
+  LogsSchemaRemapperType: ["schema-remapper"],
   LogsServiceRemapperType: ["service-remapper"],
   LogsSort: ["asc", "desc"],
   LogsSpanRemapperType: ["span-id-remapper"],
@@ -1914,6 +1924,13 @@ const typeMap: { [index: string]: any } = {
   LogsQueryCompute: LogsQueryCompute,
   LogsRetentionAggSumUsage: LogsRetentionAggSumUsage,
   LogsRetentionSumUsage: LogsRetentionSumUsage,
+  LogsSchemaCategoryMapper: LogsSchemaCategoryMapper,
+  LogsSchemaCategoryMapperCategory: LogsSchemaCategoryMapperCategory,
+  LogsSchemaCategoryMapperFallback: LogsSchemaCategoryMapperFallback,
+  LogsSchemaCategoryMapperTargets: LogsSchemaCategoryMapperTargets,
+  LogsSchemaData: LogsSchemaData,
+  LogsSchemaProcessor: LogsSchemaProcessor,
+  LogsSchemaRemapper: LogsSchemaRemapper,
   LogsServiceRemapper: LogsServiceRemapper,
   LogsSpanRemapper: LogsSpanRemapper,
   LogsStatusRemapper: LogsStatusRemapper,
@@ -2448,7 +2465,9 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsSpanRemapper",
     "LogsArrayProcessor",
     "LogsDecoderProcessor",
+    "LogsSchemaProcessor",
   ],
+  LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
     "MonitorFormulaAndFunctionCostQueryDefinition",
