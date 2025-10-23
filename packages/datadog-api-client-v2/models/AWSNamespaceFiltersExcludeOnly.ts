@@ -7,13 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Exclude only these namespaces from metrics collection. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`.
- * `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+ * Exclude only these namespaces from metrics collection.
+ * Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`.
+ * `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default
+ * to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
  */
 export class AWSNamespaceFiltersExcludeOnly {
   /**
-   * Exclude only these namespaces from metrics collection. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`.
-   * `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+   * Exclude only these namespaces from metrics collection.
+   * Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`.
+   * `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default
+   * to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
    */
   "excludeOnly": Array<string>;
 

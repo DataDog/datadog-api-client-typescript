@@ -3,20 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSEventBridgeSource } from "./AWSEventBridgeSource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Logs Collection config.
+ * The EventBridge configuration for one AWS account.
  */
-export class AWSLogsConfig {
+export class AWSEventBridgeAccountConfiguration {
   /**
-   * Log Autosubscription configuration for Datadog Forwarder Lambda functions.
-   * Automatically set up triggers for existing and new logs for some services,
-   * ensuring no logs from new resources are missed and saving time spent on manual configuration.
+   * Your AWS Account ID without dashes.
    */
-  "lambdaForwarder"?: AWSLambdaForwarderConfig;
+  "accountId"?: string;
+  /**
+   * Array of AWS event sources associated with this account.
+   */
+  "eventHubs"?: Array<AWSEventBridgeSource>;
+  /**
+   * Array of tags (in the form `key:value`) which are added to all hosts
+   * and metrics reporting through the main AWS integration.
+   */
+  "tags"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,9 +41,17 @@ export class AWSLogsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lambdaForwarder: {
-      baseName: "lambda_forwarder",
-      type: "AWSLambdaForwarderConfig",
+    accountId: {
+      baseName: "account_id",
+      type: "string",
+    },
+    eventHubs: {
+      baseName: "event_hubs",
+      type: "Array<AWSEventBridgeSource>",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +63,7 @@ export class AWSLogsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsConfig.attributeTypeMap;
+    return AWSEventBridgeAccountConfiguration.attributeTypeMap;
   }
 
   public constructor() {}

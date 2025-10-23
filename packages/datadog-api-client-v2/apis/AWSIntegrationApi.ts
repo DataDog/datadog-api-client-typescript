@@ -21,6 +21,11 @@ import { AWSAccountCreateRequest } from "../models/AWSAccountCreateRequest";
 import { AWSAccountResponse } from "../models/AWSAccountResponse";
 import { AWSAccountsResponse } from "../models/AWSAccountsResponse";
 import { AWSAccountUpdateRequest } from "../models/AWSAccountUpdateRequest";
+import { AWSEventBridgeCreateRequest } from "../models/AWSEventBridgeCreateRequest";
+import { AWSEventBridgeCreateResponse } from "../models/AWSEventBridgeCreateResponse";
+import { AWSEventBridgeDeleteRequest } from "../models/AWSEventBridgeDeleteRequest";
+import { AWSEventBridgeDeleteResponse } from "../models/AWSEventBridgeDeleteResponse";
+import { AWSEventBridgeListResponse } from "../models/AWSEventBridgeListResponse";
 import { AWSIntegrationIamPermissionsResponse } from "../models/AWSIntegrationIamPermissionsResponse";
 import { AWSNamespacesResponse } from "../models/AWSNamespacesResponse";
 import { AWSNewExternalIDResponse } from "../models/AWSNewExternalIDResponse";
@@ -54,6 +59,47 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccountCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createAWSEventBridgeSource(
+    body: AWSEventBridgeCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createAWSEventBridgeSource");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/integration/aws/event_bridge";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AWSIntegrationApi.createAWSEventBridgeSource")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AWSEventBridgeCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -115,6 +161,47 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteAWSEventBridgeSource(
+    body: AWSEventBridgeDeleteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "deleteAWSEventBridgeSource");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/integration/aws/event_bridge";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AWSIntegrationApi.deleteAWSEventBridgeSource")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AWSEventBridgeDeleteRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -258,6 +345,30 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listAWSEventBridgeSources(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/integration/aws/event_bridge";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AWSIntegrationApi.listAWSEventBridgeSources")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -412,6 +523,69 @@ export class AWSIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createAWSEventBridgeSource
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createAWSEventBridgeSource(
+    response: ResponseContext
+  ): Promise<AWSEventBridgeCreateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AWSEventBridgeCreateResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSEventBridgeCreateResponse"
+      ) as AWSEventBridgeCreateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSEventBridgeCreateResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSEventBridgeCreateResponse",
+        ""
+      ) as AWSEventBridgeCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createNewAWSExternalID
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -509,6 +683,68 @@ export class AWSIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteAWSEventBridgeSource
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteAWSEventBridgeSource(
+    response: ResponseContext
+  ): Promise<AWSEventBridgeDeleteResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AWSEventBridgeDeleteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSEventBridgeDeleteResponse"
+      ) as AWSEventBridgeDeleteResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSEventBridgeDeleteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSEventBridgeDeleteResponse",
+        ""
+      ) as AWSEventBridgeDeleteResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -823,6 +1059,68 @@ export class AWSIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAWSEventBridgeSources
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAWSEventBridgeSources(
+    response: ResponseContext
+  ): Promise<AWSEventBridgeListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AWSEventBridgeListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSEventBridgeListResponse"
+      ) as AWSEventBridgeListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSEventBridgeListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSEventBridgeListResponse",
+        ""
+      ) as AWSEventBridgeListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSNamespaces
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -948,6 +1246,14 @@ export interface AWSIntegrationApiCreateAWSAccountRequest {
   body: AWSAccountCreateRequest;
 }
 
+export interface AWSIntegrationApiCreateAWSEventBridgeSourceRequest {
+  /**
+   * Create an Amazon EventBridge source for an AWS account with a given name and region.
+   * @type AWSEventBridgeCreateRequest
+   */
+  body: AWSEventBridgeCreateRequest;
+}
+
 export interface AWSIntegrationApiDeleteAWSAccountRequest {
   /**
    * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the
@@ -955,6 +1261,14 @@ export interface AWSIntegrationApiDeleteAWSAccountRequest {
    * @type string
    */
   awsAccountConfigId: string;
+}
+
+export interface AWSIntegrationApiDeleteAWSEventBridgeSourceRequest {
+  /**
+   * Delete the Amazon EventBridge source with the given name, region, and associated AWS account.
+   * @type AWSEventBridgeDeleteRequest
+   */
+  body: AWSEventBridgeDeleteRequest;
 }
 
 export interface AWSIntegrationApiGetAWSAccountRequest {
@@ -968,7 +1282,8 @@ export interface AWSIntegrationApiGetAWSAccountRequest {
 
 export interface AWSIntegrationApiListAWSAccountsRequest {
   /**
-   * Optional query parameter to filter accounts by AWS Account ID. If not provided, all accounts are returned.
+   * Optional query parameter to filter accounts by AWS Account ID.
+   * If not provided, all accounts are returned.
    * @type string
    */
   awsAccountId?: string;
@@ -1026,6 +1341,27 @@ export class AWSIntegrationApi {
   }
 
   /**
+   * Create an Amazon EventBridge source.
+   * @param param The request object
+   */
+  public createAWSEventBridgeSource(
+    param: AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
+    options?: Configuration
+  ): Promise<AWSEventBridgeCreateResponse> {
+    const requestContextPromise =
+      this.requestFactory.createAWSEventBridgeSource(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAWSEventBridgeSource(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Generate a new external ID for AWS role-based authentication.
    * @param param The request object
    */
@@ -1060,6 +1396,27 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteAWSAccount(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an Amazon EventBridge source.
+   * @param param The request object
+   */
+  public deleteAWSEventBridgeSource(
+    param: AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
+    options?: Configuration
+  ): Promise<AWSEventBridgeDeleteResponse> {
+    const requestContextPromise =
+      this.requestFactory.deleteAWSEventBridgeSource(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAWSEventBridgeSource(
+            responseContext
+          );
         });
     });
   }
@@ -1164,6 +1521,26 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAWSAccounts(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all Amazon EventBridge sources.
+   * @param param The request object
+   */
+  public listAWSEventBridgeSources(
+    options?: Configuration
+  ): Promise<AWSEventBridgeListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listAWSEventBridgeSources(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAWSEventBridgeSources(
+            responseContext
+          );
         });
     });
   }
