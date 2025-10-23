@@ -1,17 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSEventBridgeCreateRequestData } from "./AWSEventBridgeCreateRequestData";
 
 /**
- * AWS Logs Collection config.
+ * Amazon EventBridge create request body.
  */
-export class AWSLogsConfig {
+export class AWSEventBridgeCreateRequest {
   /**
-   * Log Autosubscription configuration for Datadog Forwarder Lambda functions.
-   * Automatically set up triggers for existing and new logs for some services,
-   * ensuring no logs from new resources are missed and saving time spent on manual configuration.
+   * Amazon EventBridge create request data.
    */
-  "lambdaForwarder"?: AWSLambdaForwarderConfig;
+  "data": AWSEventBridgeCreateRequestData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,9 +25,10 @@ export class AWSLogsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lambdaForwarder: {
-      baseName: "lambda_forwarder",
-      type: "AWSLambdaForwarderConfig",
+    data: {
+      baseName: "data",
+      type: "AWSEventBridgeCreateRequestData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -41,7 +40,7 @@ export class AWSLogsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsConfig.attributeTypeMap;
+    return AWSEventBridgeCreateRequest.attributeTypeMap;
   }
 
   public constructor() {}
