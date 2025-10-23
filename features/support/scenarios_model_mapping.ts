@@ -8417,6 +8417,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SpansListResponse",
     },
+    "v2.CreateSCAResult": {
+        "body": {
+            "type": "ScaRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateSCAResolveVulnerableSymbols": {
+        "body": {
+            "type": "ResolveVulnerableSymbolsRequest",
+            "format": "",
+            },
+        "operationResponseType": "ResolveVulnerableSymbolsResponse",
+    },
     "v2.GetOnDemandConcurrencyCap": {
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
