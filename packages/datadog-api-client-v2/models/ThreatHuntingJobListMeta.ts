@@ -3,27 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { JobDefinition } from "./JobDefinition";
-import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Run a historical job request.
+ * Metadata about the list of jobs.
  */
-export class RunHistoricalJobRequestAttributes {
+export class ThreatHuntingJobListMeta {
   /**
-   * Definition of a historical job based on a security monitoring rule.
+   * Number of jobs in the list.
    */
-  "fromRule"?: JobDefinitionFromRule;
-  /**
-   * Request ID.
-   */
-  "id"?: string;
-  /**
-   * Definition of a historical job.
-   */
-  "jobDefinition"?: JobDefinition;
+  "totalCount"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +31,10 @@ export class RunHistoricalJobRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromRule: {
-      baseName: "fromRule",
-      type: "JobDefinitionFromRule",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    jobDefinition: {
-      baseName: "jobDefinition",
-      type: "JobDefinition",
+    totalCount: {
+      baseName: "totalCount",
+      type: "number",
+      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +46,7 @@ export class RunHistoricalJobRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RunHistoricalJobRequestAttributes.attributeTypeMap;
+    return ThreatHuntingJobListMeta.attributeTypeMap;
   }
 
   public constructor() {}

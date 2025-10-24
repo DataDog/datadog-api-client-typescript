@@ -8,9 +8,9 @@ import { JobDefinition } from "./JobDefinition";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Historical job attributes.
+ * Threat hunting job attributes.
  */
-export class HistoricalJobResponseAttributes {
+export class ThreatHuntingJobResponseAttributes {
   /**
    * Time when the job was created.
    */
@@ -28,7 +28,7 @@ export class HistoricalJobResponseAttributes {
    */
   "createdFromRuleId"?: string;
   /**
-   * Definition of a historical job.
+   * Definition of a threat hunting job.
    */
   "jobDefinition"?: JobDefinition;
   /**
@@ -102,7 +102,7 @@ export class HistoricalJobResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HistoricalJobResponseAttributes.attributeTypeMap;
+    return ThreatHuntingJobResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}

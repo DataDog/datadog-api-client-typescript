@@ -35,18 +35,17 @@ import { GetFindingResponse } from "../models/GetFindingResponse";
 import { GetResourceEvaluationFiltersResponse } from "../models/GetResourceEvaluationFiltersResponse";
 import { GetRuleVersionHistoryResponse } from "../models/GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "../models/GetSBOMResponse";
-import { HistoricalJobResponse } from "../models/HistoricalJobResponse";
 import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAssetsSBOMsResponse } from "../models/ListAssetsSBOMsResponse";
 import { ListFindingsResponse } from "../models/ListFindingsResponse";
-import { ListHistoricalJobsResponse } from "../models/ListHistoricalJobsResponse";
+import { ListThreatHuntingJobsResponse } from "../models/ListThreatHuntingJobsResponse";
 import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
 import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
 import { NotificationRulesList } from "../models/NotificationRulesList";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
-import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
+import { RunThreatHuntingJobRequest } from "../models/RunThreatHuntingJobRequest";
 import { SBOMComponentLicenseType } from "../models/SBOMComponentLicenseType";
 import { SBOMFormat } from "../models/SBOMFormat";
 import { ScannedAssetsMetadata } from "../models/ScannedAssetsMetadata";
@@ -77,6 +76,7 @@ import { SecurityMonitoringSuppressionCreateRequest } from "../models/SecurityMo
 import { SecurityMonitoringSuppressionResponse } from "../models/SecurityMonitoringSuppressionResponse";
 import { SecurityMonitoringSuppressionsResponse } from "../models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "../models/SecurityMonitoringSuppressionUpdateRequest";
+import { ThreatHuntingJobResponse } from "../models/ThreatHuntingJobResponse";
 import { UpdateCustomFrameworkRequest } from "../models/UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "../models/UpdateCustomFrameworkResponse";
 import { UpdateResourceEvaluationFiltersRequest } from "../models/UpdateResourceEvaluationFiltersRequest";
@@ -88,32 +88,34 @@ import { VulnerabilityTool } from "../models/VulnerabilityTool";
 import { VulnerabilityType } from "../models/VulnerabilityType";
 
 export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
-  public async cancelHistoricalJob(
+  public async cancelThreatHuntingJob(
     jobId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'cancelHistoricalJob'");
-    if (!_config.unstableOperations["v2.cancelHistoricalJob"]) {
-      throw new Error("Unstable operation 'cancelHistoricalJob' is disabled");
+    logger.warn("Using unstable operation 'cancelThreatHuntingJob'");
+    if (!_config.unstableOperations["v2.cancelThreatHuntingJob"]) {
+      throw new Error(
+        "Unstable operation 'cancelThreatHuntingJob' is disabled"
+      );
     }
 
     // verify required parameter 'jobId' is not null or undefined
     if (jobId === null || jobId === undefined) {
-      throw new RequiredError("jobId", "cancelHistoricalJob");
+      throw new RequiredError("jobId", "cancelThreatHuntingJob");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/siem-historical-detections/jobs/{job_id}/cancel".replace(
+      "/api/v2/siem-threat-hunting/jobs/{job_id}/cancel".replace(
         "{job_id}",
         encodeURIComponent(String(jobId))
       );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.cancelHistoricalJob")
+      .getServer("v2.SecurityMonitoringApi.cancelThreatHuntingJob")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -187,8 +189,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/siem-historical-detections/jobs/signal_convert";
+    const localVarPath = "/api/v2/siem-threat-hunting/jobs/signal_convert";
 
     // Make Request Context
     const requestContext = _config
@@ -568,46 +569,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteHistoricalJob(
-    jobId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'deleteHistoricalJob'");
-    if (!_config.unstableOperations["v2.deleteHistoricalJob"]) {
-      throw new Error("Unstable operation 'deleteHistoricalJob' is disabled");
-    }
-
-    // verify required parameter 'jobId' is not null or undefined
-    if (jobId === null || jobId === undefined) {
-      throw new RequiredError("jobId", "deleteHistoricalJob");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/siem-historical-detections/jobs/{job_id}".replace(
-        "{job_id}",
-        encodeURIComponent(String(jobId))
-      );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteHistoricalJob")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async deleteSecurityFilter(
     securityFilterId: string,
     _options?: Configuration
@@ -744,6 +705,47 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteThreatHuntingJob(
+    jobId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteThreatHuntingJob'");
+    if (!_config.unstableOperations["v2.deleteThreatHuntingJob"]) {
+      throw new Error(
+        "Unstable operation 'deleteThreatHuntingJob' is disabled"
+      );
+    }
+
+    // verify required parameter 'jobId' is not null or undefined
+    if (jobId === null || jobId === undefined) {
+      throw new RequiredError("jobId", "deleteThreatHuntingJob");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/siem-threat-hunting/jobs/{job_id}".replace(
+      "{job_id}",
+      encodeURIComponent(String(jobId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteThreatHuntingJob")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1048,46 +1050,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getHistoricalJob(
-    jobId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getHistoricalJob'");
-    if (!_config.unstableOperations["v2.getHistoricalJob"]) {
-      throw new Error("Unstable operation 'getHistoricalJob' is disabled");
-    }
-
-    // verify required parameter 'jobId' is not null or undefined
-    if (jobId === null || jobId === undefined) {
-      throw new RequiredError("jobId", "getHistoricalJob");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/siem-historical-detections/jobs/{job_id}".replace(
-        "{job_id}",
-        encodeURIComponent(String(jobId))
-      );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getHistoricalJob")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async getResourceEvaluationFilters(
     cloudProvider?: string,
     accountId?: string,
@@ -1323,7 +1285,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/siem-historical-detections/histsignals/{histsignal_id}".replace(
+      "/api/v2/siem-threat-hunting/histsignals/{histsignal_id}".replace(
         "{histsignal_id}",
         encodeURIComponent(String(histsignalId))
       );
@@ -1378,7 +1340,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/siem-historical-detections/jobs/{job_id}/histsignals".replace(
+      "/api/v2/siem-threat-hunting/jobs/{job_id}/histsignals".replace(
         "{job_id}",
         encodeURIComponent(String(jobId))
       );
@@ -1679,6 +1641,45 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.getSuppressionsAffectingRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getThreatHuntingJob(
+    jobId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getThreatHuntingJob'");
+    if (!_config.unstableOperations["v2.getThreatHuntingJob"]) {
+      throw new Error("Unstable operation 'getThreatHuntingJob' is disabled");
+    }
+
+    // verify required parameter 'jobId' is not null or undefined
+    if (jobId === null || jobId === undefined) {
+      throw new RequiredError("jobId", "getThreatHuntingJob");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/siem-threat-hunting/jobs/{job_id}".replace(
+      "{job_id}",
+      encodeURIComponent(String(jobId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getThreatHuntingJob")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2006,70 +2007,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listHistoricalJobs(
-    pageSize?: number,
-    pageNumber?: number,
-    sort?: string,
-    filterQuery?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listHistoricalJobs'");
-    if (!_config.unstableOperations["v2.listHistoricalJobs"]) {
-      throw new Error("Unstable operation 'listHistoricalJobs' is disabled");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/siem-historical-detections/jobs";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listHistoricalJobs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
-        ""
-      );
-    }
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
-        ""
-      );
-    }
-    if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "string", ""),
-        ""
-      );
-    }
-    if (filterQuery !== undefined) {
-      requestContext.setQueryParam(
-        "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", ""),
-        ""
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async listScannedAssetsMetadata(
     pageToken?: string,
     pageNumber?: number,
@@ -2196,7 +2133,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/siem-historical-detections/histsignals";
+    const localVarPath = "/api/v2/siem-threat-hunting/histsignals";
 
     // Make Request Context
     const requestContext = _config
@@ -2399,6 +2336,70 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "query",
         ObjectSerializer.serialize(query, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listThreatHuntingJobs(
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: string,
+    filterQuery?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listThreatHuntingJobs'");
+    if (!_config.unstableOperations["v2.listThreatHuntingJobs"]) {
+      throw new Error("Unstable operation 'listThreatHuntingJobs' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/siem-threat-hunting/jobs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listThreatHuntingJobs")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        ObjectSerializer.serialize(filterQuery, "string", ""),
         ""
       );
     }
@@ -3155,28 +3156,28 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async runHistoricalJob(
-    body: RunHistoricalJobRequest,
+  public async runThreatHuntingJob(
+    body: RunThreatHuntingJobRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'runHistoricalJob'");
-    if (!_config.unstableOperations["v2.runHistoricalJob"]) {
-      throw new Error("Unstable operation 'runHistoricalJob' is disabled");
+    logger.warn("Using unstable operation 'runThreatHuntingJob'");
+    if (!_config.unstableOperations["v2.runThreatHuntingJob"]) {
+      throw new Error("Unstable operation 'runThreatHuntingJob' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "runHistoricalJob");
+      throw new RequiredError("body", "runThreatHuntingJob");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/siem-historical-detections/jobs";
+    const localVarPath = "/api/v2/siem-threat-hunting/jobs";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.runHistoricalJob")
+      .getServer("v2.SecurityMonitoringApi.runThreatHuntingJob")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -3187,7 +3188,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RunHistoricalJobRequest", ""),
+      ObjectSerializer.serialize(body, "RunThreatHuntingJobRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -3218,8 +3219,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/siem-historical-detections/histsignals/search";
+    const localVarPath = "/api/v2/siem-threat-hunting/histsignals/search";
 
     // Make Request Context
     const requestContext = _config
@@ -3758,10 +3758,12 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to cancelHistoricalJob
+   * @params response Response returned by the server for a request to cancelThreatHuntingJob
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cancelHistoricalJob(response: ResponseContext): Promise<void> {
+  public async cancelThreatHuntingJob(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4437,60 +4439,6 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deleteHistoricalJob
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async deleteHistoricalJob(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 204) {
-      return;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      return;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to deleteSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4663,6 +4611,62 @@ export class SecurityMonitoringApiResponseProcessor {
     if (
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteThreatHuntingJob
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteThreatHuntingJob(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -5063,69 +5067,6 @@ export class SecurityMonitoringApiResponseProcessor {
         "GetFindingResponse",
         ""
       ) as GetFindingResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getHistoricalJob
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getHistoricalJob(
-    response: ResponseContext
-  ): Promise<HistoricalJobResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: HistoricalJobResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HistoricalJobResponse"
-      ) as HistoricalJobResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HistoricalJobResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HistoricalJobResponse",
-        ""
-      ) as HistoricalJobResponse;
       return body;
     }
 
@@ -5973,6 +5914,69 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getThreatHuntingJob
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getThreatHuntingJob(
+    response: ResponseContext
+  ): Promise<ThreatHuntingJobResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ThreatHuntingJobResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ThreatHuntingJobResponse"
+      ) as ThreatHuntingJobResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ThreatHuntingJobResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ThreatHuntingJobResponse",
+        ""
+      ) as ThreatHuntingJobResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getVulnerabilityNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6231,68 +6235,6 @@ export class SecurityMonitoringApiResponseProcessor {
         "ListFindingsResponse",
         ""
       ) as ListFindingsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to listHistoricalJobs
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listHistoricalJobs(
-    response: ResponseContext
-  ): Promise<ListHistoricalJobsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: ListHistoricalJobsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListHistoricalJobsResponse"
-      ) as ListHistoricalJobsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListHistoricalJobsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListHistoricalJobsResponse",
-        ""
-      ) as ListHistoricalJobsResponse;
       return body;
     }
 
@@ -6685,6 +6627,68 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringSuppressionsResponse",
           ""
         ) as SecurityMonitoringSuppressionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listThreatHuntingJobs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listThreatHuntingJobs(
+    response: ResponseContext
+  ): Promise<ListThreatHuntingJobsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListThreatHuntingJobsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListThreatHuntingJobsResponse"
+      ) as ListThreatHuntingJobsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListThreatHuntingJobsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListThreatHuntingJobsResponse",
+        ""
+      ) as ListThreatHuntingJobsResponse;
       return body;
     }
 
@@ -7108,10 +7112,10 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to runHistoricalJob
+   * @params response Response returned by the server for a request to runThreatHuntingJob
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async runHistoricalJob(
+  public async runThreatHuntingJob(
     response: ResponseContext
   ): Promise<JobCreateResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -7856,7 +7860,7 @@ export class SecurityMonitoringApiResponseProcessor {
   }
 }
 
-export interface SecurityMonitoringApiCancelHistoricalJobRequest {
+export interface SecurityMonitoringApiCancelThreatHuntingJobRequest {
   /**
    * The ID of the job.
    * @type string
@@ -7947,14 +7951,6 @@ export interface SecurityMonitoringApiDeleteCustomFrameworkRequest {
   version: string;
 }
 
-export interface SecurityMonitoringApiDeleteHistoricalJobRequest {
-  /**
-   * The ID of the job.
-   * @type string
-   */
-  jobId: string;
-}
-
 export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
   /**
    * The ID of the security filter.
@@ -7985,6 +7981,14 @@ export interface SecurityMonitoringApiDeleteSignalNotificationRuleRequest {
    * @type string
    */
   id: string;
+}
+
+export interface SecurityMonitoringApiDeleteThreatHuntingJobRequest {
+  /**
+   * The ID of the job.
+   * @type string
+   */
+  jobId: string;
 }
 
 export interface SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest {
@@ -8060,14 +8064,6 @@ export interface SecurityMonitoringApiGetFindingRequest {
   snapshotTimestamp?: number;
 }
 
-export interface SecurityMonitoringApiGetHistoricalJobRequest {
-  /**
-   * The ID of the job.
-   * @type string
-   */
-  jobId: string;
-}
-
 export interface SecurityMonitoringApiGetResourceEvaluationFiltersRequest {
   /**
    * Filter resource filters by cloud provider (e.g. aws, gcp, azure).
@@ -8137,7 +8133,7 @@ export interface SecurityMonitoringApiGetSecurityFilterRequest {
 
 export interface SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest {
   /**
-   * The ID of the historical signal.
+   * The ID of the threat hunting signal.
    * @type string
    */
   histsignalId: string;
@@ -8226,6 +8222,14 @@ export interface SecurityMonitoringApiGetSuppressionsAffectingRuleRequest {
    * @type string
    */
   ruleId: string;
+}
+
+export interface SecurityMonitoringApiGetThreatHuntingJobRequest {
+  /**
+   * The ID of the job.
+   * @type string
+   */
+  jobId: string;
 }
 
 export interface SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest {
@@ -8357,29 +8361,6 @@ export interface SecurityMonitoringApiListFindingsRequest {
   detailedFindings?: boolean;
 }
 
-export interface SecurityMonitoringApiListHistoricalJobsRequest {
-  /**
-   * Size for a given page. The maximum allowed value is 100.
-   * @type number
-   */
-  pageSize?: number;
-  /**
-   * Specific page number to return.
-   * @type number
-   */
-  pageNumber?: number;
-  /**
-   * The order of the jobs in results.
-   * @type string
-   */
-  sort?: string;
-  /**
-   * Query used to filter items from the fetched list.
-   * @type string
-   */
-  filterQuery?: string;
-}
-
 export interface SecurityMonitoringApiListScannedAssetsMetadataRequest {
   /**
    * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
@@ -8498,6 +8479,29 @@ export interface SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest 
    * @type string
    */
   query?: string;
+}
+
+export interface SecurityMonitoringApiListThreatHuntingJobsRequest {
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * The order of the jobs in results.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Query used to filter items from the fetched list.
+   * @type string
+   */
+  filterQuery?: string;
 }
 
 export interface SecurityMonitoringApiListVulnerabilitiesRequest {
@@ -8842,11 +8846,11 @@ export interface SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest 
   body: PatchNotificationRuleParameters;
 }
 
-export interface SecurityMonitoringApiRunHistoricalJobRequest {
+export interface SecurityMonitoringApiRunThreatHuntingJobRequest {
   /**
-   * @type RunHistoricalJobRequest
+   * @type RunThreatHuntingJobRequest
    */
-  body: RunHistoricalJobRequest;
+  body: RunThreatHuntingJobRequest;
 }
 
 export interface SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest {
@@ -8976,14 +8980,14 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Cancel a historical job.
+   * Cancel a threat hunting job.
    * @param param The request object
    */
-  public cancelHistoricalJob(
-    param: SecurityMonitoringApiCancelHistoricalJobRequest,
+  public cancelThreatHuntingJob(
+    param: SecurityMonitoringApiCancelThreatHuntingJobRequest,
     options?: Configuration
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.cancelHistoricalJob(
+    const requestContextPromise = this.requestFactory.cancelThreatHuntingJob(
       param.jobId,
       options
     );
@@ -8991,7 +8995,7 @@ export class SecurityMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.cancelHistoricalJob(responseContext);
+          return this.responseProcessor.cancelThreatHuntingJob(responseContext);
         });
     });
   }
@@ -9227,27 +9231,6 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing job.
-   * @param param The request object
-   */
-  public deleteHistoricalJob(
-    param: SecurityMonitoringApiDeleteHistoricalJobRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteHistoricalJob(
-      param.jobId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteHistoricalJob(responseContext);
-        });
-    });
-  }
-
-  /**
    * Delete a specific security filter.
    * @param param The request object
    */
@@ -9330,6 +9313,27 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.deleteSignalNotificationRule(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Delete an existing job.
+   * @param param The request object
+   */
+  public deleteThreatHuntingJob(
+    param: SecurityMonitoringApiDeleteThreatHuntingJobRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteThreatHuntingJob(
+      param.jobId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteThreatHuntingJob(responseContext);
         });
     });
   }
@@ -9473,27 +9477,6 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getFinding(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get a job's details.
-   * @param param The request object
-   */
-  public getHistoricalJob(
-    param: SecurityMonitoringApiGetHistoricalJobRequest,
-    options?: Configuration
-  ): Promise<HistoricalJobResponse> {
-    const requestContextPromise = this.requestFactory.getHistoricalJob(
-      param.jobId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getHistoricalJob(responseContext);
         });
     });
   }
@@ -9806,6 +9789,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get a job's details.
+   * @param param The request object
+   */
+  public getThreatHuntingJob(
+    param: SecurityMonitoringApiGetThreatHuntingJobRequest,
+    options?: Configuration
+  ): Promise<ThreatHuntingJobResponse> {
+    const requestContextPromise = this.requestFactory.getThreatHuntingJob(
+      param.jobId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getThreatHuntingJob(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get the details of a notification rule for security vulnerabilities.
    * @param param The request object
    */
@@ -10028,30 +10032,6 @@ export class SecurityMonitoringApi {
 
       param.pageCursor = cursorMetaPageCursor;
     }
-  }
-
-  /**
-   * List historical jobs.
-   * @param param The request object
-   */
-  public listHistoricalJobs(
-    param: SecurityMonitoringApiListHistoricalJobsRequest = {},
-    options?: Configuration
-  ): Promise<ListHistoricalJobsResponse> {
-    const requestContextPromise = this.requestFactory.listHistoricalJobs(
-      param.pageSize,
-      param.pageNumber,
-      param.sort,
-      param.filterQuery,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listHistoricalJobs(responseContext);
-        });
-    });
   }
 
   /**
@@ -10307,6 +10287,30 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.listSecurityMonitoringSuppressions(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * List threat hunting jobs.
+   * @param param The request object
+   */
+  public listThreatHuntingJobs(
+    param: SecurityMonitoringApiListThreatHuntingJobsRequest = {},
+    options?: Configuration
+  ): Promise<ListThreatHuntingJobsResponse> {
+    const requestContextPromise = this.requestFactory.listThreatHuntingJobs(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filterQuery,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listThreatHuntingJobs(responseContext);
         });
     });
   }
@@ -10582,14 +10586,14 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Run a historical job.
+   * Run a threat hunting job.
    * @param param The request object
    */
-  public runHistoricalJob(
-    param: SecurityMonitoringApiRunHistoricalJobRequest,
+  public runThreatHuntingJob(
+    param: SecurityMonitoringApiRunThreatHuntingJobRequest,
     options?: Configuration
   ): Promise<JobCreateResponse> {
-    const requestContextPromise = this.requestFactory.runHistoricalJob(
+    const requestContextPromise = this.requestFactory.runThreatHuntingJob(
       param.body,
       options
     );
@@ -10597,7 +10601,7 @@ export class SecurityMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.runHistoricalJob(responseContext);
+          return this.responseProcessor.runThreatHuntingJob(responseContext);
         });
     });
   }

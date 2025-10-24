@@ -7,10 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of payload.
+ * Type of data.
  */
 
-export type HistoricalJobDataType =
-  | typeof HISTORICALDETECTIONSJOB
+export type RunThreatHuntingJobRequestDataType =
+  | typeof HISTORICALDETECTIONSJOBCREATE
   | UnparsedObject;
-export const HISTORICALDETECTIONSJOB = "historicalDetectionsJob";
+export const HISTORICALDETECTIONSJOBCREATE = "historicalDetectionsJobCreate";

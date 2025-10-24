@@ -3,17 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ThreatHuntingJobResponseData } from "./ThreatHuntingJobResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Metadata about the list of jobs.
+ * Threat hunting job response.
  */
-export class HistoricalJobListMeta {
+export class ThreatHuntingJobResponse {
   /**
-   * Number of jobs in the list.
+   * Threat hunting job response data.
    */
-  "totalCount"?: number;
+  "data"?: ThreatHuntingJobResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,10 +32,9 @@ export class HistoricalJobListMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int32",
+    data: {
+      baseName: "data",
+      type: "ThreatHuntingJobResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +46,7 @@ export class HistoricalJobListMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HistoricalJobListMeta.attributeTypeMap;
+    return ThreatHuntingJobResponse.attributeTypeMap;
   }
 
   public constructor() {}
