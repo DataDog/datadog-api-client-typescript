@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
+import { RunThreatHuntingJobRequestData } from "./RunThreatHuntingJobRequestData";
 
 /**
- * Historical job response.
+ * Run a threat hunting job request.
  */
-export class HistoricalJobResponse {
+export class RunThreatHuntingJobRequest {
   /**
-   * Historical job response data.
+   * Data for running a threat hunting job request.
    */
-  "data"?: HistoricalJobResponseData;
+  "data"?: RunThreatHuntingJobRequestData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class HistoricalJobResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "HistoricalJobResponseData",
+      type: "RunThreatHuntingJobRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +39,7 @@ export class HistoricalJobResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HistoricalJobResponse.attributeTypeMap;
+    return RunThreatHuntingJobRequest.attributeTypeMap;
   }
 
   public constructor() {}

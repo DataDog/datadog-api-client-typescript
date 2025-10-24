@@ -1,14 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CalculatedField } from "./CalculatedField";
-import { HistoricalJobOptions } from "./HistoricalJobOptions";
-import { HistoricalJobQuery } from "./HistoricalJobQuery";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
+import { ThreatHuntingJobOptions } from "./ThreatHuntingJobOptions";
+import { ThreatHuntingJobQuery } from "./ThreatHuntingJobQuery";
 
 /**
- * Definition of a historical job.
+ * Definition of a threat hunting job.
  */
 export class JobDefinition {
   /**
@@ -42,11 +42,11 @@ export class JobDefinition {
   /**
    * Job options.
    */
-  "options"?: HistoricalJobOptions;
+  "options"?: ThreatHuntingJobOptions;
   /**
    * Queries for selecting logs analyzed by the job.
    */
-  "queries": Array<HistoricalJobQuery>;
+  "queries": Array<ThreatHuntingJobQuery>;
   /**
    * Reference tables used in the queries.
    */
@@ -118,11 +118,11 @@ export class JobDefinition {
     },
     options: {
       baseName: "options",
-      type: "HistoricalJobOptions",
+      type: "ThreatHuntingJobOptions",
     },
     queries: {
       baseName: "queries",
-      type: "Array<HistoricalJobQuery>",
+      type: "Array<ThreatHuntingJobQuery>",
       required: true,
     },
     referenceTables: {
