@@ -13,6 +13,12 @@ import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
 import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
 import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
 import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEventCustomAttributesImpactedResourcesItems";
+import { CreateEventEmailAddressRequest } from "./CreateEventEmailAddressRequest";
+import { CreateEventEmailAddressRequestData } from "./CreateEventEmailAddressRequestData";
+import { CreateEventEmailAddressRequestDataAttributes } from "./CreateEventEmailAddressRequestDataAttributes";
+import { CreateOnCallEventEmailAddressRequest } from "./CreateOnCallEventEmailAddressRequest";
+import { CreateOnCallEventEmailAddressRequestData } from "./CreateOnCallEventEmailAddressRequestData";
+import { CreateOnCallEventEmailAddressRequestDataAttributes } from "./CreateOnCallEventEmailAddressRequestDataAttributes";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -23,6 +29,13 @@ import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAt
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
 import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
+import { EventEmailAddressResponse } from "./EventEmailAddressResponse";
+import { EventEmailAddressResponseArray } from "./EventEmailAddressResponseArray";
+import { EventEmailAddressResponseData } from "./EventEmailAddressResponseData";
+import { EventEmailAddressResponseDataAttributes } from "./EventEmailAddressResponseDataAttributes";
+import { EventEmailAddressResponseDataRelationships } from "./EventEmailAddressResponseDataRelationships";
+import { EventEmailAddressResponseDataRelationshipsUser } from "./EventEmailAddressResponseDataRelationshipsUser";
+import { EventEmailAddressResponseDataRelationshipsUserData } from "./EventEmailAddressResponseDataRelationshipsUserData";
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
@@ -76,6 +89,7 @@ export const TypingInfo: ModelTypingInfo = {
     ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
     EventCategory: ["change", "alert"],
     EventCreateRequestType: ["event"],
+    EventEmailsType: ["event_emails"],
     EventPayloadIntegrationId: ["custom-events"],
     EventPriority: ["normal", "low"],
     EventStatusType: [
@@ -92,6 +106,7 @@ export const TypingInfo: ModelTypingInfo = {
     EventSystemAttributesIntegrationId: ["custom-events"],
     EventType: ["event"],
     EventsSort: ["timestamp", "-timestamp"],
+    UsersType: ["users"],
   },
   oneOfMap: {
     EventPayloadAttributes: [
@@ -120,6 +135,15 @@ export const TypingInfo: ModelTypingInfo = {
       ChangeEventCustomAttributesChangedResource,
     ChangeEventCustomAttributesImpactedResourcesItems:
       ChangeEventCustomAttributesImpactedResourcesItems,
+    CreateEventEmailAddressRequest: CreateEventEmailAddressRequest,
+    CreateEventEmailAddressRequestData: CreateEventEmailAddressRequestData,
+    CreateEventEmailAddressRequestDataAttributes:
+      CreateEventEmailAddressRequestDataAttributes,
+    CreateOnCallEventEmailAddressRequest: CreateOnCallEventEmailAddressRequest,
+    CreateOnCallEventEmailAddressRequestData:
+      CreateOnCallEventEmailAddressRequestData,
+    CreateOnCallEventEmailAddressRequestDataAttributes:
+      CreateOnCallEventEmailAddressRequestDataAttributes,
     Event: Event,
     EventAttributes: EventAttributes,
     EventCreateRequest: EventCreateRequest,
@@ -132,6 +156,17 @@ export const TypingInfo: ModelTypingInfo = {
       EventCreateResponseAttributesAttributesEvt,
     EventCreateResponsePayload: EventCreateResponsePayload,
     EventCreateResponsePayloadLinks: EventCreateResponsePayloadLinks,
+    EventEmailAddressResponse: EventEmailAddressResponse,
+    EventEmailAddressResponseArray: EventEmailAddressResponseArray,
+    EventEmailAddressResponseData: EventEmailAddressResponseData,
+    EventEmailAddressResponseDataAttributes:
+      EventEmailAddressResponseDataAttributes,
+    EventEmailAddressResponseDataRelationships:
+      EventEmailAddressResponseDataRelationships,
+    EventEmailAddressResponseDataRelationshipsUser:
+      EventEmailAddressResponseDataRelationshipsUser,
+    EventEmailAddressResponseDataRelationshipsUserData:
+      EventEmailAddressResponseDataRelationshipsUserData,
     EventPayload: EventPayload,
     EventResponse: EventResponse,
     EventResponseAttributes: EventResponseAttributes,

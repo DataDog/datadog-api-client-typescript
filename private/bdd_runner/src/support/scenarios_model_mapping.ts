@@ -5478,6 +5478,26 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "EventCreateResponsePayload",
   },
+  "EventsApi.V2.ListEventEmailAddresses": {
+    operationResponseType: "EventEmailAddressResponseArray",
+  },
+  "EventsApi.V2.CreateEventEmailAddress": {
+    body: {
+      type: "CreateEventEmailAddressRequest",
+      format: "",
+    },
+    operationResponseType: "EventEmailAddressResponse",
+  },
+  "EventsApi.V2.GetOnCallEventEmailAddress": {
+    operationResponseType: "EventEmailAddressResponseArray",
+  },
+  "EventsApi.V2.CreateOnCallEventEmailAddress": {
+    body: {
+      type: "CreateOnCallEventEmailAddressRequest",
+      format: "",
+    },
+    operationResponseType: "EventEmailAddressResponse",
+  },
   "EventsApi.V2.SearchEvents": {
     body: {
       type: "EventsListRequest",
