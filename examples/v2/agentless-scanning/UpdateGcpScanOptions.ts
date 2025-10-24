@@ -1,5 +1,5 @@
 /**
- * Patch GCP Scan Options returns "OK" response
+ * Update GCP scan options returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

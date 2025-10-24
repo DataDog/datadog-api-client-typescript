@@ -1,5 +1,5 @@
 /**
- * Get AWS On Demand task by id returns "OK." response
+ * Get AWS on demand task returns "OK." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

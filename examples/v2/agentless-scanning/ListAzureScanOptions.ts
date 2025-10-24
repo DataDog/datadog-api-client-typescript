@@ -1,5 +1,5 @@
 /**
- * List azure scan options returns "OK" response
+ * List Azure scan options returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

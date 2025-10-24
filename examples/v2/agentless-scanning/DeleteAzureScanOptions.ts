@@ -1,5 +1,5 @@
 /**
- * Delete azure scan options returns "No Content" response
+ * Delete Azure scan options returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

@@ -1,5 +1,5 @@
 /**
- * Delete GCP Scan Options returns "No Content" response
+ * Delete GCP scan options returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
