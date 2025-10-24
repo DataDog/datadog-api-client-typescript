@@ -1,5 +1,5 @@
 /**
- * Delete AWS Scan Options returns "No Content" response
+ * Delete AWS scan options returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

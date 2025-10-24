@@ -1,5 +1,5 @@
 /**
- * Post an AWS on demand task returns "AWS on demand task created successfully." response
+ * Create AWS on demand task returns "AWS on demand task created successfully." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

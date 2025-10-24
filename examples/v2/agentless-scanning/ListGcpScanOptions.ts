@@ -1,5 +1,5 @@
 /**
- * List GCP Scan Options returns "OK" response
+ * List GCP scan options returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

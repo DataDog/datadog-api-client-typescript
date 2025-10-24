@@ -1,5 +1,5 @@
 /**
- * Create azure scan options returns "Created" response
+ * Create Azure scan options returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
