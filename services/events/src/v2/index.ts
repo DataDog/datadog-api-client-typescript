@@ -1,5 +1,7 @@
 export {
   EventsApiCreateEventRequest,
+  EventsApiCreateEventEmailAddressRequest,
+  EventsApiCreateOnCallEventEmailAddressRequest,
   EventsApiGetEventRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
@@ -31,6 +33,12 @@ export { ChangeEventCustomAttributesChangedResource } from "./models/ChangeEvent
 export { ChangeEventCustomAttributesChangedResourceType } from "./models/ChangeEventCustomAttributesChangedResourceType";
 export { ChangeEventCustomAttributesImpactedResourcesItems } from "./models/ChangeEventCustomAttributesImpactedResourcesItems";
 export { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./models/ChangeEventCustomAttributesImpactedResourcesItemsType";
+export { CreateEventEmailAddressRequest } from "./models/CreateEventEmailAddressRequest";
+export { CreateEventEmailAddressRequestData } from "./models/CreateEventEmailAddressRequestData";
+export { CreateEventEmailAddressRequestDataAttributes } from "./models/CreateEventEmailAddressRequestDataAttributes";
+export { CreateOnCallEventEmailAddressRequest } from "./models/CreateOnCallEventEmailAddressRequest";
+export { CreateOnCallEventEmailAddressRequestData } from "./models/CreateOnCallEventEmailAddressRequestData";
+export { CreateOnCallEventEmailAddressRequestDataAttributes } from "./models/CreateOnCallEventEmailAddressRequestDataAttributes";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventCategory } from "./models/EventCategory";
@@ -43,6 +51,14 @@ export { EventCreateResponseAttributesAttributes } from "./models/EventCreateRes
 export { EventCreateResponseAttributesAttributesEvt } from "./models/EventCreateResponseAttributesAttributesEvt";
 export { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
 export { EventCreateResponsePayloadLinks } from "./models/EventCreateResponsePayloadLinks";
+export { EventEmailAddressResponse } from "./models/EventEmailAddressResponse";
+export { EventEmailAddressResponseArray } from "./models/EventEmailAddressResponseArray";
+export { EventEmailAddressResponseData } from "./models/EventEmailAddressResponseData";
+export { EventEmailAddressResponseDataAttributes } from "./models/EventEmailAddressResponseDataAttributes";
+export { EventEmailAddressResponseDataRelationships } from "./models/EventEmailAddressResponseDataRelationships";
+export { EventEmailAddressResponseDataRelationshipsUser } from "./models/EventEmailAddressResponseDataRelationshipsUser";
+export { EventEmailAddressResponseDataRelationshipsUserData } from "./models/EventEmailAddressResponseDataRelationshipsUserData";
+export { EventEmailsType } from "./models/EventEmailsType";
 export { EventPayload } from "./models/EventPayload";
 export { EventPayloadAttributes } from "./models/EventPayloadAttributes";
 export { EventPayloadIntegrationId } from "./models/EventPayloadIntegrationId";
@@ -68,6 +84,7 @@ export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { MonitorType } from "./models/MonitorType";
+export { UsersType } from "./models/UsersType";
 export { V2Event } from "./models/V2Event";
 export { V2EventAttributes } from "./models/V2EventAttributes";
 export { V2EventAttributesAttributes } from "./models/V2EventAttributesAttributes";

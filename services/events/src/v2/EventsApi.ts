@@ -23,8 +23,12 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { CreateEventEmailAddressRequest } from "./models/CreateEventEmailAddressRequest";
+import { CreateOnCallEventEmailAddressRequest } from "./models/CreateOnCallEventEmailAddressRequest";
 import { EventCreateRequestPayload } from "./models/EventCreateRequestPayload";
 import { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
+import { EventEmailAddressResponse } from "./models/EventEmailAddressResponse";
+import { EventEmailAddressResponseArray } from "./models/EventEmailAddressResponseArray";
 import { EventResponse } from "./models/EventResponse";
 import { EventsListRequest } from "./models/EventsListRequest";
 import { EventsListResponse } from "./models/EventsListResponse";
@@ -93,6 +97,120 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createEventEmailAddress(
+    body: CreateEventEmailAddressRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["EventsApi.v2.createEventEmailAddress"]) {
+      throw new Error(
+        "Unstable operation 'createEventEmailAddress' is disabled. Enable it by setting `configuration.unstableOperations['EventsApi.v2.createEventEmailAddress'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createEventEmailAddress");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/events/mail";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.createEventEmailAddress",
+      EventsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateEventEmailAddressRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOnCallEventEmailAddress(
+    body: CreateOnCallEventEmailAddressRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["EventsApi.v2.createOnCallEventEmailAddress"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createOnCallEventEmailAddress' is disabled. Enable it by setting `configuration.unstableOperations['EventsApi.v2.createOnCallEventEmailAddress'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOnCallEventEmailAddress");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/events/mail/on-call";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.createOnCallEventEmailAddress",
+      EventsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateOnCallEventEmailAddressRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getEvent(
     eventId: string,
     _options?: Configuration,
@@ -133,6 +251,90 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOnCallEventEmailAddress(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["EventsApi.v2.getOnCallEventEmailAddress"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getOnCallEventEmailAddress' is disabled. Enable it by setting `configuration.unstableOperations['EventsApi.v2.getOnCallEventEmailAddress'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/events/mail/on-call";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.getOnCallEventEmailAddress",
+      EventsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listEventEmailAddresses(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["EventsApi.v2.listEventEmailAddresses"]) {
+      throw new Error(
+        "Unstable operation 'listEventEmailAddresses' is disabled. Enable it by setting `configuration.unstableOperations['EventsApi.v2.listEventEmailAddresses'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/events/mail";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.listEventEmailAddresses",
+      EventsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -352,6 +554,118 @@ export class EventsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createEventEmailAddress
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createEventEmailAddress(
+    response: ResponseContext,
+  ): Promise<EventEmailAddressResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: EventEmailAddressResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponse",
+      ) as EventEmailAddressResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EventEmailAddressResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponse",
+        "",
+      ) as EventEmailAddressResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOnCallEventEmailAddress
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOnCallEventEmailAddress(
+    response: ResponseContext,
+  ): Promise<EventEmailAddressResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: EventEmailAddressResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponse",
+      ) as EventEmailAddressResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EventEmailAddressResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponse",
+        "",
+      ) as EventEmailAddressResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getEvent
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -398,6 +712,118 @@ export class EventsApiResponseProcessor {
         "V2EventResponse",
         "",
       ) as V2EventResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOnCallEventEmailAddress
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOnCallEventEmailAddress(
+    response: ResponseContext,
+  ): Promise<EventEmailAddressResponseArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: EventEmailAddressResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponseArray",
+      ) as EventEmailAddressResponseArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EventEmailAddressResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponseArray",
+        "",
+      ) as EventEmailAddressResponseArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listEventEmailAddresses
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listEventEmailAddresses(
+    response: ResponseContext,
+  ): Promise<EventEmailAddressResponseArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: EventEmailAddressResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponseArray",
+      ) as EventEmailAddressResponseArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EventEmailAddressResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EventEmailAddressResponseArray",
+        "",
+      ) as EventEmailAddressResponseArray;
       return body;
     }
 
@@ -537,6 +963,20 @@ export interface EventsApiCreateEventRequest {
   body: EventCreateRequestPayload;
 }
 
+export interface EventsApiCreateEventEmailAddressRequest {
+  /**
+   * @type CreateEventEmailAddressRequest
+   */
+  body: CreateEventEmailAddressRequest;
+}
+
+export interface EventsApiCreateOnCallEventEmailAddressRequest {
+  /**
+   * @type CreateOnCallEventEmailAddressRequest
+   */
+  body: CreateOnCallEventEmailAddressRequest;
+}
+
 export interface EventsApiGetEventRequest {
   /**
    * The UID of the event.
@@ -664,6 +1104,48 @@ export class EventsApi {
   }
 
   /**
+   * @param param The request object
+   */
+  public createEventEmailAddress(
+    param: EventsApiCreateEventEmailAddressRequest,
+    options?: Configuration,
+  ): Promise<EventEmailAddressResponse> {
+    const requestContextPromise = this.requestFactory.createEventEmailAddress(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createEventEmailAddress(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public createOnCallEventEmailAddress(
+    param: EventsApiCreateOnCallEventEmailAddressRequest,
+    options?: Configuration,
+  ): Promise<EventEmailAddressResponse> {
+    const requestContextPromise =
+      this.requestFactory.createOnCallEventEmailAddress(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOnCallEventEmailAddress(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get the details of an event by `event_id`.
    * @param param The request object
    */
@@ -680,6 +1162,44 @@ export class EventsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getEvent(responseContext);
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public getOnCallEventEmailAddress(
+    options?: Configuration,
+  ): Promise<EventEmailAddressResponseArray> {
+    const requestContextPromise =
+      this.requestFactory.getOnCallEventEmailAddress(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOnCallEventEmailAddress(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public listEventEmailAddresses(
+    options?: Configuration,
+  ): Promise<EventEmailAddressResponseArray> {
+    const requestContextPromise =
+      this.requestFactory.listEventEmailAddresses(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listEventEmailAddresses(
+            responseContext,
+          );
         });
     });
   }
