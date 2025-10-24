@@ -8,7 +8,7 @@ import { JobCreateResponseData } from "./JobCreateResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Run a historical job response.
+ * Run a threat hunting job response.
  */
 export class JobCreateResponse {
   /**

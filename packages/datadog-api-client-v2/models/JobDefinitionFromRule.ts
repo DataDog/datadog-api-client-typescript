@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Definition of a historical job based on a security monitoring rule.
+ * Definition of a threat hunting job based on a security monitoring rule.
  */
 export class JobDefinitionFromRule {
   /**

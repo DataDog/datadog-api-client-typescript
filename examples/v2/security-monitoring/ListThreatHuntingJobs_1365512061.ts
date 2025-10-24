@@ -5,19 +5,19 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.listHistoricalJobs"] = true;
-configuration.unstableOperations["v2.runHistoricalJob"] = true;
+configuration.unstableOperations["v2.listThreatHuntingJobs"] = true;
+configuration.unstableOperations["v2.runThreatHuntingJob"] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-// there is a valid "historical_job" in the system
+// there is a valid "threat_hunting_job" in the system
 
-const params: v2.SecurityMonitoringApiListHistoricalJobsRequest = {
+const params: v2.SecurityMonitoringApiListThreatHuntingJobsRequest = {
   filterQuery: "id:string",
 };
 
 apiInstance
-  .listHistoricalJobs(params)
-  .then((data: v2.ListHistoricalJobsResponse) => {
+  .listThreatHuntingJobs(params)
+  .then((data: v2.ListThreatHuntingJobsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

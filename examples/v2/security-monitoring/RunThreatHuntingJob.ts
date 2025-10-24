@@ -1,14 +1,14 @@
 /**
- * Run a historical job returns "Status created" response
+ * Run a threat hunting job returns "Status created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.runHistoricalJob"] = true;
+configuration.unstableOperations["v2.runThreatHuntingJob"] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-const params: v2.SecurityMonitoringApiRunHistoricalJobRequest = {
+const params: v2.SecurityMonitoringApiRunThreatHuntingJobRequest = {
   body: {
     data: {
       type: "historicalDetectionsJobCreate",
@@ -49,7 +49,7 @@ const params: v2.SecurityMonitoringApiRunHistoricalJobRequest = {
 };
 
 apiInstance
-  .runHistoricalJob(params)
+  .runThreatHuntingJob(params)
   .then((data: v2.JobCreateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

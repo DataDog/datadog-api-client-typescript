@@ -3,18 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
+import { ThreatHuntingJobListMeta } from "./ThreatHuntingJobListMeta";
+import { ThreatHuntingJobResponseData } from "./ThreatHuntingJobResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Historical job response.
+ * List of threat hunting jobs.
  */
-export class HistoricalJobResponse {
+export class ListThreatHuntingJobsResponse {
   /**
-   * Historical job response data.
+   * Array containing the list of threat hunting jobs.
    */
-  "data"?: HistoricalJobResponseData;
+  "data"?: Array<ThreatHuntingJobResponseData>;
+  /**
+   * Metadata about the list of jobs.
+   */
+  "meta"?: ThreatHuntingJobListMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +39,11 @@ export class HistoricalJobResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "HistoricalJobResponseData",
+      type: "Array<ThreatHuntingJobResponseData>",
+    },
+    meta: {
+      baseName: "meta",
+      type: "ThreatHuntingJobListMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +55,7 @@ export class HistoricalJobResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HistoricalJobResponse.attributeTypeMap;
+    return ListThreatHuntingJobsResponse.attributeTypeMap;
   }
 
   public constructor() {}
