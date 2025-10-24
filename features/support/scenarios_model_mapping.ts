@@ -2340,6 +2340,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v2.ListFleetDeployments": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "FleetDeploymentsResponse",
+    },
+    "v2.CreateFleetDeploymentConfigure": {
+        "body": {
+            "type": "FleetDeploymentConfigureCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "FleetDeploymentResponse",
+    },
+    "v2.GetFleetDeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FleetDeploymentResponse",
+    },
+    "v2.CancelFleetDeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListDatastores": {
         "operationResponseType": "DatastoreArray",
     },

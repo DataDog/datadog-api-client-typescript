@@ -338,6 +338,14 @@ export {
 } from "./apis/FastlyIntegrationApi";
 
 export {
+  FleetAutomationApiCancelFleetDeploymentRequest,
+  FleetAutomationApiCreateFleetDeploymentConfigureRequest,
+  FleetAutomationApiGetFleetDeploymentRequest,
+  FleetAutomationApiListFleetDeploymentsRequest,
+  FleetAutomationApi,
+} from "./apis/FleetAutomationApi";
+
+export {
   GCPIntegrationApiCreateGCPSTSAccountRequest,
   GCPIntegrationApiDeleteGCPSTSAccountRequest,
   GCPIntegrationApiMakeGCPSTSDelegateRequest,
@@ -2057,6 +2065,18 @@ export { FlakyTestsSearchResponseMeta } from "./models/FlakyTestsSearchResponseM
 export { FlakyTestsSearchSort } from "./models/FlakyTestsSearchSort";
 export { FlakyTestStats } from "./models/FlakyTestStats";
 export { FlakyTestType } from "./models/FlakyTestType";
+export { FleetDeployment } from "./models/FleetDeployment";
+export { FleetDeploymentAttributes } from "./models/FleetDeploymentAttributes";
+export { FleetDeploymentConfigureAttributes } from "./models/FleetDeploymentConfigureAttributes";
+export { FleetDeploymentConfigureCreate } from "./models/FleetDeploymentConfigureCreate";
+export { FleetDeploymentConfigureCreateRequest } from "./models/FleetDeploymentConfigureCreateRequest";
+export { FleetDeploymentFileOp } from "./models/FleetDeploymentFileOp";
+export { FleetDeploymentOperation } from "./models/FleetDeploymentOperation";
+export { FleetDeploymentResourceType } from "./models/FleetDeploymentResourceType";
+export { FleetDeploymentResponse } from "./models/FleetDeploymentResponse";
+export { FleetDeploymentsPage } from "./models/FleetDeploymentsPage";
+export { FleetDeploymentsResponse } from "./models/FleetDeploymentsResponse";
+export { FleetDeploymentsResponseMeta } from "./models/FleetDeploymentsResponseMeta";
 export { FormulaLimit } from "./models/FormulaLimit";
 export { FrameworkHandleAndVersionResponseData } from "./models/FrameworkHandleAndVersionResponseData";
 export { FreshserviceAPIKey } from "./models/FreshserviceAPIKey";

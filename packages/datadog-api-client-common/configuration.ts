@@ -222,6 +222,10 @@ export function createConfiguration(
     conf.backoffBase || 2,
     conf.backoffMultiplier || 2,
     {
+      "v2.cancelFleetDeployment": false,
+      "v2.createFleetDeploymentConfigure": false,
+      "v2.getFleetDeployment": false,
+      "v2.listFleetDeployments": false,
       "v2.createOpenAPI": false,
       "v2.deleteOpenAPI": false,
       "v2.getOpenAPI": false,
