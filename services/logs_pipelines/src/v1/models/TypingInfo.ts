@@ -22,6 +22,13 @@ import { LogsMessageRemapper } from "./LogsMessageRemapper";
 import { LogsPipeline } from "./LogsPipeline";
 import { LogsPipelineProcessor } from "./LogsPipelineProcessor";
 import { LogsPipelinesOrder } from "./LogsPipelinesOrder";
+import { LogsSchemaCategoryMapper } from "./LogsSchemaCategoryMapper";
+import { LogsSchemaCategoryMapperCategory } from "./LogsSchemaCategoryMapperCategory";
+import { LogsSchemaCategoryMapperFallback } from "./LogsSchemaCategoryMapperFallback";
+import { LogsSchemaCategoryMapperTargets } from "./LogsSchemaCategoryMapperTargets";
+import { LogsSchemaData } from "./LogsSchemaData";
+import { LogsSchemaProcessor } from "./LogsSchemaProcessor";
+import { LogsSchemaRemapper } from "./LogsSchemaRemapper";
 import { LogsServiceRemapper } from "./LogsServiceRemapper";
 import { LogsSpanRemapper } from "./LogsSpanRemapper";
 import { LogsStatusRemapper } from "./LogsStatusRemapper";
@@ -49,6 +56,9 @@ export const TypingInfo: ModelTypingInfo = {
     LogsLookupProcessorType: ["lookup-processor"],
     LogsMessageRemapperType: ["message-remapper"],
     LogsPipelineProcessorType: ["pipeline"],
+    LogsSchemaCategoryMapperType: ["schema-category-mapper"],
+    LogsSchemaProcessorType: ["schema-processor"],
+    LogsSchemaRemapperType: ["schema-remapper"],
     LogsServiceRemapperType: ["service-remapper"],
     LogsSpanRemapperType: ["span-id-remapper"],
     LogsStatusRemapperType: ["status-remapper"],
@@ -84,7 +94,9 @@ export const TypingInfo: ModelTypingInfo = {
       "LogsSpanRemapper",
       "LogsArrayProcessor",
       "LogsDecoderProcessor",
+      "LogsSchemaProcessor",
     ],
+    LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -109,6 +121,13 @@ export const TypingInfo: ModelTypingInfo = {
     LogsPipeline: LogsPipeline,
     LogsPipelineProcessor: LogsPipelineProcessor,
     LogsPipelinesOrder: LogsPipelinesOrder,
+    LogsSchemaCategoryMapper: LogsSchemaCategoryMapper,
+    LogsSchemaCategoryMapperCategory: LogsSchemaCategoryMapperCategory,
+    LogsSchemaCategoryMapperFallback: LogsSchemaCategoryMapperFallback,
+    LogsSchemaCategoryMapperTargets: LogsSchemaCategoryMapperTargets,
+    LogsSchemaData: LogsSchemaData,
+    LogsSchemaProcessor: LogsSchemaProcessor,
+    LogsSchemaRemapper: LogsSchemaRemapper,
     LogsServiceRemapper: LogsServiceRemapper,
     LogsSpanRemapper: LogsSpanRemapper,
     LogsStatusRemapper: LogsStatusRemapper,
