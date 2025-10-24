@@ -417,6 +417,7 @@ apiInstance
 | Restriction Policies | @datadog/datadog-api-client-restriction-policies | [README.md](../../services/restriction-policies/README.md) |
 | Roles | @datadog/datadog-api-client-roles | [README.md](../../services/roles/README.md) |
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
+| Rum Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
 | Rum Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
 | Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
 | Security Monitoring | @datadog/datadog-api-client-security-monitoring | [README.md](../../services/security-monitoring/README.md) |
