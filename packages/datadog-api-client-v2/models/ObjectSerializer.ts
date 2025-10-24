@@ -506,11 +506,17 @@ import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateEventEmailAddressRequest } from "./CreateEventEmailAddressRequest";
+import { CreateEventEmailAddressRequestData } from "./CreateEventEmailAddressRequestData";
+import { CreateEventEmailAddressRequestDataAttributes } from "./CreateEventEmailAddressRequestDataAttributes";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
+import { CreateOnCallEventEmailAddressRequest } from "./CreateOnCallEventEmailAddressRequest";
+import { CreateOnCallEventEmailAddressRequestData } from "./CreateOnCallEventEmailAddressRequestData";
+import { CreateOnCallEventEmailAddressRequestDataAttributes } from "./CreateOnCallEventEmailAddressRequestDataAttributes";
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
@@ -827,6 +833,13 @@ import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAt
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
 import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
+import { EventEmailAddressResponse } from "./EventEmailAddressResponse";
+import { EventEmailAddressResponseArray } from "./EventEmailAddressResponseArray";
+import { EventEmailAddressResponseData } from "./EventEmailAddressResponseData";
+import { EventEmailAddressResponseDataAttributes } from "./EventEmailAddressResponseDataAttributes";
+import { EventEmailAddressResponseDataRelationships } from "./EventEmailAddressResponseDataRelationships";
+import { EventEmailAddressResponseDataRelationshipsUser } from "./EventEmailAddressResponseDataRelationshipsUser";
+import { EventEmailAddressResponseDataRelationshipsUserData } from "./EventEmailAddressResponseDataRelationshipsUserData";
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
@@ -2904,6 +2917,7 @@ const enumsMap: { [key: string]: any[] } = {
   EscalationType: ["escalation_policy_steps"],
   EventCategory: ["change", "alert"],
   EventCreateRequestType: ["event"],
+  EventEmailsType: ["event_emails"],
   EventPayloadIntegrationId: ["custom-events"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
@@ -4667,6 +4681,10 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateEventEmailAddressRequest: CreateEventEmailAddressRequest,
+  CreateEventEmailAddressRequestData: CreateEventEmailAddressRequestData,
+  CreateEventEmailAddressRequestDataAttributes:
+    CreateEventEmailAddressRequestDataAttributes,
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
@@ -4674,6 +4692,11 @@ const typeMap: { [index: string]: any } = {
   CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
   CreateNotificationRuleParametersDataAttributes:
     CreateNotificationRuleParametersDataAttributes,
+  CreateOnCallEventEmailAddressRequest: CreateOnCallEventEmailAddressRequest,
+  CreateOnCallEventEmailAddressRequestData:
+    CreateOnCallEventEmailAddressRequestData,
+  CreateOnCallEventEmailAddressRequestDataAttributes:
+    CreateOnCallEventEmailAddressRequestDataAttributes,
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
@@ -5054,6 +5077,17 @@ const typeMap: { [index: string]: any } = {
     EventCreateResponseAttributesAttributesEvt,
   EventCreateResponsePayload: EventCreateResponsePayload,
   EventCreateResponsePayloadLinks: EventCreateResponsePayloadLinks,
+  EventEmailAddressResponse: EventEmailAddressResponse,
+  EventEmailAddressResponseArray: EventEmailAddressResponseArray,
+  EventEmailAddressResponseData: EventEmailAddressResponseData,
+  EventEmailAddressResponseDataAttributes:
+    EventEmailAddressResponseDataAttributes,
+  EventEmailAddressResponseDataRelationships:
+    EventEmailAddressResponseDataRelationships,
+  EventEmailAddressResponseDataRelationshipsUser:
+    EventEmailAddressResponseDataRelationshipsUser,
+  EventEmailAddressResponseDataRelationshipsUserData:
+    EventEmailAddressResponseDataRelationshipsUserData,
   EventPayload: EventPayload,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,

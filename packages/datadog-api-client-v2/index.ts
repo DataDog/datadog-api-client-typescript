@@ -318,6 +318,8 @@ export {
 
 export {
   EventsApiCreateEventRequest,
+  EventsApiCreateEventEmailAddressRequest,
+  EventsApiCreateOnCallEventEmailAddressRequest,
   EventsApiGetEventRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
@@ -1572,11 +1574,17 @@ export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDele
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
 export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
+export { CreateEventEmailAddressRequest } from "./models/CreateEventEmailAddressRequest";
+export { CreateEventEmailAddressRequestData } from "./models/CreateEventEmailAddressRequestData";
+export { CreateEventEmailAddressRequestDataAttributes } from "./models/CreateEventEmailAddressRequestDataAttributes";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
+export { CreateOnCallEventEmailAddressRequest } from "./models/CreateOnCallEventEmailAddressRequest";
+export { CreateOnCallEventEmailAddressRequestData } from "./models/CreateOnCallEventEmailAddressRequestData";
+export { CreateOnCallEventEmailAddressRequestDataAttributes } from "./models/CreateOnCallEventEmailAddressRequestDataAttributes";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
@@ -1982,6 +1990,14 @@ export { EventCreateResponseAttributesAttributes } from "./models/EventCreateRes
 export { EventCreateResponseAttributesAttributesEvt } from "./models/EventCreateResponseAttributesAttributesEvt";
 export { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
 export { EventCreateResponsePayloadLinks } from "./models/EventCreateResponsePayloadLinks";
+export { EventEmailAddressResponse } from "./models/EventEmailAddressResponse";
+export { EventEmailAddressResponseArray } from "./models/EventEmailAddressResponseArray";
+export { EventEmailAddressResponseData } from "./models/EventEmailAddressResponseData";
+export { EventEmailAddressResponseDataAttributes } from "./models/EventEmailAddressResponseDataAttributes";
+export { EventEmailAddressResponseDataRelationships } from "./models/EventEmailAddressResponseDataRelationships";
+export { EventEmailAddressResponseDataRelationshipsUser } from "./models/EventEmailAddressResponseDataRelationshipsUser";
+export { EventEmailAddressResponseDataRelationshipsUserData } from "./models/EventEmailAddressResponseDataRelationshipsUserData";
+export { EventEmailsType } from "./models/EventEmailsType";
 export { EventPayload } from "./models/EventPayload";
 export { EventPayloadAttributes } from "./models/EventPayloadAttributes";
 export { EventPayloadIntegrationId } from "./models/EventPayloadIntegrationId";
