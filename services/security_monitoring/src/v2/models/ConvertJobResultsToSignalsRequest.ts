@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData";
 
 /**
- * Request for converting historical job results to signals.
+ * Request for converting threat hunting job results to signals.
  */
 export class ConvertJobResultsToSignalsRequest {
   /**
-   * Data for converting historical job results to signals.
+   * Data for converting threat hunting job results to signals.
    */
   "data"?: ConvertJobResultsToSignalsData;
   /**

@@ -1,24 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { JobDefinition } from "./JobDefinition";
-import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
+import { RunThreatHuntingJobRequestAttributes } from "./RunThreatHuntingJobRequestAttributes";
+import { RunThreatHuntingJobRequestDataType } from "./RunThreatHuntingJobRequestDataType";
 
 /**
- * Run a historical job request.
+ * Data for running a threat hunting job request.
  */
-export class RunHistoricalJobRequestAttributes {
+export class RunThreatHuntingJobRequestData {
   /**
-   * Definition of a historical job based on a security monitoring rule.
+   * Run a threat hunting job request.
    */
-  "fromRule"?: JobDefinitionFromRule;
+  "attributes"?: RunThreatHuntingJobRequestAttributes;
   /**
-   * Request ID.
+   * Type of data.
    */
-  "id"?: string;
-  /**
-   * Definition of a historical job.
-   */
-  "jobDefinition"?: JobDefinition;
+  "type"?: RunThreatHuntingJobRequestDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,17 +30,13 @@ export class RunHistoricalJobRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromRule: {
-      baseName: "fromRule",
-      type: "JobDefinitionFromRule",
+    attributes: {
+      baseName: "attributes",
+      type: "RunThreatHuntingJobRequestAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    jobDefinition: {
-      baseName: "jobDefinition",
-      type: "JobDefinition",
+    type: {
+      baseName: "type",
+      type: "RunThreatHuntingJobRequestDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +48,7 @@ export class RunHistoricalJobRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RunHistoricalJobRequestAttributes.attributeTypeMap;
+    return RunThreatHuntingJobRequestData.attributeTypeMap;
   }
 
   public constructor() {}

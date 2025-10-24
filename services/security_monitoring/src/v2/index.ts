@@ -1,5 +1,5 @@
 export {
-  SecurityMonitoringApiCancelHistoricalJobRequest,
+  SecurityMonitoringApiCancelThreatHuntingJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
@@ -10,18 +10,17 @@ export {
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
-  SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
+  SecurityMonitoringApiDeleteThreatHuntingJobRequest,
   SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
-  SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
@@ -34,21 +33,22 @@ export {
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
+  SecurityMonitoringApiGetThreatHuntingJobRequest,
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
-  SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest,
+  SecurityMonitoringApiListThreatHuntingJobsRequest,
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
-  SecurityMonitoringApiRunHistoricalJobRequest,
+  SecurityMonitoringApiRunThreatHuntingJobRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
@@ -135,13 +135,6 @@ export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
 export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
 export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 export { GetSBOMResponse } from "./models/GetSBOMResponse";
-export { HistoricalJobDataType } from "./models/HistoricalJobDataType";
-export { HistoricalJobListMeta } from "./models/HistoricalJobListMeta";
-export { HistoricalJobOptions } from "./models/HistoricalJobOptions";
-export { HistoricalJobQuery } from "./models/HistoricalJobQuery";
-export { HistoricalJobResponse } from "./models/HistoricalJobResponse";
-export { HistoricalJobResponseAttributes } from "./models/HistoricalJobResponseAttributes";
-export { HistoricalJobResponseData } from "./models/HistoricalJobResponseData";
 export { JobCreateResponse } from "./models/JobCreateResponse";
 export { JobCreateResponseData } from "./models/JobCreateResponseData";
 export { JobDefinition } from "./models/JobDefinition";
@@ -155,7 +148,7 @@ export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
-export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse";
+export { ListThreatHuntingJobsResponse } from "./models/ListThreatHuntingJobsResponse";
 export { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
 export { ListVulnerableAssetsResponse } from "./models/ListVulnerableAssetsResponse";
 export { Metadata } from "./models/Metadata";
@@ -179,10 +172,10 @@ export { RuleVersionHistory } from "./models/RuleVersionHistory";
 export { RuleVersions } from "./models/RuleVersions";
 export { RuleVersionUpdate } from "./models/RuleVersionUpdate";
 export { RuleVersionUpdateType } from "./models/RuleVersionUpdateType";
-export { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
-export { RunHistoricalJobRequestAttributes } from "./models/RunHistoricalJobRequestAttributes";
-export { RunHistoricalJobRequestData } from "./models/RunHistoricalJobRequestData";
-export { RunHistoricalJobRequestDataType } from "./models/RunHistoricalJobRequestDataType";
+export { RunThreatHuntingJobRequest } from "./models/RunThreatHuntingJobRequest";
+export { RunThreatHuntingJobRequestAttributes } from "./models/RunThreatHuntingJobRequestAttributes";
+export { RunThreatHuntingJobRequestData } from "./models/RunThreatHuntingJobRequestData";
+export { RunThreatHuntingJobRequestDataType } from "./models/RunThreatHuntingJobRequestDataType";
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
@@ -319,6 +312,13 @@ export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageU
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { Selectors } from "./models/Selectors";
 export { SpecVersion } from "./models/SpecVersion";
+export { ThreatHuntingJobDataType } from "./models/ThreatHuntingJobDataType";
+export { ThreatHuntingJobListMeta } from "./models/ThreatHuntingJobListMeta";
+export { ThreatHuntingJobOptions } from "./models/ThreatHuntingJobOptions";
+export { ThreatHuntingJobQuery } from "./models/ThreatHuntingJobQuery";
+export { ThreatHuntingJobResponse } from "./models/ThreatHuntingJobResponse";
+export { ThreatHuntingJobResponseAttributes } from "./models/ThreatHuntingJobResponseAttributes";
+export { ThreatHuntingJobResponseData } from "./models/ThreatHuntingJobResponseData";
 export { TriggerSource } from "./models/TriggerSource";
 export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";

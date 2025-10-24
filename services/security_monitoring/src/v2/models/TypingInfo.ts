@@ -59,12 +59,6 @@ import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluatio
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
 import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
-import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
-import { HistoricalJobOptions } from "./HistoricalJobOptions";
-import { HistoricalJobQuery } from "./HistoricalJobQuery";
-import { HistoricalJobResponse } from "./HistoricalJobResponse";
-import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
-import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -78,7 +72,7 @@ import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
-import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
+import { ListThreatHuntingJobsResponse } from "./ListThreatHuntingJobsResponse";
 import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
 import { Metadata } from "./Metadata";
@@ -97,9 +91,9 @@ import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
 import { RuleVersionUpdate } from "./RuleVersionUpdate";
 import { RuleVersions } from "./RuleVersions";
-import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
-import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
-import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
+import { RunThreatHuntingJobRequest } from "./RunThreatHuntingJobRequest";
+import { RunThreatHuntingJobRequestAttributes } from "./RunThreatHuntingJobRequestAttributes";
+import { RunThreatHuntingJobRequestData } from "./RunThreatHuntingJobRequestData";
 import { SBOM } from "./SBOM";
 import { SBOMAttributes } from "./SBOMAttributes";
 import { SBOMComponent } from "./SBOMComponent";
@@ -198,6 +192,12 @@ import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoring
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { Selectors } from "./Selectors";
+import { ThreatHuntingJobListMeta } from "./ThreatHuntingJobListMeta";
+import { ThreatHuntingJobOptions } from "./ThreatHuntingJobOptions";
+import { ThreatHuntingJobQuery } from "./ThreatHuntingJobQuery";
+import { ThreatHuntingJobResponse } from "./ThreatHuntingJobResponse";
+import { ThreatHuntingJobResponseAttributes } from "./ThreatHuntingJobResponseAttributes";
+import { ThreatHuntingJobResponseData } from "./ThreatHuntingJobResponseData";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateResourceEvaluationFiltersRequest } from "./UpdateResourceEvaluationFiltersRequest";
@@ -244,7 +244,6 @@ export const TypingInfo: ModelTypingInfo = {
       "api_security",
     ],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
-    HistoricalJobDataType: ["historicalDetectionsJob"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -266,7 +265,7 @@ export const TypingInfo: ModelTypingInfo = {
       "iac_misconfiguration",
     ],
     RuleVersionUpdateType: ["create", "update", "delete"],
-    RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
+    RunThreatHuntingJobRequestDataType: ["historicalDetectionsJobCreate"],
     SBOMComponentLicenseType: [
       "network_strong_copyleft",
       "non_standard_copyleft",
@@ -388,6 +387,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     SecurityMonitoringSuppressionType: ["suppressions"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
+    ThreatHuntingJobDataType: ["historicalDetectionsJob"],
     TriggerSource: ["security_findings", "security_signals"],
     VulnerabilitiesType: ["vulnerabilities"],
     VulnerabilityEcosystem: [
@@ -556,12 +556,6 @@ export const TypingInfo: ModelTypingInfo = {
     GetRuleVersionHistoryData: GetRuleVersionHistoryData,
     GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
     GetSBOMResponse: GetSBOMResponse,
-    HistoricalJobListMeta: HistoricalJobListMeta,
-    HistoricalJobOptions: HistoricalJobOptions,
-    HistoricalJobQuery: HistoricalJobQuery,
-    HistoricalJobResponse: HistoricalJobResponse,
-    HistoricalJobResponseAttributes: HistoricalJobResponseAttributes,
-    HistoricalJobResponseData: HistoricalJobResponseData,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -575,7 +569,7 @@ export const TypingInfo: ModelTypingInfo = {
     ListFindingsMeta: ListFindingsMeta,
     ListFindingsPage: ListFindingsPage,
     ListFindingsResponse: ListFindingsResponse,
-    ListHistoricalJobsResponse: ListHistoricalJobsResponse,
+    ListThreatHuntingJobsResponse: ListThreatHuntingJobsResponse,
     ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
     ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
     Metadata: Metadata,
@@ -595,9 +589,9 @@ export const TypingInfo: ModelTypingInfo = {
     RuleVersionHistory: RuleVersionHistory,
     RuleVersionUpdate: RuleVersionUpdate,
     RuleVersions: RuleVersions,
-    RunHistoricalJobRequest: RunHistoricalJobRequest,
-    RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
-    RunHistoricalJobRequestData: RunHistoricalJobRequestData,
+    RunThreatHuntingJobRequest: RunThreatHuntingJobRequest,
+    RunThreatHuntingJobRequestAttributes: RunThreatHuntingJobRequestAttributes,
+    RunThreatHuntingJobRequestData: RunThreatHuntingJobRequestData,
     SBOM: SBOM,
     SBOMAttributes: SBOMAttributes,
     SBOMComponent: SBOMComponent,
@@ -741,6 +735,12 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
     SecurityMonitoringUser: SecurityMonitoringUser,
     Selectors: Selectors,
+    ThreatHuntingJobListMeta: ThreatHuntingJobListMeta,
+    ThreatHuntingJobOptions: ThreatHuntingJobOptions,
+    ThreatHuntingJobQuery: ThreatHuntingJobQuery,
+    ThreatHuntingJobResponse: ThreatHuntingJobResponse,
+    ThreatHuntingJobResponseAttributes: ThreatHuntingJobResponseAttributes,
+    ThreatHuntingJobResponseData: ThreatHuntingJobResponseData,
     UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
     UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
     UpdateResourceEvaluationFiltersRequest:

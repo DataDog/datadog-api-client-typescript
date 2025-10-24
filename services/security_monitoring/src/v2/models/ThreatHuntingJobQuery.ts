@@ -4,9 +4,9 @@ import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRule
 import { SecurityMonitoringStandardDataSource } from "./SecurityMonitoringStandardDataSource";
 
 /**
- * Query for selecting logs analyzed by the historical job.
+ * Query for selecting logs analyzed by the threat hunting job.
  */
-export class HistoricalJobQuery {
+export class ThreatHuntingJobQuery {
   /**
    * The aggregation type.
    */
@@ -96,7 +96,7 @@ export class HistoricalJobQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HistoricalJobQuery.attributeTypeMap;
+    return ThreatHuntingJobQuery.attributeTypeMap;
   }
 
   public constructor() {}

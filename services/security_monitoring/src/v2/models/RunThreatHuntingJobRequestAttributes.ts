@@ -1,24 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { HistoricalJobDataType } from "./HistoricalJobDataType";
-import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
+import { JobDefinition } from "./JobDefinition";
+import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 
 /**
- * Historical job response data.
+ * Run a threat hunting job request.
  */
-export class HistoricalJobResponseData {
+export class RunThreatHuntingJobRequestAttributes {
   /**
-   * Historical job attributes.
+   * Definition of a threat hunting job based on a security monitoring rule.
    */
-  "attributes"?: HistoricalJobResponseAttributes;
+  "fromRule"?: JobDefinitionFromRule;
   /**
-   * ID of the job.
+   * Request ID.
    */
   "id"?: string;
   /**
-   * Type of payload.
+   * Definition of a threat hunting job.
    */
-  "type"?: HistoricalJobDataType;
+  "jobDefinition"?: JobDefinition;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,17 +34,17 @@ export class HistoricalJobResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "HistoricalJobResponseAttributes",
+    fromRule: {
+      baseName: "fromRule",
+      type: "JobDefinitionFromRule",
     },
     id: {
       baseName: "id",
       type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "HistoricalJobDataType",
+    jobDefinition: {
+      baseName: "jobDefinition",
+      type: "JobDefinition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +56,7 @@ export class HistoricalJobResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HistoricalJobResponseData.attributeTypeMap;
+    return RunThreatHuntingJobRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}

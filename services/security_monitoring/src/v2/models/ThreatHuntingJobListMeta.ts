@@ -1,20 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
-import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
-
 /**
- * List of historical jobs.
+ * Metadata about the list of jobs.
  */
-export class ListHistoricalJobsResponse {
+export class ThreatHuntingJobListMeta {
   /**
-   * Array containing the list of historical jobs.
+   * Number of jobs in the list.
    */
-  "data"?: Array<HistoricalJobResponseData>;
-  /**
-   * Metadata about the list of jobs.
-   */
-  "meta"?: HistoricalJobListMeta;
+  "totalCount"?: number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,13 +23,10 @@ export class ListHistoricalJobsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<HistoricalJobResponseData>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "HistoricalJobListMeta",
+    totalCount: {
+      baseName: "totalCount",
+      type: "number",
+      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +38,7 @@ export class ListHistoricalJobsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListHistoricalJobsResponse.attributeTypeMap;
+    return ThreatHuntingJobListMeta.attributeTypeMap;
   }
 
   public constructor() {}
