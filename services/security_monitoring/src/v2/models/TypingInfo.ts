@@ -370,6 +370,8 @@ export const TypingInfo: ModelTypingInfo = {
       "false_positive",
       "testing_or_maintenance",
       "investigated_case_opened",
+      "true_positive_benign",
+      "true_positive_malicious",
       "other",
     ],
     SecurityMonitoringSignalMetadataType: ["signal_metadata"],
