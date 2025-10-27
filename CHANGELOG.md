@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 1.46.0/2025-10-27
+
+### Added
+* Add endpoints for Software Composition Analysis [#2939](https://github.com/DataDog/datadog-api-client-typescript/pull/2939)
+* Add support for `Schema Processor` in `Logs Pipelines` [#2904](https://github.com/DataDog/datadog-api-client-typescript/pull/2904)
+* Add new DeleteAssignee endpoint to Error Tracking APIs [#2894](https://github.com/DataDog/datadog-api-client-typescript/pull/2894)
+* document agentless GCP scan options CRUD endpoints [#2886](https://github.com/DataDog/datadog-api-client-typescript/pull/2886)
+* Document `/api/v2/roles/templates`  [#2865](https://github.com/DataDog/datadog-api-client-typescript/pull/2865)
+* Add Reference Tables API spec [#2858](https://github.com/DataDog/datadog-api-client-typescript/pull/2858)
+* Add blockedRequestPatterns to synthetics browser test options [#2848](https://github.com/DataDog/datadog-api-client-typescript/pull/2848)
+* Add `BulkDeleteDatastoreItems` to Datastore API spec [#2846](https://github.com/DataDog/datadog-api-client-typescript/pull/2846)
+* Add some missing Workload Protection agent rule fields [#2844](https://github.com/DataDog/datadog-api-client-typescript/pull/2844)
+* Add conditional recipients to notification rule [#2832](https://github.com/DataDog/datadog-api-client-typescript/pull/2832)
+* Update ci_app description with max 1 year event run duration restriction [#2762](https://github.com/DataDog/datadog-api-client-typescript/pull/2762)
+* Document multiple case-management endpoints [#2637](https://github.com/DataDog/datadog-api-client-typescript/pull/2637)
+
+### Changed
+* Include mention to new scanned-assets-metadata endpoint on container images v1 endpoint [#2902](https://github.com/DataDog/datadog-api-client-typescript/pull/2902)
+* Include mention to new scanned-assets-metadata endpoint on hosts v1 endpoint [#2900](https://github.com/DataDog/datadog-api-client-typescript/pull/2900)
+* security_monitoring - Add indexes to deprecate index in ruleQuery [#2888](https://github.com/DataDog/datadog-api-client-typescript/pull/2888)
+* Add support for vulnerability management - Add ListScannedAssetsMetadata new endpoint and update existing ones [#2884](https://github.com/DataDog/datadog-api-client-typescript/pull/2884)
+* Update description, operationId and examples for tag pipeline and custom allocation rules [#2878](https://github.com/DataDog/datadog-api-client-typescript/pull/2878)
+
+### Fixed
+* Update the summary name for get a tag pipeline ruleset. [#2896](https://github.com/DataDog/datadog-api-client-typescript/pull/2896)
+
 ## 1.45.0/2025-10-01
 
 ### Security
