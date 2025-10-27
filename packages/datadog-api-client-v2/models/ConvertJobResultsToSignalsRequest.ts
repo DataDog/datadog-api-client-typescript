@@ -8,11 +8,11 @@ import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request for converting historical job results to signals.
+ * Request for converting threat hunting job results to signals.
  */
 export class ConvertJobResultsToSignalsRequest {
   /**
-   * Data for converting historical job results to signals.
+   * Data for converting threat hunting job results to signals.
    */
   "data"?: ConvertJobResultsToSignalsData;
 

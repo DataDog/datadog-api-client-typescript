@@ -3,18 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
+import { RunThreatHuntingJobRequestAttributes } from "./RunThreatHuntingJobRequestAttributes";
+import { RunThreatHuntingJobRequestDataType } from "./RunThreatHuntingJobRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Run a historical job request.
+ * Data for running a threat hunting job request.
  */
-export class RunHistoricalJobRequest {
+export class RunThreatHuntingJobRequestData {
   /**
-   * Data for running a historical job request.
+   * Run a threat hunting job request.
    */
-  "data"?: RunHistoricalJobRequestData;
+  "attributes"?: RunThreatHuntingJobRequestAttributes;
+  /**
+   * Type of data.
+   */
+  "type"?: RunThreatHuntingJobRequestDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +37,13 @@ export class RunHistoricalJobRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RunHistoricalJobRequestData",
+    attributes: {
+      baseName: "attributes",
+      type: "RunThreatHuntingJobRequestAttributes",
+    },
+    type: {
+      baseName: "type",
+      type: "RunThreatHuntingJobRequestDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +55,7 @@ export class RunHistoricalJobRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RunHistoricalJobRequest.attributeTypeMap;
+    return RunThreatHuntingJobRequestData.attributeTypeMap;
   }
 
   public constructor() {}
