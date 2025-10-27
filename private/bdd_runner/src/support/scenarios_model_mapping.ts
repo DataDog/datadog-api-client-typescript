@@ -4507,7 +4507,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityMonitoringSignalResponse",
   },
-  "SecurityMonitoringApi.V2.ListHistoricalJobs": {
+  "SecurityMonitoringApi.V2.ListThreatHuntingJobs": {
     pageSize: {
       type: "number",
       format: "int64",
@@ -4524,11 +4524,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    operationResponseType: "ListHistoricalJobsResponse",
+    operationResponseType: "ListThreatHuntingJobsResponse",
   },
-  "SecurityMonitoringApi.V2.RunHistoricalJob": {
+  "SecurityMonitoringApi.V2.RunThreatHuntingJob": {
     body: {
-      type: "RunHistoricalJobRequest",
+      type: "RunThreatHuntingJobRequest",
       format: "",
     },
     operationResponseType: "JobCreateResponse",
@@ -4540,21 +4540,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "SecurityMonitoringApi.V2.GetHistoricalJob": {
+  "SecurityMonitoringApi.V2.GetThreatHuntingJob": {
     jobId: {
       type: "string",
       format: "",
     },
-    operationResponseType: "HistoricalJobResponse",
+    operationResponseType: "ThreatHuntingJobResponse",
   },
-  "SecurityMonitoringApi.V2.DeleteHistoricalJob": {
+  "SecurityMonitoringApi.V2.DeleteThreatHuntingJob": {
     jobId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "SecurityMonitoringApi.V2.CancelHistoricalJob": {
+  "SecurityMonitoringApi.V2.CancelThreatHuntingJob": {
     jobId: {
       type: "string",
       format: "",

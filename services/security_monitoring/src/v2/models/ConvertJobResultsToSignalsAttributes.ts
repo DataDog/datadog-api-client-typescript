@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
 
 /**
- * Attributes for converting historical job results to signals.
+ * Attributes for converting threat hunting job results to signals.
  */
 export class ConvertJobResultsToSignalsAttributes {
   /**
