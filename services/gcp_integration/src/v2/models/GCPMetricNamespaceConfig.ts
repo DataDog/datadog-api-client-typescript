@@ -9,6 +9,10 @@ export class GCPMetricNamespaceConfig {
    */
   "disabled"?: boolean;
   /**
+   * When enabled, Datadog applies these additional filters to limit metric collection. A metric is collected only if it does not match all exclusion filters and matches at least one allow filter.
+   */
+  "filters"?: Array<string>;
+  /**
    * The id of the GCP metric namespace.
    */
   "id"?: string;
@@ -30,6 +34,10 @@ export class GCPMetricNamespaceConfig {
     disabled: {
       baseName: "disabled",
       type: "boolean",
+    },
+    filters: {
+      baseName: "filters",
+      type: "Array<string>",
     },
     id: {
       baseName: "id",
