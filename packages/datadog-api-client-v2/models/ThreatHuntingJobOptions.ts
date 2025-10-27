@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Job options.
  */
-export class HistoricalJobOptions {
+export class ThreatHuntingJobOptions {
   /**
    * The detection method.
    */
@@ -112,7 +112,7 @@ export class HistoricalJobOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HistoricalJobOptions.attributeTypeMap;
+    return ThreatHuntingJobOptions.attributeTypeMap;
   }
 
   public constructor() {}

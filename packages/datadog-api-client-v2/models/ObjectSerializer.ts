@@ -994,12 +994,6 @@ import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
 import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
-import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
-import { HistoricalJobOptions } from "./HistoricalJobOptions";
-import { HistoricalJobQuery } from "./HistoricalJobQuery";
-import { HistoricalJobResponse } from "./HistoricalJobResponse";
-import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
-import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
 import { HourlyUsage } from "./HourlyUsage";
 import { HourlyUsageAttributes } from "./HourlyUsageAttributes";
 import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
@@ -1243,7 +1237,6 @@ import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
-import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
@@ -1256,6 +1249,7 @@ import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
+import { ListThreatHuntingJobsResponse } from "./ListThreatHuntingJobsResponse";
 import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
 import { Log } from "./Log";
@@ -1934,9 +1928,9 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
-import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
-import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
-import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
+import { RunThreatHuntingJobRequest } from "./RunThreatHuntingJobRequest";
+import { RunThreatHuntingJobRequestAttributes } from "./RunThreatHuntingJobRequestAttributes";
+import { RunThreatHuntingJobRequestData } from "./RunThreatHuntingJobRequestData";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SBOM } from "./SBOM";
@@ -2337,6 +2331,12 @@ import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
+import { ThreatHuntingJobListMeta } from "./ThreatHuntingJobListMeta";
+import { ThreatHuntingJobOptions } from "./ThreatHuntingJobOptions";
+import { ThreatHuntingJobQuery } from "./ThreatHuntingJobQuery";
+import { ThreatHuntingJobResponse } from "./ThreatHuntingJobResponse";
+import { ThreatHuntingJobResponseAttributes } from "./ThreatHuntingJobResponseAttributes";
+import { ThreatHuntingJobResponseData } from "./ThreatHuntingJobResponseData";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
 import { TimelineCell } from "./TimelineCell";
@@ -3036,7 +3036,6 @@ const enumsMap: { [key: string]: any[] } = {
   GreyNoiseIntegrationType: ["GreyNoise"],
   HTTPIntegrationType: ["HTTP"],
   HTTPTokenAuthType: ["HTTPTokenAuth"],
-  HistoricalJobDataType: ["historicalDetectionsJob"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -3667,7 +3666,7 @@ const enumsMap: { [key: string]: any[] } = {
     "vital",
   ],
   RumRetentionFilterType: ["retention_filters"],
-  RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
+  RunThreatHuntingJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SBOMComponentLicenseType: [
     "network_strong_copyleft",
@@ -3964,6 +3963,7 @@ const enumsMap: { [key: string]: any[] } = {
     "team_links",
     "user_team_permissions",
   ],
+  ThreatHuntingJobDataType: ["historicalDetectionsJob"],
   TimelineCellAuthorUserType: ["USER"],
   TimelineCellResourceType: ["timeline_cell"],
   TimelineCellType: ["COMMENT"],
@@ -5255,12 +5255,6 @@ const typeMap: { [index: string]: any } = {
   HTTPTokenAuth: HTTPTokenAuth,
   HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
   HTTPTokenUpdate: HTTPTokenUpdate,
-  HistoricalJobListMeta: HistoricalJobListMeta,
-  HistoricalJobOptions: HistoricalJobOptions,
-  HistoricalJobQuery: HistoricalJobQuery,
-  HistoricalJobResponse: HistoricalJobResponse,
-  HistoricalJobResponseAttributes: HistoricalJobResponseAttributes,
-  HistoricalJobResponseData: HistoricalJobResponseData,
   HourlyUsage: HourlyUsage,
   HourlyUsageAttributes: HourlyUsageAttributes,
   HourlyUsageMeasurement: HourlyUsageMeasurement,
@@ -5529,7 +5523,6 @@ const typeMap: { [index: string]: any } = {
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
-  ListHistoricalJobsResponse: ListHistoricalJobsResponse,
   ListKindCatalogResponse: ListKindCatalogResponse,
   ListPipelinesResponse: ListPipelinesResponse,
   ListPipelinesResponseMeta: ListPipelinesResponseMeta,
@@ -5542,6 +5535,7 @@ const typeMap: { [index: string]: any } = {
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
   ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
+  ListThreatHuntingJobsResponse: ListThreatHuntingJobsResponse,
   ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
   ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
   Log: Log,
@@ -6367,9 +6361,9 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
-  RunHistoricalJobRequest: RunHistoricalJobRequest,
-  RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
-  RunHistoricalJobRequestData: RunHistoricalJobRequestData,
+  RunThreatHuntingJobRequest: RunThreatHuntingJobRequest,
+  RunThreatHuntingJobRequestAttributes: RunThreatHuntingJobRequestAttributes,
+  RunThreatHuntingJobRequestData: RunThreatHuntingJobRequestData,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   SBOM: SBOM,
@@ -6861,6 +6855,12 @@ const typeMap: { [index: string]: any } = {
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
   TeamsResponseMetaPagination: TeamsResponseMetaPagination,
+  ThreatHuntingJobListMeta: ThreatHuntingJobListMeta,
+  ThreatHuntingJobOptions: ThreatHuntingJobOptions,
+  ThreatHuntingJobQuery: ThreatHuntingJobQuery,
+  ThreatHuntingJobResponse: ThreatHuntingJobResponse,
+  ThreatHuntingJobResponseAttributes: ThreatHuntingJobResponseAttributes,
+  ThreatHuntingJobResponseData: ThreatHuntingJobResponseData,
   TimeRestriction: TimeRestriction,
   TimeRestrictions: TimeRestrictions,
   TimelineCell: TimelineCell,
