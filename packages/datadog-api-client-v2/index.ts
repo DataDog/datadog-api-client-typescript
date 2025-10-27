@@ -714,6 +714,7 @@ export {
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
+  SecurityMonitoringApiListMultipleRulesetsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
@@ -2172,6 +2173,22 @@ export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
 export { GetIssueIncludeQueryParameterItem } from "./models/GetIssueIncludeQueryParameterItem";
+export { GetMultipleRulesetsRequest } from "./models/GetMultipleRulesetsRequest";
+export { GetMultipleRulesetsRequestData } from "./models/GetMultipleRulesetsRequestData";
+export { GetMultipleRulesetsRequestDataAttributes } from "./models/GetMultipleRulesetsRequestDataAttributes";
+export { GetMultipleRulesetsRequestDataType } from "./models/GetMultipleRulesetsRequestDataType";
+export { GetMultipleRulesetsResponse } from "./models/GetMultipleRulesetsResponse";
+export { GetMultipleRulesetsResponseData } from "./models/GetMultipleRulesetsResponseData";
+export { GetMultipleRulesetsResponseDataAttributes } from "./models/GetMultipleRulesetsResponseDataAttributes";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItems } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItems";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItemsData } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItemsData";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType";
+export { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems } from "./models/GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems";
+export { GetMultipleRulesetsResponseDataType } from "./models/GetMultipleRulesetsResponseDataType";
 export { GetResourceEvaluationFiltersResponse } from "./models/GetResourceEvaluationFiltersResponse";
 export { GetResourceEvaluationFiltersResponseData } from "./models/GetResourceEvaluationFiltersResponseData";
 export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
@@ -3585,6 +3602,13 @@ export { ScheduleUserAttributes } from "./models/ScheduleUserAttributes";
 export { ScheduleUserType } from "./models/ScheduleUserType";
 export { ScorecardType } from "./models/ScorecardType";
 export { SearchIssuesIncludeQueryParameterItem } from "./models/SearchIssuesIncludeQueryParameterItem";
+export { SecretRuleArray } from "./models/SecretRuleArray";
+export { SecretRuleData } from "./models/SecretRuleData";
+export { SecretRuleDataAttributes } from "./models/SecretRuleDataAttributes";
+export { SecretRuleDataAttributesMatchValidation } from "./models/SecretRuleDataAttributesMatchValidation";
+export { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./models/SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
+export { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./models/SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
+export { SecretRuleDataType } from "./models/SecretRuleDataType";
 export { SecurityFilter } from "./models/SecurityFilter";
 export { SecurityFilterAttributes } from "./models/SecurityFilterAttributes";
 export { SecurityFilterCreateAttributes } from "./models/SecurityFilterCreateAttributes";

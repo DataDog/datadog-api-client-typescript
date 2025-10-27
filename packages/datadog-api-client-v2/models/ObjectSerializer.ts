@@ -961,6 +961,18 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
+import { GetMultipleRulesetsRequest } from "./GetMultipleRulesetsRequest";
+import { GetMultipleRulesetsRequestData } from "./GetMultipleRulesetsRequestData";
+import { GetMultipleRulesetsRequestDataAttributes } from "./GetMultipleRulesetsRequestDataAttributes";
+import { GetMultipleRulesetsResponse } from "./GetMultipleRulesetsResponse";
+import { GetMultipleRulesetsResponseData } from "./GetMultipleRulesetsResponseData";
+import { GetMultipleRulesetsResponseDataAttributes } from "./GetMultipleRulesetsResponseDataAttributes";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItems";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsData";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems";
 import { GetResourceEvaluationFiltersResponse } from "./GetResourceEvaluationFiltersResponse";
 import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluationFiltersResponseData";
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
@@ -2002,6 +2014,12 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { SecretRuleArray } from "./SecretRuleArray";
+import { SecretRuleData } from "./SecretRuleData";
+import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
+import { SecretRuleDataAttributesMatchValidation } from "./SecretRuleDataAttributesMatchValidation";
+import { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
+import { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -3019,6 +3037,12 @@ const enumsMap: { [key: string]: any[] } = {
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
+  GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: ["rulesets"],
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType: [
+    "rules",
+  ],
+  GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
   GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
   GetTeamMembershipsSort: [
     "manager_name",
@@ -3721,6 +3745,7 @@ const enumsMap: { [key: string]: any[] } = {
     "issue.case",
     "issue.team_owners",
   ],
+  SecretRuleDataType: ["secret_rule"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -5221,6 +5246,26 @@ const typeMap: { [index: string]: any } = {
   GetFindingResponse: GetFindingResponse,
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
+  GetMultipleRulesetsRequest: GetMultipleRulesetsRequest,
+  GetMultipleRulesetsRequestData: GetMultipleRulesetsRequestData,
+  GetMultipleRulesetsRequestDataAttributes:
+    GetMultipleRulesetsRequestDataAttributes,
+  GetMultipleRulesetsResponse: GetMultipleRulesetsResponse,
+  GetMultipleRulesetsResponseData: GetMultipleRulesetsResponseData,
+  GetMultipleRulesetsResponseDataAttributes:
+    GetMultipleRulesetsResponseDataAttributes,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItems:
+    GetMultipleRulesetsResponseDataAttributesRulesetsItems,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsData:
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsData,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems:
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems:
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData:
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData,
+  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems:
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems,
   GetResourceEvaluationFiltersResponse: GetResourceEvaluationFiltersResponse,
   GetResourceEvaluationFiltersResponseData:
     GetResourceEvaluationFiltersResponseData,
@@ -6450,6 +6495,15 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataRelationships,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
+  SecretRuleArray: SecretRuleArray,
+  SecretRuleData: SecretRuleData,
+  SecretRuleDataAttributes: SecretRuleDataAttributes,
+  SecretRuleDataAttributesMatchValidation:
+    SecretRuleDataAttributesMatchValidation,
+  SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems:
+    SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems,
+  SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems:
+    SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
