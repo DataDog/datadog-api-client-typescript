@@ -38,6 +38,8 @@ import { FindingStatus } from "./models/FindingStatus";
 import { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
 import { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 import { GetFindingResponse } from "./models/GetFindingResponse";
+import { GetMultipleRulesetsRequest } from "./models/GetMultipleRulesetsRequest";
+import { GetMultipleRulesetsResponse } from "./models/GetMultipleRulesetsResponse";
 import { GetResourceEvaluationFiltersResponse } from "./models/GetResourceEvaluationFiltersResponse";
 import { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./models/GetSBOMResponse";
@@ -55,6 +57,7 @@ import { RunThreatHuntingJobRequest } from "./models/RunThreatHuntingJobRequest"
 import { SBOMComponentLicenseType } from "./models/SBOMComponentLicenseType";
 import { SBOMFormat } from "./models/SBOMFormat";
 import { ScannedAssetsMetadata } from "./models/ScannedAssetsMetadata";
+import { SecretRuleArray } from "./models/SecretRuleArray";
 import { SecurityFilterCreateRequest } from "./models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "./models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "./models/SecurityFiltersResponse";
@@ -1499,6 +1502,50 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSecretsRules(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.getSecretsRules"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecretsRules' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSecretsRules'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/static-analysis/secrets/rules";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecretsRules",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityFilter(
     securityFilterId: string,
     _options?: Configuration,
@@ -2438,6 +2485,67 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "",
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listMultipleRulesets(
+    body: GetMultipleRulesetsRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.listMultipleRulesets"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listMultipleRulesets' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listMultipleRulesets'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "listMultipleRulesets");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/static-analysis/rulesets";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listMultipleRulesets",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "GetMultipleRulesetsRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -5873,6 +5981,62 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecretsRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecretsRules(
+    response: ResponseContext,
+  ): Promise<SecretRuleArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecretRuleArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecretRuleArray",
+      ) as SecretRuleArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecretRuleArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecretRuleArray",
+        "",
+      ) as SecretRuleArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6773,6 +6937,62 @@ export class SecurityMonitoringApiResponseProcessor {
         "ListFindingsResponse",
         "",
       ) as ListFindingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listMultipleRulesets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listMultipleRulesets(
+    response: ResponseContext,
+  ): Promise<GetMultipleRulesetsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: GetMultipleRulesetsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GetMultipleRulesetsResponse",
+      ) as GetMultipleRulesetsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetMultipleRulesetsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GetMultipleRulesetsResponse",
+        "",
+      ) as GetMultipleRulesetsResponse;
       return body;
     }
 
@@ -8817,6 +9037,13 @@ export interface SecurityMonitoringApiListFindingsRequest {
   detailedFindings?: boolean;
 }
 
+export interface SecurityMonitoringApiListMultipleRulesetsRequest {
+  /**
+   * @type GetMultipleRulesetsRequest
+   */
+  body: GetMultipleRulesetsRequest;
+}
+
 export interface SecurityMonitoringApiListScannedAssetsMetadataRequest {
   /**
    * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
@@ -10014,6 +10241,21 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Returns list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID
+   * @param param The request object
+   */
+  public getSecretsRules(options?: Configuration): Promise<SecretRuleArray> {
+    const requestContextPromise = this.requestFactory.getSecretsRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecretsRules(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get the details of a specific security filter.
    *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
@@ -10489,6 +10731,27 @@ export class SecurityMonitoringApi {
 
       param.pageCursor = cursorMetaPageCursor;
     }
+  }
+
+  /**
+   * Get rules for multiple rulesets in batch.
+   * @param param The request object
+   */
+  public listMultipleRulesets(
+    param: SecurityMonitoringApiListMultipleRulesetsRequest,
+    options?: Configuration,
+  ): Promise<GetMultipleRulesetsResponse> {
+    const requestContextPromise = this.requestFactory.listMultipleRulesets(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMultipleRulesets(responseContext);
+        });
+    });
   }
 
   /**
