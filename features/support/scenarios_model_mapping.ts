@@ -5924,6 +5924,23 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListAWSNamespaces": {
         "operationResponseType": "AWSNamespacesResponse",
     },
+    "v2.ListAWSEventBridgeSources": {
+        "operationResponseType": "AWSEventBridgeListResponse",
+    },
+    "v2.CreateAWSEventBridgeSource": {
+        "body": {
+            "type": "AWSEventBridgeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSEventBridgeCreateResponse",
+    },
+    "v2.DeleteAWSEventBridgeSource": {
+        "body": {
+            "type": "AWSEventBridgeDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSEventBridgeDeleteResponse",
+    },
     "v2.CreateNewAWSExternalID": {
         "operationResponseType": "AWSNewExternalIDResponse",
     },

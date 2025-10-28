@@ -26,6 +26,23 @@ import { AWSAssumeRole } from "./AWSAssumeRole";
 import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
+import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
+import { AWSEventBridgeCreateRequestAttributes } from "./AWSEventBridgeCreateRequestAttributes";
+import { AWSEventBridgeCreateRequestData } from "./AWSEventBridgeCreateRequestData";
+import { AWSEventBridgeCreateResponse } from "./AWSEventBridgeCreateResponse";
+import { AWSEventBridgeCreateResponseAttributes } from "./AWSEventBridgeCreateResponseAttributes";
+import { AWSEventBridgeCreateResponseData } from "./AWSEventBridgeCreateResponseData";
+import { AWSEventBridgeDeleteRequest } from "./AWSEventBridgeDeleteRequest";
+import { AWSEventBridgeDeleteRequestAttributes } from "./AWSEventBridgeDeleteRequestAttributes";
+import { AWSEventBridgeDeleteRequestData } from "./AWSEventBridgeDeleteRequestData";
+import { AWSEventBridgeDeleteResponse } from "./AWSEventBridgeDeleteResponse";
+import { AWSEventBridgeDeleteResponseAttributes } from "./AWSEventBridgeDeleteResponseAttributes";
+import { AWSEventBridgeDeleteResponseData } from "./AWSEventBridgeDeleteResponseData";
+import { AWSEventBridgeListResponse } from "./AWSEventBridgeListResponse";
+import { AWSEventBridgeListResponseAttributes } from "./AWSEventBridgeListResponseAttributes";
+import { AWSEventBridgeListResponseData } from "./AWSEventBridgeListResponseData";
+import { AWSEventBridgeSource } from "./AWSEventBridgeSource";
 import { AWSIntegration } from "./AWSIntegration";
 import { AWSIntegrationIamPermissionsResponse } from "./AWSIntegrationIamPermissionsResponse";
 import { AWSIntegrationIamPermissionsResponseAttributes } from "./AWSIntegrationIamPermissionsResponseAttributes";
@@ -2531,6 +2548,9 @@ const enumsMap: { [key: string]: any[] } = {
   AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
   AWSAccountType: ["account"],
   AWSAssumeRoleType: ["AWSAssumeRole"],
+  AWSEventBridgeCreateStatus: ["created"],
+  AWSEventBridgeDeleteStatus: ["empty"],
+  AWSEventBridgeType: ["event_bridge"],
   AWSIntegrationIamPermissionsResponseDataType: ["permissions"],
   AWSIntegrationType: ["AWS"],
   AWSLogsServicesResponseDataType: ["logs_services"],
@@ -4124,6 +4144,25 @@ const typeMap: { [index: string]: any } = {
   AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
   AWSAuthConfigKeys: AWSAuthConfigKeys,
   AWSAuthConfigRole: AWSAuthConfigRole,
+  AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
+  AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
+  AWSEventBridgeCreateRequestAttributes: AWSEventBridgeCreateRequestAttributes,
+  AWSEventBridgeCreateRequestData: AWSEventBridgeCreateRequestData,
+  AWSEventBridgeCreateResponse: AWSEventBridgeCreateResponse,
+  AWSEventBridgeCreateResponseAttributes:
+    AWSEventBridgeCreateResponseAttributes,
+  AWSEventBridgeCreateResponseData: AWSEventBridgeCreateResponseData,
+  AWSEventBridgeDeleteRequest: AWSEventBridgeDeleteRequest,
+  AWSEventBridgeDeleteRequestAttributes: AWSEventBridgeDeleteRequestAttributes,
+  AWSEventBridgeDeleteRequestData: AWSEventBridgeDeleteRequestData,
+  AWSEventBridgeDeleteResponse: AWSEventBridgeDeleteResponse,
+  AWSEventBridgeDeleteResponseAttributes:
+    AWSEventBridgeDeleteResponseAttributes,
+  AWSEventBridgeDeleteResponseData: AWSEventBridgeDeleteResponseData,
+  AWSEventBridgeListResponse: AWSEventBridgeListResponse,
+  AWSEventBridgeListResponseAttributes: AWSEventBridgeListResponseAttributes,
+  AWSEventBridgeListResponseData: AWSEventBridgeListResponseData,
+  AWSEventBridgeSource: AWSEventBridgeSource,
   AWSIntegration: AWSIntegration,
   AWSIntegrationIamPermissionsResponse: AWSIntegrationIamPermissionsResponse,
   AWSIntegrationIamPermissionsResponseAttributes:
