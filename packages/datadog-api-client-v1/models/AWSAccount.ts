@@ -19,9 +19,11 @@ export class AWSAccount {
    */
   "accountId"?: string;
   /**
-   * An object, (in the form `{"namespace1":true/false, "namespace2":true/false}`),
-   * that enables or disables metric collection for specific AWS namespaces for this
-   * AWS account only.
+   * An object (in the form `{"namespace1":true/false, "namespace2":true/false}`) containing user-supplied overrides
+   * for AWS namespace metric collection. **Important**: This field only contains namespaces explicitly configured through API calls,
+   * not the comprehensive enabled or disabled status of all namespaces. If a namespace is absent from this field, it uses Datadog's
+   * internal defaults (all namespaces enabled by default, except `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage`).
+   * For a complete view of all namespace statuses, use the V2 AWS Integration API instead.
    */
   "accountSpecificNamespaceRules"?: { [key: string]: boolean };
   /**
