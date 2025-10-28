@@ -54,6 +54,18 @@ import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
+import { GetMultipleRulesetsRequest } from "./GetMultipleRulesetsRequest";
+import { GetMultipleRulesetsRequestData } from "./GetMultipleRulesetsRequestData";
+import { GetMultipleRulesetsRequestDataAttributes } from "./GetMultipleRulesetsRequestDataAttributes";
+import { GetMultipleRulesetsResponse } from "./GetMultipleRulesetsResponse";
+import { GetMultipleRulesetsResponseData } from "./GetMultipleRulesetsResponseData";
+import { GetMultipleRulesetsResponseDataAttributes } from "./GetMultipleRulesetsResponseDataAttributes";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItems";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsData";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData";
+import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems";
 import { GetResourceEvaluationFiltersResponse } from "./GetResourceEvaluationFiltersResponse";
 import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluationFiltersResponseData";
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
@@ -110,6 +122,12 @@ import { ScannedAssetMetadataAsset } from "./ScannedAssetMetadataAsset";
 import { ScannedAssetMetadataAttributes } from "./ScannedAssetMetadataAttributes";
 import { ScannedAssetMetadataLastSuccess } from "./ScannedAssetMetadataLastSuccess";
 import { ScannedAssetsMetadata } from "./ScannedAssetsMetadata";
+import { SecretRuleArray } from "./SecretRuleArray";
+import { SecretRuleData } from "./SecretRuleData";
+import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
+import { SecretRuleDataAttributesMatchValidation } from "./SecretRuleDataAttributesMatchValidation";
+import { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
+import { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -243,6 +261,14 @@ export const TypingInfo: ModelTypingInfo = {
       "identity_risk",
       "api_security",
     ],
+    GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: [
+      "rulesets",
+    ],
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType: [
+      "rules",
+    ],
+    GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
@@ -292,6 +318,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     SBOMFormat: ["CycloneDX", "SPDX"],
     SBOMType: ["sboms"],
+    SecretRuleDataType: ["secret_rule"],
     SecurityFilterFilteredDataType: ["logs"],
     SecurityFilterType: ["security_filters"],
     SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -552,6 +579,26 @@ export const TypingInfo: ModelTypingInfo = {
     FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
     GetCustomFrameworkResponse: GetCustomFrameworkResponse,
     GetFindingResponse: GetFindingResponse,
+    GetMultipleRulesetsRequest: GetMultipleRulesetsRequest,
+    GetMultipleRulesetsRequestData: GetMultipleRulesetsRequestData,
+    GetMultipleRulesetsRequestDataAttributes:
+      GetMultipleRulesetsRequestDataAttributes,
+    GetMultipleRulesetsResponse: GetMultipleRulesetsResponse,
+    GetMultipleRulesetsResponseData: GetMultipleRulesetsResponseData,
+    GetMultipleRulesetsResponseDataAttributes:
+      GetMultipleRulesetsResponseDataAttributes,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItems:
+      GetMultipleRulesetsResponseDataAttributesRulesetsItems,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsData:
+      GetMultipleRulesetsResponseDataAttributesRulesetsItemsData,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems:
+      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems:
+      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData:
+      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems:
+      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems,
     GetResourceEvaluationFiltersResponse: GetResourceEvaluationFiltersResponse,
     GetResourceEvaluationFiltersResponseData:
       GetResourceEvaluationFiltersResponseData,
@@ -610,6 +657,15 @@ export const TypingInfo: ModelTypingInfo = {
     ScannedAssetMetadataAttributes: ScannedAssetMetadataAttributes,
     ScannedAssetMetadataLastSuccess: ScannedAssetMetadataLastSuccess,
     ScannedAssetsMetadata: ScannedAssetsMetadata,
+    SecretRuleArray: SecretRuleArray,
+    SecretRuleData: SecretRuleData,
+    SecretRuleDataAttributes: SecretRuleDataAttributes,
+    SecretRuleDataAttributesMatchValidation:
+      SecretRuleDataAttributesMatchValidation,
+    SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems:
+      SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems,
+    SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems:
+      SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems,
     SecurityFilter: SecurityFilter,
     SecurityFilterAttributes: SecurityFilterAttributes,
     SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
