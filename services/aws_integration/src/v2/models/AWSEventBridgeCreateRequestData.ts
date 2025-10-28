@@ -1,27 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AWSAccountResponseAttributes } from "./AWSAccountResponseAttributes";
-import { AWSAccountType } from "./AWSAccountType";
+import { AWSEventBridgeCreateRequestAttributes } from "./AWSEventBridgeCreateRequestAttributes";
+import { AWSEventBridgeType } from "./AWSEventBridgeType";
 
 /**
- * AWS Account response data.
+ * Amazon EventBridge create request data.
  */
-export class AWSAccountResponseData {
+export class AWSEventBridgeCreateRequestData {
   /**
-   * AWS Account response attributes.
+   * The EventBridge source to be created.
    */
-  "attributes"?: AWSAccountResponseAttributes;
+  "attributes": AWSEventBridgeCreateRequestAttributes;
   /**
-   * Unique Datadog ID of the AWS Account Integration Config.
-   * To get the config ID for an account, use the
-   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
-   * endpoint and query by AWS Account ID.
+   * Amazon EventBridge resource type.
    */
-  "id": string;
-  /**
-   * AWS Account resource type.
-   */
-  "type": AWSAccountType;
+  "type": AWSEventBridgeType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -39,16 +32,12 @@ export class AWSAccountResponseData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "AWSAccountResponseAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
+      type: "AWSEventBridgeCreateRequestAttributes",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "AWSAccountType",
+      type: "AWSEventBridgeType",
       required: true,
     },
     additionalProperties: {
@@ -61,7 +50,7 @@ export class AWSAccountResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountResponseData.attributeTypeMap;
+    return AWSEventBridgeCreateRequestData.attributeTypeMap;
   }
 
   public constructor() {}
