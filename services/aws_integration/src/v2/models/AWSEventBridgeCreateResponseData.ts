@@ -1,27 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AWSAccountType } from "./AWSAccountType";
-import { AWSAccountUpdateRequestAttributes } from "./AWSAccountUpdateRequestAttributes";
+import { AWSEventBridgeCreateResponseAttributes } from "./AWSEventBridgeCreateResponseAttributes";
+import { AWSEventBridgeType } from "./AWSEventBridgeType";
 
 /**
- * AWS Account Update Request data.
+ * Amazon EventBridge create response data.
  */
-export class AWSAccountUpdateRequestData {
+export class AWSEventBridgeCreateResponseData {
   /**
-   * The AWS Account Integration Config to be updated.
+   * A created EventBridge source.
    */
-  "attributes": AWSAccountUpdateRequestAttributes;
+  "attributes": AWSEventBridgeCreateResponseAttributes;
   /**
-   * Unique Datadog ID of the AWS Account Integration Config.
-   * To get the config ID for an account, use the
-   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
-   * endpoint and query by AWS Account ID.
+   * The ID of the Amazon EventBridge create response data.
    */
   "id"?: string;
   /**
-   * AWS Account resource type.
+   * Amazon EventBridge resource type.
    */
-  "type": AWSAccountType;
+  "type": AWSEventBridgeType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -39,7 +36,7 @@ export class AWSAccountUpdateRequestData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "AWSAccountUpdateRequestAttributes",
+      type: "AWSEventBridgeCreateResponseAttributes",
       required: true,
     },
     id: {
@@ -48,7 +45,7 @@ export class AWSAccountUpdateRequestData {
     },
     type: {
       baseName: "type",
-      type: "AWSAccountType",
+      type: "AWSEventBridgeType",
       required: true,
     },
     additionalProperties: {
@@ -61,7 +58,7 @@ export class AWSAccountUpdateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountUpdateRequestData.attributeTypeMap;
+    return AWSEventBridgeCreateResponseData.attributeTypeMap;
   }
 
   public constructor() {}

@@ -1,6 +1,8 @@
 export {
   AWSIntegrationApiCreateAWSAccountRequest,
+  AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
   AWSIntegrationApiDeleteAWSAccountRequest,
+  AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
   AWSIntegrationApiGetAWSAccountRequest,
   AWSIntegrationApiListAWSAccountsRequest,
   AWSIntegrationApiUpdateAWSAccountRequest,
@@ -23,6 +25,26 @@ export { AWSAccountUpdateRequestData } from "./models/AWSAccountUpdateRequestDat
 export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
 export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
+export { AWSEventBridgeAccountConfiguration } from "./models/AWSEventBridgeAccountConfiguration";
+export { AWSEventBridgeCreateRequest } from "./models/AWSEventBridgeCreateRequest";
+export { AWSEventBridgeCreateRequestAttributes } from "./models/AWSEventBridgeCreateRequestAttributes";
+export { AWSEventBridgeCreateRequestData } from "./models/AWSEventBridgeCreateRequestData";
+export { AWSEventBridgeCreateResponse } from "./models/AWSEventBridgeCreateResponse";
+export { AWSEventBridgeCreateResponseAttributes } from "./models/AWSEventBridgeCreateResponseAttributes";
+export { AWSEventBridgeCreateResponseData } from "./models/AWSEventBridgeCreateResponseData";
+export { AWSEventBridgeCreateStatus } from "./models/AWSEventBridgeCreateStatus";
+export { AWSEventBridgeDeleteRequest } from "./models/AWSEventBridgeDeleteRequest";
+export { AWSEventBridgeDeleteRequestAttributes } from "./models/AWSEventBridgeDeleteRequestAttributes";
+export { AWSEventBridgeDeleteRequestData } from "./models/AWSEventBridgeDeleteRequestData";
+export { AWSEventBridgeDeleteResponse } from "./models/AWSEventBridgeDeleteResponse";
+export { AWSEventBridgeDeleteResponseAttributes } from "./models/AWSEventBridgeDeleteResponseAttributes";
+export { AWSEventBridgeDeleteResponseData } from "./models/AWSEventBridgeDeleteResponseData";
+export { AWSEventBridgeDeleteStatus } from "./models/AWSEventBridgeDeleteStatus";
+export { AWSEventBridgeListResponse } from "./models/AWSEventBridgeListResponse";
+export { AWSEventBridgeListResponseAttributes } from "./models/AWSEventBridgeListResponseAttributes";
+export { AWSEventBridgeListResponseData } from "./models/AWSEventBridgeListResponseData";
+export { AWSEventBridgeSource } from "./models/AWSEventBridgeSource";
+export { AWSEventBridgeType } from "./models/AWSEventBridgeType";
 export { AWSIntegrationIamPermissionsResponse } from "./models/AWSIntegrationIamPermissionsResponse";
 export { AWSIntegrationIamPermissionsResponseAttributes } from "./models/AWSIntegrationIamPermissionsResponseAttributes";
 export { AWSIntegrationIamPermissionsResponseData } from "./models/AWSIntegrationIamPermissionsResponseData";

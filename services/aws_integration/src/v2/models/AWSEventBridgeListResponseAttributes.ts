@@ -1,17 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 
 /**
- * AWS Logs Collection config.
+ * An object describing the EventBridge configuration for multiple accounts.
  */
-export class AWSLogsConfig {
+export class AWSEventBridgeListResponseAttributes {
   /**
-   * Log Autosubscription configuration for Datadog Forwarder Lambda functions.
-   * Automatically set up triggers for existing and new logs for some services,
-   * ensuring no logs from new resources are missed and saving time spent on manual configuration.
+   * List of accounts with their event sources.
    */
-  "lambdaForwarder"?: AWSLambdaForwarderConfig;
+  "accounts"?: Array<AWSEventBridgeAccountConfiguration>;
+  /**
+   * True if the EventBridge integration is enabled for your organization.
+   */
+  "isInstalled"?: boolean;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,9 +29,13 @@ export class AWSLogsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lambdaForwarder: {
-      baseName: "lambda_forwarder",
-      type: "AWSLambdaForwarderConfig",
+    accounts: {
+      baseName: "accounts",
+      type: "Array<AWSEventBridgeAccountConfiguration>",
+    },
+    isInstalled: {
+      baseName: "is_installed",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -41,7 +47,7 @@ export class AWSLogsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsConfig.attributeTypeMap;
+    return AWSEventBridgeListResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}
