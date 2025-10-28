@@ -3,20 +3,31 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSEventBridgeCreateStatus } from "./AWSEventBridgeCreateStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Logs Collection config.
+ * A created EventBridge source.
  */
-export class AWSLogsConfig {
+export class AWSEventBridgeCreateResponseAttributes {
   /**
-   * Log Autosubscription configuration for Datadog Forwarder Lambda functions.
-   * Automatically set up triggers for existing and new logs for some services,
-   * ensuring no logs from new resources are missed and saving time spent on manual configuration.
+   * The event source name.
    */
-  "lambdaForwarder"?: AWSLambdaForwarderConfig;
+  "eventSourceName"?: string;
+  /**
+   * True if the event bus was created in addition to the source.
+   */
+  "hasBus"?: boolean;
+  /**
+   * The event source's
+   * [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
+   */
+  "region"?: string;
+  /**
+   * The event source status "created".
+   */
+  "status"?: AWSEventBridgeCreateStatus;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,9 +45,21 @@ export class AWSLogsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lambdaForwarder: {
-      baseName: "lambda_forwarder",
-      type: "AWSLambdaForwarderConfig",
+    eventSourceName: {
+      baseName: "event_source_name",
+      type: "string",
+    },
+    hasBus: {
+      baseName: "has_bus",
+      type: "boolean",
+    },
+    region: {
+      baseName: "region",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "AWSEventBridgeCreateStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +71,7 @@ export class AWSLogsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsConfig.attributeTypeMap;
+    return AWSEventBridgeCreateResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}
