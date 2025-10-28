@@ -4582,6 +4582,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
+    "v2.ListMultipleRulesets": {
+        "body": {
+            "type": "GetMultipleRulesetsRequest",
+            "format": "",
+            },
+        "operationResponseType": "GetMultipleRulesetsResponse",
+    },
+    "v2.GetSecretsRules": {
+        "operationResponseType": "SecretRuleArray",
+    },
     "v2.ListContainerImages": {
         "filterTags": {
             "type": "string",
