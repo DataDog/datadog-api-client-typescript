@@ -1497,7 +1497,7 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * "**This endpoint is deprecated - use the V2 endpoints instead.** Create a Datadog-Amazon Web Services integration.
+   * **This endpoint is deprecated - use the V2 endpoints instead.** Create a Datadog-Amazon Web Services integration.
    * Using the `POST` method updates your integration configuration
    * by adding your new configuration to the existing one in your Datadog organization.
    * A unique AWS Account ID for role based authentication.
@@ -1521,7 +1521,7 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * Create an Amazon EventBridge source.
+   * **This endpoint is deprecated - use the V2 endpoints instead.** Create an Amazon EventBridge source.
    * @param param The request object
    */
   public createAWSEventBridgeSource(
@@ -1605,7 +1605,7 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * Delete an Amazon EventBridge source.
+   * **This endpoint is deprecated - use the V2 endpoints instead.** Delete an Amazon EventBridge source.
    * @param param The request object
    */
   public deleteAWSEventBridgeSource(
@@ -1690,7 +1690,7 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * Get all Amazon EventBridge sources.
+   * **This endpoint is deprecated - use the V2 endpoints instead.** Get all Amazon EventBridge sources.
    * @param param The request object
    */
   public listAWSEventBridgeSources(
