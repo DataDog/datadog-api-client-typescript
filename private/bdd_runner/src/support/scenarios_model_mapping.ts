@@ -8001,6 +8001,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFilterResponse",
   },
+  "CohortApi.V2.GetRumCohort": {
+    body: {
+      type: "GetCohortRequest",
+      format: "",
+    },
+    operationResponseType: "GetCohortResponse",
+  },
+  "CohortApi.V2.GetRumCohortUsers": {
+    body: {
+      type: "GetCohortUsersRequest",
+      format: "",
+    },
+    operationResponseType: "GetCohortUsersResponse",
+  },
   "RumMetricsApi.V2.ListRumMetrics": {
     operationResponseType: "RumMetricsResponse",
   },
@@ -8035,6 +8049,40 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "RumMetricResponse",
+  },
+  "FunnelApi.V2.GetRumFunnel": {
+    body: {
+      type: "FunnelRequest",
+      format: "",
+    },
+    operationResponseType: "FunnelResponse",
+  },
+  "FunnelApi.V2.GetRumFunnelStepSuggestions": {
+    body: {
+      type: "FunnelSuggestionRequest",
+      format: "",
+    },
+    operationResponseType: "FunnelSuggestionResponse",
+  },
+  "UserFlowApi.V2.GetRumSankey": {
+    body: {
+      type: "SankeyRequest",
+      format: "",
+    },
+    operationResponseType: "SankeyResponse",
+  },
+  "SegmentsApi.V2.ListRumSegments": {
+    operationResponseType: "SegmentArray",
+  },
+  "SegmentsApi.V2.CreateRumSegment": {
+    body: {
+      type: "Segment",
+      format: "",
+    },
+    operationResponseType: "Segment",
+  },
+  "SegmentsApi.V2.InitializeRumSegments": {
+    operationResponseType: "{}",
   },
   "ServiceScorecardsApi.V2.ListScorecardOutcomes": {
     pageSize: {

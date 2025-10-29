@@ -367,6 +367,7 @@ apiInstance
 | Cloud Cost Management | @datadog/datadog-api-client-cloud-cost-management | [README.md](../../services/cloud-cost-management/README.md) |
 | Cloud Network Monitoring | @datadog/datadog-api-client-cloud-network-monitoring | [README.md](../../services/cloud-network-monitoring/README.md) |
 | Cloudflare Integration | @datadog/datadog-api-client-cloudflare-integration | [README.md](../../services/cloudflare-integration/README.md) |
+| Cohort | @datadog/datadog-api-client-cohort | [README.md](../../services/cohort/README.md) |
 | Confluent Cloud | @datadog/datadog-api-client-confluent-cloud | [README.md](../../services/confluent-cloud/README.md) |
 | Container Images | @datadog/datadog-api-client-container-images | [README.md](../../services/container-images/README.md) |
 | Containers | @datadog/datadog-api-client-containers | [README.md](../../services/containers/README.md) |
@@ -384,6 +385,7 @@ apiInstance
 | Events | @datadog/datadog-api-client-events | [README.md](../../services/events/README.md) |
 | Fastly Integration | @datadog/datadog-api-client-fastly-integration | [README.md](../../services/fastly-integration/README.md) |
 | Fleet Automation | @datadog/datadog-api-client-fleet-automation | [README.md](../../services/fleet-automation/README.md) |
+| Funnel | @datadog/datadog-api-client-funnel | [README.md](../../services/funnel/README.md) |
 | GCP Integration | @datadog/datadog-api-client-gcp-integration | [README.md](../../services/gcp-integration/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
 | Incident Services | @datadog/datadog-api-client-incident-services | [README.md](../../services/incident-services/README.md) |
@@ -420,6 +422,7 @@ apiInstance
 | Rum Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
 | Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
 | Security Monitoring | @datadog/datadog-api-client-security-monitoring | [README.md](../../services/security-monitoring/README.md) |
+| Segments | @datadog/datadog-api-client-segments | [README.md](../../services/segments/README.md) |
 | Sensitive Data Scanner | @datadog/datadog-api-client-sensitive-data-scanner | [README.md](../../services/sensitive-data-scanner/README.md) |
 | Service Accounts | @datadog/datadog-api-client-service-accounts | [README.md](../../services/service-accounts/README.md) |
 | Service Checks | @datadog/datadog-api-client-service-checks | [README.md](../../services/service-checks/README.md) |
@@ -439,6 +442,7 @@ apiInstance
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
+| User Flow | @datadog/datadog-api-client-user-flow | [README.md](../../services/user-flow/README.md) |
 | Users | @datadog/datadog-api-client-users | [README.md](../../services/users/README.md) |
 | Webhooks Integration | @datadog/datadog-api-client-webhooks-integration | [README.md](../../services/webhooks-integration/README.md) |
 | Workflow Automation | @datadog/datadog-api-client-workflow-automation | [README.md](../../services/workflow-automation/README.md) |

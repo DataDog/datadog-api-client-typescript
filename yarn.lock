@@ -442,6 +442,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-cohort@workspace:services/cohort":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-cohort@workspace:services/cohort"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-confluent-cloud@workspace:services/confluent_cloud":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-confluent-cloud@workspace:services/confluent_cloud"
@@ -589,6 +598,15 @@ __metadata:
 "@datadog/datadog-api-client-fleet-automation@workspace:services/fleet_automation":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-fleet-automation@workspace:services/fleet_automation"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-funnel@workspace:services/funnel":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-funnel@workspace:services/funnel"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
     typescript: "npm:5.8.3"
@@ -919,6 +937,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-segments@workspace:services/segments":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-segments@workspace:services/segments"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-sensitive-data-scanner@workspace:services/sensitive_data_scanner":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-sensitive-data-scanner@workspace:services/sensitive_data_scanner"
@@ -1084,6 +1111,15 @@ __metadata:
 "@datadog/datadog-api-client-usage-metering@workspace:services/usage_metering":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-usage-metering@workspace:services/usage_metering"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-user-flow@workspace:services/user_flow":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-user-flow@workspace:services/user_flow"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
     typescript: "npm:5.8.3"
