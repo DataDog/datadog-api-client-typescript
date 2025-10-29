@@ -236,6 +236,12 @@ export {
 } from "./apis/CloudflareIntegrationApi";
 
 export {
+  CohortApiGetRumCohortRequest,
+  CohortApiGetRumCohortUsersRequest,
+  CohortApi,
+} from "./apis/CohortApi";
+
+export {
   ConfluentCloudApiCreateConfluentAccountRequest,
   ConfluentCloudApiCreateConfluentResourceRequest,
   ConfluentCloudApiDeleteConfluentAccountRequest,
@@ -346,6 +352,12 @@ export {
   FleetAutomationApiListFleetDeploymentsRequest,
   FleetAutomationApi,
 } from "./apis/FleetAutomationApi";
+
+export {
+  FunnelApiGetRumFunnelRequest,
+  FunnelApiGetRumFunnelStepSuggestionsRequest,
+  FunnelApi,
+} from "./apis/FunnelApi";
 
 export {
   GCPIntegrationApiCreateGCPSTSAccountRequest,
@@ -744,6 +756,11 @@ export {
 } from "./apis/SecurityMonitoringApi";
 
 export {
+  SegmentsApiCreateRumSegmentRequest,
+  SegmentsApi,
+} from "./apis/SegmentsApi";
+
+export {
   SensitiveDataScannerApiCreateScanningGroupRequest,
   SensitiveDataScannerApiCreateScanningRuleRequest,
   SensitiveDataScannerApiDeleteScanningGroupRequest,
@@ -872,6 +889,11 @@ export {
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
   UsageMeteringApi,
 } from "./apis/UsageMeteringApi";
+
+export {
+  UserFlowApiGetRumSankeyRequest,
+  UserFlowApi,
+} from "./apis/UserFlowApi";
 
 export {
   UsersApiCreateUserRequest,
@@ -2122,6 +2144,33 @@ export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
 export { FullCustomFrameworkData } from "./models/FullCustomFrameworkData";
 export { FullCustomFrameworkDataAttributes } from "./models/FullCustomFrameworkDataAttributes";
+export { FunnelRequest } from "./models/FunnelRequest";
+export { FunnelRequestData } from "./models/FunnelRequestData";
+export { FunnelRequestDataAttributes } from "./models/FunnelRequestDataAttributes";
+export { FunnelRequestDataAttributesSearch } from "./models/FunnelRequestDataAttributesSearch";
+export { FunnelRequestDataAttributesSearchStepsItems } from "./models/FunnelRequestDataAttributesSearchStepsItems";
+export { FunnelRequestDataAttributesTime } from "./models/FunnelRequestDataAttributesTime";
+export { FunnelRequestDataType } from "./models/FunnelRequestDataType";
+export { FunnelResponse } from "./models/FunnelResponse";
+export { FunnelResponseData } from "./models/FunnelResponseData";
+export { FunnelResponseDataAttributes } from "./models/FunnelResponseDataAttributes";
+export { FunnelResponseDataAttributesFunnelStepsItems } from "./models/FunnelResponseDataAttributesFunnelStepsItems";
+export { FunnelResponseDataType } from "./models/FunnelResponseDataType";
+export { FunnelResponseElapsedTime } from "./models/FunnelResponseElapsedTime";
+export { FunnelSuggestionRequest } from "./models/FunnelSuggestionRequest";
+export { FunnelSuggestionRequestData } from "./models/FunnelSuggestionRequestData";
+export { FunnelSuggestionRequestDataAttributes } from "./models/FunnelSuggestionRequestDataAttributes";
+export { FunnelSuggestionRequestDataAttributesSearch } from "./models/FunnelSuggestionRequestDataAttributesSearch";
+export { FunnelSuggestionRequestDataAttributesSearchStepsItems } from "./models/FunnelSuggestionRequestDataAttributesSearchStepsItems";
+export { FunnelSuggestionRequestDataAttributesTermSearch } from "./models/FunnelSuggestionRequestDataAttributesTermSearch";
+export { FunnelSuggestionRequestDataAttributesTime } from "./models/FunnelSuggestionRequestDataAttributesTime";
+export { FunnelSuggestionRequestDataType } from "./models/FunnelSuggestionRequestDataType";
+export { FunnelSuggestionResponse } from "./models/FunnelSuggestionResponse";
+export { FunnelSuggestionResponseData } from "./models/FunnelSuggestionResponseData";
+export { FunnelSuggestionResponseDataAttributes } from "./models/FunnelSuggestionResponseDataAttributes";
+export { FunnelSuggestionResponseDataAttributesActionsItems } from "./models/FunnelSuggestionResponseDataAttributesActionsItems";
+export { FunnelSuggestionResponseDataAttributesViewsItems } from "./models/FunnelSuggestionResponseDataAttributesViewsItems";
+export { FunnelSuggestionResponseDataType } from "./models/FunnelSuggestionResponseDataType";
 export { GCPCredentials } from "./models/GCPCredentials";
 export { GCPCredentialsUpdate } from "./models/GCPCredentialsUpdate";
 export { GCPIntegration } from "./models/GCPIntegration";
@@ -2186,6 +2235,37 @@ export { GetAppKeyRegistrationResponse } from "./models/GetAppKeyRegistrationRes
 export { GetAppResponse } from "./models/GetAppResponse";
 export { GetAppResponseData } from "./models/GetAppResponseData";
 export { GetAppResponseDataAttributes } from "./models/GetAppResponseDataAttributes";
+export { GetCohortRequest } from "./models/GetCohortRequest";
+export { GetCohortRequestData } from "./models/GetCohortRequestData";
+export { GetCohortRequestDataAttributes } from "./models/GetCohortRequestDataAttributes";
+export { GetCohortRequestDataAttributesDefinition } from "./models/GetCohortRequestDataAttributesDefinition";
+export { GetCohortRequestDataAttributesDefinitionAudienceFilters } from "./models/GetCohortRequestDataAttributesDefinitionAudienceFilters";
+export { GetCohortRequestDataAttributesDefinitionAudienceFiltersAccountsItems } from "./models/GetCohortRequestDataAttributesDefinitionAudienceFiltersAccountsItems";
+export { GetCohortRequestDataAttributesDefinitionAudienceFiltersSegmentsItems } from "./models/GetCohortRequestDataAttributesDefinitionAudienceFiltersSegmentsItems";
+export { GetCohortRequestDataAttributesDefinitionAudienceFiltersUsersItems } from "./models/GetCohortRequestDataAttributesDefinitionAudienceFiltersUsersItems";
+export { GetCohortRequestDataAttributesTime } from "./models/GetCohortRequestDataAttributesTime";
+export { GetCohortRequestDataType } from "./models/GetCohortRequestDataType";
+export { GetCohortResponse } from "./models/GetCohortResponse";
+export { GetCohortResponseData } from "./models/GetCohortResponseData";
+export { GetCohortResponseDataAttributes } from "./models/GetCohortResponseDataAttributes";
+export { GetCohortResponseDataAttributesCohortsItems } from "./models/GetCohortResponseDataAttributesCohortsItems";
+export { GetCohortResponseDataAttributesCohortsItemsValuesItems } from "./models/GetCohortResponseDataAttributesCohortsItemsValuesItems";
+export { GetCohortResponseDataType } from "./models/GetCohortResponseDataType";
+export { GetCohortUsersRequest } from "./models/GetCohortUsersRequest";
+export { GetCohortUsersRequestData } from "./models/GetCohortUsersRequestData";
+export { GetCohortUsersRequestDataAttributes } from "./models/GetCohortUsersRequestDataAttributes";
+export { GetCohortUsersRequestDataAttributesDefinition } from "./models/GetCohortUsersRequestDataAttributesDefinition";
+export { GetCohortUsersRequestDataAttributesDefinitionAudienceFilters } from "./models/GetCohortUsersRequestDataAttributesDefinitionAudienceFilters";
+export { GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersAccountsItems } from "./models/GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersAccountsItems";
+export { GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersSegmentsItems } from "./models/GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersSegmentsItems";
+export { GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersUsersItems } from "./models/GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersUsersItems";
+export { GetCohortUsersRequestDataAttributesTime } from "./models/GetCohortUsersRequestDataAttributesTime";
+export { GetCohortUsersRequestDataType } from "./models/GetCohortUsersRequestDataType";
+export { GetCohortUsersResponse } from "./models/GetCohortUsersResponse";
+export { GetCohortUsersResponseData } from "./models/GetCohortUsersResponseData";
+export { GetCohortUsersResponseDataAttributes } from "./models/GetCohortUsersResponseDataAttributes";
+export { GetCohortUsersResponseDataAttributesUsersItems } from "./models/GetCohortUsersResponseDataAttributesUsersItems";
+export { GetCohortUsersResponseDataType } from "./models/GetCohortUsersResponseDataType";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
 export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
@@ -3538,6 +3618,26 @@ export { RunThreatHuntingJobRequestDataType } from "./models/RunThreatHuntingJob
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
+export { SankeyRequest } from "./models/SankeyRequest";
+export { SankeyRequestData } from "./models/SankeyRequestData";
+export { SankeyRequestDataAttributes } from "./models/SankeyRequestDataAttributes";
+export { SankeyRequestDataAttributesDefinition } from "./models/SankeyRequestDataAttributesDefinition";
+export { SankeyRequestDataAttributesSampling } from "./models/SankeyRequestDataAttributesSampling";
+export { SankeyRequestDataAttributesSearch } from "./models/SankeyRequestDataAttributesSearch";
+export { SankeyRequestDataAttributesSearchAudienceFilters } from "./models/SankeyRequestDataAttributesSearchAudienceFilters";
+export { SankeyRequestDataAttributesSearchAudienceFiltersAccountsItems } from "./models/SankeyRequestDataAttributesSearchAudienceFiltersAccountsItems";
+export { SankeyRequestDataAttributesSearchAudienceFiltersSegmentsItems } from "./models/SankeyRequestDataAttributesSearchAudienceFiltersSegmentsItems";
+export { SankeyRequestDataAttributesSearchAudienceFiltersUsersItems } from "./models/SankeyRequestDataAttributesSearchAudienceFiltersUsersItems";
+export { SankeyRequestDataAttributesSearchOccurrences } from "./models/SankeyRequestDataAttributesSearchOccurrences";
+export { SankeyRequestDataAttributesTime } from "./models/SankeyRequestDataAttributesTime";
+export { SankeyRequestDataType } from "./models/SankeyRequestDataType";
+export { SankeyResponse } from "./models/SankeyResponse";
+export { SankeyResponseData } from "./models/SankeyResponseData";
+export { SankeyResponseDataAttributes } from "./models/SankeyResponseDataAttributes";
+export { SankeyResponseDataAttributesLinksItems } from "./models/SankeyResponseDataAttributesLinksItems";
+export { SankeyResponseDataAttributesNodesItems } from "./models/SankeyResponseDataAttributesNodesItems";
+export { SankeyResponseDataAttributesNodesItemsAggregatedNodesItems } from "./models/SankeyResponseDataAttributesNodesItemsAggregatedNodesItems";
+export { SankeyResponseDataType } from "./models/SankeyResponseDataType";
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
@@ -3747,6 +3847,19 @@ export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageU
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { SecurityTrigger } from "./models/SecurityTrigger";
 export { SecurityTriggerWrapper } from "./models/SecurityTriggerWrapper";
+export { Segment } from "./models/Segment";
+export { SegmentArray } from "./models/SegmentArray";
+export { SegmentData } from "./models/SegmentData";
+export { SegmentDataAttributes } from "./models/SegmentDataAttributes";
+export { SegmentDataAttributesDataQuery } from "./models/SegmentDataAttributesDataQuery";
+export { SegmentDataAttributesDataQueryEventPlatformItems } from "./models/SegmentDataAttributesDataQueryEventPlatformItems";
+export { SegmentDataAttributesDataQueryReferenceTableItems } from "./models/SegmentDataAttributesDataQueryReferenceTableItems";
+export { SegmentDataAttributesDataQueryReferenceTableItemsColumnsItems } from "./models/SegmentDataAttributesDataQueryReferenceTableItemsColumnsItems";
+export { SegmentDataAttributesDataQueryReferenceTableItemsJoinCondition } from "./models/SegmentDataAttributesDataQueryReferenceTableItemsJoinCondition";
+export { SegmentDataAttributesDataQueryStaticItems } from "./models/SegmentDataAttributesDataQueryStaticItems";
+export { SegmentDataAttributesDataQueryUserStoreItems } from "./models/SegmentDataAttributesDataQueryUserStoreItems";
+export { SegmentDataSource } from "./models/SegmentDataSource";
+export { SegmentDataType } from "./models/SegmentDataType";
 export { Selectors } from "./models/Selectors";
 export { SelfServiceTriggerWrapper } from "./models/SelfServiceTriggerWrapper";
 export { SendSlackMessageAction } from "./models/SendSlackMessageAction";

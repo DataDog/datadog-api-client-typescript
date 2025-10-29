@@ -923,6 +923,29 @@ import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
+import { FunnelRequest } from "./FunnelRequest";
+import { FunnelRequestData } from "./FunnelRequestData";
+import { FunnelRequestDataAttributes } from "./FunnelRequestDataAttributes";
+import { FunnelRequestDataAttributesSearch } from "./FunnelRequestDataAttributesSearch";
+import { FunnelRequestDataAttributesSearchStepsItems } from "./FunnelRequestDataAttributesSearchStepsItems";
+import { FunnelRequestDataAttributesTime } from "./FunnelRequestDataAttributesTime";
+import { FunnelResponse } from "./FunnelResponse";
+import { FunnelResponseData } from "./FunnelResponseData";
+import { FunnelResponseDataAttributes } from "./FunnelResponseDataAttributes";
+import { FunnelResponseDataAttributesFunnelStepsItems } from "./FunnelResponseDataAttributesFunnelStepsItems";
+import { FunnelResponseElapsedTime } from "./FunnelResponseElapsedTime";
+import { FunnelSuggestionRequest } from "./FunnelSuggestionRequest";
+import { FunnelSuggestionRequestData } from "./FunnelSuggestionRequestData";
+import { FunnelSuggestionRequestDataAttributes } from "./FunnelSuggestionRequestDataAttributes";
+import { FunnelSuggestionRequestDataAttributesSearch } from "./FunnelSuggestionRequestDataAttributesSearch";
+import { FunnelSuggestionRequestDataAttributesSearchStepsItems } from "./FunnelSuggestionRequestDataAttributesSearchStepsItems";
+import { FunnelSuggestionRequestDataAttributesTermSearch } from "./FunnelSuggestionRequestDataAttributesTermSearch";
+import { FunnelSuggestionRequestDataAttributesTime } from "./FunnelSuggestionRequestDataAttributesTime";
+import { FunnelSuggestionResponse } from "./FunnelSuggestionResponse";
+import { FunnelSuggestionResponseData } from "./FunnelSuggestionResponseData";
+import { FunnelSuggestionResponseDataAttributes } from "./FunnelSuggestionResponseDataAttributes";
+import { FunnelSuggestionResponseDataAttributesActionsItems } from "./FunnelSuggestionResponseDataAttributesActionsItems";
+import { FunnelSuggestionResponseDataAttributesViewsItems } from "./FunnelSuggestionResponseDataAttributesViewsItems";
 import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
@@ -970,6 +993,33 @@ import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
+import { GetCohortRequest } from "./GetCohortRequest";
+import { GetCohortRequestData } from "./GetCohortRequestData";
+import { GetCohortRequestDataAttributes } from "./GetCohortRequestDataAttributes";
+import { GetCohortRequestDataAttributesDefinition } from "./GetCohortRequestDataAttributesDefinition";
+import { GetCohortRequestDataAttributesDefinitionAudienceFilters } from "./GetCohortRequestDataAttributesDefinitionAudienceFilters";
+import { GetCohortRequestDataAttributesDefinitionAudienceFiltersAccountsItems } from "./GetCohortRequestDataAttributesDefinitionAudienceFiltersAccountsItems";
+import { GetCohortRequestDataAttributesDefinitionAudienceFiltersSegmentsItems } from "./GetCohortRequestDataAttributesDefinitionAudienceFiltersSegmentsItems";
+import { GetCohortRequestDataAttributesDefinitionAudienceFiltersUsersItems } from "./GetCohortRequestDataAttributesDefinitionAudienceFiltersUsersItems";
+import { GetCohortRequestDataAttributesTime } from "./GetCohortRequestDataAttributesTime";
+import { GetCohortResponse } from "./GetCohortResponse";
+import { GetCohortResponseData } from "./GetCohortResponseData";
+import { GetCohortResponseDataAttributes } from "./GetCohortResponseDataAttributes";
+import { GetCohortResponseDataAttributesCohortsItems } from "./GetCohortResponseDataAttributesCohortsItems";
+import { GetCohortResponseDataAttributesCohortsItemsValuesItems } from "./GetCohortResponseDataAttributesCohortsItemsValuesItems";
+import { GetCohortUsersRequest } from "./GetCohortUsersRequest";
+import { GetCohortUsersRequestData } from "./GetCohortUsersRequestData";
+import { GetCohortUsersRequestDataAttributes } from "./GetCohortUsersRequestDataAttributes";
+import { GetCohortUsersRequestDataAttributesDefinition } from "./GetCohortUsersRequestDataAttributesDefinition";
+import { GetCohortUsersRequestDataAttributesDefinitionAudienceFilters } from "./GetCohortUsersRequestDataAttributesDefinitionAudienceFilters";
+import { GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersAccountsItems } from "./GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersAccountsItems";
+import { GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersSegmentsItems } from "./GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersSegmentsItems";
+import { GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersUsersItems } from "./GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersUsersItems";
+import { GetCohortUsersRequestDataAttributesTime } from "./GetCohortUsersRequestDataAttributesTime";
+import { GetCohortUsersResponse } from "./GetCohortUsersResponse";
+import { GetCohortUsersResponseData } from "./GetCohortUsersResponseData";
+import { GetCohortUsersResponseDataAttributes } from "./GetCohortUsersResponseDataAttributes";
+import { GetCohortUsersResponseDataAttributesUsersItems } from "./GetCohortUsersResponseDataAttributesUsersItems";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
@@ -1978,6 +2028,24 @@ import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
 import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
 import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
+import { SankeyRequest } from "./SankeyRequest";
+import { SankeyRequestData } from "./SankeyRequestData";
+import { SankeyRequestDataAttributes } from "./SankeyRequestDataAttributes";
+import { SankeyRequestDataAttributesDefinition } from "./SankeyRequestDataAttributesDefinition";
+import { SankeyRequestDataAttributesSampling } from "./SankeyRequestDataAttributesSampling";
+import { SankeyRequestDataAttributesSearch } from "./SankeyRequestDataAttributesSearch";
+import { SankeyRequestDataAttributesSearchAudienceFilters } from "./SankeyRequestDataAttributesSearchAudienceFilters";
+import { SankeyRequestDataAttributesSearchAudienceFiltersAccountsItems } from "./SankeyRequestDataAttributesSearchAudienceFiltersAccountsItems";
+import { SankeyRequestDataAttributesSearchAudienceFiltersSegmentsItems } from "./SankeyRequestDataAttributesSearchAudienceFiltersSegmentsItems";
+import { SankeyRequestDataAttributesSearchAudienceFiltersUsersItems } from "./SankeyRequestDataAttributesSearchAudienceFiltersUsersItems";
+import { SankeyRequestDataAttributesSearchOccurrences } from "./SankeyRequestDataAttributesSearchOccurrences";
+import { SankeyRequestDataAttributesTime } from "./SankeyRequestDataAttributesTime";
+import { SankeyResponse } from "./SankeyResponse";
+import { SankeyResponseData } from "./SankeyResponseData";
+import { SankeyResponseDataAttributes } from "./SankeyResponseDataAttributes";
+import { SankeyResponseDataAttributesLinksItems } from "./SankeyResponseDataAttributesLinksItems";
+import { SankeyResponseDataAttributesNodesItems } from "./SankeyResponseDataAttributesNodesItems";
+import { SankeyResponseDataAttributesNodesItemsAggregatedNodesItems } from "./SankeyResponseDataAttributesNodesItemsAggregatedNodesItems";
 import { ScaRequest } from "./ScaRequest";
 import { ScaRequestData } from "./ScaRequestData";
 import { ScaRequestDataAttributes } from "./ScaRequestDataAttributes";
@@ -2120,6 +2188,18 @@ import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { SecurityTrigger } from "./SecurityTrigger";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
+import { Segment } from "./Segment";
+import { SegmentArray } from "./SegmentArray";
+import { SegmentData } from "./SegmentData";
+import { SegmentDataAttributes } from "./SegmentDataAttributes";
+import { SegmentDataAttributesDataQuery } from "./SegmentDataAttributesDataQuery";
+import { SegmentDataAttributesDataQueryEventPlatformItems } from "./SegmentDataAttributesDataQueryEventPlatformItems";
+import { SegmentDataAttributesDataQueryReferenceTableItems } from "./SegmentDataAttributesDataQueryReferenceTableItems";
+import { SegmentDataAttributesDataQueryReferenceTableItemsColumnsItems } from "./SegmentDataAttributesDataQueryReferenceTableItemsColumnsItems";
+import { SegmentDataAttributesDataQueryReferenceTableItemsJoinCondition } from "./SegmentDataAttributesDataQueryReferenceTableItemsJoinCondition";
+import { SegmentDataAttributesDataQueryStaticItems } from "./SegmentDataAttributesDataQueryStaticItems";
+import { SegmentDataAttributesDataQueryUserStoreItems } from "./SegmentDataAttributesDataQueryUserStoreItems";
+import { SegmentDataSource } from "./SegmentDataSource";
 import { Selectors } from "./Selectors";
 import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
 import { SendSlackMessageAction } from "./SendSlackMessageAction";
@@ -3039,6 +3119,10 @@ const enumsMap: { [key: string]: any[] } = {
   FleetDeploymentResourceType: ["deployment"],
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
   FreshserviceIntegrationType: ["Freshservice"],
+  FunnelRequestDataType: ["funnel_request"],
+  FunnelResponseDataType: ["funnel_response"],
+  FunnelSuggestionRequestDataType: ["funnel_suggestion_request"],
+  FunnelSuggestionResponseDataType: ["funnel_suggestion_response"],
   GCPIntegrationType: ["GCP"],
   GCPMonitoredResourceConfigType: [
     "cloud_function",
@@ -3056,6 +3140,10 @@ const enumsMap: { [key: string]: any[] } = {
   GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
+  GetCohortRequestDataType: ["cohort_request"],
+  GetCohortResponseDataType: ["cohort_response"],
+  GetCohortUsersRequestDataType: ["cohort_users_request"],
+  GetCohortUsersResponseDataType: ["cohort_users_response"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
   GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: ["rulesets"],
@@ -3745,6 +3833,8 @@ const enumsMap: { [key: string]: any[] } = {
     "completed_with_errors",
     "failed",
   ],
+  SankeyRequestDataType: ["sankey_request"],
+  SankeyResponseDataType: ["sankey_response"],
   ScaRequestDataType: ["scarequests"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
@@ -3856,6 +3946,7 @@ const enumsMap: { [key: string]: any[] } = {
     "events",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
+  SegmentDataType: ["segment"],
   SendSlackMessageActionType: ["send_slack_message"],
   SendTeamsMessageActionType: ["send_teams_message"],
   SensitiveDataScannerConfigurationType: [
@@ -5229,6 +5320,38 @@ const typeMap: { [index: string]: any } = {
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
   FullCustomFrameworkData: FullCustomFrameworkData,
   FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
+  FunnelRequest: FunnelRequest,
+  FunnelRequestData: FunnelRequestData,
+  FunnelRequestDataAttributes: FunnelRequestDataAttributes,
+  FunnelRequestDataAttributesSearch: FunnelRequestDataAttributesSearch,
+  FunnelRequestDataAttributesSearchStepsItems:
+    FunnelRequestDataAttributesSearchStepsItems,
+  FunnelRequestDataAttributesTime: FunnelRequestDataAttributesTime,
+  FunnelResponse: FunnelResponse,
+  FunnelResponseData: FunnelResponseData,
+  FunnelResponseDataAttributes: FunnelResponseDataAttributes,
+  FunnelResponseDataAttributesFunnelStepsItems:
+    FunnelResponseDataAttributesFunnelStepsItems,
+  FunnelResponseElapsedTime: FunnelResponseElapsedTime,
+  FunnelSuggestionRequest: FunnelSuggestionRequest,
+  FunnelSuggestionRequestData: FunnelSuggestionRequestData,
+  FunnelSuggestionRequestDataAttributes: FunnelSuggestionRequestDataAttributes,
+  FunnelSuggestionRequestDataAttributesSearch:
+    FunnelSuggestionRequestDataAttributesSearch,
+  FunnelSuggestionRequestDataAttributesSearchStepsItems:
+    FunnelSuggestionRequestDataAttributesSearchStepsItems,
+  FunnelSuggestionRequestDataAttributesTermSearch:
+    FunnelSuggestionRequestDataAttributesTermSearch,
+  FunnelSuggestionRequestDataAttributesTime:
+    FunnelSuggestionRequestDataAttributesTime,
+  FunnelSuggestionResponse: FunnelSuggestionResponse,
+  FunnelSuggestionResponseData: FunnelSuggestionResponseData,
+  FunnelSuggestionResponseDataAttributes:
+    FunnelSuggestionResponseDataAttributes,
+  FunnelSuggestionResponseDataAttributesActionsItems:
+    FunnelSuggestionResponseDataAttributesActionsItems,
+  FunnelSuggestionResponseDataAttributesViewsItems:
+    FunnelSuggestionResponseDataAttributesViewsItems,
   GCPIntegration: GCPIntegration,
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
@@ -5279,6 +5402,47 @@ const typeMap: { [index: string]: any } = {
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
+  GetCohortRequest: GetCohortRequest,
+  GetCohortRequestData: GetCohortRequestData,
+  GetCohortRequestDataAttributes: GetCohortRequestDataAttributes,
+  GetCohortRequestDataAttributesDefinition:
+    GetCohortRequestDataAttributesDefinition,
+  GetCohortRequestDataAttributesDefinitionAudienceFilters:
+    GetCohortRequestDataAttributesDefinitionAudienceFilters,
+  GetCohortRequestDataAttributesDefinitionAudienceFiltersAccountsItems:
+    GetCohortRequestDataAttributesDefinitionAudienceFiltersAccountsItems,
+  GetCohortRequestDataAttributesDefinitionAudienceFiltersSegmentsItems:
+    GetCohortRequestDataAttributesDefinitionAudienceFiltersSegmentsItems,
+  GetCohortRequestDataAttributesDefinitionAudienceFiltersUsersItems:
+    GetCohortRequestDataAttributesDefinitionAudienceFiltersUsersItems,
+  GetCohortRequestDataAttributesTime: GetCohortRequestDataAttributesTime,
+  GetCohortResponse: GetCohortResponse,
+  GetCohortResponseData: GetCohortResponseData,
+  GetCohortResponseDataAttributes: GetCohortResponseDataAttributes,
+  GetCohortResponseDataAttributesCohortsItems:
+    GetCohortResponseDataAttributesCohortsItems,
+  GetCohortResponseDataAttributesCohortsItemsValuesItems:
+    GetCohortResponseDataAttributesCohortsItemsValuesItems,
+  GetCohortUsersRequest: GetCohortUsersRequest,
+  GetCohortUsersRequestData: GetCohortUsersRequestData,
+  GetCohortUsersRequestDataAttributes: GetCohortUsersRequestDataAttributes,
+  GetCohortUsersRequestDataAttributesDefinition:
+    GetCohortUsersRequestDataAttributesDefinition,
+  GetCohortUsersRequestDataAttributesDefinitionAudienceFilters:
+    GetCohortUsersRequestDataAttributesDefinitionAudienceFilters,
+  GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersAccountsItems:
+    GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersAccountsItems,
+  GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersSegmentsItems:
+    GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersSegmentsItems,
+  GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersUsersItems:
+    GetCohortUsersRequestDataAttributesDefinitionAudienceFiltersUsersItems,
+  GetCohortUsersRequestDataAttributesTime:
+    GetCohortUsersRequestDataAttributesTime,
+  GetCohortUsersResponse: GetCohortUsersResponse,
+  GetCohortUsersResponseData: GetCohortUsersResponseData,
+  GetCohortUsersResponseDataAttributes: GetCohortUsersResponseDataAttributes,
+  GetCohortUsersResponseDataAttributesUsersItems:
+    GetCohortUsersResponseDataAttributesUsersItems,
   GetCustomFrameworkResponse: GetCustomFrameworkResponse,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
   GetDeviceAttributes: GetDeviceAttributes,
@@ -6468,6 +6632,32 @@ const typeMap: { [index: string]: any } = {
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
   SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
   SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
+  SankeyRequest: SankeyRequest,
+  SankeyRequestData: SankeyRequestData,
+  SankeyRequestDataAttributes: SankeyRequestDataAttributes,
+  SankeyRequestDataAttributesDefinition: SankeyRequestDataAttributesDefinition,
+  SankeyRequestDataAttributesSampling: SankeyRequestDataAttributesSampling,
+  SankeyRequestDataAttributesSearch: SankeyRequestDataAttributesSearch,
+  SankeyRequestDataAttributesSearchAudienceFilters:
+    SankeyRequestDataAttributesSearchAudienceFilters,
+  SankeyRequestDataAttributesSearchAudienceFiltersAccountsItems:
+    SankeyRequestDataAttributesSearchAudienceFiltersAccountsItems,
+  SankeyRequestDataAttributesSearchAudienceFiltersSegmentsItems:
+    SankeyRequestDataAttributesSearchAudienceFiltersSegmentsItems,
+  SankeyRequestDataAttributesSearchAudienceFiltersUsersItems:
+    SankeyRequestDataAttributesSearchAudienceFiltersUsersItems,
+  SankeyRequestDataAttributesSearchOccurrences:
+    SankeyRequestDataAttributesSearchOccurrences,
+  SankeyRequestDataAttributesTime: SankeyRequestDataAttributesTime,
+  SankeyResponse: SankeyResponse,
+  SankeyResponseData: SankeyResponseData,
+  SankeyResponseDataAttributes: SankeyResponseDataAttributes,
+  SankeyResponseDataAttributesLinksItems:
+    SankeyResponseDataAttributesLinksItems,
+  SankeyResponseDataAttributesNodesItems:
+    SankeyResponseDataAttributesNodesItems,
+  SankeyResponseDataAttributesNodesItemsAggregatedNodesItems:
+    SankeyResponseDataAttributesNodesItemsAggregatedNodesItems,
   ScaRequest: ScaRequest,
   ScaRequestData: ScaRequestData,
   ScaRequestDataAttributes: ScaRequestDataAttributes,
@@ -6666,6 +6856,24 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringUser: SecurityMonitoringUser,
   SecurityTrigger: SecurityTrigger,
   SecurityTriggerWrapper: SecurityTriggerWrapper,
+  Segment: Segment,
+  SegmentArray: SegmentArray,
+  SegmentData: SegmentData,
+  SegmentDataAttributes: SegmentDataAttributes,
+  SegmentDataAttributesDataQuery: SegmentDataAttributesDataQuery,
+  SegmentDataAttributesDataQueryEventPlatformItems:
+    SegmentDataAttributesDataQueryEventPlatformItems,
+  SegmentDataAttributesDataQueryReferenceTableItems:
+    SegmentDataAttributesDataQueryReferenceTableItems,
+  SegmentDataAttributesDataQueryReferenceTableItemsColumnsItems:
+    SegmentDataAttributesDataQueryReferenceTableItemsColumnsItems,
+  SegmentDataAttributesDataQueryReferenceTableItemsJoinCondition:
+    SegmentDataAttributesDataQueryReferenceTableItemsJoinCondition,
+  SegmentDataAttributesDataQueryStaticItems:
+    SegmentDataAttributesDataQueryStaticItems,
+  SegmentDataAttributesDataQueryUserStoreItems:
+    SegmentDataAttributesDataQueryUserStoreItems,
+  SegmentDataSource: SegmentDataSource,
   Selectors: Selectors,
   SelfServiceTriggerWrapper: SelfServiceTriggerWrapper,
   SendSlackMessageAction: SendSlackMessageAction,
