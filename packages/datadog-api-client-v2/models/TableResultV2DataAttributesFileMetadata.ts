@@ -9,7 +9,7 @@ import { TableResultV2DataAttributesFileMetadataLocalFile } from "./TableResultV
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadata` object.
+ * The definition of the file metadata object.
  */
 
 export type TableResultV2DataAttributesFileMetadata =

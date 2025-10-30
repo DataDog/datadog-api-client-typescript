@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableRowResourceDataAttributes` object.
+ * The definition of the row attributes object.
  */
 export class TableRowResourceDataAttributes {
   /**

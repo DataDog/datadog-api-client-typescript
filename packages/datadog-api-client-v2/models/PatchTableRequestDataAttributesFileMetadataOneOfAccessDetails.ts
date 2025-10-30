@@ -10,19 +10,19 @@ import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+ * The definition of the access details object.
  */
 export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+   * The definition of the AWS access details object.
    */
   "awsDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+   * The definition of the Azure access details object.
    */
   "azureDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+   * The definition of the GCP access details object.
    */
   "gcpDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
 

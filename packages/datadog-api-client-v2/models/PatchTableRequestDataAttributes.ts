@@ -9,7 +9,7 @@ import { PatchTableRequestDataAttributesSchema } from "./PatchTableRequestDataAt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestDataAttributes` object.
+ * The definition of the reference table attributes object.
  */
 export class PatchTableRequestDataAttributes {
   /**
@@ -17,11 +17,11 @@ export class PatchTableRequestDataAttributes {
    */
   "description"?: string;
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadata` object.
+   * The definition of the file metadata object.
    */
   "fileMetadata"?: PatchTableRequestDataAttributesFileMetadata;
   /**
-   * The definition of `PatchTableRequestDataAttributesSchema` object.
+   * The definition of the schema object.
    */
   "schema"?: PatchTableRequestDataAttributesSchema;
   /**

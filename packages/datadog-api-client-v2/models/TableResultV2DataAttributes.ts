@@ -10,7 +10,7 @@ import { TableResultV2DataAttributesSchema } from "./TableResultV2DataAttributes
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributes` object.
+ * The definition of the reference table attributes object.
  */
 export class TableResultV2DataAttributes {
   /**
@@ -22,7 +22,7 @@ export class TableResultV2DataAttributes {
    */
   "description"?: string;
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadata` object.
+   * The definition of the file metadata object.
    */
   "fileMetadata"?: TableResultV2DataAttributesFileMetadata;
   /**
@@ -34,7 +34,7 @@ export class TableResultV2DataAttributes {
    */
   "rowCount"?: number;
   /**
-   * The definition of `TableResultV2DataAttributesSchema` object.
+   * The definition of the schema object.
    */
   "schema"?: TableResultV2DataAttributesSchema;
   /**

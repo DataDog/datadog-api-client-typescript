@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+ * The definition of the Azure access details object.
  */
 export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail {
   /**

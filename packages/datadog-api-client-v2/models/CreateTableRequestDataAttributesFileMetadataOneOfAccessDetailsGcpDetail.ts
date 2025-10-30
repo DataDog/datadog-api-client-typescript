@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+ * The definition of the GCP access details object.
  */
 export class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail {
   /**

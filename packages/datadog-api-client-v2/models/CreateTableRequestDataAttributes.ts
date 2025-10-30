@@ -10,7 +10,7 @@ import { ReferenceTableCreateSourceType } from "./ReferenceTableCreateSourceType
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateTableRequestDataAttributes` object.
+ * The definition of the reference table attributes object.
  */
 export class CreateTableRequestDataAttributes {
   /**
@@ -18,11 +18,11 @@ export class CreateTableRequestDataAttributes {
    */
   "description"?: string;
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadata` object.
+   * The definition of the file metadata object.
    */
   "fileMetadata"?: CreateTableRequestDataAttributesFileMetadata;
   /**
-   * The definition of `CreateTableRequestDataAttributesSchema` object.
+   * The definition of the schema object.
    */
   "schema": CreateTableRequestDataAttributesSchema;
   /**

@@ -8,7 +8,7 @@ import { TableResultV2Data } from "./TableResultV2Data";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2Array` object.
+ * The definition of the table result array object.
  */
 export class TableResultV2Array {
   /**
