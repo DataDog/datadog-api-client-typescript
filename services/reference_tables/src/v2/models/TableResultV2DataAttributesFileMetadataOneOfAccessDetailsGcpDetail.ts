@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+ * The definition of the GCP access details object.
  */
 export class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail {
   /**

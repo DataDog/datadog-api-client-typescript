@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+ * The definition of the Azure access details object.
  */
 export class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail {
   /**

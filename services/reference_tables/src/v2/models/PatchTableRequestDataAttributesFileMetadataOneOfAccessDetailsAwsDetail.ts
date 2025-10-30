@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+ * The definition of the AWS access details object.
  */
 export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail {
   /**

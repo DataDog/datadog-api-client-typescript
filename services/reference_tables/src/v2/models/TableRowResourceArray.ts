@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TableRowResourceData } from "./TableRowResourceData";
 
 /**
- * The definition of `TableRowResourceArray` object.
+ * The definition of the table row resource array object.
  */
 export class TableRowResourceArray {
   /**

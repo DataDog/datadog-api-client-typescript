@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CreateUploadResponseData } from "./CreateUploadResponseData";
 
 /**
- * The definition of `CreateUploadResponse` object.
+ * The definition of the upload response object.
  */
 export class CreateUploadResponse {
   /**
-   * The definition of `CreateUploadResponseData` object.
+   * The definition of the upload response data object.
    */
   "data"?: CreateUploadResponseData;
   /**

@@ -8,7 +8,7 @@ import { TableResultV2DataAttributesFileMetadataOneOfAccessDetails } from "./Tab
  */
 export class TableResultV2DataAttributesFileMetadataCloudStorage {
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
+   * The definition of the access details object.
    */
   "accessDetails"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetails;
   /**

@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `CreateUploadRequestDataAttributes` object.
+ * The definition of the upload attributes object.
  */
 export class CreateUploadRequestDataAttributes {
   /**
-   * The headers of the file to upload.
+   * The headers of the CSV file to upload to be used as the schema fields, provided in the same order as the columns in the CSV file.
    */
   "headers": Array<string>;
   /**

@@ -4,11 +4,11 @@ import { TableResultV2DataAttributes } from "./TableResultV2DataAttributes";
 import { TableResultV2DataType } from "./TableResultV2DataType";
 
 /**
- * The definition of `TableResultV2Data` object.
+ * The definition of the table result data object.
  */
 export class TableResultV2Data {
   /**
-   * The definition of `TableResultV2DataAttributes` object.
+   * The definition of the reference table attributes object.
    */
   "attributes"?: TableResultV2DataAttributes;
   /**

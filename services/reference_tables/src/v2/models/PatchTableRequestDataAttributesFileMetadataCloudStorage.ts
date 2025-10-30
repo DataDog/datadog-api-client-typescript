@@ -7,7 +7,7 @@ import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails } from ".
  */
 export class PatchTableRequestDataAttributesFileMetadataCloudStorage {
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+   * The definition of the access details object.
    */
   "accessDetails"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails;
   /**

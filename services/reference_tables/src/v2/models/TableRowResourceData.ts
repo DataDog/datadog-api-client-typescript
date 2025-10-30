@@ -4,11 +4,11 @@ import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes
 import { TableRowResourceDataType } from "./TableRowResourceDataType";
 
 /**
- * The definition of `TableRowResourceData` object.
+ * The definition of the table row resource data object.
  */
 export class TableRowResourceData {
   /**
-   * The definition of `TableRowResourceDataAttributes` object.
+   * The definition of the row attributes object.
    */
   "attributes"?: TableRowResourceDataAttributes;
   /**

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRequestDataAttributesSchemaFieldsItems";
 
 /**
- * The definition of `PatchTableRequestDataAttributesSchema` object.
+ * The definition of the schema object.
  */
 export class PatchTableRequestDataAttributesSchema {
   /**
-   * The `schema` `fields`.
+   * The schema fields.
    */
   "fields": Array<PatchTableRequestDataAttributesSchemaFieldsItems>;
   /**

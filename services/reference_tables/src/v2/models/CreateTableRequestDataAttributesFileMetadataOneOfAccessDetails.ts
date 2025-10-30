@@ -5,19 +5,19 @@ import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDeta
 import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail } from "./CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail";
 
 /**
- * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+ * The definition of the access details object.
  */
 export class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+   * The definition of the AWS access details object.
    */
   "awsDetail"?: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+   * The definition of the Azure access details object.
    */
   "azureDetail"?: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+   * The definition of the GCP access details object.
    */
   "gcpDetail"?: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
   /**

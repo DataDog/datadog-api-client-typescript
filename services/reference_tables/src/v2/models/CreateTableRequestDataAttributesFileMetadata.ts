@@ -4,7 +4,7 @@ import { CreateTableRequestDataAttributesFileMetadataCloudStorage } from "./Crea
 import { CreateTableRequestDataAttributesFileMetadataLocalFile } from "./CreateTableRequestDataAttributesFileMetadataLocalFile";
 
 /**
- * The definition of `CreateTableRequestDataAttributesFileMetadata` object.
+ * The definition of the file metadata object.
  */
 export type CreateTableRequestDataAttributesFileMetadata =
   | CreateTableRequestDataAttributesFileMetadataCloudStorage

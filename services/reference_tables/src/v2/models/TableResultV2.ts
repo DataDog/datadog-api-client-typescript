@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TableResultV2Data } from "./TableResultV2Data";
 
 /**
- * The definition of `TableResultV2` object.
+ * The definition of a reference table object.
  */
 export class TableResultV2 {
   /**
-   * The definition of `TableResultV2Data` object.
+   * The definition of the table result data object.
    */
   "data"?: TableResultV2Data;
   /**

@@ -4,11 +4,11 @@ import { CreateUploadResponseDataAttributes } from "./CreateUploadResponseDataAt
 import { CreateUploadResponseDataType } from "./CreateUploadResponseDataType";
 
 /**
- * The definition of `CreateUploadResponseData` object.
+ * The definition of the upload response data object.
  */
 export class CreateUploadResponseData {
   /**
-   * The definition of `CreateUploadResponseDataAttributes` object.
+   * The definition of the upload response attributes object.
    */
   "attributes"?: CreateUploadResponseDataAttributes;
   /**

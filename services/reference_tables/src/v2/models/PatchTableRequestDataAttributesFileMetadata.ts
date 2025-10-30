@@ -4,7 +4,7 @@ import { PatchTableRequestDataAttributesFileMetadataCloudStorage } from "./Patch
 import { PatchTableRequestDataAttributesFileMetadataLocalFile } from "./PatchTableRequestDataAttributesFileMetadataLocalFile";
 
 /**
- * The definition of `PatchTableRequestDataAttributesFileMetadata` object.
+ * The definition of the file metadata object.
  */
 export type PatchTableRequestDataAttributesFileMetadata =
   | PatchTableRequestDataAttributesFileMetadataCloudStorage
