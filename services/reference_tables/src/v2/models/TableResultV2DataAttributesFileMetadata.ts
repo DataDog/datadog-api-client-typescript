@@ -4,7 +4,7 @@ import { TableResultV2DataAttributesFileMetadataCloudStorage } from "./TableResu
 import { TableResultV2DataAttributesFileMetadataLocalFile } from "./TableResultV2DataAttributesFileMetadataLocalFile";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadata` object.
+ * The definition of the file metadata object.
  */
 export type TableResultV2DataAttributesFileMetadata =
   | TableResultV2DataAttributesFileMetadataCloudStorage

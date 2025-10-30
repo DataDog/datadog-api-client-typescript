@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PatchTableRequestData } from "./PatchTableRequestData";
 
 /**
- * The definition of `PatchTableRequest` object.
+ * The definition of the patch table request object.
  */
 export class PatchTableRequest {
   /**
-   * The definition of `PatchTableRequestData` object.
+   * The definition of the patch table request data object.
    */
   "data"?: PatchTableRequestData;
   /**

@@ -4,11 +4,11 @@ import { CreateTableRequestDataAttributes } from "./CreateTableRequestDataAttrib
 import { CreateTableRequestDataType } from "./CreateTableRequestDataType";
 
 /**
- * The definition of `CreateTableRequestData` object.
+ * The definition of the reference table request data object.
  */
 export class CreateTableRequestData {
   /**
-   * The definition of `CreateTableRequestDataAttributes` object.
+   * The definition of the reference table attributes object.
    */
   "attributes"?: CreateTableRequestDataAttributes;
   /**

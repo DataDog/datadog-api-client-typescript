@@ -5,19 +5,19 @@ import { TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail } 
 import { TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail } from "./TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
+ * The definition of the access details object.
  */
 export class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+   * The definition of the AWS access details object.
    */
   "awsDetail"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+   * The definition of the Azure access details object.
    */
   "azureDetail"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+   * The definition of the GCP access details object.
    */
   "gcpDetail"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
   /**

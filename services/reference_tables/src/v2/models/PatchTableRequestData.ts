@@ -4,11 +4,11 @@ import { PatchTableRequestDataAttributes } from "./PatchTableRequestDataAttribut
 import { PatchTableRequestDataType } from "./PatchTableRequestDataType";
 
 /**
- * The definition of `PatchTableRequestData` object.
+ * The definition of the patch table request data object.
  */
 export class PatchTableRequestData {
   /**
-   * The definition of `PatchTableRequestDataAttributes` object.
+   * The definition of the reference table attributes object.
    */
   "attributes"?: PatchTableRequestDataAttributes;
   /**
