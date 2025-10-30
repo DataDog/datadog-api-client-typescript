@@ -781,6 +781,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ci_pipelines",
     "incident_analytics",
     "product_analytics",
+    "on_call_events",
   ],
   FormulaAndFunctionMetricAggregation: [
     "avg",
