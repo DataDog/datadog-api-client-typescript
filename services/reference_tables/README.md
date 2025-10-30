@@ -2,7 +2,7 @@
 
 ## Description
 
-Auto-generated tag Reference Tables
+View and manage Reference Tables in your organization.
 
 ## Navigation
 
