@@ -8,7 +8,7 @@ import { ReferenceTableSchemaFieldType } from "./ReferenceTableSchemaFieldType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributesSchemaFieldsItems` object.
+ * The definition of a schema field object.
  */
 export class TableResultV2DataAttributesSchemaFieldsItems {
   /**

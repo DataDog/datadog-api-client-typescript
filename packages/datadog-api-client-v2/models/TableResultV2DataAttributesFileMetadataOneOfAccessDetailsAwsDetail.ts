@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+ * The definition of the AWS access details object.
  */
 export class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail {
   /**

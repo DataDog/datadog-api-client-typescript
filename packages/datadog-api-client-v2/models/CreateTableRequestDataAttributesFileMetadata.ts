@@ -9,7 +9,7 @@ import { CreateTableRequestDataAttributesFileMetadataLocalFile } from "./CreateT
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateTableRequestDataAttributesFileMetadata` object.
+ * The definition of the file metadata object.
  */
 
 export type CreateTableRequestDataAttributesFileMetadata =

@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateUploadResponseDataAttributes` object.
+ * The definition of the upload response attributes object.
  */
 export class CreateUploadResponseDataAttributes {
   /**

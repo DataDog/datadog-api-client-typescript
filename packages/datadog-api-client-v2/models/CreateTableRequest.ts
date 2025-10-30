@@ -8,11 +8,11 @@ import { CreateTableRequestData } from "./CreateTableRequestData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateTableRequest` object.
+ * The definition of the reference table request object.
  */
 export class CreateTableRequest {
   /**
-   * The definition of `CreateTableRequestData` object.
+   * The definition of the reference table request data object.
    */
   "data"?: CreateTableRequestData;
 
