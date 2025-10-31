@@ -3504,6 +3504,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UpsertCatalogEntityResponse",
   },
+  "SoftwareCatalogApi.V2.PreviewCatalogEntities": {
+    operationResponseType: "EntityResponseArray",
+  },
   "SoftwareCatalogApi.V2.DeleteCatalogEntity": {
     entityId: {
       type: "string",

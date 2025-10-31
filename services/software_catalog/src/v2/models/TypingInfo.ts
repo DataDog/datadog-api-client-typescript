@@ -5,6 +5,19 @@ import { EntityAttributes } from "./EntityAttributes";
 import { EntityData } from "./EntityData";
 import { EntityMeta } from "./EntityMeta";
 import { EntityRelationships } from "./EntityRelationships";
+import { EntityResponseArray } from "./EntityResponseArray";
+import { EntityResponseDataAttributes } from "./EntityResponseDataAttributes";
+import { EntityResponseDataRelationships } from "./EntityResponseDataRelationships";
+import { EntityResponseDataRelationshipsIncidents } from "./EntityResponseDataRelationshipsIncidents";
+import { EntityResponseDataRelationshipsIncidentsDataItems } from "./EntityResponseDataRelationshipsIncidentsDataItems";
+import { EntityResponseDataRelationshipsOncalls } from "./EntityResponseDataRelationshipsOncalls";
+import { EntityResponseDataRelationshipsOncallsDataItems } from "./EntityResponseDataRelationshipsOncallsDataItems";
+import { EntityResponseDataRelationshipsRawSchema } from "./EntityResponseDataRelationshipsRawSchema";
+import { EntityResponseDataRelationshipsRawSchemaData } from "./EntityResponseDataRelationshipsRawSchemaData";
+import { EntityResponseDataRelationshipsRelatedEntities } from "./EntityResponseDataRelationshipsRelatedEntities";
+import { EntityResponseDataRelationshipsRelatedEntitiesDataItems } from "./EntityResponseDataRelationshipsRelatedEntitiesDataItems";
+import { EntityResponseDataRelationshipsSchema } from "./EntityResponseDataRelationshipsSchema";
+import { EntityResponseDataRelationshipsSchemaData } from "./EntityResponseDataRelationshipsSchemaData";
 import { EntityResponseIncludedIncident } from "./EntityResponseIncludedIncident";
 import { EntityResponseIncludedOncall } from "./EntityResponseIncludedOncall";
 import { EntityResponseIncludedRawSchema } from "./EntityResponseIncludedRawSchema";
@@ -62,6 +75,7 @@ import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
 import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
+import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
 import { RelationAttributes } from "./RelationAttributes";
 import { RelationEntity } from "./RelationEntity";
 import { RelationMeta } from "./RelationMeta";
@@ -75,6 +89,14 @@ import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
+    EntityResponseDataRelationshipsOncallsDataItemsType: ["oncall"],
+    EntityResponseDataRelationshipsRawSchemaDataType: ["rawSchema"],
+    EntityResponseDataRelationshipsRelatedEntitiesDataItemsType: [
+      "relatedEntity",
+    ],
+    EntityResponseDataRelationshipsSchemaDataType: ["schema"],
+    EntityResponseDataType: ["entity"],
     EntityResponseIncludedIncidentType: ["incident"],
     EntityResponseIncludedOncallType: ["oncall"],
     EntityResponseIncludedRawSchemaType: ["rawSchema"],
@@ -131,6 +153,29 @@ export const TypingInfo: ModelTypingInfo = {
     EntityData: EntityData,
     EntityMeta: EntityMeta,
     EntityRelationships: EntityRelationships,
+    EntityResponseArray: EntityResponseArray,
+    EntityResponseDataAttributes: EntityResponseDataAttributes,
+    EntityResponseDataRelationships: EntityResponseDataRelationships,
+    EntityResponseDataRelationshipsIncidents:
+      EntityResponseDataRelationshipsIncidents,
+    EntityResponseDataRelationshipsIncidentsDataItems:
+      EntityResponseDataRelationshipsIncidentsDataItems,
+    EntityResponseDataRelationshipsOncalls:
+      EntityResponseDataRelationshipsOncalls,
+    EntityResponseDataRelationshipsOncallsDataItems:
+      EntityResponseDataRelationshipsOncallsDataItems,
+    EntityResponseDataRelationshipsRawSchema:
+      EntityResponseDataRelationshipsRawSchema,
+    EntityResponseDataRelationshipsRawSchemaData:
+      EntityResponseDataRelationshipsRawSchemaData,
+    EntityResponseDataRelationshipsRelatedEntities:
+      EntityResponseDataRelationshipsRelatedEntities,
+    EntityResponseDataRelationshipsRelatedEntitiesDataItems:
+      EntityResponseDataRelationshipsRelatedEntitiesDataItems,
+    EntityResponseDataRelationshipsSchema:
+      EntityResponseDataRelationshipsSchema,
+    EntityResponseDataRelationshipsSchemaData:
+      EntityResponseDataRelationshipsSchemaData,
     EntityResponseIncludedIncident: EntityResponseIncludedIncident,
     EntityResponseIncludedOncall: EntityResponseIncludedOncall,
     EntityResponseIncludedRawSchema: EntityResponseIncludedRawSchema,
@@ -196,6 +241,7 @@ export const TypingInfo: ModelTypingInfo = {
     ListKindCatalogResponse: ListKindCatalogResponse,
     ListRelationCatalogResponse: ListRelationCatalogResponse,
     ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
+    PreviewEntityResponseData: PreviewEntityResponseData,
     RelationAttributes: RelationAttributes,
     RelationEntity: RelationEntity,
     RelationMeta: RelationMeta,

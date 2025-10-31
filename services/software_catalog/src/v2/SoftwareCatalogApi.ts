@@ -24,6 +24,7 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { EntityData } from "./models/EntityData";
+import { EntityResponseArray } from "./models/EntityResponseArray";
 import { IncludeType } from "./models/IncludeType";
 import { KindData } from "./models/KindData";
 import { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
@@ -411,6 +412,42 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async previewCatalogEntities(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/catalog/entity/preview";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.previewCatalogEntities",
+      SoftwareCatalogApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async upsertCatalogEntity(
     body: UpsertCatalogEntityRequest,
     _options?: Configuration,
@@ -773,6 +810,62 @@ export class SoftwareCatalogApiResponseProcessor {
         "ListRelationCatalogResponse",
         "",
       ) as ListRelationCatalogResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to previewCatalogEntities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async previewCatalogEntities(
+    response: ResponseContext,
+  ): Promise<EntityResponseArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      const body: EntityResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EntityResponseArray",
+      ) as EntityResponseArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EntityResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "EntityResponseArray",
+        "",
+      ) as EntityResponseArray;
       return body;
     }
 
@@ -1325,6 +1418,23 @@ export class SoftwareCatalogApi {
         param.pageOffset = param.pageOffset + pageSize;
       }
     }
+  }
+
+  /**
+   * @param param The request object
+   */
+  public previewCatalogEntities(
+    options?: Configuration,
+  ): Promise<EntityResponseArray> {
+    const requestContextPromise =
+      this.requestFactory.previewCatalogEntities(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.previewCatalogEntities(responseContext);
+        });
+    });
   }
 
   /**
