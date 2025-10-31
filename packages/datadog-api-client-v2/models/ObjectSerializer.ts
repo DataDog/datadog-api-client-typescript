@@ -758,6 +758,19 @@ import { EntityAttributes } from "./EntityAttributes";
 import { EntityData } from "./EntityData";
 import { EntityMeta } from "./EntityMeta";
 import { EntityRelationships } from "./EntityRelationships";
+import { EntityResponseArray } from "./EntityResponseArray";
+import { EntityResponseDataAttributes } from "./EntityResponseDataAttributes";
+import { EntityResponseDataRelationships } from "./EntityResponseDataRelationships";
+import { EntityResponseDataRelationshipsIncidents } from "./EntityResponseDataRelationshipsIncidents";
+import { EntityResponseDataRelationshipsIncidentsDataItems } from "./EntityResponseDataRelationshipsIncidentsDataItems";
+import { EntityResponseDataRelationshipsOncalls } from "./EntityResponseDataRelationshipsOncalls";
+import { EntityResponseDataRelationshipsOncallsDataItems } from "./EntityResponseDataRelationshipsOncallsDataItems";
+import { EntityResponseDataRelationshipsRawSchema } from "./EntityResponseDataRelationshipsRawSchema";
+import { EntityResponseDataRelationshipsRawSchemaData } from "./EntityResponseDataRelationshipsRawSchemaData";
+import { EntityResponseDataRelationshipsRelatedEntities } from "./EntityResponseDataRelationshipsRelatedEntities";
+import { EntityResponseDataRelationshipsRelatedEntitiesDataItems } from "./EntityResponseDataRelationshipsRelatedEntitiesDataItems";
+import { EntityResponseDataRelationshipsSchema } from "./EntityResponseDataRelationshipsSchema";
+import { EntityResponseDataRelationshipsSchemaData } from "./EntityResponseDataRelationshipsSchemaData";
 import { EntityResponseIncludedIncident } from "./EntityResponseIncludedIncident";
 import { EntityResponseIncludedOncall } from "./EntityResponseIncludedOncall";
 import { EntityResponseIncludedRawSchema } from "./EntityResponseIncludedRawSchema";
@@ -1718,6 +1731,7 @@ import { PowerpackResponseLinks } from "./PowerpackResponseLinks";
 import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
 import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
 import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
+import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
@@ -2942,6 +2956,14 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
+  EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
+  EntityResponseDataRelationshipsOncallsDataItemsType: ["oncall"],
+  EntityResponseDataRelationshipsRawSchemaDataType: ["rawSchema"],
+  EntityResponseDataRelationshipsRelatedEntitiesDataItemsType: [
+    "relatedEntity",
+  ],
+  EntityResponseDataRelationshipsSchemaDataType: ["schema"],
+  EntityResponseDataType: ["entity"],
   EntityResponseIncludedIncidentType: ["incident"],
   EntityResponseIncludedOncallType: ["oncall"],
   EntityResponseIncludedRawSchemaType: ["rawSchema"],
@@ -5046,6 +5068,28 @@ const typeMap: { [index: string]: any } = {
   EntityData: EntityData,
   EntityMeta: EntityMeta,
   EntityRelationships: EntityRelationships,
+  EntityResponseArray: EntityResponseArray,
+  EntityResponseDataAttributes: EntityResponseDataAttributes,
+  EntityResponseDataRelationships: EntityResponseDataRelationships,
+  EntityResponseDataRelationshipsIncidents:
+    EntityResponseDataRelationshipsIncidents,
+  EntityResponseDataRelationshipsIncidentsDataItems:
+    EntityResponseDataRelationshipsIncidentsDataItems,
+  EntityResponseDataRelationshipsOncalls:
+    EntityResponseDataRelationshipsOncalls,
+  EntityResponseDataRelationshipsOncallsDataItems:
+    EntityResponseDataRelationshipsOncallsDataItems,
+  EntityResponseDataRelationshipsRawSchema:
+    EntityResponseDataRelationshipsRawSchema,
+  EntityResponseDataRelationshipsRawSchemaData:
+    EntityResponseDataRelationshipsRawSchemaData,
+  EntityResponseDataRelationshipsRelatedEntities:
+    EntityResponseDataRelationshipsRelatedEntities,
+  EntityResponseDataRelationshipsRelatedEntitiesDataItems:
+    EntityResponseDataRelationshipsRelatedEntitiesDataItems,
+  EntityResponseDataRelationshipsSchema: EntityResponseDataRelationshipsSchema,
+  EntityResponseDataRelationshipsSchemaData:
+    EntityResponseDataRelationshipsSchemaData,
   EntityResponseIncludedIncident: EntityResponseIncludedIncident,
   EntityResponseIncludedOncall: EntityResponseIncludedOncall,
   EntityResponseIncludedRawSchema: EntityResponseIncludedRawSchema,
@@ -6188,6 +6232,7 @@ const typeMap: { [index: string]: any } = {
   PowerpackTemplateVariable: PowerpackTemplateVariable,
   PowerpacksResponseMeta: PowerpacksResponseMeta,
   PowerpacksResponseMetaPagination: PowerpacksResponseMetaPagination,
+  PreviewEntityResponseData: PreviewEntityResponseData,
   ProcessSummariesMeta: ProcessSummariesMeta,
   ProcessSummariesMetaPage: ProcessSummariesMetaPage,
   ProcessSummariesResponse: ProcessSummariesResponse,
