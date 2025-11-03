@@ -7510,11 +7510,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "ProcessSummariesResponse",
   },
   "ReferenceTablesApi.V2.ListTables": {
-    limit: {
+    pageLimit: {
       type: "number",
       format: "int64",
     },
-    offset: {
+    pageOffset: {
       type: "number",
       format: "int64",
     },

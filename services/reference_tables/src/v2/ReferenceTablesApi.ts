@@ -295,8 +295,8 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listTables(
-    limit?: number,
-    offset?: number,
+    pageLimit?: number,
+    pageOffset?: number,
     sort?: ReferenceTableSortType,
     filterStatus?: string,
     filterTableNameExact?: string,
@@ -327,17 +327,17 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
-    if (limit !== undefined) {
+    if (pageLimit !== undefined) {
       requestContext.setQueryParam(
-        "limit",
-        serialize(limit, TypingInfo, "number", "int64"),
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
     }
-    if (offset !== undefined) {
+    if (pageOffset !== undefined) {
       requestContext.setQueryParam(
-        "offset",
-        serialize(offset, TypingInfo, "number", "int64"),
+        "page[offset]",
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -879,12 +879,12 @@ export interface ReferenceTablesApiListTablesRequest {
    * Number of tables to return.
    * @type number
    */
-  limit?: number;
+  pageLimit?: number;
   /**
    * Number of tables to skip for pagination.
    * @type number
    */
-  offset?: number;
+  pageOffset?: number;
   /**
    * Sort field and direction. Use field name for ascending, prefix with "-" for descending.
    * @type ReferenceTableSortType
@@ -1054,8 +1054,8 @@ export class ReferenceTablesApi {
     options?: Configuration,
   ): Promise<TableResultV2Array> {
     const requestContextPromise = this.requestFactory.listTables(
-      param.limit,
-      param.offset,
+      param.pageLimit,
+      param.pageOffset,
       param.sort,
       param.filterStatus,
       param.filterTableNameExact,
