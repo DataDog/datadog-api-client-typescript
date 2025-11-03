@@ -7500,11 +7500,11 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "ProcessSummariesResponse",
     },
     "v2.ListTables": {
-        "limit": {
+        "pageLimit": {
             "type": "number",
             "format": "int64",
             },
-        "offset": {
+        "pageOffset": {
             "type": "number",
             "format": "int64",
             },
