@@ -8,11 +8,11 @@ import { FleetDeploymentConfigureCreate } from "./FleetDeploymentConfigureCreate
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request payload for creating a new deployment.
+ * Request payload for creating a new configuration deployment.
  */
 export class FleetDeploymentConfigureCreateRequest {
   /**
-   * Data for creating a new deployment.
+   * Data for creating a new configuration deployment.
    */
   "data": FleetDeploymentConfigureCreate;
 

@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
+import { FleetDeploymentPackageUpgradeCreate } from "./FleetDeploymentPackageUpgradeCreate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * Request payload for creating a new package upgrade deployment.
  */
-export class FleetDeploymentResponse {
+export class FleetDeploymentPackageUpgradeCreateRequest {
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Data for creating a new package upgrade deployment.
    */
-  "data"?: FleetDeployment;
-  /**
-   * Metadata for a single deployment response, including pagination information for hosts.
-   */
-  "meta"?: FleetDeploymentResponseMeta;
+  "data": FleetDeploymentPackageUpgradeCreate;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,11 +34,8 @@ export class FleetDeploymentResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "FleetDeployment",
-    },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+      type: "FleetDeploymentPackageUpgradeCreate",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +47,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetDeploymentPackageUpgradeCreateRequest.attributeTypeMap;
   }
 
   public constructor() {}

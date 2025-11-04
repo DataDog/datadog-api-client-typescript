@@ -3,23 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
+import { FleetScheduleAttributes } from "./FleetScheduleAttributes";
+import { FleetScheduleResourceType } from "./FleetScheduleResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * A schedule that automatically creates deployments based on a recurrence rule.
  */
-export class FleetDeploymentResponse {
+export class FleetSchedule {
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Attributes of a schedule in the response.
    */
-  "data"?: FleetDeployment;
+  "attributes": FleetScheduleAttributes;
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * Unique identifier for the schedule.
    */
-  "meta"?: FleetDeploymentResponseMeta;
+  "id": string;
+  /**
+   * The type of schedule resource.
+   */
+  "type": FleetScheduleResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +41,20 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    attributes: {
+      baseName: "attributes",
+      type: "FleetScheduleAttributes",
+      required: true,
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "FleetScheduleResourceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +66,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetSchedule.attributeTypeMap;
   }
 
   public constructor() {}

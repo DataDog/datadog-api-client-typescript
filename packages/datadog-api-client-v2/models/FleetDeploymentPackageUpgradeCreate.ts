@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
+import { FleetDeploymentPackageUpgradeAttributes } from "./FleetDeploymentPackageUpgradeAttributes";
+import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * Data for creating a new package upgrade deployment.
  */
-export class FleetDeploymentResponse {
+export class FleetDeploymentPackageUpgradeCreate {
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Attributes for creating a new package upgrade deployment.
    */
-  "data"?: FleetDeployment;
+  "attributes": FleetDeploymentPackageUpgradeAttributes;
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * The type of deployment resource.
    */
-  "meta"?: FleetDeploymentResponseMeta;
+  "type": FleetDeploymentResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +37,15 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    attributes: {
+      baseName: "attributes",
+      type: "FleetDeploymentPackageUpgradeAttributes",
+      required: true,
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    type: {
+      baseName: "type",
+      type: "FleetDeploymentResourceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +57,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetDeploymentPackageUpgradeCreate.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,23 +3,24 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
+import { FleetAgentVersionAttributes } from "./FleetAgentVersionAttributes";
+import { FleetAgentVersionResourceType } from "./FleetAgentVersionResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * Represents an available Datadog Agent version.
  */
-export class FleetDeploymentResponse {
+export class FleetAgentVersion {
+  "attributes"?: FleetAgentVersionAttributes;
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Unique identifier for the Agent version (same as version).
    */
-  "data"?: FleetDeployment;
+  "id": string;
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * The type of Agent version resource.
    */
-  "meta"?: FleetDeploymentResponseMeta;
+  "type": FleetAgentVersionResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +38,19 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    attributes: {
+      baseName: "attributes",
+      type: "FleetAgentVersionAttributes",
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "FleetAgentVersionResourceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +62,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetAgentVersion.attributeTypeMap;
   }
 
   public constructor() {}

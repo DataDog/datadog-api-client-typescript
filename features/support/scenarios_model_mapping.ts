@@ -2340,6 +2340,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v2.ListFleetAgentVersions": {
+        "operationResponseType": "FleetAgentVersionsResponse",
+    },
     "v2.ListFleetDeployments": {
         "pageSize": {
             "type": "number",
@@ -2358,10 +2361,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FleetDeploymentResponse",
     },
+    "v2.CreateFleetDeploymentUpgrade": {
+        "body": {
+            "type": "FleetDeploymentPackageUpgradeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "FleetDeploymentResponse",
+    },
     "v2.GetFleetDeployment": {
         "deploymentId": {
             "type": "string",
             "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
             },
         "operationResponseType": "FleetDeploymentResponse",
     },
@@ -2371,6 +2389,48 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListFleetSchedules": {
+        "operationResponseType": "FleetSchedulesResponse",
+    },
+    "v2.CreateFleetSchedule": {
+        "body": {
+            "type": "FleetScheduleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "FleetScheduleResponse",
+    },
+    "v2.GetFleetSchedule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FleetScheduleResponse",
+    },
+    "v2.DeleteFleetSchedule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateFleetSchedule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "FleetSchedulePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "FleetScheduleResponse",
+    },
+    "v2.TriggerFleetSchedule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FleetDeploymentResponse",
     },
     "v2.ListDatastores": {
         "operationResponseType": "DatastoreArray",

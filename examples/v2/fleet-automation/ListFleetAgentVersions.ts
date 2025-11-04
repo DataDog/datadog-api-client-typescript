@@ -1,20 +1,16 @@
 /**
- * Get a configuration deployment by ID returns "OK" response
+ * List all available Agent versions returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.getFleetDeployment"] = true;
+configuration.unstableOperations["v2.listFleetAgentVersions"] = true;
 const apiInstance = new v2.FleetAutomationApi(configuration);
 
-const params: v2.FleetAutomationApiGetFleetDeploymentRequest = {
-  deploymentId: "deployment_id",
-};
-
 apiInstance
-  .getFleetDeployment(params)
-  .then((data: v2.FleetDeploymentResponse) => {
+  .listFleetAgentVersions()
+  .then((data: v2.FleetAgentVersionsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

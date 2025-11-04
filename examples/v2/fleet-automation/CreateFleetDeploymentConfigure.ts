@@ -1,5 +1,5 @@
 /**
- * Create a deployment returns "CREATED" response
+ * Create a configuration deployment returns "CREATED" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

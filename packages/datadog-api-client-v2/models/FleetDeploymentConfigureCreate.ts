@@ -9,7 +9,7 @@ import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for creating a new deployment.
+ * Data for creating a new configuration deployment.
  */
 export class FleetDeploymentConfigureCreate {
   /**

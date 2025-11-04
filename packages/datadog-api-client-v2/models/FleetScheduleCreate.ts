@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
+import { FleetScheduleCreateAttributes } from "./FleetScheduleCreateAttributes";
+import { FleetScheduleResourceType } from "./FleetScheduleResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * Data for creating a new schedule.
  */
-export class FleetDeploymentResponse {
+export class FleetScheduleCreate {
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Attributes for creating a new schedule.
    */
-  "data"?: FleetDeployment;
+  "attributes": FleetScheduleCreateAttributes;
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * The type of schedule resource.
    */
-  "meta"?: FleetDeploymentResponseMeta;
+  "type": FleetScheduleResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +37,15 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    attributes: {
+      baseName: "attributes",
+      type: "FleetScheduleCreateAttributes",
+      required: true,
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    type: {
+      baseName: "type",
+      type: "FleetScheduleResourceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +57,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetScheduleCreate.attributeTypeMap;
   }
 
   public constructor() {}

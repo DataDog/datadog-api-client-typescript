@@ -1,20 +1,20 @@
 /**
- * Get a configuration deployment by ID returns "OK" response
+ * Delete a schedule returns "Schedule successfully deleted." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.getFleetDeployment"] = true;
+configuration.unstableOperations["v2.deleteFleetSchedule"] = true;
 const apiInstance = new v2.FleetAutomationApi(configuration);
 
-const params: v2.FleetAutomationApiGetFleetDeploymentRequest = {
-  deploymentId: "deployment_id",
+const params: v2.FleetAutomationApiDeleteFleetScheduleRequest = {
+  id: "id",
 };
 
 apiInstance
-  .getFleetDeployment(params)
-  .then((data: v2.FleetDeploymentResponse) => {
+  .deleteFleetSchedule(params)
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
