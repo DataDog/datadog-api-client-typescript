@@ -7509,6 +7509,88 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProcessSummariesResponse",
   },
+  "RumAudienceManagementApi.V2.GetAccountFacetInfo": {
+    body: {
+      type: "FacetInfoRequest",
+      format: "",
+    },
+    operationResponseType: "FacetInfoResponse",
+  },
+  "RumAudienceManagementApi.V2.QueryAccounts": {
+    body: {
+      type: "QueryAccountRequest",
+      format: "",
+    },
+    operationResponseType: "QueryResponse",
+  },
+  "RumAudienceManagementApi.V2.QueryEventFilteredUsers": {
+    body: {
+      type: "QueryEventFilteredUsersRequest",
+      format: "",
+    },
+    operationResponseType: "QueryResponse",
+  },
+  "RumAudienceManagementApi.V2.GetUserFacetInfo": {
+    body: {
+      type: "FacetInfoRequest",
+      format: "",
+    },
+    operationResponseType: "FacetInfoResponse",
+  },
+  "RumAudienceManagementApi.V2.QueryUsers": {
+    body: {
+      type: "QueryUsersRequest",
+      format: "",
+    },
+    operationResponseType: "QueryResponse",
+  },
+  "RumAudienceManagementApi.V2.GetMapping": {
+    entity: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GetMappingResponse",
+  },
+  "RumAudienceManagementApi.V2.UpdateConnection": {
+    entity: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateConnectionRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumAudienceManagementApi.V2.CreateConnection": {
+    entity: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateConnectionRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumAudienceManagementApi.V2.DeleteConnection": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    entity: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumAudienceManagementApi.V2.ListConnections": {
+    entity: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListConnectionsResponse",
+  },
   "ReferenceTablesApi.V2.ListTables": {
     pageLimit: {
       type: "number",
