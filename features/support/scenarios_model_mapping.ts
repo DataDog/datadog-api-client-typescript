@@ -7499,6 +7499,88 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.GetAccountFacetInfo": {
+        "body": {
+            "type": "FacetInfoRequest",
+            "format": "",
+            },
+        "operationResponseType": "FacetInfoResponse",
+    },
+    "v2.QueryAccounts": {
+        "body": {
+            "type": "QueryAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "QueryResponse",
+    },
+    "v2.QueryEventFilteredUsers": {
+        "body": {
+            "type": "QueryEventFilteredUsersRequest",
+            "format": "",
+            },
+        "operationResponseType": "QueryResponse",
+    },
+    "v2.GetUserFacetInfo": {
+        "body": {
+            "type": "FacetInfoRequest",
+            "format": "",
+            },
+        "operationResponseType": "FacetInfoResponse",
+    },
+    "v2.QueryUsers": {
+        "body": {
+            "type": "QueryUsersRequest",
+            "format": "",
+            },
+        "operationResponseType": "QueryResponse",
+    },
+    "v2.GetMapping": {
+        "entity": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetMappingResponse",
+    },
+    "v2.UpdateConnection": {
+        "entity": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateConnectionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateConnection": {
+        "entity": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateConnectionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteConnection": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "entity": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListConnections": {
+        "entity": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListConnectionsResponse",
+    },
     "v2.ListTables": {
         "pageLimit": {
             "type": "number",

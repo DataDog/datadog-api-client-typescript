@@ -660,6 +660,20 @@ export {
 } from "./apis/RolesApi";
 
 export {
+  RumAudienceManagementApiCreateConnectionRequest,
+  RumAudienceManagementApiDeleteConnectionRequest,
+  RumAudienceManagementApiGetAccountFacetInfoRequest,
+  RumAudienceManagementApiGetMappingRequest,
+  RumAudienceManagementApiGetUserFacetInfoRequest,
+  RumAudienceManagementApiListConnectionsRequest,
+  RumAudienceManagementApiQueryAccountsRequest,
+  RumAudienceManagementApiQueryEventFilteredUsersRequest,
+  RumAudienceManagementApiQueryUsersRequest,
+  RumAudienceManagementApiUpdateConnectionRequest,
+  RumAudienceManagementApi,
+} from "./apis/RumAudienceManagementApi";
+
+export {
   RumMetricsApiCreateRumMetricRequest,
   RumMetricsApiDeleteRumMetricRequest,
   RumMetricsApiGetRumMetricRequest,
@@ -1594,6 +1608,10 @@ export { CreateAppsDatastoreRequestDataAttributes } from "./models/CreateAppsDat
 export { CreateAppsDatastoreRequestDataAttributesOrgAccess } from "./models/CreateAppsDatastoreRequestDataAttributesOrgAccess";
 export { CreateAppsDatastoreResponse } from "./models/CreateAppsDatastoreResponse";
 export { CreateAppsDatastoreResponseData } from "./models/CreateAppsDatastoreResponseData";
+export { CreateConnectionRequest } from "./models/CreateConnectionRequest";
+export { CreateConnectionRequestData } from "./models/CreateConnectionRequestData";
+export { CreateConnectionRequestDataAttributes } from "./models/CreateConnectionRequestDataAttributes";
+export { CreateConnectionRequestDataAttributesFieldsItems } from "./models/CreateConnectionRequestDataAttributesFieldsItems";
 export { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequest";
 export { CreateCustomFrameworkResponse } from "./models/CreateCustomFrameworkResponse";
 export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
@@ -2060,6 +2078,19 @@ export { EventSystemAttributes } from "./models/EventSystemAttributes";
 export { EventSystemAttributesCategory } from "./models/EventSystemAttributesCategory";
 export { EventSystemAttributesIntegrationId } from "./models/EventSystemAttributesIntegrationId";
 export { EventType } from "./models/EventType";
+export { FacetInfoRequest } from "./models/FacetInfoRequest";
+export { FacetInfoRequestData } from "./models/FacetInfoRequestData";
+export { FacetInfoRequestDataAttributes } from "./models/FacetInfoRequestDataAttributes";
+export { FacetInfoRequestDataAttributesSearch } from "./models/FacetInfoRequestDataAttributesSearch";
+export { FacetInfoRequestDataAttributesTermSearch } from "./models/FacetInfoRequestDataAttributesTermSearch";
+export { FacetInfoRequestDataType } from "./models/FacetInfoRequestDataType";
+export { FacetInfoResponse } from "./models/FacetInfoResponse";
+export { FacetInfoResponseData } from "./models/FacetInfoResponseData";
+export { FacetInfoResponseDataAttributes } from "./models/FacetInfoResponseDataAttributes";
+export { FacetInfoResponseDataAttributesResult } from "./models/FacetInfoResponseDataAttributesResult";
+export { FacetInfoResponseDataAttributesResultRange } from "./models/FacetInfoResponseDataAttributesResultRange";
+export { FacetInfoResponseDataAttributesResultValuesItems } from "./models/FacetInfoResponseDataAttributesResultValuesItems";
+export { FacetInfoResponseDataType } from "./models/FacetInfoResponseDataType";
 export { FastlyAccounResponseAttributes } from "./models/FastlyAccounResponseAttributes";
 export { FastlyAccountCreateRequest } from "./models/FastlyAccountCreateRequest";
 export { FastlyAccountCreateRequestAttributes } from "./models/FastlyAccountCreateRequestAttributes";
@@ -2214,6 +2245,11 @@ export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
 export { GetIssueIncludeQueryParameterItem } from "./models/GetIssueIncludeQueryParameterItem";
+export { GetMappingResponse } from "./models/GetMappingResponse";
+export { GetMappingResponseData } from "./models/GetMappingResponseData";
+export { GetMappingResponseDataAttributes } from "./models/GetMappingResponseDataAttributes";
+export { GetMappingResponseDataAttributesAttributesItems } from "./models/GetMappingResponseDataAttributesAttributesItems";
+export { GetMappingResponseDataType } from "./models/GetMappingResponseDataType";
 export { GetMultipleRulesetsRequest } from "./models/GetMultipleRulesetsRequest";
 export { GetMultipleRulesetsRequestData } from "./models/GetMultipleRulesetsRequestData";
 export { GetMultipleRulesetsRequestDataAttributes } from "./models/GetMultipleRulesetsRequestDataAttributes";
@@ -2583,6 +2619,12 @@ export { ListAppsResponseDataItemsRelationships } from "./models/ListAppsRespons
 export { ListAppsResponseMeta } from "./models/ListAppsResponseMeta";
 export { ListAppsResponseMetaPage } from "./models/ListAppsResponseMetaPage";
 export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
+export { ListConnectionsResponse } from "./models/ListConnectionsResponse";
+export { ListConnectionsResponseData } from "./models/ListConnectionsResponseData";
+export { ListConnectionsResponseDataAttributes } from "./models/ListConnectionsResponseDataAttributes";
+export { ListConnectionsResponseDataAttributesConnectionsItems } from "./models/ListConnectionsResponseDataAttributesConnectionsItems";
+export { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./models/ListConnectionsResponseDataAttributesConnectionsItemsJoin";
+export { ListConnectionsResponseDataType } from "./models/ListConnectionsResponseDataType";
 export { ListDevicesResponse } from "./models/ListDevicesResponse";
 export { ListDevicesResponseMetadata } from "./models/ListDevicesResponseMetadata";
 export { ListDevicesResponseMetadataPage } from "./models/ListDevicesResponseMetadataPage";
@@ -3280,8 +3322,28 @@ export { PutAppsDatastoreItemResponseArray } from "./models/PutAppsDatastoreItem
 export { PutAppsDatastoreItemResponseData } from "./models/PutAppsDatastoreItemResponseData";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 export { Query } from "./models/Query";
+export { QueryAccountRequest } from "./models/QueryAccountRequest";
+export { QueryAccountRequestData } from "./models/QueryAccountRequestData";
+export { QueryAccountRequestDataAttributes } from "./models/QueryAccountRequestDataAttributes";
+export { QueryAccountRequestDataAttributesSort } from "./models/QueryAccountRequestDataAttributesSort";
+export { QueryAccountRequestDataType } from "./models/QueryAccountRequestDataType";
+export { QueryEventFilteredUsersRequest } from "./models/QueryEventFilteredUsersRequest";
+export { QueryEventFilteredUsersRequestData } from "./models/QueryEventFilteredUsersRequestData";
+export { QueryEventFilteredUsersRequestDataAttributes } from "./models/QueryEventFilteredUsersRequestDataAttributes";
+export { QueryEventFilteredUsersRequestDataAttributesEventQuery } from "./models/QueryEventFilteredUsersRequestDataAttributesEventQuery";
+export { QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame } from "./models/QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame";
+export { QueryEventFilteredUsersRequestDataType } from "./models/QueryEventFilteredUsersRequestDataType";
 export { QueryFormula } from "./models/QueryFormula";
+export { QueryResponse } from "./models/QueryResponse";
+export { QueryResponseData } from "./models/QueryResponseData";
+export { QueryResponseDataAttributes } from "./models/QueryResponseDataAttributes";
+export { QueryResponseDataType } from "./models/QueryResponseDataType";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { QueryUsersRequest } from "./models/QueryUsersRequest";
+export { QueryUsersRequestData } from "./models/QueryUsersRequestData";
+export { QueryUsersRequestDataAttributes } from "./models/QueryUsersRequestDataAttributes";
+export { QueryUsersRequestDataAttributesSort } from "./models/QueryUsersRequestDataAttributesSort";
+export { QueryUsersRequestDataType } from "./models/QueryUsersRequestDataType";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
 export { RecommendationAttributes } from "./models/RecommendationAttributes";
@@ -4167,6 +4229,11 @@ export { UpdateAppsDatastoreItemRequestDataType } from "./models/UpdateAppsDatas
 export { UpdateAppsDatastoreRequest } from "./models/UpdateAppsDatastoreRequest";
 export { UpdateAppsDatastoreRequestData } from "./models/UpdateAppsDatastoreRequestData";
 export { UpdateAppsDatastoreRequestDataAttributes } from "./models/UpdateAppsDatastoreRequestDataAttributes";
+export { UpdateConnectionRequest } from "./models/UpdateConnectionRequest";
+export { UpdateConnectionRequestData } from "./models/UpdateConnectionRequestData";
+export { UpdateConnectionRequestDataAttributes } from "./models/UpdateConnectionRequestDataAttributes";
+export { UpdateConnectionRequestDataAttributesFieldsToUpdateItems } from "./models/UpdateConnectionRequestDataAttributesFieldsToUpdateItems";
+export { UpdateConnectionRequestDataType } from "./models/UpdateConnectionRequestDataType";
 export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
