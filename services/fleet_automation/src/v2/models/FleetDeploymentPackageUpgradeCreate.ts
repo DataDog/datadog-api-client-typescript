@@ -1,16 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FleetDeploymentConfigureAttributes } from "./FleetDeploymentConfigureAttributes";
+import { FleetDeploymentPackageUpgradeAttributes } from "./FleetDeploymentPackageUpgradeAttributes";
 import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
 
 /**
- * Data for creating a new configuration deployment.
+ * Data for creating a new package upgrade deployment.
  */
-export class FleetDeploymentConfigureCreate {
+export class FleetDeploymentPackageUpgradeCreate {
   /**
-   * Attributes for creating a new configuration deployment.
+   * Attributes for creating a new package upgrade deployment.
    */
-  "attributes": FleetDeploymentConfigureAttributes;
+  "attributes": FleetDeploymentPackageUpgradeAttributes;
   /**
    * The type of deployment resource.
    */
@@ -32,7 +32,7 @@ export class FleetDeploymentConfigureCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "FleetDeploymentConfigureAttributes",
+      type: "FleetDeploymentPackageUpgradeAttributes",
       required: true,
     },
     type: {
@@ -50,7 +50,7 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentConfigureCreate.attributeTypeMap;
+    return FleetDeploymentPackageUpgradeCreate.attributeTypeMap;
   }
 
   public constructor() {}

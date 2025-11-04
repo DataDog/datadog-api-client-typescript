@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FleetDeployment } from "./FleetDeployment";
+import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
 
 /**
  * Response containing a single deployment.
@@ -10,6 +11,10 @@ export class FleetDeploymentResponse {
    * A deployment that defines automated configuration changes for a fleet of hosts.
    */
   "data"?: FleetDeployment;
+  /**
+   * Metadata for a single deployment response, including pagination information for hosts.
+   */
+  "meta"?: FleetDeploymentResponseMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +33,10 @@ export class FleetDeploymentResponse {
     data: {
       baseName: "data",
       type: "FleetDeployment",
+    },
+    meta: {
+      baseName: "meta",
+      type: "FleetDeploymentResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -1,6 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { FleetDeploymentHost } from "./FleetDeploymentHost";
 import { FleetDeploymentOperation } from "./FleetDeploymentOperation";
+import { FleetDeploymentPackage } from "./FleetDeploymentPackage";
 
 /**
  * Attributes of a deployment in the response.
@@ -19,9 +21,20 @@ export class FleetDeploymentAttributes {
    */
   "filterQuery"?: string;
   /**
-   * Current high-level status of the deployment (for example, "pending", "running", "completed", "failed").
+   * Current high-level status of the deployment (for example, "pending", "running",
+   * "completed", "failed").
    */
   "highLevelStatus"?: string;
+  /**
+   * Paginated list of hosts in this deployment with their individual statuses. Only included
+   * when fetching a single deployment by ID. Use the `limit` and `page` query parameters to
+   * navigate through pages. Pagination metadata is included in the response `meta.hosts` field.
+   */
+  "hosts"?: Array<FleetDeploymentHost>;
+  /**
+   * List of packages to deploy to target hosts. Present only for package upgrade deployments.
+   */
+  "packages"?: Array<FleetDeploymentPackage>;
   /**
    * Total number of hosts targeted by this deployment.
    */
@@ -57,6 +70,14 @@ export class FleetDeploymentAttributes {
     highLevelStatus: {
       baseName: "high_level_status",
       type: "string",
+    },
+    hosts: {
+      baseName: "hosts",
+      type: "Array<FleetDeploymentHost>",
+    },
+    packages: {
+      baseName: "packages",
+      type: "Array<FleetDeploymentPackage>",
     },
     totalHosts: {
       baseName: "total_hosts",

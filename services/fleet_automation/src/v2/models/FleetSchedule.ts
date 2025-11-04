@@ -1,20 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FleetDeploymentConfigureAttributes } from "./FleetDeploymentConfigureAttributes";
-import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
+import { FleetScheduleAttributes } from "./FleetScheduleAttributes";
+import { FleetScheduleResourceType } from "./FleetScheduleResourceType";
 
 /**
- * Data for creating a new configuration deployment.
+ * A schedule that automatically creates deployments based on a recurrence rule.
  */
-export class FleetDeploymentConfigureCreate {
+export class FleetSchedule {
   /**
-   * Attributes for creating a new configuration deployment.
+   * Attributes of a schedule in the response.
    */
-  "attributes": FleetDeploymentConfigureAttributes;
+  "attributes": FleetScheduleAttributes;
   /**
-   * The type of deployment resource.
+   * Unique identifier for the schedule.
    */
-  "type": FleetDeploymentResourceType;
+  "id": string;
+  /**
+   * The type of schedule resource.
+   */
+  "type": FleetScheduleResourceType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,12 +36,17 @@ export class FleetDeploymentConfigureCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "FleetDeploymentConfigureAttributes",
+      type: "FleetScheduleAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "FleetDeploymentResourceType",
+      type: "FleetScheduleResourceType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +59,7 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentConfigureCreate.attributeTypeMap;
+    return FleetSchedule.attributeTypeMap;
   }
 
   public constructor() {}
