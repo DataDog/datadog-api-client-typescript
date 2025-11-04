@@ -517,6 +517,10 @@ import { CreateAppsDatastoreRequestData } from "./CreateAppsDatastoreRequestData
 import { CreateAppsDatastoreRequestDataAttributes } from "./CreateAppsDatastoreRequestDataAttributes";
 import { CreateAppsDatastoreResponse } from "./CreateAppsDatastoreResponse";
 import { CreateAppsDatastoreResponseData } from "./CreateAppsDatastoreResponseData";
+import { CreateConnectionRequest } from "./CreateConnectionRequest";
+import { CreateConnectionRequestData } from "./CreateConnectionRequestData";
+import { CreateConnectionRequestDataAttributes } from "./CreateConnectionRequestDataAttributes";
+import { CreateConnectionRequestDataAttributesFieldsItems } from "./CreateConnectionRequestDataAttributesFieldsItems";
 import { CreateCustomFrameworkRequest } from "./CreateCustomFrameworkRequest";
 import { CreateCustomFrameworkResponse } from "./CreateCustomFrameworkResponse";
 import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
@@ -876,6 +880,17 @@ import { EventsScalarQuery } from "./EventsScalarQuery";
 import { EventsSearch } from "./EventsSearch";
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { EventsWarning } from "./EventsWarning";
+import { FacetInfoRequest } from "./FacetInfoRequest";
+import { FacetInfoRequestData } from "./FacetInfoRequestData";
+import { FacetInfoRequestDataAttributes } from "./FacetInfoRequestDataAttributes";
+import { FacetInfoRequestDataAttributesSearch } from "./FacetInfoRequestDataAttributesSearch";
+import { FacetInfoRequestDataAttributesTermSearch } from "./FacetInfoRequestDataAttributesTermSearch";
+import { FacetInfoResponse } from "./FacetInfoResponse";
+import { FacetInfoResponseData } from "./FacetInfoResponseData";
+import { FacetInfoResponseDataAttributes } from "./FacetInfoResponseDataAttributes";
+import { FacetInfoResponseDataAttributesResult } from "./FacetInfoResponseDataAttributesResult";
+import { FacetInfoResponseDataAttributesResultRange } from "./FacetInfoResponseDataAttributesResultRange";
+import { FacetInfoResponseDataAttributesResultValuesItems } from "./FacetInfoResponseDataAttributesResultValuesItems";
 import { FastlyAPIKey } from "./FastlyAPIKey";
 import { FastlyAPIKeyUpdate } from "./FastlyAPIKeyUpdate";
 import { FastlyAccounResponseAttributes } from "./FastlyAccounResponseAttributes";
@@ -991,6 +1006,10 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
+import { GetMappingResponse } from "./GetMappingResponse";
+import { GetMappingResponseData } from "./GetMappingResponseData";
+import { GetMappingResponseDataAttributes } from "./GetMappingResponseDataAttributes";
+import { GetMappingResponseDataAttributesAttributesItems } from "./GetMappingResponseDataAttributesAttributesItems";
 import { GetMultipleRulesetsRequest } from "./GetMultipleRulesetsRequest";
 import { GetMultipleRulesetsRequestData } from "./GetMultipleRulesetsRequestData";
 import { GetMultipleRulesetsRequestDataAttributes } from "./GetMultipleRulesetsRequestDataAttributes";
@@ -1270,6 +1289,11 @@ import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataIt
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
 import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
+import { ListConnectionsResponse } from "./ListConnectionsResponse";
+import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
+import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
+import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
+import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 import { ListDevicesResponse } from "./ListDevicesResponse";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
@@ -1754,7 +1778,23 @@ import { PublishAppResponse } from "./PublishAppResponse";
 import { PutAppsDatastoreItemResponseArray } from "./PutAppsDatastoreItemResponseArray";
 import { PutAppsDatastoreItemResponseData } from "./PutAppsDatastoreItemResponseData";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
+import { QueryAccountRequest } from "./QueryAccountRequest";
+import { QueryAccountRequestData } from "./QueryAccountRequestData";
+import { QueryAccountRequestDataAttributes } from "./QueryAccountRequestDataAttributes";
+import { QueryAccountRequestDataAttributesSort } from "./QueryAccountRequestDataAttributesSort";
+import { QueryEventFilteredUsersRequest } from "./QueryEventFilteredUsersRequest";
+import { QueryEventFilteredUsersRequestData } from "./QueryEventFilteredUsersRequestData";
+import { QueryEventFilteredUsersRequestDataAttributes } from "./QueryEventFilteredUsersRequestDataAttributes";
+import { QueryEventFilteredUsersRequestDataAttributesEventQuery } from "./QueryEventFilteredUsersRequestDataAttributesEventQuery";
+import { QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame } from "./QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame";
 import { QueryFormula } from "./QueryFormula";
+import { QueryResponse } from "./QueryResponse";
+import { QueryResponseData } from "./QueryResponseData";
+import { QueryResponseDataAttributes } from "./QueryResponseDataAttributes";
+import { QueryUsersRequest } from "./QueryUsersRequest";
+import { QueryUsersRequestData } from "./QueryUsersRequestData";
+import { QueryUsersRequestDataAttributes } from "./QueryUsersRequestDataAttributes";
+import { QueryUsersRequestDataAttributesSort } from "./QueryUsersRequestDataAttributesSort";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
 import { RUMAggregateSort } from "./RUMAggregateSort";
@@ -2423,6 +2463,10 @@ import { UpdateAppsDatastoreItemRequestDataAttributesItemChanges } from "./Updat
 import { UpdateAppsDatastoreRequest } from "./UpdateAppsDatastoreRequest";
 import { UpdateAppsDatastoreRequestData } from "./UpdateAppsDatastoreRequestData";
 import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreRequestDataAttributes";
+import { UpdateConnectionRequest } from "./UpdateConnectionRequest";
+import { UpdateConnectionRequestData } from "./UpdateConnectionRequestData";
+import { UpdateConnectionRequestDataAttributes } from "./UpdateConnectionRequestDataAttributes";
+import { UpdateConnectionRequestDataAttributesFieldsToUpdateItems } from "./UpdateConnectionRequestDataAttributesFieldsToUpdateItems";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
@@ -3018,6 +3062,8 @@ const enumsMap: { [key: string]: any[] } = {
   EventsDataSource: ["logs", "rum", "dora"],
   EventsSort: ["timestamp", "-timestamp"],
   EventsSortType: ["alphabetical", "measure"],
+  FacetInfoRequestDataType: ["users_facet_info_request"],
+  FacetInfoResponseDataType: ["users_facet_info"],
   FastlyAPIKeyType: ["FastlyAPIKey"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
@@ -3079,6 +3125,7 @@ const enumsMap: { [key: string]: any[] } = {
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
+  GetMappingResponseDataType: ["get_mappings_response"],
   GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: ["rulesets"],
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType: [
@@ -3241,6 +3288,7 @@ const enumsMap: { [key: string]: any[] } = {
   LayerRelationshipsMembersDataItemsType: ["members"],
   LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
+  ListConnectionsResponseDataType: ["list_connections_response"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -3595,7 +3643,13 @@ const enumsMap: { [key: string]: any[] } = {
   ProcessSummaryType: ["process"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
+  QueryAccountRequestDataType: ["query_account_request"],
+  QueryEventFilteredUsersRequestDataType: [
+    "query_event_filtered_users_request",
+  ],
+  QueryResponseDataType: ["query_response"],
   QuerySortOrder: ["asc", "desc"],
+  QueryUsersRequestDataType: ["query_users_request"],
   RUMAggregateSortType: ["alphabetical", "measure"],
   RUMAggregationFunction: [
     "count",
@@ -4042,6 +4096,7 @@ const enumsMap: { [key: string]: any[] } = {
   TriggerSource: ["security_findings", "security_signals"],
   UCConfigPairDataType: ["azure_uc_configs"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
+  UpdateConnectionRequestDataType: ["connection_id"],
   UpdateOutcomesAsyncType: ["batched-outcome"],
   UpdateRulesetRequestDataType: ["update_ruleset"],
   Urgency: ["low", "high", "dynamic"],
@@ -4778,6 +4833,11 @@ const typeMap: { [index: string]: any } = {
     CreateAppsDatastoreRequestDataAttributes,
   CreateAppsDatastoreResponse: CreateAppsDatastoreResponse,
   CreateAppsDatastoreResponseData: CreateAppsDatastoreResponseData,
+  CreateConnectionRequest: CreateConnectionRequest,
+  CreateConnectionRequestData: CreateConnectionRequestData,
+  CreateConnectionRequestDataAttributes: CreateConnectionRequestDataAttributes,
+  CreateConnectionRequestDataAttributesFieldsItems:
+    CreateConnectionRequestDataAttributesFieldsItems,
   CreateCustomFrameworkRequest: CreateCustomFrameworkRequest,
   CreateCustomFrameworkResponse: CreateCustomFrameworkResponse,
   CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
@@ -5213,6 +5273,20 @@ const typeMap: { [index: string]: any } = {
   EventsSearch: EventsSearch,
   EventsTimeseriesQuery: EventsTimeseriesQuery,
   EventsWarning: EventsWarning,
+  FacetInfoRequest: FacetInfoRequest,
+  FacetInfoRequestData: FacetInfoRequestData,
+  FacetInfoRequestDataAttributes: FacetInfoRequestDataAttributes,
+  FacetInfoRequestDataAttributesSearch: FacetInfoRequestDataAttributesSearch,
+  FacetInfoRequestDataAttributesTermSearch:
+    FacetInfoRequestDataAttributesTermSearch,
+  FacetInfoResponse: FacetInfoResponse,
+  FacetInfoResponseData: FacetInfoResponseData,
+  FacetInfoResponseDataAttributes: FacetInfoResponseDataAttributes,
+  FacetInfoResponseDataAttributesResult: FacetInfoResponseDataAttributesResult,
+  FacetInfoResponseDataAttributesResultRange:
+    FacetInfoResponseDataAttributesResultRange,
+  FacetInfoResponseDataAttributesResultValuesItems:
+    FacetInfoResponseDataAttributesResultValuesItems,
   FastlyAPIKey: FastlyAPIKey,
   FastlyAPIKeyUpdate: FastlyAPIKeyUpdate,
   FastlyAccounResponseAttributes: FastlyAccounResponseAttributes,
@@ -5331,6 +5405,11 @@ const typeMap: { [index: string]: any } = {
   GetFindingResponse: GetFindingResponse,
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
+  GetMappingResponse: GetMappingResponse,
+  GetMappingResponseData: GetMappingResponseData,
+  GetMappingResponseDataAttributes: GetMappingResponseDataAttributes,
+  GetMappingResponseDataAttributesAttributesItems:
+    GetMappingResponseDataAttributesAttributesItems,
   GetMultipleRulesetsRequest: GetMultipleRulesetsRequest,
   GetMultipleRulesetsRequestData: GetMultipleRulesetsRequestData,
   GetMultipleRulesetsRequestDataAttributes:
@@ -5644,6 +5723,13 @@ const typeMap: { [index: string]: any } = {
   ListAppsResponseMeta: ListAppsResponseMeta,
   ListAppsResponseMetaPage: ListAppsResponseMetaPage,
   ListAssetsSBOMsResponse: ListAssetsSBOMsResponse,
+  ListConnectionsResponse: ListConnectionsResponse,
+  ListConnectionsResponseData: ListConnectionsResponseData,
+  ListConnectionsResponseDataAttributes: ListConnectionsResponseDataAttributes,
+  ListConnectionsResponseDataAttributesConnectionsItems:
+    ListConnectionsResponseDataAttributesConnectionsItems,
+  ListConnectionsResponseDataAttributesConnectionsItemsJoin:
+    ListConnectionsResponseDataAttributesConnectionsItemsJoin,
   ListDevicesResponse: ListDevicesResponse,
   ListDevicesResponseMetadata: ListDevicesResponseMetadata,
   ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
@@ -6255,7 +6341,26 @@ const typeMap: { [index: string]: any } = {
   PutAppsDatastoreItemResponseArray: PutAppsDatastoreItemResponseArray,
   PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
   PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
+  QueryAccountRequest: QueryAccountRequest,
+  QueryAccountRequestData: QueryAccountRequestData,
+  QueryAccountRequestDataAttributes: QueryAccountRequestDataAttributes,
+  QueryAccountRequestDataAttributesSort: QueryAccountRequestDataAttributesSort,
+  QueryEventFilteredUsersRequest: QueryEventFilteredUsersRequest,
+  QueryEventFilteredUsersRequestData: QueryEventFilteredUsersRequestData,
+  QueryEventFilteredUsersRequestDataAttributes:
+    QueryEventFilteredUsersRequestDataAttributes,
+  QueryEventFilteredUsersRequestDataAttributesEventQuery:
+    QueryEventFilteredUsersRequestDataAttributesEventQuery,
+  QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame:
+    QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame,
   QueryFormula: QueryFormula,
+  QueryResponse: QueryResponse,
+  QueryResponseData: QueryResponseData,
+  QueryResponseDataAttributes: QueryResponseDataAttributes,
+  QueryUsersRequest: QueryUsersRequest,
+  QueryUsersRequestData: QueryUsersRequestData,
+  QueryUsersRequestDataAttributes: QueryUsersRequestDataAttributes,
+  QueryUsersRequestDataAttributesSort: QueryUsersRequestDataAttributesSort,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
   RUMAggregateRequest: RUMAggregateRequest,
@@ -7042,6 +7147,11 @@ const typeMap: { [index: string]: any } = {
   UpdateAppsDatastoreRequestData: UpdateAppsDatastoreRequestData,
   UpdateAppsDatastoreRequestDataAttributes:
     UpdateAppsDatastoreRequestDataAttributes,
+  UpdateConnectionRequest: UpdateConnectionRequest,
+  UpdateConnectionRequestData: UpdateConnectionRequestData,
+  UpdateConnectionRequestDataAttributes: UpdateConnectionRequestDataAttributes,
+  UpdateConnectionRequestDataAttributesFieldsToUpdateItems:
+    UpdateConnectionRequestDataAttributesFieldsToUpdateItems,
   UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
   UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
