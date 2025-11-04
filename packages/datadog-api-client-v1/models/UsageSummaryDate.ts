@@ -72,6 +72,10 @@ export class UsageSummaryDate {
    */
   "billableIngestedBytesSum"?: number;
   /**
+   * Shows the sum of all Bits AI Investigations over all hours in the current date for all organizations.
+   */
+  "bitsAiInvestigationsSum"?: number;
+  /**
    * Shows the sum of all browser lite sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
    */
   "browserRumLiteSessionCountSum"?: number;
@@ -483,6 +487,10 @@ export class UsageSummaryDate {
    * Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
    */
   "ociHostTop99P"?: number;
+  /**
+   * Shows the high-water mark of On-Call seats over all hours in the current date for all organizations.
+   */
+  "onCallSeatHwm"?: number;
   /**
    * Sum of all online archived events over all hours in the current date for all organizations.
    */
@@ -904,6 +912,11 @@ export class UsageSummaryDate {
     },
     billableIngestedBytesSum: {
       baseName: "billable_ingested_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    bitsAiInvestigationsSum: {
+      baseName: "bits_ai_investigations_sum",
       type: "number",
       format: "int64",
     },
@@ -1419,6 +1432,11 @@ export class UsageSummaryDate {
     },
     ociHostTop99P: {
       baseName: "oci_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    onCallSeatHwm: {
+      baseName: "on_call_seat_hwm",
       type: "number",
       format: "int64",
     },
