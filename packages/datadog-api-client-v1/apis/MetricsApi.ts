@@ -963,6 +963,8 @@ export class MetricsApi {
   }
 
   /**
+   * **Note**: This endpoint is deprecated. Use `/api/v2/metrics` instead.
+   *
    * Search for metrics from the last 24 hours in Datadog.
    * @param param The request object
    */
