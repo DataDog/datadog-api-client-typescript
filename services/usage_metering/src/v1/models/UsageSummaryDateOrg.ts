@@ -25,6 +25,10 @@ export class UsageSummaryDateOrg {
    */
   "apmDevsecopsHostTop99P"?: number;
   /**
+   * Shows the 99th percentile of all distinct standalone Enterprise hosts over all hours in the current date for the given org.
+   */
+  "apmEnterpriseStandaloneHostsTop99P"?: number;
+  /**
    * Shows the average of all APM ECS Fargate tasks over all hours in the current month for the given org.
    */
   "apmFargateCountAvg"?: number;
@@ -32,6 +36,10 @@ export class UsageSummaryDateOrg {
    * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for the given org.
    */
   "apmHostTop99P"?: number;
+  /**
+   * Shows the 99th percentile of all distinct standalone Pro hosts over all hours in the current date for the given org.
+   */
+  "apmProStandaloneHostsTop99P"?: number;
   /**
    * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current month for the given org.
    */
@@ -878,6 +886,11 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    apmEnterpriseStandaloneHostsTop99P: {
+      baseName: "apm_enterprise_standalone_hosts_top99p",
+      type: "number",
+      format: "int64",
+    },
     apmFargateCountAvg: {
       baseName: "apm_fargate_count_avg",
       type: "number",
@@ -885,6 +898,11 @@ export class UsageSummaryDateOrg {
     },
     apmHostTop99P: {
       baseName: "apm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    apmProStandaloneHostsTop99P: {
+      baseName: "apm_pro_standalone_hosts_top99p",
       type: "number",
       format: "int64",
     },
