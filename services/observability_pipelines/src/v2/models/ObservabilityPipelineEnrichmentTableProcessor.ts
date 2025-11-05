@@ -9,6 +9,10 @@ import { ObservabilityPipelineEnrichmentTableProcessorType } from "./Observabili
  */
 export class ObservabilityPipelineEnrichmentTableProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * Defines a static enrichment table loaded from a CSV file.
    */
   "file"?: ObservabilityPipelineEnrichmentTableFile;
@@ -25,9 +29,9 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the input for this processor.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * Path where enrichment results should be stored in the log.
    */
@@ -51,6 +55,10 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     file: {
       baseName: "file",
       type: "ObservabilityPipelineEnrichmentTableFile",
@@ -72,7 +80,6 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     target: {
       baseName: "target",

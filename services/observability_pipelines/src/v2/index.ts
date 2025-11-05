@@ -37,7 +37,9 @@ export { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./models
 export { ObservabilityPipelineAwsAuth } from "./models/ObservabilityPipelineAwsAuth";
 export { ObservabilityPipelineConfig } from "./models/ObservabilityPipelineConfig";
 export { ObservabilityPipelineConfigDestinationItem } from "./models/ObservabilityPipelineConfigDestinationItem";
+export { ObservabilityPipelineConfigProcessorGroup } from "./models/ObservabilityPipelineConfigProcessorGroup";
 export { ObservabilityPipelineConfigProcessorItem } from "./models/ObservabilityPipelineConfigProcessorItem";
+export { ObservabilityPipelineConfigProcessors } from "./models/ObservabilityPipelineConfigProcessors";
 export { ObservabilityPipelineConfigSourceItem } from "./models/ObservabilityPipelineConfigSourceItem";
 export { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 export { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
