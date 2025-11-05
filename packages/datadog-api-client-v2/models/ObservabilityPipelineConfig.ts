@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineConfigDestinationItem } from "./ObservabilityPipelineConfigDestinationItem";
-import { ObservabilityPipelineConfigProcessorItem } from "./ObservabilityPipelineConfigProcessorItem";
+import { ObservabilityPipelineConfigProcessors } from "./ObservabilityPipelineConfigProcessors";
 import { ObservabilityPipelineConfigSourceItem } from "./ObservabilityPipelineConfigSourceItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -18,9 +18,9 @@ export class ObservabilityPipelineConfig {
    */
   "destinations": Array<ObservabilityPipelineConfigDestinationItem>;
   /**
-   * A list of processors that transform or enrich log data.
+   * A list of processors that transform or enrich log data, or a list of grouped processor configurations.
    */
-  "processors"?: Array<ObservabilityPipelineConfigProcessorItem>;
+  "processors"?: ObservabilityPipelineConfigProcessors;
   /**
    * A list of configured data sources for the pipeline.
    */
@@ -49,7 +49,7 @@ export class ObservabilityPipelineConfig {
     },
     processors: {
       baseName: "processors",
-      type: "Array<ObservabilityPipelineConfigProcessorItem>",
+      type: "ObservabilityPipelineConfigProcessors",
     },
     sources: {
       baseName: "sources",

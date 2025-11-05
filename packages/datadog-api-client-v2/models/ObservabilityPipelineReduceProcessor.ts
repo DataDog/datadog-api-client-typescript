@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineReduceProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * A list of fields used to group log events for merging.
    */
   "groupBy": Array<string>;
@@ -25,9 +29,9 @@ export class ObservabilityPipelineReduceProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the input for this processor.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * List of merge strategies defining how values from grouped events should be combined.
    */
@@ -53,6 +57,10 @@ export class ObservabilityPipelineReduceProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     groupBy: {
       baseName: "group_by",
       type: "Array<string>",
@@ -71,7 +79,6 @@ export class ObservabilityPipelineReduceProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     mergeStrategies: {
       baseName: "merge_strategies",

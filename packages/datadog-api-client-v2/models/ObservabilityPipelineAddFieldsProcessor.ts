@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineAddFieldsProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * A list of static fields (key-value pairs) that is added to each log event processed by this component.
    */
   "fields": Array<ObservabilityPipelineFieldValue>;
@@ -25,9 +29,9 @@ export class ObservabilityPipelineAddFieldsProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * The processor type. The value should always be `add_fields`.
    */
@@ -49,6 +53,10 @@ export class ObservabilityPipelineAddFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     fields: {
       baseName: "fields",
       type: "Array<ObservabilityPipelineFieldValue>",
@@ -67,7 +75,6 @@ export class ObservabilityPipelineAddFieldsProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     type: {
       baseName: "type",
