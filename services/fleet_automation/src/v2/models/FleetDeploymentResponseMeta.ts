@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FleetDeploymentConfigureCreate } from "./FleetDeploymentConfigureCreate";
+import { FleetDeploymentHostsPage } from "./FleetDeploymentHostsPage";
 
 /**
- * Request payload for creating a new configuration deployment.
+ * Metadata for a single deployment response, including pagination information for hosts.
  */
-export class FleetDeploymentConfigureCreateRequest {
+export class FleetDeploymentResponseMeta {
   /**
-   * Data for creating a new configuration deployment.
+   * Pagination details for the list of hosts in a deployment.
    */
-  "data": FleetDeploymentConfigureCreate;
+  "hosts"?: FleetDeploymentHostsPage;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,10 +25,9 @@ export class FleetDeploymentConfigureCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeploymentConfigureCreate",
-      required: true,
+    hosts: {
+      baseName: "hosts",
+      type: "FleetDeploymentHostsPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +39,7 @@ export class FleetDeploymentConfigureCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentConfigureCreateRequest.attributeTypeMap;
+    return FleetDeploymentResponseMeta.attributeTypeMap;
   }
 
   public constructor() {}

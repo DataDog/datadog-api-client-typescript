@@ -1,20 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FleetDeploymentConfigureAttributes } from "./FleetDeploymentConfigureAttributes";
-import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
+import { FleetSchedulePatchAttributes } from "./FleetSchedulePatchAttributes";
+import { FleetScheduleResourceType } from "./FleetScheduleResourceType";
 
 /**
- * Data for creating a new configuration deployment.
+ * Data for partially updating a schedule.
  */
-export class FleetDeploymentConfigureCreate {
+export class FleetSchedulePatch {
   /**
-   * Attributes for creating a new configuration deployment.
+   * Attributes for partially updating a schedule. All fields are optional.
    */
-  "attributes": FleetDeploymentConfigureAttributes;
+  "attributes"?: FleetSchedulePatchAttributes;
   /**
-   * The type of deployment resource.
+   * The type of schedule resource.
    */
-  "type": FleetDeploymentResourceType;
+  "type": FleetScheduleResourceType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,12 +32,11 @@ export class FleetDeploymentConfigureCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "FleetDeploymentConfigureAttributes",
-      required: true,
+      type: "FleetSchedulePatchAttributes",
     },
     type: {
       baseName: "type",
-      type: "FleetDeploymentResourceType",
+      type: "FleetScheduleResourceType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +49,7 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentConfigureCreate.attributeTypeMap;
+    return FleetSchedulePatch.attributeTypeMap;
   }
 
   public constructor() {}

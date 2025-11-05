@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FleetDeploymentConfigureCreate } from "./FleetDeploymentConfigureCreate";
+import { FleetAgentVersion } from "./FleetAgentVersion";
 
 /**
- * Request payload for creating a new configuration deployment.
+ * Response containing a list of available Agent versions.
  */
-export class FleetDeploymentConfigureCreateRequest {
+export class FleetAgentVersionsResponse {
   /**
-   * Data for creating a new configuration deployment.
+   * Array of available Agent versions.
    */
-  "data": FleetDeploymentConfigureCreate;
+  "data": Array<FleetAgentVersion>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class FleetDeploymentConfigureCreateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "FleetDeploymentConfigureCreate",
+      type: "Array<FleetAgentVersion>",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +40,7 @@ export class FleetDeploymentConfigureCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentConfigureCreateRequest.attributeTypeMap;
+    return FleetAgentVersionsResponse.attributeTypeMap;
   }
 
   public constructor() {}

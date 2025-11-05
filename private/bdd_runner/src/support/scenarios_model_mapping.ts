@@ -2350,6 +2350,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
   },
+  "FleetAutomationApi.V2.ListFleetAgentVersions": {
+    operationResponseType: "FleetAgentVersionsResponse",
+  },
   "FleetAutomationApi.V2.ListFleetDeployments": {
     pageSize: {
       type: "number",
@@ -2368,10 +2371,25 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FleetDeploymentResponse",
   },
+  "FleetAutomationApi.V2.CreateFleetDeploymentUpgrade": {
+    body: {
+      type: "FleetDeploymentPackageUpgradeCreateRequest",
+      format: "",
+    },
+    operationResponseType: "FleetDeploymentResponse",
+  },
   "FleetAutomationApi.V2.GetFleetDeployment": {
     deploymentId: {
       type: "string",
       format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    page: {
+      type: "number",
+      format: "int64",
     },
     operationResponseType: "FleetDeploymentResponse",
   },
@@ -2381,6 +2399,48 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "FleetAutomationApi.V2.ListFleetSchedules": {
+    operationResponseType: "FleetSchedulesResponse",
+  },
+  "FleetAutomationApi.V2.CreateFleetSchedule": {
+    body: {
+      type: "FleetScheduleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "FleetScheduleResponse",
+  },
+  "FleetAutomationApi.V2.GetFleetSchedule": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetScheduleResponse",
+  },
+  "FleetAutomationApi.V2.DeleteFleetSchedule": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "FleetAutomationApi.V2.UpdateFleetSchedule": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "FleetSchedulePatchRequest",
+      format: "",
+    },
+    operationResponseType: "FleetScheduleResponse",
+  },
+  "FleetAutomationApi.V2.TriggerFleetSchedule": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetDeploymentResponse",
   },
   "ActionsDatastoresApi.V2.ListDatastores": {
     operationResponseType: "DatastoreArray",

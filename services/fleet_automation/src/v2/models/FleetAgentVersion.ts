@@ -1,20 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FleetDeploymentConfigureAttributes } from "./FleetDeploymentConfigureAttributes";
-import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
+import { FleetAgentVersionAttributes } from "./FleetAgentVersionAttributes";
+import { FleetAgentVersionResourceType } from "./FleetAgentVersionResourceType";
 
 /**
- * Data for creating a new configuration deployment.
+ * Represents an available Datadog Agent version.
  */
-export class FleetDeploymentConfigureCreate {
+export class FleetAgentVersion {
+  "attributes"?: FleetAgentVersionAttributes;
   /**
-   * Attributes for creating a new configuration deployment.
+   * Unique identifier for the Agent version (same as version).
    */
-  "attributes": FleetDeploymentConfigureAttributes;
+  "id": string;
   /**
-   * The type of deployment resource.
+   * The type of Agent version resource.
    */
-  "type": FleetDeploymentResourceType;
+  "type": FleetAgentVersionResourceType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,12 +33,16 @@ export class FleetDeploymentConfigureCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "FleetDeploymentConfigureAttributes",
+      type: "FleetAgentVersionAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "FleetDeploymentResourceType",
+      type: "FleetAgentVersionResourceType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +55,7 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentConfigureCreate.attributeTypeMap;
+    return FleetAgentVersion.attributeTypeMap;
   }
 
   public constructor() {}

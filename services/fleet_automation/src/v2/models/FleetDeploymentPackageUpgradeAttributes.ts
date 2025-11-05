@@ -1,20 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FleetDeploymentConfigureAttributes } from "./FleetDeploymentConfigureAttributes";
-import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
+import { FleetDeploymentPackage } from "./FleetDeploymentPackage";
 
 /**
- * Data for creating a new configuration deployment.
+ * Attributes for creating a new package upgrade deployment.
  */
-export class FleetDeploymentConfigureCreate {
+export class FleetDeploymentPackageUpgradeAttributes {
   /**
-   * Attributes for creating a new configuration deployment.
+   * Query used to filter and select target hosts for the deployment. Uses the Datadog query syntax.
    */
-  "attributes": FleetDeploymentConfigureAttributes;
+  "filterQuery"?: string;
   /**
-   * The type of deployment resource.
+   * List of packages and their target versions to deploy to the selected hosts.
    */
-  "type": FleetDeploymentResourceType;
+  "targetPackages": Array<FleetDeploymentPackage>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,14 +29,13 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FleetDeploymentConfigureAttributes",
-      required: true,
+    filterQuery: {
+      baseName: "filter_query",
+      type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "FleetDeploymentResourceType",
+    targetPackages: {
+      baseName: "target_packages",
+      type: "Array<FleetDeploymentPackage>",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +48,7 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentConfigureCreate.attributeTypeMap;
+    return FleetDeploymentPackageUpgradeAttributes.attributeTypeMap;
   }
 
   public constructor() {}
