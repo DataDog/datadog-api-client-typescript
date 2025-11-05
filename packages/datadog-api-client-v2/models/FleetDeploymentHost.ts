@@ -3,23 +3,30 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
+import { FleetDeploymentHostPackage } from "./FleetDeploymentHostPackage";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * A host that is part of a deployment with its current status.
  */
-export class FleetDeploymentResponse {
+export class FleetDeploymentHost {
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Error message if the deployment failed on this host.
    */
-  "data"?: FleetDeployment;
+  "error"?: string;
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * The hostname of the agent.
    */
-  "meta"?: FleetDeploymentResponseMeta;
+  "hostname"?: string;
+  /**
+   * Current deployment status for this specific host.
+   */
+  "status"?: string;
+  /**
+   * List of packages and their versions currently installed on this host.
+   */
+  "versions"?: Array<FleetDeploymentHostPackage>;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +44,21 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    error: {
+      baseName: "error",
+      type: "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    hostname: {
+      baseName: "hostname",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "string",
+    },
+    versions: {
+      baseName: "versions",
+      type: "Array<FleetDeploymentHostPackage>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +70,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetDeploymentHost.attributeTypeMap;
   }
 
   public constructor() {}

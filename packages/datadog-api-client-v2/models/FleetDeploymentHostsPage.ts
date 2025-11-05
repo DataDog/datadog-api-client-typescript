@@ -3,23 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * Pagination details for the list of hosts in a deployment.
  */
-export class FleetDeploymentResponse {
+export class FleetDeploymentHostsPage {
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Current page index (zero-based).
    */
-  "data"?: FleetDeployment;
+  "currentPage"?: number;
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * Number of hosts returned per page.
    */
-  "meta"?: FleetDeploymentResponseMeta;
+  "pageSize"?: number;
+  /**
+   * Total number of hosts in this deployment.
+   */
+  "totalHosts"?: number;
+  /**
+   * Total number of pages available.
+   */
+  "totalPages"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +43,25 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    currentPage: {
+      baseName: "current_page",
+      type: "number",
+      format: "int64",
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    pageSize: {
+      baseName: "page_size",
+      type: "number",
+      format: "int64",
+    },
+    totalHosts: {
+      baseName: "total_hosts",
+      type: "number",
+      format: "int64",
+    },
+    totalPages: {
+      baseName: "total_pages",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +73,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetDeploymentHostsPage.attributeTypeMap;
   }
 
   public constructor() {}

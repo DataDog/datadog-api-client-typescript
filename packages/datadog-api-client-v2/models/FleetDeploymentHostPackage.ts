@@ -3,23 +3,30 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FleetDeployment } from "./FleetDeployment";
-import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single deployment.
+ * Package version information for a host, showing the initial version before deployment,
+ * the target version to deploy, and the current version on the host.
  */
-export class FleetDeploymentResponse {
+export class FleetDeploymentHostPackage {
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * The current version of the package on the host.
    */
-  "data"?: FleetDeployment;
+  "currentVersion"?: string;
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * The initial version of the package on the host before the deployment started.
    */
-  "meta"?: FleetDeploymentResponseMeta;
+  "initialVersion"?: string;
+  /**
+   * The name of the package.
+   */
+  "packageName"?: string;
+  /**
+   * The target version that the deployment is attempting to install.
+   */
+  "targetVersion"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +44,21 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    currentVersion: {
+      baseName: "current_version",
+      type: "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    initialVersion: {
+      baseName: "initial_version",
+      type: "string",
+    },
+    packageName: {
+      baseName: "package_name",
+      type: "string",
+    },
+    targetVersion: {
+      baseName: "target_version",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +70,7 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FleetDeploymentResponse.attributeTypeMap;
+    return FleetDeploymentHostPackage.attributeTypeMap;
   }
 
   public constructor() {}

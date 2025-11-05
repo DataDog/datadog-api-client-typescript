@@ -1,19 +1,19 @@
 /**
- * Get a configuration deployment by ID returns "OK" response
+ * Trigger a schedule deployment returns "CREATED - Deployment successfully created and started." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.getFleetDeployment"] = true;
+configuration.unstableOperations["v2.triggerFleetSchedule"] = true;
 const apiInstance = new v2.FleetAutomationApi(configuration);
 
-const params: v2.FleetAutomationApiGetFleetDeploymentRequest = {
-  deploymentId: "deployment_id",
+const params: v2.FleetAutomationApiTriggerFleetScheduleRequest = {
+  id: "id",
 };
 
 apiInstance
-  .getFleetDeployment(params)
+  .triggerFleetSchedule(params)
   .then((data: v2.FleetDeploymentResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
