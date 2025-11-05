@@ -12,6 +12,10 @@ export class ObservabilityPipelineParseGrokProcessor {
    */
   "disableLibraryRules"?: boolean;
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * A unique identifier for this processor.
    */
   "id": string;
@@ -20,9 +24,9 @@ export class ObservabilityPipelineParseGrokProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * The list of Grok parsing rules. If multiple matching rules are provided, they are evaluated in order. The first successful match is applied.
    */
@@ -50,6 +54,10 @@ export class ObservabilityPipelineParseGrokProcessor {
       baseName: "disable_library_rules",
       type: "boolean",
     },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -63,7 +71,6 @@ export class ObservabilityPipelineParseGrokProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     rules: {
       baseName: "rules",

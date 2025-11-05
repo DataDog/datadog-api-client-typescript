@@ -7,6 +7,10 @@ import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelin
  */
 export class ObservabilityPipelineSampleProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -15,9 +19,9 @@ export class ObservabilityPipelineSampleProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * The percentage of logs to sample.
    */
@@ -45,6 +49,10 @@ export class ObservabilityPipelineSampleProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -58,7 +66,6 @@ export class ObservabilityPipelineSampleProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     percentage: {
       baseName: "percentage",

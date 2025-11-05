@@ -8,6 +8,10 @@ import { ObservabilityPipelineSensitiveDataScannerProcessorType } from "./Observ
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
    */
   "id": string;
@@ -16,9 +20,9 @@ export class ObservabilityPipelineSensitiveDataScannerProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * A list of rules for identifying and acting on sensitive data patterns.
    */
@@ -42,6 +46,10 @@ export class ObservabilityPipelineSensitiveDataScannerProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -55,7 +63,6 @@ export class ObservabilityPipelineSensitiveDataScannerProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     rules: {
       baseName: "rules",

@@ -9,21 +9,25 @@ import { ObservabilityPipelineGenerateMetricsProcessorType } from "./Observabili
  */
 export class ObservabilityPipelineGenerateMetricsProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline.
    */
   "id": string;
   /**
    * A Datadog search query used to determine which logs this processor targets.
    */
-  "include": string;
+  "include"?: string;
   /**
-   * A list of component IDs whose output is used as the `input` for this processor.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * Configuration for generating individual metrics.
    */
-  "metrics": Array<ObservabilityPipelineGeneratedMetric>;
+  "metrics"?: Array<ObservabilityPipelineGeneratedMetric>;
   /**
    * The processor type. Always `generate_datadog_metrics`.
    */
@@ -43,6 +47,10 @@ export class ObservabilityPipelineGenerateMetricsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -51,17 +59,14 @@ export class ObservabilityPipelineGenerateMetricsProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
     },
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     metrics: {
       baseName: "metrics",
       type: "Array<ObservabilityPipelineGeneratedMetric>",
-      required: true,
     },
     type: {
       baseName: "type",

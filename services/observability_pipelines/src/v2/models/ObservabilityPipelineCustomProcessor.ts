@@ -8,6 +8,10 @@ import { ObservabilityPipelineCustomProcessorType } from "./ObservabilityPipelin
  */
 export class ObservabilityPipelineCustomProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this processor.
    */
   "id": string;
@@ -16,9 +20,9 @@ export class ObservabilityPipelineCustomProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the input for this processor.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * Array of VRL remap rules.
    */
@@ -42,6 +46,10 @@ export class ObservabilityPipelineCustomProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -55,7 +63,6 @@ export class ObservabilityPipelineCustomProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     remaps: {
       baseName: "remaps",

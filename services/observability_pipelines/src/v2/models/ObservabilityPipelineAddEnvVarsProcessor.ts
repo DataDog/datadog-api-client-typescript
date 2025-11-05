@@ -8,6 +8,10 @@ import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./Observabilit
  */
 export class ObservabilityPipelineAddEnvVarsProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this processor in the pipeline.
    */
   "id": string;
@@ -16,9 +20,9 @@ export class ObservabilityPipelineAddEnvVarsProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the input for this processor.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * The processor type. The value should always be `add_env_vars`.
    */
@@ -42,6 +46,10 @@ export class ObservabilityPipelineAddEnvVarsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -55,7 +63,6 @@ export class ObservabilityPipelineAddEnvVarsProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     type: {
       baseName: "type",
