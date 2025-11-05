@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineParseJSONProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * The name of the log field that contains a JSON string.
    */
   "field": string;
@@ -24,9 +28,9 @@ export class ObservabilityPipelineParseJSONProcessor {
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
   /**
    * The processor type. The value should always be `parse_json`.
    */
@@ -48,6 +52,10 @@ export class ObservabilityPipelineParseJSONProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     field: {
       baseName: "field",
       type: "string",
@@ -66,7 +74,6 @@ export class ObservabilityPipelineParseJSONProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
-      required: true,
     },
     type: {
       baseName: "type",

@@ -3,34 +3,34 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineFilterProcessorType } from "./ObservabilityPipelineFilterProcessorType";
+import { ObservabilityPipelineConfigProcessorItem } from "./ObservabilityPipelineConfigProcessorItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
+ * A group of processors.
  */
-export class ObservabilityPipelineFilterProcessor {
+export class ObservabilityPipelineConfigProcessorGroup {
   /**
-   * Whether this processor is enabled.
+   * Whether this processor group is enabled.
    */
   "enabled"?: boolean;
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+   * The unique identifier for the processor group.
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.
+   * Conditional expression for when this processor group should execute.
    */
   "include": string;
   /**
-   * A list of component IDs whose output is used as input for this processor. Required when used as a standalone processor, omit when used within a processor group.
+   * A list of component IDs whose output is used as the input for this processor group.
    */
-  "inputs"?: Array<string>;
+  "inputs": Array<string>;
   /**
-   * The processor type. The value should always be `filter`.
+   * Processors applied sequentially within this group. No `inputs` fields required - events flow through each processor in order.
    */
-  "type": ObservabilityPipelineFilterProcessorType;
+  "processors": Array<ObservabilityPipelineConfigProcessorItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -65,10 +65,11 @@ export class ObservabilityPipelineFilterProcessor {
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
+      required: true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineFilterProcessorType",
+    processors: {
+      baseName: "processors",
+      type: "Array<ObservabilityPipelineConfigProcessorItem>",
       required: true,
     },
     additionalProperties: {
@@ -81,7 +82,7 @@ export class ObservabilityPipelineFilterProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineFilterProcessor.attributeTypeMap;
+    return ObservabilityPipelineConfigProcessorGroup.attributeTypeMap;
   }
 
   public constructor() {}

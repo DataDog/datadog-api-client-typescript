@@ -1569,6 +1569,7 @@ import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmaz
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
+import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCustomProcessor";
@@ -6081,6 +6082,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineAmazonSecurityLakeDestination,
   ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
+  ObservabilityPipelineConfigProcessorGroup:
+    ObservabilityPipelineConfigProcessorGroup,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination:
     ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression:
@@ -7656,6 +7659,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineThrottleProcessor",
     "ObservabilityPipelineCustomProcessor",
     "ObservabilityPipelineDatadogTagsProcessor",
+  ],
+  ObservabilityPipelineConfigProcessors: [
+    "Array<ObservabilityPipelineConfigProcessorItem>",
+    "Array<ObservabilityPipelineConfigProcessorGroup>",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineKafkaSource",
