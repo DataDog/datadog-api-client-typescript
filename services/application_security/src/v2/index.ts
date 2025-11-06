@@ -1,16 +1,34 @@
 export {
   ApplicationSecurityApiCreateApplicationSecurityWafCustomRuleRequest,
   ApplicationSecurityApiCreateApplicationSecurityWafExclusionFilterRequest,
+  ApplicationSecurityApiCreateApplicationSecurityWafPolicyRequest,
   ApplicationSecurityApiDeleteApplicationSecurityWafCustomRuleRequest,
   ApplicationSecurityApiDeleteApplicationSecurityWafExclusionFilterRequest,
+  ApplicationSecurityApiDeleteApplicationSecurityWafPolicyRequest,
   ApplicationSecurityApiGetApplicationSecurityWafCustomRuleRequest,
   ApplicationSecurityApiGetApplicationSecurityWafExclusionFilterRequest,
+  ApplicationSecurityApiGetApplicationSecurityWafPolicyRequest,
   ApplicationSecurityApiUpdateApplicationSecurityWafCustomRuleRequest,
   ApplicationSecurityApiUpdateApplicationSecurityWafExclusionFilterRequest,
+  ApplicationSecurityApiUpdateApplicationSecurityWafPolicyRequest,
   ApplicationSecurityApi,
 } from "./ApplicationSecurityApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { ApplicationSecurityPolicyAttributes } from "./models/ApplicationSecurityPolicyAttributes";
+export { ApplicationSecurityPolicyCreateAttributes } from "./models/ApplicationSecurityPolicyCreateAttributes";
+export { ApplicationSecurityPolicyCreateData } from "./models/ApplicationSecurityPolicyCreateData";
+export { ApplicationSecurityPolicyCreateRequest } from "./models/ApplicationSecurityPolicyCreateRequest";
+export { ApplicationSecurityPolicyData } from "./models/ApplicationSecurityPolicyData";
+export { ApplicationSecurityPolicyListResponse } from "./models/ApplicationSecurityPolicyListResponse";
+export { ApplicationSecurityPolicyMetadata } from "./models/ApplicationSecurityPolicyMetadata";
+export { ApplicationSecurityPolicyResponse } from "./models/ApplicationSecurityPolicyResponse";
+export { ApplicationSecurityPolicyRuleOverride } from "./models/ApplicationSecurityPolicyRuleOverride";
+export { ApplicationSecurityPolicyScope } from "./models/ApplicationSecurityPolicyScope";
+export { ApplicationSecurityPolicyType } from "./models/ApplicationSecurityPolicyType";
+export { ApplicationSecurityPolicyUpdateAttributes } from "./models/ApplicationSecurityPolicyUpdateAttributes";
+export { ApplicationSecurityPolicyUpdateData } from "./models/ApplicationSecurityPolicyUpdateData";
+export { ApplicationSecurityPolicyUpdateRequest } from "./models/ApplicationSecurityPolicyUpdateRequest";
 export { ApplicationSecurityWafCustomRuleAction } from "./models/ApplicationSecurityWafCustomRuleAction";
 export { ApplicationSecurityWafCustomRuleActionAction } from "./models/ApplicationSecurityWafCustomRuleActionAction";
 export { ApplicationSecurityWafCustomRuleActionParameters } from "./models/ApplicationSecurityWafCustomRuleActionParameters";
