@@ -8,15 +8,15 @@ import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRe
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestDataAttributesSchema` object.
+ * Schema defining the updates to the structure and columns of the reference table. Schema fields cannot be deleted or renamed.
  */
 export class PatchTableRequestDataAttributesSchema {
   /**
-   * The `schema` `fields`.
+   * The schema fields.
    */
   "fields": Array<PatchTableRequestDataAttributesSchemaFieldsItems>;
   /**
-   * List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows.
+   * List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows. Primary keys cannot be changed after table creation.
    */
   "primaryKeys": Array<string>;
 

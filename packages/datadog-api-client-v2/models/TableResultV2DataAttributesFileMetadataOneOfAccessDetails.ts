@@ -10,19 +10,19 @@ import { TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail } fr
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
+ * Cloud storage access configuration for the reference table data file.
  */
 export class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+   * Amazon Web Services S3 storage access configuration.
    */
   "awsDetail"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+   * Azure Blob Storage access configuration.
    */
   "azureDetail"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+   * Google Cloud Platform storage access configuration.
    */
   "gcpDetail"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
 

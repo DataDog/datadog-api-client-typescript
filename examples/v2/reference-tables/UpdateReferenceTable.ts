@@ -38,7 +38,6 @@ const params: v2.ReferenceTablesApiUpdateReferenceTableRequest = {
         syncEnabled: false,
         tags: ["test_tag"],
       },
-      id: "00000000-0000-0000-0000-000000000000",
       type: "reference_table",
     },
   },

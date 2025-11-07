@@ -10,19 +10,19 @@ import { ReferenceTableCreateSourceType } from "./ReferenceTableCreateSourceType
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateTableRequestDataAttributes` object.
+ * Attributes that define the reference table's configuration and properties.
  */
 export class CreateTableRequestDataAttributes {
   /**
-   * The description of the reference table.
+   * Optional text describing the purpose or contents of this reference table.
    */
   "description"?: string;
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadata` object.
+   * Metadata specifying where and how to access the reference table's data file.
    */
   "fileMetadata"?: CreateTableRequestDataAttributesFileMetadata;
   /**
-   * The definition of `CreateTableRequestDataAttributesSchema` object.
+   * Schema defining the structure and columns of the reference table.
    */
   "schema": CreateTableRequestDataAttributesSchema;
   /**
@@ -30,11 +30,11 @@ export class CreateTableRequestDataAttributes {
    */
   "source": ReferenceTableCreateSourceType;
   /**
-   * The name of the reference table.
+   * Name to identify this reference table.
    */
   "tableName": string;
   /**
-   * The tags of the reference table.
+   * Tags for organizing and filtering reference tables.
    */
   "tags"?: Array<string>;
 

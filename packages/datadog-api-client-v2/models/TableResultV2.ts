@@ -8,11 +8,11 @@ import { TableResultV2Data } from "./TableResultV2Data";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2` object.
+ * A reference table resource containing its full configuration and state.
  */
 export class TableResultV2 {
   /**
-   * The definition of `TableResultV2Data` object.
+   * The data object containing the reference table configuration and state.
    */
   "data"?: TableResultV2Data;
 

@@ -8,11 +8,11 @@ import { PatchTableRequestData } from "./PatchTableRequestData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequest` object.
+ * Request body for updating an existing reference table.
  */
 export class PatchTableRequest {
   /**
-   * The definition of `PatchTableRequestData` object.
+   * The data object containing the partial table definition updates.
    */
   "data"?: PatchTableRequestData;
 

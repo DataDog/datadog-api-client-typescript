@@ -9,19 +9,19 @@ import { PatchTableRequestDataAttributesSchema } from "./PatchTableRequestDataAt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestDataAttributes` object.
+ * Attributes that define the updates to the reference table's configuration and properties.
  */
 export class PatchTableRequestDataAttributes {
   /**
-   * The description of the reference table.
+   * Optional text describing the purpose or contents of this reference table.
    */
   "description"?: string;
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadata` object.
+   * Metadata specifying where and how to access the reference table's data file.
    */
   "fileMetadata"?: PatchTableRequestDataAttributesFileMetadata;
   /**
-   * The definition of `PatchTableRequestDataAttributesSchema` object.
+   * Schema defining the updates to the structure and columns of the reference table. Schema fields cannot be deleted or renamed.
    */
   "schema"?: PatchTableRequestDataAttributesSchema;
   /**
@@ -29,7 +29,7 @@ export class PatchTableRequestDataAttributes {
    */
   "syncEnabled"?: boolean;
   /**
-   * The tags of the reference table.
+   * Tags for organizing and filtering reference tables.
    */
   "tags"?: Array<string>;
 

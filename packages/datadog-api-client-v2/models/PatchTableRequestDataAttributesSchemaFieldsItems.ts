@@ -8,7 +8,7 @@ import { ReferenceTableSchemaFieldType } from "./ReferenceTableSchemaFieldType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestDataAttributesSchemaFieldsItems` object.
+ * A single field (column) in the reference table schema to be updated. Schema fields cannot be deleted or renamed.
  */
 export class PatchTableRequestDataAttributesSchemaFieldsItems {
   /**

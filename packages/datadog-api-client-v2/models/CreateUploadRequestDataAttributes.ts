@@ -7,23 +7,23 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateUploadRequestDataAttributes` object.
+ * Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.
  */
 export class CreateUploadRequestDataAttributes {
   /**
-   * The headers of the file to upload.
+   * The CSV file headers that define the schema fields, provided in the same order as the columns in the uploaded file.
    */
   "headers": Array<string>;
   /**
-   * The number of parts in the upload.
+   * Number of parts to split the file into for multipart upload.
    */
   "partCount": number;
   /**
-   * The size of each part in the upload in bytes. For multipart uploads (part_count > 1), all parts except the last one must be at least 5,000,000 bytes. For single-part uploads (part_count = 1), any size is allowed.
+   * The size of each part in the upload in bytes. All parts except the last one must be at least 5,000,000 bytes.
    */
   "partSize": number;
   /**
-   * The name of the reference table.
+   * Name of the table to associate with this upload.
    */
   "tableName": string;
 
