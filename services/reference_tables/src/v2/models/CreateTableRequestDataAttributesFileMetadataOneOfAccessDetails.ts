@@ -5,19 +5,19 @@ import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDeta
 import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail } from "./CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail";
 
 /**
- * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+ * Cloud storage access configuration for the reference table data file.
  */
 export class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+   * Amazon Web Services S3 storage access configuration.
    */
   "awsDetail"?: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+   * Azure Blob Storage access configuration.
    */
   "azureDetail"?: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+   * Google Cloud Platform storage access configuration.
    */
   "gcpDetail"?: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
   /**

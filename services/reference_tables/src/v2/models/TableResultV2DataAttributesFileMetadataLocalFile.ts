@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * File metadata for reference tables created by upload.
+ * File metadata for reference tables created by upload. Note that upload_id is only returned in the immediate create/replace response and is not available in subsequent GET requests.
  */
 export class TableResultV2DataAttributesFileMetadataLocalFile {
   /**
@@ -12,10 +12,6 @@ export class TableResultV2DataAttributesFileMetadataLocalFile {
    * The number of rows that failed to create/update.
    */
   "errorRowCount"?: number;
-  /**
-   * The upload ID that was used to create/update the table.
-   */
-  "uploadId"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -39,10 +35,6 @@ export class TableResultV2DataAttributesFileMetadataLocalFile {
       baseName: "error_row_count",
       type: "number",
       format: "int64",
-    },
-    uploadId: {
-      baseName: "upload_id",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

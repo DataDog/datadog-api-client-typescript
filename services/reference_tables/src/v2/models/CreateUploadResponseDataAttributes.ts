@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `CreateUploadResponseDataAttributes` object.
+ * Pre-signed URLs for uploading parts of the file.
  */
 export class CreateUploadResponseDataAttributes {
   /**
-   * The URLs of the parts in the upload.
+   * The pre-signed URLs for uploading parts. These URLs expire after 5 minutes.
    */
   "partUrls"?: Array<string>;
   /**

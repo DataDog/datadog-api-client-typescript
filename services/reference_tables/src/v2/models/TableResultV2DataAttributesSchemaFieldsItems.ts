@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ReferenceTableSchemaFieldType } from "./ReferenceTableSchemaFieldType";
 
 /**
- * The definition of `TableResultV2DataAttributesSchemaFieldsItems` object.
+ * A single field (column) in the reference table schema to be returned.
  */
 export class TableResultV2DataAttributesSchemaFieldsItems {
   /**

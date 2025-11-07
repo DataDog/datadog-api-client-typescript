@@ -5,19 +5,19 @@ import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetai
 import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail } from "./PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail";
 
 /**
- * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+ * Cloud storage access configuration for the reference table data file.
  */
 export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+   * Amazon Web Services S3 storage access configuration.
    */
   "awsDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+   * Azure Blob Storage access configuration.
    */
   "azureDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
   /**
-   * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+   * Google Cloud Platform storage access configuration.
    */
   "gcpDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
   /**
