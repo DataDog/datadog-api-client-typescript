@@ -5323,6 +5323,86 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CancelDataDeletionResponseBody",
   },
+  "DeploymentGatesApi.V2.CreateDeploymentGate": {
+    body: {
+      type: "CreateDeploymentGateParams",
+      format: "",
+    },
+    operationResponseType: "DeploymentGateResponse",
+  },
+  "DeploymentGatesApi.V2.CreateDeploymentRule": {
+    gateId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateDeploymentRuleParams",
+      format: "",
+    },
+    operationResponseType: "DeploymentRuleResponse",
+  },
+  "DeploymentGatesApi.V2.GetDeploymentRule": {
+    gateId: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DeploymentRuleResponse",
+  },
+  "DeploymentGatesApi.V2.UpdateDeploymentRule": {
+    gateId: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateDeploymentRuleParams",
+      format: "",
+    },
+    operationResponseType: "DeploymentRuleResponse",
+  },
+  "DeploymentGatesApi.V2.DeleteDeploymentRule": {
+    gateId: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DeploymentGatesApi.V2.GetDeploymentGate": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DeploymentGateResponse",
+  },
+  "DeploymentGatesApi.V2.UpdateDeploymentGate": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateDeploymentGateParams",
+      format: "",
+    },
+    operationResponseType: "DeploymentGateResponse",
+  },
+  "DeploymentGatesApi.V2.DeleteDeploymentGate": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "DomainAllowlistApi.V2.GetDomainAllowlist": {
     operationResponseType: "DomainAllowlistResponse",
   },
