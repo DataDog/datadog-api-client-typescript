@@ -1,19 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `TableRowResourceDataAttributes` object.
+ * Column values for this row in the reference table.
  */
 export class TableRowResourceDataAttributes {
   /**
-   * The values of the row.
+   * Key-value pairs representing the row data, where keys are field names from the schema.
    */
-  "values"?: { [key: string]: any };
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
+  "values"?: any;
   /**
    * @ignore
    */
@@ -25,11 +19,7 @@ export class TableRowResourceDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     values: {
       baseName: "values",
-      type: "{ [key: string]: any; }",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
+      type: "any",
     },
   };
 

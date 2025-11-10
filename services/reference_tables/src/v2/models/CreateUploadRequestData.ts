@@ -4,27 +4,17 @@ import { CreateUploadRequestDataAttributes } from "./CreateUploadRequestDataAttr
 import { CreateUploadRequestDataType } from "./CreateUploadRequestDataType";
 
 /**
- * The definition of `CreateUploadRequestData` object.
+ * Request data for creating an upload for a file to be ingested into a reference table.
  */
 export class CreateUploadRequestData {
   /**
-   * The definition of `CreateUploadRequestDataAttributes` object.
+   * Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.
    */
   "attributes"?: CreateUploadRequestDataAttributes;
-  /**
-   * The ID of the upload.
-   */
-  "id"?: string;
   /**
    * Upload resource type.
    */
   "type": CreateUploadRequestDataType;
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
   /**
    * @ignore
    */
@@ -38,18 +28,10 @@ export class CreateUploadRequestData {
       baseName: "attributes",
       type: "CreateUploadRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
     type: {
       baseName: "type",
       type: "CreateUploadRequestDataType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

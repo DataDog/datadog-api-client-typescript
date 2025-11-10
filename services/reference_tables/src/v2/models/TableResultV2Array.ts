@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TableResultV2Data } from "./TableResultV2Data";
 
 /**
- * The definition of `TableResultV2Array` object.
+ * List of reference tables.
  */
 export class TableResultV2Array {
   /**

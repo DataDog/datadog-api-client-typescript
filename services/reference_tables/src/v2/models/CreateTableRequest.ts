@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CreateTableRequestData } from "./CreateTableRequestData";
 
 /**
- * The definition of `CreateTableRequest` object.
+ * Request body for creating a new reference table from a local file or cloud storage.
  */
 export class CreateTableRequest {
   /**
-   * The definition of `CreateTableRequestData` object.
+   * The data object containing the table definition.
    */
   "data"?: CreateTableRequestData;
   /**

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CreateUploadResponseData } from "./CreateUploadResponseData";
 
 /**
- * The definition of `CreateUploadResponse` object.
+ * Information about the upload created containing the upload ID and pre-signed URLs to PUT chunks of the CSV file to.
  */
 export class CreateUploadResponse {
   /**
-   * The definition of `CreateUploadResponseData` object.
+   * Upload ID and attributes of the created upload.
    */
   "data"?: CreateUploadResponseData;
   /**

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TableResultV2DataAttributesSchemaFieldsItems } from "./TableResultV2DataAttributesSchemaFieldsItems";
 
 /**
- * The definition of `TableResultV2DataAttributesSchema` object.
+ * Schema defining the structure and columns of the reference table.
  */
 export class TableResultV2DataAttributesSchema {
   /**
-   * The `schema` `fields`.
+   * The schema fields.
    */
   "fields": Array<TableResultV2DataAttributesSchemaFieldsItems>;
   /**

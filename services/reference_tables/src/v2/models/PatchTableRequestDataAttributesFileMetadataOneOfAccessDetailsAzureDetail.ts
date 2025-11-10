@@ -1,23 +1,23 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail` object.
+ * Azure Blob Storage access configuration.
  */
 export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail {
   /**
-   * The Azure client ID.
+   * Azure service principal (application) client ID with permissions to read from the container.
    */
   "azureClientId"?: string;
   /**
-   * The name of the Azure container.
+   * Azure Blob Storage container containing the CSV file.
    */
   "azureContainerName"?: string;
   /**
-   * The name of the Azure storage account.
+   * Azure storage account where the container is located.
    */
   "azureStorageAccountName"?: string;
   /**
-   * The ID of the Azure tenant.
+   * Azure Active Directory tenant ID.
    */
   "azureTenantId"?: string;
   /**

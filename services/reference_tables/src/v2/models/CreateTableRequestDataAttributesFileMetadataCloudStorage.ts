@@ -7,7 +7,7 @@ import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails } from "
  */
 export class CreateTableRequestDataAttributesFileMetadataCloudStorage {
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+   * Cloud storage access configuration for the reference table data file.
    */
   "accessDetails": CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails;
   /**

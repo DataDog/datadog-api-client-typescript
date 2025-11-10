@@ -4,27 +4,21 @@ import { CreateUploadResponseDataAttributes } from "./CreateUploadResponseDataAt
 import { CreateUploadResponseDataType } from "./CreateUploadResponseDataType";
 
 /**
- * The definition of `CreateUploadResponseData` object.
+ * Upload ID and attributes of the created upload.
  */
 export class CreateUploadResponseData {
   /**
-   * The definition of `CreateUploadResponseDataAttributes` object.
+   * Pre-signed URLs for uploading parts of the file.
    */
   "attributes"?: CreateUploadResponseDataAttributes;
   /**
-   * The ID of the upload.
+   * Unique identifier for this upload. Use this ID when creating the reference table.
    */
   "id"?: string;
   /**
    * Upload resource type.
    */
   "type": CreateUploadResponseDataType;
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
   /**
    * @ignore
    */
@@ -46,10 +40,6 @@ export class CreateUploadResponseData {
       baseName: "type",
       type: "CreateUploadResponseDataType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 
