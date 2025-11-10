@@ -9,28 +9,17 @@ import { PatchTableRequestDataType } from "./PatchTableRequestDataType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestData` object.
+ * The data object containing the partial table definition updates.
  */
 export class PatchTableRequestData {
   /**
-   * The definition of `PatchTableRequestDataAttributes` object.
+   * Attributes that define the updates to the reference table's configuration and properties.
    */
   "attributes"?: PatchTableRequestDataAttributes;
-  /**
-   * The ID of the reference table.
-   */
-  "id"?: string;
   /**
    * Reference table resource type.
    */
   "type": PatchTableRequestDataType;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -45,18 +34,10 @@ export class PatchTableRequestData {
       baseName: "attributes",
       type: "PatchTableRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
     type: {
       baseName: "type",
       type: "PatchTableRequestDataType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

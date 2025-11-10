@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail` object.
+ * Google Cloud Platform storage access configuration.
  */
 export class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail {
   /**
@@ -15,15 +15,15 @@ export class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail 
    */
   "filePath"?: string;
   /**
-   * The name of the GCP bucket.
+   * GCP bucket containing the CSV file.
    */
   "gcpBucketName"?: string;
   /**
-   * The ID of the GCP project.
+   * GCP project ID where the bucket is located.
    */
   "gcpProjectId"?: string;
   /**
-   * The email of the GCP service account.
+   * Service account email with read permissions for the GCS bucket.
    */
   "gcpServiceAccountEmail"?: string;
 

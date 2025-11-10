@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail` object.
+ * Amazon Web Services S3 storage access configuration.
  */
 export class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail {
   /**
-   * The ID of the AWS account.
+   * AWS account ID where the S3 bucket is located.
    */
   "awsAccountId"?: string;
   /**
-   * The name of the AWS bucket.
+   * S3 bucket containing the CSV file.
    */
   "awsBucketName"?: string;
   /**

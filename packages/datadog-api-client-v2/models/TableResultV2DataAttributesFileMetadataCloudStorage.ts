@@ -13,9 +13,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TableResultV2DataAttributesFileMetadataCloudStorage {
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadataOneOfAccessDetails` object.
+   * Cloud storage access configuration for the reference table data file.
    */
-  "accessDetails"?: TableResultV2DataAttributesFileMetadataOneOfAccessDetails;
+  "accessDetails": TableResultV2DataAttributesFileMetadataOneOfAccessDetails;
   /**
    * The error message returned from the sync.
    */
@@ -52,6 +52,7 @@ export class TableResultV2DataAttributesFileMetadataCloudStorage {
     accessDetails: {
       baseName: "access_details",
       type: "TableResultV2DataAttributesFileMetadataOneOfAccessDetails",
+      required: true,
     },
     errorMessage: {
       baseName: "error_message",

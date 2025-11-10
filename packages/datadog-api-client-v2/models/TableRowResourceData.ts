@@ -9,28 +9,21 @@ import { TableRowResourceDataType } from "./TableRowResourceDataType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableRowResourceData` object.
+ * The data object containing the row column names and values.
  */
 export class TableRowResourceData {
   /**
-   * The definition of `TableRowResourceDataAttributes` object.
+   * Column values for this row in the reference table.
    */
   "attributes"?: TableRowResourceDataAttributes;
   /**
-   * The ID of the row.
+   * Row identifier, corresponding to the primary key value.
    */
   "id"?: string;
   /**
    * Row resource type.
    */
   "type": TableRowResourceDataType;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -53,10 +46,6 @@ export class TableRowResourceData {
       baseName: "type",
       type: "TableRowResourceDataType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

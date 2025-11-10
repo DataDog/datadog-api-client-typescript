@@ -8,7 +8,7 @@ import { ReferenceTableSchemaFieldType } from "./ReferenceTableSchemaFieldType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateTableRequestDataAttributesSchemaFieldsItems` object.
+ * A single field (column) in the reference table schema to be created.
  */
 export class CreateTableRequestDataAttributesSchemaFieldsItems {
   /**

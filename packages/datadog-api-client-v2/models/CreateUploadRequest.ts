@@ -8,11 +8,11 @@ import { CreateUploadRequestData } from "./CreateUploadRequestData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateUploadRequest` object.
+ * Request to create an upload for a file to be ingested into a reference table.
  */
 export class CreateUploadRequest {
   /**
-   * The definition of `CreateUploadRequestData` object.
+   * Request data for creating an upload for a file to be ingested into a reference table.
    */
   "data"?: CreateUploadRequestData;
 

@@ -779,7 +779,7 @@ export interface ReferenceTablesApiCreateReferenceTableUploadRequest {
 
 export interface ReferenceTablesApiDeleteTableRequest {
   /**
-   * The ID of the reference table to delete
+   * Unique identifier of the reference table to delete
    * @type string
    */
   id: string;
@@ -787,7 +787,7 @@ export interface ReferenceTablesApiDeleteTableRequest {
 
 export interface ReferenceTablesApiGetRowsByIDRequest {
   /**
-   * The ID of the reference table
+   * Unique identifier of the reference table to get rows from
    * @type string
    */
   id: string;
@@ -800,7 +800,7 @@ export interface ReferenceTablesApiGetRowsByIDRequest {
 
 export interface ReferenceTablesApiGetTableRequest {
   /**
-   * The ID of the reference table to retrieve
+   * Unique identifier of the reference table to retrieve
    * @type string
    */
   id: string;
@@ -818,7 +818,7 @@ export interface ReferenceTablesApiListTablesRequest {
    */
   pageOffset?: number;
   /**
-   * Sort field and direction. Use field name for ascending, prefix with "-" for descending.
+   * Sort field and direction for the list of reference tables. Use field name for ascending, prefix with "-" for descending.
    * @type ReferenceTableSortType
    */
   sort?: ReferenceTableSortType;
@@ -841,7 +841,7 @@ export interface ReferenceTablesApiListTablesRequest {
 
 export interface ReferenceTablesApiUpdateReferenceTableRequest {
   /**
-   * The ID of the reference table to update
+   * Unique identifier of the reference table to update
    * @type string
    */
   id: string;
@@ -869,7 +869,11 @@ export class ReferenceTablesApi {
   }
 
   /**
-   * Create a new reference table. You can provide data in two ways: 1) Call POST api/v2/reference-tables/upload first to get an upload ID, then PUT chunks of CSV data to each provided URL, and finally call this POST endpoint with the upload_id in file_metadata, OR 2) Provide access_details in file_metadata pointing to a CSV file in cloud storage (Amazon S3, Azure Blob Storage, or GCP Cloud Storage).
+   * Creates a reference table. You can provide data in two ways:
+   * 1. Call POST /api/v2/reference-tables/upload to get an upload ID. Then, PUT the CSV data
+   *    (not the file itself) in chunks to each URL in the request body. Finally, call this
+   *    POST endpoint with `upload_id` in `file_metadata`.
+   * 2. Provide `access_details` in `file_metadata` pointing to a CSV file in cloud storage.
    * @param param The request object
    */
   public createReferenceTable(

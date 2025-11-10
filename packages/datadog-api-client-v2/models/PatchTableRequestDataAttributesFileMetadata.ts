@@ -9,7 +9,7 @@ import { PatchTableRequestDataAttributesFileMetadataLocalFile } from "./PatchTab
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `PatchTableRequestDataAttributesFileMetadata` object.
+ * Metadata specifying where and how to access the reference table's data file.
  */
 
 export type PatchTableRequestDataAttributesFileMetadata =

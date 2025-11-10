@@ -10,7 +10,7 @@ import { TableResultV2DataAttributesSchema } from "./TableResultV2DataAttributes
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `TableResultV2DataAttributes` object.
+ * Attributes that define the reference table's configuration and properties.
  */
 export class TableResultV2DataAttributes {
   /**
@@ -18,11 +18,11 @@ export class TableResultV2DataAttributes {
    */
   "createdBy"?: string;
   /**
-   * The description of the reference table.
+   * Optional text describing the purpose or contents of this reference table.
    */
   "description"?: string;
   /**
-   * The definition of `TableResultV2DataAttributesFileMetadata` object.
+   * Metadata specifying where and how to access the reference table's data file.
    */
   "fileMetadata"?: TableResultV2DataAttributesFileMetadata;
   /**
@@ -34,7 +34,7 @@ export class TableResultV2DataAttributes {
    */
   "rowCount"?: number;
   /**
-   * The definition of `TableResultV2DataAttributesSchema` object.
+   * Schema defining the structure and columns of the reference table.
    */
   "schema"?: TableResultV2DataAttributesSchema;
   /**
@@ -42,19 +42,19 @@ export class TableResultV2DataAttributes {
    */
   "source"?: ReferenceTableSourceType;
   /**
-   * The status of the reference table.
+   * The processing status of the table.
    */
   "status"?: string;
   /**
-   * The name of the reference table.
+   * Unique name to identify this reference table. Used in enrichment processors and API calls.
    */
   "tableName"?: string;
   /**
-   * The tags of the reference table.
+   * Tags for organizing and filtering reference tables.
    */
   "tags"?: Array<string>;
   /**
-   * The timestamp of the last update to the reference table in ISO 8601 format.
+   * When the reference table was last updated, in ISO 8601 format.
    */
   "updatedAt"?: string;
 

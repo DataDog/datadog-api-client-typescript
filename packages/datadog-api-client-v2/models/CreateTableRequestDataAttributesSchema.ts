@@ -8,11 +8,11 @@ import { CreateTableRequestDataAttributesSchemaFieldsItems } from "./CreateTable
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateTableRequestDataAttributesSchema` object.
+ * Schema defining the structure and columns of the reference table.
  */
 export class CreateTableRequestDataAttributesSchema {
   /**
-   * The `schema` `fields`.
+   * The schema fields.
    */
   "fields": Array<CreateTableRequestDataAttributesSchemaFieldsItems>;
   /**

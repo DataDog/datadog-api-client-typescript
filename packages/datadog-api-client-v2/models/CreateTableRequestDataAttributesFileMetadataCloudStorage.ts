@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CreateTableRequestDataAttributesFileMetadataCloudStorage {
   /**
-   * The definition of `CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails` object.
+   * Cloud storage access configuration for the reference table data file.
    */
   "accessDetails": CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails;
   /**
