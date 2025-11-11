@@ -2026,7 +2026,8 @@ export class KeyManagementApi {
   }
 
   /**
-   * Get an application key owned by current user
+   * Get an application key owned by current user.
+   * The `key` field is not returned for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
    * @param param The request object
    */
   public getCurrentUserApplicationKey(
@@ -2179,7 +2180,8 @@ export class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user
+   * Edit an application key owned by current user.
+   * The `key` field is not returned for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
    * @param param The request object
    */
   public updateCurrentUserApplicationKey(
