@@ -479,6 +479,20 @@ export {
 } from "./apis/LogsMetricsApi";
 
 export {
+  LogsRestrictionQueriesApiAddRoleToRestrictionQueryRequest,
+  LogsRestrictionQueriesApiCreateRestrictionQueryRequest,
+  LogsRestrictionQueriesApiDeleteRestrictionQueryRequest,
+  LogsRestrictionQueriesApiGetRestrictionQueryRequest,
+  LogsRestrictionQueriesApiGetRoleRestrictionQueryRequest,
+  LogsRestrictionQueriesApiListRestrictionQueriesRequest,
+  LogsRestrictionQueriesApiListRestrictionQueryRolesRequest,
+  LogsRestrictionQueriesApiListUserRestrictionQueriesRequest,
+  LogsRestrictionQueriesApiRemoveRoleFromRestrictionQueryRequest,
+  LogsRestrictionQueriesApiUpdateRestrictionQueryRequest,
+  LogsRestrictionQueriesApi,
+} from "./apis/LogsRestrictionQueriesApi";
+
+export {
   MetricsApiCreateBulkTagsMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
@@ -2756,6 +2770,7 @@ export { LogsQueryFilter } from "./models/LogsQueryFilter";
 export { LogsQueryOptions } from "./models/LogsQueryOptions";
 export { LogsResponseMetadata } from "./models/LogsResponseMetadata";
 export { LogsResponseMetadataPage } from "./models/LogsResponseMetadataPage";
+export { LogsRestrictionQueriesType } from "./models/LogsRestrictionQueriesType";
 export { LogsSort } from "./models/LogsSort";
 export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsStorageTier } from "./models/LogsStorageTier";
@@ -3472,6 +3487,23 @@ export { RestrictionPolicyBinding } from "./models/RestrictionPolicyBinding";
 export { RestrictionPolicyResponse } from "./models/RestrictionPolicyResponse";
 export { RestrictionPolicyType } from "./models/RestrictionPolicyType";
 export { RestrictionPolicyUpdateRequest } from "./models/RestrictionPolicyUpdateRequest";
+export { RestrictionQueryAttributes } from "./models/RestrictionQueryAttributes";
+export { RestrictionQueryCreateAttributes } from "./models/RestrictionQueryCreateAttributes";
+export { RestrictionQueryCreateData } from "./models/RestrictionQueryCreateData";
+export { RestrictionQueryCreatePayload } from "./models/RestrictionQueryCreatePayload";
+export { RestrictionQueryListResponse } from "./models/RestrictionQueryListResponse";
+export { RestrictionQueryRelationships } from "./models/RestrictionQueryRelationships";
+export { RestrictionQueryResponseIncludedItem } from "./models/RestrictionQueryResponseIncludedItem";
+export { RestrictionQueryRole } from "./models/RestrictionQueryRole";
+export { RestrictionQueryRoleAttribute } from "./models/RestrictionQueryRoleAttribute";
+export { RestrictionQueryRolesResponse } from "./models/RestrictionQueryRolesResponse";
+export { RestrictionQueryUpdateAttributes } from "./models/RestrictionQueryUpdateAttributes";
+export { RestrictionQueryUpdateData } from "./models/RestrictionQueryUpdateData";
+export { RestrictionQueryUpdatePayload } from "./models/RestrictionQueryUpdatePayload";
+export { RestrictionQueryWithoutRelationships } from "./models/RestrictionQueryWithoutRelationships";
+export { RestrictionQueryWithoutRelationshipsResponse } from "./models/RestrictionQueryWithoutRelationshipsResponse";
+export { RestrictionQueryWithRelationships } from "./models/RestrictionQueryWithRelationships";
+export { RestrictionQueryWithRelationshipsResponse } from "./models/RestrictionQueryWithRelationshipsResponse";
 export { RetentionFilter } from "./models/RetentionFilter";
 export { RetentionFilterAll } from "./models/RetentionFilterAll";
 export { RetentionFilterAllAttributes } from "./models/RetentionFilterAllAttributes";
