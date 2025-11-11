@@ -25,6 +25,10 @@ export class UserAttributes {
    */
   "icon"?: string;
   /**
+   * The last time the user logged in.
+   */
+  "lastLoginTime"?: Date;
+  /**
    * If user has MFA enabled.
    */
   "mfaEnabled"?: boolean;
@@ -87,6 +91,11 @@ export class UserAttributes {
     icon: {
       baseName: "icon",
       type: "string",
+    },
+    lastLoginTime: {
+      baseName: "last_login_time",
+      type: "Date",
+      format: "date-time",
     },
     mfaEnabled: {
       baseName: "mfa_enabled",
