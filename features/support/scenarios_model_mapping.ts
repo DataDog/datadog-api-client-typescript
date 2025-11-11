@@ -6667,6 +6667,100 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsMetricResponse",
     },
+    "v2.ListRestrictionQueries": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "RestrictionQueryListResponse",
+    },
+    "v2.CreateRestrictionQuery": {
+        "body": {
+            "type": "RestrictionQueryCreatePayload",
+            "format": "",
+            },
+        "operationResponseType": "RestrictionQueryWithoutRelationshipsResponse",
+    },
+    "v2.GetRoleRestrictionQuery": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RestrictionQueryListResponse",
+    },
+    "v2.ListUserRestrictionQueries": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RestrictionQueryListResponse",
+    },
+    "v2.GetRestrictionQuery": {
+        "restrictionQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RestrictionQueryWithRelationshipsResponse",
+    },
+    "v2.DeleteRestrictionQuery": {
+        "restrictionQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateRestrictionQuery": {
+        "restrictionQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RestrictionQueryUpdatePayload",
+            "format": "",
+            },
+        "operationResponseType": "RestrictionQueryWithoutRelationshipsResponse",
+    },
+    "v2.ListRestrictionQueryRoles": {
+        "restrictionQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "RestrictionQueryRolesResponse",
+    },
+    "v2.AddRoleToRestrictionQuery": {
+        "restrictionQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToRole",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.RemoveRoleFromRestrictionQuery": {
+        "restrictionQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToRole",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListTagConfigurations": {
         "filterConfigured": {
             "type": "boolean",
