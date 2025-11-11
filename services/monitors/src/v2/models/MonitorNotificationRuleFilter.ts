@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { MonitorNotificationRuleFilterScope } from "./MonitorNotificationRuleFilterScope";
 import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
 
 /**
@@ -7,4 +8,5 @@ import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilt
  */
 export type MonitorNotificationRuleFilter =
   | MonitorNotificationRuleFilterTags
+  | MonitorNotificationRuleFilterScope
   | UnparsedObject;

@@ -19,6 +19,7 @@ import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificat
 import { MonitorNotificationRuleCreateRequest } from "./MonitorNotificationRuleCreateRequest";
 import { MonitorNotificationRuleCreateRequestData } from "./MonitorNotificationRuleCreateRequestData";
 import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
+import { MonitorNotificationRuleFilterScope } from "./MonitorNotificationRuleFilterScope";
 import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
 import { MonitorNotificationRuleListResponse } from "./MonitorNotificationRuleListResponse";
 import { MonitorNotificationRuleRelationships } from "./MonitorNotificationRuleRelationships";
@@ -68,7 +69,10 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorConfigPolicyPolicyCreateRequest: [
       "MonitorConfigPolicyTagPolicyCreateRequest",
     ],
-    MonitorNotificationRuleFilter: ["MonitorNotificationRuleFilterTags"],
+    MonitorNotificationRuleFilter: [
+      "MonitorNotificationRuleFilterTags",
+      "MonitorNotificationRuleFilterScope",
+    ],
     MonitorNotificationRuleResponseIncludedItem: ["User"],
   },
   typeMap: {
@@ -96,6 +100,7 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorNotificationRuleCreateRequestData:
       MonitorNotificationRuleCreateRequestData,
     MonitorNotificationRuleData: MonitorNotificationRuleData,
+    MonitorNotificationRuleFilterScope: MonitorNotificationRuleFilterScope,
     MonitorNotificationRuleFilterTags: MonitorNotificationRuleFilterTags,
     MonitorNotificationRuleListResponse: MonitorNotificationRuleListResponse,
     MonitorNotificationRuleRelationships: MonitorNotificationRuleRelationships,
