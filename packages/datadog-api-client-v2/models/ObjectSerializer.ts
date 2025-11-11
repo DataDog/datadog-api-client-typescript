@@ -1514,6 +1514,7 @@ import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificat
 import { MonitorNotificationRuleCreateRequest } from "./MonitorNotificationRuleCreateRequest";
 import { MonitorNotificationRuleCreateRequestData } from "./MonitorNotificationRuleCreateRequestData";
 import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
+import { MonitorNotificationRuleFilterScope } from "./MonitorNotificationRuleFilterScope";
 import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
 import { MonitorNotificationRuleListResponse } from "./MonitorNotificationRuleListResponse";
 import { MonitorNotificationRuleRelationships } from "./MonitorNotificationRuleRelationships";
@@ -6012,6 +6013,7 @@ const typeMap: { [index: string]: any } = {
   MonitorNotificationRuleCreateRequestData:
     MonitorNotificationRuleCreateRequestData,
   MonitorNotificationRuleData: MonitorNotificationRuleData,
+  MonitorNotificationRuleFilterScope: MonitorNotificationRuleFilterScope,
   MonitorNotificationRuleFilterTags: MonitorNotificationRuleFilterTags,
   MonitorNotificationRuleListResponse: MonitorNotificationRuleListResponse,
   MonitorNotificationRuleRelationships: MonitorNotificationRuleRelationships,
@@ -7612,7 +7614,10 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
   ],
-  MonitorNotificationRuleFilter: ["MonitorNotificationRuleFilterTags"],
+  MonitorNotificationRuleFilter: [
+    "MonitorNotificationRuleFilterTags",
+    "MonitorNotificationRuleFilterScope",
+  ],
   MonitorNotificationRuleResponseIncludedItem: ["User"],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
