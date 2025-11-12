@@ -647,7 +647,7 @@ export interface ErrorTrackingApiGetIssueRequest {
    */
   issueId: string;
   /**
-   * Comma-separated list of relationship objects that should be included in the response.
+   * Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `case`, and `team_owners`.
    * @type Array<GetIssueIncludeQueryParameterItem>
    */
   include?: Array<GetIssueIncludeQueryParameterItem>;
@@ -660,7 +660,7 @@ export interface ErrorTrackingApiSearchIssuesRequest {
    */
   body: IssuesSearchRequest;
   /**
-   * Comma-separated list of relationship objects that should be included in the response.
+   * Comma-separated list of relationship objects that should be included in the response. Possible values are `issue`, `issue.assignee`, `issue.case`, and `issue.team_owners`.
    * @type Array<SearchIssuesIncludeQueryParameterItem>
    */
   include?: Array<SearchIssuesIncludeQueryParameterItem>;
