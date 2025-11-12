@@ -3,6 +3,11 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
+import { Email } from "./Email";
+import { EmailAttributes } from "./EmailAttributes";
+import { EmailCreateRequest } from "./EmailCreateRequest";
+import { EmailData } from "./EmailData";
+import { EmailUpdateRequest } from "./EmailUpdateRequest";
 import { Escalation } from "./Escalation";
 import { EscalationPolicy } from "./EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
@@ -110,6 +115,8 @@ import { UserTarget } from "./UserTarget";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     DataRelationshipsTeamsDataItemsType: ["teams"],
+    EmailFormatType: ["html", "text"],
+    EmailType: ["emails"],
     EscalationPolicyCreateRequestDataType: ["policies"],
     EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
     EscalationPolicyDataType: ["policies"],
@@ -185,6 +192,11 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     DataRelationshipsTeams: DataRelationshipsTeams,
     DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
+    Email: Email,
+    EmailAttributes: EmailAttributes,
+    EmailCreateRequest: EmailCreateRequest,
+    EmailData: EmailData,
+    EmailUpdateRequest: EmailUpdateRequest,
     Escalation: Escalation,
     EscalationPolicy: EscalationPolicy,
     EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,

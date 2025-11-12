@@ -1,16 +1,20 @@
 export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiCreateUserEmailNotificationChannelRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiDeleteUserEmailNotificationChannelRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiGetTeamOnCallUsersRequest,
+  OnCallApiGetUserEmailNotificationChannelRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
+  OnCallApiUpdateUserEmailNotificationChannelRequest,
   OnCallApi,
 } from "./OnCallApi";
 
@@ -18,6 +22,13 @@ export { APIErrorResponse } from "./models/APIErrorResponse";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
+export { Email } from "./models/Email";
+export { EmailAttributes } from "./models/EmailAttributes";
+export { EmailCreateRequest } from "./models/EmailCreateRequest";
+export { EmailData } from "./models/EmailData";
+export { EmailFormatType } from "./models/EmailFormatType";
+export { EmailType } from "./models/EmailType";
+export { EmailUpdateRequest } from "./models/EmailUpdateRequest";
 export { Escalation } from "./models/Escalation";
 export { EscalationPolicy } from "./models/EscalationPolicy";
 export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
