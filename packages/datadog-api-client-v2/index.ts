@@ -850,6 +850,13 @@ export {
 } from "./apis/SyntheticsApi";
 
 export {
+  TeamConnectionsApiCreateTeamConnectionsRequest,
+  TeamConnectionsApiDeleteTeamConnectionsRequest,
+  TeamConnectionsApiListTeamConnectionsRequest,
+  TeamConnectionsApi,
+} from "./apis/TeamConnectionsApi";
+
+export {
   TeamsApiAddMemberTeamRequest,
   TeamsApiCreateTeamRequest,
   TeamsApiCreateTeamLinkRequest,
@@ -1553,10 +1560,15 @@ export { ConfluentResourceResponseAttributes } from "./models/ConfluentResourceR
 export { ConfluentResourceResponseData } from "./models/ConfluentResourceResponseData";
 export { ConfluentResourcesResponse } from "./models/ConfluentResourcesResponse";
 export { ConfluentResourceType } from "./models/ConfluentResourceType";
+export { ConnectedTeamRef } from "./models/ConnectedTeamRef";
+export { ConnectedTeamRefData } from "./models/ConnectedTeamRefData";
+export { ConnectedTeamRefDataType } from "./models/ConnectedTeamRefDataType";
 export { Connection } from "./models/Connection";
 export { ConnectionEnv } from "./models/ConnectionEnv";
 export { ConnectionEnvEnv } from "./models/ConnectionEnvEnv";
 export { ConnectionGroup } from "./models/ConnectionGroup";
+export { ConnectionsPagePagination } from "./models/ConnectionsPagePagination";
+export { ConnectionsResponseMeta } from "./models/ConnectionsResponseMeta";
 export { Container } from "./models/Container";
 export { ContainerAttributes } from "./models/ContainerAttributes";
 export { ContainerGroup } from "./models/ContainerGroup";
@@ -4133,6 +4145,15 @@ export { TableRowResourceDataType } from "./models/TableRowResourceDataType";
 export { TagFilter } from "./models/TagFilter";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
+export { TeamConnection } from "./models/TeamConnection";
+export { TeamConnectionAttributes } from "./models/TeamConnectionAttributes";
+export { TeamConnectionCreateData } from "./models/TeamConnectionCreateData";
+export { TeamConnectionCreateRequest } from "./models/TeamConnectionCreateRequest";
+export { TeamConnectionDeleteRequest } from "./models/TeamConnectionDeleteRequest";
+export { TeamConnectionDeleteRequestDataItem } from "./models/TeamConnectionDeleteRequestDataItem";
+export { TeamConnectionRelationships } from "./models/TeamConnectionRelationships";
+export { TeamConnectionsResponse } from "./models/TeamConnectionsResponse";
+export { TeamConnectionType } from "./models/TeamConnectionType";
 export { TeamCreate } from "./models/TeamCreate";
 export { TeamCreateAttributes } from "./models/TeamCreateAttributes";
 export { TeamCreateRelationships } from "./models/TeamCreateRelationships";
@@ -4166,6 +4187,9 @@ export { TeamPermissionSettingUpdate } from "./models/TeamPermissionSettingUpdat
 export { TeamPermissionSettingUpdateAttributes } from "./models/TeamPermissionSettingUpdateAttributes";
 export { TeamPermissionSettingUpdateRequest } from "./models/TeamPermissionSettingUpdateRequest";
 export { TeamPermissionSettingValue } from "./models/TeamPermissionSettingValue";
+export { TeamRef } from "./models/TeamRef";
+export { TeamRefData } from "./models/TeamRefData";
+export { TeamRefDataType } from "./models/TeamRefDataType";
 export { TeamReference } from "./models/TeamReference";
 export { TeamReferenceAttributes } from "./models/TeamReferenceAttributes";
 export { TeamReferenceType } from "./models/TeamReferenceType";
