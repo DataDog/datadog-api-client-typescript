@@ -42,6 +42,10 @@ export class SecurityMonitoringSuppressionCreateAttributes {
    * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
    */
   "suppressionQuery"?: string;
+  /**
+   * List of tags associated with the suppression rule.
+   */
+  "tags"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -95,6 +99,10 @@ export class SecurityMonitoringSuppressionCreateAttributes {
     suppressionQuery: {
       baseName: "suppression_query",
       type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
