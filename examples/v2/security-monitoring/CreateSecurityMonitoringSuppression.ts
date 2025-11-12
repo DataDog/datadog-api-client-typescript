@@ -20,6 +20,7 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest
           name: "Example-Security-Monitoring",
           ruleQuery: "type:log_detection source:cloudtrail",
           suppressionQuery: "env:staging status:low",
+          tags: ["technique:T1110-brute-force", "source:cloudtrail"],
         },
         type: "suppressions",
       },
