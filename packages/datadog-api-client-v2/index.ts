@@ -562,16 +562,20 @@ export {
 export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiCreateUserEmailNotificationChannelRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiDeleteUserEmailNotificationChannelRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiGetTeamOnCallUsersRequest,
+  OnCallApiGetUserEmailNotificationChannelRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
+  OnCallApiUpdateUserEmailNotificationChannelRequest,
   OnCallApi,
 } from "./apis/OnCallApi";
 
@@ -1917,6 +1921,13 @@ export { DowntimeStatus } from "./models/DowntimeStatus";
 export { DowntimeUpdateRequest } from "./models/DowntimeUpdateRequest";
 export { DowntimeUpdateRequestAttributes } from "./models/DowntimeUpdateRequestAttributes";
 export { DowntimeUpdateRequestData } from "./models/DowntimeUpdateRequestData";
+export { Email } from "./models/Email";
+export { EmailAttributes } from "./models/EmailAttributes";
+export { EmailCreateRequest } from "./models/EmailCreateRequest";
+export { EmailData } from "./models/EmailData";
+export { EmailFormatType } from "./models/EmailFormatType";
+export { EmailType } from "./models/EmailType";
+export { EmailUpdateRequest } from "./models/EmailUpdateRequest";
 export { EntityAttributes } from "./models/EntityAttributes";
 export { EntityData } from "./models/EntityData";
 export { EntityMeta } from "./models/EntityMeta";

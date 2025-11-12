@@ -758,6 +758,11 @@ import { DowntimeUpdateRequest } from "./DowntimeUpdateRequest";
 import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttributes";
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
 import { EPSS } from "./EPSS";
+import { Email } from "./Email";
+import { EmailAttributes } from "./EmailAttributes";
+import { EmailCreateRequest } from "./EmailCreateRequest";
+import { EmailData } from "./EmailData";
+import { EmailUpdateRequest } from "./EmailUpdateRequest";
 import { EntityAttributes } from "./EntityAttributes";
 import { EntityData } from "./EntityData";
 import { EntityMeta } from "./EntityMeta";
@@ -3022,6 +3027,8 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
+  EmailFormatType: ["html", "text"],
+  EmailType: ["emails"],
   EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
   EntityResponseDataRelationshipsOncallsDataItemsType: ["oncall"],
   EntityResponseDataRelationshipsRawSchemaDataType: ["rawSchema"],
@@ -5149,6 +5156,11 @@ const typeMap: { [index: string]: any } = {
   DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
   EPSS: EPSS,
+  Email: Email,
+  EmailAttributes: EmailAttributes,
+  EmailCreateRequest: EmailCreateRequest,
+  EmailData: EmailData,
+  EmailUpdateRequest: EmailUpdateRequest,
   EntityAttributes: EntityAttributes,
   EntityData: EntityData,
   EntityMeta: EntityMeta,
