@@ -37,6 +37,10 @@ export class SecurityMonitoringSuppressionCreateAttributes {
    */
   "suppressionQuery"?: string;
   /**
+   * List of tags associated with the suppression rule.
+   */
+  "tags"?: Array<string>;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -87,6 +91,10 @@ export class SecurityMonitoringSuppressionCreateAttributes {
     suppressionQuery: {
       baseName: "suppression_query",
       type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

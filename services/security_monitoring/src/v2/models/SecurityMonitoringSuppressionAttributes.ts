@@ -51,6 +51,10 @@ export class SecurityMonitoringSuppressionAttributes {
    */
   "suppressionQuery"?: string;
   /**
+   * List of tags associated with the suppression rule.
+   */
+  "tags"?: Array<string>;
+  /**
    * A Unix millisecond timestamp given the update date of the suppression rule.
    */
   "updateDate"?: number;
@@ -123,6 +127,10 @@ export class SecurityMonitoringSuppressionAttributes {
     suppressionQuery: {
       baseName: "suppression_query",
       type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     updateDate: {
       baseName: "update_date",

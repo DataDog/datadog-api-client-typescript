@@ -37,6 +37,10 @@ export class SecurityMonitoringSuppressionUpdateAttributes {
    */
   "suppressionQuery"?: string;
   /**
+   * List of tags associated with the suppression rule.
+   */
+  "tags"?: Array<string>;
+  /**
    * The current version of the suppression. This is optional, but it can help prevent concurrent modifications.
    */
   "version"?: number;
@@ -88,6 +92,10 @@ export class SecurityMonitoringSuppressionUpdateAttributes {
     suppressionQuery: {
       baseName: "suppression_query",
       type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     version: {
       baseName: "version",
