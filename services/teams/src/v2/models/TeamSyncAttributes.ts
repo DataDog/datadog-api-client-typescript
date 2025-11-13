@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { TeamSyncAttributesFrequency } from "./TeamSyncAttributesFrequency";
 import { TeamSyncAttributesSource } from "./TeamSyncAttributesSource";
 import { TeamSyncAttributesType } from "./TeamSyncAttributesType";
 
@@ -8,11 +9,19 @@ import { TeamSyncAttributesType } from "./TeamSyncAttributesType";
  */
 export class TeamSyncAttributes {
   /**
+   * How often the sync process should be run. Defaults to `once` when not provided.
+   */
+  "frequency"?: TeamSyncAttributesFrequency;
+  /**
    * The external source platform for team synchronization. Only "github" is supported.
    */
   "source": TeamSyncAttributesSource;
   /**
-   * The type of synchronization operation. Only "link" is supported, which links existing teams by matching names.
+   * Whether to sync members from the external team to the Datadog team. Defaults to `false` when not provided.
+   */
+  "syncMembership"?: boolean;
+  /**
+   * The type of synchronization operation. "link" connects teams by matching names. "provision" creates new teams when no match is found.
    */
   "type": TeamSyncAttributesType;
   /**
@@ -30,10 +39,18 @@ export class TeamSyncAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    frequency: {
+      baseName: "frequency",
+      type: "TeamSyncAttributesFrequency",
+    },
     source: {
       baseName: "source",
       type: "TeamSyncAttributesSource",
       required: true,
+    },
+    syncMembership: {
+      baseName: "sync_membership",
+      type: "boolean",
     },
     type: {
       baseName: "type",
