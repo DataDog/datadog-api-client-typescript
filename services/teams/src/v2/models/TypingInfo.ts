@@ -43,6 +43,7 @@ import { TeamResponse } from "./TeamResponse";
 import { TeamSyncAttributes } from "./TeamSyncAttributes";
 import { TeamSyncData } from "./TeamSyncData";
 import { TeamSyncRequest } from "./TeamSyncRequest";
+import { TeamSyncResponse } from "./TeamSyncResponse";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
@@ -93,8 +94,9 @@ export const TypingInfo: ModelTypingInfo = {
       "user_access_manage",
       "teams_manage",
     ],
+    TeamSyncAttributesFrequency: ["once", "continuously", "paused"],
     TeamSyncAttributesSource: ["github"],
-    TeamSyncAttributesType: ["link"],
+    TeamSyncAttributesType: ["link", "provision"],
     TeamSyncBulkType: ["team_sync_bulk"],
     TeamType: ["team"],
     TeamsField: [
@@ -170,6 +172,7 @@ export const TypingInfo: ModelTypingInfo = {
     TeamSyncAttributes: TeamSyncAttributes,
     TeamSyncData: TeamSyncData,
     TeamSyncRequest: TeamSyncRequest,
+    TeamSyncResponse: TeamSyncResponse,
     TeamUpdate: TeamUpdate,
     TeamUpdateAttributes: TeamUpdateAttributes,
     TeamUpdateRelationships: TeamUpdateRelationships,

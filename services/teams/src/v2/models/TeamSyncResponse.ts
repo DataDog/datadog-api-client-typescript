@@ -3,13 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TeamSyncData } from "./TeamSyncData";
 
 /**
- * Team sync request.
+ * Team sync configurations response.
  */
-export class TeamSyncRequest {
+export class TeamSyncResponse {
   /**
-   * A configuration governing syncing between Datadog teams and teams from an external system.
+   * List of team sync configurations
    */
-  "data": TeamSyncData;
+  "data"?: Array<TeamSyncData>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,8 +27,7 @@ export class TeamSyncRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TeamSyncData",
-      required: true,
+      type: "Array<TeamSyncData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +39,7 @@ export class TeamSyncRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamSyncRequest.attributeTypeMap;
+    return TeamSyncResponse.attributeTypeMap;
   }
 
   public constructor() {}

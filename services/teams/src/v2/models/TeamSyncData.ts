@@ -4,13 +4,17 @@ import { TeamSyncAttributes } from "./TeamSyncAttributes";
 import { TeamSyncBulkType } from "./TeamSyncBulkType";
 
 /**
- * Team sync data.
+ * A configuration governing syncing between Datadog teams and teams from an external system.
  */
 export class TeamSyncData {
   /**
    * Team sync attributes.
    */
   "attributes": TeamSyncAttributes;
+  /**
+   * The sync's identifier
+   */
+  "id"?: string;
   /**
    * Team sync bulk type.
    */
@@ -34,6 +38,10 @@ export class TeamSyncData {
       baseName: "attributes",
       type: "TeamSyncAttributes",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
