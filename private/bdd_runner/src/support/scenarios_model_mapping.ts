@@ -1581,6 +1581,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
+    withAssets: {
+      type: "boolean",
+      format: "",
+    },
     operationResponseType: "Monitor",
   },
   "MonitorsApi.V1.UpdateMonitor": {
