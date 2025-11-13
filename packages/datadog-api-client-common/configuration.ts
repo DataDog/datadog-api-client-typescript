@@ -347,6 +347,7 @@ export function createConfiguration(
       "v2.createSCAResolveVulnerableSymbols": false,
       "v2.createSCAResult": false,
       "v2.addMemberTeam": false,
+      "v2.getTeamSync": false,
       "v2.listMemberTeams": false,
       "v2.removeMemberTeam": false,
       "v2.syncTeams": false,

@@ -7,12 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of synchronization operation. "link" connects teams by matching names. "provision" creates new teams when no match is found.
+ * How often the sync process should be run. Defaults to `once` when not provided.
  */
 
-export type TeamSyncAttributesType =
-  | typeof LINK
-  | typeof PROVISION
+export type TeamSyncAttributesFrequency =
+  | typeof ONCE
+  | typeof CONTINUOUSLY
+  | typeof PAUSED
   | UnparsedObject;
-export const LINK = "link";
-export const PROVISION = "provision";
+export const ONCE = "once";
+export const CONTINUOUSLY = "continuously";
+export const PAUSED = "paused";
