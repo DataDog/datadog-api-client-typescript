@@ -2447,6 +2447,7 @@ import { TeamRoutingRulesRequestRule } from "./TeamRoutingRulesRequestRule";
 import { TeamSyncAttributes } from "./TeamSyncAttributes";
 import { TeamSyncData } from "./TeamSyncData";
 import { TeamSyncRequest } from "./TeamSyncRequest";
+import { TeamSyncResponse } from "./TeamSyncResponse";
 import { TeamTarget } from "./TeamTarget";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
@@ -4106,8 +4107,9 @@ const enumsMap: { [key: string]: any[] } = {
   TeamRoutingRulesDataRelationshipsRulesDataItemsType: ["team_routing_rules"],
   TeamRoutingRulesDataType: ["team_routing_rules"],
   TeamRoutingRulesRequestDataType: ["team_routing_rules"],
+  TeamSyncAttributesFrequency: ["once", "continuously", "paused"],
   TeamSyncAttributesSource: ["github"],
-  TeamSyncAttributesType: ["link"],
+  TeamSyncAttributesType: ["link", "provision"],
   TeamSyncBulkType: ["team_sync_bulk"],
   TeamTargetType: ["teams"],
   TeamType: ["team"],
@@ -7171,6 +7173,7 @@ const typeMap: { [index: string]: any } = {
   TeamSyncAttributes: TeamSyncAttributes,
   TeamSyncData: TeamSyncData,
   TeamSyncRequest: TeamSyncRequest,
+  TeamSyncResponse: TeamSyncResponse,
   TeamTarget: TeamTarget,
   TeamUpdate: TeamUpdate,
   TeamUpdateAttributes: TeamUpdateAttributes,

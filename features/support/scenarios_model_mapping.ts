@@ -8683,6 +8683,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamResponse",
     },
+    "v2.GetTeamSync": {
+        "filterSource": {
+            "type": "TeamSyncAttributesSource",
+            "format": "",
+            },
+        "operationResponseType": "TeamSyncResponse",
+    },
     "v2.SyncTeams": {
         "body": {
             "type": "TeamSyncRequest",
