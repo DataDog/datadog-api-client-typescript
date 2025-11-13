@@ -470,9 +470,13 @@ import { ConfluentResourceResponse } from "./ConfluentResourceResponse";
 import { ConfluentResourceResponseAttributes } from "./ConfluentResourceResponseAttributes";
 import { ConfluentResourceResponseData } from "./ConfluentResourceResponseData";
 import { ConfluentResourcesResponse } from "./ConfluentResourcesResponse";
+import { ConnectedTeamRef } from "./ConnectedTeamRef";
+import { ConnectedTeamRefData } from "./ConnectedTeamRefData";
 import { Connection } from "./Connection";
 import { ConnectionEnv } from "./ConnectionEnv";
 import { ConnectionGroup } from "./ConnectionGroup";
+import { ConnectionsPagePagination } from "./ConnectionsPagePagination";
+import { ConnectionsResponseMeta } from "./ConnectionsResponseMeta";
 import { Container } from "./Container";
 import { ContainerAttributes } from "./ContainerAttributes";
 import { ContainerGroup } from "./ContainerGroup";
@@ -2392,6 +2396,14 @@ import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes
 import { TagFilter } from "./TagFilter";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
+import { TeamConnection } from "./TeamConnection";
+import { TeamConnectionAttributes } from "./TeamConnectionAttributes";
+import { TeamConnectionCreateData } from "./TeamConnectionCreateData";
+import { TeamConnectionCreateRequest } from "./TeamConnectionCreateRequest";
+import { TeamConnectionDeleteRequest } from "./TeamConnectionDeleteRequest";
+import { TeamConnectionDeleteRequestDataItem } from "./TeamConnectionDeleteRequestDataItem";
+import { TeamConnectionRelationships } from "./TeamConnectionRelationships";
+import { TeamConnectionsResponse } from "./TeamConnectionsResponse";
 import { TeamCreate } from "./TeamCreate";
 import { TeamCreateAttributes } from "./TeamCreateAttributes";
 import { TeamCreateRelationships } from "./TeamCreateRelationships";
@@ -2416,6 +2428,8 @@ import { TeamPermissionSettingUpdate } from "./TeamPermissionSettingUpdate";
 import { TeamPermissionSettingUpdateAttributes } from "./TeamPermissionSettingUpdateAttributes";
 import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdateRequest";
 import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
+import { TeamRef } from "./TeamRef";
+import { TeamRefData } from "./TeamRefData";
 import { TeamReference } from "./TeamReference";
 import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
 import { TeamRelationships } from "./TeamRelationships";
@@ -2929,6 +2943,7 @@ const enumsMap: { [key: string]: any[] } = {
   ConfigCatSDKKeyType: ["ConfigCatSDKKey"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
+  ConnectedTeamRefDataType: ["github_team"],
   ConnectionEnvEnv: ["default"],
   ContainerGroupType: ["container_group"],
   ContainerImageGroupType: ["container_image_group"],
@@ -4070,6 +4085,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
+  TeamConnectionType: ["team_connection"],
   TeamLinkType: ["team_links"],
   TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
     "escalation_policy_steps",
@@ -4085,6 +4101,7 @@ const enumsMap: { [key: string]: any[] } = {
     "user_access_manage",
     "teams_manage",
   ],
+  TeamRefDataType: ["team"],
   TeamReferenceType: ["teams"],
   TeamRoutingRulesDataRelationshipsRulesDataItemsType: ["team_routing_rules"],
   TeamRoutingRulesDataType: ["team_routing_rules"],
@@ -4809,9 +4826,13 @@ const typeMap: { [index: string]: any } = {
   ConfluentResourceResponseAttributes: ConfluentResourceResponseAttributes,
   ConfluentResourceResponseData: ConfluentResourceResponseData,
   ConfluentResourcesResponse: ConfluentResourcesResponse,
+  ConnectedTeamRef: ConnectedTeamRef,
+  ConnectedTeamRefData: ConnectedTeamRefData,
   Connection: Connection,
   ConnectionEnv: ConnectionEnv,
   ConnectionGroup: ConnectionGroup,
+  ConnectionsPagePagination: ConnectionsPagePagination,
+  ConnectionsResponseMeta: ConnectionsResponseMeta,
   Container: Container,
   ContainerAttributes: ContainerAttributes,
   ContainerGroup: ContainerGroup,
@@ -7093,6 +7114,14 @@ const typeMap: { [index: string]: any } = {
   TagFilter: TagFilter,
   Team: Team,
   TeamAttributes: TeamAttributes,
+  TeamConnection: TeamConnection,
+  TeamConnectionAttributes: TeamConnectionAttributes,
+  TeamConnectionCreateData: TeamConnectionCreateData,
+  TeamConnectionCreateRequest: TeamConnectionCreateRequest,
+  TeamConnectionDeleteRequest: TeamConnectionDeleteRequest,
+  TeamConnectionDeleteRequestDataItem: TeamConnectionDeleteRequestDataItem,
+  TeamConnectionRelationships: TeamConnectionRelationships,
+  TeamConnectionsResponse: TeamConnectionsResponse,
   TeamCreate: TeamCreate,
   TeamCreateAttributes: TeamCreateAttributes,
   TeamCreateRelationships: TeamCreateRelationships,
@@ -7121,6 +7150,8 @@ const typeMap: { [index: string]: any } = {
   TeamPermissionSettingUpdateAttributes: TeamPermissionSettingUpdateAttributes,
   TeamPermissionSettingUpdateRequest: TeamPermissionSettingUpdateRequest,
   TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
+  TeamRef: TeamRef,
+  TeamRefData: TeamRefData,
   TeamReference: TeamReference,
   TeamReferenceAttributes: TeamReferenceAttributes,
   TeamRelationships: TeamRelationships,
