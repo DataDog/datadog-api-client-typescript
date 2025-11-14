@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 1.47.0/2025-11-14
+
+### Added
+* Add suppression tags [#2990](https://github.com/DataDog/datadog-api-client-typescript/pull/2990)
+* Add Team Connection API Documentation [#2986](https://github.com/DataDog/datadog-api-client-typescript/pull/2986)
+* Add new summary keys for new standalone billing dimensions [#2980](https://github.com/DataDog/datadog-api-client-typescript/pull/2980)
+* Add Bits AI Investigations and On-Call to  API specs [#2974](https://github.com/DataDog/datadog-api-client-typescript/pull/2974)
+* Add `PreviewCatalogEntities` [#2966](https://github.com/DataDog/datadog-api-client-typescript/pull/2966)
+* Sync 'audience_management.yaml' files with backend [#2962](https://github.com/DataDog/datadog-api-client-typescript/pull/2962)
+* Dashboards - Add on_call_events datasources [#2961](https://github.com/DataDog/datadog-api-client-typescript/pull/2961)
+* 📝 [LOGSAC-1298] Add logs-pipeline type to restriction policy OpenAPI spec [#2949](https://github.com/DataDog/datadog-api-client-typescript/pull/2949)
+* Security Monitoring - Update Signal Archive Reasons [#2946](https://github.com/DataDog/datadog-api-client-typescript/pull/2946)
+* Add New Serverless Summary Entries to Api Spec [#2916](https://github.com/DataDog/datadog-api-client-typescript/pull/2916)
+* Add metric namespace config filters to V2 GCP API [#2914](https://github.com/DataDog/datadog-api-client-typescript/pull/2914)
+* Add specs for v2 eventbridge API [#2909](https://github.com/DataDog/datadog-api-client-typescript/pull/2909)
+* Add last_login_time to Users v2 API [#2882](https://github.com/DataDog/datadog-api-client-typescript/pull/2882)
+* Add Static Analysis Rules Endpoints [#2876](https://github.com/DataDog/datadog-api-client-typescript/pull/2876)
+
+### Deprecated
+* [api-spec] Mark PATCH /api/v2/incidents/incident_id/attachments endpoint as deprecated [#2984](https://github.com/DataDog/datadog-api-client-typescript/pull/2984)
+* [METEXP-2068] Deprecate api/v1/search Endpoint [#2976](https://github.com/DataDog/datadog-api-client-typescript/pull/2976)
+
+### Changed
+* Rename historical job API endpoints to threat hunting [#2941](https://github.com/DataDog/datadog-api-client-typescript/pull/2941)
+
 ## 1.46.0/2025-10-27
 
 ### Added
