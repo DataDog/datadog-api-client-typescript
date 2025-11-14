@@ -43,6 +43,10 @@ export class ThreatHuntingJobResponseAttributes {
    * Last modification time of the job.
    */
   "modifiedAt"?: string;
+  /**
+   * Whether the job outputs signals.
+   */
+  "signalOutput"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -91,6 +95,10 @@ export class ThreatHuntingJobResponseAttributes {
     modifiedAt: {
       baseName: "modifiedAt",
       type: "string",
+    },
+    signalOutput: {
+      baseName: "signalOutput",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
