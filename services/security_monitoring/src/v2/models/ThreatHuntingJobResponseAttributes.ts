@@ -39,6 +39,10 @@ export class ThreatHuntingJobResponseAttributes {
    */
   "modifiedAt"?: string;
   /**
+   * Whether the job outputs signals.
+   */
+  "signalOutput"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -84,6 +88,10 @@ export class ThreatHuntingJobResponseAttributes {
     modifiedAt: {
       baseName: "modifiedAt",
       type: "string",
+    },
+    signalOutput: {
+      baseName: "signalOutput",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
