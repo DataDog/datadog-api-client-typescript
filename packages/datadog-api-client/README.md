@@ -437,7 +437,6 @@ apiInstance
 | Static Analysis | @datadog/datadog-api-client-static-analysis | [README.md](../../services/static-analysis/README.md) |
 | Synthetics | @datadog/datadog-api-client-synthetics | [README.md](../../services/synthetics/README.md) |
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
-| Team Connections | @datadog/datadog-api-client-team-connections | [README.md](../../services/team-connections/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |

@@ -8910,47 +8910,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UserTeamsResponse",
   },
-  "TeamConnectionsApi.V2.ListTeamConnections": {
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    filterSources: {
-      type: "Array<string>",
-      format: "",
-    },
-    filterTeamIds: {
-      type: "Array<string>",
-      format: "",
-    },
-    filterConnectedTeamIds: {
-      type: "Array<string>",
-      format: "",
-    },
-    filterConnectionIds: {
-      type: "Array<string>",
-      format: "",
-    },
-    operationResponseType: "TeamConnectionsResponse",
-  },
-  "TeamConnectionsApi.V2.CreateTeamConnections": {
-    body: {
-      type: "TeamConnectionCreateRequest",
-      format: "",
-    },
-    operationResponseType: "TeamConnectionsResponse",
-  },
-  "TeamConnectionsApi.V2.DeleteTeamConnections": {
-    body: {
-      type: "TeamConnectionDeleteRequest",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
   "IncidentTeamsApi.V2.ListIncidentTeams": {
     include: {
       type: "IncidentRelatedObject",
