@@ -2382,8 +2382,7 @@ import { TableResultV2 } from "./TableResultV2";
 import { TableResultV2Array } from "./TableResultV2Array";
 import { TableResultV2Data } from "./TableResultV2Data";
 import { TableResultV2DataAttributes } from "./TableResultV2DataAttributes";
-import { TableResultV2DataAttributesFileMetadataCloudStorage } from "./TableResultV2DataAttributesFileMetadataCloudStorage";
-import { TableResultV2DataAttributesFileMetadataLocalFile } from "./TableResultV2DataAttributesFileMetadataLocalFile";
+import { TableResultV2DataAttributesFileMetadata } from "./TableResultV2DataAttributesFileMetadata";
 import { TableResultV2DataAttributesFileMetadataOneOfAccessDetails } from "./TableResultV2DataAttributesFileMetadataOneOfAccessDetails";
 import { TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail } from "./TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail";
 import { TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail } from "./TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail";
@@ -7093,10 +7092,8 @@ const typeMap: { [index: string]: any } = {
   TableResultV2Array: TableResultV2Array,
   TableResultV2Data: TableResultV2Data,
   TableResultV2DataAttributes: TableResultV2DataAttributes,
-  TableResultV2DataAttributesFileMetadataCloudStorage:
-    TableResultV2DataAttributesFileMetadataCloudStorage,
-  TableResultV2DataAttributesFileMetadataLocalFile:
-    TableResultV2DataAttributesFileMetadataLocalFile,
+  TableResultV2DataAttributesFileMetadata:
+    TableResultV2DataAttributesFileMetadata,
   TableResultV2DataAttributesFileMetadataOneOfAccessDetails:
     TableResultV2DataAttributesFileMetadataOneOfAccessDetails,
   TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail:
@@ -7829,10 +7826,6 @@ const oneOfMap: { [index: string]: string[] } = {
   SplitCredentialsUpdate: ["SplitAPIKeyUpdate"],
   StatsigCredentials: ["StatsigAPIKey"],
   StatsigCredentialsUpdate: ["StatsigAPIKeyUpdate"],
-  TableResultV2DataAttributesFileMetadata: [
-    "TableResultV2DataAttributesFileMetadataCloudStorage",
-    "TableResultV2DataAttributesFileMetadataLocalFile",
-  ],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TeamOnCallRespondersIncluded: ["User", "Escalation"],
   TeamRoutingRulesIncluded: ["RoutingRule"],
