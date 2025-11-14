@@ -423,6 +423,10 @@ export class UsageSummaryDateOrg {
    */
   "incidentManagementMonthlyActiveUsersHwm"?: number;
   /**
+   * Shows the high-water mark of Incident Management seats over all hours on the current date for the given organization.
+   */
+  "incidentManagementSeatsHwm"?: number;
+  /**
    * Shows the sum of all log events indexed over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "indexedEventsCountSum"?: number;
@@ -1380,6 +1384,11 @@ export class UsageSummaryDateOrg {
     },
     incidentManagementMonthlyActiveUsersHwm: {
       baseName: "incident_management_monthly_active_users_hwm",
+      type: "number",
+      format: "int64",
+    },
+    incidentManagementSeatsHwm: {
+      baseName: "incident_management_seats_hwm",
       type: "number",
       format: "int64",
     },
