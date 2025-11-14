@@ -416,6 +416,10 @@ export class UsageSummaryResponse {
    */
   "incidentManagementMonthlyActiveUsersHwmSum"?: number;
   /**
+   * Shows the sum of the high-water marks of Incident Management seats over all hours in the current month for all organizations.
+   */
+  "incidentManagementSeatsHwmSum"?: number;
+  /**
    * Shows the sum of all log events indexed over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
    */
   "indexedEventsCountAggSum"?: number;
@@ -1394,6 +1398,11 @@ export class UsageSummaryResponse {
     },
     incidentManagementMonthlyActiveUsersHwmSum: {
       baseName: "incident_management_monthly_active_users_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    incidentManagementSeatsHwmSum: {
+      baseName: "incident_management_seats_hwm_sum",
       type: "number",
       format: "int64",
     },
