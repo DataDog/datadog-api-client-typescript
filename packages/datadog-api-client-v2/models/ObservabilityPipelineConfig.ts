@@ -25,6 +25,10 @@ export class ObservabilityPipelineConfig {
    * A list of configured data sources for the pipeline.
    */
   "sources": Array<ObservabilityPipelineConfigSourceItem>;
+  /**
+   * Use this field to configure the pipeline's filter queries to use the deprecated search syntax.
+   */
+  "useLegacySearchSyntax"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -55,6 +59,10 @@ export class ObservabilityPipelineConfig {
       baseName: "sources",
       type: "Array<ObservabilityPipelineConfigSourceItem>",
       required: true,
+    },
+    useLegacySearchSyntax: {
+      baseName: "use_legacy_search_syntax",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
