@@ -8693,6 +8693,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TeamResponse",
   },
+  "TeamsApi.V2.GetTeamSync": {
+    filterSource: {
+      type: "TeamSyncAttributesSource",
+      format: "",
+    },
+    operationResponseType: "TeamSyncResponse",
+  },
   "TeamsApi.V2.SyncTeams": {
     body: {
       type: "TeamSyncRequest",
