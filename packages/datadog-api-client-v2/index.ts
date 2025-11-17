@@ -869,6 +869,7 @@ export {
   TeamsApiGetTeamLinksRequest,
   TeamsApiGetTeamMembershipsRequest,
   TeamsApiGetTeamPermissionSettingsRequest,
+  TeamsApiGetTeamSyncRequest,
   TeamsApiGetUserMembershipsRequest,
   TeamsApiListMemberTeamsRequest,
   TeamsApiListTeamsRequest,
@@ -4215,11 +4216,13 @@ export { TeamsResponseLinks } from "./models/TeamsResponseLinks";
 export { TeamsResponseMeta } from "./models/TeamsResponseMeta";
 export { TeamsResponseMetaPagination } from "./models/TeamsResponseMetaPagination";
 export { TeamSyncAttributes } from "./models/TeamSyncAttributes";
+export { TeamSyncAttributesFrequency } from "./models/TeamSyncAttributesFrequency";
 export { TeamSyncAttributesSource } from "./models/TeamSyncAttributesSource";
 export { TeamSyncAttributesType } from "./models/TeamSyncAttributesType";
 export { TeamSyncBulkType } from "./models/TeamSyncBulkType";
 export { TeamSyncData } from "./models/TeamSyncData";
 export { TeamSyncRequest } from "./models/TeamSyncRequest";
+export { TeamSyncResponse } from "./models/TeamSyncResponse";
 export { TeamTarget } from "./models/TeamTarget";
 export { TeamTargetType } from "./models/TeamTargetType";
 export { TeamType } from "./models/TeamType";
