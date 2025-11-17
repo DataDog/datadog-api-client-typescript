@@ -8,7 +8,7 @@ import { MonitorNotificationRuleFilter } from "./MonitorNotificationRuleFilter";
  */
 export class MonitorNotificationRuleResponseAttributes {
   /**
-   * Use conditional recipients to define different recipients for different situations.
+   * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
    */
   "conditionalRecipients"?: MonitorNotificationRuleConditionalRecipients;
   /**
@@ -28,7 +28,7 @@ export class MonitorNotificationRuleResponseAttributes {
    */
   "name"?: string;
   /**
-   * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
+   * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
    */
   "recipients"?: Array<string>;
   /**
