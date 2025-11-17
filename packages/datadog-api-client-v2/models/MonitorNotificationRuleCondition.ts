@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MonitorNotificationRuleCondition {
   /**
-   * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
+   * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
    */
   "recipients": Array<string>;
   /**
