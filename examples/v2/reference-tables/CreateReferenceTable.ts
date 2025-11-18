@@ -11,33 +11,42 @@ const params: v2.ReferenceTablesApiCreateReferenceTableRequest = {
   body: {
     data: {
       attributes: {
-        description: "this is a cloud table generated via a cloud bucket sync",
         fileMetadata: {
           accessDetails: {
             awsDetail: {
-              awsAccountId: "test-account-id",
-              awsBucketName: "test-bucket",
-              filePath: "test_rt.csv",
+              awsAccountId: "123456789000",
+              awsBucketName: "example-data-bucket",
+              filePath: "reference-tables/users.csv",
+            },
+            azureDetail: {
+              azureClientId: "aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb",
+              azureContainerName: "reference-data",
+              azureStorageAccountName: "examplestorageaccount",
+              azureTenantId: "cccccccc-4444-5555-6666-dddddddddddd",
+              filePath: "tables/users.csv",
+            },
+            gcpDetail: {
+              filePath: "data/reference_tables/users.csv",
+              gcpBucketName: "example-data-bucket",
+              gcpProjectId: "example-gcp-project-12345",
+              gcpServiceAccountEmail:
+                "example-service@example-gcp-project-12345.iam.gserviceaccount.com",
             },
           },
-          syncEnabled: true,
+          syncEnabled: false,
         },
         schema: {
           fields: [
             {
-              name: "name",
-              type: "STRING",
-            },
-            {
-              name: "account_id",
+              name: "field_1",
               type: "STRING",
             },
           ],
-          primaryKeys: ["account_id"],
+          primaryKeys: ["field_1"],
         },
-        source: "S3",
-        tableName: "test_reference_table",
-        tags: ["test_tag"],
+        source: "LOCAL_FILE",
+        tableName: "table_1",
+        tags: ["tag_1", "tag_2"],
       },
       type: "reference_table",
     },
