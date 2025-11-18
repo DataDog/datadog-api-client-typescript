@@ -42,6 +42,10 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
    */
   "rotationStart": Date;
   /**
+   * The time zone for this layer.
+   */
+  "timeZone"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -95,6 +99,10 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    timeZone: {
+      baseName: "time_zone",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
