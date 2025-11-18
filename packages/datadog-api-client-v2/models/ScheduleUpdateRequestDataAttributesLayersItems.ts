@@ -46,6 +46,10 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
    * The date/time at which the rotation begins (ISO 8601 format).
    */
   "rotationStart": Date;
+  /**
+   * The time zone for this layer.
+   */
+  "timeZone"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -102,6 +106,10 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    timeZone: {
+      baseName: "time_zone",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
