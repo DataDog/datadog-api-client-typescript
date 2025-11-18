@@ -36,6 +36,10 @@ export class LayerAttributes {
    * The date/time when the rotation starts (ISO 8601).
    */
   "rotationStart"?: Date;
+  /**
+   * The time zone for this layer.
+   */
+  "timeZone"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -79,6 +83,10 @@ export class LayerAttributes {
       baseName: "rotation_start",
       type: "Date",
       format: "date-time",
+    },
+    timeZone: {
+      baseName: "time_zone",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -41,6 +41,10 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
    * The date/time when the rotation for this layer starts (in ISO 8601).
    */
   "rotationStart": Date;
+  /**
+   * The time zone for this layer.
+   */
+  "timeZone"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -93,6 +97,10 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    timeZone: {
+      baseName: "time_zone",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
