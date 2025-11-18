@@ -5313,6 +5313,86 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CancelDataDeletionResponseBody",
     },
+    "v2.CreateDeploymentGate": {
+        "body": {
+            "type": "CreateDeploymentGateParams",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentGateResponse",
+    },
+    "v2.CreateDeploymentRule": {
+        "gateId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateDeploymentRuleParams",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentRuleResponse",
+    },
+    "v2.GetDeploymentRule": {
+        "gateId": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentRuleResponse",
+    },
+    "v2.UpdateDeploymentRule": {
+        "gateId": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateDeploymentRuleParams",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentRuleResponse",
+    },
+    "v2.DeleteDeploymentRule": {
+        "gateId": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetDeploymentGate": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentGateResponse",
+    },
+    "v2.UpdateDeploymentGate": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateDeploymentGateParams",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentGateResponse",
+    },
+    "v2.DeleteDeploymentGate": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetDomainAllowlist": {
         "operationResponseType": "DomainAllowlistResponse",
     },
