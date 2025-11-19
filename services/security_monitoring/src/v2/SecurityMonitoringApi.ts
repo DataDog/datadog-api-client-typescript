@@ -9687,8 +9687,13 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Convert an existing rule from JSON to Terraform for datadog provider
-   * resource datadog_security_monitoring_rule.
+   * Convert an existing rule from JSON to Terraform for Datadog provider
+   * resource `datadog_security_monitoring_rule`. You can do so for the following rule types:
+   * - App and API Protection
+   * - Cloud SIEM (log detection and signal correlation)
+   * - Workload Protection
+   *
+   * You can convert Cloud Security configuration rules using Terraform's [Datadog Cloud Configuration Rule resource](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/cloud_configuration_rule).
    * @param param The request object
    */
   public convertExistingSecurityMonitoringRule(
@@ -9735,8 +9740,13 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Convert a rule that doesn't (yet) exist from JSON to Terraform for datadog provider
-   * resource datadog_security_monitoring_rule.
+   * Convert a rule that doesn't (yet) exist from JSON to Terraform for Datadog provider
+   * resource `datadog_security_monitoring_rule`. You can do so for the following rule types:
+   * - App and API Protection
+   * - Cloud SIEM (log detection and signal correlation)
+   * - Workload Protection
+   *
+   * You can convert Cloud Security configuration rules using Terraform's [Datadog Cloud Configuration Rule resource](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/cloud_configuration_rule).
    * @param param The request object
    */
   public convertSecurityMonitoringRuleFromJSONToTerraform(
