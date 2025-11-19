@@ -16,7 +16,7 @@ export class ObservabilityPipelineGoogleChronicleDestination {
   /**
    * GCP credentials used to authenticate with Google Cloud Storage.
    */
-  "auth": ObservabilityPipelineGcpAuth;
+  "auth"?: ObservabilityPipelineGcpAuth;
   /**
    * The Google Chronicle customer ID.
    */
@@ -61,7 +61,6 @@ export class ObservabilityPipelineGoogleChronicleDestination {
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineGcpAuth",
-      required: true,
     },
     customerId: {
       baseName: "customer_id",
