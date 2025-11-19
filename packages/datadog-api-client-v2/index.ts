@@ -295,6 +295,18 @@ export {
 } from "./apis/DatasetsApi";
 
 export {
+  DeploymentGatesApiCreateDeploymentGateRequest,
+  DeploymentGatesApiCreateDeploymentRuleRequest,
+  DeploymentGatesApiDeleteDeploymentGateRequest,
+  DeploymentGatesApiDeleteDeploymentRuleRequest,
+  DeploymentGatesApiGetDeploymentGateRequest,
+  DeploymentGatesApiGetDeploymentRuleRequest,
+  DeploymentGatesApiUpdateDeploymentGateRequest,
+  DeploymentGatesApiUpdateDeploymentRuleRequest,
+  DeploymentGatesApi,
+} from "./apis/DeploymentGatesApi";
+
+export {
   DomainAllowlistApiPatchDomainAllowlistRequest,
   DomainAllowlistApi,
 } from "./apis/DomainAllowlistApi";
@@ -1638,6 +1650,12 @@ export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDele
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
 export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
+export { CreateDeploymentGateParams } from "./models/CreateDeploymentGateParams";
+export { CreateDeploymentGateParamsData } from "./models/CreateDeploymentGateParamsData";
+export { CreateDeploymentGateParamsDataAttributes } from "./models/CreateDeploymentGateParamsDataAttributes";
+export { CreateDeploymentRuleParams } from "./models/CreateDeploymentRuleParams";
+export { CreateDeploymentRuleParamsData } from "./models/CreateDeploymentRuleParamsData";
+export { CreateDeploymentRuleParamsDataAttributes } from "./models/CreateDeploymentRuleParamsDataAttributes";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
@@ -1851,9 +1869,25 @@ export { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkRes
 export { DependencyLocation } from "./models/DependencyLocation";
 export { Deployment } from "./models/Deployment";
 export { DeploymentAttributes } from "./models/DeploymentAttributes";
+export { DeploymentGateDataType } from "./models/DeploymentGateDataType";
+export { DeploymentGateResponse } from "./models/DeploymentGateResponse";
+export { DeploymentGateResponseData } from "./models/DeploymentGateResponseData";
+export { DeploymentGateResponseDataAttributes } from "./models/DeploymentGateResponseDataAttributes";
+export { DeploymentGateResponseDataAttributesCreatedBy } from "./models/DeploymentGateResponseDataAttributesCreatedBy";
+export { DeploymentGateResponseDataAttributesUpdatedBy } from "./models/DeploymentGateResponseDataAttributesUpdatedBy";
 export { DeploymentMetadata } from "./models/DeploymentMetadata";
 export { DeploymentRelationship } from "./models/DeploymentRelationship";
 export { DeploymentRelationshipData } from "./models/DeploymentRelationshipData";
+export { DeploymentRuleDataType } from "./models/DeploymentRuleDataType";
+export { DeploymentRuleOptionsFaultyDeploymentDetection } from "./models/DeploymentRuleOptionsFaultyDeploymentDetection";
+export { DeploymentRuleOptionsMonitor } from "./models/DeploymentRuleOptionsMonitor";
+export { DeploymentRuleResponse } from "./models/DeploymentRuleResponse";
+export { DeploymentRuleResponseData } from "./models/DeploymentRuleResponseData";
+export { DeploymentRuleResponseDataAttributes } from "./models/DeploymentRuleResponseDataAttributes";
+export { DeploymentRuleResponseDataAttributesCreatedBy } from "./models/DeploymentRuleResponseDataAttributesCreatedBy";
+export { DeploymentRuleResponseDataAttributesType } from "./models/DeploymentRuleResponseDataAttributesType";
+export { DeploymentRuleResponseDataAttributesUpdatedBy } from "./models/DeploymentRuleResponseDataAttributesUpdatedBy";
+export { DeploymentRulesOptions } from "./models/DeploymentRulesOptions";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
@@ -2347,6 +2381,9 @@ export { HourlyUsagePagination } from "./models/HourlyUsagePagination";
 export { HourlyUsageResponse } from "./models/HourlyUsageResponse";
 export { HourlyUsageType } from "./models/HourlyUsageType";
 export { HTTPBody } from "./models/HTTPBody";
+export { HTTPCDGatesBadRequestResponse } from "./models/HTTPCDGatesBadRequestResponse";
+export { HTTPCDGatesNotFoundResponse } from "./models/HTTPCDGatesNotFoundResponse";
+export { HTTPCDRulesNotFoundResponse } from "./models/HTTPCDRulesNotFoundResponse";
 export { HTTPCIAppError } from "./models/HTTPCIAppError";
 export { HTTPCIAppErrors } from "./models/HTTPCIAppErrors";
 export { HTTPCredentials } from "./models/HTTPCredentials";
@@ -4292,6 +4329,12 @@ export { UpdateConnectionRequestDataAttributesFieldsToUpdateItems } from "./mode
 export { UpdateConnectionRequestDataType } from "./models/UpdateConnectionRequestDataType";
 export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
+export { UpdateDeploymentGateParams } from "./models/UpdateDeploymentGateParams";
+export { UpdateDeploymentGateParamsData } from "./models/UpdateDeploymentGateParamsData";
+export { UpdateDeploymentGateParamsDataAttributes } from "./models/UpdateDeploymentGateParamsDataAttributes";
+export { UpdateDeploymentRuleParams } from "./models/UpdateDeploymentRuleParams";
+export { UpdateDeploymentRuleParamsData } from "./models/UpdateDeploymentRuleParamsData";
+export { UpdateDeploymentRuleParamsDataAttributes } from "./models/UpdateDeploymentRuleParamsDataAttributes";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";

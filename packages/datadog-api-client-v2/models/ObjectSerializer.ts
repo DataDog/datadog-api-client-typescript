@@ -531,6 +531,12 @@ import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateDeploymentGateParams } from "./CreateDeploymentGateParams";
+import { CreateDeploymentGateParamsData } from "./CreateDeploymentGateParamsData";
+import { CreateDeploymentGateParamsDataAttributes } from "./CreateDeploymentGateParamsDataAttributes";
+import { CreateDeploymentRuleParams } from "./CreateDeploymentRuleParams";
+import { CreateDeploymentRuleParamsData } from "./CreateDeploymentRuleParamsData";
+import { CreateDeploymentRuleParamsDataAttributes } from "./CreateDeploymentRuleParamsDataAttributes";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
@@ -719,9 +725,21 @@ import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { Deployment } from "./Deployment";
 import { DeploymentAttributes } from "./DeploymentAttributes";
+import { DeploymentGateResponse } from "./DeploymentGateResponse";
+import { DeploymentGateResponseData } from "./DeploymentGateResponseData";
+import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
+import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
+import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
 import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationship } from "./DeploymentRelationship";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
+import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
+import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
+import { DeploymentRuleResponse } from "./DeploymentRuleResponse";
+import { DeploymentRuleResponseData } from "./DeploymentRuleResponseData";
+import { DeploymentRuleResponseDataAttributes } from "./DeploymentRuleResponseDataAttributes";
+import { DeploymentRuleResponseDataAttributesCreatedBy } from "./DeploymentRuleResponseDataAttributesCreatedBy";
+import { DeploymentRuleResponseDataAttributesUpdatedBy } from "./DeploymentRuleResponseDataAttributesUpdatedBy";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
@@ -1068,6 +1086,9 @@ import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
 import { GreyNoiseIntegrationUpdate } from "./GreyNoiseIntegrationUpdate";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPBody } from "./HTTPBody";
+import { HTTPCDGatesBadRequestResponse } from "./HTTPCDGatesBadRequestResponse";
+import { HTTPCDGatesNotFoundResponse } from "./HTTPCDGatesNotFoundResponse";
+import { HTTPCDRulesNotFoundResponse } from "./HTTPCDRulesNotFoundResponse";
 import { HTTPCIAppError } from "./HTTPCIAppError";
 import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
 import { HTTPHeader } from "./HTTPHeader";
@@ -2505,6 +2526,12 @@ import { UpdateConnectionRequestDataAttributes } from "./UpdateConnectionRequest
 import { UpdateConnectionRequestDataAttributesFieldsToUpdateItems } from "./UpdateConnectionRequestDataAttributesFieldsToUpdateItems";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
+import { UpdateDeploymentGateParams } from "./UpdateDeploymentGateParams";
+import { UpdateDeploymentGateParamsData } from "./UpdateDeploymentGateParamsData";
+import { UpdateDeploymentGateParamsDataAttributes } from "./UpdateDeploymentGateParamsDataAttributes";
+import { UpdateDeploymentRuleParams } from "./UpdateDeploymentRuleParams";
+import { UpdateDeploymentRuleParamsData } from "./UpdateDeploymentRuleParamsData";
+import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRuleParamsDataAttributes";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
@@ -3018,6 +3045,12 @@ const enumsMap: { [key: string]: any[] } = {
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
   DatastoreItemsDataType: ["items"],
   DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
+  DeploymentGateDataType: ["deployment_gate"],
+  DeploymentRuleDataType: ["deployment_rule"],
+  DeploymentRuleResponseDataAttributesType: [
+    "faulty_deployment_detection",
+    "monitor",
+  ],
   DetailedFindingType: ["detailed_finding"],
   DnsMetricKey: [
     "dns_total_requests",
@@ -4892,6 +4925,14 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateDeploymentGateParams: CreateDeploymentGateParams,
+  CreateDeploymentGateParamsData: CreateDeploymentGateParamsData,
+  CreateDeploymentGateParamsDataAttributes:
+    CreateDeploymentGateParamsDataAttributes,
+  CreateDeploymentRuleParams: CreateDeploymentRuleParams,
+  CreateDeploymentRuleParamsData: CreateDeploymentRuleParamsData,
+  CreateDeploymentRuleParamsDataAttributes:
+    CreateDeploymentRuleParamsDataAttributes,
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
@@ -5123,9 +5164,26 @@ const typeMap: { [index: string]: any } = {
   DependencyLocation: DependencyLocation,
   Deployment: Deployment,
   DeploymentAttributes: DeploymentAttributes,
+  DeploymentGateResponse: DeploymentGateResponse,
+  DeploymentGateResponseData: DeploymentGateResponseData,
+  DeploymentGateResponseDataAttributes: DeploymentGateResponseDataAttributes,
+  DeploymentGateResponseDataAttributesCreatedBy:
+    DeploymentGateResponseDataAttributesCreatedBy,
+  DeploymentGateResponseDataAttributesUpdatedBy:
+    DeploymentGateResponseDataAttributesUpdatedBy,
   DeploymentMetadata: DeploymentMetadata,
   DeploymentRelationship: DeploymentRelationship,
   DeploymentRelationshipData: DeploymentRelationshipData,
+  DeploymentRuleOptionsFaultyDeploymentDetection:
+    DeploymentRuleOptionsFaultyDeploymentDetection,
+  DeploymentRuleOptionsMonitor: DeploymentRuleOptionsMonitor,
+  DeploymentRuleResponse: DeploymentRuleResponse,
+  DeploymentRuleResponseData: DeploymentRuleResponseData,
+  DeploymentRuleResponseDataAttributes: DeploymentRuleResponseDataAttributes,
+  DeploymentRuleResponseDataAttributesCreatedBy:
+    DeploymentRuleResponseDataAttributesCreatedBy,
+  DeploymentRuleResponseDataAttributesUpdatedBy:
+    DeploymentRuleResponseDataAttributesUpdatedBy,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
   DeviceAttributes: DeviceAttributes,
@@ -5522,6 +5580,9 @@ const typeMap: { [index: string]: any } = {
   GreyNoiseIntegrationUpdate: GreyNoiseIntegrationUpdate,
   GroupScalarColumn: GroupScalarColumn,
   HTTPBody: HTTPBody,
+  HTTPCDGatesBadRequestResponse: HTTPCDGatesBadRequestResponse,
+  HTTPCDGatesNotFoundResponse: HTTPCDGatesNotFoundResponse,
+  HTTPCDRulesNotFoundResponse: HTTPCDRulesNotFoundResponse,
   HTTPCIAppError: HTTPCIAppError,
   HTTPCIAppErrors: HTTPCIAppErrors,
   HTTPHeader: HTTPHeader,
@@ -7234,6 +7295,14 @@ const typeMap: { [index: string]: any } = {
     UpdateConnectionRequestDataAttributesFieldsToUpdateItems,
   UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
   UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
+  UpdateDeploymentGateParams: UpdateDeploymentGateParams,
+  UpdateDeploymentGateParamsData: UpdateDeploymentGateParamsData,
+  UpdateDeploymentGateParamsDataAttributes:
+    UpdateDeploymentGateParamsDataAttributes,
+  UpdateDeploymentRuleParams: UpdateDeploymentRuleParams,
+  UpdateDeploymentRuleParamsData: UpdateDeploymentRuleParamsData,
+  UpdateDeploymentRuleParamsDataAttributes:
+    UpdateDeploymentRuleParamsDataAttributes,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
@@ -7517,6 +7586,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
+  DeploymentRulesOptions: [
+    "DeploymentRuleOptionsFaultyDeploymentDetection",
+    "DeploymentRuleOptionsMonitor",
+  ],
   DowntimeMonitorIdentifier: [
     "DowntimeMonitorIdentifierId",
     "DowntimeMonitorIdentifierTags",
