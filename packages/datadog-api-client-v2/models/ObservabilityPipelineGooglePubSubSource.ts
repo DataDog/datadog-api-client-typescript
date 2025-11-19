@@ -17,7 +17,7 @@ export class ObservabilityPipelineGooglePubSubSource {
   /**
    * GCP credentials used to authenticate with Google Cloud Storage.
    */
-  "auth": ObservabilityPipelineGcpAuth;
+  "auth"?: ObservabilityPipelineGcpAuth;
   /**
    * The decoding format used to interpret incoming logs.
    */
@@ -62,7 +62,6 @@ export class ObservabilityPipelineGooglePubSubSource {
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineGcpAuth",
-      required: true,
     },
     decoding: {
       baseName: "decoding",
