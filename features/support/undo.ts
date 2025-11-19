@@ -1,12 +1,13 @@
 import fs from "fs";
 import path from "path";
+import log from "loglevel";
+
 import { getProperty, pathLookup } from "./templating";
+import { ScenariosModelMappings } from "./scenarios_model_mapping";
 import * as datadogApiClient from "../../index";
 
-import log from "loglevel";
 const logger = log.getLogger("testing")
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
-
 
 interface iOperationParameter {
   name: string;
@@ -99,13 +100,18 @@ function buildUndoFor(
         opts[p.name.toAttributeName()] = pathLookup(dataSource, p.source);
       } else if (p.template !== undefined) {
         const data = JSON.parse(p.template.templated(dataSource));
-        const param: { [key: string]: any } = {};
-        for (const [key, value] of Object.entries(data)) {
-          param[key.toAttributeName()] = value;
-        }
-        opts[p.name.toAttributeName()] = param;
+        opts[p.name.toAttributeName()] = data;
       }
     }
+
+    const objectSerializer = getProperty(datadogApiClient, apiVersion).ObjectSerializer;
+    Object.keys(opts).forEach(key => {
+      opts[key] = objectSerializer.deserialize(
+        opts[key],
+        ScenariosModelMappings[`${apiVersion}.${operationUndo.undo.operationId}`][key].type,
+        ScenariosModelMappings[`${apiVersion}.${operationUndo.undo.operationId}`][key].format
+      )
+    });
 
     try {
       await apiInstance[operationName](opts);
