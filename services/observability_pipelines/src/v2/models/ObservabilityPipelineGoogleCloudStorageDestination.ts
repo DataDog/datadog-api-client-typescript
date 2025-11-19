@@ -14,11 +14,11 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
   /**
    * Access control list setting for objects written to the bucket.
    */
-  "acl": ObservabilityPipelineGoogleCloudStorageDestinationAcl;
+  "acl"?: ObservabilityPipelineGoogleCloudStorageDestinationAcl;
   /**
    * GCP credentials used to authenticate with Google Cloud Storage.
    */
-  "auth": ObservabilityPipelineGcpAuth;
+  "auth"?: ObservabilityPipelineGcpAuth;
   /**
    * Name of the GCS bucket.
    */
@@ -65,12 +65,10 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
     acl: {
       baseName: "acl",
       type: "ObservabilityPipelineGoogleCloudStorageDestinationAcl",
-      required: true,
     },
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineGcpAuth",
-      required: true,
     },
     bucket: {
       baseName: "bucket",
