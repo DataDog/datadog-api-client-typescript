@@ -41,13 +41,13 @@ export class ServiceLevelObjectiveRequest {
    */
   "name": string;
   /**
-   * A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+   * A metric-based SLO. Note that Datadog only allows the sum by aggregator
    * to be used because this will sum up all request counts instead of averaging them, or taking the max or
    * min of all of those requests.
    */
   "query"?: ServiceLevelObjectiveQuery;
   /**
-   * A generic SLI specification. This is currently used for time-slice SLOs only.
+   * A generic SLI specification. This is currently used for time-slice and count-based SLOs only.
    */
   "sliSpecification"?: SLOSliSpec;
   /**
