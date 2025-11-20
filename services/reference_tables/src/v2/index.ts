@@ -1,15 +1,22 @@
 export {
   ReferenceTablesApiCreateReferenceTableRequest,
   ReferenceTablesApiCreateReferenceTableUploadRequest,
+  ReferenceTablesApiDeleteRowsRequest,
   ReferenceTablesApiDeleteTableRequest,
   ReferenceTablesApiGetRowsByIDRequest,
   ReferenceTablesApiGetTableRequest,
   ReferenceTablesApiListTablesRequest,
   ReferenceTablesApiUpdateReferenceTableRequest,
+  ReferenceTablesApiUpsertRowsRequest,
   ReferenceTablesApi,
 } from "./ReferenceTablesApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { BatchDeleteRowsRequestArray } from "./models/BatchDeleteRowsRequestArray";
+export { BatchDeleteRowsRequestData } from "./models/BatchDeleteRowsRequestData";
+export { BatchUpsertRowsRequestArray } from "./models/BatchUpsertRowsRequestArray";
+export { BatchUpsertRowsRequestData } from "./models/BatchUpsertRowsRequestData";
+export { BatchUpsertRowsRequestDataAttributes } from "./models/BatchUpsertRowsRequestDataAttributes";
 export { CreateTableRequest } from "./models/CreateTableRequest";
 export { CreateTableRequestData } from "./models/CreateTableRequestData";
 export { CreateTableRequestDataAttributes } from "./models/CreateTableRequestDataAttributes";

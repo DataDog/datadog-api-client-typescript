@@ -1,6 +1,11 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { BatchDeleteRowsRequestArray } from "./BatchDeleteRowsRequestArray";
+import { BatchDeleteRowsRequestData } from "./BatchDeleteRowsRequestData";
+import { BatchUpsertRowsRequestArray } from "./BatchUpsertRowsRequestArray";
+import { BatchUpsertRowsRequestData } from "./BatchUpsertRowsRequestData";
+import { BatchUpsertRowsRequestDataAttributes } from "./BatchUpsertRowsRequestDataAttributes";
 import { CreateTableRequest } from "./CreateTableRequest";
 import { CreateTableRequestData } from "./CreateTableRequestData";
 import { CreateTableRequestDataAttributes } from "./CreateTableRequestDataAttributes";
@@ -96,6 +101,11 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    BatchDeleteRowsRequestArray: BatchDeleteRowsRequestArray,
+    BatchDeleteRowsRequestData: BatchDeleteRowsRequestData,
+    BatchUpsertRowsRequestArray: BatchUpsertRowsRequestArray,
+    BatchUpsertRowsRequestData: BatchUpsertRowsRequestData,
+    BatchUpsertRowsRequestDataAttributes: BatchUpsertRowsRequestDataAttributes,
     CreateTableRequest: CreateTableRequest,
     CreateTableRequestData: CreateTableRequestData,
     CreateTableRequestDataAttributes: CreateTableRequestDataAttributes,

@@ -23,6 +23,8 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { BatchDeleteRowsRequestArray } from "./models/BatchDeleteRowsRequestArray";
+import { BatchUpsertRowsRequestArray } from "./models/BatchUpsertRowsRequestArray";
 import { CreateTableRequest } from "./models/CreateTableRequest";
 import { CreateUploadRequest } from "./models/CreateUploadRequest";
 import { CreateUploadResponse } from "./models/CreateUploadResponse";
@@ -130,6 +132,66 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateUploadRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteRows(
+    id: string,
+    body: BatchDeleteRowsRequestArray,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteRows");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "deleteRows");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/reference-tables/tables/{id}/rows".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReferenceTablesApi.v2.deleteRows",
+      ReferenceTablesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "BatchDeleteRowsRequestArray", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -439,6 +501,66 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async upsertRows(
+    id: string,
+    body: BatchUpsertRowsRequestArray,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "upsertRows");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "upsertRows");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/reference-tables/tables/{id}/rows".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReferenceTablesApi.v2.upsertRows",
+      ReferenceTablesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "BatchUpsertRowsRequestArray", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class ReferenceTablesApiResponseProcessor {
@@ -553,6 +675,55 @@ export class ReferenceTablesApiResponseProcessor {
         "",
       ) as CreateUploadResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteRows
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteRows(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -829,6 +1000,55 @@ export class ReferenceTablesApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to upsertRows
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async upsertRows(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface ReferenceTablesApiCreateReferenceTableRequest {
@@ -843,6 +1063,18 @@ export interface ReferenceTablesApiCreateReferenceTableUploadRequest {
    * @type CreateUploadRequest
    */
   body: CreateUploadRequest;
+}
+
+export interface ReferenceTablesApiDeleteRowsRequest {
+  /**
+   * Unique identifier of the reference table to delete rows from
+   * @type string
+   */
+  id: string;
+  /**
+   * @type BatchDeleteRowsRequestArray
+   */
+  body: BatchDeleteRowsRequestArray;
 }
 
 export interface ReferenceTablesApiDeleteTableRequest {
@@ -919,6 +1151,18 @@ export interface ReferenceTablesApiUpdateReferenceTableRequest {
   body: PatchTableRequest;
 }
 
+export interface ReferenceTablesApiUpsertRowsRequest {
+  /**
+   * Unique identifier of the reference table to upsert rows into
+   * @type string
+   */
+  id: string;
+  /**
+   * @type BatchUpsertRowsRequestArray
+   */
+  body: BatchUpsertRowsRequestArray;
+}
+
 export class ReferenceTablesApi {
   private requestFactory: ReferenceTablesApiRequestFactory;
   private responseProcessor: ReferenceTablesApiResponseProcessor;
@@ -981,6 +1225,28 @@ export class ReferenceTablesApi {
           return this.responseProcessor.createReferenceTableUpload(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Delete multiple rows from a Reference Table by their primary key values.
+   * @param param The request object
+   */
+  public deleteRows(
+    param: ReferenceTablesApiDeleteRowsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteRows(
+      param.id,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteRows(responseContext);
         });
     });
   }
@@ -1093,6 +1359,28 @@ export class ReferenceTablesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateReferenceTable(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create or update rows in a Reference Table by their primary key values. If a row with the specified primary key exists, it is updated; otherwise, a new row is created.
+   * @param param The request object
+   */
+  public upsertRows(
+    param: ReferenceTablesApiUpsertRowsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.upsertRows(
+      param.id,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.upsertRows(responseContext);
         });
     });
   }
