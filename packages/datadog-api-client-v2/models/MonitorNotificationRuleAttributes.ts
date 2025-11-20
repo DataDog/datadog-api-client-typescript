@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MonitorNotificationRuleAttributes {
   /**
-   * Use conditional recipients to define different recipients for different situations.
+   * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
    */
   "conditionalRecipients"?: MonitorNotificationRuleConditionalRecipients;
   /**
@@ -25,7 +25,7 @@ export class MonitorNotificationRuleAttributes {
    */
   "name": string;
   /**
-   * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'.
+   * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
    */
   "recipients"?: Array<string>;
 

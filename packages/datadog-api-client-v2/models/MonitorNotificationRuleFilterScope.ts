@@ -7,13 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Filter monitor notifications by tags. A monitor notification must match all tags.
+ * Filter monitor notifications. A monitor notification must match the scope.
  */
-export class MonitorNotificationRuleFilterTags {
+export class MonitorNotificationRuleFilterScope {
   /**
-   * A list of tags (key:value pairs), which can be used to filter monitor notifications on monitor and group tags.
+   * A scope composed of one or several key:value pairs, which can be used to filter monitor notifications on monitor and group tags.
    */
-  "tags": Array<string>;
+  "scope": string;
 
   /**
    * @ignore
@@ -24,9 +24,9 @@ export class MonitorNotificationRuleFilterTags {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    scope: {
+      baseName: "scope",
+      type: "string",
       required: true,
     },
   };
@@ -35,7 +35,7 @@ export class MonitorNotificationRuleFilterTags {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorNotificationRuleFilterTags.attributeTypeMap;
+    return MonitorNotificationRuleFilterScope.attributeTypeMap;
   }
 
   public constructor() {}

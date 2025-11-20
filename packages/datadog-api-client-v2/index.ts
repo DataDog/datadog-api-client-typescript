@@ -2964,6 +2964,7 @@ export { MonitorNotificationRuleCreateRequest } from "./models/MonitorNotificati
 export { MonitorNotificationRuleCreateRequestData } from "./models/MonitorNotificationRuleCreateRequestData";
 export { MonitorNotificationRuleData } from "./models/MonitorNotificationRuleData";
 export { MonitorNotificationRuleFilter } from "./models/MonitorNotificationRuleFilter";
+export { MonitorNotificationRuleFilterScope } from "./models/MonitorNotificationRuleFilterScope";
 export { MonitorNotificationRuleFilterTags } from "./models/MonitorNotificationRuleFilterTags";
 export { MonitorNotificationRuleListResponse } from "./models/MonitorNotificationRuleListResponse";
 export { MonitorNotificationRuleRelationships } from "./models/MonitorNotificationRuleRelationships";
