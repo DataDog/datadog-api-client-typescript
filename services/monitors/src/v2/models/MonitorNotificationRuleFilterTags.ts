@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Filter monitors by tags. Monitors must match all tags.
+ * Filter monitor notifications by tags. A monitor notification must match all tags.
  */
 export class MonitorNotificationRuleFilterTags {
   /**
-   * A list of monitor tags.
+   * A list of tags (key:value pairs), which can be used to filter monitor notifications on monitor and group tags.
    */
   "tags": Array<string>;
   /**
