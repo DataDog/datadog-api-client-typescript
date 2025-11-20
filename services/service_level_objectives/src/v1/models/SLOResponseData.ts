@@ -5,7 +5,6 @@ import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { SLOSliSpec } from "./SLOSliSpec";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOTimeframe } from "./SLOTimeframe";
-import { SLOType } from "./SLOType";
 
 /**
  * A service level objective object includes a service level indicator, thresholds
@@ -72,13 +71,13 @@ export class SLOResponseData {
    */
   "name"?: string;
   /**
-   * A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+   * A metric-based SLO. Note that Datadog only allows the sum by aggregator
    * to be used because this will sum up all request counts instead of averaging them, or taking the max or
    * min of all of those requests.
    */
   "query"?: ServiceLevelObjectiveQuery;
   /**
-   * A generic SLI specification. This is currently used for time-slice SLOs only.
+   * A generic SLI specification. This is currently used for time-slice and count-based SLOs only.
    */
   "sliSpecification"?: SLOSliSpec;
   /**
@@ -102,10 +101,6 @@ export class SLOResponseData {
    * or updating SLOs. It is only used when querying SLO history over custom timeframes.
    */
   "timeframe"?: SLOTimeframe;
-  /**
-   * The type of the service level objective.
-   */
-  "type"?: SLOType;
   /**
    * The optional warning threshold such that when the service level indicator is
    * below this value for the given threshold, but above the target threshold, the
@@ -196,10 +191,6 @@ export class SLOResponseData {
     timeframe: {
       baseName: "timeframe",
       type: "SLOTimeframe",
-    },
-    type: {
-      baseName: "type",
-      type: "SLOType",
     },
     warningThreshold: {
       baseName: "warning_threshold",
