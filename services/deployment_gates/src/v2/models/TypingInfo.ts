@@ -12,6 +12,7 @@ import { DeploymentGateResponseData } from "./DeploymentGateResponseData";
 import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
+import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
 import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
 import { DeploymentRuleResponse } from "./DeploymentRuleResponse";
@@ -63,6 +64,7 @@ export const TypingInfo: ModelTypingInfo = {
       DeploymentGateResponseDataAttributesCreatedBy,
     DeploymentGateResponseDataAttributesUpdatedBy:
       DeploymentGateResponseDataAttributesUpdatedBy,
+    DeploymentGateRulesResponse: DeploymentGateRulesResponse,
     DeploymentRuleOptionsFaultyDeploymentDetection:
       DeploymentRuleOptionsFaultyDeploymentDetection,
     DeploymentRuleOptionsMonitor: DeploymentRuleOptionsMonitor,
