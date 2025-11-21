@@ -8735,6 +8735,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OnDemandConcurrencyCapResponse",
   },
+  "SyntheticsApi.V2.PatchGlobalVariable": {
+    variableId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GlobalVariableJsonPatchRequest",
+      format: "",
+    },
+    operationResponseType: "GlobalVariableResponse",
+  },
   "TeamsApi.V2.ListTeams": {
     pageNumber: {
       type: "number",
