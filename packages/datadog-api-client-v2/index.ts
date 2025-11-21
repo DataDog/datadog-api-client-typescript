@@ -300,6 +300,7 @@ export {
   DeploymentGatesApiDeleteDeploymentGateRequest,
   DeploymentGatesApiDeleteDeploymentRuleRequest,
   DeploymentGatesApiGetDeploymentGateRequest,
+  DeploymentGatesApiGetDeploymentGateRulesRequest,
   DeploymentGatesApiGetDeploymentRuleRequest,
   DeploymentGatesApiUpdateDeploymentGateRequest,
   DeploymentGatesApiUpdateDeploymentRuleRequest,
@@ -1875,6 +1876,7 @@ export { DeploymentGateResponseData } from "./models/DeploymentGateResponseData"
 export { DeploymentGateResponseDataAttributes } from "./models/DeploymentGateResponseDataAttributes";
 export { DeploymentGateResponseDataAttributesCreatedBy } from "./models/DeploymentGateResponseDataAttributesCreatedBy";
 export { DeploymentGateResponseDataAttributesUpdatedBy } from "./models/DeploymentGateResponseDataAttributesUpdatedBy";
+export { DeploymentGateRulesResponse } from "./models/DeploymentGateRulesResponse";
 export { DeploymentMetadata } from "./models/DeploymentMetadata";
 export { DeploymentRelationship } from "./models/DeploymentRelationship";
 export { DeploymentRelationshipData } from "./models/DeploymentRelationshipData";
