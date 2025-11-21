@@ -730,6 +730,7 @@ import { DeploymentGateResponseData } from "./DeploymentGateResponseData";
 import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
+import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
 import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationship } from "./DeploymentRelationship";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
@@ -5172,6 +5173,7 @@ const typeMap: { [index: string]: any } = {
     DeploymentGateResponseDataAttributesCreatedBy,
   DeploymentGateResponseDataAttributesUpdatedBy:
     DeploymentGateResponseDataAttributesUpdatedBy,
+  DeploymentGateRulesResponse: DeploymentGateRulesResponse,
   DeploymentMetadata: DeploymentMetadata,
   DeploymentRelationship: DeploymentRelationship,
   DeploymentRelationshipData: DeploymentRelationshipData,
