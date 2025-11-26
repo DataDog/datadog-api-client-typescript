@@ -721,6 +721,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-logs-restriction-queries@workspace:services/logs_restriction_queries":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-logs-restriction-queries@workspace:services/logs_restriction_queries"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-logs@workspace:services/logs":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs@workspace:services/logs"
