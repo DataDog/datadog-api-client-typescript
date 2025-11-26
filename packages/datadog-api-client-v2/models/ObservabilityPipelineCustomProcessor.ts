@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineCustomProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * The unique identifier for this processor.
    */
   "id": string;
@@ -20,10 +24,6 @@ export class ObservabilityPipelineCustomProcessor {
    * A Datadog search query used to determine which logs this processor targets. This field should always be set to `*` for the custom_processor processor.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   */
-  "inputs": Array<string>;
   /**
    * Array of VRL remap rules.
    */
@@ -49,6 +49,11 @@ export class ObservabilityPipelineCustomProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -57,11 +62,6 @@ export class ObservabilityPipelineCustomProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     remaps: {

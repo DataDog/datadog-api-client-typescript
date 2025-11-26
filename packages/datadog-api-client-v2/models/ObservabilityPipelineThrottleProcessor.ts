@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineThrottleProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * Optional list of fields used to group events before the threshold has been reached.
    */
   "groupBy"?: Array<string>;
@@ -23,10 +27,6 @@ export class ObservabilityPipelineThrottleProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   */
-  "inputs": Array<string>;
   /**
    * the number of events allowed in a given time window. Events sent after the threshold has been reached, are dropped.
    */
@@ -56,6 +56,11 @@ export class ObservabilityPipelineThrottleProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     groupBy: {
       baseName: "group_by",
       type: "Array<string>",
@@ -68,11 +73,6 @@ export class ObservabilityPipelineThrottleProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     threshold: {

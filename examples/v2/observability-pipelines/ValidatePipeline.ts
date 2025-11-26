@@ -16,16 +16,24 @@ const params: v2.ObservabilityPipelinesApiValidatePipelineRequest = {
           destinations: [
             {
               id: "datadog-logs-destination",
-              inputs: ["filter-processor"],
+              inputs: ["my-processor-group"],
               type: "datadog_logs",
             },
           ],
           processors: [
             {
-              id: "filter-processor",
+              enabled: true,
+              id: "my-processor-group",
               include: "service:my-service",
               inputs: ["datadog-agent-source"],
-              type: "filter",
+              processors: [
+                {
+                  enabled: true,
+                  id: "filter-processor",
+                  include: "status:error",
+                  type: "filter",
+                },
+              ],
             },
           ],
           sources: [
