@@ -14,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineEnrichmentTableProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * Defines a static enrichment table loaded from a CSV file.
    */
   "file"?: ObservabilityPipelineEnrichmentTableFile;
@@ -29,10 +33,6 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   */
-  "inputs": Array<string>;
   /**
    * Path where enrichment results should be stored in the log.
    */
@@ -58,6 +58,11 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     file: {
       baseName: "file",
       type: "ObservabilityPipelineEnrichmentTableFile",
@@ -74,11 +79,6 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     target: {

@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineRemoveFieldsProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * A list of field names to be removed from each log event.
    */
   "fields": Array<string>;
@@ -23,10 +27,6 @@ export class ObservabilityPipelineRemoveFieldsProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * The `PipelineRemoveFieldsProcessor` `inputs`.
-   */
-  "inputs": Array<string>;
   /**
    * The processor type. The value should always be `remove_fields`.
    */
@@ -48,6 +48,11 @@ export class ObservabilityPipelineRemoveFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     fields: {
       baseName: "fields",
       type: "Array<string>",
@@ -61,11 +66,6 @@ export class ObservabilityPipelineRemoveFieldsProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     type: {

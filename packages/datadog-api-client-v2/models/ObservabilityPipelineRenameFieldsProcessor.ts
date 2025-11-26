@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineRenameFieldsProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * A list of rename rules specifying which fields to rename in the event, what to rename them to, and whether to preserve the original fields.
    */
   "fields": Array<ObservabilityPipelineRenameFieldsProcessorField>;
@@ -24,10 +28,6 @@ export class ObservabilityPipelineRenameFieldsProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the `input` for this component.
-   */
-  "inputs": Array<string>;
   /**
    * The processor type. The value should always be `rename_fields`.
    */
@@ -49,6 +49,11 @@ export class ObservabilityPipelineRenameFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     fields: {
       baseName: "fields",
       type: "Array<ObservabilityPipelineRenameFieldsProcessorField>",
@@ -62,11 +67,6 @@ export class ObservabilityPipelineRenameFieldsProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     type: {

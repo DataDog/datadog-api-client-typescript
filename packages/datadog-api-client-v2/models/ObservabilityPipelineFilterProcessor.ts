@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineFilterProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -19,10 +23,6 @@ export class ObservabilityPipelineFilterProcessor {
    * A Datadog search query used to determine which logs should pass through the filter. Logs that match this query continue to downstream components; others are dropped.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the `input` for this component.
-   */
-  "inputs": Array<string>;
   /**
    * The processor type. The value should always be `filter`.
    */
@@ -44,6 +44,11 @@ export class ObservabilityPipelineFilterProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -52,11 +57,6 @@ export class ObservabilityPipelineFilterProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     type: {
