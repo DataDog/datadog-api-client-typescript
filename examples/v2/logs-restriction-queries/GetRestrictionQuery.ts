@@ -1,0 +1,26 @@
+/**
+ * Get a restriction query returns "OK" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.getRestrictionQuery"] = true;
+const apiInstance = new v2.LogsRestrictionQueriesApi(configuration);
+
+// there is a valid "restriction_query" in the system
+const RESTRICTION_QUERY_DATA_ID = process.env
+  .RESTRICTION_QUERY_DATA_ID as string;
+
+const params: v2.LogsRestrictionQueriesApiGetRestrictionQueryRequest = {
+  restrictionQueryId: RESTRICTION_QUERY_DATA_ID,
+};
+
+apiInstance
+  .getRestrictionQuery(params)
+  .then((data: v2.RestrictionQueryWithRelationshipsResponse) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
