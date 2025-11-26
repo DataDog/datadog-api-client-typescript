@@ -8,6 +8,10 @@ import { ObservabilityPipelineReduceProcessorType } from "./ObservabilityPipelin
  */
 export class ObservabilityPipelineReduceProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * A list of fields used to group log events for merging.
    */
   "groupBy": Array<string>;
@@ -19,10 +23,6 @@ export class ObservabilityPipelineReduceProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   */
-  "inputs": Array<string>;
   /**
    * List of merge strategies defining how values from grouped events should be combined.
    */
@@ -46,6 +46,11 @@ export class ObservabilityPipelineReduceProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     groupBy: {
       baseName: "group_by",
       type: "Array<string>",
@@ -59,11 +64,6 @@ export class ObservabilityPipelineReduceProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     mergeStrategies: {
