@@ -8,6 +8,10 @@ import { ObservabilityPipelineDedupeProcessorType } from "./ObservabilityPipelin
  */
 export class ObservabilityPipelineDedupeProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * A list of log field paths to check for duplicates.
    */
   "fields": Array<string>;
@@ -19,10 +23,6 @@ export class ObservabilityPipelineDedupeProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   */
-  "inputs": Array<string>;
   /**
    * The deduplication mode to apply to the fields.
    */
@@ -46,6 +46,11 @@ export class ObservabilityPipelineDedupeProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     fields: {
       baseName: "fields",
       type: "Array<string>",
@@ -59,11 +64,6 @@ export class ObservabilityPipelineDedupeProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     mode: {
