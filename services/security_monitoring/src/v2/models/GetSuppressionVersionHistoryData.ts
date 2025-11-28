@@ -1,23 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { RuleVersionUpdateType } from "./RuleVersionUpdateType";
+import { GetSuppressionVersionHistoryDataType } from "./GetSuppressionVersionHistoryDataType";
+import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 
 /**
- * A change in a rule version.
+ * Data for the suppression version history.
  */
-export class RuleVersionUpdate {
+export class GetSuppressionVersionHistoryData {
   /**
-   * The new value of the field.
+   * Response object containing the version history of a suppression.
    */
-  "change"?: string;
+  "attributes"?: SuppressionVersionHistory;
   /**
-   * The field that was changed.
+   * ID of the suppression.
    */
-  "field"?: string;
+  "id"?: string;
   /**
-   * The type of change.
+   * Type of data.
    */
-  "type"?: RuleVersionUpdateType;
+  "type"?: GetSuppressionVersionHistoryDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,17 +34,17 @@ export class RuleVersionUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    change: {
-      baseName: "change",
-      type: "string",
+    attributes: {
+      baseName: "attributes",
+      type: "SuppressionVersionHistory",
     },
-    field: {
-      baseName: "field",
+    id: {
+      baseName: "id",
       type: "string",
     },
     type: {
       baseName: "type",
-      type: "RuleVersionUpdateType",
+      type: "GetSuppressionVersionHistoryDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +56,7 @@ export class RuleVersionUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleVersionUpdate.attributeTypeMap;
+    return GetSuppressionVersionHistoryData.attributeTypeMap;
   }
 
   public constructor() {}

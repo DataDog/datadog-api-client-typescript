@@ -71,6 +71,8 @@ import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluatio
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
 import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
+import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
+import { GetSuppressionVersionHistoryResponse } from "./GetSuppressionVersionHistoryResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -101,7 +103,6 @@ import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
-import { RuleVersionUpdate } from "./RuleVersionUpdate";
 import { RuleVersions } from "./RuleVersions";
 import { RunThreatHuntingJobRequest } from "./RunThreatHuntingJobRequest";
 import { RunThreatHuntingJobRequestAttributes } from "./RunThreatHuntingJobRequestAttributes";
@@ -210,6 +211,8 @@ import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoring
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { Selectors } from "./Selectors";
+import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
+import { SuppressionVersions } from "./SuppressionVersions";
 import { ThreatHuntingJobListMeta } from "./ThreatHuntingJobListMeta";
 import { ThreatHuntingJobOptions } from "./ThreatHuntingJobOptions";
 import { ThreatHuntingJobQuery } from "./ThreatHuntingJobQuery";
@@ -222,6 +225,7 @@ import { UpdateResourceEvaluationFiltersRequest } from "./UpdateResourceEvaluati
 import { UpdateResourceEvaluationFiltersRequestData } from "./UpdateResourceEvaluationFiltersRequestData";
 import { UpdateResourceEvaluationFiltersResponse } from "./UpdateResourceEvaluationFiltersResponse";
 import { UpdateResourceEvaluationFiltersResponseData } from "./UpdateResourceEvaluationFiltersResponseData";
+import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 import { Vulnerability } from "./Vulnerability";
 import { VulnerabilityAdvisory } from "./VulnerabilityAdvisory";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
@@ -270,6 +274,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
+    GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -290,7 +295,6 @@ export const TypingInfo: ModelTypingInfo = {
       "host_vulnerability",
       "iac_misconfiguration",
     ],
-    RuleVersionUpdateType: ["create", "update", "delete"],
     RunThreatHuntingJobRequestDataType: ["historicalDetectionsJobCreate"],
     SBOMComponentLicenseType: [
       "network_strong_copyleft",
@@ -418,6 +422,7 @@ export const TypingInfo: ModelTypingInfo = {
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
     ThreatHuntingJobDataType: ["historicalDetectionsJob"],
     TriggerSource: ["security_findings", "security_signals"],
+    VersionHistoryUpdateType: ["create", "update", "delete"],
     VulnerabilitiesType: ["vulnerabilities"],
     VulnerabilityEcosystem: [
       "PyPI",
@@ -605,6 +610,8 @@ export const TypingInfo: ModelTypingInfo = {
     GetRuleVersionHistoryData: GetRuleVersionHistoryData,
     GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
     GetSBOMResponse: GetSBOMResponse,
+    GetSuppressionVersionHistoryData: GetSuppressionVersionHistoryData,
+    GetSuppressionVersionHistoryResponse: GetSuppressionVersionHistoryResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -636,7 +643,6 @@ export const TypingInfo: ModelTypingInfo = {
     ResponseMetaAttributes: ResponseMetaAttributes,
     RuleUser: RuleUser,
     RuleVersionHistory: RuleVersionHistory,
-    RuleVersionUpdate: RuleVersionUpdate,
     RuleVersions: RuleVersions,
     RunThreatHuntingJobRequest: RunThreatHuntingJobRequest,
     RunThreatHuntingJobRequestAttributes: RunThreatHuntingJobRequestAttributes,
@@ -793,6 +799,8 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
     SecurityMonitoringUser: SecurityMonitoringUser,
     Selectors: Selectors,
+    SuppressionVersionHistory: SuppressionVersionHistory,
+    SuppressionVersions: SuppressionVersions,
     ThreatHuntingJobListMeta: ThreatHuntingJobListMeta,
     ThreatHuntingJobOptions: ThreatHuntingJobOptions,
     ThreatHuntingJobQuery: ThreatHuntingJobQuery,
@@ -809,6 +817,7 @@ export const TypingInfo: ModelTypingInfo = {
       UpdateResourceEvaluationFiltersResponse,
     UpdateResourceEvaluationFiltersResponseData:
       UpdateResourceEvaluationFiltersResponseData,
+    VersionHistoryUpdate: VersionHistoryUpdate,
     Vulnerability: Vulnerability,
     VulnerabilityAdvisory: VulnerabilityAdvisory,
     VulnerabilityAttributes: VulnerabilityAttributes,
