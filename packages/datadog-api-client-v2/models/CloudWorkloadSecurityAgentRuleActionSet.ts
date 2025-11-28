@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudWorkloadSecurityAgentRuleActionSetValue } from "./CloudWorkloadSecurityAgentRuleActionSetValue";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -49,7 +50,7 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
   /**
    * The value of the set action
    */
-  "value"?: string;
+  "value"?: CloudWorkloadSecurityAgentRuleActionSetValue;
 
   /**
    * A container for additional, undeclared properties.
@@ -107,7 +108,7 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
     },
     value: {
       baseName: "value",
-      type: "string",
+      type: "CloudWorkloadSecurityAgentRuleActionSetValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",

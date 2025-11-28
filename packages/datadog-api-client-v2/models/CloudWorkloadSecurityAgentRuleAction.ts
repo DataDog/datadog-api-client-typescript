@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudWorkloadSecurityAgentRuleActionHash } from "./CloudWorkloadSecurityAgentRuleActionHash";
 import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgentRuleKill";
@@ -18,9 +19,9 @@ export class CloudWorkloadSecurityAgentRuleAction {
    */
   "filter"?: string;
   /**
-   * An empty object indicating the hash action
+   * Hash file specified by the field attribute
    */
-  "hash"?: { [key: string]: any };
+  "hash"?: CloudWorkloadSecurityAgentRuleActionHash;
   /**
    * Kill system call applied on the container matching the rule
    */
@@ -56,7 +57,7 @@ export class CloudWorkloadSecurityAgentRuleAction {
     },
     hash: {
       baseName: "hash",
-      type: "{ [key: string]: any; }",
+      type: "CloudWorkloadSecurityAgentRuleActionHash",
     },
     kill: {
       baseName: "kill",
