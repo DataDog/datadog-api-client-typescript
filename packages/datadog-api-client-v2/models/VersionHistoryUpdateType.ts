@@ -10,7 +10,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * The type of change.
  */
 
-export type RuleVersionUpdateType =
+export type VersionHistoryUpdateType =
   | typeof CREATE
   | typeof UPDATE
   | typeof DELETE

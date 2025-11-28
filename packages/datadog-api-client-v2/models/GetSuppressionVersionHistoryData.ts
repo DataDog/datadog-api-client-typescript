@@ -3,23 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
+import { GetSuppressionVersionHistoryDataType } from "./GetSuppressionVersionHistoryDataType";
+import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A rule version with a list of updates.
+ * Data for the suppression version history.
  */
-export class RuleVersions {
+export class GetSuppressionVersionHistoryData {
   /**
-   * A list of changes.
+   * Response object containing the version history of a suppression.
    */
-  "changes"?: Array<VersionHistoryUpdate>;
+  "attributes"?: SuppressionVersionHistory;
   /**
-   * Create a new rule.
+   * ID of the suppression.
    */
-  "rule"?: SecurityMonitoringRuleResponse;
+  "id"?: string;
+  /**
+   * Type of data.
+   */
+  "type"?: GetSuppressionVersionHistoryDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +41,17 @@ export class RuleVersions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changes: {
-      baseName: "changes",
-      type: "Array<VersionHistoryUpdate>",
+    attributes: {
+      baseName: "attributes",
+      type: "SuppressionVersionHistory",
     },
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleResponse",
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "GetSuppressionVersionHistoryDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +63,7 @@ export class RuleVersions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleVersions.attributeTypeMap;
+    return GetSuppressionVersionHistoryData.attributeTypeMap;
   }
 
   public constructor() {}
