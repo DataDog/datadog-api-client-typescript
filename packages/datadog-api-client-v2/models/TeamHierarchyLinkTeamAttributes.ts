@@ -7,61 +7,45 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Team attributes
+ * Team attributes in hierarchy link context
  */
-export class TeamAttributes {
+export class TeamHierarchyLinkTeamAttributes {
   /**
-   * Unicode representation of the avatar for the team, limited to a single grapheme
+   * The team's avatar
    */
   "avatar"?: string;
   /**
-   * Banner selection for the team
+   * The team's banner
    */
   "banner"?: number;
   /**
-   * Creation date of the team
-   */
-  "createdAt"?: Date;
-  /**
-   * Free-form markdown description/content for the team's homepage
-   */
-  "description"?: string;
-  /**
-   * The team's identifier
+   * The team's handle
    */
   "handle": string;
   /**
-   * Collection of hidden modules for the team
-   */
-  "hiddenModules"?: Array<string>;
-  /**
-   * Whether the team is managed from an external source
+   * Whether the team is managed
    */
   "isManaged"?: boolean;
   /**
-   * The number of links belonging to the team
+   * Whether the team has open membership
+   */
+  "isOpenMembership"?: boolean;
+  /**
+   * The number of links for the team
    */
   "linkCount"?: number;
   /**
-   * Modification date of the team
-   */
-  "modifiedAt"?: Date;
-  /**
-   * The name of the team
+   * The team's name
    */
   "name": string;
   /**
-   * A brief summary of the team, derived from the `description`
+   * The team's summary
    */
   "summary"?: string;
   /**
-   * The number of users belonging to the team
+   * The number of users in the team
    */
   "userCount"?: number;
-  /**
-   * Collection of visible modules for the team
-   */
-  "visibleModules"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -88,37 +72,23 @@ export class TeamAttributes {
       type: "number",
       format: "int64",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
-    },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
     handle: {
       baseName: "handle",
       type: "string",
       required: true,
     },
-    hiddenModules: {
-      baseName: "hidden_modules",
-      type: "Array<string>",
-    },
     isManaged: {
       baseName: "is_managed",
+      type: "boolean",
+    },
+    isOpenMembership: {
+      baseName: "is_open_membership",
       type: "boolean",
     },
     linkCount: {
       baseName: "link_count",
       type: "number",
-      format: "int32",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+      format: "int64",
     },
     name: {
       baseName: "name",
@@ -132,11 +102,7 @@ export class TeamAttributes {
     userCount: {
       baseName: "user_count",
       type: "number",
-      format: "int32",
-    },
-    visibleModules: {
-      baseName: "visible_modules",
-      type: "Array<string>",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -148,7 +114,7 @@ export class TeamAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamAttributes.attributeTypeMap;
+    return TeamHierarchyLinkTeamAttributes.attributeTypeMap;
   }
 
   public constructor() {}
