@@ -1,20 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
+import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
 
 /**
- * A rule version with a list of updates.
+ * Response for getting the suppression version history.
  */
-export class RuleVersions {
+export class GetSuppressionVersionHistoryResponse {
   /**
-   * A list of changes.
+   * Data for the suppression version history.
    */
-  "changes"?: Array<VersionHistoryUpdate>;
-  /**
-   * Create a new rule.
-   */
-  "rule"?: SecurityMonitoringRuleResponse;
+  "data"?: GetSuppressionVersionHistoryData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,13 +25,9 @@ export class RuleVersions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changes: {
-      baseName: "changes",
-      type: "Array<VersionHistoryUpdate>",
-    },
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleResponse",
+    data: {
+      baseName: "data",
+      type: "GetSuppressionVersionHistoryData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +39,7 @@ export class RuleVersions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleVersions.attributeTypeMap;
+    return GetSuppressionVersionHistoryResponse.attributeTypeMap;
   }
 
   public constructor() {}
