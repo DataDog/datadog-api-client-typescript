@@ -31,7 +31,9 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentRuleRequest = {
             },
           },
           {
-            hash: {},
+            hash: {
+              field: "exec.file",
+            },
           },
         ],
       },
