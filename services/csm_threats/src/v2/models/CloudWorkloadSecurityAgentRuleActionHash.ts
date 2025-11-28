@@ -1,17 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The versions of the policy
+ * Hash file specified by the field attribute
  */
-export class CloudWorkloadSecurityAgentPolicyVersion {
+export class CloudWorkloadSecurityAgentRuleActionHash {
   /**
-   * The date and time the version was created
+   * The field of the hash action
    */
-  "date"?: string;
-  /**
-   * The version of the policy
-   */
-  "name"?: string;
+  "field"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,12 +23,8 @@ export class CloudWorkloadSecurityAgentPolicyVersion {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    date: {
-      baseName: "date",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
+    field: {
+      baseName: "field",
       type: "string",
     },
     additionalProperties: {
@@ -45,7 +37,7 @@ export class CloudWorkloadSecurityAgentPolicyVersion {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentPolicyVersion.attributeTypeMap;
+    return CloudWorkloadSecurityAgentRuleActionHash.attributeTypeMap;
   }
 
   public constructor() {}
