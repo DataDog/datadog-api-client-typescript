@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CloudWorkloadSecurityAgentRuleActionSetValue } from "./CloudWorkloadSecurityAgentRuleActionSetValue";
+
 /**
  * The set action applied on the scope matching the rule
  */
@@ -43,7 +45,7 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
   /**
    * The value of the set action
    */
-  "value"?: string;
+  "value"?: CloudWorkloadSecurityAgentRuleActionSetValue;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -99,7 +101,7 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
     },
     value: {
       baseName: "value",
-      type: "string",
+      type: "CloudWorkloadSecurityAgentRuleActionSetValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",
