@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
+import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A rule version with a list of updates.
+ * Response for getting the suppression version history.
  */
-export class RuleVersions {
+export class GetSuppressionVersionHistoryResponse {
   /**
-   * A list of changes.
+   * Data for the suppression version history.
    */
-  "changes"?: Array<VersionHistoryUpdate>;
-  /**
-   * Create a new rule.
-   */
-  "rule"?: SecurityMonitoringRuleResponse;
+  "data"?: GetSuppressionVersionHistoryData;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +32,9 @@ export class RuleVersions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changes: {
-      baseName: "changes",
-      type: "Array<VersionHistoryUpdate>",
-    },
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleResponse",
+    data: {
+      baseName: "data",
+      type: "GetSuppressionVersionHistoryData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +46,7 @@ export class RuleVersions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleVersions.attributeTypeMap;
+    return GetSuppressionVersionHistoryResponse.attributeTypeMap;
   }
 
   public constructor() {}

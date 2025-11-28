@@ -3,26 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleVersionUpdateType } from "./RuleVersionUpdateType";
+import { SuppressionVersions } from "./SuppressionVersions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A change in a rule version.
+ * Response object containing the version history of a suppression.
  */
-export class RuleVersionUpdate {
+export class SuppressionVersionHistory {
   /**
-   * The new value of the field.
+   * The number of suppression versions.
    */
-  "change"?: string;
+  "count"?: number;
   /**
-   * The field that was changed.
+   * The version history of a suppression.
    */
-  "field"?: string;
-  /**
-   * The type of change.
-   */
-  "type"?: RuleVersionUpdateType;
+  "data"?: { [key: string]: SuppressionVersions };
 
   /**
    * A container for additional, undeclared properties.
@@ -40,17 +36,14 @@ export class RuleVersionUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    change: {
-      baseName: "change",
-      type: "string",
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int32",
     },
-    field: {
-      baseName: "field",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "RuleVersionUpdateType",
+    data: {
+      baseName: "data",
+      type: "{ [key: string]: SuppressionVersions; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,7 +55,7 @@ export class RuleVersionUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleVersionUpdate.attributeTypeMap;
+    return SuppressionVersionHistory.attributeTypeMap;
   }
 
   public constructor() {}

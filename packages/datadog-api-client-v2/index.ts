@@ -742,6 +742,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
   SecurityMonitoringApiGetThreatHuntingJobRequest,
@@ -2350,6 +2351,9 @@ export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
 export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
 export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 export { GetSBOMResponse } from "./models/GetSBOMResponse";
+export { GetSuppressionVersionHistoryData } from "./models/GetSuppressionVersionHistoryData";
+export { GetSuppressionVersionHistoryDataType } from "./models/GetSuppressionVersionHistoryDataType";
+export { GetSuppressionVersionHistoryResponse } from "./models/GetSuppressionVersionHistoryResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GetWorkflowResponse } from "./models/GetWorkflowResponse";
 export { GithubWebhookTrigger } from "./models/GithubWebhookTrigger";
@@ -3604,8 +3608,6 @@ export { RuleTypesItems } from "./models/RuleTypesItems";
 export { RuleUser } from "./models/RuleUser";
 export { RuleVersionHistory } from "./models/RuleVersionHistory";
 export { RuleVersions } from "./models/RuleVersions";
-export { RuleVersionUpdate } from "./models/RuleVersionUpdate";
-export { RuleVersionUpdateType } from "./models/RuleVersionUpdateType";
 export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
 export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
 export { RUMAggregateRequest } from "./models/RUMAggregateRequest";
@@ -4162,6 +4164,8 @@ export { StatsigIntegrationUpdate } from "./models/StatsigIntegrationUpdate";
 export { Step } from "./models/Step";
 export { StepDisplay } from "./models/StepDisplay";
 export { StepDisplayBounds } from "./models/StepDisplayBounds";
+export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
+export { SuppressionVersions } from "./models/SuppressionVersions";
 export { TableResultV2 } from "./models/TableResultV2";
 export { TableResultV2Array } from "./models/TableResultV2Array";
 export { TableResultV2Data } from "./models/TableResultV2Data";
@@ -4431,6 +4435,8 @@ export { V2EventResponse } from "./models/V2EventResponse";
 export { ValidationError } from "./models/ValidationError";
 export { ValidationErrorMeta } from "./models/ValidationErrorMeta";
 export { ValidationResponse } from "./models/ValidationResponse";
+export { VersionHistoryUpdate } from "./models/VersionHistoryUpdate";
+export { VersionHistoryUpdateType } from "./models/VersionHistoryUpdateType";
 export { VirusTotalAPIKey } from "./models/VirusTotalAPIKey";
 export { VirusTotalAPIKeyType } from "./models/VirusTotalAPIKeyType";
 export { VirusTotalAPIKeyUpdate } from "./models/VirusTotalAPIKeyUpdate";
