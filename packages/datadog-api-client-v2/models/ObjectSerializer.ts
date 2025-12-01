@@ -1960,6 +1960,21 @@ import { RestrictionPolicyAttributes } from "./RestrictionPolicyAttributes";
 import { RestrictionPolicyBinding } from "./RestrictionPolicyBinding";
 import { RestrictionPolicyResponse } from "./RestrictionPolicyResponse";
 import { RestrictionPolicyUpdateRequest } from "./RestrictionPolicyUpdateRequest";
+import { RestrictionQueryAttributes } from "./RestrictionQueryAttributes";
+import { RestrictionQueryCreateAttributes } from "./RestrictionQueryCreateAttributes";
+import { RestrictionQueryCreateData } from "./RestrictionQueryCreateData";
+import { RestrictionQueryCreatePayload } from "./RestrictionQueryCreatePayload";
+import { RestrictionQueryListResponse } from "./RestrictionQueryListResponse";
+import { RestrictionQueryRole } from "./RestrictionQueryRole";
+import { RestrictionQueryRoleAttribute } from "./RestrictionQueryRoleAttribute";
+import { RestrictionQueryRolesResponse } from "./RestrictionQueryRolesResponse";
+import { RestrictionQueryUpdateAttributes } from "./RestrictionQueryUpdateAttributes";
+import { RestrictionQueryUpdateData } from "./RestrictionQueryUpdateData";
+import { RestrictionQueryUpdatePayload } from "./RestrictionQueryUpdatePayload";
+import { RestrictionQueryWithRelationships } from "./RestrictionQueryWithRelationships";
+import { RestrictionQueryWithRelationshipsResponse } from "./RestrictionQueryWithRelationshipsResponse";
+import { RestrictionQueryWithoutRelationships } from "./RestrictionQueryWithoutRelationships";
+import { RestrictionQueryWithoutRelationshipsResponse } from "./RestrictionQueryWithoutRelationshipsResponse";
 import { RetentionFilter } from "./RetentionFilter";
 import { RetentionFilterAll } from "./RetentionFilterAll";
 import { RetentionFilterAllAttributes } from "./RetentionFilterAllAttributes";
@@ -2429,6 +2444,19 @@ import { TeamCreate } from "./TeamCreate";
 import { TeamCreateAttributes } from "./TeamCreateAttributes";
 import { TeamCreateRelationships } from "./TeamCreateRelationships";
 import { TeamCreateRequest } from "./TeamCreateRequest";
+import { TeamHierarchyLink } from "./TeamHierarchyLink";
+import { TeamHierarchyLinkAttributes } from "./TeamHierarchyLinkAttributes";
+import { TeamHierarchyLinkCreate } from "./TeamHierarchyLinkCreate";
+import { TeamHierarchyLinkCreateRelationships } from "./TeamHierarchyLinkCreateRelationships";
+import { TeamHierarchyLinkCreateRequest } from "./TeamHierarchyLinkCreateRequest";
+import { TeamHierarchyLinkCreateTeam } from "./TeamHierarchyLinkCreateTeam";
+import { TeamHierarchyLinkCreateTeamRelationship } from "./TeamHierarchyLinkCreateTeamRelationship";
+import { TeamHierarchyLinkRelationships } from "./TeamHierarchyLinkRelationships";
+import { TeamHierarchyLinkResponse } from "./TeamHierarchyLinkResponse";
+import { TeamHierarchyLinkTeam } from "./TeamHierarchyLinkTeam";
+import { TeamHierarchyLinkTeamAttributes } from "./TeamHierarchyLinkTeamAttributes";
+import { TeamHierarchyLinkTeamRelationship } from "./TeamHierarchyLinkTeamRelationship";
+import { TeamHierarchyLinksResponse } from "./TeamHierarchyLinksResponse";
 import { TeamLink } from "./TeamLink";
 import { TeamLinkAttributes } from "./TeamLinkAttributes";
 import { TeamLinkCreate } from "./TeamLinkCreate";
@@ -2474,6 +2502,9 @@ import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 import { TeamUpdateRequest } from "./TeamUpdateRequest";
+import { TeamsHierarchyLinksResponseLinks } from "./TeamsHierarchyLinksResponseLinks";
+import { TeamsHierarchyLinksResponseMeta } from "./TeamsHierarchyLinksResponseMeta";
+import { TeamsHierarchyLinksResponseMetaPage } from "./TeamsHierarchyLinksResponseMetaPage";
 import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
@@ -3399,6 +3430,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsMetricComputeAggregationType: ["count", "distribution"],
   LogsMetricResponseComputeAggregationType: ["count", "distribution"],
   LogsMetricType: ["logs_metrics"],
+  LogsRestrictionQueriesType: ["logs_restriction_queries"],
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
@@ -4120,6 +4152,7 @@ const enumsMap: { [key: string]: any[] } = {
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
   TeamConnectionType: ["team_connection"],
+  TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
   TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
     "escalation_policy_steps",
@@ -6625,6 +6658,23 @@ const typeMap: { [index: string]: any } = {
   RestrictionPolicyBinding: RestrictionPolicyBinding,
   RestrictionPolicyResponse: RestrictionPolicyResponse,
   RestrictionPolicyUpdateRequest: RestrictionPolicyUpdateRequest,
+  RestrictionQueryAttributes: RestrictionQueryAttributes,
+  RestrictionQueryCreateAttributes: RestrictionQueryCreateAttributes,
+  RestrictionQueryCreateData: RestrictionQueryCreateData,
+  RestrictionQueryCreatePayload: RestrictionQueryCreatePayload,
+  RestrictionQueryListResponse: RestrictionQueryListResponse,
+  RestrictionQueryRole: RestrictionQueryRole,
+  RestrictionQueryRoleAttribute: RestrictionQueryRoleAttribute,
+  RestrictionQueryRolesResponse: RestrictionQueryRolesResponse,
+  RestrictionQueryUpdateAttributes: RestrictionQueryUpdateAttributes,
+  RestrictionQueryUpdateData: RestrictionQueryUpdateData,
+  RestrictionQueryUpdatePayload: RestrictionQueryUpdatePayload,
+  RestrictionQueryWithRelationships: RestrictionQueryWithRelationships,
+  RestrictionQueryWithRelationshipsResponse:
+    RestrictionQueryWithRelationshipsResponse,
+  RestrictionQueryWithoutRelationships: RestrictionQueryWithoutRelationships,
+  RestrictionQueryWithoutRelationshipsResponse:
+    RestrictionQueryWithoutRelationshipsResponse,
   RetentionFilter: RetentionFilter,
   RetentionFilterAll: RetentionFilterAll,
   RetentionFilterAllAttributes: RetentionFilterAllAttributes,
@@ -7188,6 +7238,20 @@ const typeMap: { [index: string]: any } = {
   TeamCreateAttributes: TeamCreateAttributes,
   TeamCreateRelationships: TeamCreateRelationships,
   TeamCreateRequest: TeamCreateRequest,
+  TeamHierarchyLink: TeamHierarchyLink,
+  TeamHierarchyLinkAttributes: TeamHierarchyLinkAttributes,
+  TeamHierarchyLinkCreate: TeamHierarchyLinkCreate,
+  TeamHierarchyLinkCreateRelationships: TeamHierarchyLinkCreateRelationships,
+  TeamHierarchyLinkCreateRequest: TeamHierarchyLinkCreateRequest,
+  TeamHierarchyLinkCreateTeam: TeamHierarchyLinkCreateTeam,
+  TeamHierarchyLinkCreateTeamRelationship:
+    TeamHierarchyLinkCreateTeamRelationship,
+  TeamHierarchyLinkRelationships: TeamHierarchyLinkRelationships,
+  TeamHierarchyLinkResponse: TeamHierarchyLinkResponse,
+  TeamHierarchyLinkTeam: TeamHierarchyLinkTeam,
+  TeamHierarchyLinkTeamAttributes: TeamHierarchyLinkTeamAttributes,
+  TeamHierarchyLinkTeamRelationship: TeamHierarchyLinkTeamRelationship,
+  TeamHierarchyLinksResponse: TeamHierarchyLinksResponse,
   TeamLink: TeamLink,
   TeamLinkAttributes: TeamLinkAttributes,
   TeamLinkCreate: TeamLinkCreate,
@@ -7239,6 +7303,9 @@ const typeMap: { [index: string]: any } = {
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
   TeamUpdateRequest: TeamUpdateRequest,
+  TeamsHierarchyLinksResponseLinks: TeamsHierarchyLinksResponseLinks,
+  TeamsHierarchyLinksResponseMeta: TeamsHierarchyLinksResponseMeta,
+  TeamsHierarchyLinksResponseMetaPage: TeamsHierarchyLinksResponseMetaPage,
   TeamsResponse: TeamsResponse,
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
@@ -7833,6 +7900,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
   RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
