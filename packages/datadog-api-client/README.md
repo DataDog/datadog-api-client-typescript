@@ -399,6 +399,7 @@ apiInstance
 | Logs Indexes | @datadog/datadog-api-client-logs-indexes | [README.md](../../services/logs-indexes/README.md) |
 | Logs Metrics | @datadog/datadog-api-client-logs-metrics | [README.md](../../services/logs-metrics/README.md) |
 | Logs Pipelines | @datadog/datadog-api-client-logs-pipelines | [README.md](../../services/logs-pipelines/README.md) |
+| Logs Restriction Queries | @datadog/datadog-api-client-logs-restriction-queries | [README.md](../../services/logs-restriction-queries/README.md) |
 | Metrics | @datadog/datadog-api-client-metrics | [README.md](../../services/metrics/README.md) |
 | Microsoft Teams Integration | @datadog/datadog-api-client-microsoft-teams-integration | [README.md](../../services/microsoft-teams-integration/README.md) |
 | Monitors | @datadog/datadog-api-client-monitors | [README.md](../../services/monitors/README.md) |

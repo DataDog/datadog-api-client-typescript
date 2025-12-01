@@ -29,6 +29,10 @@ export class TeamAttributes {
    */
   "hiddenModules"?: Array<string>;
   /**
+   * Whether the team is managed from an external source
+   */
+  "isManaged"?: boolean;
+  /**
    * The number of links belonging to the team
    */
   "linkCount"?: number;
@@ -93,6 +97,10 @@ export class TeamAttributes {
     hiddenModules: {
       baseName: "hidden_modules",
       type: "Array<string>",
+    },
+    isManaged: {
+      baseName: "is_managed",
+      type: "boolean",
     },
     linkCount: {
       baseName: "link_count",
