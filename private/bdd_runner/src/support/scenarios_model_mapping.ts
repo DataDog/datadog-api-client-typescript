@@ -6757,6 +6757,111 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LogsMetricResponse",
   },
+  "LogsRestrictionQueriesApi.V2.ListRestrictionQueries": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "RestrictionQueryListResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.CreateRestrictionQuery": {
+    body: {
+      type: "RestrictionQueryCreatePayload",
+      format: "",
+    },
+    operationResponseType: "RestrictionQueryWithoutRelationshipsResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.GetRoleRestrictionQuery": {
+    roleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RestrictionQueryListResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.ListUserRestrictionQueries": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RestrictionQueryListResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.GetRestrictionQuery": {
+    restrictionQueryId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RestrictionQueryWithRelationshipsResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.ReplaceRestrictionQuery": {
+    restrictionQueryId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RestrictionQueryUpdatePayload",
+      format: "",
+    },
+    operationResponseType: "RestrictionQueryWithoutRelationshipsResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.DeleteRestrictionQuery": {
+    restrictionQueryId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LogsRestrictionQueriesApi.V2.UpdateRestrictionQuery": {
+    restrictionQueryId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RestrictionQueryUpdatePayload",
+      format: "",
+    },
+    operationResponseType: "RestrictionQueryWithoutRelationshipsResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.ListRestrictionQueryRoles": {
+    restrictionQueryId: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "RestrictionQueryRolesResponse",
+  },
+  "LogsRestrictionQueriesApi.V2.AddRoleToRestrictionQuery": {
+    restrictionQueryId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RelationshipToRole",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LogsRestrictionQueriesApi.V2.RemoveRoleFromRestrictionQuery": {
+    restrictionQueryId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RelationshipToRole",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "MetricsApi.V2.ListTagConfigurations": {
     filterConfigured: {
       type: "boolean",
@@ -8772,6 +8877,46 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "TeamResponse",
+  },
+  "TeamsApi.V2.ListTeamHierarchyLinks": {
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    filterParentTeam: {
+      type: "string",
+      format: "",
+    },
+    filterSubTeam: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TeamHierarchyLinksResponse",
+  },
+  "TeamsApi.V2.AddTeamHierarchyLink": {
+    body: {
+      type: "TeamHierarchyLinkCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TeamHierarchyLinkResponse",
+  },
+  "TeamsApi.V2.GetTeamHierarchyLink": {
+    linkId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TeamHierarchyLinkResponse",
+  },
+  "TeamsApi.V2.RemoveTeamHierarchyLink": {
+    linkId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "TeamsApi.V2.GetTeamSync": {
     filterSource: {
