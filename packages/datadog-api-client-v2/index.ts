@@ -870,6 +870,7 @@ export {
 
 export {
   TeamsApiAddMemberTeamRequest,
+  TeamsApiAddTeamHierarchyLinkRequest,
   TeamsApiCreateTeamRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
@@ -877,6 +878,7 @@ export {
   TeamsApiDeleteTeamLinkRequest,
   TeamsApiDeleteTeamMembershipRequest,
   TeamsApiGetTeamRequest,
+  TeamsApiGetTeamHierarchyLinkRequest,
   TeamsApiGetTeamLinkRequest,
   TeamsApiGetTeamLinksRequest,
   TeamsApiGetTeamMembershipsRequest,
@@ -884,8 +886,10 @@ export {
   TeamsApiGetTeamSyncRequest,
   TeamsApiGetUserMembershipsRequest,
   TeamsApiListMemberTeamsRequest,
+  TeamsApiListTeamHierarchyLinksRequest,
   TeamsApiListTeamsRequest,
   TeamsApiRemoveMemberTeamRequest,
+  TeamsApiRemoveTeamHierarchyLinkRequest,
   TeamsApiSyncTeamsRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
@@ -4195,6 +4199,20 @@ export { TeamCreate } from "./models/TeamCreate";
 export { TeamCreateAttributes } from "./models/TeamCreateAttributes";
 export { TeamCreateRelationships } from "./models/TeamCreateRelationships";
 export { TeamCreateRequest } from "./models/TeamCreateRequest";
+export { TeamHierarchyLink } from "./models/TeamHierarchyLink";
+export { TeamHierarchyLinkAttributes } from "./models/TeamHierarchyLinkAttributes";
+export { TeamHierarchyLinkCreate } from "./models/TeamHierarchyLinkCreate";
+export { TeamHierarchyLinkCreateRelationships } from "./models/TeamHierarchyLinkCreateRelationships";
+export { TeamHierarchyLinkCreateRequest } from "./models/TeamHierarchyLinkCreateRequest";
+export { TeamHierarchyLinkCreateTeam } from "./models/TeamHierarchyLinkCreateTeam";
+export { TeamHierarchyLinkCreateTeamRelationship } from "./models/TeamHierarchyLinkCreateTeamRelationship";
+export { TeamHierarchyLinkRelationships } from "./models/TeamHierarchyLinkRelationships";
+export { TeamHierarchyLinkResponse } from "./models/TeamHierarchyLinkResponse";
+export { TeamHierarchyLinksResponse } from "./models/TeamHierarchyLinksResponse";
+export { TeamHierarchyLinkTeam } from "./models/TeamHierarchyLinkTeam";
+export { TeamHierarchyLinkTeamAttributes } from "./models/TeamHierarchyLinkTeamAttributes";
+export { TeamHierarchyLinkTeamRelationship } from "./models/TeamHierarchyLinkTeamRelationship";
+export { TeamHierarchyLinkType } from "./models/TeamHierarchyLinkType";
 export { TeamIncluded } from "./models/TeamIncluded";
 export { TeamLink } from "./models/TeamLink";
 export { TeamLinkAttributes } from "./models/TeamLinkAttributes";
@@ -4247,6 +4265,9 @@ export { TeamRoutingRulesRequestDataAttributes } from "./models/TeamRoutingRules
 export { TeamRoutingRulesRequestDataType } from "./models/TeamRoutingRulesRequestDataType";
 export { TeamRoutingRulesRequestRule } from "./models/TeamRoutingRulesRequestRule";
 export { TeamsField } from "./models/TeamsField";
+export { TeamsHierarchyLinksResponseLinks } from "./models/TeamsHierarchyLinksResponseLinks";
+export { TeamsHierarchyLinksResponseMeta } from "./models/TeamsHierarchyLinksResponseMeta";
+export { TeamsHierarchyLinksResponseMetaPage } from "./models/TeamsHierarchyLinksResponseMetaPage";
 export { TeamsResponse } from "./models/TeamsResponse";
 export { TeamsResponseLinks } from "./models/TeamsResponseLinks";
 export { TeamsResponseMeta } from "./models/TeamsResponseMeta";

@@ -2429,6 +2429,19 @@ import { TeamCreate } from "./TeamCreate";
 import { TeamCreateAttributes } from "./TeamCreateAttributes";
 import { TeamCreateRelationships } from "./TeamCreateRelationships";
 import { TeamCreateRequest } from "./TeamCreateRequest";
+import { TeamHierarchyLink } from "./TeamHierarchyLink";
+import { TeamHierarchyLinkAttributes } from "./TeamHierarchyLinkAttributes";
+import { TeamHierarchyLinkCreate } from "./TeamHierarchyLinkCreate";
+import { TeamHierarchyLinkCreateRelationships } from "./TeamHierarchyLinkCreateRelationships";
+import { TeamHierarchyLinkCreateRequest } from "./TeamHierarchyLinkCreateRequest";
+import { TeamHierarchyLinkCreateTeam } from "./TeamHierarchyLinkCreateTeam";
+import { TeamHierarchyLinkCreateTeamRelationship } from "./TeamHierarchyLinkCreateTeamRelationship";
+import { TeamHierarchyLinkRelationships } from "./TeamHierarchyLinkRelationships";
+import { TeamHierarchyLinkResponse } from "./TeamHierarchyLinkResponse";
+import { TeamHierarchyLinkTeam } from "./TeamHierarchyLinkTeam";
+import { TeamHierarchyLinkTeamAttributes } from "./TeamHierarchyLinkTeamAttributes";
+import { TeamHierarchyLinkTeamRelationship } from "./TeamHierarchyLinkTeamRelationship";
+import { TeamHierarchyLinksResponse } from "./TeamHierarchyLinksResponse";
 import { TeamLink } from "./TeamLink";
 import { TeamLinkAttributes } from "./TeamLinkAttributes";
 import { TeamLinkCreate } from "./TeamLinkCreate";
@@ -2474,6 +2487,9 @@ import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 import { TeamUpdateRequest } from "./TeamUpdateRequest";
+import { TeamsHierarchyLinksResponseLinks } from "./TeamsHierarchyLinksResponseLinks";
+import { TeamsHierarchyLinksResponseMeta } from "./TeamsHierarchyLinksResponseMeta";
+import { TeamsHierarchyLinksResponseMetaPage } from "./TeamsHierarchyLinksResponseMetaPage";
 import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
@@ -4120,6 +4136,7 @@ const enumsMap: { [key: string]: any[] } = {
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
   TeamConnectionType: ["team_connection"],
+  TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
   TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
     "escalation_policy_steps",
@@ -7188,6 +7205,20 @@ const typeMap: { [index: string]: any } = {
   TeamCreateAttributes: TeamCreateAttributes,
   TeamCreateRelationships: TeamCreateRelationships,
   TeamCreateRequest: TeamCreateRequest,
+  TeamHierarchyLink: TeamHierarchyLink,
+  TeamHierarchyLinkAttributes: TeamHierarchyLinkAttributes,
+  TeamHierarchyLinkCreate: TeamHierarchyLinkCreate,
+  TeamHierarchyLinkCreateRelationships: TeamHierarchyLinkCreateRelationships,
+  TeamHierarchyLinkCreateRequest: TeamHierarchyLinkCreateRequest,
+  TeamHierarchyLinkCreateTeam: TeamHierarchyLinkCreateTeam,
+  TeamHierarchyLinkCreateTeamRelationship:
+    TeamHierarchyLinkCreateTeamRelationship,
+  TeamHierarchyLinkRelationships: TeamHierarchyLinkRelationships,
+  TeamHierarchyLinkResponse: TeamHierarchyLinkResponse,
+  TeamHierarchyLinkTeam: TeamHierarchyLinkTeam,
+  TeamHierarchyLinkTeamAttributes: TeamHierarchyLinkTeamAttributes,
+  TeamHierarchyLinkTeamRelationship: TeamHierarchyLinkTeamRelationship,
+  TeamHierarchyLinksResponse: TeamHierarchyLinksResponse,
   TeamLink: TeamLink,
   TeamLinkAttributes: TeamLinkAttributes,
   TeamLinkCreate: TeamLinkCreate,
@@ -7239,6 +7270,9 @@ const typeMap: { [index: string]: any } = {
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
   TeamUpdateRequest: TeamUpdateRequest,
+  TeamsHierarchyLinksResponseLinks: TeamsHierarchyLinksResponseLinks,
+  TeamsHierarchyLinksResponseMeta: TeamsHierarchyLinksResponseMeta,
+  TeamsHierarchyLinksResponseMetaPage: TeamsHierarchyLinksResponseMetaPage,
   TeamsResponse: TeamsResponse,
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,

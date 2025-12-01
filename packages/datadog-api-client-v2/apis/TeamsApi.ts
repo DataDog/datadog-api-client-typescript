@@ -23,6 +23,10 @@ import { ListTeamsInclude } from "../models/ListTeamsInclude";
 import { ListTeamsSort } from "../models/ListTeamsSort";
 import { Team } from "../models/Team";
 import { TeamCreateRequest } from "../models/TeamCreateRequest";
+import { TeamHierarchyLink } from "../models/TeamHierarchyLink";
+import { TeamHierarchyLinkCreateRequest } from "../models/TeamHierarchyLinkCreateRequest";
+import { TeamHierarchyLinkResponse } from "../models/TeamHierarchyLinkResponse";
+import { TeamHierarchyLinksResponse } from "../models/TeamHierarchyLinksResponse";
 import { TeamLinkCreateRequest } from "../models/TeamLinkCreateRequest";
 import { TeamLinkResponse } from "../models/TeamLinkResponse";
 import { TeamLinksResponse } from "../models/TeamLinksResponse";
@@ -85,6 +89,48 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AddMemberTeamRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async addTeamHierarchyLink(
+    body: TeamHierarchyLinkCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "addTeamHierarchyLink");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team-hierarchy-links";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.addTeamHierarchyLink")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TeamHierarchyLinkCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -375,6 +421,40 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.TeamsApi.getTeam")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTeamHierarchyLink(
+    linkId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'linkId' is not null or undefined
+    if (linkId === null || linkId === undefined) {
+      throw new RequiredError("linkId", "getTeamHierarchyLink");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team-hierarchy-links/{link_id}".replace(
+      "{link_id}",
+      encodeURIComponent(String(linkId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.getTeamHierarchyLink")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -712,6 +792,65 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listTeamHierarchyLinks(
+    pageNumber?: number,
+    pageSize?: number,
+    filterParentTeam?: string,
+    filterSubTeam?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/team-hierarchy-links";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.listTeamHierarchyLinks")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (filterParentTeam !== undefined) {
+      requestContext.setQueryParam(
+        "filter[parent_team]",
+        ObjectSerializer.serialize(filterParentTeam, "string", ""),
+        ""
+      );
+    }
+    if (filterSubTeam !== undefined) {
+      requestContext.setQueryParam(
+        "filter[sub_team]",
+        ObjectSerializer.serialize(filterSubTeam, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listTeams(
     pageNumber?: number,
     pageSize?: number,
@@ -826,6 +965,40 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.TeamsApi.removeMemberTeam")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async removeTeamHierarchyLink(
+    linkId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'linkId' is not null or undefined
+    if (linkId === null || linkId === undefined) {
+      throw new RequiredError("linkId", "removeTeamHierarchyLink");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team-hierarchy-links/{link_id}".replace(
+      "{link_id}",
+      encodeURIComponent(String(linkId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.removeTeamHierarchyLink")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1154,6 +1327,68 @@ export class TeamsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to addTeamHierarchyLink
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async addTeamHierarchyLink(
+    response: ResponseContext
+  ): Promise<TeamHierarchyLinkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyLinkResponse"
+      ) as TeamHierarchyLinkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyLinkResponse",
+        ""
+      ) as TeamHierarchyLinkResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1552,6 +1787,68 @@ export class TeamsApiResponseProcessor {
         "TeamResponse",
         ""
       ) as TeamResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getTeamHierarchyLink
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTeamHierarchyLink(
+    response: ResponseContext
+  ): Promise<TeamHierarchyLinkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyLinkResponse"
+      ) as TeamHierarchyLinkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamHierarchyLinkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyLinkResponse",
+        ""
+      ) as TeamHierarchyLinkResponse;
       return body;
     }
 
@@ -1996,6 +2293,64 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listTeamHierarchyLinks
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTeamHierarchyLinks(
+    response: ResponseContext
+  ): Promise<TeamHierarchyLinksResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TeamHierarchyLinksResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyLinksResponse"
+      ) as TeamHierarchyLinksResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamHierarchyLinksResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyLinksResponse",
+        ""
+      ) as TeamHierarchyLinksResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2056,6 +2411,59 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async removeMemberTeam(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to removeTeamHierarchyLink
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removeTeamHierarchyLink(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2411,6 +2819,13 @@ export interface TeamsApiAddMemberTeamRequest {
   body: AddMemberTeamRequest;
 }
 
+export interface TeamsApiAddTeamHierarchyLinkRequest {
+  /**
+   * @type TeamHierarchyLinkCreateRequest
+   */
+  body: TeamHierarchyLinkCreateRequest;
+}
+
 export interface TeamsApiCreateTeamRequest {
   /**
    * @type TeamCreateRequest
@@ -2482,6 +2897,14 @@ export interface TeamsApiGetTeamRequest {
    * @type string
    */
   teamId: string;
+}
+
+export interface TeamsApiGetTeamHierarchyLinkRequest {
+  /**
+   * The team hierarchy link's identifier
+   * @type string
+   */
+  linkId: string;
 }
 
 export interface TeamsApiGetTeamLinkRequest {
@@ -2580,6 +3003,29 @@ export interface TeamsApiListMemberTeamsRequest {
   fieldsTeam?: Array<TeamsField>;
 }
 
+export interface TeamsApiListTeamHierarchyLinksRequest {
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Filter by parent team ID
+   * @type string
+   */
+  filterParentTeam?: string;
+  /**
+   * Filter by sub team ID
+   * @type string
+   */
+  filterSubTeam?: string;
+}
+
 export interface TeamsApiListTeamsRequest {
   /**
    * Specific page number to return.
@@ -2629,6 +3075,14 @@ export interface TeamsApiRemoveMemberTeamRequest {
    * @type string
    */
   memberTeamId: string;
+}
+
+export interface TeamsApiRemoveTeamHierarchyLinkRequest {
+  /**
+   * The team hierarchy link's identifier
+   * @type string
+   */
+  linkId: string;
 }
 
 export interface TeamsApiSyncTeamsRequest {
@@ -2721,6 +3175,8 @@ export class TeamsApi {
   /**
    * Add a member team.
    * Adds the team given by the `id` in the body as a member team of the super team.
+   *
+   * **Note**: This API is deprecated. For creating team hierarchy links, use the team hierarchy links API: `POST /api/v2/team-hierarchy-links`.
    * @param param The request object
    */
   public addMemberTeam(
@@ -2737,6 +3193,27 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.addMemberTeam(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new team hierarchy link between a parent team and a sub team.
+   * @param param The request object
+   */
+  public addTeamHierarchyLink(
+    param: TeamsApiAddTeamHierarchyLinkRequest,
+    options?: Configuration
+  ): Promise<TeamHierarchyLinkResponse> {
+    const requestContextPromise = this.requestFactory.addTeamHierarchyLink(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addTeamHierarchyLink(responseContext);
         });
     });
   }
@@ -2889,6 +3366,27 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getTeam(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a single team hierarchy link for the given link_id.
+   * @param param The request object
+   */
+  public getTeamHierarchyLink(
+    param: TeamsApiGetTeamHierarchyLinkRequest,
+    options?: Configuration
+  ): Promise<TeamHierarchyLinkResponse> {
+    const requestContextPromise = this.requestFactory.getTeamHierarchyLink(
+      param.linkId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTeamHierarchyLink(responseContext);
         });
     });
   }
@@ -3073,6 +3571,9 @@ export class TeamsApi {
 
   /**
    * Get all member teams.
+   *
+   * **Note**: This API is deprecated. For team hierarchy relationships (parent-child
+   * teams), use the team hierarchy links API: `GET /api/v2/team-hierarchy-links`.
    * @param param The request object
    */
   public listMemberTeams(
@@ -3121,6 +3622,73 @@ export class TeamsApi {
       );
 
       const response = await this.responseProcessor.listMemberTeams(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
+  }
+
+  /**
+   * List all team hierarchy links that match the provided filters.
+   * @param param The request object
+   */
+  public listTeamHierarchyLinks(
+    param: TeamsApiListTeamHierarchyLinksRequest = {},
+    options?: Configuration
+  ): Promise<TeamHierarchyLinksResponse> {
+    const requestContextPromise = this.requestFactory.listTeamHierarchyLinks(
+      param.pageNumber,
+      param.pageSize,
+      param.filterParentTeam,
+      param.filterSubTeam,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTeamHierarchyLinks(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listTeamHierarchyLinks returning a generator with all the items.
+   */
+  public async *listTeamHierarchyLinksWithPagination(
+    param: TeamsApiListTeamHierarchyLinksRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<TeamHierarchyLink> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listTeamHierarchyLinks(
+        param.pageNumber,
+        param.pageSize,
+        param.filterParentTeam,
+        param.filterSubTeam,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listTeamHierarchyLinks(
         responseContext
       );
       const responseData = response.data;
@@ -3212,6 +3780,8 @@ export class TeamsApi {
 
   /**
    * Remove a super team's member team identified by `member_team_id`.
+   *
+   * **Note**: This API is deprecated. For deleting team hierarchy links, use the team hierarchy links API: `DELETE /api/v2/team-hierarchy-links/{link_id}`.
    * @param param The request object
    */
   public removeMemberTeam(
@@ -3228,6 +3798,29 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.removeMemberTeam(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove a team hierarchy link by the given link_id.
+   * @param param The request object
+   */
+  public removeTeamHierarchyLink(
+    param: TeamsApiRemoveTeamHierarchyLinkRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.removeTeamHierarchyLink(
+      param.linkId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeTeamHierarchyLink(
+            responseContext
+          );
         });
     });
   }

@@ -8763,6 +8763,46 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamResponse",
     },
+    "v2.ListTeamHierarchyLinks": {
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterParentTeam": {
+            "type": "string",
+            "format": "",
+            },
+        "filterSubTeam": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamHierarchyLinksResponse",
+    },
+    "v2.AddTeamHierarchyLink": {
+        "body": {
+            "type": "TeamHierarchyLinkCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamHierarchyLinkResponse",
+    },
+    "v2.GetTeamHierarchyLink": {
+        "linkId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamHierarchyLinkResponse",
+    },
+    "v2.RemoveTeamHierarchyLink": {
+        "linkId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetTeamSync": {
         "filterSource": {
             "type": "TeamSyncAttributesSource",
