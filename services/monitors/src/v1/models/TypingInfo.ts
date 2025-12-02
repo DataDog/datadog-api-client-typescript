@@ -7,6 +7,7 @@ import { Creator } from "./Creator";
 import { DeletedMonitor } from "./DeletedMonitor";
 import { MatchingDowntime } from "./MatchingDowntime";
 import { Monitor } from "./Monitor";
+import { MonitorAsset } from "./MonitorAsset";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
@@ -36,6 +37,8 @@ import { MonitorUpdateRequest } from "./MonitorUpdateRequest";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    MonitorAssetCategory: ["runbook"],
+    MonitorAssetResourceType: ["notebook"],
     MonitorDeviceID: [
       "laptop_large",
       "tablet",
@@ -148,6 +151,7 @@ export const TypingInfo: ModelTypingInfo = {
     DeletedMonitor: DeletedMonitor,
     MatchingDowntime: MatchingDowntime,
     Monitor: Monitor,
+    MonitorAsset: MonitorAsset,
     MonitorFormulaAndFunctionCostQueryDefinition:
       MonitorFormulaAndFunctionCostQueryDefinition,
     MonitorFormulaAndFunctionEventQueryDefinition:
