@@ -3860,6 +3860,45 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetFindingResponse",
     },
+    "v2.CreateCases": {
+        "body": {
+            "type": "CreateCaseRequestArray",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponseArray",
+    },
+    "v2.DetachCase": {
+        "body": {
+            "type": "DetachCaseRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.AttachCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AttachCaseRequest",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponse",
+    },
+    "v2.CreateJiraIssues": {
+        "body": {
+            "type": "CreateJiraIssueRequestArray",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponseArray",
+    },
+    "v2.AttachJiraIssue": {
+        "body": {
+            "type": "AttachJiraIssueRequest",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponse",
+    },
     "v2.ListAssetsSBOMs": {
         "pageToken": {
             "type": "string",

@@ -175,6 +175,13 @@ import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
 import { AssetRisks } from "./AssetRisks";
 import { AssetVersion } from "./AssetVersion";
+import { AttachCaseRequest } from "./AttachCaseRequest";
+import { AttachCaseRequestData } from "./AttachCaseRequestData";
+import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
+import { AttachJiraIssueRequest } from "./AttachJiraIssueRequest";
+import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
+import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDataAttributes";
+import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
 import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
@@ -341,6 +348,9 @@ import { CaseCreateRelationships } from "./CaseCreateRelationships";
 import { CaseCreateRequest } from "./CaseCreateRequest";
 import { CaseEmpty } from "./CaseEmpty";
 import { CaseEmptyRequest } from "./CaseEmptyRequest";
+import { CaseInsightsItems } from "./CaseInsightsItems";
+import { CaseManagementProject } from "./CaseManagementProject";
+import { CaseManagementProjectData } from "./CaseManagementProjectData";
 import { CaseRelationships } from "./CaseRelationships";
 import { CaseResponse } from "./CaseResponse";
 import { CaseTrigger } from "./CaseTrigger";
@@ -521,6 +531,10 @@ import { CreateAppsDatastoreRequestData } from "./CreateAppsDatastoreRequestData
 import { CreateAppsDatastoreRequestDataAttributes } from "./CreateAppsDatastoreRequestDataAttributes";
 import { CreateAppsDatastoreResponse } from "./CreateAppsDatastoreResponse";
 import { CreateAppsDatastoreResponseData } from "./CreateAppsDatastoreResponseData";
+import { CreateCaseRequestArray } from "./CreateCaseRequestArray";
+import { CreateCaseRequestData } from "./CreateCaseRequestData";
+import { CreateCaseRequestDataAttributes } from "./CreateCaseRequestDataAttributes";
+import { CreateCaseRequestDataRelationships } from "./CreateCaseRequestDataRelationships";
 import { CreateConnectionRequest } from "./CreateConnectionRequest";
 import { CreateConnectionRequestData } from "./CreateConnectionRequestData";
 import { CreateConnectionRequestDataAttributes } from "./CreateConnectionRequestDataAttributes";
@@ -539,6 +553,13 @@ import { CreateDeploymentRuleParamsData } from "./CreateDeploymentRuleParamsData
 import { CreateDeploymentRuleParamsDataAttributes } from "./CreateDeploymentRuleParamsDataAttributes";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
+import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
+import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
+import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
+import { CreateJiraIssueRequestDataAttributesFields } from "./CreateJiraIssueRequestDataAttributesFields";
+import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
+import { CreateJiraIssueRequestDataRelationshipsCase } from "./CreateJiraIssueRequestDataRelationshipsCase";
+import { CreateJiraIssueRequestDataRelationshipsCaseData } from "./CreateJiraIssueRequestDataRelationshipsCaseData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -740,6 +761,9 @@ import { DeploymentRuleResponseData } from "./DeploymentRuleResponseData";
 import { DeploymentRuleResponseDataAttributes } from "./DeploymentRuleResponseDataAttributes";
 import { DeploymentRuleResponseDataAttributesCreatedBy } from "./DeploymentRuleResponseDataAttributesCreatedBy";
 import { DeploymentRuleResponseDataAttributesUpdatedBy } from "./DeploymentRuleResponseDataAttributesUpdatedBy";
+import { DetachCaseRequest } from "./DetachCaseRequest";
+import { DetachCaseRequestData } from "./DetachCaseRequestData";
+import { DetachCaseRequestDataRelationships } from "./DetachCaseRequestDataRelationships";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
@@ -936,8 +960,17 @@ import { FastlyServicesResponse } from "./FastlyServicesResponse";
 import { FiltersPerProduct } from "./FiltersPerProduct";
 import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
+import { FindingCaseResponse } from "./FindingCaseResponse";
+import { FindingCaseResponseArray } from "./FindingCaseResponseArray";
+import { FindingCaseResponseData } from "./FindingCaseResponseData";
+import { FindingCaseResponseDataAttributes } from "./FindingCaseResponseDataAttributes";
+import { FindingCaseResponseDataRelationships } from "./FindingCaseResponseDataRelationships";
+import { FindingData } from "./FindingData";
+import { FindingJiraIssue } from "./FindingJiraIssue";
+import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
+import { Findings } from "./Findings";
 import { FlakyTest } from "./FlakyTest";
 import { FlakyTestAttributes } from "./FlakyTestAttributes";
 import { FlakyTestPipelineStats } from "./FlakyTestPipelineStats";
@@ -2929,6 +2962,8 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppTestLevel: ["session", "module", "suite", "test"],
   CSMAgentsType: ["datadog_agent"],
   Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
+  CaseDataType: ["cases"],
+  CaseManagementProjectDataType: ["projects"],
   CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
   CaseResourceType: ["case"],
   CaseSortableField: ["created_at", "priority", "status"],
@@ -3170,6 +3205,7 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
+  FindingDataType: ["findings"],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
     "PENDING_FIX",
@@ -3388,6 +3424,7 @@ const enumsMap: { [key: string]: any[] } = {
   IssuesSearchRequestDataAttributesTrack: ["trace", "logs", "rum"],
   IssuesSearchRequestDataType: ["search_request"],
   IssuesSearchResultType: ["error_tracking_search_result"],
+  JiraIssuesDataType: ["jira_issues"],
   LaunchDarklyAPIKeyType: ["LaunchDarklyAPIKey"],
   LaunchDarklyIntegrationType: ["LaunchDarkly"],
   LayerRelationshipsMembersDataItemsType: ["members"],
@@ -4555,6 +4592,14 @@ const typeMap: { [index: string]: any } = {
   AssetOperatingSystem: AssetOperatingSystem,
   AssetRisks: AssetRisks,
   AssetVersion: AssetVersion,
+  AttachCaseRequest: AttachCaseRequest,
+  AttachCaseRequestData: AttachCaseRequestData,
+  AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
+  AttachJiraIssueRequest: AttachJiraIssueRequest,
+  AttachJiraIssueRequestData: AttachJiraIssueRequestData,
+  AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
+  AttachJiraIssueRequestDataRelationships:
+    AttachJiraIssueRequestDataRelationships,
   AuditLogsEvent: AuditLogsEvent,
   AuditLogsEventAttributes: AuditLogsEventAttributes,
   AuditLogsEventsResponse: AuditLogsEventsResponse,
@@ -4732,6 +4777,9 @@ const typeMap: { [index: string]: any } = {
   CaseCreateRequest: CaseCreateRequest,
   CaseEmpty: CaseEmpty,
   CaseEmptyRequest: CaseEmptyRequest,
+  CaseInsightsItems: CaseInsightsItems,
+  CaseManagementProject: CaseManagementProject,
+  CaseManagementProjectData: CaseManagementProjectData,
   CaseRelationships: CaseRelationships,
   CaseResponse: CaseResponse,
   CaseTrigger: CaseTrigger,
@@ -4947,6 +4995,10 @@ const typeMap: { [index: string]: any } = {
     CreateAppsDatastoreRequestDataAttributes,
   CreateAppsDatastoreResponse: CreateAppsDatastoreResponse,
   CreateAppsDatastoreResponseData: CreateAppsDatastoreResponseData,
+  CreateCaseRequestArray: CreateCaseRequestArray,
+  CreateCaseRequestData: CreateCaseRequestData,
+  CreateCaseRequestDataAttributes: CreateCaseRequestDataAttributes,
+  CreateCaseRequestDataRelationships: CreateCaseRequestDataRelationships,
   CreateConnectionRequest: CreateConnectionRequest,
   CreateConnectionRequestData: CreateConnectionRequestData,
   CreateConnectionRequestDataAttributes: CreateConnectionRequestDataAttributes,
@@ -4970,6 +5022,17 @@ const typeMap: { [index: string]: any } = {
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
+  CreateJiraIssueRequestArray: CreateJiraIssueRequestArray,
+  CreateJiraIssueRequestData: CreateJiraIssueRequestData,
+  CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
+  CreateJiraIssueRequestDataAttributesFields:
+    CreateJiraIssueRequestDataAttributesFields,
+  CreateJiraIssueRequestDataRelationships:
+    CreateJiraIssueRequestDataRelationships,
+  CreateJiraIssueRequestDataRelationshipsCase:
+    CreateJiraIssueRequestDataRelationshipsCase,
+  CreateJiraIssueRequestDataRelationshipsCaseData:
+    CreateJiraIssueRequestDataRelationshipsCaseData,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
   CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
   CreateNotificationRuleParametersDataAttributes:
@@ -5218,6 +5281,9 @@ const typeMap: { [index: string]: any } = {
     DeploymentRuleResponseDataAttributesCreatedBy,
   DeploymentRuleResponseDataAttributesUpdatedBy:
     DeploymentRuleResponseDataAttributesUpdatedBy,
+  DetachCaseRequest: DetachCaseRequest,
+  DetachCaseRequestData: DetachCaseRequestData,
+  DetachCaseRequestDataRelationships: DetachCaseRequestDataRelationships,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
   DeviceAttributes: DeviceAttributes,
@@ -5449,8 +5515,17 @@ const typeMap: { [index: string]: any } = {
   FiltersPerProduct: FiltersPerProduct,
   Finding: Finding,
   FindingAttributes: FindingAttributes,
+  FindingCaseResponse: FindingCaseResponse,
+  FindingCaseResponseArray: FindingCaseResponseArray,
+  FindingCaseResponseData: FindingCaseResponseData,
+  FindingCaseResponseDataAttributes: FindingCaseResponseDataAttributes,
+  FindingCaseResponseDataRelationships: FindingCaseResponseDataRelationships,
+  FindingData: FindingData,
+  FindingJiraIssue: FindingJiraIssue,
+  FindingJiraIssueResult: FindingJiraIssueResult,
   FindingMute: FindingMute,
   FindingRule: FindingRule,
+  Findings: Findings,
   FlakyTest: FlakyTest,
   FlakyTestAttributes: FlakyTestAttributes,
   FlakyTestPipelineStats: FlakyTestPipelineStats,
@@ -7623,6 +7698,11 @@ const oneOfMap: { [index: string]: string[] } = {
   ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
+  CreateJiraIssueRequestArrayIncluded: [
+    "CreateCaseRequestData",
+    "CaseManagementProjectData",
+    "FindingData",
+  ],
   CreateTableRequestDataAttributesFileMetadata: [
     "CreateTableRequestDataAttributesFileMetadataCloudStorage",
     "CreateTableRequestDataAttributesFileMetadataLocalFile",
