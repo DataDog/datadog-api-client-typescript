@@ -3870,6 +3870,45 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GetFindingResponse",
   },
+  "SecurityMonitoringApi.V2.CreateCases": {
+    body: {
+      type: "CreateCaseRequestArray",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponseArray",
+  },
+  "SecurityMonitoringApi.V2.DetachCase": {
+    body: {
+      type: "DetachCaseRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.AttachCase": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AttachCaseRequest",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateJiraIssues": {
+    body: {
+      type: "CreateJiraIssueRequestArray",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponseArray",
+  },
+  "SecurityMonitoringApi.V2.AttachJiraIssue": {
+    body: {
+      type: "AttachJiraIssueRequest",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponse",
+  },
   "SecurityMonitoringApi.V2.ListAssetsSBOMs": {
     pageToken: {
       type: "string",
