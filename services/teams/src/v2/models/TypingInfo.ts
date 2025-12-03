@@ -2,6 +2,10 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
 import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
+import { ConnectedTeamRef } from "./ConnectedTeamRef";
+import { ConnectedTeamRefData } from "./ConnectedTeamRefData";
+import { ConnectionsPagePagination } from "./ConnectionsPagePagination";
+import { ConnectionsResponseMeta } from "./ConnectionsResponseMeta";
 import { MemberTeam } from "./MemberTeam";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
@@ -20,6 +24,14 @@ import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
+import { TeamConnection } from "./TeamConnection";
+import { TeamConnectionAttributes } from "./TeamConnectionAttributes";
+import { TeamConnectionCreateData } from "./TeamConnectionCreateData";
+import { TeamConnectionCreateRequest } from "./TeamConnectionCreateRequest";
+import { TeamConnectionDeleteRequest } from "./TeamConnectionDeleteRequest";
+import { TeamConnectionDeleteRequestDataItem } from "./TeamConnectionDeleteRequestDataItem";
+import { TeamConnectionRelationships } from "./TeamConnectionRelationships";
+import { TeamConnectionsResponse } from "./TeamConnectionsResponse";
 import { TeamCreate } from "./TeamCreate";
 import { TeamCreateAttributes } from "./TeamCreateAttributes";
 import { TeamCreateRelationships } from "./TeamCreateRelationships";
@@ -50,6 +62,8 @@ import { TeamPermissionSettingUpdate } from "./TeamPermissionSettingUpdate";
 import { TeamPermissionSettingUpdateAttributes } from "./TeamPermissionSettingUpdateAttributes";
 import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdateRequest";
 import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
+import { TeamRef } from "./TeamRef";
+import { TeamRefData } from "./TeamRefData";
 import { TeamRelationships } from "./TeamRelationships";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
@@ -85,6 +99,7 @@ import { UserTeamsResponse } from "./UserTeamsResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    ConnectedTeamRefDataType: ["github_team"],
     GetTeamMembershipsSort: [
       "manager_name",
       "-manager_name",
@@ -100,6 +115,7 @@ export const TypingInfo: ModelTypingInfo = {
     MemberTeamType: ["member_teams"],
     OrganizationsType: ["orgs"],
     RolesType: ["roles"],
+    TeamConnectionType: ["team_connection"],
     TeamHierarchyLinkType: ["team_hierarchy_links"],
     TeamLinkType: ["team_links"],
     TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
@@ -111,6 +127,7 @@ export const TypingInfo: ModelTypingInfo = {
       "user_access_manage",
       "teams_manage",
     ],
+    TeamRefDataType: ["team"],
     TeamSyncAttributesFrequency: ["once", "continuously", "paused"],
     TeamSyncAttributesSource: ["github"],
     TeamSyncAttributesType: ["link", "provision"],
@@ -147,6 +164,10 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AddMemberTeamRequest: AddMemberTeamRequest,
+    ConnectedTeamRef: ConnectedTeamRef,
+    ConnectedTeamRefData: ConnectedTeamRefData,
+    ConnectionsPagePagination: ConnectionsPagePagination,
+    ConnectionsResponseMeta: ConnectionsResponseMeta,
     MemberTeam: MemberTeam,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
@@ -165,6 +186,14 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToUsers: RelationshipToUsers,
     Team: Team,
     TeamAttributes: TeamAttributes,
+    TeamConnection: TeamConnection,
+    TeamConnectionAttributes: TeamConnectionAttributes,
+    TeamConnectionCreateData: TeamConnectionCreateData,
+    TeamConnectionCreateRequest: TeamConnectionCreateRequest,
+    TeamConnectionDeleteRequest: TeamConnectionDeleteRequest,
+    TeamConnectionDeleteRequestDataItem: TeamConnectionDeleteRequestDataItem,
+    TeamConnectionRelationships: TeamConnectionRelationships,
+    TeamConnectionsResponse: TeamConnectionsResponse,
     TeamCreate: TeamCreate,
     TeamCreateAttributes: TeamCreateAttributes,
     TeamCreateRelationships: TeamCreateRelationships,
@@ -197,6 +226,8 @@ export const TypingInfo: ModelTypingInfo = {
       TeamPermissionSettingUpdateAttributes,
     TeamPermissionSettingUpdateRequest: TeamPermissionSettingUpdateRequest,
     TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
+    TeamRef: TeamRef,
+    TeamRefData: TeamRefData,
     TeamRelationships: TeamRelationships,
     TeamRelationshipsLinks: TeamRelationshipsLinks,
     TeamResponse: TeamResponse,
