@@ -7,6 +7,13 @@ import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
 import { AssetRisks } from "./AssetRisks";
 import { AssetVersion } from "./AssetVersion";
+import { AttachCaseRequest } from "./AttachCaseRequest";
+import { AttachCaseRequestData } from "./AttachCaseRequestData";
+import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
+import { AttachJiraIssueRequest } from "./AttachJiraIssueRequest";
+import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
+import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDataAttributes";
+import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -17,6 +24,9 @@ import { BulkMuteFindingsResponse } from "./BulkMuteFindingsResponse";
 import { BulkMuteFindingsResponseData } from "./BulkMuteFindingsResponseData";
 import { CVSS } from "./CVSS";
 import { CalculatedField } from "./CalculatedField";
+import { CaseInsightsItems } from "./CaseInsightsItems";
+import { CaseManagementProject } from "./CaseManagementProject";
+import { CaseManagementProjectData } from "./CaseManagementProjectData";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
 import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCreate";
@@ -28,8 +38,19 @@ import { CodeLocation } from "./CodeLocation";
 import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
 import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData";
 import { ConvertJobResultsToSignalsRequest } from "./ConvertJobResultsToSignalsRequest";
+import { CreateCaseRequestArray } from "./CreateCaseRequestArray";
+import { CreateCaseRequestData } from "./CreateCaseRequestData";
+import { CreateCaseRequestDataAttributes } from "./CreateCaseRequestDataAttributes";
+import { CreateCaseRequestDataRelationships } from "./CreateCaseRequestDataRelationships";
 import { CreateCustomFrameworkRequest } from "./CreateCustomFrameworkRequest";
 import { CreateCustomFrameworkResponse } from "./CreateCustomFrameworkResponse";
+import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
+import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
+import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
+import { CreateJiraIssueRequestDataAttributesFields } from "./CreateJiraIssueRequestDataAttributesFields";
+import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
+import { CreateJiraIssueRequestDataRelationshipsCase } from "./CreateJiraIssueRequestDataRelationshipsCase";
+import { CreateJiraIssueRequestDataRelationshipsCaseData } from "./CreateJiraIssueRequestDataRelationshipsCaseData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -42,13 +63,25 @@ import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
 import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
 import { DependencyLocation } from "./DependencyLocation";
+import { DetachCaseRequest } from "./DetachCaseRequest";
+import { DetachCaseRequestData } from "./DetachCaseRequestData";
+import { DetachCaseRequestDataRelationships } from "./DetachCaseRequestDataRelationships";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { EPSS } from "./EPSS";
 import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
+import { FindingCaseResponse } from "./FindingCaseResponse";
+import { FindingCaseResponseArray } from "./FindingCaseResponseArray";
+import { FindingCaseResponseData } from "./FindingCaseResponseData";
+import { FindingCaseResponseDataAttributes } from "./FindingCaseResponseDataAttributes";
+import { FindingCaseResponseDataRelationships } from "./FindingCaseResponseDataRelationships";
+import { FindingData } from "./FindingData";
+import { FindingJiraIssue } from "./FindingJiraIssue";
+import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
+import { Findings } from "./Findings";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
@@ -96,6 +129,8 @@ import { Pagination } from "./Pagination";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
+import { RelationshipToUser } from "./RelationshipToUser";
+import { RelationshipToUserData } from "./RelationshipToUserData";
 import { Remediation } from "./Remediation";
 import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
@@ -236,6 +271,9 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AssetEntityType: ["assets"],
     AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
+    CaseDataType: ["cases"],
+    CaseManagementProjectDataType: ["projects"],
+    CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
     CloudAssetType: ["Host", "HostImage", "Image"],
     CloudConfigurationRuleType: ["cloud_configuration"],
     ConvertJobResultsToSignalsDataType: [
@@ -243,6 +281,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     CustomFrameworkType: ["custom_framework"],
     DetailedFindingType: ["detailed_finding"],
+    FindingDataType: ["findings"],
     FindingEvaluation: ["pass", "fail"],
     FindingMuteReason: [
       "PENDING_FIX",
@@ -270,6 +309,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
+    JiraIssuesDataType: ["jira_issues"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -418,6 +458,7 @@ export const TypingInfo: ModelTypingInfo = {
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
     ThreatHuntingJobDataType: ["historicalDetectionsJob"],
     TriggerSource: ["security_findings", "security_signals"],
+    UsersType: ["users"],
     VulnerabilitiesType: ["vulnerabilities"],
     VulnerabilityEcosystem: [
       "PyPI",
@@ -494,6 +535,11 @@ export const TypingInfo: ModelTypingInfo = {
     ],
   },
   oneOfMap: {
+    CreateJiraIssueRequestArrayIncluded: [
+      "CreateCaseRequestData",
+      "CaseManagementProjectData",
+      "FindingData",
+    ],
     SecurityMonitoringRuleConvertPayload: [
       "SecurityMonitoringStandardRulePayload",
       "SecurityMonitoringSignalRulePayload",
@@ -528,6 +574,14 @@ export const TypingInfo: ModelTypingInfo = {
     AssetOperatingSystem: AssetOperatingSystem,
     AssetRisks: AssetRisks,
     AssetVersion: AssetVersion,
+    AttachCaseRequest: AttachCaseRequest,
+    AttachCaseRequestData: AttachCaseRequestData,
+    AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
+    AttachJiraIssueRequest: AttachJiraIssueRequest,
+    AttachJiraIssueRequestData: AttachJiraIssueRequestData,
+    AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
+    AttachJiraIssueRequestDataRelationships:
+      AttachJiraIssueRequestDataRelationships,
     BulkMuteFindingsRequest: BulkMuteFindingsRequest,
     BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
     BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
@@ -538,6 +592,9 @@ export const TypingInfo: ModelTypingInfo = {
     BulkMuteFindingsResponseData: BulkMuteFindingsResponseData,
     CVSS: CVSS,
     CalculatedField: CalculatedField,
+    CaseInsightsItems: CaseInsightsItems,
+    CaseManagementProject: CaseManagementProject,
+    CaseManagementProjectData: CaseManagementProjectData,
     CloudConfigurationComplianceRuleOptions:
       CloudConfigurationComplianceRuleOptions,
     CloudConfigurationRegoRule: CloudConfigurationRegoRule,
@@ -551,8 +608,23 @@ export const TypingInfo: ModelTypingInfo = {
     ConvertJobResultsToSignalsAttributes: ConvertJobResultsToSignalsAttributes,
     ConvertJobResultsToSignalsData: ConvertJobResultsToSignalsData,
     ConvertJobResultsToSignalsRequest: ConvertJobResultsToSignalsRequest,
+    CreateCaseRequestArray: CreateCaseRequestArray,
+    CreateCaseRequestData: CreateCaseRequestData,
+    CreateCaseRequestDataAttributes: CreateCaseRequestDataAttributes,
+    CreateCaseRequestDataRelationships: CreateCaseRequestDataRelationships,
     CreateCustomFrameworkRequest: CreateCustomFrameworkRequest,
     CreateCustomFrameworkResponse: CreateCustomFrameworkResponse,
+    CreateJiraIssueRequestArray: CreateJiraIssueRequestArray,
+    CreateJiraIssueRequestData: CreateJiraIssueRequestData,
+    CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
+    CreateJiraIssueRequestDataAttributesFields:
+      CreateJiraIssueRequestDataAttributesFields,
+    CreateJiraIssueRequestDataRelationships:
+      CreateJiraIssueRequestDataRelationships,
+    CreateJiraIssueRequestDataRelationshipsCase:
+      CreateJiraIssueRequestDataRelationshipsCase,
+    CreateJiraIssueRequestDataRelationshipsCaseData:
+      CreateJiraIssueRequestDataRelationshipsCaseData,
     CreateNotificationRuleParameters: CreateNotificationRuleParameters,
     CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
     CreateNotificationRuleParametersDataAttributes:
@@ -566,13 +638,25 @@ export const TypingInfo: ModelTypingInfo = {
     CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
     DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
     DependencyLocation: DependencyLocation,
+    DetachCaseRequest: DetachCaseRequest,
+    DetachCaseRequestData: DetachCaseRequestData,
+    DetachCaseRequestDataRelationships: DetachCaseRequestDataRelationships,
     DetailedFinding: DetailedFinding,
     DetailedFindingAttributes: DetailedFindingAttributes,
     EPSS: EPSS,
     Finding: Finding,
     FindingAttributes: FindingAttributes,
+    FindingCaseResponse: FindingCaseResponse,
+    FindingCaseResponseArray: FindingCaseResponseArray,
+    FindingCaseResponseData: FindingCaseResponseData,
+    FindingCaseResponseDataAttributes: FindingCaseResponseDataAttributes,
+    FindingCaseResponseDataRelationships: FindingCaseResponseDataRelationships,
+    FindingData: FindingData,
+    FindingJiraIssue: FindingJiraIssue,
+    FindingJiraIssueResult: FindingJiraIssueResult,
     FindingMute: FindingMute,
     FindingRule: FindingRule,
+    Findings: Findings,
     FrameworkHandleAndVersionResponseData:
       FrameworkHandleAndVersionResponseData,
     FullCustomFrameworkData: FullCustomFrameworkData,
@@ -631,6 +715,8 @@ export const TypingInfo: ModelTypingInfo = {
     PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
     PatchNotificationRuleParametersDataAttributes:
       PatchNotificationRuleParametersDataAttributes,
+    RelationshipToUser: RelationshipToUser,
+    RelationshipToUserData: RelationshipToUserData,
     Remediation: Remediation,
     ResourceFilterAttributes: ResourceFilterAttributes,
     ResponseMetaAttributes: ResponseMetaAttributes,

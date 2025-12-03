@@ -24,15 +24,22 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AssetType } from "./models/AssetType";
+import { AttachCaseRequest } from "./models/AttachCaseRequest";
+import { AttachJiraIssueRequest } from "./models/AttachJiraIssueRequest";
 import { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 import { CloudAssetType } from "./models/CloudAssetType";
 import { ConvertJobResultsToSignalsRequest } from "./models/ConvertJobResultsToSignalsRequest";
+import { CreateCaseRequestArray } from "./models/CreateCaseRequestArray";
 import { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequest";
 import { CreateCustomFrameworkResponse } from "./models/CreateCustomFrameworkResponse";
+import { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
 import { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 import { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
+import { DetachCaseRequest } from "./models/DetachCaseRequest";
 import { Finding } from "./models/Finding";
+import { FindingCaseResponse } from "./models/FindingCaseResponse";
+import { FindingCaseResponseArray } from "./models/FindingCaseResponseArray";
 import { FindingEvaluation } from "./models/FindingEvaluation";
 import { FindingStatus } from "./models/FindingStatus";
 import { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
@@ -106,6 +113,117 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("security-monitoring", version);
     }
   }
+  public async attachCase(
+    caseId: string,
+    body: AttachCaseRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "attachCase");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "attachCase");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/cases/{case_id}".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.attachCase",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AttachCaseRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async attachJiraIssue(
+    body: AttachJiraIssueRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "attachJiraIssue");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/jira_issues";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.attachJiraIssue",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AttachJiraIssueRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async cancelThreatHuntingJob(
     jobId: string,
     _options?: Configuration,
@@ -325,6 +443,57 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createCases(
+    body: CreateCaseRequestArray,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCases");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/cases";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createCases",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateCaseRequestArray", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createCustomFramework(
     body: CreateCustomFrameworkRequest,
     _options?: Configuration,
@@ -362,6 +531,57 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateCustomFrameworkRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createJiraIssues(
+    body: CreateJiraIssueRequestArray,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createJiraIssues");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/jira_issues";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createJiraIssues",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateJiraIssueRequestArray", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -967,6 +1187,57 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async detachCase(
+    body: DetachCaseRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "detachCase");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/cases";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.detachCase",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "DetachCaseRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3709,6 +3980,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -4530,6 +4802,126 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to attachCase
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async attachCase(
+    response: ResponseContext,
+  ): Promise<FindingCaseResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FindingCaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponse",
+      ) as FindingCaseResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponse",
+        "",
+      ) as FindingCaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to attachJiraIssue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async attachJiraIssue(
+    response: ResponseContext,
+  ): Promise<FindingCaseResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FindingCaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponse",
+      ) as FindingCaseResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponse",
+        "",
+      ) as FindingCaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to cancelThreatHuntingJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4756,6 +5148,66 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createCases
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCases(
+    response: ResponseContext,
+  ): Promise<FindingCaseResponseArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: FindingCaseResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponseArray",
+      ) as FindingCaseResponseArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponseArray",
+        "",
+      ) as FindingCaseResponseArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createCustomFramework
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4803,6 +5255,66 @@ export class SecurityMonitoringApiResponseProcessor {
         "CreateCustomFrameworkResponse",
         "",
       ) as CreateCustomFrameworkResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createJiraIssues
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createJiraIssues(
+    response: ResponseContext,
+  ): Promise<FindingCaseResponseArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: FindingCaseResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponseArray",
+      ) as FindingCaseResponseArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FindingCaseResponseArray",
+        "",
+      ) as FindingCaseResponseArray;
       return body;
     }
 
@@ -5437,6 +5949,53 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to detachCase
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async detachCase(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
@@ -8536,6 +9095,25 @@ export class SecurityMonitoringApiResponseProcessor {
   }
 }
 
+export interface SecurityMonitoringApiAttachCaseRequest {
+  /**
+   * The unique identifier of the case to attach security findings to
+   * @type string
+   */
+  caseId: string;
+  /**
+   * @type AttachCaseRequest
+   */
+  body: AttachCaseRequest;
+}
+
+export interface SecurityMonitoringApiAttachJiraIssueRequest {
+  /**
+   * @type AttachJiraIssueRequest
+   */
+  body: AttachJiraIssueRequest;
+}
+
 export interface SecurityMonitoringApiCancelThreatHuntingJobRequest {
   /**
    * The ID of the job.
@@ -8566,11 +9144,25 @@ export interface SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTer
   body: SecurityMonitoringRuleConvertPayload;
 }
 
+export interface SecurityMonitoringApiCreateCasesRequest {
+  /**
+   * @type CreateCaseRequestArray
+   */
+  body: CreateCaseRequestArray;
+}
+
 export interface SecurityMonitoringApiCreateCustomFrameworkRequest {
   /**
    * @type CreateCustomFrameworkRequest
    */
   body: CreateCustomFrameworkRequest;
+}
+
+export interface SecurityMonitoringApiCreateJiraIssuesRequest {
+  /**
+   * @type CreateJiraIssueRequestArray
+   */
+  body: CreateJiraIssueRequestArray;
 }
 
 export interface SecurityMonitoringApiCreateSecurityFilterRequest {
@@ -8673,6 +9265,13 @@ export interface SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest
    * @type string
    */
   id: string;
+}
+
+export interface SecurityMonitoringApiDetachCaseRequest {
+  /**
+   * @type DetachCaseRequest
+   */
+  body: DetachCaseRequest;
 }
 
 export interface SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest {
@@ -9666,6 +10265,49 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Attach security findings to a case. You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
+   * @param param The request object
+   */
+  public attachCase(
+    param: SecurityMonitoringApiAttachCaseRequest,
+    options?: Configuration,
+  ): Promise<FindingCaseResponse> {
+    const requestContextPromise = this.requestFactory.attachCase(
+      param.caseId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.attachCase(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Attach security findings to a Jira issue by providing the Jira issue URL. You can attach up to 50 security findings per Jira issue. If the Jira issue is not linked to any case, this operation will create a case for the security findings and link the Jira issue to the newly created case. Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the specified Jira issue.
+   * @param param The request object
+   */
+  public attachJiraIssue(
+    param: SecurityMonitoringApiAttachJiraIssueRequest,
+    options?: Configuration,
+  ): Promise<FindingCaseResponse> {
+    const requestContextPromise = this.requestFactory.attachJiraIssue(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.attachJiraIssue(responseContext);
+        });
+    });
+  }
+
+  /**
    * Cancel a threat hunting job.
    * @param param The request object
    */
@@ -9770,6 +10412,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create cases for security findings. You can create up to 50 cases per request and associate up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the newly created case.
+   * @param param The request object
+   */
+  public createCases(
+    param: SecurityMonitoringApiCreateCasesRequest,
+    options?: Configuration,
+  ): Promise<FindingCaseResponseArray> {
+    const requestContextPromise = this.requestFactory.createCases(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCases(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create a custom framework.
    * @param param The request object
    */
@@ -9786,6 +10449,27 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createCustomFramework(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create Jira issues for security findings. This operation creates a case in Datadog and a Jira issue linked to that case for bidirectional sync between Datadog and Jira. You can create up to 50 Jira issues per request and associate up to 50 security findings per Jira issue. Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the newly created Jira issue.
+   * @param param The request object
+   */
+  public createJiraIssues(
+    param: SecurityMonitoringApiCreateJiraIssuesRequest,
+    options?: Configuration,
+  ): Promise<FindingCaseResponseArray> {
+    const requestContextPromise = this.requestFactory.createJiraIssues(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createJiraIssues(responseContext);
         });
     });
   }
@@ -10054,6 +10738,27 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.deleteVulnerabilityNotificationRule(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Detach security findings from their case. This operation dissociates security findings from their associated cases without deleting the cases themselves. You can detach security findings from multiple different cases in a single request, with a limit of 50 security findings per request. Security findings that are not currently attached to any case will be ignored.
+   * @param param The request object
+   */
+  public detachCase(
+    param: SecurityMonitoringApiDetachCaseRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.detachCase(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.detachCase(responseContext);
         });
     });
   }

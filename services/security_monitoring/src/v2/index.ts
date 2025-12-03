@@ -1,9 +1,13 @@
 export {
+  SecurityMonitoringApiAttachCaseRequest,
+  SecurityMonitoringApiAttachJiraIssueRequest,
   SecurityMonitoringApiCancelThreatHuntingJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+  SecurityMonitoringApiCreateCasesRequest,
   SecurityMonitoringApiCreateCustomFrameworkRequest,
+  SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
@@ -16,6 +20,7 @@ export {
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
   SecurityMonitoringApiDeleteThreatHuntingJobRequest,
   SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiDetachCaseRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
@@ -73,6 +78,13 @@ export { AssetOperatingSystem } from "./models/AssetOperatingSystem";
 export { AssetRisks } from "./models/AssetRisks";
 export { AssetType } from "./models/AssetType";
 export { AssetVersion } from "./models/AssetVersion";
+export { AttachCaseRequest } from "./models/AttachCaseRequest";
+export { AttachCaseRequestData } from "./models/AttachCaseRequestData";
+export { AttachCaseRequestDataRelationships } from "./models/AttachCaseRequestDataRelationships";
+export { AttachJiraIssueRequest } from "./models/AttachJiraIssueRequest";
+export { AttachJiraIssueRequestData } from "./models/AttachJiraIssueRequestData";
+export { AttachJiraIssueRequestDataAttributes } from "./models/AttachJiraIssueRequestDataAttributes";
+export { AttachJiraIssueRequestDataRelationships } from "./models/AttachJiraIssueRequestDataRelationships";
 export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
 export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
 export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
@@ -82,6 +94,12 @@ export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequ
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
 export { CalculatedField } from "./models/CalculatedField";
+export { CaseDataType } from "./models/CaseDataType";
+export { CaseInsightsItems } from "./models/CaseInsightsItems";
+export { CaseManagementProject } from "./models/CaseManagementProject";
+export { CaseManagementProjectData } from "./models/CaseManagementProjectData";
+export { CaseManagementProjectDataType } from "./models/CaseManagementProjectDataType";
+export { CasePriority } from "./models/CasePriority";
 export { CloudAssetType } from "./models/CloudAssetType";
 export { CloudConfigurationComplianceRuleOptions } from "./models/CloudConfigurationComplianceRuleOptions";
 export { CloudConfigurationRegoRule } from "./models/CloudConfigurationRegoRule";
@@ -96,8 +114,20 @@ export { ConvertJobResultsToSignalsAttributes } from "./models/ConvertJobResults
 export { ConvertJobResultsToSignalsData } from "./models/ConvertJobResultsToSignalsData";
 export { ConvertJobResultsToSignalsDataType } from "./models/ConvertJobResultsToSignalsDataType";
 export { ConvertJobResultsToSignalsRequest } from "./models/ConvertJobResultsToSignalsRequest";
+export { CreateCaseRequestArray } from "./models/CreateCaseRequestArray";
+export { CreateCaseRequestData } from "./models/CreateCaseRequestData";
+export { CreateCaseRequestDataAttributes } from "./models/CreateCaseRequestDataAttributes";
+export { CreateCaseRequestDataRelationships } from "./models/CreateCaseRequestDataRelationships";
 export { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequest";
 export { CreateCustomFrameworkResponse } from "./models/CreateCustomFrameworkResponse";
+export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
+export { CreateJiraIssueRequestArrayIncluded } from "./models/CreateJiraIssueRequestArrayIncluded";
+export { CreateJiraIssueRequestData } from "./models/CreateJiraIssueRequestData";
+export { CreateJiraIssueRequestDataAttributes } from "./models/CreateJiraIssueRequestDataAttributes";
+export { CreateJiraIssueRequestDataAttributesFields } from "./models/CreateJiraIssueRequestDataAttributesFields";
+export { CreateJiraIssueRequestDataRelationships } from "./models/CreateJiraIssueRequestDataRelationships";
+export { CreateJiraIssueRequestDataRelationshipsCase } from "./models/CreateJiraIssueRequestDataRelationshipsCase";
+export { CreateJiraIssueRequestDataRelationshipsCaseData } from "./models/CreateJiraIssueRequestDataRelationshipsCaseData";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
@@ -112,16 +142,29 @@ export { CustomFrameworkWithoutRequirements } from "./models/CustomFrameworkWith
 export { CVSS } from "./models/CVSS";
 export { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
 export { DependencyLocation } from "./models/DependencyLocation";
+export { DetachCaseRequest } from "./models/DetachCaseRequest";
+export { DetachCaseRequestData } from "./models/DetachCaseRequestData";
+export { DetachCaseRequestDataRelationships } from "./models/DetachCaseRequestDataRelationships";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
 export { EPSS } from "./models/EPSS";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
+export { FindingCaseResponse } from "./models/FindingCaseResponse";
+export { FindingCaseResponseArray } from "./models/FindingCaseResponseArray";
+export { FindingCaseResponseData } from "./models/FindingCaseResponseData";
+export { FindingCaseResponseDataAttributes } from "./models/FindingCaseResponseDataAttributes";
+export { FindingCaseResponseDataRelationships } from "./models/FindingCaseResponseDataRelationships";
+export { FindingData } from "./models/FindingData";
+export { FindingDataType } from "./models/FindingDataType";
 export { FindingEvaluation } from "./models/FindingEvaluation";
+export { FindingJiraIssue } from "./models/FindingJiraIssue";
+export { FindingJiraIssueResult } from "./models/FindingJiraIssueResult";
 export { FindingMute } from "./models/FindingMute";
 export { FindingMuteReason } from "./models/FindingMuteReason";
 export { FindingRule } from "./models/FindingRule";
+export { Findings } from "./models/Findings";
 export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
 export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
@@ -152,6 +195,7 @@ export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
 export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
 export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 export { GetSBOMResponse } from "./models/GetSBOMResponse";
+export { JiraIssuesDataType } from "./models/JiraIssuesDataType";
 export { JobCreateResponse } from "./models/JobCreateResponse";
 export { JobCreateResponseData } from "./models/JobCreateResponseData";
 export { JobDefinition } from "./models/JobDefinition";
@@ -178,6 +222,8 @@ export { Pagination } from "./models/Pagination";
 export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
 export { PatchNotificationRuleParametersData } from "./models/PatchNotificationRuleParametersData";
 export { PatchNotificationRuleParametersDataAttributes } from "./models/PatchNotificationRuleParametersDataAttributes";
+export { RelationshipToUser } from "./models/RelationshipToUser";
+export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { Remediation } from "./models/Remediation";
 export { ResourceFilterAttributes } from "./models/ResourceFilterAttributes";
 export { ResourceFilterRequestType } from "./models/ResourceFilterRequestType";
@@ -350,6 +396,7 @@ export { UpdateResourceEvaluationFiltersRequest } from "./models/UpdateResourceE
 export { UpdateResourceEvaluationFiltersRequestData } from "./models/UpdateResourceEvaluationFiltersRequestData";
 export { UpdateResourceEvaluationFiltersResponse } from "./models/UpdateResourceEvaluationFiltersResponse";
 export { UpdateResourceEvaluationFiltersResponseData } from "./models/UpdateResourceEvaluationFiltersResponseData";
+export { UsersType } from "./models/UsersType";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
 export { VulnerabilityAdvisory } from "./models/VulnerabilityAdvisory";
