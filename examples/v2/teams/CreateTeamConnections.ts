@@ -6,12 +6,12 @@ import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.createTeamConnections"] = true;
-const apiInstance = new v2.TeamConnectionsApi(configuration);
+const apiInstance = new v2.TeamsApi(configuration);
 
 // there is a valid "dd_team" in the system
 const DD_TEAM_DATA_ID = process.env.DD_TEAM_DATA_ID as string;
 
-const params: v2.TeamConnectionsApiCreateTeamConnectionsRequest = {
+const params: v2.TeamsApiCreateTeamConnectionsRequest = {
   body: {
     data: [
       {

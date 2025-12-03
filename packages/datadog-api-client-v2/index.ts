@@ -882,19 +882,14 @@ export {
 } from "./apis/SyntheticsApi";
 
 export {
-  TeamConnectionsApiCreateTeamConnectionsRequest,
-  TeamConnectionsApiDeleteTeamConnectionsRequest,
-  TeamConnectionsApiListTeamConnectionsRequest,
-  TeamConnectionsApi,
-} from "./apis/TeamConnectionsApi";
-
-export {
   TeamsApiAddMemberTeamRequest,
   TeamsApiAddTeamHierarchyLinkRequest,
   TeamsApiCreateTeamRequest,
+  TeamsApiCreateTeamConnectionsRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
   TeamsApiDeleteTeamRequest,
+  TeamsApiDeleteTeamConnectionsRequest,
   TeamsApiDeleteTeamLinkRequest,
   TeamsApiDeleteTeamMembershipRequest,
   TeamsApiGetTeamRequest,
@@ -906,6 +901,7 @@ export {
   TeamsApiGetTeamSyncRequest,
   TeamsApiGetUserMembershipsRequest,
   TeamsApiListMemberTeamsRequest,
+  TeamsApiListTeamConnectionsRequest,
   TeamsApiListTeamHierarchyLinksRequest,
   TeamsApiListTeamsRequest,
   TeamsApiRemoveMemberTeamRequest,
