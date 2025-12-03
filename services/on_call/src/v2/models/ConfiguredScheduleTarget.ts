@@ -1,19 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ScheduleTargetType } from "./ScheduleTargetType";
+import { ConfiguredScheduleTargetType } from "./ConfiguredScheduleTargetType";
 
 /**
- * Represents a schedule target for an escalation policy step, including its ID and resource type. This is a shortcut for a configured schedule target with position set to 'current'.
+ * Relationship reference to a configured schedule target.
  */
-export class ScheduleTarget {
+export class ConfiguredScheduleTarget {
   /**
-   * Specifies the unique identifier of the schedule resource.
+   * Specifies the unique identifier of the configured schedule target.
    */
   "id": string;
   /**
-   * Indicates that the resource is of type `schedules`.
+   * Indicates that the resource is of type `schedule_target`.
    */
-  "type": ScheduleTargetType;
+  "type": ConfiguredScheduleTargetType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -36,7 +36,7 @@ export class ScheduleTarget {
     },
     type: {
       baseName: "type",
-      type: "ScheduleTargetType",
+      type: "ConfiguredScheduleTargetType",
       required: true,
     },
     additionalProperties: {
@@ -49,7 +49,7 @@ export class ScheduleTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleTarget.attributeTypeMap;
+    return ConfiguredScheduleTarget.attributeTypeMap;
   }
 
   public constructor() {}
