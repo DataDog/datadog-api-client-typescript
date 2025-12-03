@@ -6,9 +6,9 @@ import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.listTeamConnections"] = true;
-const apiInstance = new v2.TeamConnectionsApi(configuration);
+const apiInstance = new v2.TeamsApi(configuration);
 
-const params: v2.TeamConnectionsApiListTeamConnectionsRequest = {
+const params: v2.TeamsApiListTeamConnectionsRequest = {
   pageSize: 10,
   filterSources: ["github"],
 };
