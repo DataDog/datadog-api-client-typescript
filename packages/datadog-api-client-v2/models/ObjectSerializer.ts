@@ -462,6 +462,11 @@ import { ConfigCatIntegration } from "./ConfigCatIntegration";
 import { ConfigCatIntegrationUpdate } from "./ConfigCatIntegrationUpdate";
 import { ConfigCatSDKKey } from "./ConfigCatSDKKey";
 import { ConfigCatSDKKeyUpdate } from "./ConfigCatSDKKeyUpdate";
+import { ConfiguredSchedule } from "./ConfiguredSchedule";
+import { ConfiguredScheduleTarget } from "./ConfiguredScheduleTarget";
+import { ConfiguredScheduleTargetAttributes } from "./ConfiguredScheduleTargetAttributes";
+import { ConfiguredScheduleTargetRelationships } from "./ConfiguredScheduleTargetRelationships";
+import { ConfiguredScheduleTargetRelationshipsSchedule } from "./ConfiguredScheduleTargetRelationshipsSchedule";
 import { ConfluentAccountCreateRequest } from "./ConfluentAccountCreateRequest";
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
@@ -885,6 +890,8 @@ import { EscalationPolicyStep } from "./EscalationPolicyStep";
 import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
 import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
 import { EscalationPolicyStepTarget } from "./EscalationPolicyStepTarget";
+import { EscalationPolicyStepTargetConfig } from "./EscalationPolicyStepTargetConfig";
+import { EscalationPolicyStepTargetConfigSchedule } from "./EscalationPolicyStepTargetConfigSchedule";
 import { EscalationPolicyUpdateRequest } from "./EscalationPolicyUpdateRequest";
 import { EscalationPolicyUpdateRequestData } from "./EscalationPolicyUpdateRequestData";
 import { EscalationPolicyUpdateRequestDataAttributes } from "./EscalationPolicyUpdateRequestDataAttributes";
@@ -3035,6 +3042,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ConfigCatIntegrationType: ["ConfigCat"],
   ConfigCatSDKKeyType: ["ConfigCatSDKKey"],
+  ConfiguredScheduleTargetType: ["schedule_target"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
   ConnectedTeamRefDataType: ["github_team"],
@@ -3974,6 +3982,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleDataType: ["schedules"],
   ScheduleMemberRelationshipsUserDataType: ["users"],
   ScheduleMemberType: ["members"],
+  ScheduleTargetPosition: ["previous", "current", "next"],
   ScheduleTargetType: ["schedules"],
   ScheduleUpdateRequestDataType: ["schedules"],
   ScheduleUserType: ["users"],
@@ -4922,6 +4931,12 @@ const typeMap: { [index: string]: any } = {
   ConfigCatIntegrationUpdate: ConfigCatIntegrationUpdate,
   ConfigCatSDKKey: ConfigCatSDKKey,
   ConfigCatSDKKeyUpdate: ConfigCatSDKKeyUpdate,
+  ConfiguredSchedule: ConfiguredSchedule,
+  ConfiguredScheduleTarget: ConfiguredScheduleTarget,
+  ConfiguredScheduleTargetAttributes: ConfiguredScheduleTargetAttributes,
+  ConfiguredScheduleTargetRelationships: ConfiguredScheduleTargetRelationships,
+  ConfiguredScheduleTargetRelationshipsSchedule:
+    ConfiguredScheduleTargetRelationshipsSchedule,
   ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
   ConfluentAccountCreateRequestAttributes:
     ConfluentAccountCreateRequestAttributes,
@@ -5431,6 +5446,9 @@ const typeMap: { [index: string]: any } = {
   EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
   EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
   EscalationPolicyStepTarget: EscalationPolicyStepTarget,
+  EscalationPolicyStepTargetConfig: EscalationPolicyStepTargetConfig,
+  EscalationPolicyStepTargetConfigSchedule:
+    EscalationPolicyStepTargetConfigSchedule,
   EscalationPolicyUpdateRequest: EscalationPolicyUpdateRequest,
   EscalationPolicyUpdateRequestData: EscalationPolicyUpdateRequestData,
   EscalationPolicyUpdateRequestDataAttributes:
@@ -7768,12 +7786,18 @@ const oneOfMap: { [index: string]: string[] } = {
     "EntityV3APISpecInterfaceDefinition",
   ],
   EscalationPolicyIncluded: [
-    "TeamReference",
     "EscalationPolicyStep",
     "EscalationPolicyUser",
     "ScheduleData",
+    "ConfiguredSchedule",
+    "TeamReference",
   ],
-  EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
+  EscalationTarget: [
+    "TeamTarget",
+    "UserTarget",
+    "ScheduleTarget",
+    "ConfiguredScheduleTarget",
+  ],
   EventPayloadAttributes: [
     "ChangeEventCustomAttributes",
     "AlertEventCustomAttributes",

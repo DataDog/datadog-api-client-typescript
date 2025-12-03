@@ -3,27 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EscalationPolicyStepTargetConfig } from "./EscalationPolicyStepTargetConfig";
-import { EscalationPolicyStepTargetType } from "./EscalationPolicyStepTargetType";
+import { ConfiguredScheduleTargetType } from "./ConfiguredScheduleTargetType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Defines a single escalation target within a step for an escalation policy creation request. Contains `id`, `type`, and optional `config`.
+ * Relationship reference to a configured schedule target.
  */
-export class EscalationPolicyStepTarget {
+export class ConfiguredScheduleTarget {
   /**
-   * Configuration for an escalation target, such as schedule position.
+   * Specifies the unique identifier of the configured schedule target.
    */
-  "config"?: EscalationPolicyStepTargetConfig;
+  "id": string;
   /**
-   * Specifies the unique identifier for this target.
+   * Indicates that the resource is of type `schedule_target`.
    */
-  "id"?: string;
-  /**
-   * Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-   */
-  "type"?: EscalationPolicyStepTargetType;
+  "type": ConfiguredScheduleTargetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +36,15 @@ export class EscalationPolicyStepTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    config: {
-      baseName: "config",
-      type: "EscalationPolicyStepTargetConfig",
-    },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "EscalationPolicyStepTargetType",
+      type: "ConfiguredScheduleTargetType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +56,7 @@ export class EscalationPolicyStepTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EscalationPolicyStepTarget.attributeTypeMap;
+    return ConfiguredScheduleTarget.attributeTypeMap;
   }
 
   public constructor() {}

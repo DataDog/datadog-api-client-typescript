@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ConfiguredScheduleTarget } from "./ConfiguredScheduleTarget";
 import { ScheduleTarget } from "./ScheduleTarget";
 import { TeamTarget } from "./TeamTarget";
 import { UserTarget } from "./UserTarget";
@@ -10,11 +11,12 @@ import { UserTarget } from "./UserTarget";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Represents an escalation target, which can be a team, user, or schedule.
+ * Represents an escalation target, which can be a team, user, schedule, or configured schedule target.
  */
 
 export type EscalationTarget =
   | TeamTarget
   | UserTarget
   | ScheduleTarget
+  | ConfiguredScheduleTarget
   | UnparsedObject;

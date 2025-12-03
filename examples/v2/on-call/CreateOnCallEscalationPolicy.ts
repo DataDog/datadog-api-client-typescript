@@ -37,6 +37,15 @@ const params: v2.OnCallApiCreateOnCallEscalationPolicyRequest = {
                 type: "schedules",
               },
               {
+                config: {
+                  schedule: {
+                    position: "previous",
+                  },
+                },
+                id: SCHEDULE_DATA_ID,
+                type: "schedules",
+              },
+              {
                 id: DD_TEAM_DATA_ID,
                 type: "teams",
               },
