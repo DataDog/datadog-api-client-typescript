@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ConfiguredSchedule } from "./ConfiguredSchedule";
 import { EscalationPolicyStep } from "./EscalationPolicyStep";
 import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { ScheduleData } from "./ScheduleData";
@@ -15,8 +16,9 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type EscalationPolicyIncluded =
-  | TeamReference
   | EscalationPolicyStep
   | EscalationPolicyUser
   | ScheduleData
+  | ConfiguredSchedule
+  | TeamReference
   | UnparsedObject;
