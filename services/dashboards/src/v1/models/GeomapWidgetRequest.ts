@@ -5,6 +5,8 @@ import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFo
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { LogQueryDefinition } from "./LogQueryDefinition";
+import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
+import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSortBy } from "./WidgetSortBy";
 
@@ -16,6 +18,10 @@ export class GeomapWidgetRequest {
    * Widget columns.
    */
   "columns"?: Array<ListStreamColumn>;
+  /**
+   * Threshold (numeric) conditional formatting rules may be used by the regions layer.
+   */
+  "conditionalFormats"?: Array<WidgetConditionalFormat>;
   /**
    * List of formulas that operate on queries.
    */
@@ -53,6 +59,10 @@ export class GeomapWidgetRequest {
    */
   "sort"?: WidgetSortBy;
   /**
+   * Text formatting rules may be used by the points layer.
+   */
+  "textFormats"?: Array<TableWidgetTextFormatRule>;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -70,6 +80,10 @@ export class GeomapWidgetRequest {
     columns: {
       baseName: "columns",
       type: "Array<ListStreamColumn>",
+    },
+    conditionalFormats: {
+      baseName: "conditional_formats",
+      type: "Array<WidgetConditionalFormat>",
     },
     formulas: {
       baseName: "formulas",
@@ -106,6 +120,10 @@ export class GeomapWidgetRequest {
     sort: {
       baseName: "sort",
       type: "WidgetSortBy",
+    },
+    textFormats: {
+      baseName: "text_formats",
+      type: "Array<TableWidgetTextFormatRule>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
