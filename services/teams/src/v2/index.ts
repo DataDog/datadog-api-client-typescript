@@ -2,9 +2,11 @@ export {
   TeamsApiAddMemberTeamRequest,
   TeamsApiAddTeamHierarchyLinkRequest,
   TeamsApiCreateTeamRequest,
+  TeamsApiCreateTeamConnectionsRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
   TeamsApiDeleteTeamRequest,
+  TeamsApiDeleteTeamConnectionsRequest,
   TeamsApiDeleteTeamLinkRequest,
   TeamsApiDeleteTeamMembershipRequest,
   TeamsApiGetTeamRequest,
@@ -16,6 +18,7 @@ export {
   TeamsApiGetTeamSyncRequest,
   TeamsApiGetUserMembershipsRequest,
   TeamsApiListMemberTeamsRequest,
+  TeamsApiListTeamConnectionsRequest,
   TeamsApiListTeamHierarchyLinksRequest,
   TeamsApiListTeamsRequest,
   TeamsApiRemoveMemberTeamRequest,
@@ -30,6 +33,11 @@ export {
 
 export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { ConnectedTeamRef } from "./models/ConnectedTeamRef";
+export { ConnectedTeamRefData } from "./models/ConnectedTeamRefData";
+export { ConnectedTeamRefDataType } from "./models/ConnectedTeamRefDataType";
+export { ConnectionsPagePagination } from "./models/ConnectionsPagePagination";
+export { ConnectionsResponseMeta } from "./models/ConnectionsResponseMeta";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { ListTeamsInclude } from "./models/ListTeamsInclude";
 export { ListTeamsSort } from "./models/ListTeamsSort";
@@ -54,6 +62,15 @@ export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamU
 export { RolesType } from "./models/RolesType";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
+export { TeamConnection } from "./models/TeamConnection";
+export { TeamConnectionAttributes } from "./models/TeamConnectionAttributes";
+export { TeamConnectionCreateData } from "./models/TeamConnectionCreateData";
+export { TeamConnectionCreateRequest } from "./models/TeamConnectionCreateRequest";
+export { TeamConnectionDeleteRequest } from "./models/TeamConnectionDeleteRequest";
+export { TeamConnectionDeleteRequestDataItem } from "./models/TeamConnectionDeleteRequestDataItem";
+export { TeamConnectionRelationships } from "./models/TeamConnectionRelationships";
+export { TeamConnectionsResponse } from "./models/TeamConnectionsResponse";
+export { TeamConnectionType } from "./models/TeamConnectionType";
 export { TeamCreate } from "./models/TeamCreate";
 export { TeamCreateAttributes } from "./models/TeamCreateAttributes";
 export { TeamCreateRelationships } from "./models/TeamCreateRelationships";
@@ -90,6 +107,9 @@ export { TeamPermissionSettingUpdate } from "./models/TeamPermissionSettingUpdat
 export { TeamPermissionSettingUpdateAttributes } from "./models/TeamPermissionSettingUpdateAttributes";
 export { TeamPermissionSettingUpdateRequest } from "./models/TeamPermissionSettingUpdateRequest";
 export { TeamPermissionSettingValue } from "./models/TeamPermissionSettingValue";
+export { TeamRef } from "./models/TeamRef";
+export { TeamRefData } from "./models/TeamRefData";
+export { TeamRefDataType } from "./models/TeamRefDataType";
 export { TeamRelationships } from "./models/TeamRelationships";
 export { TeamRelationshipsLinks } from "./models/TeamRelationshipsLinks";
 export { TeamResponse } from "./models/TeamResponse";
