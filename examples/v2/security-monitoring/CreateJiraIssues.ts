@@ -1,0 +1,110 @@
+/**
+ * Create Jira issues for security findings returns "Created" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration();
+const apiInstance = new v2.SecurityMonitoringApi(configuration);
+
+const params: v2.SecurityMonitoringApiCreateJiraIssuesRequest = {
+  body: {
+    data: [
+      {
+        type: "jira_issues",
+        attributes: {},
+        relationships: {
+          _case: {
+            data: {
+              type: "cases",
+              id: "53e242c6-a7d6-46ad-9680-b8d14753f716",
+            },
+          },
+        },
+      },
+      {
+        type: "jira_issues",
+        attributes: {},
+        relationships: {
+          _case: {
+            data: {
+              type: "cases",
+              id: "195772b2-1f53-41d2-b81e-48c8e6c21d33",
+            },
+          },
+        },
+      },
+    ],
+    included: [
+      {
+        type: "cases",
+        attributes: {
+          title: "A title",
+          description: "A description",
+        },
+        relationships: {
+          project: {
+            data: {
+              type: "projects",
+              id: "959a6f71-bac8-4027-b1d3-2264f569296f",
+            },
+          },
+          findings: {
+            data: [
+              {
+                type: "findings",
+                id: "OTQ3NjJkMmYwMTIzMzMxNTc1Y2Q4MTA5NWU0NTBmMDl-ZjE3NjMxZWVkYzBjZGI1NDY2NWY2OGQxZDk4MDY4MmI=",
+              },
+            ],
+          },
+        },
+        id: "53e242c6-a7d6-46ad-9680-b8d14753f716",
+      },
+      {
+        type: "cases",
+        attributes: {
+          title: "A title",
+          description: "A description",
+        },
+        relationships: {
+          project: {
+            data: {
+              type: "projects",
+              id: "959a6f71-bac8-4027-b1d3-2264f569296f",
+            },
+          },
+          findings: {
+            data: [
+              {
+                type: "findings",
+                id: "MTNjN2ZmYWMzMDIxYmU1ZDFiZDRjNWUwN2I1NzVmY2F-YTA3MzllMTUzNWM3NmEyZjdiNzEzOWM5YmViZTMzOGM=",
+              },
+            ],
+          },
+        },
+        id: "195772b2-1f53-41d2-b81e-48c8e6c21d33",
+      },
+      {
+        type: "projects",
+        id: "959a6f71-bac8-4027-b1d3-2264f569296f",
+      },
+      {
+        type: "findings",
+        id: "OTQ3NjJkMmYwMTIzMzMxNTc1Y2Q4MTA5NWU0NTBmMDl-ZjE3NjMxZWVkYzBjZGI1NDY2NWY2OGQxZDk4MDY4MmI=",
+      },
+      {
+        type: "findings",
+        id: "MTNjN2ZmYWMzMDIxYmU1ZDFiZDRjNWUwN2I1NzVmY2F-YTA3MzllMTUzNWM3NmEyZjdiNzEzOWM5YmViZTMzOGM=",
+      },
+    ],
+  },
+};
+
+apiInstance
+  .createJiraIssues(params)
+  .then((data: v2.FindingCaseResponseArray) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

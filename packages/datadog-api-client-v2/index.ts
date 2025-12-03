@@ -725,11 +725,15 @@ export {
 } from "./apis/RumRetentionFiltersApi";
 
 export {
+  SecurityMonitoringApiAttachCaseRequest,
+  SecurityMonitoringApiAttachJiraIssueRequest,
   SecurityMonitoringApiCancelThreatHuntingJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+  SecurityMonitoringApiCreateCasesRequest,
   SecurityMonitoringApiCreateCustomFrameworkRequest,
+  SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
@@ -742,6 +746,7 @@ export {
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
   SecurityMonitoringApiDeleteThreatHuntingJobRequest,
   SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiDetachCaseRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
@@ -1130,6 +1135,13 @@ export { AssetOperatingSystem } from "./models/AssetOperatingSystem";
 export { AssetRisks } from "./models/AssetRisks";
 export { AssetType } from "./models/AssetType";
 export { AssetVersion } from "./models/AssetVersion";
+export { AttachCaseRequest } from "./models/AttachCaseRequest";
+export { AttachCaseRequestData } from "./models/AttachCaseRequestData";
+export { AttachCaseRequestDataRelationships } from "./models/AttachCaseRequestDataRelationships";
+export { AttachJiraIssueRequest } from "./models/AttachJiraIssueRequest";
+export { AttachJiraIssueRequestData } from "./models/AttachJiraIssueRequestData";
+export { AttachJiraIssueRequestDataAttributes } from "./models/AttachJiraIssueRequestDataAttributes";
+export { AttachJiraIssueRequestDataRelationships } from "./models/AttachJiraIssueRequestDataRelationships";
 export { AuditLogsEvent } from "./models/AuditLogsEvent";
 export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
 export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
@@ -1349,8 +1361,13 @@ export { CaseCreate } from "./models/CaseCreate";
 export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
 export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
 export { CaseCreateRequest } from "./models/CaseCreateRequest";
+export { CaseDataType } from "./models/CaseDataType";
 export { CaseEmpty } from "./models/CaseEmpty";
 export { CaseEmptyRequest } from "./models/CaseEmptyRequest";
+export { CaseInsightsItems } from "./models/CaseInsightsItems";
+export { CaseManagementProject } from "./models/CaseManagementProject";
+export { CaseManagementProjectData } from "./models/CaseManagementProjectData";
+export { CaseManagementProjectDataType } from "./models/CaseManagementProjectDataType";
 export { CasePriority } from "./models/CasePriority";
 export { CaseRelationships } from "./models/CaseRelationships";
 export { CaseResourceType } from "./models/CaseResourceType";
@@ -1658,6 +1675,10 @@ export { CreateAppsDatastoreRequestDataAttributes } from "./models/CreateAppsDat
 export { CreateAppsDatastoreRequestDataAttributesOrgAccess } from "./models/CreateAppsDatastoreRequestDataAttributesOrgAccess";
 export { CreateAppsDatastoreResponse } from "./models/CreateAppsDatastoreResponse";
 export { CreateAppsDatastoreResponseData } from "./models/CreateAppsDatastoreResponseData";
+export { CreateCaseRequestArray } from "./models/CreateCaseRequestArray";
+export { CreateCaseRequestData } from "./models/CreateCaseRequestData";
+export { CreateCaseRequestDataAttributes } from "./models/CreateCaseRequestDataAttributes";
+export { CreateCaseRequestDataRelationships } from "./models/CreateCaseRequestDataRelationships";
 export { CreateConnectionRequest } from "./models/CreateConnectionRequest";
 export { CreateConnectionRequestData } from "./models/CreateConnectionRequestData";
 export { CreateConnectionRequestDataAttributes } from "./models/CreateConnectionRequestDataAttributes";
@@ -1677,6 +1698,14 @@ export { CreateDeploymentRuleParamsData } from "./models/CreateDeploymentRulePar
 export { CreateDeploymentRuleParamsDataAttributes } from "./models/CreateDeploymentRuleParamsDataAttributes";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
+export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
+export { CreateJiraIssueRequestArrayIncluded } from "./models/CreateJiraIssueRequestArrayIncluded";
+export { CreateJiraIssueRequestData } from "./models/CreateJiraIssueRequestData";
+export { CreateJiraIssueRequestDataAttributes } from "./models/CreateJiraIssueRequestDataAttributes";
+export { CreateJiraIssueRequestDataAttributesFields } from "./models/CreateJiraIssueRequestDataAttributesFields";
+export { CreateJiraIssueRequestDataRelationships } from "./models/CreateJiraIssueRequestDataRelationships";
+export { CreateJiraIssueRequestDataRelationshipsCase } from "./models/CreateJiraIssueRequestDataRelationshipsCase";
+export { CreateJiraIssueRequestDataRelationshipsCaseData } from "./models/CreateJiraIssueRequestDataRelationshipsCaseData";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
@@ -1907,6 +1936,9 @@ export { DeploymentRuleResponseDataAttributesCreatedBy } from "./models/Deployme
 export { DeploymentRuleResponseDataAttributesType } from "./models/DeploymentRuleResponseDataAttributesType";
 export { DeploymentRuleResponseDataAttributesUpdatedBy } from "./models/DeploymentRuleResponseDataAttributesUpdatedBy";
 export { DeploymentRulesOptions } from "./models/DeploymentRulesOptions";
+export { DetachCaseRequest } from "./models/DetachCaseRequest";
+export { DetachCaseRequestData } from "./models/DetachCaseRequestData";
+export { DetachCaseRequestDataRelationships } from "./models/DetachCaseRequestDataRelationships";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
@@ -2192,10 +2224,20 @@ export { FastlyServiceType } from "./models/FastlyServiceType";
 export { FiltersPerProduct } from "./models/FiltersPerProduct";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
+export { FindingCaseResponse } from "./models/FindingCaseResponse";
+export { FindingCaseResponseArray } from "./models/FindingCaseResponseArray";
+export { FindingCaseResponseData } from "./models/FindingCaseResponseData";
+export { FindingCaseResponseDataAttributes } from "./models/FindingCaseResponseDataAttributes";
+export { FindingCaseResponseDataRelationships } from "./models/FindingCaseResponseDataRelationships";
+export { FindingData } from "./models/FindingData";
+export { FindingDataType } from "./models/FindingDataType";
 export { FindingEvaluation } from "./models/FindingEvaluation";
+export { FindingJiraIssue } from "./models/FindingJiraIssue";
+export { FindingJiraIssueResult } from "./models/FindingJiraIssueResult";
 export { FindingMute } from "./models/FindingMute";
 export { FindingMuteReason } from "./models/FindingMuteReason";
 export { FindingRule } from "./models/FindingRule";
+export { Findings } from "./models/Findings";
 export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
 export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
@@ -2671,6 +2713,7 @@ export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { JiraIssue } from "./models/JiraIssue";
 export { JiraIssueResult } from "./models/JiraIssueResult";
+export { JiraIssuesDataType } from "./models/JiraIssuesDataType";
 export { JobCreateResponse } from "./models/JobCreateResponse";
 export { JobCreateResponseData } from "./models/JobCreateResponseData";
 export { JobDefinition } from "./models/JobDefinition";
