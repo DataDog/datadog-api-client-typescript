@@ -1,6 +1,11 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { ConfiguredSchedule } from "./ConfiguredSchedule";
+import { ConfiguredScheduleTarget } from "./ConfiguredScheduleTarget";
+import { ConfiguredScheduleTargetAttributes } from "./ConfiguredScheduleTargetAttributes";
+import { ConfiguredScheduleTargetRelationships } from "./ConfiguredScheduleTargetRelationships";
+import { ConfiguredScheduleTargetRelationshipsSchedule } from "./ConfiguredScheduleTargetRelationshipsSchedule";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { Escalation } from "./Escalation";
@@ -19,6 +24,8 @@ import { EscalationPolicyStep } from "./EscalationPolicyStep";
 import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
 import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
 import { EscalationPolicyStepTarget } from "./EscalationPolicyStepTarget";
+import { EscalationPolicyStepTargetConfig } from "./EscalationPolicyStepTargetConfig";
+import { EscalationPolicyStepTargetConfigSchedule } from "./EscalationPolicyStepTargetConfigSchedule";
 import { EscalationPolicyUpdateRequest } from "./EscalationPolicyUpdateRequest";
 import { EscalationPolicyUpdateRequestData } from "./EscalationPolicyUpdateRequestData";
 import { EscalationPolicyUpdateRequestDataAttributes } from "./EscalationPolicyUpdateRequestDataAttributes";
@@ -109,6 +116,7 @@ import { UserTarget } from "./UserTarget";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    ConfiguredScheduleTargetType: ["schedule_target"],
     DataRelationshipsTeamsDataItemsType: ["teams"],
     EscalationPolicyCreateRequestDataType: ["policies"],
     EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
@@ -131,6 +139,7 @@ export const TypingInfo: ModelTypingInfo = {
     ScheduleDataType: ["schedules"],
     ScheduleMemberRelationshipsUserDataType: ["users"],
     ScheduleMemberType: ["members"],
+    ScheduleTargetPosition: ["previous", "current", "next"],
     ScheduleTargetType: ["schedules"],
     ScheduleUpdateRequestDataType: ["schedules"],
     ScheduleUserType: ["users"],
@@ -164,12 +173,18 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     EscalationPolicyIncluded: [
-      "TeamReference",
       "EscalationPolicyStep",
       "EscalationPolicyUser",
       "ScheduleData",
+      "ConfiguredSchedule",
+      "TeamReference",
     ],
-    EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
+    EscalationTarget: [
+      "TeamTarget",
+      "UserTarget",
+      "ScheduleTarget",
+      "ConfiguredScheduleTarget",
+    ],
     RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
     ScheduleDataIncludedItem: [
       "TeamReference",
@@ -183,6 +198,13 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    ConfiguredSchedule: ConfiguredSchedule,
+    ConfiguredScheduleTarget: ConfiguredScheduleTarget,
+    ConfiguredScheduleTargetAttributes: ConfiguredScheduleTargetAttributes,
+    ConfiguredScheduleTargetRelationships:
+      ConfiguredScheduleTargetRelationships,
+    ConfiguredScheduleTargetRelationshipsSchedule:
+      ConfiguredScheduleTargetRelationshipsSchedule,
     DataRelationshipsTeams: DataRelationshipsTeams,
     DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
     Escalation: Escalation,
@@ -206,6 +228,9 @@ export const TypingInfo: ModelTypingInfo = {
     EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
     EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
     EscalationPolicyStepTarget: EscalationPolicyStepTarget,
+    EscalationPolicyStepTargetConfig: EscalationPolicyStepTargetConfig,
+    EscalationPolicyStepTargetConfigSchedule:
+      EscalationPolicyStepTargetConfigSchedule,
     EscalationPolicyUpdateRequest: EscalationPolicyUpdateRequest,
     EscalationPolicyUpdateRequestData: EscalationPolicyUpdateRequestData,
     EscalationPolicyUpdateRequestDataAttributes:

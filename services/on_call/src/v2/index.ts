@@ -15,6 +15,12 @@ export {
 } from "./OnCallApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { ConfiguredSchedule } from "./models/ConfiguredSchedule";
+export { ConfiguredScheduleTarget } from "./models/ConfiguredScheduleTarget";
+export { ConfiguredScheduleTargetAttributes } from "./models/ConfiguredScheduleTargetAttributes";
+export { ConfiguredScheduleTargetRelationships } from "./models/ConfiguredScheduleTargetRelationships";
+export { ConfiguredScheduleTargetRelationshipsSchedule } from "./models/ConfiguredScheduleTargetRelationshipsSchedule";
+export { ConfiguredScheduleTargetType } from "./models/ConfiguredScheduleTargetType";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
@@ -39,6 +45,8 @@ export { EscalationPolicyStepAttributes } from "./models/EscalationPolicyStepAtt
 export { EscalationPolicyStepAttributesAssignment } from "./models/EscalationPolicyStepAttributesAssignment";
 export { EscalationPolicyStepRelationships } from "./models/EscalationPolicyStepRelationships";
 export { EscalationPolicyStepTarget } from "./models/EscalationPolicyStepTarget";
+export { EscalationPolicyStepTargetConfig } from "./models/EscalationPolicyStepTargetConfig";
+export { EscalationPolicyStepTargetConfigSchedule } from "./models/EscalationPolicyStepTargetConfigSchedule";
 export { EscalationPolicyStepTargetType } from "./models/EscalationPolicyStepTargetType";
 export { EscalationPolicyStepType } from "./models/EscalationPolicyStepType";
 export { EscalationPolicyUpdateRequest } from "./models/EscalationPolicyUpdateRequest";
@@ -106,6 +114,7 @@ export { ScheduleMemberType } from "./models/ScheduleMemberType";
 export { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./models/ScheduleRequestDataAttributesLayersItemsMembersItems";
 export { ScheduleRequestDataAttributesLayersItemsMembersItemsUser } from "./models/ScheduleRequestDataAttributesLayersItemsMembersItemsUser";
 export { ScheduleTarget } from "./models/ScheduleTarget";
+export { ScheduleTargetPosition } from "./models/ScheduleTargetPosition";
 export { ScheduleTargetType } from "./models/ScheduleTargetType";
 export { ScheduleUpdateRequest } from "./models/ScheduleUpdateRequest";
 export { ScheduleUpdateRequestData } from "./models/ScheduleUpdateRequestData";

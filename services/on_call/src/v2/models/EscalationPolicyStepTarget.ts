@@ -1,11 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { EscalationPolicyStepTargetConfig } from "./EscalationPolicyStepTargetConfig";
 import { EscalationPolicyStepTargetType } from "./EscalationPolicyStepTargetType";
 
 /**
- * Defines a single escalation target within a step for an escalation policy creation request. Contains `id` and `type`.
+ * Defines a single escalation target within a step for an escalation policy creation request. Contains `id`, `type`, and optional `config`.
  */
 export class EscalationPolicyStepTarget {
+  /**
+   * Configuration for an escalation target, such as schedule position.
+   */
+  "config"?: EscalationPolicyStepTargetConfig;
   /**
    * Specifies the unique identifier for this target.
    */
@@ -29,6 +34,10 @@ export class EscalationPolicyStepTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    config: {
+      baseName: "config",
+      type: "EscalationPolicyStepTargetConfig",
+    },
     id: {
       baseName: "id",
       type: "string",
