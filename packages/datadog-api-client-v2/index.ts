@@ -357,8 +357,10 @@ export {
   FleetAutomationApiCreateFleetDeploymentUpgradeRequest,
   FleetAutomationApiCreateFleetScheduleRequest,
   FleetAutomationApiDeleteFleetScheduleRequest,
+  FleetAutomationApiGetFleetAgentInfoRequest,
   FleetAutomationApiGetFleetDeploymentRequest,
   FleetAutomationApiGetFleetScheduleRequest,
+  FleetAutomationApiListFleetAgentsRequest,
   FleetAutomationApiListFleetDeploymentsRequest,
   FleetAutomationApiTriggerFleetScheduleRequest,
   FleetAutomationApiUpdateFleetScheduleRequest,
@@ -2262,10 +2264,23 @@ export { FlakyTestsSearchResponseMeta } from "./models/FlakyTestsSearchResponseM
 export { FlakyTestsSearchSort } from "./models/FlakyTestsSearchSort";
 export { FlakyTestStats } from "./models/FlakyTestStats";
 export { FlakyTestType } from "./models/FlakyTestType";
+export { FleetAgentAttributes } from "./models/FleetAgentAttributes";
+export { FleetAgentAttributesTagsItems } from "./models/FleetAgentAttributesTagsItems";
+export { FleetAgentInfo } from "./models/FleetAgentInfo";
+export { FleetAgentInfoAttributes } from "./models/FleetAgentInfoAttributes";
+export { FleetAgentInfoDetails } from "./models/FleetAgentInfoDetails";
+export { FleetAgentInfoResourceType } from "./models/FleetAgentInfoResourceType";
+export { FleetAgentInfoResponse } from "./models/FleetAgentInfoResponse";
+export { FleetAgentsResponse } from "./models/FleetAgentsResponse";
+export { FleetAgentsResponseData } from "./models/FleetAgentsResponseData";
+export { FleetAgentsResponseDataAttributes } from "./models/FleetAgentsResponseDataAttributes";
+export { FleetAgentsResponseMeta } from "./models/FleetAgentsResponseMeta";
 export { FleetAgentVersion } from "./models/FleetAgentVersion";
 export { FleetAgentVersionAttributes } from "./models/FleetAgentVersionAttributes";
 export { FleetAgentVersionResourceType } from "./models/FleetAgentVersionResourceType";
 export { FleetAgentVersionsResponse } from "./models/FleetAgentVersionsResponse";
+export { FleetConfigurationFile } from "./models/FleetConfigurationFile";
+export { FleetConfigurationLayer } from "./models/FleetConfigurationLayer";
 export { FleetDeployment } from "./models/FleetDeployment";
 export { FleetDeploymentAttributes } from "./models/FleetDeploymentAttributes";
 export { FleetDeploymentConfigureAttributes } from "./models/FleetDeploymentConfigureAttributes";
@@ -2286,6 +2301,9 @@ export { FleetDeploymentResponseMeta } from "./models/FleetDeploymentResponseMet
 export { FleetDeploymentsPage } from "./models/FleetDeploymentsPage";
 export { FleetDeploymentsResponse } from "./models/FleetDeploymentsResponse";
 export { FleetDeploymentsResponseMeta } from "./models/FleetDeploymentsResponseMeta";
+export { FleetDetectedIntegration } from "./models/FleetDetectedIntegration";
+export { FleetIntegrationDetails } from "./models/FleetIntegrationDetails";
+export { FleetIntegrationsByStatus } from "./models/FleetIntegrationsByStatus";
 export { FleetSchedule } from "./models/FleetSchedule";
 export { FleetScheduleAttributes } from "./models/FleetScheduleAttributes";
 export { FleetScheduleCreate } from "./models/FleetScheduleCreate";
