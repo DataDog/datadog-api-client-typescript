@@ -23,6 +23,8 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { FleetAgentInfoResponse } from "./models/FleetAgentInfoResponse";
+import { FleetAgentsResponse } from "./models/FleetAgentsResponse";
 import { FleetAgentVersionsResponse } from "./models/FleetAgentVersionsResponse";
 import { FleetDeploymentConfigureCreateRequest } from "./models/FleetDeploymentConfigureCreateRequest";
 import { FleetDeploymentPackageUpgradeCreateRequest } from "./models/FleetDeploymentPackageUpgradeCreateRequest";
@@ -331,6 +333,58 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getFleetAgentInfo(
+    agentKey: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["FleetAutomationApi.v2.getFleetAgentInfo"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getFleetAgentInfo' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetAgentInfo'] = true`",
+      );
+    }
+
+    // verify required parameter 'agentKey' is not null or undefined
+    if (agentKey === null || agentKey === undefined) {
+      throw new RequiredError("agentKey", "getFleetAgentInfo");
+    }
+
+    // Path Params
+    const localVarPath = "/api/unstable/fleet/agents/{agent_key}".replace(
+      "{agent_key}",
+      encodeURIComponent(String(agentKey)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.getFleetAgentInfo",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getFleetDeployment(
     deploymentId: string,
     limit?: number,
@@ -452,6 +506,97 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listFleetAgents(
+    pageNumber?: number,
+    pageSize?: number,
+    sortAttribute?: string,
+    sortDescending?: boolean,
+    tags?: string,
+    filter?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetAgents"]) {
+      throw new Error(
+        "Unstable operation 'listFleetAgents' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgents'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/unstable/fleet/agents";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.listFleetAgents",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page_number",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page_size",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sortAttribute !== undefined) {
+      requestContext.setQueryParam(
+        "sort_attribute",
+        serialize(sortAttribute, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sortDescending !== undefined) {
+      requestContext.setQueryParam(
+        "sort_descending",
+        serialize(sortDescending, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        serialize(tags, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listFleetAgentVersions(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -468,7 +613,7 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/unstable/fleet/agents";
+    const localVarPath = "/api/unstable/fleet/agent_versions";
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -1008,6 +1153,68 @@ export class FleetAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getFleetAgentInfo
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getFleetAgentInfo(
+    response: ResponseContext,
+  ): Promise<FleetAgentInfoResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetAgentInfoResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAgentInfoResponse",
+      ) as FleetAgentInfoResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetAgentInfoResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAgentInfoResponse",
+        "",
+      ) as FleetAgentInfoResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getFleetDeployment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1118,6 +1325,68 @@ export class FleetAutomationApiResponseProcessor {
         "FleetScheduleResponse",
         "",
       ) as FleetScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listFleetAgents
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFleetAgents(
+    response: ResponseContext,
+  ): Promise<FleetAgentsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetAgentsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAgentsResponse",
+      ) as FleetAgentsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetAgentsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetAgentsResponse",
+        "",
+      ) as FleetAgentsResponse;
       return body;
     }
 
@@ -1477,6 +1746,14 @@ export interface FleetAutomationApiDeleteFleetScheduleRequest {
   id: string;
 }
 
+export interface FleetAutomationApiGetFleetAgentInfoRequest {
+  /**
+   * The unique identifier (agent key) for the Datadog Agent.
+   * @type string
+   */
+  agentKey: string;
+}
+
 export interface FleetAutomationApiGetFleetDeploymentRequest {
   /**
    * The unique identifier of the deployment to retrieve.
@@ -1501,6 +1778,39 @@ export interface FleetAutomationApiGetFleetScheduleRequest {
    * @type string
    */
   id: string;
+}
+
+export interface FleetAutomationApiListFleetAgentsRequest {
+  /**
+   * Page number for pagination (must be greater than 0).
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Number of results per page (must be greater than 0 and less than or equal to 100).
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Attribute to sort by.
+   * @type string
+   */
+  sortAttribute?: string;
+  /**
+   * Sort order (true for descending, false for ascending).
+   * @type boolean
+   */
+  sortDescending?: boolean;
+  /**
+   * Comma-separated list of tags to filter agents.
+   * @type string
+   */
+  tags?: string;
+  /**
+   * Filter string for narrowing down agent results.
+   * @type string
+   */
+  filter?: string;
 }
 
 export interface FleetAutomationApiListFleetDeploymentsRequest {
@@ -1706,6 +2016,32 @@ export class FleetAutomationApi {
   }
 
   /**
+   * Retrieve detailed information about a specific Datadog Agent.
+   * This endpoint returns comprehensive information about an agent including:
+   * - Agent details and metadata
+   * - Configured integrations organized by status (working, warning, error, missing)
+   * - Detected integrations
+   * - Configuration files and layers
+   * @param param The request object
+   */
+  public getFleetAgentInfo(
+    param: FleetAutomationApiGetFleetAgentInfoRequest,
+    options?: Configuration,
+  ): Promise<FleetAgentInfoResponse> {
+    const requestContextPromise = this.requestFactory.getFleetAgentInfo(
+      param.agentKey,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getFleetAgentInfo(responseContext);
+        });
+    });
+  }
+
+  /**
    * Retrieve detailed information about a specific deployment using its unique identifier.
    * This endpoint returns comprehensive information about a deployment, including:
    * - Deployment metadata (ID, type, filter query)
@@ -1771,6 +2107,34 @@ export class FleetAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getFleetSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve a paginated list of all Datadog Agents.
+   * This endpoint returns a paginated list of all Datadog Agents with support for pagination, sorting, and filtering.
+   * Use the `page_number` and `page_size` query parameters to paginate through results.
+   * @param param The request object
+   */
+  public listFleetAgents(
+    param: FleetAutomationApiListFleetAgentsRequest = {},
+    options?: Configuration,
+  ): Promise<FleetAgentsResponse> {
+    const requestContextPromise = this.requestFactory.listFleetAgents(
+      param.pageNumber,
+      param.pageSize,
+      param.sortAttribute,
+      param.sortDescending,
+      param.tags,
+      param.filter,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFleetAgents(responseContext);
         });
     });
   }

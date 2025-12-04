@@ -2353,6 +2353,40 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "FleetAutomationApi.V2.ListFleetAgentVersions": {
     operationResponseType: "FleetAgentVersionsResponse",
   },
+  "FleetAutomationApi.V2.ListFleetAgents": {
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sortAttribute: {
+      type: "string",
+      format: "",
+    },
+    sortDescending: {
+      type: "boolean",
+      format: "",
+    },
+    tags: {
+      type: "string",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetAgentsResponse",
+  },
+  "FleetAutomationApi.V2.GetFleetAgentInfo": {
+    agentKey: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetAgentInfoResponse",
+  },
   "FleetAutomationApi.V2.ListFleetDeployments": {
     pageSize: {
       type: "number",
