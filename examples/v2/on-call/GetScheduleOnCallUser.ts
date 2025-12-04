@@ -1,5 +1,5 @@
 /**
- * Get the schedule on-call user returns "OK" response
+ * Get scheduled on-call user returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
