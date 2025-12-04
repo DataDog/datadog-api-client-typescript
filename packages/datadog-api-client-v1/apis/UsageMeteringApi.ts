@@ -5067,7 +5067,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
