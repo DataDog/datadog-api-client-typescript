@@ -1571,6 +1571,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "withAssets": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "Monitor",
     },
     "v1.UpdateMonitor": {

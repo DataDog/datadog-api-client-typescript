@@ -155,6 +155,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     monitorId: number,
     groupStates?: string,
     withDowntimes?: boolean,
+    withAssets?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -189,6 +190,13 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "with_downtimes",
         ObjectSerializer.serialize(withDowntimes, "boolean", ""),
+        ""
+      );
+    }
+    if (withAssets !== undefined) {
+      requestContext.setQueryParam(
+        "with_assets",
+        ObjectSerializer.serialize(withAssets, "boolean", ""),
         ""
       );
     }
@@ -1221,6 +1229,11 @@ export interface MonitorsApiGetMonitorRequest {
    * @type boolean
    */
   withDowntimes?: boolean;
+  /**
+   * If this argument is set to `true`, the returned data includes all assets tied to this monitor.
+   * @type boolean
+   */
+  withAssets?: boolean;
 }
 
 export interface MonitorsApiListMonitorsRequest {
@@ -1680,6 +1693,7 @@ export class MonitorsApi {
       param.monitorId,
       param.groupStates,
       param.withDowntimes,
+      param.withAssets,
       options
     );
     return requestContextPromise.then((requestContext) => {

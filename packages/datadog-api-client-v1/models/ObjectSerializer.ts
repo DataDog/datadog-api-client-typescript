@@ -214,6 +214,7 @@ import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
 import { MetricsQueryResponse } from "./MetricsQueryResponse";
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
 import { Monitor } from "./Monitor";
+import { MonitorAsset } from "./MonitorAsset";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
@@ -971,6 +972,8 @@ const enumsMap: { [key: string]: any[] } = {
   LogsURLParserType: ["url-parser"],
   LogsUserAgentParserType: ["user-agent-parser"],
   MetricContentEncoding: ["deflate", "gzip"],
+  MonitorAssetCategory: ["runbook"],
+  MonitorAssetResourceType: ["notebook"],
   MonitorDeviceID: [
     "laptop_large",
     "tablet",
@@ -1949,6 +1952,7 @@ const typeMap: { [index: string]: any } = {
   MetricsQueryResponse: MetricsQueryResponse,
   MetricsQueryUnit: MetricsQueryUnit,
   Monitor: Monitor,
+  MonitorAsset: MonitorAsset,
   MonitorFormulaAndFunctionCostQueryDefinition:
     MonitorFormulaAndFunctionCostQueryDefinition,
   MonitorFormulaAndFunctionEventQueryDefinition:

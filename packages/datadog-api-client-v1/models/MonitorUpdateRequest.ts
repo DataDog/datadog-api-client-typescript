@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { Creator } from "./Creator";
+import { MonitorAsset } from "./MonitorAsset";
 import { MonitorDraftStatus } from "./MonitorDraftStatus";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
@@ -16,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Object describing a monitor update request.
  */
 export class MonitorUpdateRequest {
+  /**
+   * The list of monitor assets tied to a monitor, which represents key links for users to take action on monitor alerts (for example, runbooks).
+   */
+  "assets"?: Array<MonitorAsset>;
   /**
    * Timestamp of the monitor creation.
    */
@@ -106,6 +111,10 @@ export class MonitorUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    assets: {
+      baseName: "assets",
+      type: "Array<MonitorAsset>",
+    },
     created: {
       baseName: "created",
       type: "Date",

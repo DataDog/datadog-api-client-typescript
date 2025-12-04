@@ -5,6 +5,7 @@
  */
 import { Creator } from "./Creator";
 import { MatchingDowntime } from "./MatchingDowntime";
+import { MonitorAsset } from "./MonitorAsset";
 import { MonitorDraftStatus } from "./MonitorDraftStatus";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
@@ -17,6 +18,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Object describing a monitor.
  */
 export class Monitor {
+  /**
+   * The list of monitor assets tied to a monitor, which represents key links for users to take action on monitor alerts (for example, runbooks).
+   */
+  "assets"?: Array<MonitorAsset>;
   /**
    * Timestamp of the monitor creation.
    */
@@ -111,6 +116,10 @@ export class Monitor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    assets: {
+      baseName: "assets",
+      type: "Array<MonitorAsset>",
+    },
     created: {
       baseName: "created",
       type: "Date",
