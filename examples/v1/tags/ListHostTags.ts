@@ -1,5 +1,5 @@
 /**
- * Get Tags returns "OK" response
+ * Get All Hosts Tags returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
