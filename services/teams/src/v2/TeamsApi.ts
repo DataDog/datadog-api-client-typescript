@@ -3925,6 +3925,8 @@ export class TeamsApi {
 
   /**
    * Add a user to a team.
+   *
+   * **Note**: Each team has a setting that determines who is allowed to modify membership of the team. The `user_access_manage` permission generally grants access to modify membership of any team. To get the full picture, see [Team Membership documentation](https://docs.datadoghq.com/account_management/teams/manage/#team-membership).
    * @param param The request object
    */
   public createTeamMembership(
@@ -4011,6 +4013,8 @@ export class TeamsApi {
 
   /**
    * Remove a user from a team.
+   *
+   * **Note**: Each team has a setting that determines who is allowed to modify membership of the team. The `user_access_manage` permission generally grants access to modify membership of any team. To get the full picture, see [Team Membership documentation](https://docs.datadoghq.com/account_management/teams/manage/#team-membership).
    * @param param The request object
    */
   public deleteTeamMembership(
@@ -4648,6 +4652,8 @@ export class TeamsApi {
 
   /**
    * Update a user's membership attributes on a team.
+   *
+   * **Note**: Each team has a setting that determines who is allowed to modify membership of the team. The `user_access_manage` permission generally grants access to modify membership of any team. To get the full picture, see [Team Membership documentation](https://docs.datadoghq.com/account_management/teams/manage/#team-membership).
    * @param param The request object
    */
   public updateTeamMembership(
