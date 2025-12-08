@@ -7983,6 +7983,28 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TableRowResourceArray",
   },
+  "ReferenceTablesApi.V2.UpsertRows": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "BatchUpsertRowsRequestArray",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ReferenceTablesApi.V2.DeleteRows": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "BatchDeleteRowsRequestArray",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "ReferenceTablesApi.V2.CreateReferenceTableUpload": {
     body: {
       type: "CreateUploadRequest",
