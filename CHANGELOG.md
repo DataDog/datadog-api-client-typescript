@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 1.48.0/2025-12-08
+
+### Added
+* On-Call Add positioned schedule policy target [#3058](https://github.com/DataDog/datadog-api-client-typescript/pull/3058)
+* Introduced new APIs to manage team hierarchy links [#3041](https://github.com/DataDog/datadog-api-client-typescript/pull/3041)
+* Add Row Update Endpoints to Reference Tables API spec [#3021](https://github.com/DataDog/datadog-api-client-typescript/pull/3021)
+* Add incident management seats  to spec [#3014](https://github.com/DataDog/datadog-api-client-typescript/pull/3014)
+* Support provisioning teams from external sources [#3012](https://github.com/DataDog/datadog-api-client-typescript/pull/3012)
+* security_monitoring - Add signalOutput field to ThreatHuntingJobResponseAttributes schema [#3008](https://github.com/DataDog/datadog-api-client-typescript/pull/3008)
+* Add filter.scope to Monitor Notification Rules [#3002](https://github.com/DataDog/datadog-api-client-typescript/pull/3002)
+* Add Support for Monitor Assets [#2982](https://github.com/DataDog/datadog-api-client-typescript/pull/2982)
+* Add api specs for deployment gates [#2906](https://github.com/DataDog/datadog-api-client-typescript/pull/2906)
+
+### Changed
+* Add Security Finding Ticketing endpoints [#3047](https://github.com/DataDog/datadog-api-client-typescript/pull/3047)
+* Flatten file_metadata response schema to avoid OneOf unmarshaling issues [#3018](https://github.com/DataDog/datadog-api-client-typescript/pull/3018)
+
+### Fixed
+* obs_pipelines: make google auth optional [#3029](https://github.com/DataDog/datadog-api-client-typescript/pull/3029)
+
 ## 1.47.0/2025-11-14
 
 ### Added
