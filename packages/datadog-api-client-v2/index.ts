@@ -663,11 +663,13 @@ export {
 export {
   ReferenceTablesApiCreateReferenceTableRequest,
   ReferenceTablesApiCreateReferenceTableUploadRequest,
+  ReferenceTablesApiDeleteRowsRequest,
   ReferenceTablesApiDeleteTableRequest,
   ReferenceTablesApiGetRowsByIDRequest,
   ReferenceTablesApiGetTableRequest,
   ReferenceTablesApiListTablesRequest,
   ReferenceTablesApiUpdateReferenceTableRequest,
+  ReferenceTablesApiUpsertRowsRequest,
   ReferenceTablesApi,
 } from "./apis/ReferenceTablesApi";
 
@@ -1317,6 +1319,11 @@ export { AzureUCConfigPostRequest } from "./models/AzureUCConfigPostRequest";
 export { AzureUCConfigPostRequestAttributes } from "./models/AzureUCConfigPostRequestAttributes";
 export { AzureUCConfigPostRequestType } from "./models/AzureUCConfigPostRequestType";
 export { AzureUCConfigsResponse } from "./models/AzureUCConfigsResponse";
+export { BatchDeleteRowsRequestArray } from "./models/BatchDeleteRowsRequestArray";
+export { BatchDeleteRowsRequestData } from "./models/BatchDeleteRowsRequestData";
+export { BatchUpsertRowsRequestArray } from "./models/BatchUpsertRowsRequestArray";
+export { BatchUpsertRowsRequestData } from "./models/BatchUpsertRowsRequestData";
+export { BatchUpsertRowsRequestDataAttributes } from "./models/BatchUpsertRowsRequestDataAttributes";
 export { BillConfig } from "./models/BillConfig";
 export { BillingDimensionsMappingBodyItem } from "./models/BillingDimensionsMappingBodyItem";
 export { BillingDimensionsMappingBodyItemAttributes } from "./models/BillingDimensionsMappingBodyItemAttributes";
