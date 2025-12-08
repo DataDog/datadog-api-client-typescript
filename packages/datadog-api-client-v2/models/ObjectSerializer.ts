@@ -261,6 +261,11 @@ import { AzureUCConfigPostData } from "./AzureUCConfigPostData";
 import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
+import { BatchDeleteRowsRequestArray } from "./BatchDeleteRowsRequestArray";
+import { BatchDeleteRowsRequestData } from "./BatchDeleteRowsRequestData";
+import { BatchUpsertRowsRequestArray } from "./BatchUpsertRowsRequestArray";
+import { BatchUpsertRowsRequestData } from "./BatchUpsertRowsRequestData";
+import { BatchUpsertRowsRequestDataAttributes } from "./BatchUpsertRowsRequestDataAttributes";
 import { BillConfig } from "./BillConfig";
 import { BillingDimensionsMappingBodyItem } from "./BillingDimensionsMappingBodyItem";
 import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
@@ -4706,6 +4711,11 @@ const typeMap: { [index: string]: any } = {
   AzureUCConfigPostRequest: AzureUCConfigPostRequest,
   AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
   AzureUCConfigsResponse: AzureUCConfigsResponse,
+  BatchDeleteRowsRequestArray: BatchDeleteRowsRequestArray,
+  BatchDeleteRowsRequestData: BatchDeleteRowsRequestData,
+  BatchUpsertRowsRequestArray: BatchUpsertRowsRequestArray,
+  BatchUpsertRowsRequestData: BatchUpsertRowsRequestData,
+  BatchUpsertRowsRequestDataAttributes: BatchUpsertRowsRequestDataAttributes,
   BillConfig: BillConfig,
   BillingDimensionsMappingBodyItem: BillingDimensionsMappingBodyItem,
   BillingDimensionsMappingBodyItemAttributes:

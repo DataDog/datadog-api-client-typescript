@@ -7973,6 +7973,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TableRowResourceArray",
     },
+    "v2.UpsertRows": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "BatchUpsertRowsRequestArray",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteRows": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "BatchDeleteRowsRequestArray",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateReferenceTableUpload": {
         "body": {
             "type": "CreateUploadRequest",
