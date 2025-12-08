@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { UsageIncidentManagementHour } from "./UsageIncidentManagementHour";
 
 /**
- * Response containing the incident management usage for each hour for a given organization.
+ * Response containing the Incident Management usage for each hour for a given organization.
  */
 export class UsageIncidentManagementResponse {
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    */
   "usage"?: Array<UsageIncidentManagementHour>;
   /**
