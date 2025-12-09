@@ -70,6 +70,7 @@ export const TypingInfo: ModelTypingInfo = {
       "percentile",
     ],
     FormulaAndFunctionMetricDataSource: ["metrics"],
+    FormulaAndFunctionMetricSemanticMode: ["combined", "native"],
     SLOCorrectionCategory: [
       "Scheduled Maintenance",
       "Outside Business Hours",
