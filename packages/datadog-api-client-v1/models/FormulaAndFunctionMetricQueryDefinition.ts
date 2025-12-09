@@ -5,6 +5,7 @@
  */
 import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricAggregation";
 import { FormulaAndFunctionMetricDataSource } from "./FormulaAndFunctionMetricDataSource";
+import { FormulaAndFunctionMetricSemanticMode } from "./FormulaAndFunctionMetricSemanticMode";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -32,6 +33,10 @@ export class FormulaAndFunctionMetricQueryDefinition {
    * Metrics query definition.
    */
   "query": string;
+  /**
+   * Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed.
+   */
+  "semanticMode"?: FormulaAndFunctionMetricSemanticMode;
 
   /**
    * A container for additional, undeclared properties.
@@ -71,6 +76,10 @@ export class FormulaAndFunctionMetricQueryDefinition {
       baseName: "query",
       type: "string",
       required: true,
+    },
+    semanticMode: {
+      baseName: "semantic_mode",
+      type: "FormulaAndFunctionMetricSemanticMode",
     },
     additionalProperties: {
       baseName: "additionalProperties",

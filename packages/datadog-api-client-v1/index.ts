@@ -457,6 +457,7 @@ export { FormulaAndFunctionEventsDataSource } from "./models/FormulaAndFunctionE
 export { FormulaAndFunctionMetricAggregation } from "./models/FormulaAndFunctionMetricAggregation";
 export { FormulaAndFunctionMetricDataSource } from "./models/FormulaAndFunctionMetricDataSource";
 export { FormulaAndFunctionMetricQueryDefinition } from "./models/FormulaAndFunctionMetricQueryDefinition";
+export { FormulaAndFunctionMetricSemanticMode } from "./models/FormulaAndFunctionMetricSemanticMode";
 export { FormulaAndFunctionProcessQueryDataSource } from "./models/FormulaAndFunctionProcessQueryDataSource";
 export { FormulaAndFunctionProcessQueryDefinition } from "./models/FormulaAndFunctionProcessQueryDefinition";
 export { FormulaAndFunctionQueryDefinition } from "./models/FormulaAndFunctionQueryDefinition";
