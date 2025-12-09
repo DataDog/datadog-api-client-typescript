@@ -19,6 +19,7 @@ export { Creator } from "./models/Creator";
 export { FormulaAndFunctionMetricAggregation } from "./models/FormulaAndFunctionMetricAggregation";
 export { FormulaAndFunctionMetricDataSource } from "./models/FormulaAndFunctionMetricDataSource";
 export { FormulaAndFunctionMetricQueryDefinition } from "./models/FormulaAndFunctionMetricQueryDefinition";
+export { FormulaAndFunctionMetricSemanticMode } from "./models/FormulaAndFunctionMetricSemanticMode";
 export { Pagination } from "./models/Pagination";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { SearchServiceLevelObjective } from "./models/SearchServiceLevelObjective";
