@@ -248,6 +248,7 @@ export const TypingInfo: ModelTypingInfo = {
       "percentile",
     ],
     FormulaAndFunctionMetricDataSource: ["metrics"],
+    FormulaAndFunctionMetricSemanticMode: ["combined", "native"],
     FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
     FormulaAndFunctionResponseFormat: ["timeseries", "scalar", "event_list"],
     FormulaAndFunctionSLODataSource: ["slo"],
