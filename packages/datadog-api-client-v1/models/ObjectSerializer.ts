@@ -322,6 +322,8 @@ import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponse
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
 import { SLOCorrectionUpdateRequest } from "./SLOCorrectionUpdateRequest";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
+import { SLOCountCondition } from "./SLOCountCondition";
+import { SLOCountSpec } from "./SLOCountSpec";
 import { SLOCreator } from "./SLOCreator";
 import { SLODeleteResponse } from "./SLODeleteResponse";
 import { SLOFormula } from "./SLOFormula";
@@ -2072,6 +2074,8 @@ const typeMap: { [index: string]: any } = {
   SLOCorrectionUpdateData: SLOCorrectionUpdateData,
   SLOCorrectionUpdateRequest: SLOCorrectionUpdateRequest,
   SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,
+  SLOCountCondition: SLOCountCondition,
+  SLOCountSpec: SLOCountSpec,
   SLOCreator: SLOCreator,
   SLODeleteResponse: SLODeleteResponse,
   SLOFormula: SLOFormula,
@@ -2510,7 +2514,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
   SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
-  SLOSliSpec: ["SLOTimeSliceSpec"],
+  SLOSliSpec: ["SLOTimeSliceSpec", "SLOCountSpec"],
   SharedDashboardInvitesData: [
     "SharedDashboardInvitesDataObject",
     "Array<SharedDashboardInvitesDataObject>",
