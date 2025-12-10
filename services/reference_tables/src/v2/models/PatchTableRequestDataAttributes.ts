@@ -20,10 +20,6 @@ export class PatchTableRequestDataAttributes {
    */
   "schema"?: PatchTableRequestDataAttributesSchema;
   /**
-   * Whether this table is synced automatically.
-   */
-  "syncEnabled"?: boolean;
-  /**
    * Tags for organizing and filtering reference tables.
    */
   "tags"?: Array<string>;
@@ -53,10 +49,6 @@ export class PatchTableRequestDataAttributes {
     schema: {
       baseName: "schema",
       type: "PatchTableRequestDataAttributesSchema",
-    },
-    syncEnabled: {
-      baseName: "sync_enabled",
-      type: "boolean",
     },
     tags: {
       baseName: "tags",
