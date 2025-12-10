@@ -137,6 +137,10 @@ export class UsageSummaryResponse {
    */
   "cloudCostManagementHostCountAvgSum"?: number;
   /**
+   * Sum of the average host counts for Cloud Cost Management on OCI.
+   */
+  "cloudCostManagementOciHostCountAvgSum"?: number;
+  /**
    * Shows the sum of all Cloud Security Information and Event Management events over all hours in the current month for all organizations.
    */
   "cloudSiemEventsAggSum"?: number;
@@ -324,6 +328,10 @@ export class UsageSummaryResponse {
    * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current month for all organizations.
    */
   "ephInfraHostProplusAggSum"?: number;
+  /**
+   * Sum of all ephemeral infrastructure hosts for Proxmox over all hours in the current month for all organizations.
+   */
+  "ephInfraHostProxmoxAggSum"?: number;
   /**
    * Shows the sum of all Error Tracking APM error events over all hours in the current month for all organizations.
    */
@@ -560,6 +568,14 @@ export class UsageSummaryResponse {
    * Shows the 99th percentile of all profiled hosts over all hours in the current month for all organizations.
    */
   "profilingHostCountTop99PSum"?: number;
+  /**
+   * Sum of all Proxmox hosts over all hours in the current month for all organizations.
+   */
+  "proxmoxHostAggSum"?: number;
+  /**
+   * Sum of the 99th percentile of all Proxmox hosts over all hours in the current month for all organizations.
+   */
+  "proxmoxHostTop99PSum"?: number;
   /**
    * Shows the high-water mark of all published applications over all hours in the current month for all organizations.
    */
@@ -1052,6 +1068,11 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    cloudCostManagementOciHostCountAvgSum: {
+      baseName: "cloud_cost_management_oci_host_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
     cloudSiemEventsAggSum: {
       baseName: "cloud_siem_events_agg_sum",
       type: "number",
@@ -1284,6 +1305,11 @@ export class UsageSummaryResponse {
     },
     ephInfraHostProplusAggSum: {
       baseName: "eph_infra_host_proplus_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostProxmoxAggSum: {
+      baseName: "eph_infra_host_proxmox_agg_sum",
       type: "number",
       format: "int64",
     },
@@ -1579,6 +1605,16 @@ export class UsageSummaryResponse {
     },
     profilingHostCountTop99PSum: {
       baseName: "profiling_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    proxmoxHostAggSum: {
+      baseName: "proxmox_host_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    proxmoxHostTop99PSum: {
+      baseName: "proxmox_host_top99p_sum",
       type: "number",
       format: "int64",
     },
