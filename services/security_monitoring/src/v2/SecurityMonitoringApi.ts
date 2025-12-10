@@ -179,6 +179,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.attachJiraIssue"]
+    ) {
+      throw new Error(
+        "Unstable operation 'attachJiraIssue' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.attachJiraIssue'] = true`",
+      );
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "attachJiraIssue");
@@ -550,6 +558,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.createJiraIssues"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createJiraIssues' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.createJiraIssues'] = true`",
+      );
+    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
