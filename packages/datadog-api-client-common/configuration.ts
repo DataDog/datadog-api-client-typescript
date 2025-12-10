@@ -277,6 +277,7 @@ export function createConfiguration(
       "v2.deleteDeploymentGate": false,
       "v2.deleteDeploymentRule": false,
       "v2.getDeploymentGate": false,
+      "v2.getDeploymentGateRules": false,
       "v2.getDeploymentRule": false,
       "v2.updateDeploymentGate": false,
       "v2.updateDeploymentRule": false,

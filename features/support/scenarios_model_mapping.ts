@@ -5397,6 +5397,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DeploymentGateResponse",
     },
+    "v2.GetDeploymentGateRules": {
+        "gateId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentGateRulesResponse",
+    },
     "v2.CreateDeploymentRule": {
         "gateId": {
             "type": "string",
