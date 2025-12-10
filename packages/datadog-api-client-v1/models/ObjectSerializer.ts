@@ -99,6 +99,7 @@ import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
 import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
 import { GeomapWidgetRequest } from "./GeomapWidgetRequest";
+import { GeomapWidgetRequestStyle } from "./GeomapWidgetRequestStyle";
 import { GraphSnapshot } from "./GraphSnapshot";
 import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
 import { HTTPLogError } from "./HTTPLogError";
@@ -1838,6 +1839,7 @@ const typeMap: { [index: string]: any } = {
   GeomapWidgetDefinitionStyle: GeomapWidgetDefinitionStyle,
   GeomapWidgetDefinitionView: GeomapWidgetDefinitionView,
   GeomapWidgetRequest: GeomapWidgetRequest,
+  GeomapWidgetRequestStyle: GeomapWidgetRequestStyle,
   GraphSnapshot: GraphSnapshot,
   GroupWidgetDefinition: GroupWidgetDefinition,
   HTTPLogError: HTTPLogError,

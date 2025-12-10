@@ -5,9 +5,12 @@
  */
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
+import { GeomapWidgetRequestStyle } from "./GeomapWidgetRequestStyle";
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { LogQueryDefinition } from "./LogQueryDefinition";
+import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
+import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSortBy } from "./WidgetSortBy";
 
@@ -21,6 +24,10 @@ export class GeomapWidgetRequest {
    * Widget columns.
    */
   "columns"?: Array<ListStreamColumn>;
+  /**
+   * Threshold (numeric) conditional formatting rules may be used by a regions layer.
+   */
+  "conditionalFormats"?: Array<WidgetConditionalFormat>;
   /**
    * List of formulas that operate on queries.
    */
@@ -57,6 +64,14 @@ export class GeomapWidgetRequest {
    * The controls for sorting the widget.
    */
   "sort"?: WidgetSortBy;
+  /**
+   * The style to apply to the request for points layer.
+   */
+  "style"?: GeomapWidgetRequestStyle;
+  /**
+   * Text formatting rules may be used by a points layer.
+   */
+  "textFormats"?: Array<TableWidgetTextFormatRule>;
 
   /**
    * A container for additional, undeclared properties.
@@ -77,6 +92,10 @@ export class GeomapWidgetRequest {
     columns: {
       baseName: "columns",
       type: "Array<ListStreamColumn>",
+    },
+    conditionalFormats: {
+      baseName: "conditional_formats",
+      type: "Array<WidgetConditionalFormat>",
     },
     formulas: {
       baseName: "formulas",
@@ -113,6 +132,14 @@ export class GeomapWidgetRequest {
     sort: {
       baseName: "sort",
       type: "WidgetSortBy",
+    },
+    style: {
+      baseName: "style",
+      type: "GeomapWidgetRequestStyle",
+    },
+    textFormats: {
+      baseName: "text_formats",
+      type: "Array<TableWidgetTextFormatRule>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
