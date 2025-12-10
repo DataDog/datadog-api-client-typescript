@@ -761,6 +761,7 @@ import { DeploymentGateResponseData } from "./DeploymentGateResponseData";
 import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
+import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
 import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationship } from "./DeploymentRelationship";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
@@ -1401,6 +1402,8 @@ import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
 import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
+import { ListDeploymentRuleResponseData } from "./ListDeploymentRuleResponseData";
+import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRulesResponseDataAttributes";
 import { ListDevicesResponse } from "./ListDevicesResponse";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
@@ -3460,6 +3463,7 @@ const enumsMap: { [key: string]: any[] } = {
   LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
   ListConnectionsResponseDataType: ["list_connections_response"],
+  ListDeploymentRulesDataType: ["list_deployment_rules"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -5309,6 +5313,7 @@ const typeMap: { [index: string]: any } = {
     DeploymentGateResponseDataAttributesCreatedBy,
   DeploymentGateResponseDataAttributesUpdatedBy:
     DeploymentGateResponseDataAttributesUpdatedBy,
+  DeploymentGateRulesResponse: DeploymentGateRulesResponse,
   DeploymentMetadata: DeploymentMetadata,
   DeploymentRelationship: DeploymentRelationship,
   DeploymentRelationshipData: DeploymentRelationshipData,
@@ -6030,6 +6035,9 @@ const typeMap: { [index: string]: any } = {
     ListConnectionsResponseDataAttributesConnectionsItems,
   ListConnectionsResponseDataAttributesConnectionsItemsJoin:
     ListConnectionsResponseDataAttributesConnectionsItemsJoin,
+  ListDeploymentRuleResponseData: ListDeploymentRuleResponseData,
+  ListDeploymentRulesResponseDataAttributes:
+    ListDeploymentRulesResponseDataAttributes,
   ListDevicesResponse: ListDevicesResponse,
   ListDevicesResponseMetadata: ListDevicesResponseMetadata,
   ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
