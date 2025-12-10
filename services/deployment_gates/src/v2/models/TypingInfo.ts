@@ -12,6 +12,7 @@ import { DeploymentGateResponseData } from "./DeploymentGateResponseData";
 import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
+import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
 import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
 import { DeploymentRuleResponse } from "./DeploymentRuleResponse";
@@ -24,6 +25,8 @@ import { HTTPCDGatesNotFoundResponse } from "./HTTPCDGatesNotFoundResponse";
 import { HTTPCDRulesNotFoundResponse } from "./HTTPCDRulesNotFoundResponse";
 import { HTTPCIAppError } from "./HTTPCIAppError";
 import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
+import { ListDeploymentRuleResponseData } from "./ListDeploymentRuleResponseData";
+import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRulesResponseDataAttributes";
 import { UpdateDeploymentGateParams } from "./UpdateDeploymentGateParams";
 import { UpdateDeploymentGateParamsData } from "./UpdateDeploymentGateParamsData";
 import { UpdateDeploymentGateParamsDataAttributes } from "./UpdateDeploymentGateParamsDataAttributes";
@@ -39,6 +42,7 @@ export const TypingInfo: ModelTypingInfo = {
       "faulty_deployment_detection",
       "monitor",
     ],
+    ListDeploymentRulesDataType: ["list_deployment_rules"],
   },
   oneOfMap: {
     DeploymentRulesOptions: [
@@ -63,6 +67,7 @@ export const TypingInfo: ModelTypingInfo = {
       DeploymentGateResponseDataAttributesCreatedBy,
     DeploymentGateResponseDataAttributesUpdatedBy:
       DeploymentGateResponseDataAttributesUpdatedBy,
+    DeploymentGateRulesResponse: DeploymentGateRulesResponse,
     DeploymentRuleOptionsFaultyDeploymentDetection:
       DeploymentRuleOptionsFaultyDeploymentDetection,
     DeploymentRuleOptionsMonitor: DeploymentRuleOptionsMonitor,
@@ -78,6 +83,9 @@ export const TypingInfo: ModelTypingInfo = {
     HTTPCDRulesNotFoundResponse: HTTPCDRulesNotFoundResponse,
     HTTPCIAppError: HTTPCIAppError,
     HTTPCIAppErrors: HTTPCIAppErrors,
+    ListDeploymentRuleResponseData: ListDeploymentRuleResponseData,
+    ListDeploymentRulesResponseDataAttributes:
+      ListDeploymentRulesResponseDataAttributes,
     UpdateDeploymentGateParams: UpdateDeploymentGateParams,
     UpdateDeploymentGateParamsData: UpdateDeploymentGateParamsData,
     UpdateDeploymentGateParamsDataAttributes:
