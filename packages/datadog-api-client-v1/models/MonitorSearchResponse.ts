@@ -10,7 +10,7 @@ import { MonitorSearchResult } from "./MonitorSearchResult";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The response form a monitor search.
+ * The response from a monitor search.
  */
 export class MonitorSearchResponse {
   /**
