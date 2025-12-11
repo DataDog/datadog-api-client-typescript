@@ -44,6 +44,7 @@ const params: v2.EventsApiCreateEventRequest = {
         },
         category: "change",
         integrationId: "custom-events",
+        host: "test-host",
         message: "payment_processed feature flag has been enabled",
         tags: ["env:api_client_test"],
         title: "payment_processed feature flag updated",
