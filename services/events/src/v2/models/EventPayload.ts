@@ -21,6 +21,10 @@ export class EventPayload {
    */
   "category": EventCategory;
   /**
+   * Host name to associate with the event. Any tags associated with the host are also applied to this event. Limited to 255 characters.
+   */
+  "host"?: string;
+  /**
    * Integration ID sourced from integration manifests.
    */
   "integrationId"?: EventPayloadIntegrationId;
@@ -65,6 +69,10 @@ export class EventPayload {
       baseName: "category",
       type: "EventCategory",
       required: true,
+    },
+    host: {
+      baseName: "host",
+      type: "string",
     },
     integrationId: {
       baseName: "integration_id",
