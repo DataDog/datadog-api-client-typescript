@@ -103,6 +103,7 @@ export { GeomapWidgetDefinitionStyle } from "./models/GeomapWidgetDefinitionStyl
 export { GeomapWidgetDefinitionType } from "./models/GeomapWidgetDefinitionType";
 export { GeomapWidgetDefinitionView } from "./models/GeomapWidgetDefinitionView";
 export { GeomapWidgetRequest } from "./models/GeomapWidgetRequest";
+export { GeomapWidgetRequestStyle } from "./models/GeomapWidgetRequestStyle";
 export { GroupType } from "./models/GroupType";
 export { GroupWidgetDefinition } from "./models/GroupWidgetDefinition";
 export { GroupWidgetDefinitionType } from "./models/GroupWidgetDefinitionType";

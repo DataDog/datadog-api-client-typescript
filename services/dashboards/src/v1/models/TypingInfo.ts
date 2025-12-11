@@ -47,6 +47,7 @@ import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
 import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
 import { GeomapWidgetRequest } from "./GeomapWidgetRequest";
+import { GeomapWidgetRequestStyle } from "./GeomapWidgetRequestStyle";
 import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
@@ -637,6 +638,7 @@ export const TypingInfo: ModelTypingInfo = {
     GeomapWidgetDefinitionStyle: GeomapWidgetDefinitionStyle,
     GeomapWidgetDefinitionView: GeomapWidgetDefinitionView,
     GeomapWidgetRequest: GeomapWidgetRequest,
+    GeomapWidgetRequestStyle: GeomapWidgetRequestStyle,
     GroupWidgetDefinition: GroupWidgetDefinition,
     HeatMapWidgetDefinition: HeatMapWidgetDefinition,
     HeatMapWidgetRequest: HeatMapWidgetRequest,
