@@ -18,6 +18,17 @@ const params: v2.AWSIntegrationApiCreateAWSAccountRequest = {
         },
         awsAccountId: "123456789012",
         awsPartition: "aws",
+        ccmConfig: {
+          dataExportConfigs: [
+            {
+              bucketName: "my-bucket",
+              bucketRegion: "us-east-1",
+              reportName: "my-report",
+              reportPrefix: "reports",
+              reportType: "CUR2.0",
+            },
+          ],
+        },
         logsConfig: {
           lambdaForwarder: {
             lambdas: [
