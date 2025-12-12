@@ -13,6 +13,10 @@ export class ObservabilityPipelineDatadogTagsProcessor {
    */
   "action": ObservabilityPipelineDatadogTagsProcessorAction;
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -20,10 +24,6 @@ export class ObservabilityPipelineDatadogTagsProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the `input` for this component.
-   */
-  "inputs": Array<string>;
   /**
    * A list of tag keys.
    */
@@ -56,6 +56,11 @@ export class ObservabilityPipelineDatadogTagsProcessor {
       type: "ObservabilityPipelineDatadogTagsProcessorAction",
       required: true,
     },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -64,11 +69,6 @@ export class ObservabilityPipelineDatadogTagsProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     keys: {
