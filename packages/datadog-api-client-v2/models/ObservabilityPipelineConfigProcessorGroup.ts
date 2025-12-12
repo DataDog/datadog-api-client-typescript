@@ -3,39 +3,34 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineDedupeProcessorMode } from "./ObservabilityPipelineDedupeProcessorMode";
-import { ObservabilityPipelineDedupeProcessorType } from "./ObservabilityPipelineDedupeProcessorType";
+import { ObservabilityPipelineConfigProcessorItem } from "./ObservabilityPipelineConfigProcessorItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `dedupe` processor removes duplicate fields in log events.
+ * A group of processors.
  */
-export class ObservabilityPipelineDedupeProcessor {
+export class ObservabilityPipelineConfigProcessorGroup {
   /**
-   * Whether this processor is enabled.
+   * Whether this processor group is enabled.
    */
   "enabled": boolean;
   /**
-   * A list of log field paths to check for duplicates.
-   */
-  "fields": Array<string>;
-  /**
-   * The unique identifier for this processor.
+   * The unique identifier for the processor group.
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * Conditional expression for when this processor group should execute.
    */
   "include": string;
   /**
-   * The deduplication mode to apply to the fields.
+   * A list of IDs for components whose output is used as the input for this processor group.
    */
-  "mode": ObservabilityPipelineDedupeProcessorMode;
+  "inputs": Array<string>;
   /**
-   * The processor type. The value should always be `dedupe`.
+   * Processors applied sequentially within this group. Events flow through each processor in order.
    */
-  "type": ObservabilityPipelineDedupeProcessorType;
+  "processors": Array<ObservabilityPipelineConfigProcessorItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -58,11 +53,6 @@ export class ObservabilityPipelineDedupeProcessor {
       type: "boolean",
       required: true,
     },
-    fields: {
-      baseName: "fields",
-      type: "Array<string>",
-      required: true,
-    },
     id: {
       baseName: "id",
       type: "string",
@@ -73,14 +63,14 @@ export class ObservabilityPipelineDedupeProcessor {
       type: "string",
       required: true,
     },
-    mode: {
-      baseName: "mode",
-      type: "ObservabilityPipelineDedupeProcessorMode",
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineDedupeProcessorType",
+    processors: {
+      baseName: "processors",
+      type: "Array<ObservabilityPipelineConfigProcessorItem>",
       required: true,
     },
     additionalProperties: {
@@ -93,7 +83,7 @@ export class ObservabilityPipelineDedupeProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineDedupeProcessor.attributeTypeMap;
+    return ObservabilityPipelineConfigProcessorGroup.attributeTypeMap;
   }
 
   public constructor() {}
