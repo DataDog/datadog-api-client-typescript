@@ -14,6 +14,7 @@ import { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./CloudWorkloadSe
 import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
 import { CloudWorkloadSecurityAgentPolicyVersion } from "./CloudWorkloadSecurityAgentPolicyVersion";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
+import { CloudWorkloadSecurityAgentRuleActionHash } from "./CloudWorkloadSecurityAgentRuleActionHash";
 import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
@@ -35,7 +36,13 @@ export const TypingInfo: ModelTypingInfo = {
     CloudWorkloadSecurityAgentPolicyType: ["policy"],
     CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    CloudWorkloadSecurityAgentRuleActionSetValue: [
+      "string",
+      "number",
+      "boolean",
+    ],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     CloudWorkloadSecurityAgentPoliciesListResponse:
@@ -62,6 +69,8 @@ export const TypingInfo: ModelTypingInfo = {
     CloudWorkloadSecurityAgentPolicyVersion:
       CloudWorkloadSecurityAgentPolicyVersion,
     CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
+    CloudWorkloadSecurityAgentRuleActionHash:
+      CloudWorkloadSecurityAgentRuleActionHash,
     CloudWorkloadSecurityAgentRuleActionMetadata:
       CloudWorkloadSecurityAgentRuleActionMetadata,
     CloudWorkloadSecurityAgentRuleActionSet:
