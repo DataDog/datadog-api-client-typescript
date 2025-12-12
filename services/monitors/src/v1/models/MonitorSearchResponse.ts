@@ -5,7 +5,7 @@ import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
 import { MonitorSearchResult } from "./MonitorSearchResult";
 
 /**
- * The response form a monitor search.
+ * The response from a monitor search.
  */
 export class MonitorSearchResponse {
   /**
