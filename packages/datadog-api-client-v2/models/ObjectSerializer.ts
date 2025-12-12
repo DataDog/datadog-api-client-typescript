@@ -424,6 +424,7 @@ import { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./CloudWorkloadSe
 import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
 import { CloudWorkloadSecurityAgentPolicyVersion } from "./CloudWorkloadSecurityAgentPolicyVersion";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
+import { CloudWorkloadSecurityAgentRuleActionHash } from "./CloudWorkloadSecurityAgentRuleActionHash";
 import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
@@ -4903,6 +4904,8 @@ const typeMap: { [index: string]: any } = {
   CloudWorkloadSecurityAgentPolicyVersion:
     CloudWorkloadSecurityAgentPolicyVersion,
   CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
+  CloudWorkloadSecurityAgentRuleActionHash:
+    CloudWorkloadSecurityAgentRuleActionHash,
   CloudWorkloadSecurityAgentRuleActionMetadata:
     CloudWorkloadSecurityAgentRuleActionMetadata,
   CloudWorkloadSecurityAgentRuleActionSet:
@@ -7754,6 +7757,7 @@ const oneOfMap: { [index: string]: string[] } = {
   CircleCICredentialsUpdate: ["CircleCIAPIKeyUpdate"],
   ClickupCredentials: ["ClickupAPIKey"],
   ClickupCredentialsUpdate: ["ClickupAPIKeyUpdate"],
+  CloudWorkloadSecurityAgentRuleActionSetValue: ["string", "number", "boolean"],
   CloudflareCredentials: ["CloudflareAPIToken", "CloudflareGlobalAPIToken"],
   CloudflareCredentialsUpdate: [
     "CloudflareAPITokenUpdate",

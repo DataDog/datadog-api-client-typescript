@@ -53,6 +53,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
    */
   "pinned"?: boolean;
   /**
+   * The type of the policy
+   */
+  "policyType"?: string;
+  /**
    * The version of the policy
    */
   "policyVersion"?: string;
@@ -139,6 +143,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
     pinned: {
       baseName: "pinned",
       type: "boolean",
+    },
+    policyType: {
+      baseName: "policyType",
+      type: "string",
     },
     policyVersion: {
       baseName: "policyVersion",
