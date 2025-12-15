@@ -567,10 +567,7 @@ import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotif
 import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
-import { CreateJiraIssueRequestDataAttributesFields } from "./CreateJiraIssueRequestDataAttributesFields";
 import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
-import { CreateJiraIssueRequestDataRelationshipsCase } from "./CreateJiraIssueRequestDataRelationshipsCase";
-import { CreateJiraIssueRequestDataRelationshipsCaseData } from "./CreateJiraIssueRequestDataRelationshipsCaseData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -5073,14 +5070,8 @@ const typeMap: { [index: string]: any } = {
   CreateJiraIssueRequestArray: CreateJiraIssueRequestArray,
   CreateJiraIssueRequestData: CreateJiraIssueRequestData,
   CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
-  CreateJiraIssueRequestDataAttributesFields:
-    CreateJiraIssueRequestDataAttributesFields,
   CreateJiraIssueRequestDataRelationships:
     CreateJiraIssueRequestDataRelationships,
-  CreateJiraIssueRequestDataRelationshipsCase:
-    CreateJiraIssueRequestDataRelationshipsCase,
-  CreateJiraIssueRequestDataRelationshipsCaseData:
-    CreateJiraIssueRequestDataRelationshipsCaseData,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
   CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
   CreateNotificationRuleParametersDataAttributes:
@@ -7769,11 +7760,6 @@ const oneOfMap: { [index: string]: string[] } = {
   ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
-  CreateJiraIssueRequestArrayIncluded: [
-    "CreateCaseRequestData",
-    "CaseManagementProjectData",
-    "FindingData",
-  ],
   CreateTableRequestDataAttributesFileMetadata: [
     "CreateTableRequestDataAttributesFileMetadataCloudStorage",
     "CreateTableRequestDataAttributesFileMetadataLocalFile",

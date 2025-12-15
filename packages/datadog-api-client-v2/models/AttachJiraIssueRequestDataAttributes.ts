@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AttachJiraIssueRequestDataAttributes {
   /**
-   * The URL of the Jira issue to attach security findings to.
+   * URL of the Jira issue to attach security findings to.
    */
   "jiraIssueUrl": string;
 

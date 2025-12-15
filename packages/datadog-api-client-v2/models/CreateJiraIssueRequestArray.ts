@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CreateJiraIssueRequestArrayIncluded } from "./CreateJiraIssueRequestArrayIncluded";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,7 +12,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CreateJiraIssueRequestArray {
   "data": Array<CreateJiraIssueRequestData>;
-  "included"?: Array<CreateJiraIssueRequestArrayIncluded>;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,10 +33,6 @@ export class CreateJiraIssueRequestArray {
       baseName: "data",
       type: "Array<CreateJiraIssueRequestData>",
       required: true,
-    },
-    included: {
-      baseName: "included",
-      type: "Array<CreateJiraIssueRequestArrayIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

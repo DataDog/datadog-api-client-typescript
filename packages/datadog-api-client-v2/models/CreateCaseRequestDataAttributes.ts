@@ -12,11 +12,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CreateCaseRequestDataAttributes {
   /**
-   * The unique identifier of the user assigned to the case.
+   * Unique identifier of the user assigned to the case.
    */
   "assigneeId"?: string;
   /**
-   * The description of the case. If not provided, the description will be automatically generated.
+   * Description of the case. If not provided, the description will be automatically generated.
    */
   "description"?: string;
   /**
@@ -24,7 +24,7 @@ export class CreateCaseRequestDataAttributes {
    */
   "priority"?: CasePriority;
   /**
-   * The title of the case. If not provided, the title will be automatically generated.
+   * Title of the case. If not provided, the title will be automatically generated.
    */
   "title"?: string;
 

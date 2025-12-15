@@ -18,10 +18,6 @@ export class AttachJiraIssueRequestData {
    */
   "attributes"?: AttachJiraIssueRequestDataAttributes;
   /**
-   * The unique identifier of the Jira issue attachment request.
-   */
-  "id"?: string;
-  /**
    * Relationships of the Jira issue to attach security findings to.
    */
   "relationships"?: AttachJiraIssueRequestDataRelationships;
@@ -49,10 +45,6 @@ export class AttachJiraIssueRequestData {
     attributes: {
       baseName: "attributes",
       type: "AttachJiraIssueRequestDataAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
     },
     relationships: {
       baseName: "relationships",
