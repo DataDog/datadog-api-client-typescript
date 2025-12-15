@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 export class FindingData {
   /**
-   * The unique identifier of the security finding.
+   * Unique identifier of the security finding.
    */
   "id": string;
   /**

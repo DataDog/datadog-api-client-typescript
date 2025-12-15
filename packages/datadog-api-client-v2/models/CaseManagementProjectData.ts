@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 export class CaseManagementProjectData {
   /**
-   * The unique identifier of the case management project.
+   * Unique identifier of the case management project.
    */
   "id": string;
   /**

@@ -1712,13 +1712,9 @@ export { CreateDeploymentRuleParamsDataAttributes } from "./models/CreateDeploym
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
-export { CreateJiraIssueRequestArrayIncluded } from "./models/CreateJiraIssueRequestArrayIncluded";
 export { CreateJiraIssueRequestData } from "./models/CreateJiraIssueRequestData";
 export { CreateJiraIssueRequestDataAttributes } from "./models/CreateJiraIssueRequestDataAttributes";
-export { CreateJiraIssueRequestDataAttributesFields } from "./models/CreateJiraIssueRequestDataAttributesFields";
 export { CreateJiraIssueRequestDataRelationships } from "./models/CreateJiraIssueRequestDataRelationships";
-export { CreateJiraIssueRequestDataRelationshipsCase } from "./models/CreateJiraIssueRequestDataRelationshipsCase";
-export { CreateJiraIssueRequestDataRelationshipsCaseData } from "./models/CreateJiraIssueRequestDataRelationshipsCaseData";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";

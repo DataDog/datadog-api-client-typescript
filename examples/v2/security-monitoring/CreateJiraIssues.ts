@@ -5,96 +5,41 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.createJiraIssues"] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 const params: v2.SecurityMonitoringApiCreateJiraIssuesRequest = {
   body: {
     data: [
       {
-        type: "jira_issues",
-        attributes: {},
-        relationships: {
-          _case: {
-            data: {
-              type: "cases",
-              id: "53e242c6-a7d6-46ad-9680-b8d14753f716",
-            },
-          },
-        },
-      },
-      {
-        type: "jira_issues",
-        attributes: {},
-        relationships: {
-          _case: {
-            data: {
-              type: "cases",
-              id: "195772b2-1f53-41d2-b81e-48c8e6c21d33",
-            },
-          },
-        },
-      },
-    ],
-    included: [
-      {
-        type: "cases",
         attributes: {
-          title: "A title",
-          description: "A description",
+          assigneeId: "f315bdaf-9ee7-4808-a9c1-99c15bf0f4d0",
+          description: "A description of the Jira issue.",
+          fields: {
+            key1: "value",
+            key2: "['value']",
+            key3: "{'key4': 'value'}",
+          },
+          priority: "NOT_DEFINED",
+          title: "A title for the Jira issue.",
         },
         relationships: {
-          project: {
-            data: {
-              type: "projects",
-              id: "959a6f71-bac8-4027-b1d3-2264f569296f",
-            },
-          },
           findings: {
             data: [
               {
+                id: "ZGVmLTAwcC1pZXJ-aS0wZjhjNjMyZDNmMzRlZTgzNw==",
                 type: "findings",
-                id: "OTQ3NjJkMmYwMTIzMzMxNTc1Y2Q4MTA5NWU0NTBmMDl-ZjE3NjMxZWVkYzBjZGI1NDY2NWY2OGQxZDk4MDY4MmI=",
               },
             ],
           },
-        },
-        id: "53e242c6-a7d6-46ad-9680-b8d14753f716",
-      },
-      {
-        type: "cases",
-        attributes: {
-          title: "A title",
-          description: "A description",
-        },
-        relationships: {
           project: {
             data: {
+              id: "aeadc05e-98a8-11ec-ac2c-da7ad0900001",
               type: "projects",
-              id: "959a6f71-bac8-4027-b1d3-2264f569296f",
             },
           },
-          findings: {
-            data: [
-              {
-                type: "findings",
-                id: "MTNjN2ZmYWMzMDIxYmU1ZDFiZDRjNWUwN2I1NzVmY2F-YTA3MzllMTUzNWM3NmEyZjdiNzEzOWM5YmViZTMzOGM=",
-              },
-            ],
-          },
         },
-        id: "195772b2-1f53-41d2-b81e-48c8e6c21d33",
-      },
-      {
-        type: "projects",
-        id: "959a6f71-bac8-4027-b1d3-2264f569296f",
-      },
-      {
-        type: "findings",
-        id: "OTQ3NjJkMmYwMTIzMzMxNTc1Y2Q4MTA5NWU0NTBmMDl-ZjE3NjMxZWVkYzBjZGI1NDY2NWY2OGQxZDk4MDY4MmI=",
-      },
-      {
-        type: "findings",
-        id: "MTNjN2ZmYWMzMDIxYmU1ZDFiZDRjNWUwN2I1NzVmY2F-YTA3MzllMTUzNWM3NmEyZjdiNzEzOWM5YmViZTMzOGM=",
+        type: "jira_issues",
       },
     ],
   },

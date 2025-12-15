@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AttachCaseRequestData {
   /**
-   * The unique identifier of the case.
+   * Unique identifier of the case.
    */
   "id": string;
   /**
