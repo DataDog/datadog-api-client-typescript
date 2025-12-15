@@ -2758,6 +2758,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     filterFixAvailable?: boolean,
     filterRepoDigests?: string,
     filterOrigin?: string,
+    filterRunningKernel?: boolean,
     filterAssetName?: string,
     filterAssetType?: AssetType,
     filterAssetVersionFirst?: string,
@@ -3007,6 +3008,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[origin]",
         ObjectSerializer.serialize(filterOrigin, "string", ""),
+        ""
+      );
+    }
+    if (filterRunningKernel !== undefined) {
+      requestContext.setQueryParam(
+        "filter[running_kernel]",
+        ObjectSerializer.serialize(filterRunningKernel, "boolean", ""),
         ""
       );
     }
@@ -9420,6 +9428,11 @@ export interface SecurityMonitoringApiListVulnerabilitiesRequest {
    */
   filterOrigin?: string;
   /**
+   * Filter for whether the vulnerability affects a running kernel (for vulnerabilities related to a `Host` asset).
+   * @type boolean
+   */
+  filterRunningKernel?: boolean;
+  /**
    * Filter by asset name. This field supports the usage of wildcards (*).
    * @type string
    */
@@ -10450,7 +10463,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Returns list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID
+   * Returns a list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID.
    * @param param The request object
    */
   public getSecretsRules(options?: Configuration): Promise<SecretRuleArray> {
@@ -11370,6 +11383,7 @@ export class SecurityMonitoringApi {
       param.filterFixAvailable,
       param.filterRepoDigests,
       param.filterOrigin,
+      param.filterRunningKernel,
       param.filterAssetName,
       param.filterAssetType,
       param.filterAssetVersionFirst,
