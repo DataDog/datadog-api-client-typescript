@@ -598,6 +598,7 @@ export class EventsApi {
           | "us3.datadoghq.com"
           | "us5.datadoghq.com"
           | "ap1.datadoghq.com"
+          | "ap2.datadoghq.com"
           | "datadoghq.eu"
           | "ddog-gov.com";
         subdomain: string;
