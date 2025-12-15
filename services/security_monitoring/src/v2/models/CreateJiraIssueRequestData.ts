@@ -13,10 +13,6 @@ export class CreateJiraIssueRequestData {
    */
   "attributes"?: CreateJiraIssueRequestDataAttributes;
   /**
-   * The unique identifier of the Jira issue creation request.
-   */
-  "id"?: string;
-  /**
    * Relationships of the Jira issue to create.
    */
   "relationships"?: CreateJiraIssueRequestDataRelationships;
@@ -42,10 +38,6 @@ export class CreateJiraIssueRequestData {
     attributes: {
       baseName: "attributes",
       type: "CreateJiraIssueRequestDataAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
     },
     relationships: {
       baseName: "relationships",

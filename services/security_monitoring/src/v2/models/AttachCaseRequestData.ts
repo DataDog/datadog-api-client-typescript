@@ -8,7 +8,7 @@ import { CaseDataType } from "./CaseDataType";
  */
 export class AttachCaseRequestData {
   /**
-   * The unique identifier of the case.
+   * Unique identifier of the case.
    */
   "id": string;
   /**

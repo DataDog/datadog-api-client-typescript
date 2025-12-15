@@ -7,7 +7,7 @@ import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
  */
 export class FindingJiraIssue {
   /**
-   * The error message if the Jira issue creation failed.
+   * Error message if the Jira issue creation failed.
    */
   "errorMessage"?: string;
   /**
@@ -15,7 +15,7 @@ export class FindingJiraIssue {
    */
   "result"?: FindingJiraIssueResult;
   /**
-   * The status of the Jira issue creation. Can be "COMPLETED" if the Jira issue was created successfully, or "FAILED" if the Jira issue creation failed.
+   * Status of the Jira issue creation. Can be "COMPLETED" if the Jira issue was created successfully, or "FAILED" if the Jira issue creation failed.
    */
   "status"?: string;
   /**

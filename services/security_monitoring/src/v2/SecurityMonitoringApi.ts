@@ -9113,7 +9113,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
 export interface SecurityMonitoringApiAttachCaseRequest {
   /**
-   * The unique identifier of the case to attach security findings to
+   * Unique identifier of the case to attach security findings to
    * @type string
    */
   caseId: string;
@@ -10281,7 +10281,8 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Attach security findings to a case. You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
+   * Attach security findings to a case.
+   * You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
    * @param param The request object
    */
   public attachCase(
@@ -10303,7 +10304,8 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Attach security findings to a Jira issue by providing the Jira issue URL. You can attach up to 50 security findings per Jira issue. If the Jira issue is not linked to any case, this operation will create a case for the security findings and link the Jira issue to the newly created case. Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the specified Jira issue.
+   * Attach security findings to a Jira issue by providing the Jira issue URL.
+   * You can attach up to 50 security findings per Jira issue. If the Jira issue is not linked to any case, this operation will create a case for the security findings and link the Jira issue to the newly created case. To configure the Jira integration, see [Bidirectional ticket syncing with Jira](https://docs.datadoghq.com/security/ticketing_integrations/#bidirectional-ticket-syncing-with-jira). Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the specified Jira issue.
    * @param param The request object
    */
   public attachJiraIssue(
@@ -10428,7 +10430,8 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create cases for security findings. You can create up to 50 cases per request and associate up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the newly created case.
+   * Create cases for security findings.
+   * You can create up to 50 cases per request and associate up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the newly created case.
    * @param param The request object
    */
   public createCases(
@@ -10470,7 +10473,8 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create Jira issues for security findings. This operation creates a case in Datadog and a Jira issue linked to that case for bidirectional sync between Datadog and Jira. You can create up to 50 Jira issues per request and associate up to 50 security findings per Jira issue. Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the newly created Jira issue.
+   * Create Jira issues for security findings.
+   * This operation creates a case in Datadog and a Jira issue linked to that case for bidirectional sync between Datadog and Jira. To configure the Jira integration, see [Bidirectional ticket syncing with Jira](https://docs.datadoghq.com/security/ticketing_integrations/#bidirectional-ticket-syncing-with-jira). You can create up to 50 Jira issues per request and associate up to 50 security findings per Jira issue. Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the newly created Jira issue.
    * @param param The request object
    */
   public createJiraIssues(
@@ -10759,7 +10763,8 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Detach security findings from their case. This operation dissociates security findings from their associated cases without deleting the cases themselves. You can detach security findings from multiple different cases in a single request, with a limit of 50 security findings per request. Security findings that are not currently attached to any case will be ignored.
+   * Detach security findings from their case.
+   * This operation dissociates security findings from their associated cases without deleting the cases themselves. You can detach security findings from multiple different cases in a single request, with a limit of 50 security findings per request. Security findings that are not currently attached to any case will be ignored.
    * @param param The request object
    */
   public detachCase(

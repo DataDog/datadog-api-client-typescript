@@ -8,10 +8,6 @@ import { DetachCaseRequestDataRelationships } from "./DetachCaseRequestDataRelat
  */
 export class DetachCaseRequestData {
   /**
-   * The unique identifier of the detachment request.
-   */
-  "id"?: string;
-  /**
    * Relationships detaching security findings from their case.
    */
   "relationships"?: DetachCaseRequestDataRelationships;
@@ -34,10 +30,6 @@ export class DetachCaseRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
     relationships: {
       baseName: "relationships",
       type: "DetachCaseRequestDataRelationships",
