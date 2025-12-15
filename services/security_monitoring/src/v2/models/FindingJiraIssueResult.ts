@@ -5,19 +5,19 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class FindingJiraIssueResult {
   /**
-   * The account ID of the Jira issue.
+   * Account ID of the Jira issue.
    */
   "accountId"?: string;
   /**
-   * The unique identifier of the Jira issue.
+   * Unique identifier of the Jira issue.
    */
   "issueId"?: string;
   /**
-   * The key of the Jira issue.
+   * Key of the Jira issue.
    */
   "issueKey"?: string;
   /**
-   * The URL of the Jira issue.
+   * URL of the Jira issue.
    */
   "issueUrl"?: string;
   /**

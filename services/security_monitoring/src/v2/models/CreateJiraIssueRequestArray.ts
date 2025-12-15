@@ -1,6 +1,5 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CreateJiraIssueRequestArrayIncluded } from "./CreateJiraIssueRequestArrayIncluded";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 
 /**
@@ -8,7 +7,6 @@ import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
  */
 export class CreateJiraIssueRequestArray {
   "data": Array<CreateJiraIssueRequestData>;
-  "included"?: Array<CreateJiraIssueRequestArrayIncluded>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,10 +26,6 @@ export class CreateJiraIssueRequestArray {
       baseName: "data",
       type: "Array<CreateJiraIssueRequestData>",
       required: true,
-    },
-    included: {
-      baseName: "included",
-      type: "Array<CreateJiraIssueRequestArrayIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -1,15 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CreateJiraIssueRequestDataRelationshipsCase } from "./CreateJiraIssueRequestDataRelationshipsCase";
+import { CaseManagementProject } from "./CaseManagementProject";
+import { Findings } from "./Findings";
 
 /**
  * Relationships of the Jira issue to create.
  */
 export class CreateJiraIssueRequestDataRelationships {
   /**
-   * Case linked to the Jira issue.
+   * A list of security findings.
    */
-  "_case": CreateJiraIssueRequestDataRelationshipsCase;
+  "findings": Findings;
+  /**
+   * Case management project.
+   */
+  "project": CaseManagementProject;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +30,14 @@ export class CreateJiraIssueRequestDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    _case: {
-      baseName: "case",
-      type: "CreateJiraIssueRequestDataRelationshipsCase",
+    findings: {
+      baseName: "findings",
+      type: "Findings",
+      required: true,
+    },
+    project: {
+      baseName: "project",
+      type: "CaseManagementProject",
       required: true,
     },
     additionalProperties: {

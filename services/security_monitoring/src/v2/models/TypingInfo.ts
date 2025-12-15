@@ -47,10 +47,7 @@ import { CreateCustomFrameworkResponse } from "./CreateCustomFrameworkResponse";
 import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
-import { CreateJiraIssueRequestDataAttributesFields } from "./CreateJiraIssueRequestDataAttributesFields";
 import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
-import { CreateJiraIssueRequestDataRelationshipsCase } from "./CreateJiraIssueRequestDataRelationshipsCase";
-import { CreateJiraIssueRequestDataRelationshipsCaseData } from "./CreateJiraIssueRequestDataRelationshipsCaseData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -535,11 +532,6 @@ export const TypingInfo: ModelTypingInfo = {
     ],
   },
   oneOfMap: {
-    CreateJiraIssueRequestArrayIncluded: [
-      "CreateCaseRequestData",
-      "CaseManagementProjectData",
-      "FindingData",
-    ],
     SecurityMonitoringRuleConvertPayload: [
       "SecurityMonitoringStandardRulePayload",
       "SecurityMonitoringSignalRulePayload",
@@ -617,14 +609,8 @@ export const TypingInfo: ModelTypingInfo = {
     CreateJiraIssueRequestArray: CreateJiraIssueRequestArray,
     CreateJiraIssueRequestData: CreateJiraIssueRequestData,
     CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
-    CreateJiraIssueRequestDataAttributesFields:
-      CreateJiraIssueRequestDataAttributesFields,
     CreateJiraIssueRequestDataRelationships:
       CreateJiraIssueRequestDataRelationships,
-    CreateJiraIssueRequestDataRelationshipsCase:
-      CreateJiraIssueRequestDataRelationshipsCase,
-    CreateJiraIssueRequestDataRelationshipsCaseData:
-      CreateJiraIssueRequestDataRelationshipsCaseData,
     CreateNotificationRuleParameters: CreateNotificationRuleParameters,
     CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
     CreateNotificationRuleParametersDataAttributes:

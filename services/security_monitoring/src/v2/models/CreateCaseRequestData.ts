@@ -13,10 +13,6 @@ export class CreateCaseRequestData {
    */
   "attributes"?: CreateCaseRequestDataAttributes;
   /**
-   * The unique identifier of the case.
-   */
-  "id"?: string;
-  /**
    * Relationships of the case to create.
    */
   "relationships"?: CreateCaseRequestDataRelationships;
@@ -42,10 +38,6 @@ export class CreateCaseRequestData {
     attributes: {
       baseName: "attributes",
       type: "CreateCaseRequestDataAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
     },
     relationships: {
       baseName: "relationships",

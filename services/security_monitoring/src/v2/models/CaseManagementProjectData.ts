@@ -4,7 +4,7 @@ import { CaseManagementProjectDataType } from "./CaseManagementProjectDataType";
 
 export class CaseManagementProjectData {
   /**
-   * The unique identifier of the case management project.
+   * Unique identifier of the case management project.
    */
   "id": string;
   /**

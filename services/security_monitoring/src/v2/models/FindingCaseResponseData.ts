@@ -13,7 +13,7 @@ export class FindingCaseResponseData {
    */
   "attributes"?: FindingCaseResponseDataAttributes;
   /**
-   * The unique identifier of the case.
+   * Unique identifier of the case.
    */
   "id"?: string;
   /**
