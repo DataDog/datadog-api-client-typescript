@@ -19,6 +19,10 @@ export class SecurityMonitoringRuleNewValueOptions {
    */
   "forgetAfter"?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
   /**
+   * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
+   */
+  "instantaneousBaseline"?: boolean;
+  /**
    * The duration in days during which values are learned, and after which signals will be generated for values that
    * weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
    */
@@ -51,6 +55,10 @@ export class SecurityMonitoringRuleNewValueOptions {
     forgetAfter: {
       baseName: "forgetAfter",
       type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
+    },
+    instantaneousBaseline: {
+      baseName: "instantaneousBaseline",
+      type: "boolean",
     },
     learningDuration: {
       baseName: "learningDuration",
