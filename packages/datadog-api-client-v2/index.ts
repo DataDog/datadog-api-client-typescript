@@ -882,6 +882,11 @@ export {
 } from "./apis/StaticAnalysisApi";
 
 export {
+  SyntheticsApiCreateSyntheticsSuiteRequest,
+  SyntheticsApiDeleteSyntheticsSuitesRequest,
+  SyntheticsApiEditSyntheticsSuiteRequest,
+  SyntheticsApiGetSyntheticsSuiteRequest,
+  SyntheticsApiSearchSuitesRequest,
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
   SyntheticsApi,
 } from "./apis/SyntheticsApi";
@@ -1928,6 +1933,13 @@ export { DeleteAppsRequestDataItems } from "./models/DeleteAppsRequestDataItems"
 export { DeleteAppsResponse } from "./models/DeleteAppsResponse";
 export { DeleteAppsResponseDataItems } from "./models/DeleteAppsResponseDataItems";
 export { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
+export { DeletedSuiteResponseData } from "./models/DeletedSuiteResponseData";
+export { DeletedSuiteResponseDataAttributes } from "./models/DeletedSuiteResponseDataAttributes";
+export { DeletedSuitesRequestDelete } from "./models/DeletedSuitesRequestDelete";
+export { DeletedSuitesRequestDeleteAttributes } from "./models/DeletedSuitesRequestDeleteAttributes";
+export { DeletedSuitesRequestDeleteRequest } from "./models/DeletedSuitesRequestDeleteRequest";
+export { DeletedSuitesRequestType } from "./models/DeletedSuitesRequestType";
+export { DeletedSuitesResponse } from "./models/DeletedSuitesResponse";
 export { DependencyLocation } from "./models/DependencyLocation";
 export { Deployment } from "./models/Deployment";
 export { DeploymentAttributes } from "./models/DeploymentAttributes";
@@ -4278,6 +4290,20 @@ export { StatsigIntegrationUpdate } from "./models/StatsigIntegrationUpdate";
 export { Step } from "./models/Step";
 export { StepDisplay } from "./models/StepDisplay";
 export { StepDisplayBounds } from "./models/StepDisplayBounds";
+export { SuiteCreateEdit } from "./models/SuiteCreateEdit";
+export { SuiteCreateEditRequest } from "./models/SuiteCreateEditRequest";
+export { SuiteSearchResponseType } from "./models/SuiteSearchResponseType";
+export { SyntheticsSuite } from "./models/SyntheticsSuite";
+export { SyntheticsSuiteOptions } from "./models/SyntheticsSuiteOptions";
+export { SyntheticsSuiteResponse } from "./models/SyntheticsSuiteResponse";
+export { SyntheticsSuiteResponseData } from "./models/SyntheticsSuiteResponseData";
+export { SyntheticsSuiteSearchResponse } from "./models/SyntheticsSuiteSearchResponse";
+export { SyntheticsSuiteSearchResponseData } from "./models/SyntheticsSuiteSearchResponseData";
+export { SyntheticsSuiteSearchResponseDataAttributes } from "./models/SyntheticsSuiteSearchResponseDataAttributes";
+export { SyntheticsSuiteTest } from "./models/SyntheticsSuiteTest";
+export { SyntheticsSuiteTestAlertingCriticality } from "./models/SyntheticsSuiteTestAlertingCriticality";
+export { SyntheticsSuiteType } from "./models/SyntheticsSuiteType";
+export { SyntheticsSuiteTypes } from "./models/SyntheticsSuiteTypes";
 export { TableResultV2 } from "./models/TableResultV2";
 export { TableResultV2Array } from "./models/TableResultV2Array";
 export { TableResultV2Data } from "./models/TableResultV2Data";
