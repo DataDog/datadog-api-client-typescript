@@ -1,31 +1,31 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelineParseJSONProcessorType } from "./ObservabilityPipelineParseJSONProcessorType";
+import { ObservabilityPipelineConfigProcessorItem } from "./ObservabilityPipelineConfigProcessorItem";
 
 /**
- * The `parse_json` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
+ * A group of processors.
  */
-export class ObservabilityPipelineParseJSONProcessor {
+export class ObservabilityPipelineConfigProcessorGroup {
   /**
-   * Whether this processor is enabled.
+   * Whether this processor group is enabled.
    */
   "enabled": boolean;
   /**
-   * The name of the log field that contains a JSON string.
-   */
-  "field": string;
-  /**
-   * A unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * The unique identifier for the processor group.
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * Conditional expression for when this processor group should execute.
    */
   "include": string;
   /**
-   * The processor type. The value should always be `parse_json`.
+   * A list of IDs for components whose output is used as the input for this processor group.
    */
-  "type": ObservabilityPipelineParseJSONProcessorType;
+  "inputs": Array<string>;
+  /**
+   * Processors applied sequentially within this group. Events flow through each processor in order.
+   */
+  "processors": Array<ObservabilityPipelineConfigProcessorItem>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -46,11 +46,6 @@ export class ObservabilityPipelineParseJSONProcessor {
       type: "boolean",
       required: true,
     },
-    field: {
-      baseName: "field",
-      type: "string",
-      required: true,
-    },
     id: {
       baseName: "id",
       type: "string",
@@ -61,9 +56,14 @@ export class ObservabilityPipelineParseJSONProcessor {
       type: "string",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineParseJSONProcessorType",
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
+    },
+    processors: {
+      baseName: "processors",
+      type: "Array<ObservabilityPipelineConfigProcessorItem>",
       required: true,
     },
     additionalProperties: {
@@ -76,7 +76,7 @@ export class ObservabilityPipelineParseJSONProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineParseJSONProcessor.attributeTypeMap;
+    return ObservabilityPipelineConfigProcessorGroup.attributeTypeMap;
   }
 
   public constructor() {}

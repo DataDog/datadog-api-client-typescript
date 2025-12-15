@@ -8,6 +8,10 @@ import { ObservabilityPipelineOcsfMapperProcessorType } from "./ObservabilityPip
  */
 export class ObservabilityPipelineOcsfMapperProcessor {
   /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline.
    */
   "id": string;
@@ -15,10 +19,6 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the `input` for this processor.
-   */
-  "inputs": Array<string>;
   /**
    * A list of mapping rules to convert events to the OCSF format.
    */
@@ -42,6 +42,11 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -50,11 +55,6 @@ export class ObservabilityPipelineOcsfMapperProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     mappings: {
