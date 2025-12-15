@@ -4172,6 +4172,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterRunningKernel: {
+      type: "boolean",
+      format: "",
+    },
     filterAssetName: {
       type: "string",
       format: "",

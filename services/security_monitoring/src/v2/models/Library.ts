@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class Library {
   /**
+   * Related library or package names (such as child packages or affected binary paths).
+   */
+  "additionalNames"?: Array<string>;
+  /**
    * Vulnerability library name.
    */
   "name": string;
@@ -27,6 +31,10 @@ export class Library {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    additionalNames: {
+      baseName: "additional_names",
+      type: "Array<string>",
+    },
     name: {
       baseName: "name",
       type: "string",
