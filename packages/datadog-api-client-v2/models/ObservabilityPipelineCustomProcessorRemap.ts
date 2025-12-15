@@ -17,7 +17,7 @@ export class ObservabilityPipelineCustomProcessorRemap {
   /**
    * Whether this remap rule is enabled.
    */
-  "enabled": boolean;
+  "enabled"?: boolean;
   /**
    * A Datadog search query used to filter events for this specific remap rule.
    */
@@ -55,7 +55,6 @@ export class ObservabilityPipelineCustomProcessorRemap {
     enabled: {
       baseName: "enabled",
       type: "boolean",
-      required: true,
     },
     include: {
       baseName: "include",

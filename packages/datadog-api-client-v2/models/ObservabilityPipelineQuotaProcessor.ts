@@ -17,7 +17,11 @@ export class ObservabilityPipelineQuotaProcessor {
   /**
    * If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
    */
-  "dropEvents": boolean;
+  "dropEvents"?: boolean;
+  /**
+   * Whether this processor is enabled.
+   */
+  "enabled": boolean;
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
@@ -30,10 +34,6 @@ export class ObservabilityPipelineQuotaProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
-  /**
-   * A list of component IDs whose output is used as the `input` for this component.
-   */
-  "inputs": Array<string>;
   /**
    * The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
    */
@@ -81,6 +81,10 @@ export class ObservabilityPipelineQuotaProcessor {
     dropEvents: {
       baseName: "drop_events",
       type: "boolean",
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
       required: true,
     },
     id: {
@@ -95,11 +99,6 @@ export class ObservabilityPipelineQuotaProcessor {
     include: {
       baseName: "include",
       type: "string",
-      required: true,
-    },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
       required: true,
     },
     limit: {
