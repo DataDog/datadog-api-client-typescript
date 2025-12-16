@@ -562,12 +562,15 @@ import { CreateDeploymentGateParamsDataAttributes } from "./CreateDeploymentGate
 import { CreateDeploymentRuleParams } from "./CreateDeploymentRuleParams";
 import { CreateDeploymentRuleParamsData } from "./CreateDeploymentRuleParamsData";
 import { CreateDeploymentRuleParamsDataAttributes } from "./CreateDeploymentRuleParamsDataAttributes";
+import { CreateEmailNotificationChannelConfig } from "./CreateEmailNotificationChannelConfig";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
 import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
+import { CreateNotificationChannelAttributes } from "./CreateNotificationChannelAttributes";
+import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -580,6 +583,7 @@ import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttribut
 import { CreatePageRequestDataAttributesTarget } from "./CreatePageRequestDataAttributesTarget";
 import { CreatePageResponse } from "./CreatePageResponse";
 import { CreatePageResponseData } from "./CreatePageResponseData";
+import { CreatePhoneNotificationChannelConfig } from "./CreatePhoneNotificationChannelConfig";
 import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
@@ -610,6 +614,7 @@ import { CreateUploadRequestDataAttributes } from "./CreateUploadRequestDataAttr
 import { CreateUploadResponse } from "./CreateUploadResponse";
 import { CreateUploadResponseData } from "./CreateUploadResponseData";
 import { CreateUploadResponseDataAttributes } from "./CreateUploadResponseDataAttributes";
+import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationChannelRequest";
 import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
@@ -1415,6 +1420,7 @@ import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
+import { ListNotificationChannelsResponse } from "./ListNotificationChannelsResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
@@ -1635,6 +1641,12 @@ import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
+import { NotificationChannel } from "./NotificationChannel";
+import { NotificationChannelAttributes } from "./NotificationChannelAttributes";
+import { NotificationChannelData } from "./NotificationChannelData";
+import { NotificationChannelEmailConfig } from "./NotificationChannelEmailConfig";
+import { NotificationChannelPhoneConfig } from "./NotificationChannelPhoneConfig";
+import { NotificationChannelPushConfig } from "./NotificationChannelPushConfig";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
@@ -3556,6 +3568,11 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   MonitorUserTemplateResourceType: ["monitor-user-template"],
+  NotificationChannelEmailConfigType: ["email"],
+  NotificationChannelEmailFormatType: ["html", "text"],
+  NotificationChannelPhoneConfigType: ["phone"],
+  NotificationChannelPushConfigType: ["push"],
+  NotificationChannelType: ["notification_channels"],
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
@@ -5075,6 +5092,7 @@ const typeMap: { [index: string]: any } = {
   CreateDeploymentRuleParamsData: CreateDeploymentRuleParamsData,
   CreateDeploymentRuleParamsDataAttributes:
     CreateDeploymentRuleParamsDataAttributes,
+  CreateEmailNotificationChannelConfig: CreateEmailNotificationChannelConfig,
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
@@ -5083,6 +5101,8 @@ const typeMap: { [index: string]: any } = {
   CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
   CreateJiraIssueRequestDataRelationships:
     CreateJiraIssueRequestDataRelationships,
+  CreateNotificationChannelAttributes: CreateNotificationChannelAttributes,
+  CreateNotificationChannelData: CreateNotificationChannelData,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
   CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
   CreateNotificationRuleParametersDataAttributes:
@@ -5096,6 +5116,7 @@ const typeMap: { [index: string]: any } = {
   CreatePageRequestDataAttributesTarget: CreatePageRequestDataAttributesTarget,
   CreatePageResponse: CreatePageResponse,
   CreatePageResponseData: CreatePageResponseData,
+  CreatePhoneNotificationChannelConfig: CreatePhoneNotificationChannelConfig,
   CreateRuleRequest: CreateRuleRequest,
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
@@ -5140,6 +5161,7 @@ const typeMap: { [index: string]: any } = {
   CreateUploadResponse: CreateUploadResponse,
   CreateUploadResponseData: CreateUploadResponseData,
   CreateUploadResponseDataAttributes: CreateUploadResponseDataAttributes,
+  CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
   CreateWorkflowRequest: CreateWorkflowRequest,
   CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
@@ -6056,6 +6078,7 @@ const typeMap: { [index: string]: any } = {
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
   ListKindCatalogResponse: ListKindCatalogResponse,
+  ListNotificationChannelsResponse: ListNotificationChannelsResponse,
   ListPipelinesResponse: ListPipelinesResponse,
   ListPipelinesResponseMeta: ListPipelinesResponseMeta,
   ListPowerpacksResponse: ListPowerpacksResponse,
@@ -6317,6 +6340,12 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
   NotebookTriggerWrapper: NotebookTriggerWrapper,
+  NotificationChannel: NotificationChannel,
+  NotificationChannelAttributes: NotificationChannelAttributes,
+  NotificationChannelData: NotificationChannelData,
+  NotificationChannelEmailConfig: NotificationChannelEmailConfig,
+  NotificationChannelPhoneConfig: NotificationChannelPhoneConfig,
+  NotificationChannelPushConfig: NotificationChannelPushConfig,
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
   NotificationRuleResponse: NotificationRuleResponse,
@@ -7777,6 +7806,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
+  CreateNotificationChannelConfig: [
+    "CreatePhoneNotificationChannelConfig",
+    "CreateEmailNotificationChannelConfig",
+  ],
   CreateTableRequestDataAttributesFileMetadata: [
     "CreateTableRequestDataAttributesFileMetadataCloudStorage",
     "CreateTableRequestDataAttributesFileMetadataLocalFile",
@@ -7950,6 +7983,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorNotificationRuleFilterScope",
   ],
   MonitorNotificationRuleResponseIncludedItem: ["User"],
+  NotificationChannelConfig: [
+    "NotificationChannelPhoneConfig",
+    "NotificationChannelEmailConfig",
+    "NotificationChannelPushConfig",
+  ],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
   ObservabilityPipelineConfigDestinationItem: [

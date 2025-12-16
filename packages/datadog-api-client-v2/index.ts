@@ -592,13 +592,17 @@ export {
 export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiCreateUserNotificationChannelRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiDeleteUserNotificationChannelRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiGetTeamOnCallUsersRequest,
+  OnCallApiGetUserNotificationChannelRequest,
+  OnCallApiListUserNotificationChannelsRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
@@ -1710,12 +1714,16 @@ export { CreateDeploymentGateParamsDataAttributes } from "./models/CreateDeploym
 export { CreateDeploymentRuleParams } from "./models/CreateDeploymentRuleParams";
 export { CreateDeploymentRuleParamsData } from "./models/CreateDeploymentRuleParamsData";
 export { CreateDeploymentRuleParamsDataAttributes } from "./models/CreateDeploymentRuleParamsDataAttributes";
+export { CreateEmailNotificationChannelConfig } from "./models/CreateEmailNotificationChannelConfig";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
 export { CreateJiraIssueRequestData } from "./models/CreateJiraIssueRequestData";
 export { CreateJiraIssueRequestDataAttributes } from "./models/CreateJiraIssueRequestDataAttributes";
 export { CreateJiraIssueRequestDataRelationships } from "./models/CreateJiraIssueRequestDataRelationships";
+export { CreateNotificationChannelAttributes } from "./models/CreateNotificationChannelAttributes";
+export { CreateNotificationChannelConfig } from "./models/CreateNotificationChannelConfig";
+export { CreateNotificationChannelData } from "./models/CreateNotificationChannelData";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
@@ -1730,6 +1738,7 @@ export { CreatePageRequestDataType } from "./models/CreatePageRequestDataType";
 export { CreatePageResponse } from "./models/CreatePageResponse";
 export { CreatePageResponseData } from "./models/CreatePageResponseData";
 export { CreatePageResponseDataType } from "./models/CreatePageResponseDataType";
+export { CreatePhoneNotificationChannelConfig } from "./models/CreatePhoneNotificationChannelConfig";
 export { CreateRuleRequest } from "./models/CreateRuleRequest";
 export { CreateRuleRequestData } from "./models/CreateRuleRequestData";
 export { CreateRuleResponse } from "./models/CreateRuleResponse";
@@ -1765,6 +1774,7 @@ export { CreateUploadResponse } from "./models/CreateUploadResponse";
 export { CreateUploadResponseData } from "./models/CreateUploadResponseData";
 export { CreateUploadResponseDataAttributes } from "./models/CreateUploadResponseDataAttributes";
 export { CreateUploadResponseDataType } from "./models/CreateUploadResponseDataType";
+export { CreateUserNotificationChannelRequest } from "./models/CreateUserNotificationChannelRequest";
 export { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 export { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
 export { Creator } from "./models/Creator";
@@ -2815,6 +2825,7 @@ export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
 export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
+export { ListNotificationChannelsResponse } from "./models/ListNotificationChannelsResponse";
 export { ListPipelinesResponse } from "./models/ListPipelinesResponse";
 export { ListPipelinesResponseMeta } from "./models/ListPipelinesResponseMeta";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
@@ -3100,6 +3111,18 @@ export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionR
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
 export { NotebookTriggerWrapper } from "./models/NotebookTriggerWrapper";
+export { NotificationChannel } from "./models/NotificationChannel";
+export { NotificationChannelAttributes } from "./models/NotificationChannelAttributes";
+export { NotificationChannelConfig } from "./models/NotificationChannelConfig";
+export { NotificationChannelData } from "./models/NotificationChannelData";
+export { NotificationChannelEmailConfig } from "./models/NotificationChannelEmailConfig";
+export { NotificationChannelEmailConfigType } from "./models/NotificationChannelEmailConfigType";
+export { NotificationChannelEmailFormatType } from "./models/NotificationChannelEmailFormatType";
+export { NotificationChannelPhoneConfig } from "./models/NotificationChannelPhoneConfig";
+export { NotificationChannelPhoneConfigType } from "./models/NotificationChannelPhoneConfigType";
+export { NotificationChannelPushConfig } from "./models/NotificationChannelPushConfig";
+export { NotificationChannelPushConfigType } from "./models/NotificationChannelPushConfigType";
+export { NotificationChannelType } from "./models/NotificationChannelType";
 export { NotificationRule } from "./models/NotificationRule";
 export { NotificationRuleAttributes } from "./models/NotificationRuleAttributes";
 export { NotificationRuleResponse } from "./models/NotificationRuleResponse";
