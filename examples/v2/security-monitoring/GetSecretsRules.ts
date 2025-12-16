@@ -1,5 +1,5 @@
 /**
- * Returns list of Secrets rules returns "OK" response
+ * Returns a list of Secrets rules returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
