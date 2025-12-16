@@ -6,6 +6,11 @@ import { ConfiguredScheduleTarget } from "./ConfiguredScheduleTarget";
 import { ConfiguredScheduleTargetAttributes } from "./ConfiguredScheduleTargetAttributes";
 import { ConfiguredScheduleTargetRelationships } from "./ConfiguredScheduleTargetRelationships";
 import { ConfiguredScheduleTargetRelationshipsSchedule } from "./ConfiguredScheduleTargetRelationshipsSchedule";
+import { CreateEmailNotificationChannelConfig } from "./CreateEmailNotificationChannelConfig";
+import { CreateNotificationChannelAttributes } from "./CreateNotificationChannelAttributes";
+import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
+import { CreatePhoneNotificationChannelConfig } from "./CreatePhoneNotificationChannelConfig";
+import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationChannelRequest";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { Escalation } from "./Escalation";
@@ -43,6 +48,13 @@ import { LayerAttributesInterval } from "./LayerAttributesInterval";
 import { LayerRelationships } from "./LayerRelationships";
 import { LayerRelationshipsMembers } from "./LayerRelationshipsMembers";
 import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersDataItems";
+import { ListNotificationChannelsResponse } from "./ListNotificationChannelsResponse";
+import { NotificationChannel } from "./NotificationChannel";
+import { NotificationChannelAttributes } from "./NotificationChannelAttributes";
+import { NotificationChannelData } from "./NotificationChannelData";
+import { NotificationChannelEmailConfig } from "./NotificationChannelEmailConfig";
+import { NotificationChannelPhoneConfig } from "./NotificationChannelPhoneConfig";
+import { NotificationChannelPushConfig } from "./NotificationChannelPushConfig";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -130,6 +142,11 @@ export const TypingInfo: ModelTypingInfo = {
     EscalationType: ["escalation_policy_steps"],
     LayerRelationshipsMembersDataItemsType: ["members"],
     LayerType: ["layers"],
+    NotificationChannelEmailConfigType: ["email"],
+    NotificationChannelEmailFormatType: ["html", "text"],
+    NotificationChannelPhoneConfigType: ["phone"],
+    NotificationChannelPushConfigType: ["push"],
+    NotificationChannelType: ["notification_channels"],
     OrganizationsType: ["orgs"],
     RolesType: ["roles"],
     RoutingRuleRelationshipsPolicyDataType: ["policies"],
@@ -172,6 +189,10 @@ export const TypingInfo: ModelTypingInfo = {
     ],
   },
   oneOfMap: {
+    CreateNotificationChannelConfig: [
+      "CreatePhoneNotificationChannelConfig",
+      "CreateEmailNotificationChannelConfig",
+    ],
     EscalationPolicyIncluded: [
       "EscalationPolicyStep",
       "EscalationPolicyUser",
@@ -184,6 +205,11 @@ export const TypingInfo: ModelTypingInfo = {
       "UserTarget",
       "ScheduleTarget",
       "ConfiguredScheduleTarget",
+    ],
+    NotificationChannelConfig: [
+      "NotificationChannelPhoneConfig",
+      "NotificationChannelEmailConfig",
+      "NotificationChannelPushConfig",
     ],
     RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
     ScheduleDataIncludedItem: [
@@ -205,6 +231,11 @@ export const TypingInfo: ModelTypingInfo = {
       ConfiguredScheduleTargetRelationships,
     ConfiguredScheduleTargetRelationshipsSchedule:
       ConfiguredScheduleTargetRelationshipsSchedule,
+    CreateEmailNotificationChannelConfig: CreateEmailNotificationChannelConfig,
+    CreateNotificationChannelAttributes: CreateNotificationChannelAttributes,
+    CreateNotificationChannelData: CreateNotificationChannelData,
+    CreatePhoneNotificationChannelConfig: CreatePhoneNotificationChannelConfig,
+    CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
     DataRelationshipsTeams: DataRelationshipsTeams,
     DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
     Escalation: Escalation,
@@ -252,6 +283,13 @@ export const TypingInfo: ModelTypingInfo = {
     LayerRelationships: LayerRelationships,
     LayerRelationshipsMembers: LayerRelationshipsMembers,
     LayerRelationshipsMembersDataItems: LayerRelationshipsMembersDataItems,
+    ListNotificationChannelsResponse: ListNotificationChannelsResponse,
+    NotificationChannel: NotificationChannel,
+    NotificationChannelAttributes: NotificationChannelAttributes,
+    NotificationChannelData: NotificationChannelData,
+    NotificationChannelEmailConfig: NotificationChannelEmailConfig,
+    NotificationChannelPhoneConfig: NotificationChannelPhoneConfig,
+    NotificationChannelPushConfig: NotificationChannelPushConfig,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
