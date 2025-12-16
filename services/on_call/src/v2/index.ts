@@ -1,13 +1,17 @@
 export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiCreateUserNotificationChannelRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiDeleteUserNotificationChannelRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiGetTeamOnCallUsersRequest,
+  OnCallApiGetUserNotificationChannelRequest,
+  OnCallApiListUserNotificationChannelsRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
@@ -21,6 +25,12 @@ export { ConfiguredScheduleTargetAttributes } from "./models/ConfiguredScheduleT
 export { ConfiguredScheduleTargetRelationships } from "./models/ConfiguredScheduleTargetRelationships";
 export { ConfiguredScheduleTargetRelationshipsSchedule } from "./models/ConfiguredScheduleTargetRelationshipsSchedule";
 export { ConfiguredScheduleTargetType } from "./models/ConfiguredScheduleTargetType";
+export { CreateEmailNotificationChannelConfig } from "./models/CreateEmailNotificationChannelConfig";
+export { CreateNotificationChannelAttributes } from "./models/CreateNotificationChannelAttributes";
+export { CreateNotificationChannelConfig } from "./models/CreateNotificationChannelConfig";
+export { CreateNotificationChannelData } from "./models/CreateNotificationChannelData";
+export { CreatePhoneNotificationChannelConfig } from "./models/CreatePhoneNotificationChannelConfig";
+export { CreateUserNotificationChannelRequest } from "./models/CreateUserNotificationChannelRequest";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
@@ -73,6 +83,19 @@ export { LayerRelationshipsMembers } from "./models/LayerRelationshipsMembers";
 export { LayerRelationshipsMembersDataItems } from "./models/LayerRelationshipsMembersDataItems";
 export { LayerRelationshipsMembersDataItemsType } from "./models/LayerRelationshipsMembersDataItemsType";
 export { LayerType } from "./models/LayerType";
+export { ListNotificationChannelsResponse } from "./models/ListNotificationChannelsResponse";
+export { NotificationChannel } from "./models/NotificationChannel";
+export { NotificationChannelAttributes } from "./models/NotificationChannelAttributes";
+export { NotificationChannelConfig } from "./models/NotificationChannelConfig";
+export { NotificationChannelData } from "./models/NotificationChannelData";
+export { NotificationChannelEmailConfig } from "./models/NotificationChannelEmailConfig";
+export { NotificationChannelEmailConfigType } from "./models/NotificationChannelEmailConfigType";
+export { NotificationChannelEmailFormatType } from "./models/NotificationChannelEmailFormatType";
+export { NotificationChannelPhoneConfig } from "./models/NotificationChannelPhoneConfig";
+export { NotificationChannelPhoneConfigType } from "./models/NotificationChannelPhoneConfigType";
+export { NotificationChannelPushConfig } from "./models/NotificationChannelPushConfig";
+export { NotificationChannelPushConfigType } from "./models/NotificationChannelPushConfigType";
+export { NotificationChannelType } from "./models/NotificationChannelType";
 export { OrganizationsType } from "./models/OrganizationsType";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";

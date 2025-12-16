@@ -7541,6 +7541,46 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TeamRoutingRules",
   },
+  "OnCallApi.V2.ListUserNotificationChannels": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListNotificationChannelsResponse",
+  },
+  "OnCallApi.V2.CreateUserNotificationChannel": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateUserNotificationChannelRequest",
+      format: "",
+    },
+    operationResponseType: "NotificationChannel",
+  },
+  "OnCallApi.V2.GetUserNotificationChannel": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    channelId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "NotificationChannel",
+  },
+  "OnCallApi.V2.DeleteUserNotificationChannel": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    channelId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OnCallPagingApi.V2.CreateOnCallPage": {
     body: {
       type: "CreatePageRequest",
