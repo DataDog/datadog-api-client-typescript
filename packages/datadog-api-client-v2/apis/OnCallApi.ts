@@ -17,9 +17,12 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { CreateUserNotificationChannelRequest } from "../models/CreateUserNotificationChannelRequest";
 import { EscalationPolicy } from "../models/EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "../models/EscalationPolicyCreateRequest";
 import { EscalationPolicyUpdateRequest } from "../models/EscalationPolicyUpdateRequest";
+import { ListNotificationChannelsResponse } from "../models/ListNotificationChannelsResponse";
+import { NotificationChannel } from "../models/NotificationChannel";
 import { Schedule } from "../models/Schedule";
 import { ScheduleCreateRequest } from "../models/ScheduleCreateRequest";
 import { ScheduleUpdateRequest } from "../models/ScheduleUpdateRequest";
@@ -133,6 +136,62 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createUserNotificationChannel(
+    userId: string,
+    body: CreateUserNotificationChannelRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "createUserNotificationChannel");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createUserNotificationChannel");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-channels".replace(
+        "{user_id}",
+        encodeURIComponent(String(userId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.createUserNotificationChannel")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CreateUserNotificationChannelRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteOnCallEscalationPolicy(
     policyId: string,
     _options?: Configuration
@@ -188,6 +247,46 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.OnCallApi.deleteOnCallSchedule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteUserNotificationChannel(
+    userId: string,
+    channelId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "deleteUserNotificationChannel");
+    }
+
+    // verify required parameter 'channelId' is not null or undefined
+    if (channelId === null || channelId === undefined) {
+      throw new RequiredError("channelId", "deleteUserNotificationChannel");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
+        .replace("{user_id}", encodeURIComponent(String(userId)))
+        .replace("{channel_id}", encodeURIComponent(String(channelId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.deleteUserNotificationChannel")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -422,6 +521,81 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getUserNotificationChannel(
+    userId: string,
+    channelId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "getUserNotificationChannel");
+    }
+
+    // verify required parameter 'channelId' is not null or undefined
+    if (channelId === null || channelId === undefined) {
+      throw new RequiredError("channelId", "getUserNotificationChannel");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
+        .replace("{user_id}", encodeURIComponent(String(userId)))
+        .replace("{channel_id}", encodeURIComponent(String(channelId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.getUserNotificationChannel")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listUserNotificationChannels(
+    userId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "listUserNotificationChannels");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-channels".replace(
+        "{user_id}",
+        encodeURIComponent(String(userId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.listUserNotificationChannels")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -750,6 +924,70 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createUserNotificationChannel
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createUserNotificationChannel(
+    response: ResponseContext
+  ): Promise<NotificationChannel> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: NotificationChannel = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationChannel"
+      ) as NotificationChannel;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationChannel = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationChannel",
+        ""
+      ) as NotificationChannel;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteOnCallEscalationPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -815,6 +1053,61 @@ export class OnCallApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteUserNotificationChannel
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteUserNotificationChannel(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
@@ -1167,6 +1460,136 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUserNotificationChannel
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUserNotificationChannel(
+    response: ResponseContext
+  ): Promise<NotificationChannel> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: NotificationChannel = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationChannel"
+      ) as NotificationChannel;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationChannel = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationChannel",
+        ""
+      ) as NotificationChannel;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listUserNotificationChannels
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listUserNotificationChannels(
+    response: ResponseContext
+  ): Promise<ListNotificationChannelsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListNotificationChannelsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ListNotificationChannelsResponse"
+        ) as ListNotificationChannelsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListNotificationChannelsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ListNotificationChannelsResponse",
+          ""
+        ) as ListNotificationChannelsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to setOnCallTeamRoutingRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1374,6 +1797,18 @@ export interface OnCallApiCreateOnCallScheduleRequest {
   include?: string;
 }
 
+export interface OnCallApiCreateUserNotificationChannelRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * @type CreateUserNotificationChannelRequest
+   */
+  body: CreateUserNotificationChannelRequest;
+}
+
 export interface OnCallApiDeleteOnCallEscalationPolicyRequest {
   /**
    * The ID of the escalation policy
@@ -1388,6 +1823,19 @@ export interface OnCallApiDeleteOnCallScheduleRequest {
    * @type string
    */
   scheduleId: string;
+}
+
+export interface OnCallApiDeleteUserNotificationChannelRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * The channel ID
+   * @type string
+   */
+  channelId: string;
 }
 
 export interface OnCallApiGetOnCallEscalationPolicyRequest {
@@ -1458,6 +1906,27 @@ export interface OnCallApiGetTeamOnCallUsersRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface OnCallApiGetUserNotificationChannelRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * The channel ID
+   * @type string
+   */
+  channelId: string;
+}
+
+export interface OnCallApiListUserNotificationChannelsRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
 }
 
 export interface OnCallApiSetOnCallTeamRoutingRulesRequest {
@@ -1576,6 +2045,31 @@ export class OnCallApi {
   }
 
   /**
+   * Create a new notification channel for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public createUserNotificationChannel(
+    param: OnCallApiCreateUserNotificationChannelRequest,
+    options?: Configuration
+  ): Promise<NotificationChannel> {
+    const requestContextPromise =
+      this.requestFactory.createUserNotificationChannel(
+        param.userId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createUserNotificationChannel(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an On-Call escalation policy
    * @param param The request object
    */
@@ -1613,6 +2107,31 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOnCallSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a notification channel for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public deleteUserNotificationChannel(
+    param: OnCallApiDeleteUserNotificationChannelRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteUserNotificationChannel(
+        param.userId,
+        param.channelId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteUserNotificationChannel(
+            responseContext
+          );
         });
     });
   }
@@ -1728,6 +2247,52 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getTeamOnCallUsers(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a notification channel for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public getUserNotificationChannel(
+    param: OnCallApiGetUserNotificationChannelRequest,
+    options?: Configuration
+  ): Promise<NotificationChannel> {
+    const requestContextPromise =
+      this.requestFactory.getUserNotificationChannel(
+        param.userId,
+        param.channelId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUserNotificationChannel(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List the notification channels for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public listUserNotificationChannels(
+    param: OnCallApiListUserNotificationChannelsRequest,
+    options?: Configuration
+  ): Promise<ListNotificationChannelsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listUserNotificationChannels(param.userId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUserNotificationChannels(
+            responseContext
+          );
         });
     });
   }
