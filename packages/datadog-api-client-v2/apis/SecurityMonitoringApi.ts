@@ -44,6 +44,7 @@ import { GetMultipleRulesetsResponse } from "../models/GetMultipleRulesetsRespon
 import { GetResourceEvaluationFiltersResponse } from "../models/GetResourceEvaluationFiltersResponse";
 import { GetRuleVersionHistoryResponse } from "../models/GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "../models/GetSBOMResponse";
+import { GetSuppressionVersionHistoryResponse } from "../models/GetSuppressionVersionHistoryResponse";
 import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAssetsSBOMsResponse } from "../models/ListAssetsSBOMsResponse";
@@ -1913,6 +1914,59 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSuppressionVersionHistory(
+    suppressionId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'suppressionId' is not null or undefined
+    if (suppressionId === null || suppressionId === undefined) {
+      throw new RequiredError("suppressionId", "getSuppressionVersionHistory");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}/version_history".replace(
+        "{suppression_id}",
+        encodeURIComponent(String(suppressionId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSuppressionVersionHistory")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -6596,6 +6650,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSuppressionVersionHistory
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSuppressionVersionHistory(
+    response: ResponseContext
+  ): Promise<GetSuppressionVersionHistoryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetSuppressionVersionHistoryResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GetSuppressionVersionHistoryResponse"
+        ) as GetSuppressionVersionHistoryResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetSuppressionVersionHistoryResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GetSuppressionVersionHistoryResponse",
+          ""
+        ) as GetSuppressionVersionHistoryResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getThreatHuntingJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9004,6 +9122,24 @@ export interface SecurityMonitoringApiGetSuppressionsAffectingRuleRequest {
   ruleId: string;
 }
 
+export interface SecurityMonitoringApiGetSuppressionVersionHistoryRequest {
+  /**
+   * The ID of the suppression rule
+   * @type string
+   */
+  suppressionId: string;
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
 export interface SecurityMonitoringApiGetThreatHuntingJobRequest {
   /**
    * The ID of the job.
@@ -10710,6 +10846,32 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSuppressionsAffectingRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a suppression's version history.
+   * @param param The request object
+   */
+  public getSuppressionVersionHistory(
+    param: SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
+    options?: Configuration
+  ): Promise<GetSuppressionVersionHistoryResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSuppressionVersionHistory(
+        param.suppressionId,
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSuppressionVersionHistory(
             responseContext
           );
         });
