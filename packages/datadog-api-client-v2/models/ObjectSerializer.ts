@@ -1131,6 +1131,8 @@ import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluatio
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
 import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
+import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
+import { GetSuppressionVersionHistoryResponse } from "./GetSuppressionVersionHistoryResponse";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
@@ -2085,7 +2087,6 @@ import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
-import { RuleVersionUpdate } from "./RuleVersionUpdate";
 import { RuleVersions } from "./RuleVersions";
 import { RulesValidateQueryRequest } from "./RulesValidateQueryRequest";
 import { RulesValidateQueryRequestData } from "./RulesValidateQueryRequestData";
@@ -2478,6 +2479,8 @@ import { StatsigIntegrationUpdate } from "./StatsigIntegrationUpdate";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
+import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
+import { SuppressionVersions } from "./SuppressionVersions";
 import { TableResultV2 } from "./TableResultV2";
 import { TableResultV2Array } from "./TableResultV2Array";
 import { TableResultV2Data } from "./TableResultV2Data";
@@ -2702,6 +2705,7 @@ import { V2EventResponse } from "./V2EventResponse";
 import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
+import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 import { VirusTotalAPIKey } from "./VirusTotalAPIKey";
 import { VirusTotalAPIKeyUpdate } from "./VirusTotalAPIKeyUpdate";
 import { VirusTotalIntegration } from "./VirusTotalIntegration";
@@ -3306,6 +3310,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
   GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
+  GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
   GetTeamMembershipsSort: [
     "manager_name",
     "-manager_name",
@@ -3936,7 +3941,6 @@ const enumsMap: { [key: string]: any[] } = {
     "host_vulnerability",
     "iac_misconfiguration",
   ],
-  RuleVersionUpdateType: ["create", "update", "delete"],
   RulesValidateQueryRequestDataType: ["validate_query"],
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
@@ -4292,6 +4296,7 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
+  VersionHistoryUpdateType: ["create", "update", "delete"],
   VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
   VirusTotalIntegrationType: ["VirusTotal"],
   VulnerabilitiesType: ["vulnerabilities"],
@@ -5734,6 +5739,8 @@ const typeMap: { [index: string]: any } = {
   GetRuleVersionHistoryData: GetRuleVersionHistoryData,
   GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
   GetSBOMResponse: GetSBOMResponse,
+  GetSuppressionVersionHistoryData: GetSuppressionVersionHistoryData,
+  GetSuppressionVersionHistoryResponse: GetSuppressionVersionHistoryResponse,
   GetWorkflowResponse: GetWorkflowResponse,
   GithubWebhookTrigger: GithubWebhookTrigger,
   GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,
@@ -6862,7 +6869,6 @@ const typeMap: { [index: string]: any } = {
   RuleOutcomeRelationships: RuleOutcomeRelationships,
   RuleUser: RuleUser,
   RuleVersionHistory: RuleVersionHistory,
-  RuleVersionUpdate: RuleVersionUpdate,
   RuleVersions: RuleVersions,
   RulesValidateQueryRequest: RulesValidateQueryRequest,
   RulesValidateQueryRequestData: RulesValidateQueryRequestData,
@@ -7343,6 +7349,8 @@ const typeMap: { [index: string]: any } = {
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
+  SuppressionVersionHistory: SuppressionVersionHistory,
+  SuppressionVersions: SuppressionVersions,
   TableResultV2: TableResultV2,
   TableResultV2Array: TableResultV2Array,
   TableResultV2Data: TableResultV2Data,
@@ -7598,6 +7606,7 @@ const typeMap: { [index: string]: any } = {
   ValidationError: ValidationError,
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,
+  VersionHistoryUpdate: VersionHistoryUpdate,
   VirusTotalAPIKey: VirusTotalAPIKey,
   VirusTotalAPIKeyUpdate: VirusTotalAPIKeyUpdate,
   VirusTotalIntegration: VirusTotalIntegration,
