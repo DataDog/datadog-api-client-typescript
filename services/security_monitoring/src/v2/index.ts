@@ -36,6 +36,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
   SecurityMonitoringApiGetThreatHuntingJobRequest,
@@ -191,6 +192,9 @@ export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
 export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
 export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 export { GetSBOMResponse } from "./models/GetSBOMResponse";
+export { GetSuppressionVersionHistoryData } from "./models/GetSuppressionVersionHistoryData";
+export { GetSuppressionVersionHistoryDataType } from "./models/GetSuppressionVersionHistoryDataType";
+export { GetSuppressionVersionHistoryResponse } from "./models/GetSuppressionVersionHistoryResponse";
 export { JiraIssuesDataType } from "./models/JiraIssuesDataType";
 export { JobCreateResponse } from "./models/JobCreateResponse";
 export { JobCreateResponseData } from "./models/JobCreateResponseData";
@@ -229,8 +233,6 @@ export { RuleTypesItems } from "./models/RuleTypesItems";
 export { RuleUser } from "./models/RuleUser";
 export { RuleVersionHistory } from "./models/RuleVersionHistory";
 export { RuleVersions } from "./models/RuleVersions";
-export { RuleVersionUpdate } from "./models/RuleVersionUpdate";
-export { RuleVersionUpdateType } from "./models/RuleVersionUpdateType";
 export { RunThreatHuntingJobRequest } from "./models/RunThreatHuntingJobRequest";
 export { RunThreatHuntingJobRequestAttributes } from "./models/RunThreatHuntingJobRequestAttributes";
 export { RunThreatHuntingJobRequestData } from "./models/RunThreatHuntingJobRequestData";
@@ -378,6 +380,8 @@ export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageU
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { Selectors } from "./models/Selectors";
 export { SpecVersion } from "./models/SpecVersion";
+export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
+export { SuppressionVersions } from "./models/SuppressionVersions";
 export { ThreatHuntingJobDataType } from "./models/ThreatHuntingJobDataType";
 export { ThreatHuntingJobListMeta } from "./models/ThreatHuntingJobListMeta";
 export { ThreatHuntingJobOptions } from "./models/ThreatHuntingJobOptions";
@@ -393,6 +397,8 @@ export { UpdateResourceEvaluationFiltersRequestData } from "./models/UpdateResou
 export { UpdateResourceEvaluationFiltersResponse } from "./models/UpdateResourceEvaluationFiltersResponse";
 export { UpdateResourceEvaluationFiltersResponseData } from "./models/UpdateResourceEvaluationFiltersResponseData";
 export { UsersType } from "./models/UsersType";
+export { VersionHistoryUpdate } from "./models/VersionHistoryUpdate";
+export { VersionHistoryUpdateType } from "./models/VersionHistoryUpdateType";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
 export { VulnerabilityAdvisory } from "./models/VulnerabilityAdvisory";
