@@ -30,7 +30,7 @@
     "generate-version-files": "node -p \"'export const version = ' + JSON.stringify(require('./package.json').version)\" > src/version.ts"
   },
   "dependencies": {
-    "@datadog/datadog-api-client": "^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "^2.0.0-beta.2"
   },
   "devDependencies": {
     "typescript": "5.8.3"
