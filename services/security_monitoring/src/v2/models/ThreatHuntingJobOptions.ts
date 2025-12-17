@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleDetectionMethod } from "./SecurityMonitoringRuleDetectionMethod";
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
@@ -13,6 +14,10 @@ import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRul
  * Job options.
  */
 export class ThreatHuntingJobOptions {
+  /**
+   * Options on anomaly detection method.
+   */
+  "anomalyDetectionOptions"?: SecurityMonitoringRuleAnomalyDetectionOptions;
   /**
    * The detection method.
    */
@@ -63,6 +68,10 @@ export class ThreatHuntingJobOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    anomalyDetectionOptions: {
+      baseName: "anomalyDetectionOptions",
+      type: "SecurityMonitoringRuleAnomalyDetectionOptions",
+    },
     detectionMethod: {
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
