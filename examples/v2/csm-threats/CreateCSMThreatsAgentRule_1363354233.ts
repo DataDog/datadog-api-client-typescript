@@ -25,7 +25,7 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentRuleRequest = {
           {
             set: {
               name: "test_set",
-              expression: "open.file.path",
+              expression: "exec.file.path",
               defaultValue: "/dev/null",
               scope: "process",
             },
