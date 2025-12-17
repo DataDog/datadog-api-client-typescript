@@ -197,11 +197,6 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createTeamConnections'");
-    if (!_config.unstableOperations["v2.createTeamConnections"]) {
-      throw new Error("Unstable operation 'createTeamConnections' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createTeamConnections");
@@ -379,11 +374,6 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'deleteTeamConnections'");
-    if (!_config.unstableOperations["v2.deleteTeamConnections"]) {
-      throw new Error("Unstable operation 'deleteTeamConnections' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -748,11 +738,6 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getTeamSync'");
-    if (!_config.unstableOperations["v2.getTeamSync"]) {
-      throw new Error("Unstable operation 'getTeamSync' is disabled");
-    }
-
     // verify required parameter 'filterSource' is not null or undefined
     if (filterSource === null || filterSource === undefined) {
       throw new RequiredError("filterSource", "getTeamSync");
@@ -900,11 +885,6 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listTeamConnections'");
-    if (!_config.unstableOperations["v2.listTeamConnections"]) {
-      throw new Error("Unstable operation 'listTeamConnections' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/team/connections";
@@ -1196,11 +1176,6 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'syncTeams'");
-    if (!_config.unstableOperations["v2.syncTeams"]) {
-      throw new Error("Unstable operation 'syncTeams' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
