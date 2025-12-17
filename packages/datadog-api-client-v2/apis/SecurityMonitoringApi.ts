@@ -49,6 +49,7 @@ import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAssetsSBOMsResponse } from "../models/ListAssetsSBOMsResponse";
 import { ListFindingsResponse } from "../models/ListFindingsResponse";
+import { ListSecurityFindingsResponse } from "../models/ListSecurityFindingsResponse";
 import { ListThreatHuntingJobsResponse } from "../models/ListThreatHuntingJobsResponse";
 import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
@@ -64,6 +65,12 @@ import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateReque
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
 import { SecurityFilterUpdateRequest } from "../models/SecurityFilterUpdateRequest";
+import { SecurityFindingsData } from "../models/SecurityFindingsData";
+import { SecurityFindingsSearchRequest } from "../models/SecurityFindingsSearchRequest";
+import { SecurityFindingsSearchRequestData } from "../models/SecurityFindingsSearchRequestData";
+import { SecurityFindingsSearchRequestDataAttributes } from "../models/SecurityFindingsSearchRequestDataAttributes";
+import { SecurityFindingsSearchRequestPage } from "../models/SecurityFindingsSearchRequestPage";
+import { SecurityFindingsSort } from "../models/SecurityFindingsSort";
 import { SecurityMonitoringListRulesResponse } from "../models/SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringRuleConvertPayload } from "../models/SecurityMonitoringRuleConvertPayload";
 import { SecurityMonitoringRuleConvertResponse } from "../models/SecurityMonitoringRuleConvertResponse";
@@ -2484,6 +2491,70 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSecurityFindings(
+    filterQuery?: string,
+    pageCursor?: string,
+    pageLimit?: number,
+    sort?: SecurityFindingsSort,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listSecurityFindings'");
+    if (!_config.unstableOperations["v2.listSecurityFindings"]) {
+      throw new Error("Unstable operation 'listSecurityFindings' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listSecurityFindings")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "SecurityFindingsSort", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityMonitoringHistsignals(
     filterQuery?: string,
     filterFrom?: Date,
@@ -3568,6 +3639,55 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RunThreatHuntingJobRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchSecurityFindings(
+    body: SecurityFindingsSearchRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'searchSecurityFindings'");
+    if (!_config.unstableOperations["v2.searchSecurityFindings"]) {
+      throw new Error(
+        "Unstable operation 'searchSecurityFindings' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "searchSecurityFindings");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/search";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.searchSecurityFindings")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SecurityFindingsSearchRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -7250,6 +7370,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSecurityFindings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFindings(
+    response: ResponseContext
+  ): Promise<ListSecurityFindingsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSecurityFindingsResponse"
+      ) as ListSecurityFindingsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSecurityFindingsResponse",
+        ""
+      ) as ListSecurityFindingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityMonitoringHistsignals
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8020,6 +8202,68 @@ export class SecurityMonitoringApiResponseProcessor {
         "JobCreateResponse",
         ""
       ) as JobCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to searchSecurityFindings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchSecurityFindings(
+    response: ResponseContext
+  ): Promise<ListSecurityFindingsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSecurityFindingsResponse"
+      ) as ListSecurityFindingsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListSecurityFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSecurityFindingsResponse",
+        ""
+      ) as ListSecurityFindingsResponse;
       return body;
     }
 
@@ -9317,6 +9561,29 @@ export interface SecurityMonitoringApiListScannedAssetsMetadataRequest {
   filterLastSuccessEnv?: string;
 }
 
+export interface SecurityMonitoringApiListSecurityFindingsRequest {
+  /**
+   * The search query following log search syntax.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * Get the next page of results with a cursor provided in the previous query.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * The maximum number of findings in the response.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Sorts by @detection_changed_at.
+   * @type SecurityFindingsSort
+   */
+  sort?: SecurityFindingsSort;
+}
+
 export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
   /**
    * The search query for security signals.
@@ -9779,6 +10046,13 @@ export interface SecurityMonitoringApiRunThreatHuntingJobRequest {
    * @type RunThreatHuntingJobRequest
    */
   body: RunThreatHuntingJobRequest;
+}
+
+export interface SecurityMonitoringApiSearchSecurityFindingsRequest {
+  /**
+   * @type SecurityFindingsSearchRequest
+   */
+  body: SecurityFindingsSearchRequest;
 }
 
 export interface SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest {
@@ -11235,6 +11509,95 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get a list of security findings that match a search query.
+   *
+   * This endpoint requires one of the following permissions:
+   * - `security_monitoring_findings_read`
+   * - `appsec_vm_read`
+   *
+   * ### Query Syntax
+   *
+   * This endpoint uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+   *
+   * Example: `@severity:(critical OR high) @status:open team:platform`
+   * @param param The request object
+   */
+  public listSecurityFindings(
+    param: SecurityMonitoringApiListSecurityFindingsRequest = {},
+    options?: Configuration
+  ): Promise<ListSecurityFindingsResponse> {
+    const requestContextPromise = this.requestFactory.listSecurityFindings(
+      param.filterQuery,
+      param.pageCursor,
+      param.pageLimit,
+      param.sort,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFindings(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listSecurityFindings returning a generator with all the items.
+   */
+  public async *listSecurityFindingsWithPagination(
+    param: SecurityMonitoringApiListSecurityFindingsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<SecurityFindingsData> {
+    let pageSize = 10;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listSecurityFindings(
+        param.filterQuery,
+        param.pageCursor,
+        param.pageLimit,
+        param.sort,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listSecurityFindings(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageAfter;
+    }
+  }
+
+  /**
    * List hist signals.
    * @param param The request object
    */
@@ -11716,6 +12079,100 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.runThreatHuntingJob(responseContext);
         });
     });
+  }
+
+  /**
+   * Get a list of security findings that match a search query.
+   *
+   * This endpoint requires one of the following permissions:
+   * - `security_monitoring_findings_read`
+   * - `appsec_vm_read`
+   *
+   * ### Query Syntax
+   *
+   * The API uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+   *
+   * Example: `@severity:(critical OR high) @status:open team:platform`
+   * @param param The request object
+   */
+  public searchSecurityFindings(
+    param: SecurityMonitoringApiSearchSecurityFindingsRequest,
+    options?: Configuration
+  ): Promise<ListSecurityFindingsResponse> {
+    const requestContextPromise = this.requestFactory.searchSecurityFindings(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchSecurityFindings(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of searchSecurityFindings returning a generator with all the items.
+   */
+  public async *searchSecurityFindingsWithPagination(
+    param: SecurityMonitoringApiSearchSecurityFindingsRequest,
+    options?: Configuration
+  ): AsyncGenerator<SecurityFindingsData> {
+    let pageSize = 10;
+    if (param.body.data === undefined) {
+      param.body.data = new SecurityFindingsSearchRequestData();
+    }
+    if (param.body.data.attributes === undefined) {
+      param.body.data.attributes =
+        new SecurityFindingsSearchRequestDataAttributes();
+    }
+    if (param.body.data.attributes.page === undefined) {
+      param.body.data.attributes.page = new SecurityFindingsSearchRequestPage();
+    }
+    if (param.body.data.attributes.page.limit === undefined) {
+      param.body.data.attributes.page.limit = pageSize;
+    } else {
+      pageSize = param.body.data.attributes.page.limit;
+    }
+    while (true) {
+      const requestContext = await this.requestFactory.searchSecurityFindings(
+        param.body,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.searchSecurityFindings(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.body.data.attributes.page.cursor = cursorMetaPageAfter;
+    }
   }
 
   /**
