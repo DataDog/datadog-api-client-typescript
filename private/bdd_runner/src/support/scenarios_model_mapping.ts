@@ -3596,6 +3596,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "IncludeType",
       format: "",
     },
+    includeDiscovered: {
+      type: "boolean",
+      format: "",
+    },
     operationResponseType: "ListEntityCatalogResponse",
   },
   "SoftwareCatalogApi.V2.UpsertCatalogEntity": {
@@ -3671,6 +3675,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     include: {
       type: "RelationIncludeType",
+      format: "",
+    },
+    includeDiscovered: {
+      type: "boolean",
       format: "",
     },
     operationResponseType: "ListRelationCatalogResponse",
