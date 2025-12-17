@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 1.48.0-beta.1/2025-12-17
+
+### Changed
+* Mark Incident Impact Endpoints stable [#3134](https://github.com/DataDog/datadog-api-client-typescript/pull/3134)
+* Vulnerability Management - Update ListVulnerabilities endpoint query params and response schema [#3117](https://github.com/DataDog/datadog-api-client-typescript/pull/3117)
+* Update specs for AWS account updates and creation for CCM configs [#3103](https://github.com/DataDog/datadog-api-client-typescript/pull/3103)
+* add suppression version history [#3056](https://github.com/DataDog/datadog-api-client-typescript/pull/3056)
+* Add processors groups to Observability Pipelines [#2972](https://github.com/DataDog/datadog-api-client-typescript/pull/2972)
+
+### Added
+* Update security finding triage specs [#3121](https://github.com/DataDog/datadog-api-client-typescript/pull/3121)
+* Add routes for managing On-Call user notification channels [#3109](https://github.com/DataDog/datadog-api-client-typescript/pull/3109)
+* Add host field to Post an event V2 API [#3105](https://github.com/DataDog/datadog-api-client-typescript/pull/3105)
+* Add `GET /api/v2/apm/services` endpoint to public documentation [#3099](https://github.com/DataDog/datadog-api-client-typescript/pull/3099)
+* Dashboards - Add semantic_mode support to FormulaAndFunctionMetricQueryDefinition [#3088](https://github.com/DataDog/datadog-api-client-typescript/pull/3088)
+* Cloud SIEM - Add instantaneousBaseline feature parameter. [#3082](https://github.com/DataDog/datadog-api-client-typescript/pull/3082)
+* Add new fields to usage metering api spec [#3078](https://github.com/DataDog/datadog-api-client-typescript/pull/3078)
+* update geomap widget definition about `conditional_format` and `text_formats` and view focus [#3066](https://github.com/DataDog/datadog-api-client-typescript/pull/3066)
+* Add new endpoint for listing rules for a gate [#3039](https://github.com/DataDog/datadog-api-client-typescript/pull/3039)
+
+### Removed
+* Tag security findings Jira endpoints as unstable [#3095](https://github.com/DataDog/datadog-api-client-typescript/pull/3095)
+
+### Fixed
+* Add field attribute to the Workload Protection hash action [#3050](https://github.com/DataDog/datadog-api-client-typescript/pull/3050)
+
 ## 1.48.0/2025-12-08
 
 ### Added
