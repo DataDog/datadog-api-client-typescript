@@ -177,6 +177,7 @@ import { SecurityFiltersResponse } from "./SecurityFiltersResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
+import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseAction } from "./SecurityMonitoringRuleCaseAction";
 import { SecurityMonitoringRuleCaseActionOptions } from "./SecurityMonitoringRuleCaseActionOptions";
@@ -363,6 +364,15 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFilterFilteredDataType: ["logs"],
     SecurityFilterType: ["security_filters"],
     SecurityMonitoringFilterAction: ["require", "suppress"],
+    SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [
+      300, 600, 900, 1800, 3600, 10800,
+    ],
+    SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance: [
+      1, 2, 3, 4, 5,
+    ],
+    SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration: [
+      1, 6, 12, 24, 48, 168, 336,
+    ],
     SecurityMonitoringRuleCaseActionOptionsFlaggedIPType: [
       "SUSPICIOUS",
       "FLAGGED",
@@ -766,6 +776,8 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringFilter: SecurityMonitoringFilter,
     SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
     SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
+    SecurityMonitoringRuleAnomalyDetectionOptions:
+      SecurityMonitoringRuleAnomalyDetectionOptions,
     SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
     SecurityMonitoringRuleCaseAction: SecurityMonitoringRuleCaseAction,
     SecurityMonitoringRuleCaseActionOptions:
