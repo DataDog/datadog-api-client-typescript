@@ -137,12 +137,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentImpact"]) {
-      throw new Error(
-        "Unstable operation 'createIncidentImpact' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentImpact'] = true`",
-      );
-    }
-
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
       throw new RequiredError("incidentId", "createIncidentImpact");
@@ -592,12 +586,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentImpact"]) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentImpact' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentImpact'] = true`",
-      );
-    }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
@@ -1397,12 +1385,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentImpacts"]) {
-      throw new Error(
-        "Unstable operation 'listIncidentImpacts' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentImpacts'] = true`",
-      );
-    }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
