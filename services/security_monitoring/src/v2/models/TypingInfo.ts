@@ -116,6 +116,7 @@ import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
+import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListThreatHuntingJobsResponse } from "./ListThreatHuntingJobsResponse";
 import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
@@ -174,6 +175,15 @@ import { SecurityFilterUpdateAttributes } from "./SecurityFilterUpdateAttributes
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
 import { SecurityFilterUpdateRequest } from "./SecurityFilterUpdateRequest";
 import { SecurityFiltersResponse } from "./SecurityFiltersResponse";
+import { SecurityFindingsAttributes } from "./SecurityFindingsAttributes";
+import { SecurityFindingsData } from "./SecurityFindingsData";
+import { SecurityFindingsLinks } from "./SecurityFindingsLinks";
+import { SecurityFindingsMeta } from "./SecurityFindingsMeta";
+import { SecurityFindingsPage } from "./SecurityFindingsPage";
+import { SecurityFindingsSearchRequest } from "./SecurityFindingsSearchRequest";
+import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchRequestData";
+import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
+import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
@@ -363,6 +373,9 @@ export const TypingInfo: ModelTypingInfo = {
     SecretRuleDataType: ["secret_rule"],
     SecurityFilterFilteredDataType: ["logs"],
     SecurityFilterType: ["security_filters"],
+    SecurityFindingsDataType: ["finding"],
+    SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
+    SecurityFindingsStatus: ["done", "timeout"],
     SecurityMonitoringFilterAction: ["require", "suppress"],
     SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [
       300, 600, 900, 1800, 3600, 10800,
@@ -710,6 +723,7 @@ export const TypingInfo: ModelTypingInfo = {
     ListFindingsMeta: ListFindingsMeta,
     ListFindingsPage: ListFindingsPage,
     ListFindingsResponse: ListFindingsResponse,
+    ListSecurityFindingsResponse: ListSecurityFindingsResponse,
     ListThreatHuntingJobsResponse: ListThreatHuntingJobsResponse,
     ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
     ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
@@ -773,6 +787,16 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFilterUpdateData: SecurityFilterUpdateData,
     SecurityFilterUpdateRequest: SecurityFilterUpdateRequest,
     SecurityFiltersResponse: SecurityFiltersResponse,
+    SecurityFindingsAttributes: SecurityFindingsAttributes,
+    SecurityFindingsData: SecurityFindingsData,
+    SecurityFindingsLinks: SecurityFindingsLinks,
+    SecurityFindingsMeta: SecurityFindingsMeta,
+    SecurityFindingsPage: SecurityFindingsPage,
+    SecurityFindingsSearchRequest: SecurityFindingsSearchRequest,
+    SecurityFindingsSearchRequestData: SecurityFindingsSearchRequestData,
+    SecurityFindingsSearchRequestDataAttributes:
+      SecurityFindingsSearchRequestDataAttributes,
+    SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
     SecurityMonitoringFilter: SecurityMonitoringFilter,
     SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
     SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
