@@ -3102,6 +3102,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "APMApi.V2.GetServiceList": {
+    operationResponseType: "ServiceList",
+  },
   "AppBuilderApi.V2.ListApps": {
     limit: {
       type: "number",
