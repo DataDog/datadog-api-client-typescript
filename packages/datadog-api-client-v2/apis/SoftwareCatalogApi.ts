@@ -112,6 +112,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     filterRelationType?: RelationType,
     filterExcludeSnapshot?: string,
     include?: IncludeType,
+    includeDiscovered?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -197,6 +198,13 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+    if (includeDiscovered !== undefined) {
+      requestContext.setQueryParam(
+        "includeDiscovered",
+        ObjectSerializer.serialize(includeDiscovered, "boolean", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -274,6 +282,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     filterFromRef?: string,
     filterToRef?: string,
     include?: RelationIncludeType,
+    includeDiscovered?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -328,6 +337,13 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         ObjectSerializer.serialize(include, "RelationIncludeType", ""),
+        ""
+      );
+    }
+    if (includeDiscovered !== undefined) {
+      requestContext.setQueryParam(
+        "includeDiscovered",
+        ObjectSerializer.serialize(includeDiscovered, "boolean", ""),
         ""
       );
     }
@@ -985,6 +1001,11 @@ export interface SoftwareCatalogApiListCatalogEntityRequest {
    * @type IncludeType
    */
   include?: IncludeType;
+  /**
+   * If true, includes discovered services from APM and USM that do not have entity definitions.
+   * @type boolean
+   */
+  includeDiscovered?: boolean;
 }
 
 export interface SoftwareCatalogApiListCatalogKindRequest {
@@ -1041,6 +1062,11 @@ export interface SoftwareCatalogApiListCatalogRelationRequest {
    * @type RelationIncludeType
    */
   include?: RelationIncludeType;
+  /**
+   * If true, includes relationships discovered by APM and USM.
+   * @type boolean
+   */
+  includeDiscovered?: boolean;
 }
 
 export interface SoftwareCatalogApiUpsertCatalogEntityRequest {
@@ -1137,6 +1163,7 @@ export class SoftwareCatalogApi {
       param.filterRelationType,
       param.filterExcludeSnapshot,
       param.include,
+      param.includeDiscovered,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1172,6 +1199,7 @@ export class SoftwareCatalogApi {
         param.filterRelationType,
         param.filterExcludeSnapshot,
         param.include,
+        param.includeDiscovered,
         options
       );
       const responseContext = await this.configuration.httpApi.send(
@@ -1285,6 +1313,7 @@ export class SoftwareCatalogApi {
       param.filterFromRef,
       param.filterToRef,
       param.include,
+      param.includeDiscovered,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1316,6 +1345,7 @@ export class SoftwareCatalogApi {
         param.filterFromRef,
         param.filterToRef,
         param.include,
+        param.includeDiscovered,
         options
       );
       const responseContext = await this.configuration.httpApi.send(

@@ -3586,6 +3586,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "IncludeType",
             "format": "",
             },
+        "includeDiscovered": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "ListEntityCatalogResponse",
     },
     "v2.UpsertCatalogEntity": {
@@ -3661,6 +3665,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "include": {
             "type": "RelationIncludeType",
+            "format": "",
+            },
+        "includeDiscovered": {
+            "type": "boolean",
             "format": "",
             },
         "operationResponseType": "ListRelationCatalogResponse",
