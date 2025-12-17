@@ -782,6 +782,7 @@ export {
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListMultipleRulesetsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
+  SecurityMonitoringApiListSecurityFindingsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
@@ -793,6 +794,7 @@ export {
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiRunThreatHuntingJobRequest,
+  SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
@@ -2838,6 +2840,7 @@ export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogRe
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
+export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 export { ListTagsResponse } from "./models/ListTagsResponse";
 export { ListTagsResponseData } from "./models/ListTagsResponseData";
 export { ListTagsResponseDataAttributes } from "./models/ListTagsResponseDataAttributes";
@@ -3952,6 +3955,18 @@ export { SecurityFilterType } from "./models/SecurityFilterType";
 export { SecurityFilterUpdateAttributes } from "./models/SecurityFilterUpdateAttributes";
 export { SecurityFilterUpdateData } from "./models/SecurityFilterUpdateData";
 export { SecurityFilterUpdateRequest } from "./models/SecurityFilterUpdateRequest";
+export { SecurityFindingsAttributes } from "./models/SecurityFindingsAttributes";
+export { SecurityFindingsData } from "./models/SecurityFindingsData";
+export { SecurityFindingsDataType } from "./models/SecurityFindingsDataType";
+export { SecurityFindingsLinks } from "./models/SecurityFindingsLinks";
+export { SecurityFindingsMeta } from "./models/SecurityFindingsMeta";
+export { SecurityFindingsPage } from "./models/SecurityFindingsPage";
+export { SecurityFindingsSearchRequest } from "./models/SecurityFindingsSearchRequest";
+export { SecurityFindingsSearchRequestData } from "./models/SecurityFindingsSearchRequestData";
+export { SecurityFindingsSearchRequestDataAttributes } from "./models/SecurityFindingsSearchRequestDataAttributes";
+export { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSearchRequestPage";
+export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
+export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
