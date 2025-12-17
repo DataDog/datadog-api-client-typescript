@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
+import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleDetectionMethod } from "./SecurityMonitoringRuleDetectionMethod";
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
 import { SecurityMonitoringRuleHardcodedEvaluatorType } from "./SecurityMonitoringRuleHardcodedEvaluatorType";
@@ -20,6 +21,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Options.
  */
 export class SecurityMonitoringRuleOptions {
+  /**
+   * Options on anomaly detection method.
+   */
+  "anomalyDetectionOptions"?: SecurityMonitoringRuleAnomalyDetectionOptions;
   /**
    * Options for cloud_configuration rules.
    * Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
@@ -87,6 +92,10 @@ export class SecurityMonitoringRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    anomalyDetectionOptions: {
+      baseName: "anomalyDetectionOptions",
+      type: "SecurityMonitoringRuleAnomalyDetectionOptions",
+    },
     complianceRuleOptions: {
       baseName: "complianceRuleOptions",
       type: "CloudConfigurationComplianceRuleOptions",

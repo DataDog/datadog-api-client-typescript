@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleDetectionMethod } from "./SecurityMonitoringRuleDetectionMethod";
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
@@ -18,6 +19,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Job options.
  */
 export class ThreatHuntingJobOptions {
+  /**
+   * Options on anomaly detection method.
+   */
+  "anomalyDetectionOptions"?: SecurityMonitoringRuleAnomalyDetectionOptions;
   /**
    * The detection method.
    */
@@ -70,6 +75,10 @@ export class ThreatHuntingJobOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    anomalyDetectionOptions: {
+      baseName: "anomalyDetectionOptions",
+      type: "SecurityMonitoringRuleAnomalyDetectionOptions",
+    },
     detectionMethod: {
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
