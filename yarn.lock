@@ -257,7 +257,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-action-connection@workspace:services/action_connection"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -266,7 +266,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-actions-datastores@workspace:services/actions_datastores"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -275,7 +275,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-agentless-scanning@workspace:services/agentless_scanning"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -284,7 +284,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-api-management@workspace:services/api_management"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -293,7 +293,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-apm-retention-filters@workspace:services/apm_retention_filters"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -311,7 +311,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-app-builder@workspace:services/app_builder"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -320,7 +320,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-application-security@workspace:services/application_security"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -329,7 +329,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-audit@workspace:services/audit"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -338,7 +338,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-auth-n-mappings@workspace:services/auth_n_mappings"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -347,7 +347,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-authentication@workspace:services/authentication"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -356,7 +356,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-aws-integration@workspace:services/aws_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -365,7 +365,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-aws-logs-integration@workspace:services/aws_logs_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -374,7 +374,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-azure-integration@workspace:services/azure_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -383,7 +383,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-case-management-attribute@workspace:services/case_management_attribute"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -392,7 +392,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-case-management-type@workspace:services/case_management_type"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -401,7 +401,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-case-management@workspace:services/case_management"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -410,7 +410,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-ci-visibility-pipelines@workspace:services/ci_visibility_pipelines"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -419,7 +419,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-ci-visibility-tests@workspace:services/ci_visibility_tests"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -428,7 +428,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-cloud-cost-management@workspace:services/cloud_cost_management"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -437,7 +437,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-cloud-network-monitoring@workspace:services/cloud_network_monitoring"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -446,7 +446,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-cloudflare-integration@workspace:services/cloudflare_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -455,7 +455,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-confluent-cloud@workspace:services/confluent_cloud"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -464,7 +464,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-container-images@workspace:services/container_images"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -473,7 +473,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-containers@workspace:services/containers"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -482,7 +482,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-csm-agents@workspace:services/csm_agents"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -491,7 +491,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-csm-coverage-analysis@workspace:services/csm_coverage_analysis"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -500,7 +500,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-csm-threats@workspace:services/csm_threats"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -509,7 +509,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-dashboard-lists@workspace:services/dashboard_lists"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -518,7 +518,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-dashboards@workspace:services/dashboards"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -527,7 +527,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-data-deletion@workspace:services/data_deletion"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -536,7 +536,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-datasets@workspace:services/datasets"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -545,7 +545,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-deployment-gates@workspace:services/deployment_gates"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -554,7 +554,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-domain-allowlist@workspace:services/domain_allowlist"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -563,7 +563,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-dora-metrics@workspace:services/dora_metrics"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -572,7 +572,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-downtimes@workspace:services/downtimes"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -581,7 +581,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-error-tracking@workspace:services/error_tracking"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -590,7 +590,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-events@workspace:services/events"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -599,7 +599,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-fastly-integration@workspace:services/fastly_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -608,7 +608,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-fleet-automation@workspace:services/fleet_automation"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -617,7 +617,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-gcp-integration@workspace:services/gcp_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -626,7 +626,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-hosts@workspace:services/hosts"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -635,7 +635,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-incident-services@workspace:services/incident_services"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -644,7 +644,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-incident-teams@workspace:services/incident_teams"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -653,7 +653,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-incidents@workspace:services/incidents"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -662,7 +662,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-ip-allowlist@workspace:services/ip_allowlist"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -671,7 +671,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-ip-ranges@workspace:services/ip_ranges"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -680,7 +680,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-key-management@workspace:services/key_management"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -689,7 +689,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs-archives@workspace:services/logs_archives"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -698,7 +698,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs-custom-destinations@workspace:services/logs_custom_destinations"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -707,7 +707,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs-indexes@workspace:services/logs_indexes"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -716,7 +716,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs-metrics@workspace:services/logs_metrics"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -725,7 +725,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs-pipelines@workspace:services/logs_pipelines"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -734,7 +734,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs-restriction-queries@workspace:services/logs_restriction_queries"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -743,7 +743,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs@workspace:services/logs"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -752,7 +752,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-metrics@workspace:services/metrics"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -761,7 +761,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-microsoft-teams-integration@workspace:services/microsoft_teams_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -770,7 +770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-monitors@workspace:services/monitors"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -779,7 +779,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-network-device-monitoring@workspace:services/network_device_monitoring"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -788,7 +788,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-notebooks@workspace:services/notebooks"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -797,7 +797,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-observability-pipelines@workspace:services/observability_pipelines"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -806,7 +806,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-okta-integration@workspace:services/okta_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -815,7 +815,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-on-call-paging@workspace:services/on_call_paging"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -824,7 +824,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-on-call@workspace:services/on_call"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -833,7 +833,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-opsgenie-integration@workspace:services/opsgenie_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -842,7 +842,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-org-connections@workspace:services/org_connections"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -851,7 +851,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-organizations@workspace:services/organizations"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -860,7 +860,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-pager-duty-integration@workspace:services/pager_duty_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -869,7 +869,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-powerpack@workspace:services/powerpack"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -878,7 +878,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-processes@workspace:services/processes"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -887,7 +887,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-reference-tables@workspace:services/reference_tables"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -896,7 +896,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-restriction-policies@workspace:services/restriction_policies"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -905,7 +905,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-roles@workspace:services/roles"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -914,7 +914,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-audience-management@workspace:services/rum_audience_management"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -923,7 +923,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-metrics@workspace:services/rum_metrics"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -932,7 +932,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-retention-filters@workspace:services/rum_retention_filters"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -941,7 +941,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum@workspace:services/rum"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -950,7 +950,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-security-monitoring@workspace:services/security_monitoring"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -959,7 +959,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-sensitive-data-scanner@workspace:services/sensitive_data_scanner"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -968,7 +968,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-service-accounts@workspace:services/service_accounts"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -977,7 +977,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-service-checks@workspace:services/service_checks"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -986,7 +986,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-service-definition@workspace:services/service_definition"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -995,7 +995,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-service-level-objective-corrections@workspace:services/service_level_objective_corrections"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1004,7 +1004,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-service-level-objectives@workspace:services/service_level_objectives"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1013,7 +1013,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-service-scorecards@workspace:services/service_scorecards"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1022,7 +1022,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-slack-integration@workspace:services/slack_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1031,7 +1031,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-snapshots@workspace:services/snapshots"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1040,7 +1040,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-software-catalog@workspace:services/software_catalog"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1049,7 +1049,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-spa@workspace:services/spa"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1058,7 +1058,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-spans-metrics@workspace:services/spans_metrics"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1067,7 +1067,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-spans@workspace:services/spans"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1076,7 +1076,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-static-analysis@workspace:services/static_analysis"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1085,7 +1085,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-synthetics@workspace:services/synthetics"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1094,7 +1094,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-tags@workspace:services/tags"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1103,7 +1103,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-team-connections@workspace:services/team_connections"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1112,7 +1112,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-teams@workspace:services/teams"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1121,7 +1121,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-test-optimization@workspace:services/test_optimization"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1130,7 +1130,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-usage-metering@workspace:services/usage_metering"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1139,7 +1139,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-users@workspace:services/users"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1148,7 +1148,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-webhooks-integration@workspace:services/webhooks_integration"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
@@ -1157,12 +1157,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-workflow-automation@workspace:services/workflow_automation"
   dependencies:
-    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
   languageName: unknown
   linkType: soft
 
-"@datadog/datadog-api-client@npm:^2.0.0-beta.0, @datadog/datadog-api-client@workspace:packages/datadog-api-client":
+"@datadog/datadog-api-client@npm:^2.0.0-beta.0, @datadog/datadog-api-client@npm:^2.0.0-beta.2, @datadog/datadog-api-client@workspace:packages/datadog-api-client":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client@workspace:packages/datadog-api-client"
   dependencies:
