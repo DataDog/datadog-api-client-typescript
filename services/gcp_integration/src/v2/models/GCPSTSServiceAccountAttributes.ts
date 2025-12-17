@@ -36,6 +36,10 @@ export class GCPSTSServiceAccountAttributes {
    */
   "isCspmEnabled"?: boolean;
   /**
+   * When enabled, Datadog collects metrics where location is explicitly stated as "global" or where location information cannot be deduced from GCP labels.
+   */
+  "isGlobalLocationEnabled"?: boolean;
+  /**
    * When enabled, Datadog applies the `X-Goog-User-Project` header, attributing Google Cloud billing and quota usage to the project being monitored rather than the default service account project.
    */
   "isPerProjectQuotaEnabled"?: boolean;
@@ -55,6 +59,10 @@ export class GCPSTSServiceAccountAttributes {
    * Configurations for GCP monitored resources.
    */
   "monitoredResourceConfigs"?: Array<GCPMonitoredResourceConfig>;
+  /**
+   * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+   */
+  "regionFilterConfigs"?: Array<string>;
   /**
    * When enabled, Datadog scans for all resources in your GCP environment.
    */
@@ -98,6 +106,10 @@ export class GCPSTSServiceAccountAttributes {
       baseName: "is_cspm_enabled",
       type: "boolean",
     },
+    isGlobalLocationEnabled: {
+      baseName: "is_global_location_enabled",
+      type: "boolean",
+    },
     isPerProjectQuotaEnabled: {
       baseName: "is_per_project_quota_enabled",
       type: "boolean",
@@ -117,6 +129,10 @@ export class GCPSTSServiceAccountAttributes {
     monitoredResourceConfigs: {
       baseName: "monitored_resource_configs",
       type: "Array<GCPMonitoredResourceConfig>",
+    },
+    regionFilterConfigs: {
+      baseName: "region_filter_configs",
+      type: "Array<string>",
     },
     resourceCollectionEnabled: {
       baseName: "resource_collection_enabled",
