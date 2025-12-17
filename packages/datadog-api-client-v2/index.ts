@@ -7,6 +7,8 @@ export {
   APIManagementApi,
 } from "./apis/APIManagementApi";
 
+export { APMApi } from "./apis/APMApi";
+
 export {
   APMRetentionFiltersApiCreateApmRetentionFilterRequest,
   APMRetentionFiltersApiDeleteApmRetentionFilterRequest,
@@ -4173,6 +4175,11 @@ export { ServiceDefinitionV2Repo } from "./models/ServiceDefinitionV2Repo";
 export { ServiceDefinitionV2Slack } from "./models/ServiceDefinitionV2Slack";
 export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackType";
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
+export { ServiceList } from "./models/ServiceList";
+export { ServiceListData } from "./models/ServiceListData";
+export { ServiceListDataAttributes } from "./models/ServiceListDataAttributes";
+export { ServiceListDataAttributesMetadataItems } from "./models/ServiceListDataAttributesMetadataItems";
+export { ServiceListDataType } from "./models/ServiceListDataType";
 export { ServiceNowBasicAuth } from "./models/ServiceNowBasicAuth";
 export { ServiceNowBasicAuthType } from "./models/ServiceNowBasicAuthType";
 export { ServiceNowBasicAuthUpdate } from "./models/ServiceNowBasicAuthUpdate";

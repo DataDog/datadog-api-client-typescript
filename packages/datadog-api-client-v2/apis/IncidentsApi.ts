@@ -112,11 +112,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createIncidentImpact'");
-    if (!_config.unstableOperations["v2.createIncidentImpact"]) {
-      throw new Error("Unstable operation 'createIncidentImpact' is disabled");
-    }
-
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
       throw new RequiredError("incidentId", "createIncidentImpact");
@@ -494,11 +489,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'deleteIncidentImpact'");
-    if (!_config.unstableOperations["v2.deleteIncidentImpact"]) {
-      throw new Error("Unstable operation 'deleteIncidentImpact' is disabled");
-    }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
@@ -1139,11 +1129,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listIncidentImpacts'");
-    if (!_config.unstableOperations["v2.listIncidentImpacts"]) {
-      throw new Error("Unstable operation 'listIncidentImpacts' is disabled");
-    }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
