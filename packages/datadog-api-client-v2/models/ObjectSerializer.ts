@@ -2405,6 +2405,10 @@ import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
 import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
+import { ServiceList } from "./ServiceList";
+import { ServiceListData } from "./ServiceListData";
+import { ServiceListDataAttributes } from "./ServiceListDataAttributes";
+import { ServiceListDataAttributesMetadataItems } from "./ServiceListDataAttributesMetadataItems";
 import { ServiceNowBasicAuth } from "./ServiceNowBasicAuth";
 import { ServiceNowBasicAuthUpdate } from "./ServiceNowBasicAuthUpdate";
 import { ServiceNowIntegration } from "./ServiceNowIntegration";
@@ -4191,6 +4195,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  ServiceListDataType: ["services_list"],
   ServiceNowBasicAuthType: ["ServiceNowBasicAuth"],
   ServiceNowIntegrationType: ["ServiceNow"],
   ShiftDataRelationshipsUserDataType: ["users"],
@@ -7290,6 +7295,11 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
   ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
+  ServiceList: ServiceList,
+  ServiceListData: ServiceListData,
+  ServiceListDataAttributes: ServiceListDataAttributes,
+  ServiceListDataAttributesMetadataItems:
+    ServiceListDataAttributesMetadataItems,
   ServiceNowBasicAuth: ServiceNowBasicAuth,
   ServiceNowBasicAuthUpdate: ServiceNowBasicAuthUpdate,
   ServiceNowIntegration: ServiceNowIntegration,
