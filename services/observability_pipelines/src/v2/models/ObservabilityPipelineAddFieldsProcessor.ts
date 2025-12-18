@@ -8,6 +8,10 @@ import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldVal
  */
 export class ObservabilityPipelineAddFieldsProcessor {
   /**
+   * The display name for a component.
+   */
+  "displayName"?: string;
+  /**
    * Whether this processor is enabled.
    */
   "enabled": boolean;
@@ -42,6 +46,10 @@ export class ObservabilityPipelineAddFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    displayName: {
+      baseName: "display_name",
+      type: "string",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",

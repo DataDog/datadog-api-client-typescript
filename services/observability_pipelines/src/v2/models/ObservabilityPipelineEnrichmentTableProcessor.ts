@@ -9,6 +9,10 @@ import { ObservabilityPipelineEnrichmentTableProcessorType } from "./Observabili
  */
 export class ObservabilityPipelineEnrichmentTableProcessor {
   /**
+   * The display name for a component.
+   */
+  "displayName"?: string;
+  /**
    * Whether this processor is enabled.
    */
   "enabled": boolean;
@@ -51,6 +55,10 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    displayName: {
+      baseName: "display_name",
+      type: "string",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
