@@ -9,6 +9,8 @@ import { ConfiguredScheduleTargetRelationshipsSchedule } from "./ConfiguredSched
 import { CreateEmailNotificationChannelConfig } from "./CreateEmailNotificationChannelConfig";
 import { CreateNotificationChannelAttributes } from "./CreateNotificationChannelAttributes";
 import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
+import { CreateOnCallNotificationRuleRequest } from "./CreateOnCallNotificationRuleRequest";
+import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificationRuleRequestData";
 import { CreatePhoneNotificationChannelConfig } from "./CreatePhoneNotificationChannelConfig";
 import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationChannelRequest";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
@@ -49,12 +51,21 @@ import { LayerRelationships } from "./LayerRelationships";
 import { LayerRelationshipsMembers } from "./LayerRelationshipsMembers";
 import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersDataItems";
 import { ListNotificationChannelsResponse } from "./ListNotificationChannelsResponse";
+import { ListOnCallNotificationRulesResponse } from "./ListOnCallNotificationRulesResponse";
 import { NotificationChannel } from "./NotificationChannel";
 import { NotificationChannelAttributes } from "./NotificationChannelAttributes";
 import { NotificationChannelData } from "./NotificationChannelData";
 import { NotificationChannelEmailConfig } from "./NotificationChannelEmailConfig";
 import { NotificationChannelPhoneConfig } from "./NotificationChannelPhoneConfig";
 import { NotificationChannelPushConfig } from "./NotificationChannelPushConfig";
+import { OnCallNotificationRule } from "./OnCallNotificationRule";
+import { OnCallNotificationRuleAttributes } from "./OnCallNotificationRuleAttributes";
+import { OnCallNotificationRuleChannelRelationship } from "./OnCallNotificationRuleChannelRelationship";
+import { OnCallNotificationRuleChannelRelationshipData } from "./OnCallNotificationRuleChannelRelationshipData";
+import { OnCallNotificationRuleData } from "./OnCallNotificationRuleData";
+import { OnCallNotificationRuleRelationships } from "./OnCallNotificationRuleRelationships";
+import { OnCallNotificationRuleRequestAttributes } from "./OnCallNotificationRuleRequestAttributes";
+import { OnCallPhoneNotificationRuleSettings } from "./OnCallPhoneNotificationRuleSettings";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -121,6 +132,9 @@ import { TeamRoutingRulesRequestRule } from "./TeamRoutingRulesRequestRule";
 import { TeamTarget } from "./TeamTarget";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
+import { UpdateOnCallNotificationRuleRequest } from "./UpdateOnCallNotificationRuleRequest";
+import { UpdateOnCallNotificationRuleRequestAttributes } from "./UpdateOnCallNotificationRuleRequestAttributes";
+import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
@@ -147,6 +161,9 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationChannelPhoneConfigType: ["phone"],
     NotificationChannelPushConfigType: ["push"],
     NotificationChannelType: ["notification_channels"],
+    OnCallNotificationRuleCategory: ["high_urgency", "low_urgency"],
+    OnCallNotificationRuleType: ["notification_rules"],
+    OnCallPhoneNotificationRuleMethod: ["sms", "voice"],
     OrganizationsType: ["orgs"],
     RolesType: ["roles"],
     RoutingRuleRelationshipsPolicyDataType: ["policies"],
@@ -211,6 +228,10 @@ export const TypingInfo: ModelTypingInfo = {
       "NotificationChannelEmailConfig",
       "NotificationChannelPushConfig",
     ],
+    OnCallNotificationRuleChannelSettings: [
+      "OnCallPhoneNotificationRuleSettings",
+    ],
+    OnCallNotificationRulesIncluded: ["NotificationChannelData"],
     RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
     ScheduleDataIncludedItem: [
       "TeamReference",
@@ -234,6 +255,9 @@ export const TypingInfo: ModelTypingInfo = {
     CreateEmailNotificationChannelConfig: CreateEmailNotificationChannelConfig,
     CreateNotificationChannelAttributes: CreateNotificationChannelAttributes,
     CreateNotificationChannelData: CreateNotificationChannelData,
+    CreateOnCallNotificationRuleRequest: CreateOnCallNotificationRuleRequest,
+    CreateOnCallNotificationRuleRequestData:
+      CreateOnCallNotificationRuleRequestData,
     CreatePhoneNotificationChannelConfig: CreatePhoneNotificationChannelConfig,
     CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
     DataRelationshipsTeams: DataRelationshipsTeams,
@@ -284,12 +308,24 @@ export const TypingInfo: ModelTypingInfo = {
     LayerRelationshipsMembers: LayerRelationshipsMembers,
     LayerRelationshipsMembersDataItems: LayerRelationshipsMembersDataItems,
     ListNotificationChannelsResponse: ListNotificationChannelsResponse,
+    ListOnCallNotificationRulesResponse: ListOnCallNotificationRulesResponse,
     NotificationChannel: NotificationChannel,
     NotificationChannelAttributes: NotificationChannelAttributes,
     NotificationChannelData: NotificationChannelData,
     NotificationChannelEmailConfig: NotificationChannelEmailConfig,
     NotificationChannelPhoneConfig: NotificationChannelPhoneConfig,
     NotificationChannelPushConfig: NotificationChannelPushConfig,
+    OnCallNotificationRule: OnCallNotificationRule,
+    OnCallNotificationRuleAttributes: OnCallNotificationRuleAttributes,
+    OnCallNotificationRuleChannelRelationship:
+      OnCallNotificationRuleChannelRelationship,
+    OnCallNotificationRuleChannelRelationshipData:
+      OnCallNotificationRuleChannelRelationshipData,
+    OnCallNotificationRuleData: OnCallNotificationRuleData,
+    OnCallNotificationRuleRelationships: OnCallNotificationRuleRelationships,
+    OnCallNotificationRuleRequestAttributes:
+      OnCallNotificationRuleRequestAttributes,
+    OnCallPhoneNotificationRuleSettings: OnCallPhoneNotificationRuleSettings,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
@@ -371,6 +407,11 @@ export const TypingInfo: ModelTypingInfo = {
     TeamTarget: TeamTarget,
     TimeRestriction: TimeRestriction,
     TimeRestrictions: TimeRestrictions,
+    UpdateOnCallNotificationRuleRequest: UpdateOnCallNotificationRuleRequest,
+    UpdateOnCallNotificationRuleRequestAttributes:
+      UpdateOnCallNotificationRuleRequestAttributes,
+    UpdateOnCallNotificationRuleRequestData:
+      UpdateOnCallNotificationRuleRequestData,
     User: User,
     UserAttributes: UserAttributes,
     UserResponseRelationships: UserResponseRelationships,

@@ -2,19 +2,24 @@ export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
   OnCallApiCreateUserNotificationChannelRequest,
+  OnCallApiCreateUserNotificationRuleRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
   OnCallApiDeleteUserNotificationChannelRequest,
+  OnCallApiDeleteUserNotificationRuleRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiGetTeamOnCallUsersRequest,
   OnCallApiGetUserNotificationChannelRequest,
+  OnCallApiGetUserNotificationRuleRequest,
   OnCallApiListUserNotificationChannelsRequest,
+  OnCallApiListUserNotificationRulesRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
+  OnCallApiUpdateUserNotificationRuleRequest,
   OnCallApi,
 } from "./OnCallApi";
 
@@ -29,6 +34,8 @@ export { CreateEmailNotificationChannelConfig } from "./models/CreateEmailNotifi
 export { CreateNotificationChannelAttributes } from "./models/CreateNotificationChannelAttributes";
 export { CreateNotificationChannelConfig } from "./models/CreateNotificationChannelConfig";
 export { CreateNotificationChannelData } from "./models/CreateNotificationChannelData";
+export { CreateOnCallNotificationRuleRequest } from "./models/CreateOnCallNotificationRuleRequest";
+export { CreateOnCallNotificationRuleRequestData } from "./models/CreateOnCallNotificationRuleRequestData";
 export { CreatePhoneNotificationChannelConfig } from "./models/CreatePhoneNotificationChannelConfig";
 export { CreateUserNotificationChannelRequest } from "./models/CreateUserNotificationChannelRequest";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
@@ -84,6 +91,7 @@ export { LayerRelationshipsMembersDataItems } from "./models/LayerRelationshipsM
 export { LayerRelationshipsMembersDataItemsType } from "./models/LayerRelationshipsMembersDataItemsType";
 export { LayerType } from "./models/LayerType";
 export { ListNotificationChannelsResponse } from "./models/ListNotificationChannelsResponse";
+export { ListOnCallNotificationRulesResponse } from "./models/ListOnCallNotificationRulesResponse";
 export { NotificationChannel } from "./models/NotificationChannel";
 export { NotificationChannelAttributes } from "./models/NotificationChannelAttributes";
 export { NotificationChannelConfig } from "./models/NotificationChannelConfig";
@@ -96,6 +104,19 @@ export { NotificationChannelPhoneConfigType } from "./models/NotificationChannel
 export { NotificationChannelPushConfig } from "./models/NotificationChannelPushConfig";
 export { NotificationChannelPushConfigType } from "./models/NotificationChannelPushConfigType";
 export { NotificationChannelType } from "./models/NotificationChannelType";
+export { OnCallNotificationRule } from "./models/OnCallNotificationRule";
+export { OnCallNotificationRuleAttributes } from "./models/OnCallNotificationRuleAttributes";
+export { OnCallNotificationRuleCategory } from "./models/OnCallNotificationRuleCategory";
+export { OnCallNotificationRuleChannelRelationship } from "./models/OnCallNotificationRuleChannelRelationship";
+export { OnCallNotificationRuleChannelRelationshipData } from "./models/OnCallNotificationRuleChannelRelationshipData";
+export { OnCallNotificationRuleChannelSettings } from "./models/OnCallNotificationRuleChannelSettings";
+export { OnCallNotificationRuleData } from "./models/OnCallNotificationRuleData";
+export { OnCallNotificationRuleRelationships } from "./models/OnCallNotificationRuleRelationships";
+export { OnCallNotificationRuleRequestAttributes } from "./models/OnCallNotificationRuleRequestAttributes";
+export { OnCallNotificationRulesIncluded } from "./models/OnCallNotificationRulesIncluded";
+export { OnCallNotificationRuleType } from "./models/OnCallNotificationRuleType";
+export { OnCallPhoneNotificationRuleMethod } from "./models/OnCallPhoneNotificationRuleMethod";
+export { OnCallPhoneNotificationRuleSettings } from "./models/OnCallPhoneNotificationRuleSettings";
 export { OrganizationsType } from "./models/OrganizationsType";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
@@ -192,6 +213,9 @@ export { TeamTarget } from "./models/TeamTarget";
 export { TeamTargetType } from "./models/TeamTargetType";
 export { TimeRestriction } from "./models/TimeRestriction";
 export { TimeRestrictions } from "./models/TimeRestrictions";
+export { UpdateOnCallNotificationRuleRequest } from "./models/UpdateOnCallNotificationRuleRequest";
+export { UpdateOnCallNotificationRuleRequestAttributes } from "./models/UpdateOnCallNotificationRuleRequestAttributes";
+export { UpdateOnCallNotificationRuleRequestData } from "./models/UpdateOnCallNotificationRuleRequestData";
 export { Urgency } from "./models/Urgency";
 export { User } from "./models/User";
 export { UserAttributes } from "./models/UserAttributes";
