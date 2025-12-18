@@ -7582,6 +7582,73 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListUserNotificationRules": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListOnCallNotificationRulesResponse",
+    },
+    "v2.CreateUserNotificationRule": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateOnCallNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "OnCallNotificationRule",
+    },
+    "v2.GetUserNotificationRule": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OnCallNotificationRule",
+    },
+    "v2.UpdateUserNotificationRule": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateOnCallNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "OnCallNotificationRule",
+    },
+    "v2.DeleteUserNotificationRule": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateOnCallPage": {
         "body": {
             "type": "CreatePageRequest",

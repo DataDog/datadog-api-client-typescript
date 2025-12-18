@@ -17,12 +17,15 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { CreateOnCallNotificationRuleRequest } from "../models/CreateOnCallNotificationRuleRequest";
 import { CreateUserNotificationChannelRequest } from "../models/CreateUserNotificationChannelRequest";
 import { EscalationPolicy } from "../models/EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "../models/EscalationPolicyCreateRequest";
 import { EscalationPolicyUpdateRequest } from "../models/EscalationPolicyUpdateRequest";
 import { ListNotificationChannelsResponse } from "../models/ListNotificationChannelsResponse";
+import { ListOnCallNotificationRulesResponse } from "../models/ListOnCallNotificationRulesResponse";
 import { NotificationChannel } from "../models/NotificationChannel";
+import { OnCallNotificationRule } from "../models/OnCallNotificationRule";
 import { Schedule } from "../models/Schedule";
 import { ScheduleCreateRequest } from "../models/ScheduleCreateRequest";
 import { ScheduleUpdateRequest } from "../models/ScheduleUpdateRequest";
@@ -30,6 +33,7 @@ import { Shift } from "../models/Shift";
 import { TeamOnCallResponders } from "../models/TeamOnCallResponders";
 import { TeamRoutingRules } from "../models/TeamRoutingRules";
 import { TeamRoutingRulesRequest } from "../models/TeamRoutingRulesRequest";
+import { UpdateOnCallNotificationRuleRequest } from "../models/UpdateOnCallNotificationRuleRequest";
 
 export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
   public async createOnCallEscalationPolicy(
@@ -192,6 +196,62 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createUserNotificationRule(
+    userId: string,
+    body: CreateOnCallNotificationRuleRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "createUserNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createUserNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-rules".replace(
+        "{user_id}",
+        encodeURIComponent(String(userId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.createUserNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CreateOnCallNotificationRuleRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteOnCallEscalationPolicy(
     policyId: string,
     _options?: Configuration
@@ -287,6 +347,46 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.OnCallApi.deleteUserNotificationChannel")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteUserNotificationRule(
+    userId: string,
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "deleteUserNotificationRule");
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "deleteUserNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+        .replace("{user_id}", encodeURIComponent(String(userId)))
+        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.deleteUserNotificationRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -572,6 +672,56 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getUserNotificationRule(
+    userId: string,
+    ruleId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "getUserNotificationRule");
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getUserNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+        .replace("{user_id}", encodeURIComponent(String(userId)))
+        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.getUserNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listUserNotificationChannels(
     userId: string,
     _options?: Configuration
@@ -596,6 +746,51 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listUserNotificationRules(
+    userId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "listUserNotificationRules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-rules".replace(
+        "{user_id}",
+        encodeURIComponent(String(userId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.listUserNotificationRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -778,6 +973,77 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScheduleUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateUserNotificationRule(
+    userId: string,
+    ruleId: string,
+    body: UpdateOnCallNotificationRuleRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "updateUserNotificationRule");
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "updateUserNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateUserNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+        .replace("{user_id}", encodeURIComponent(String(userId)))
+        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.updateUserNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "UpdateOnCallNotificationRuleRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -988,6 +1254,70 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createUserNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createUserNotificationRule(
+    response: ResponseContext
+  ): Promise<OnCallNotificationRule> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: OnCallNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallNotificationRule"
+      ) as OnCallNotificationRule;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OnCallNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallNotificationRule",
+        ""
+      ) as OnCallNotificationRule;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteOnCallEscalationPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1098,6 +1428,61 @@ export class OnCallApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteUserNotificationChannel(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteUserNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteUserNotificationRule(
     response: ResponseContext
   ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -1524,6 +1909,70 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUserNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUserNotificationRule(
+    response: ResponseContext
+  ): Promise<OnCallNotificationRule> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OnCallNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallNotificationRule"
+      ) as OnCallNotificationRule;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OnCallNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallNotificationRule",
+        ""
+      ) as OnCallNotificationRule;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listUserNotificationChannels
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1576,6 +2025,72 @@ export class OnCallApiResponseProcessor {
           "ListNotificationChannelsResponse",
           ""
         ) as ListNotificationChannelsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listUserNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listUserNotificationRules(
+    response: ResponseContext
+  ): Promise<ListOnCallNotificationRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListOnCallNotificationRulesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ListOnCallNotificationRulesResponse"
+        ) as ListOnCallNotificationRulesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListOnCallNotificationRulesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ListOnCallNotificationRulesResponse",
+          ""
+        ) as ListOnCallNotificationRulesResponse;
       return body;
     }
 
@@ -1771,6 +2286,70 @@ export class OnCallApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateUserNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateUserNotificationRule(
+    response: ResponseContext
+  ): Promise<OnCallNotificationRule> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OnCallNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallNotificationRule"
+      ) as OnCallNotificationRule;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OnCallNotificationRule = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallNotificationRule",
+        ""
+      ) as OnCallNotificationRule;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface OnCallApiCreateOnCallEscalationPolicyRequest {
@@ -1809,6 +2388,18 @@ export interface OnCallApiCreateUserNotificationChannelRequest {
   body: CreateUserNotificationChannelRequest;
 }
 
+export interface OnCallApiCreateUserNotificationRuleRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * @type CreateOnCallNotificationRuleRequest
+   */
+  body: CreateOnCallNotificationRuleRequest;
+}
+
 export interface OnCallApiDeleteOnCallEscalationPolicyRequest {
   /**
    * The ID of the escalation policy
@@ -1836,6 +2427,19 @@ export interface OnCallApiDeleteUserNotificationChannelRequest {
    * @type string
    */
   channelId: string;
+}
+
+export interface OnCallApiDeleteUserNotificationRuleRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * The rule ID
+   * @type string
+   */
+  ruleId: string;
 }
 
 export interface OnCallApiGetOnCallEscalationPolicyRequest {
@@ -1921,12 +2525,43 @@ export interface OnCallApiGetUserNotificationChannelRequest {
   channelId: string;
 }
 
+export interface OnCallApiGetUserNotificationRuleRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * The rule ID
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `channel`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface OnCallApiListUserNotificationChannelsRequest {
   /**
    * The user ID
    * @type string
    */
   userId: string;
+}
+
+export interface OnCallApiListUserNotificationRulesRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `channel`.
+   * @type string
+   */
+  include?: string;
 }
 
 export interface OnCallApiSetOnCallTeamRoutingRulesRequest {
@@ -1975,6 +2610,28 @@ export interface OnCallApiUpdateOnCallScheduleRequest {
   body: ScheduleUpdateRequest;
   /**
    * Comma-separated list of included relationships to be returned. Allowed values: `teams`, `layers`, `layers.members`, `layers.members.user`.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface OnCallApiUpdateUserNotificationRuleRequest {
+  /**
+   * The user ID
+   * @type string
+   */
+  userId: string;
+  /**
+   * The rule ID
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * @type UpdateOnCallNotificationRuleRequest
+   */
+  body: UpdateOnCallNotificationRuleRequest;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `channel`.
    * @type string
    */
   include?: string;
@@ -2070,6 +2727,31 @@ export class OnCallApi {
   }
 
   /**
+   * Create a new notification rule for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public createUserNotificationRule(
+    param: OnCallApiCreateUserNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<OnCallNotificationRule> {
+    const requestContextPromise =
+      this.requestFactory.createUserNotificationRule(
+        param.userId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createUserNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an On-Call escalation policy
    * @param param The request object
    */
@@ -2130,6 +2812,31 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteUserNotificationChannel(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a notification rule for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public deleteUserNotificationRule(
+    param: OnCallApiDeleteUserNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteUserNotificationRule(
+        param.userId,
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteUserNotificationRule(
             responseContext
           );
         });
@@ -2277,6 +2984,31 @@ export class OnCallApi {
   }
 
   /**
+   * Get a notification rule for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public getUserNotificationRule(
+    param: OnCallApiGetUserNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<OnCallNotificationRule> {
+    const requestContextPromise = this.requestFactory.getUserNotificationRule(
+      param.userId,
+      param.ruleId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUserNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List the notification channels for a user. The authenticated user must be the target user or have the `on_call_admin` permission
    * @param param The request object
    */
@@ -2291,6 +3023,30 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listUserNotificationChannels(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List the notification rules for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public listUserNotificationRules(
+    param: OnCallApiListUserNotificationRulesRequest,
+    options?: Configuration
+  ): Promise<ListOnCallNotificationRulesResponse> {
+    const requestContextPromise = this.requestFactory.listUserNotificationRules(
+      param.userId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUserNotificationRules(
             responseContext
           );
         });
@@ -2367,6 +3123,33 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateOnCallSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a notification rule for a user. The authenticated user must be the target user or have the `on_call_admin` permission
+   * @param param The request object
+   */
+  public updateUserNotificationRule(
+    param: OnCallApiUpdateUserNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<OnCallNotificationRule> {
+    const requestContextPromise =
+      this.requestFactory.updateUserNotificationRule(
+        param.userId,
+        param.ruleId,
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateUserNotificationRule(
+            responseContext
+          );
         });
     });
   }

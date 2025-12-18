@@ -595,19 +595,24 @@ export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
   OnCallApiCreateUserNotificationChannelRequest,
+  OnCallApiCreateUserNotificationRuleRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
   OnCallApiDeleteUserNotificationChannelRequest,
+  OnCallApiDeleteUserNotificationRuleRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiGetTeamOnCallUsersRequest,
   OnCallApiGetUserNotificationChannelRequest,
+  OnCallApiGetUserNotificationRuleRequest,
   OnCallApiListUserNotificationChannelsRequest,
+  OnCallApiListUserNotificationRulesRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
+  OnCallApiUpdateUserNotificationRuleRequest,
   OnCallApi,
 } from "./apis/OnCallApi";
 
@@ -1731,6 +1736,8 @@ export { CreateNotificationChannelData } from "./models/CreateNotificationChanne
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
+export { CreateOnCallNotificationRuleRequest } from "./models/CreateOnCallNotificationRuleRequest";
+export { CreateOnCallNotificationRuleRequestData } from "./models/CreateOnCallNotificationRuleRequestData";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
@@ -2830,6 +2837,7 @@ export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
 export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 export { ListNotificationChannelsResponse } from "./models/ListNotificationChannelsResponse";
+export { ListOnCallNotificationRulesResponse } from "./models/ListOnCallNotificationRulesResponse";
 export { ListPipelinesResponse } from "./models/ListPipelinesResponse";
 export { ListPipelinesResponseMeta } from "./models/ListPipelinesResponseMeta";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
@@ -3383,7 +3391,20 @@ export { OktaCredentialsUpdate } from "./models/OktaCredentialsUpdate";
 export { OktaIntegration } from "./models/OktaIntegration";
 export { OktaIntegrationType } from "./models/OktaIntegrationType";
 export { OktaIntegrationUpdate } from "./models/OktaIntegrationUpdate";
+export { OnCallNotificationRule } from "./models/OnCallNotificationRule";
+export { OnCallNotificationRuleAttributes } from "./models/OnCallNotificationRuleAttributes";
+export { OnCallNotificationRuleCategory } from "./models/OnCallNotificationRuleCategory";
+export { OnCallNotificationRuleChannelRelationship } from "./models/OnCallNotificationRuleChannelRelationship";
+export { OnCallNotificationRuleChannelRelationshipData } from "./models/OnCallNotificationRuleChannelRelationshipData";
+export { OnCallNotificationRuleChannelSettings } from "./models/OnCallNotificationRuleChannelSettings";
+export { OnCallNotificationRuleData } from "./models/OnCallNotificationRuleData";
+export { OnCallNotificationRuleRelationships } from "./models/OnCallNotificationRuleRelationships";
+export { OnCallNotificationRuleRequestAttributes } from "./models/OnCallNotificationRuleRequestAttributes";
+export { OnCallNotificationRulesIncluded } from "./models/OnCallNotificationRulesIncluded";
+export { OnCallNotificationRuleType } from "./models/OnCallNotificationRuleType";
 export { OnCallPageTargetType } from "./models/OnCallPageTargetType";
+export { OnCallPhoneNotificationRuleMethod } from "./models/OnCallPhoneNotificationRuleMethod";
+export { OnCallPhoneNotificationRuleSettings } from "./models/OnCallPhoneNotificationRuleSettings";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
 export { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";
@@ -4506,6 +4527,9 @@ export { UpdateDeploymentGateParamsDataAttributes } from "./models/UpdateDeploym
 export { UpdateDeploymentRuleParams } from "./models/UpdateDeploymentRuleParams";
 export { UpdateDeploymentRuleParamsData } from "./models/UpdateDeploymentRuleParamsData";
 export { UpdateDeploymentRuleParamsDataAttributes } from "./models/UpdateDeploymentRuleParamsDataAttributes";
+export { UpdateOnCallNotificationRuleRequest } from "./models/UpdateOnCallNotificationRuleRequest";
+export { UpdateOnCallNotificationRuleRequestAttributes } from "./models/UpdateOnCallNotificationRuleRequestAttributes";
+export { UpdateOnCallNotificationRuleRequestData } from "./models/UpdateOnCallNotificationRuleRequestData";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
