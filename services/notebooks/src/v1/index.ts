@@ -52,6 +52,7 @@ export { GroupType } from "./models/GroupType";
 export { HeatMapWidgetDefinition } from "./models/HeatMapWidgetDefinition";
 export { HeatMapWidgetDefinitionType } from "./models/HeatMapWidgetDefinitionType";
 export { HeatMapWidgetRequest } from "./models/HeatMapWidgetRequest";
+export { HeatMapWidgetXAxis } from "./models/HeatMapWidgetXAxis";
 export { LogQueryDefinition } from "./models/LogQueryDefinition";
 export { LogQueryDefinitionGroupBy } from "./models/LogQueryDefinitionGroupBy";
 export { LogQueryDefinitionGroupBySort } from "./models/LogQueryDefinitionGroupBySort";
