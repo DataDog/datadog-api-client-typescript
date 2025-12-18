@@ -3,7 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DistributionWidgetHistogramRequestType } from "./DistributionWidgetHistogramRequestType";
 import { EventQueryDefinition } from "./EventQueryDefinition";
+import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
@@ -53,6 +55,14 @@ export class HeatMapWidgetRequest {
    * List of queries that can be returned directly or used in formulas.
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  /**
+   * A formula and functions metrics query.
+   */
+  "query"?: FormulaAndFunctionMetricQueryDefinition;
+  /**
+   * Request type for the histogram request.
+   */
+  "requestType"?: DistributionWidgetHistogramRequestType;
   /**
    * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
    */
@@ -121,6 +131,14 @@ export class HeatMapWidgetRequest {
     queries: {
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
+    },
+    query: {
+      baseName: "query",
+      type: "FormulaAndFunctionMetricQueryDefinition",
+    },
+    requestType: {
+      baseName: "request_type",
+      type: "DistributionWidgetHistogramRequestType",
     },
     responseFormat: {
       baseName: "response_format",

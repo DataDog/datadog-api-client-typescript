@@ -493,6 +493,7 @@ export { GroupWidgetDefinitionType } from "./models/GroupWidgetDefinitionType";
 export { HeatMapWidgetDefinition } from "./models/HeatMapWidgetDefinition";
 export { HeatMapWidgetDefinitionType } from "./models/HeatMapWidgetDefinitionType";
 export { HeatMapWidgetRequest } from "./models/HeatMapWidgetRequest";
+export { HeatMapWidgetXAxis } from "./models/HeatMapWidgetXAxis";
 export { Host } from "./models/Host";
 export { HostListResponse } from "./models/HostListResponse";
 export { HostMapRequest } from "./models/HostMapRequest";
