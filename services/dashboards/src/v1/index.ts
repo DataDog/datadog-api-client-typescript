@@ -110,6 +110,7 @@ export { GroupWidgetDefinitionType } from "./models/GroupWidgetDefinitionType";
 export { HeatMapWidgetDefinition } from "./models/HeatMapWidgetDefinition";
 export { HeatMapWidgetDefinitionType } from "./models/HeatMapWidgetDefinitionType";
 export { HeatMapWidgetRequest } from "./models/HeatMapWidgetRequest";
+export { HeatMapWidgetXAxis } from "./models/HeatMapWidgetXAxis";
 export { HostMapRequest } from "./models/HostMapRequest";
 export { HostMapWidgetDefinition } from "./models/HostMapWidgetDefinition";
 export { HostMapWidgetDefinitionRequests } from "./models/HostMapWidgetDefinitionRequests";

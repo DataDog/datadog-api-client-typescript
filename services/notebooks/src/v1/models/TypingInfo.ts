@@ -21,6 +21,7 @@ import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionPr
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
+import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
@@ -341,6 +342,7 @@ export const TypingInfo: ModelTypingInfo = {
     FormulaAndFunctionSLOQueryDefinition: FormulaAndFunctionSLOQueryDefinition,
     HeatMapWidgetDefinition: HeatMapWidgetDefinition,
     HeatMapWidgetRequest: HeatMapWidgetRequest,
+    HeatMapWidgetXAxis: HeatMapWidgetXAxis,
     LogQueryDefinition: LogQueryDefinition,
     LogQueryDefinitionGroupBy: LogQueryDefinitionGroupBy,
     LogQueryDefinitionGroupBySort: LogQueryDefinitionGroupBySort,
