@@ -17,6 +17,10 @@ export class ObservabilityPipelineParseGrokProcessor {
    */
   "disableLibraryRules"?: boolean;
   /**
+   * The display name for a component.
+   */
+  "displayName"?: string;
+  /**
    * Whether this processor is enabled.
    */
   "enabled": boolean;
@@ -56,6 +60,10 @@ export class ObservabilityPipelineParseGrokProcessor {
     disableLibraryRules: {
       baseName: "disable_library_rules",
       type: "boolean",
+    },
+    displayName: {
+      baseName: "display_name",
+      type: "string",
     },
     enabled: {
       baseName: "enabled",

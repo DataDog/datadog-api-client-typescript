@@ -15,6 +15,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineQuotaProcessor {
   /**
+   * The display name for a component.
+   */
+  "displayName"?: string;
+  /**
    * If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
    */
   "dropEvents"?: boolean;
@@ -78,6 +82,10 @@ export class ObservabilityPipelineQuotaProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    displayName: {
+      baseName: "display_name",
+      type: "string",
+    },
     dropEvents: {
       baseName: "drop_events",
       type: "boolean",

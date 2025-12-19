@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineRemoveFieldsProcessor {
   /**
+   * The display name for a component.
+   */
+  "displayName"?: string;
+  /**
    * Whether this processor is enabled.
    */
   "enabled": boolean;
@@ -48,6 +52,10 @@ export class ObservabilityPipelineRemoveFieldsProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    displayName: {
+      baseName: "display_name",
+      type: "string",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",

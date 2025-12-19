@@ -18,6 +18,10 @@ export class ObservabilityPipelineDatadogTagsProcessor {
    */
   "action": ObservabilityPipelineDatadogTagsProcessorAction;
   /**
+   * The display name for a component.
+   */
+  "displayName"?: string;
+  /**
    * Whether this processor is enabled.
    */
   "enabled": boolean;
@@ -62,6 +66,10 @@ export class ObservabilityPipelineDatadogTagsProcessor {
       baseName: "action",
       type: "ObservabilityPipelineDatadogTagsProcessorAction",
       required: true,
+    },
+    displayName: {
+      baseName: "display_name",
+      type: "string",
     },
     enabled: {
       baseName: "enabled",
