@@ -2,6 +2,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { AlertGraphWidgetDefinition } from "./AlertGraphWidgetDefinition";
 import { AlertValueWidgetDefinition } from "./AlertValueWidgetDefinition";
+import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
@@ -41,6 +42,7 @@ import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 export type WidgetDefinition =
   | AlertGraphWidgetDefinition
   | AlertValueWidgetDefinition
+  | BarChartWidgetDefinition
   | ChangeWidgetDefinition
   | CheckStatusWidgetDefinition
   | DistributionWidgetDefinition

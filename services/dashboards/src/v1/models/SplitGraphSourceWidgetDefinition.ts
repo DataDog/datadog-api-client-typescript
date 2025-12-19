@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
@@ -14,6 +15,7 @@ import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
  * The original widget we are splitting on.
  */
 export type SplitGraphSourceWidgetDefinition =
+  | BarChartWidgetDefinition
   | ChangeWidgetDefinition
   | GeomapWidgetDefinition
   | QueryValueWidgetDefinition
