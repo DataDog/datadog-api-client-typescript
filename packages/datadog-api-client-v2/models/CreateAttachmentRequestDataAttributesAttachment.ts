@@ -6,18 +6,9 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The link attachment.
- */
-export class IncidentAttachmentLinkAttributesAttachmentObject {
-  /**
-   * The URL of this link attachment.
-   */
-  "documentUrl": string;
-  /**
-   * The title of this link attachment.
-   */
-  "title": string;
+export class CreateAttachmentRequestDataAttributesAttachment {
+  "documentUrl"?: string;
+  "title"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -38,12 +29,10 @@ export class IncidentAttachmentLinkAttributesAttachmentObject {
     documentUrl: {
       baseName: "documentUrl",
       type: "string",
-      required: true,
     },
     title: {
       baseName: "title",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +44,7 @@ export class IncidentAttachmentLinkAttributesAttachmentObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentLinkAttributesAttachmentObject.attributeTypeMap;
+    return CreateAttachmentRequestDataAttributesAttachment.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,21 +3,20 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
+import { AttachmentDataAttributes } from "./AttachmentDataAttributes";
+import { AttachmentDataRelationships } from "./AttachmentDataRelationships";
+import { IncidentAttachmentType } from "./IncidentAttachmentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The update request for an incident's attachments.
- */
-export class IncidentAttachmentUpdateRequest {
+export class AttachmentData {
+  "attributes": AttachmentDataAttributes;
+  "id": string;
+  "relationships": AttachmentDataRelationships;
   /**
-   * An array of incident attachments. An attachment object without an "id" key indicates that you want to
-   * create that attachment. An attachment object without an "attributes" key indicates that you want to
-   * delete that attachment. An attachment object with both the "id" key and a populated "attributes" object
-   * indicates that you want to update that attachment.
+   * The incident attachment resource type.
    */
-  "data": Array<IncidentAttachmentUpdateData>;
+  "type": IncidentAttachmentType;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,9 +34,24 @@ export class IncidentAttachmentUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentAttachmentUpdateData>",
+    attributes: {
+      baseName: "attributes",
+      type: "AttachmentDataAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "AttachmentDataRelationships",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "IncidentAttachmentType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +64,7 @@ export class IncidentAttachmentUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentUpdateRequest.attributeTypeMap;
+    return AttachmentData.attributeTypeMap;
   }
 
   public constructor() {}

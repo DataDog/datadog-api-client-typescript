@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentAttachmentData } from "./IncidentAttachmentData";
+import { AttachmentData } from "./AttachmentData";
 import { IncidentUserData } from "./IncidentUserData";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -14,5 +14,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type IncidentResponseIncludedItem =
   | IncidentUserData
-  | IncidentAttachmentData
+  | AttachmentData
   | UnparsedObject;

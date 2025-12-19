@@ -7,12 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the incident attachment attributes.
+ * Users resource type.
  */
 
-export type IncidentAttachmentAttachmentType =
-  | typeof LINK
-  | typeof POSTMORTEM
-  | UnparsedObject;
-export const LINK = "link";
-export const POSTMORTEM = "postmortem";
+export type UserType = typeof USERS | UnparsedObject;
+export const USERS = "users";

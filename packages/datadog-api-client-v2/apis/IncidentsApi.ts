@@ -17,13 +17,11 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { Attachment } from "../models/Attachment";
+import { AttachmentArray } from "../models/AttachmentArray";
+import { CreateAttachmentRequest } from "../models/CreateAttachmentRequest";
 import { CreateIncidentNotificationRuleRequest } from "../models/CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "../models/CreateIncidentNotificationTemplateRequest";
-import { IncidentAttachmentAttachmentType } from "../models/IncidentAttachmentAttachmentType";
-import { IncidentAttachmentRelatedObject } from "../models/IncidentAttachmentRelatedObject";
-import { IncidentAttachmentsResponse } from "../models/IncidentAttachmentsResponse";
-import { IncidentAttachmentUpdateRequest } from "../models/IncidentAttachmentUpdateRequest";
-import { IncidentAttachmentUpdateResponse } from "../models/IncidentAttachmentUpdateResponse";
 import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
 import { IncidentImpactCreateRequest } from "../models/IncidentImpactCreateRequest";
 import { IncidentImpactRelatedObject } from "../models/IncidentImpactRelatedObject";
@@ -53,6 +51,7 @@ import { IncidentTypeListResponse } from "../models/IncidentTypeListResponse";
 import { IncidentTypePatchRequest } from "../models/IncidentTypePatchRequest";
 import { IncidentTypeResponse } from "../models/IncidentTypeResponse";
 import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
+import { PatchAttachmentRequest } from "../models/PatchAttachmentRequest";
 import { PatchIncidentNotificationTemplateRequest } from "../models/PatchIncidentNotificationTemplateRequest";
 import { PutIncidentNotificationRuleRequest } from "../models/PutIncidentNotificationRuleRequest";
 
@@ -90,6 +89,74 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentAttachment(
+    incidentId: string,
+    body: CreateAttachmentRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentAttachment'");
+    if (!_config.unstableOperations["v2.createIncidentAttachment"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentAttachment' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentAttachment");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentAttachment");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/attachments".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentAttachment")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateAttachmentRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -469,6 +536,53 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.IncidentsApi.deleteIncident")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteIncidentAttachment(
+    incidentId: string,
+    attachmentId: any,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteIncidentAttachment'");
+    if (!_config.unstableOperations["v2.deleteIncidentAttachment"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentAttachment' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "deleteIncidentAttachment");
+    }
+
+    // verify required parameter 'attachmentId' is not null or undefined
+    if (attachmentId === null || attachmentId === undefined) {
+      throw new RequiredError("attachmentId", "deleteIncidentAttachment");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/attachments/{attachment_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{attachment_id}", encodeURIComponent(String(attachmentId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentAttachment")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1059,8 +1173,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listIncidentAttachments(
     incidentId: string,
-    include?: Array<IncidentAttachmentRelatedObject>,
-    filterAttachmentType?: Array<IncidentAttachmentAttachmentType>,
+    filterAttachmentType?: string,
+    include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1091,26 +1205,18 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(
-          include,
-          "Array<IncidentAttachmentRelatedObject>",
-          ""
-        ),
-        "csv"
-      );
-    }
     if (filterAttachmentType !== undefined) {
       requestContext.setQueryParam(
         "filter[attachment_type]",
-        ObjectSerializer.serialize(
-          filterAttachmentType,
-          "Array<IncidentAttachmentAttachmentType>",
-          ""
-        ),
-        "csv"
+        ObjectSerializer.serialize(filterAttachmentType, "string", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
 
@@ -1584,40 +1690,46 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateIncidentAttachments(
+  public async updateIncidentAttachment(
     incidentId: string,
-    body: IncidentAttachmentUpdateRequest,
-    include?: Array<IncidentAttachmentRelatedObject>,
+    attachmentId: any,
+    body: PatchAttachmentRequest,
+    include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateIncidentAttachments'");
-    if (!_config.unstableOperations["v2.updateIncidentAttachments"]) {
+    logger.warn("Using unstable operation 'updateIncidentAttachment'");
+    if (!_config.unstableOperations["v2.updateIncidentAttachment"]) {
       throw new Error(
-        "Unstable operation 'updateIncidentAttachments' is disabled"
+        "Unstable operation 'updateIncidentAttachment' is disabled"
       );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError("incidentId", "updateIncidentAttachments");
+      throw new RequiredError("incidentId", "updateIncidentAttachment");
+    }
+
+    // verify required parameter 'attachmentId' is not null or undefined
+    if (attachmentId === null || attachmentId === undefined) {
+      throw new RequiredError("attachmentId", "updateIncidentAttachment");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateIncidentAttachments");
+      throw new RequiredError("body", "updateIncidentAttachment");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/attachments".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId))
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/attachments/{attachment_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{attachment_id}", encodeURIComponent(String(attachmentId)));
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.IncidentsApi.updateIncidentAttachments")
+      .getServer("v2.IncidentsApi.updateIncidentAttachment")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1626,12 +1738,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(
-          include,
-          "Array<IncidentAttachmentRelatedObject>",
-          ""
-        ),
-        "csv"
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
 
@@ -1641,7 +1749,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "IncidentAttachmentUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "PatchAttachmentRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1650,6 +1758,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2066,6 +2175,68 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentAttachment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentAttachment(
+    response: ResponseContext
+  ): Promise<Attachment> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: Attachment = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Attachment"
+      ) as Attachment;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Attachment = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Attachment",
+        ""
+      ) as Attachment;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentImpact
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2465,6 +2636,60 @@ export class IncidentsApiResponseProcessor {
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentAttachment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentAttachment(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -3219,24 +3444,18 @@ export class IncidentsApiResponseProcessor {
    */
   public async listIncidentAttachments(
     response: ResponseContext
-  ): Promise<IncidentAttachmentsResponse> {
+  ): Promise<AttachmentArray> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: IncidentAttachmentsResponse = ObjectSerializer.deserialize(
+      const body: AttachmentArray = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentAttachmentsResponse"
-      ) as IncidentAttachmentsResponse;
+        "AttachmentArray"
+      ) as AttachmentArray;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -3259,11 +3478,11 @@ export class IncidentsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentAttachmentsResponse = ObjectSerializer.deserialize(
+      const body: AttachmentArray = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentAttachmentsResponse",
+        "AttachmentArray",
         ""
-      ) as IncidentAttachmentsResponse;
+      ) as AttachmentArray;
       return body;
     }
 
@@ -3857,26 +4076,24 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateIncidentAttachments
+   * @params response Response returned by the server for a request to updateIncidentAttachment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateIncidentAttachments(
+  public async updateIncidentAttachment(
     response: ResponseContext
-  ): Promise<IncidentAttachmentUpdateResponse> {
+  ): Promise<Attachment> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: IncidentAttachmentUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentAttachmentUpdateResponse"
-        ) as IncidentAttachmentUpdateResponse;
+      const body: Attachment = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Attachment"
+      ) as Attachment;
       return body;
     }
     if (
       response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -3903,12 +4120,11 @@ export class IncidentsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentAttachmentUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentAttachmentUpdateResponse",
-          ""
-        ) as IncidentAttachmentUpdateResponse;
+      const body: Attachment = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Attachment",
+        ""
+      ) as Attachment;
       return body;
     }
 
@@ -4250,6 +4466,23 @@ export interface IncidentsApiCreateIncidentRequest {
   body: IncidentCreateRequest;
 }
 
+export interface IncidentsApiCreateIncidentAttachmentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * @type CreateAttachmentRequest
+   */
+  body: CreateAttachmentRequest;
+  /**
+   * Resource to include in the response. Supported value: `last_modified_by_user`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiCreateIncidentImpactRequest {
   /**
    * The UUID of the incident.
@@ -4322,6 +4555,19 @@ export interface IncidentsApiDeleteIncidentRequest {
    * @type string
    */
   incidentId: string;
+}
+
+export interface IncidentsApiDeleteIncidentAttachmentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The ID of the attachment.
+   * @type any
+   */
+  attachmentId: any;
 }
 
 export interface IncidentsApiDeleteIncidentImpactRequest {
@@ -4477,15 +4723,15 @@ export interface IncidentsApiListIncidentAttachmentsRequest {
    */
   incidentId: string;
   /**
-   * Specifies which types of related objects are included in the response.
-   * @type Array<IncidentAttachmentRelatedObject>
+   * Filter attachments by type. Supported values are `1` (`postmortem`) and `2` (`link`).
+   * @type string
    */
-  include?: Array<IncidentAttachmentRelatedObject>;
+  filterAttachmentType?: string;
   /**
-   * Specifies which types of attachments are included in the response.
-   * @type Array<IncidentAttachmentAttachmentType>
+   * Resource to include in the response. Supported value: `last_modified_by_user`.
+   * @type string
    */
-  filterAttachmentType?: Array<IncidentAttachmentAttachmentType>;
+  include?: string;
 }
 
 export interface IncidentsApiListIncidentImpactsRequest {
@@ -4612,22 +4858,26 @@ export interface IncidentsApiUpdateIncidentRequest {
   include?: Array<IncidentRelatedObject>;
 }
 
-export interface IncidentsApiUpdateIncidentAttachmentsRequest {
+export interface IncidentsApiUpdateIncidentAttachmentRequest {
   /**
    * The UUID of the incident.
    * @type string
    */
   incidentId: string;
   /**
-   * Incident Attachment Payload.
-   * @type IncidentAttachmentUpdateRequest
+   * The ID of the attachment.
+   * @type any
    */
-  body: IncidentAttachmentUpdateRequest;
+  attachmentId: any;
   /**
-   * Specifies which types of related objects are included in the response.
-   * @type Array<IncidentAttachmentRelatedObject>
+   * @type PatchAttachmentRequest
    */
-  include?: Array<IncidentAttachmentRelatedObject>;
+  body: PatchAttachmentRequest;
+  /**
+   * Resource to include in the response. Supported value: `last_modified_by_user`.
+   * @type string
+   */
+  include?: string;
 }
 
 export interface IncidentsApiUpdateIncidentIntegrationRequest {
@@ -4747,6 +4997,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create an incident attachment.
+   * @param param The request object
+   */
+  public createIncidentAttachment(
+    param: IncidentsApiCreateIncidentAttachmentRequest,
+    options?: Configuration
+  ): Promise<Attachment> {
+    const requestContextPromise = this.requestFactory.createIncidentAttachment(
+      param.incidentId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentAttachment(
+            responseContext
+          );
         });
     });
   }
@@ -4903,6 +5178,29 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public deleteIncidentAttachment(
+    param: IncidentsApiDeleteIncidentAttachmentRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentAttachment(
+      param.incidentId,
+      param.attachmentId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentAttachment(
+            responseContext
+          );
         });
     });
   }
@@ -5184,17 +5482,17 @@ export class IncidentsApi {
   }
 
   /**
-   * Get all attachments for a given incident.
+   * List incident attachments.
    * @param param The request object
    */
   public listIncidentAttachments(
     param: IncidentsApiListIncidentAttachmentsRequest,
     options?: Configuration
-  ): Promise<IncidentAttachmentsResponse> {
+  ): Promise<AttachmentArray> {
     const requestContextPromise = this.requestFactory.listIncidentAttachments(
       param.incidentId,
-      param.include,
       param.filterAttachmentType,
+      param.include,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -5513,15 +5811,15 @@ export class IncidentsApi {
   }
 
   /**
-   * The bulk update endpoint for creating, updating, and deleting attachments for a given incident.
    * @param param The request object
    */
-  public updateIncidentAttachments(
-    param: IncidentsApiUpdateIncidentAttachmentsRequest,
+  public updateIncidentAttachment(
+    param: IncidentsApiUpdateIncidentAttachmentRequest,
     options?: Configuration
-  ): Promise<IncidentAttachmentUpdateResponse> {
-    const requestContextPromise = this.requestFactory.updateIncidentAttachments(
+  ): Promise<Attachment> {
+    const requestContextPromise = this.requestFactory.updateIncidentAttachment(
       param.incidentId,
+      param.attachmentId,
       param.body,
       param.include,
       options
@@ -5530,7 +5828,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentAttachments(
+          return this.responseProcessor.updateIncidentAttachment(
             responseContext
           );
         });

@@ -3,24 +3,15 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentAttachmentData } from "./IncidentAttachmentData";
-import { IncidentAttachmentsResponseIncludedItem } from "./IncidentAttachmentsResponseIncludedItem";
+import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
+import { AttachmentDataAttributesAttachmentType } from "./AttachmentDataAttributesAttachmentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The response object containing the created or updated incident attachments.
- */
-export class IncidentAttachmentUpdateResponse {
-  /**
-   * An array of incident attachments. Only the attachments that were created or updated by the request are
-   * returned.
-   */
-  "data": Array<IncidentAttachmentData>;
-  /**
-   * Included related resources that the user requested.
-   */
-  "included"?: Array<IncidentAttachmentsResponseIncludedItem>;
+export class AttachmentDataAttributes {
+  "attachment"?: AttachmentDataAttributesAttachment;
+  "attachmentType"?: AttachmentDataAttributesAttachmentType;
+  "modified"?: Date;
 
   /**
    * A container for additional, undeclared properties.
@@ -38,14 +29,18 @@ export class IncidentAttachmentUpdateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentAttachmentData>",
-      required: true,
+    attachment: {
+      baseName: "attachment",
+      type: "AttachmentDataAttributesAttachment",
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentAttachmentsResponseIncludedItem>",
+    attachmentType: {
+      baseName: "attachment_type",
+      type: "AttachmentDataAttributesAttachmentType",
+    },
+    modified: {
+      baseName: "modified",
+      type: "Date",
+      format: "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,7 +52,7 @@ export class IncidentAttachmentUpdateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentUpdateResponse.attributeTypeMap;
+    return AttachmentDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

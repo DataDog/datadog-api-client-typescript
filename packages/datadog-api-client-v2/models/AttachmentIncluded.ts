@@ -3,12 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { User140420082644000 } from "./User140420082644000";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-/**
- * The type of link attachment attributes.
- */
-
-export type IncidentAttachmentLinkAttachmentType = typeof LINK | UnparsedObject;
-export const LINK = "link";
+export type AttachmentIncluded = User140420082644000 | UnparsedObject;

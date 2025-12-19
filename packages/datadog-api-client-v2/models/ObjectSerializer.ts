@@ -183,6 +183,14 @@ import { AttachJiraIssueRequest } from "./AttachJiraIssueRequest";
 import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
 import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDataAttributes";
 import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
+import { Attachment } from "./Attachment";
+import { AttachmentArray } from "./AttachmentArray";
+import { AttachmentData } from "./AttachmentData";
+import { AttachmentDataAttributes } from "./AttachmentDataAttributes";
+import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
+import { AttachmentDataRelationships } from "./AttachmentDataRelationships";
+import { AttachmentDataRelationshipsLastModifiedByUser } from "./AttachmentDataRelationshipsLastModifiedByUser";
+import { AttachmentDataRelationshipsLastModifiedByUserData } from "./AttachmentDataRelationshipsLastModifiedByUserData";
 import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
@@ -543,6 +551,10 @@ import { CreateAppsDatastoreRequestData } from "./CreateAppsDatastoreRequestData
 import { CreateAppsDatastoreRequestDataAttributes } from "./CreateAppsDatastoreRequestDataAttributes";
 import { CreateAppsDatastoreResponse } from "./CreateAppsDatastoreResponse";
 import { CreateAppsDatastoreResponseData } from "./CreateAppsDatastoreResponseData";
+import { CreateAttachmentRequest } from "./CreateAttachmentRequest";
+import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
+import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
+import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
 import { CreateCaseRequestArray } from "./CreateCaseRequestArray";
 import { CreateCaseRequestData } from "./CreateCaseRequestData";
 import { CreateCaseRequestDataAttributes } from "./CreateCaseRequestDataAttributes";
@@ -1183,16 +1195,6 @@ import { IPAllowlistEntryAttributes } from "./IPAllowlistEntryAttributes";
 import { IPAllowlistEntryData } from "./IPAllowlistEntryData";
 import { IPAllowlistResponse } from "./IPAllowlistResponse";
 import { IPAllowlistUpdateRequest } from "./IPAllowlistUpdateRequest";
-import { IncidentAttachmentData } from "./IncidentAttachmentData";
-import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
-import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
-import { IncidentAttachmentPostmortemAttributes } from "./IncidentAttachmentPostmortemAttributes";
-import { IncidentAttachmentRelationships } from "./IncidentAttachmentRelationships";
-import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
-import { IncidentAttachmentUpdateRequest } from "./IncidentAttachmentUpdateRequest";
-import { IncidentAttachmentUpdateResponse } from "./IncidentAttachmentUpdateResponse";
-import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./IncidentAttachmentsPostmortemAttributesAttachmentObject";
-import { IncidentAttachmentsResponse } from "./IncidentAttachmentsResponse";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -1849,6 +1851,10 @@ import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
 import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
+import { PatchAttachmentRequest } from "./PatchAttachmentRequest";
+import { PatchAttachmentRequestData } from "./PatchAttachmentRequestData";
+import { PatchAttachmentRequestDataAttributes } from "./PatchAttachmentRequestDataAttributes";
+import { PatchAttachmentRequestDataAttributesAttachment } from "./PatchAttachmentRequestDataAttributesAttachment";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
@@ -2685,6 +2691,7 @@ import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocat
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
 import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 import { User } from "./User";
+import { User140420082644000 } from "./User140420082644000";
 import { UserAttributes } from "./UserAttributes";
 import { UserCreateAttributes } from "./UserCreateAttributes";
 import { UserCreateData } from "./UserCreateData";
@@ -2930,6 +2937,7 @@ const enumsMap: { [key: string]: any[] } = {
   AsanaIntegrationType: ["Asana"],
   AssetEntityType: ["assets"],
   AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
+  AttachmentDataAttributesAttachmentType: ["postmortem", "link"],
   AuditLogsEventType: ["audit"],
   AuditLogsResponseStatus: ["done", "timeout"],
   AuditLogsSort: ["timestamp", "-timestamp"],
@@ -3352,10 +3360,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
-  IncidentAttachmentAttachmentType: ["link", "postmortem"],
-  IncidentAttachmentLinkAttachmentType: ["link"],
-  IncidentAttachmentPostmortemAttachmentType: ["postmortem"],
-  IncidentAttachmentRelatedObject: ["users"],
   IncidentAttachmentType: ["incident_attachments"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
@@ -4328,6 +4332,7 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamTeamType: ["team"],
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
+  UserType: ["users"],
   UsersType: ["users"],
   VersionHistoryUpdateType: ["create", "update", "delete"],
   VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
@@ -4678,6 +4683,16 @@ const typeMap: { [index: string]: any } = {
   AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
   AttachJiraIssueRequestDataRelationships:
     AttachJiraIssueRequestDataRelationships,
+  Attachment: Attachment,
+  AttachmentArray: AttachmentArray,
+  AttachmentData: AttachmentData,
+  AttachmentDataAttributes: AttachmentDataAttributes,
+  AttachmentDataAttributesAttachment: AttachmentDataAttributesAttachment,
+  AttachmentDataRelationships: AttachmentDataRelationships,
+  AttachmentDataRelationshipsLastModifiedByUser:
+    AttachmentDataRelationshipsLastModifiedByUser,
+  AttachmentDataRelationshipsLastModifiedByUserData:
+    AttachmentDataRelationshipsLastModifiedByUserData,
   AuditLogsEvent: AuditLogsEvent,
   AuditLogsEventAttributes: AuditLogsEventAttributes,
   AuditLogsEventsResponse: AuditLogsEventsResponse,
@@ -5086,6 +5101,11 @@ const typeMap: { [index: string]: any } = {
     CreateAppsDatastoreRequestDataAttributes,
   CreateAppsDatastoreResponse: CreateAppsDatastoreResponse,
   CreateAppsDatastoreResponseData: CreateAppsDatastoreResponseData,
+  CreateAttachmentRequest: CreateAttachmentRequest,
+  CreateAttachmentRequestData: CreateAttachmentRequestData,
+  CreateAttachmentRequestDataAttributes: CreateAttachmentRequestDataAttributes,
+  CreateAttachmentRequestDataAttributesAttachment:
+    CreateAttachmentRequestDataAttributesAttachment,
   CreateCaseRequestArray: CreateCaseRequestArray,
   CreateCaseRequestData: CreateCaseRequestData,
   CreateCaseRequestDataAttributes: CreateCaseRequestDataAttributes,
@@ -5830,19 +5850,6 @@ const typeMap: { [index: string]: any } = {
   IPAllowlistEntryData: IPAllowlistEntryData,
   IPAllowlistResponse: IPAllowlistResponse,
   IPAllowlistUpdateRequest: IPAllowlistUpdateRequest,
-  IncidentAttachmentData: IncidentAttachmentData,
-  IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
-  IncidentAttachmentLinkAttributesAttachmentObject:
-    IncidentAttachmentLinkAttributesAttachmentObject,
-  IncidentAttachmentPostmortemAttributes:
-    IncidentAttachmentPostmortemAttributes,
-  IncidentAttachmentRelationships: IncidentAttachmentRelationships,
-  IncidentAttachmentUpdateData: IncidentAttachmentUpdateData,
-  IncidentAttachmentUpdateRequest: IncidentAttachmentUpdateRequest,
-  IncidentAttachmentUpdateResponse: IncidentAttachmentUpdateResponse,
-  IncidentAttachmentsPostmortemAttributesAttachmentObject:
-    IncidentAttachmentsPostmortemAttributesAttachmentObject,
-  IncidentAttachmentsResponse: IncidentAttachmentsResponse,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,
@@ -6643,6 +6650,11 @@ const typeMap: { [index: string]: any } = {
   PartialApplicationKey: PartialApplicationKey,
   PartialApplicationKeyAttributes: PartialApplicationKeyAttributes,
   PartialApplicationKeyResponse: PartialApplicationKeyResponse,
+  PatchAttachmentRequest: PatchAttachmentRequest,
+  PatchAttachmentRequestData: PatchAttachmentRequestData,
+  PatchAttachmentRequestDataAttributes: PatchAttachmentRequestDataAttributes,
+  PatchAttachmentRequestDataAttributesAttachment:
+    PatchAttachmentRequestDataAttributesAttachment,
   PatchIncidentNotificationTemplateRequest:
     PatchIncidentNotificationTemplateRequest,
   PatchNotificationRuleParameters: PatchNotificationRuleParameters,
@@ -7627,6 +7639,7 @@ const typeMap: { [index: string]: any } = {
   UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
   UsageTimeSeriesObject: UsageTimeSeriesObject,
   User: User,
+  User140420082644000: User140420082644000,
   UserAttributes: UserAttributes,
   UserCreateAttributes: UserCreateAttributes,
   UserCreateData: UserCreateData,
@@ -7784,6 +7797,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   AsanaCredentials: ["AsanaAccessToken"],
   AsanaCredentialsUpdate: ["AsanaAccessTokenUpdate"],
+  AttachmentIncluded: ["User140420082644000"],
   AuthNMappingCreateRelationships: [
     "AuthNMappingRelationshipToRole",
     "AuthNMappingRelationshipToTeam",
@@ -7931,15 +7945,6 @@ const oneOfMap: { [index: string]: string[] } = {
   GreyNoiseCredentialsUpdate: ["GreyNoiseAPIKeyUpdate"],
   HTTPCredentials: ["HTTPTokenAuth"],
   HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
-  IncidentAttachmentAttributes: [
-    "IncidentAttachmentPostmortemAttributes",
-    "IncidentAttachmentLinkAttributes",
-  ],
-  IncidentAttachmentUpdateAttributes: [
-    "IncidentAttachmentPostmortemAttributes",
-    "IncidentAttachmentLinkAttributes",
-  ],
-  IncidentAttachmentsResponseIncludedItem: ["User"],
   IncidentFieldAttributes: [
     "IncidentFieldAttributesSingleValue",
     "IncidentFieldAttributesMultipleValue",
@@ -7956,7 +7961,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentNotificationTemplateObject",
   ],
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
-  IncidentResponseIncludedItem: ["IncidentUserData", "IncidentAttachmentData"],
+  IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
   IncidentServiceIncludedItems: ["User"],
   IncidentTeamIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [

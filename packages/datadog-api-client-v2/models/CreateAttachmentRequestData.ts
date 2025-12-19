@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToUser } from "./RelationshipToUser";
+import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
+import { IncidentAttachmentType } from "./IncidentAttachmentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The incident attachment's relationships.
- */
-export class IncidentAttachmentRelationships {
+export class CreateAttachmentRequestData {
+  "attributes"?: CreateAttachmentRequestDataAttributes;
+  "id"?: string;
   /**
-   * Relationship to user.
+   * The incident attachment resource type.
    */
-  "lastModifiedByUser"?: RelationshipToUser;
+  "type": IncidentAttachmentType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +32,18 @@ export class IncidentAttachmentRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
+    attributes: {
+      baseName: "attributes",
+      type: "CreateAttachmentRequestDataAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "IncidentAttachmentType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +55,7 @@ export class IncidentAttachmentRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentRelationships.attributeTypeMap;
+    return CreateAttachmentRequestData.attributeTypeMap;
   }
 
   public constructor() {}
