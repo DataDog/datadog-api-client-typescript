@@ -10,7 +10,7 @@ tags to a particular host.
 
 The component of your infrastructure responsible for a tag is identified
 by a source. For example, some valid sources include nagios, hudson, jenkins,
-users, feed, chef, puppet, git, bitbucket, fabric, capistrano, etc.
+users, feed, chef, puppet, git, bitbucket, fabric, capistrano, etc. Find a complete list of source type names under [API Source Attributes](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
 
 Read more about tags on [Getting Started with Tags](https://docs.datadoghq.com/getting_started/tagging/).
 

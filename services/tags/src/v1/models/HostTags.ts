@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Set of tags to associate with your host.
+ * Host name and an array of its tags
  */
 export class HostTags {
   /**
@@ -9,7 +9,7 @@ export class HostTags {
    */
   "host"?: string;
   /**
-   * A list of tags to apply to the host.
+   * A list of tags attached to a given host.
    */
   "tags"?: Array<string>;
   /**
