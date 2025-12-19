@@ -1,20 +1,22 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { Attachment } from "./Attachment";
+import { AttachmentArray } from "./AttachmentArray";
+import { AttachmentData } from "./AttachmentData";
+import { AttachmentDataAttributes } from "./AttachmentDataAttributes";
+import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
+import { AttachmentDataRelationships } from "./AttachmentDataRelationships";
+import { AttachmentDataRelationshipsLastModifiedByUser } from "./AttachmentDataRelationshipsLastModifiedByUser";
+import { AttachmentDataRelationshipsLastModifiedByUserData } from "./AttachmentDataRelationshipsLastModifiedByUserData";
+import { CreateAttachmentRequest } from "./CreateAttachmentRequest";
+import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
+import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
+import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
-import { IncidentAttachmentData } from "./IncidentAttachmentData";
-import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
-import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
-import { IncidentAttachmentPostmortemAttributes } from "./IncidentAttachmentPostmortemAttributes";
-import { IncidentAttachmentRelationships } from "./IncidentAttachmentRelationships";
-import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
-import { IncidentAttachmentUpdateRequest } from "./IncidentAttachmentUpdateRequest";
-import { IncidentAttachmentUpdateResponse } from "./IncidentAttachmentUpdateResponse";
-import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./IncidentAttachmentsPostmortemAttributesAttachmentObject";
-import { IncidentAttachmentsResponse } from "./IncidentAttachmentsResponse";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -119,6 +121,10 @@ import { MicrosoftTeamsConfigurationReference } from "./MicrosoftTeamsConfigurat
 import { MicrosoftTeamsConfigurationReferenceData } from "./MicrosoftTeamsConfigurationReferenceData";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { PatchAttachmentRequest } from "./PatchAttachmentRequest";
+import { PatchAttachmentRequestData } from "./PatchAttachmentRequestData";
+import { PatchAttachmentRequestDataAttributes } from "./PatchAttachmentRequestDataAttributes";
+import { PatchAttachmentRequestDataAttributesAttachment } from "./PatchAttachmentRequestDataAttributesAttachment";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { RelationshipToIncident } from "./RelationshipToIncident";
@@ -150,6 +156,7 @@ import { RelationshipToUsers } from "./RelationshipToUsers";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { User } from "./User";
+import { User140420082644000 } from "./User140420082644000";
 import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
 import { ZoomConfigurationReference } from "./ZoomConfigurationReference";
@@ -157,10 +164,7 @@ import { ZoomConfigurationReferenceData } from "./ZoomConfigurationReferenceData
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    IncidentAttachmentAttachmentType: ["link", "postmortem"],
-    IncidentAttachmentLinkAttachmentType: ["link"],
-    IncidentAttachmentPostmortemAttachmentType: ["postmortem"],
-    IncidentAttachmentRelatedObject: ["users"],
+    AttachmentDataAttributesAttachmentType: ["postmortem", "link"],
     IncidentAttachmentType: ["incident_attachments"],
     IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
     IncidentFieldAttributesValueType: [
@@ -211,18 +215,11 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentUserDefinedFieldType: ["user_defined_field"],
     OrganizationsType: ["orgs"],
     RolesType: ["roles"],
+    UserType: ["users"],
     UsersType: ["users"],
   },
   oneOfMap: {
-    IncidentAttachmentAttributes: [
-      "IncidentAttachmentPostmortemAttributes",
-      "IncidentAttachmentLinkAttributes",
-    ],
-    IncidentAttachmentUpdateAttributes: [
-      "IncidentAttachmentPostmortemAttributes",
-      "IncidentAttachmentLinkAttributes",
-    ],
-    IncidentAttachmentsResponseIncludedItem: ["User"],
+    AttachmentIncluded: ["User140420082644000"],
     IncidentFieldAttributes: [
       "IncidentFieldAttributesSingleValue",
       "IncidentFieldAttributesMultipleValue",
@@ -239,10 +236,7 @@ export const TypingInfo: ModelTypingInfo = {
       "IncidentNotificationTemplateObject",
     ],
     IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
-    IncidentResponseIncludedItem: [
-      "IncidentUserData",
-      "IncidentAttachmentData",
-    ],
+    IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
     IncidentTimelineCellCreateAttributes: [
       "IncidentTimelineCellMarkdownCreateAttributes",
     ],
@@ -251,25 +245,28 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    Attachment: Attachment,
+    AttachmentArray: AttachmentArray,
+    AttachmentData: AttachmentData,
+    AttachmentDataAttributes: AttachmentDataAttributes,
+    AttachmentDataAttributesAttachment: AttachmentDataAttributesAttachment,
+    AttachmentDataRelationships: AttachmentDataRelationships,
+    AttachmentDataRelationshipsLastModifiedByUser:
+      AttachmentDataRelationshipsLastModifiedByUser,
+    AttachmentDataRelationshipsLastModifiedByUserData:
+      AttachmentDataRelationshipsLastModifiedByUserData,
+    CreateAttachmentRequest: CreateAttachmentRequest,
+    CreateAttachmentRequestData: CreateAttachmentRequestData,
+    CreateAttachmentRequestDataAttributes:
+      CreateAttachmentRequestDataAttributes,
+    CreateAttachmentRequestDataAttributesAttachment:
+      CreateAttachmentRequestDataAttributesAttachment,
     CreateIncidentNotificationRuleRequest:
       CreateIncidentNotificationRuleRequest,
     CreateIncidentNotificationTemplateRequest:
       CreateIncidentNotificationTemplateRequest,
     GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
     GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
-    IncidentAttachmentData: IncidentAttachmentData,
-    IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
-    IncidentAttachmentLinkAttributesAttachmentObject:
-      IncidentAttachmentLinkAttributesAttachmentObject,
-    IncidentAttachmentPostmortemAttributes:
-      IncidentAttachmentPostmortemAttributes,
-    IncidentAttachmentRelationships: IncidentAttachmentRelationships,
-    IncidentAttachmentUpdateData: IncidentAttachmentUpdateData,
-    IncidentAttachmentUpdateRequest: IncidentAttachmentUpdateRequest,
-    IncidentAttachmentUpdateResponse: IncidentAttachmentUpdateResponse,
-    IncidentAttachmentsPostmortemAttributesAttachmentObject:
-      IncidentAttachmentsPostmortemAttributesAttachmentObject,
-    IncidentAttachmentsResponse: IncidentAttachmentsResponse,
     IncidentCreateAttributes: IncidentCreateAttributes,
     IncidentCreateData: IncidentCreateData,
     IncidentCreateRelationships: IncidentCreateRelationships,
@@ -401,6 +398,11 @@ export const TypingInfo: ModelTypingInfo = {
       MicrosoftTeamsConfigurationReferenceData,
     NullableRelationshipToUser: NullableRelationshipToUser,
     NullableRelationshipToUserData: NullableRelationshipToUserData,
+    PatchAttachmentRequest: PatchAttachmentRequest,
+    PatchAttachmentRequestData: PatchAttachmentRequestData,
+    PatchAttachmentRequestDataAttributes: PatchAttachmentRequestDataAttributes,
+    PatchAttachmentRequestDataAttributesAttachment:
+      PatchAttachmentRequestDataAttributesAttachment,
     PatchIncidentNotificationTemplateRequest:
       PatchIncidentNotificationTemplateRequest,
     PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
@@ -439,6 +441,7 @@ export const TypingInfo: ModelTypingInfo = {
     SlackIntegrationMetadata: SlackIntegrationMetadata,
     SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
     User: User,
+    User140420082644000: User140420082644000,
     UserAttributes: UserAttributes,
     UserResponseRelationships: UserResponseRelationships,
     ZoomConfigurationReference: ZoomConfigurationReference,

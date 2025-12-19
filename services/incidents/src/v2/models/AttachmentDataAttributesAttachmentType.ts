@@ -1,9 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
-
-/**
- * The type of postmortem attachment attributes.
- */
-export type IncidentAttachmentPostmortemAttachmentType =
+export type AttachmentDataAttributesAttachmentType =
   | typeof POSTMORTEM
+  | typeof LINK
   | UnparsedObject;
 export const POSTMORTEM = "postmortem";
+export const LINK = "link";

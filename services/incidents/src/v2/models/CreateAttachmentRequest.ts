@@ -1,17 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-/**
- * The link attachment.
- */
-export class IncidentAttachmentLinkAttributesAttachmentObject {
-  /**
-   * The URL of this link attachment.
-   */
-  "documentUrl": string;
-  /**
-   * The title of this link attachment.
-   */
-  "title": string;
+import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
+
+export class CreateAttachmentRequest {
+  "data"?: CreateAttachmentRequestData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,15 +19,9 @@ export class IncidentAttachmentLinkAttributesAttachmentObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    documentUrl: {
-      baseName: "documentUrl",
-      type: "string",
-      required: true,
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    data: {
+      baseName: "data",
+      type: "CreateAttachmentRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +33,7 @@ export class IncidentAttachmentLinkAttributesAttachmentObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentLinkAttributesAttachmentObject.attributeTypeMap;
+    return CreateAttachmentRequest.attributeTypeMap;
   }
 
   public constructor() {}

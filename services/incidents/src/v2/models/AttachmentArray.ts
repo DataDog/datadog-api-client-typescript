@@ -1,21 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { IncidentAttachmentData } from "./IncidentAttachmentData";
-import { IncidentAttachmentsResponseIncludedItem } from "./IncidentAttachmentsResponseIncludedItem";
+import { AttachmentData } from "./AttachmentData";
+import { AttachmentIncluded } from "./AttachmentIncluded";
 
-/**
- * The response object containing the created or updated incident attachments.
- */
-export class IncidentAttachmentUpdateResponse {
-  /**
-   * An array of incident attachments. Only the attachments that were created or updated by the request are
-   * returned.
-   */
-  "data": Array<IncidentAttachmentData>;
-  /**
-   * Included related resources that the user requested.
-   */
-  "included"?: Array<IncidentAttachmentsResponseIncludedItem>;
+export class AttachmentArray {
+  "data": Array<AttachmentData>;
+  "included"?: Array<AttachmentIncluded>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,12 +23,12 @@ export class IncidentAttachmentUpdateResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<IncidentAttachmentData>",
+      type: "Array<AttachmentData>",
       required: true,
     },
     included: {
       baseName: "included",
-      type: "Array<IncidentAttachmentsResponseIncludedItem>",
+      type: "Array<AttachmentIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -50,7 +40,7 @@ export class IncidentAttachmentUpdateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentUpdateResponse.attributeTypeMap;
+    return AttachmentArray.attributeTypeMap;
   }
 
   public constructor() {}

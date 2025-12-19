@@ -1,18 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
+import { AttachmentDataRelationshipsLastModifiedByUserData } from "./AttachmentDataRelationshipsLastModifiedByUserData";
 
-/**
- * The update request for an incident's attachments.
- */
-export class IncidentAttachmentUpdateRequest {
-  /**
-   * An array of incident attachments. An attachment object without an "id" key indicates that you want to
-   * create that attachment. An attachment object without an "attributes" key indicates that you want to
-   * delete that attachment. An attachment object with both the "id" key and a populated "attributes" object
-   * indicates that you want to update that attachment.
-   */
-  "data": Array<IncidentAttachmentUpdateData>;
+export class AttachmentDataRelationshipsLastModifiedByUser {
+  "data": AttachmentDataRelationshipsLastModifiedByUserData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,7 +21,7 @@ export class IncidentAttachmentUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<IncidentAttachmentUpdateData>",
+      type: "AttachmentDataRelationshipsLastModifiedByUserData",
       required: true,
     },
     additionalProperties: {
@@ -43,7 +34,7 @@ export class IncidentAttachmentUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentUpdateRequest.attributeTypeMap;
+    return AttachmentDataRelationshipsLastModifiedByUser.attributeTypeMap;
   }
 
   public constructor() {}

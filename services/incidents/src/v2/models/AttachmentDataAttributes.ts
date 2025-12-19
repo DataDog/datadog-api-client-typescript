@@ -1,23 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { IncidentAttachmentLinkAttachmentType } from "./IncidentAttachmentLinkAttachmentType";
-import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
+import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
+import { AttachmentDataAttributesAttachmentType } from "./AttachmentDataAttributesAttachmentType";
 
-/**
- * The attributes object for a link attachment.
- */
-export class IncidentAttachmentLinkAttributes {
-  /**
-   * The link attachment.
-   */
-  "attachment": IncidentAttachmentLinkAttributesAttachmentObject;
-  /**
-   * The type of link attachment attributes.
-   */
-  "attachmentType": IncidentAttachmentLinkAttachmentType;
-  /**
-   * Timestamp when the incident attachment link was last modified.
-   */
+export class AttachmentDataAttributes {
+  "attachment"?: AttachmentDataAttributesAttachment;
+  "attachmentType"?: AttachmentDataAttributesAttachmentType;
   "modified"?: Date;
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +24,11 @@ export class IncidentAttachmentLinkAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attachment: {
       baseName: "attachment",
-      type: "IncidentAttachmentLinkAttributesAttachmentObject",
-      required: true,
+      type: "AttachmentDataAttributesAttachment",
     },
     attachmentType: {
       baseName: "attachment_type",
-      type: "IncidentAttachmentLinkAttachmentType",
-      required: true,
+      type: "AttachmentDataAttributesAttachmentType",
     },
     modified: {
       baseName: "modified",
@@ -59,7 +45,7 @@ export class IncidentAttachmentLinkAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentLinkAttributes.attributeTypeMap;
+    return AttachmentDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

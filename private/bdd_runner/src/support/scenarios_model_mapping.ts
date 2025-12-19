@@ -5987,30 +5987,60 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    include: {
-      type: "Array<IncidentAttachmentRelatedObject>",
-      format: "",
-    },
     filterAttachmentType: {
-      type: "Array<IncidentAttachmentAttachmentType>",
+      type: "string",
       format: "",
     },
-    operationResponseType: "IncidentAttachmentsResponse",
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AttachmentArray",
   },
-  "IncidentsApi.V2.UpdateIncidentAttachments": {
+  "IncidentsApi.V2.CreateIncidentAttachment": {
     incidentId: {
       type: "string",
       format: "",
     },
     include: {
-      type: "Array<IncidentAttachmentRelatedObject>",
+      type: "string",
       format: "",
     },
     body: {
-      type: "IncidentAttachmentUpdateRequest",
+      type: "CreateAttachmentRequest",
       format: "",
     },
-    operationResponseType: "IncidentAttachmentUpdateResponse",
+    operationResponseType: "Attachment",
+  },
+  "IncidentsApi.V2.DeleteIncidentAttachment": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    attachmentId: {
+      type: "any",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentAttachment": {
+    incidentId: {
+      type: "string",
+      format: "",
+    },
+    attachmentId: {
+      type: "any",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PatchAttachmentRequest",
+      format: "",
+    },
+    operationResponseType: "Attachment",
   },
   "IncidentsApi.V2.ListIncidentImpacts": {
     incidentId: {
