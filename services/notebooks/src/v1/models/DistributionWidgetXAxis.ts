@@ -17,6 +17,10 @@ export class DistributionWidgetXAxis {
    */
   "min"?: string;
   /**
+   * Number of value buckets to target, also known as the resolution of the value bins.
+   */
+  "numBuckets"?: number;
+  /**
    * Specifies the scale type. Possible values are `linear`.
    */
   "scale"?: string;
@@ -46,6 +50,11 @@ export class DistributionWidgetXAxis {
     min: {
       baseName: "min",
       type: "string",
+    },
+    numBuckets: {
+      baseName: "num_buckets",
+      type: "number",
+      format: "int64",
     },
     scale: {
       baseName: "scale",

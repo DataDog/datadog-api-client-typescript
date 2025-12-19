@@ -2,9 +2,12 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
 import { DistributionWidgetHistogramRequestQuery } from "./DistributionWidgetHistogramRequestQuery";
-import { DistributionWidgetHistogramRequestType } from "./DistributionWidgetHistogramRequestType";
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { WidgetFormula } from "./WidgetFormula";
+import { WidgetHistogramRequestType } from "./WidgetHistogramRequestType";
 import { WidgetStyle } from "./WidgetStyle";
 
 /**
@@ -23,6 +26,10 @@ export class DistributionWidgetRequest {
    * The log query.
    */
   "eventQuery"?: LogQueryDefinition;
+  /**
+   * List of formulas that operate on queries.
+   */
+  "formulas"?: Array<WidgetFormula>;
   /**
    * The log query.
    */
@@ -44,13 +51,21 @@ export class DistributionWidgetRequest {
    */
   "q"?: string;
   /**
+   * List of queries that can be returned directly or used in formulas.
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  /**
    * Query definition for Distribution Widget Histogram Request
    */
   "query"?: DistributionWidgetHistogramRequestQuery;
   /**
    * Request type for the histogram request.
    */
-  "requestType"?: DistributionWidgetHistogramRequestType;
+  "requestType"?: WidgetHistogramRequestType;
+  /**
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
+   */
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
    */
@@ -90,6 +105,10 @@ export class DistributionWidgetRequest {
       baseName: "event_query",
       type: "LogQueryDefinition",
     },
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
+    },
     logQuery: {
       baseName: "log_query",
       type: "LogQueryDefinition",
@@ -110,13 +129,21 @@ export class DistributionWidgetRequest {
       baseName: "q",
       type: "string",
     },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+    },
     query: {
       baseName: "query",
       type: "DistributionWidgetHistogramRequestQuery",
     },
     requestType: {
       baseName: "request_type",
-      type: "DistributionWidgetHistogramRequestType",
+      type: "WidgetHistogramRequestType",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
     rumQuery: {
       baseName: "rum_query",
