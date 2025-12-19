@@ -4499,7 +4499,7 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
   /**
    * Comma-separated list of usage types to return, or `*` for all usage types.
    * The following values have been **deprecated**:
-   * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
+   * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`, `llm_observability_usage`, `llm_observability_percentage`.
    * @type MonthlyUsageAttributionSupportedMetrics
    */
   fields: MonthlyUsageAttributionSupportedMetrics;
@@ -5040,6 +5040,8 @@ export class UsageMeteringApi {
    *   cursor := response.metadata.pagination.next_record_id
    * END
    * ```
+   * The following values have been **deprecated**:
+   *     `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`, `llm_observability_usage`, `llm_observability_percentage`.
    * @param param The request object
    */
   public getHourlyUsageAttribution(

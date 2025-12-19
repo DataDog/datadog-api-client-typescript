@@ -54,6 +54,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof INVOCATIONS_USAGE
   | typeof LAMBDA_TRACED_INVOCATIONS_USAGE
   | typeof LLM_OBSERVABILITY_USAGE
+  | typeof LLM_SPANS_USAGE
   | typeof LOGS_INDEXED_15DAY_USAGE
   | typeof LOGS_INDEXED_180DAY_USAGE
   | typeof LOGS_INDEXED_1DAY_USAGE
@@ -140,6 +141,7 @@ export const INVOCATIONS_USAGE = "invocations_usage";
 export const LAMBDA_TRACED_INVOCATIONS_USAGE =
   "lambda_traced_invocations_usage";
 export const LLM_OBSERVABILITY_USAGE = "llm_observability_usage";
+export const LLM_SPANS_USAGE = "llm_spans_usage";
 export const LOGS_INDEXED_15DAY_USAGE = "logs_indexed_15day_usage";
 export const LOGS_INDEXED_180DAY_USAGE = "logs_indexed_180day_usage";
 export const LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage";
