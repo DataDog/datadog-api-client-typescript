@@ -72,6 +72,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof LAMBDA_TRACED_INVOCATIONS_PERCENTAGE
   | typeof LLM_OBSERVABILITY_USAGE
   | typeof LLM_OBSERVABILITY_PERCENTAGE
+  | typeof LLM_SPANS_USAGE
+  | typeof LLM_SPANS_PERCENTAGE
   | typeof MOBILE_APP_TESTING_USAGE
   | typeof MOBILE_APP_TESTING_PERCENTAGE
   | typeof NDM_NETFLOW_USAGE
@@ -241,6 +243,8 @@ export const LAMBDA_TRACED_INVOCATIONS_PERCENTAGE =
   "lambda_traced_invocations_percentage";
 export const LLM_OBSERVABILITY_USAGE = "llm_observability_usage";
 export const LLM_OBSERVABILITY_PERCENTAGE = "llm_observability_percentage";
+export const LLM_SPANS_USAGE = "llm_spans_usage";
+export const LLM_SPANS_PERCENTAGE = "llm_spans_percentage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage";
 export const MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage";
 export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";

@@ -318,6 +318,14 @@ export class MonthlyUsageAttributionValues {
    */
   "llmObservabilityUsage"?: number;
   /**
+   * The percentage of LLM Spans usage by tag(s).
+   */
+  "llmSpansPercentage"?: number;
+  /**
+   * The LLM Spans usage by tag(s).
+   */
+  "llmSpansUsage"?: number;
+  /**
    * The percentage of Indexed Logs (15-day Retention) usage by tag(s).
    */
   "logsIndexed15DayPercentage"?: number;
@@ -1015,6 +1023,16 @@ export class MonthlyUsageAttributionValues {
     },
     llmObservabilityUsage: {
       baseName: "llm_observability_usage",
+      type: "number",
+      format: "double",
+    },
+    llmSpansPercentage: {
+      baseName: "llm_spans_percentage",
+      type: "number",
+      format: "double",
+    },
+    llmSpansUsage: {
+      baseName: "llm_spans_usage",
       type: "number",
       format: "double",
     },
