@@ -106,6 +106,7 @@ import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogItem } from "./HTTPLogItem";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
+import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
 import { Host } from "./Host";
 import { HostListResponse } from "./HostListResponse";
 import { HostMapRequest } from "./HostMapRequest";
@@ -718,7 +719,6 @@ const enumsMap: { [key: string]: any[] } = {
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
-  DistributionWidgetHistogramRequestType: ["histogram"],
   EventAlertType: [
     "error",
     "warning",
@@ -1622,6 +1622,7 @@ const enumsMap: { [key: string]: any[] } = {
   WidgetFormulaCellDisplayModeOptionsTrendType: ["area", "line", "bars"],
   WidgetFormulaCellDisplayModeOptionsYScale: ["shared", "independent"],
   WidgetGrouping: ["check", "cluster"],
+  WidgetHistogramRequestType: ["histogram"],
   WidgetHorizontalAlign: ["center", "left", "right"],
   WidgetImageSizing: [
     "fill",
@@ -1846,6 +1847,7 @@ const typeMap: { [index: string]: any } = {
   HTTPLogItem: HTTPLogItem,
   HeatMapWidgetDefinition: HeatMapWidgetDefinition,
   HeatMapWidgetRequest: HeatMapWidgetRequest,
+  HeatMapWidgetXAxis: HeatMapWidgetXAxis,
   Host: Host,
   HostListResponse: HostListResponse,
   HostMapRequest: HostMapRequest,
