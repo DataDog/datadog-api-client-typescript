@@ -59,6 +59,7 @@ import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelin
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
+import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
 import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
 import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./ObservabilityPipelineParseGrokProcessorRuleMatchRule";
@@ -250,6 +251,7 @@ export const TypingInfo: ModelTypingInfo = {
       "Palo Alto Networks Firewall Traffic",
     ],
     ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
+    ObservabilityPipelineOpentelemetrySourceType: ["opentelemetry"],
     ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
     ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
     ObservabilityPipelinePipelineKafkaSourceSaslMechanism: [
@@ -414,6 +416,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineGooglePubSubSource",
       "ObservabilityPipelineHttpClientSource",
       "ObservabilityPipelineLogstashSource",
+      "ObservabilityPipelineOpentelemetrySource",
       "ObservabilityPipelineSocketSource",
     ],
     ObservabilityPipelineMetricValue: [
@@ -546,6 +549,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineOcsfMapperProcessorMapping,
     ObservabilityPipelineOpenSearchDestination:
       ObservabilityPipelineOpenSearchDestination,
+    ObservabilityPipelineOpentelemetrySource:
+      ObservabilityPipelineOpentelemetrySource,
     ObservabilityPipelineParseGrokProcessor:
       ObservabilityPipelineParseGrokProcessor,
     ObservabilityPipelineParseGrokProcessorRule:
