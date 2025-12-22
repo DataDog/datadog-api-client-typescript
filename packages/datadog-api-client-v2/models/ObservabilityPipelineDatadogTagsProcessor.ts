@@ -11,6 +11,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `datadog_tags` processor includes or excludes specific Datadog tags in your logs.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDatadogTagsProcessor {
   /**

@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `rename_fields` processor changes field names.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineRenameFieldsProcessor {
   /**

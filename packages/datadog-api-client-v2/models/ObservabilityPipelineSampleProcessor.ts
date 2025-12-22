@@ -9,6 +9,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSampleProcessor {
   /**

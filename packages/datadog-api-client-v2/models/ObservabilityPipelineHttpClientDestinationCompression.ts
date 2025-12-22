@@ -3,24 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineSumoLogicSourceType } from "./ObservabilityPipelineSumoLogicSourceType";
+import { ObservabilityPipelineHttpClientDestinationCompressionAlgorithm } from "./ObservabilityPipelineHttpClientDestinationCompressionAlgorithm";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `sumo_logic` source receives logs from Sumo Logic collectors.
- *
- * **Supported pipeline types:** logs
+ * Compression configuration for HTTP requests.
  */
-export class ObservabilityPipelineSumoLogicSource {
+export class ObservabilityPipelineHttpClientDestinationCompression {
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * Compression algorithm.
    */
-  "id": string;
-  /**
-   * The source type. The value should always be `sumo_logic`.
-   */
-  "type": ObservabilityPipelineSumoLogicSourceType;
+  "algorithm": ObservabilityPipelineHttpClientDestinationCompressionAlgorithm;
 
   /**
    * A container for additional, undeclared properties.
@@ -38,14 +32,9 @@ export class ObservabilityPipelineSumoLogicSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineSumoLogicSourceType",
+    algorithm: {
+      baseName: "algorithm",
+      type: "ObservabilityPipelineHttpClientDestinationCompressionAlgorithm",
       required: true,
     },
     additionalProperties: {
@@ -58,7 +47,7 @@ export class ObservabilityPipelineSumoLogicSource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSumoLogicSource.attributeTypeMap;
+    return ObservabilityPipelineHttpClientDestinationCompression.attributeTypeMap;
   }
 
   public constructor() {}
