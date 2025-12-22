@@ -900,15 +900,19 @@ export {
   TeamsApiCreateTeamConnectionsRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
+  TeamsApiCreateTeamNotificationRuleRequest,
   TeamsApiDeleteTeamRequest,
   TeamsApiDeleteTeamConnectionsRequest,
   TeamsApiDeleteTeamLinkRequest,
   TeamsApiDeleteTeamMembershipRequest,
+  TeamsApiDeleteTeamNotificationRuleRequest,
   TeamsApiGetTeamRequest,
   TeamsApiGetTeamHierarchyLinkRequest,
   TeamsApiGetTeamLinkRequest,
   TeamsApiGetTeamLinksRequest,
   TeamsApiGetTeamMembershipsRequest,
+  TeamsApiGetTeamNotificationRuleRequest,
+  TeamsApiGetTeamNotificationRulesRequest,
   TeamsApiGetTeamPermissionSettingsRequest,
   TeamsApiGetTeamSyncRequest,
   TeamsApiGetUserMembershipsRequest,
@@ -922,6 +926,7 @@ export {
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
   TeamsApiUpdateTeamMembershipRequest,
+  TeamsApiUpdateTeamNotificationRuleRequest,
   TeamsApiUpdateTeamPermissionSettingRequest,
   TeamsApi,
 } from "./apis/TeamsApi";
@@ -4370,6 +4375,14 @@ export { TeamLinkCreateRequest } from "./models/TeamLinkCreateRequest";
 export { TeamLinkResponse } from "./models/TeamLinkResponse";
 export { TeamLinksResponse } from "./models/TeamLinksResponse";
 export { TeamLinkType } from "./models/TeamLinkType";
+export { TeamNotificationRule } from "./models/TeamNotificationRule";
+export { TeamNotificationRuleAttributes } from "./models/TeamNotificationRuleAttributes";
+export { TeamNotificationRuleAttributesEmail } from "./models/TeamNotificationRuleAttributesEmail";
+export { TeamNotificationRuleAttributesMsTeams } from "./models/TeamNotificationRuleAttributesMsTeams";
+export { TeamNotificationRuleAttributesPagerduty } from "./models/TeamNotificationRuleAttributesPagerduty";
+export { TeamNotificationRuleAttributesSlack } from "./models/TeamNotificationRuleAttributesSlack";
+export { TeamNotificationRulesResponse } from "./models/TeamNotificationRulesResponse";
+export { TeamNotificationRulesResponseMeta } from "./models/TeamNotificationRulesResponseMeta";
 export { TeamOnCallResponders } from "./models/TeamOnCallResponders";
 export { TeamOnCallRespondersData } from "./models/TeamOnCallRespondersData";
 export { TeamOnCallRespondersDataRelationships } from "./models/TeamOnCallRespondersDataRelationships";

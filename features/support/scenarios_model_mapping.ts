@@ -9320,6 +9320,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserTeamResponse",
     },
+    "v2.GetTeamNotificationRules": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRulesResponse",
+    },
+    "v2.CreateTeamNotificationRule": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamNotificationRule",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRule",
+    },
+    "v2.GetTeamNotificationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRule",
+    },
+    "v2.UpdateTeamNotificationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamNotificationRule",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRule",
+    },
+    "v2.DeleteTeamNotificationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetTeamPermissionSettings": {
         "teamId": {
             "type": "string",
