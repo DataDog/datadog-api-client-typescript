@@ -403,6 +403,7 @@ export {
 
 export {
   IncidentsApiCreateIncidentRequest,
+  IncidentsApiCreateIncidentAttachmentRequest,
   IncidentsApiCreateIncidentImpactRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentNotificationRuleRequest,
@@ -410,6 +411,7 @@ export {
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
+  IncidentsApiDeleteIncidentAttachmentRequest,
   IncidentsApiDeleteIncidentImpactRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentNotificationRuleRequest,
@@ -432,7 +434,7 @@ export {
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
-  IncidentsApiUpdateIncidentAttachmentsRequest,
+  IncidentsApiUpdateIncidentAttachmentRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApiUpdateIncidentNotificationRuleRequest,
   IncidentsApiUpdateIncidentNotificationTemplateRequest,
@@ -1155,6 +1157,16 @@ export { AttachJiraIssueRequest } from "./models/AttachJiraIssueRequest";
 export { AttachJiraIssueRequestData } from "./models/AttachJiraIssueRequestData";
 export { AttachJiraIssueRequestDataAttributes } from "./models/AttachJiraIssueRequestDataAttributes";
 export { AttachJiraIssueRequestDataRelationships } from "./models/AttachJiraIssueRequestDataRelationships";
+export { Attachment } from "./models/Attachment";
+export { AttachmentArray } from "./models/AttachmentArray";
+export { AttachmentData } from "./models/AttachmentData";
+export { AttachmentDataAttributes } from "./models/AttachmentDataAttributes";
+export { AttachmentDataAttributesAttachment } from "./models/AttachmentDataAttributesAttachment";
+export { AttachmentDataAttributesAttachmentType } from "./models/AttachmentDataAttributesAttachmentType";
+export { AttachmentDataRelationships } from "./models/AttachmentDataRelationships";
+export { AttachmentDataRelationshipsLastModifiedByUser } from "./models/AttachmentDataRelationshipsLastModifiedByUser";
+export { AttachmentDataRelationshipsLastModifiedByUserData } from "./models/AttachmentDataRelationshipsLastModifiedByUserData";
+export { AttachmentIncluded } from "./models/AttachmentIncluded";
 export { AuditLogsEvent } from "./models/AuditLogsEvent";
 export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
 export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
@@ -1702,6 +1714,10 @@ export { CreateAppsDatastoreRequestDataAttributes } from "./models/CreateAppsDat
 export { CreateAppsDatastoreRequestDataAttributesOrgAccess } from "./models/CreateAppsDatastoreRequestDataAttributesOrgAccess";
 export { CreateAppsDatastoreResponse } from "./models/CreateAppsDatastoreResponse";
 export { CreateAppsDatastoreResponseData } from "./models/CreateAppsDatastoreResponseData";
+export { CreateAttachmentRequest } from "./models/CreateAttachmentRequest";
+export { CreateAttachmentRequestData } from "./models/CreateAttachmentRequestData";
+export { CreateAttachmentRequestDataAttributes } from "./models/CreateAttachmentRequestDataAttributes";
+export { CreateAttachmentRequestDataAttributesAttachment } from "./models/CreateAttachmentRequestDataAttributesAttachment";
 export { CreateCaseRequestArray } from "./models/CreateCaseRequestArray";
 export { CreateCaseRequestData } from "./models/CreateCaseRequestData";
 export { CreateCaseRequestDataAttributes } from "./models/CreateCaseRequestDataAttributes";
@@ -2516,24 +2532,7 @@ export { HTTPTokenAuth } from "./models/HTTPTokenAuth";
 export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
 export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
 export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
-export { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
-export { IncidentAttachmentAttributes } from "./models/IncidentAttachmentAttributes";
-export { IncidentAttachmentData } from "./models/IncidentAttachmentData";
-export { IncidentAttachmentLinkAttachmentType } from "./models/IncidentAttachmentLinkAttachmentType";
-export { IncidentAttachmentLinkAttributes } from "./models/IncidentAttachmentLinkAttributes";
-export { IncidentAttachmentLinkAttributesAttachmentObject } from "./models/IncidentAttachmentLinkAttributesAttachmentObject";
-export { IncidentAttachmentPostmortemAttachmentType } from "./models/IncidentAttachmentPostmortemAttachmentType";
-export { IncidentAttachmentPostmortemAttributes } from "./models/IncidentAttachmentPostmortemAttributes";
-export { IncidentAttachmentRelatedObject } from "./models/IncidentAttachmentRelatedObject";
-export { IncidentAttachmentRelationships } from "./models/IncidentAttachmentRelationships";
-export { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./models/IncidentAttachmentsPostmortemAttributesAttachmentObject";
-export { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsResponse";
-export { IncidentAttachmentsResponseIncludedItem } from "./models/IncidentAttachmentsResponseIncludedItem";
 export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
-export { IncidentAttachmentUpdateAttributes } from "./models/IncidentAttachmentUpdateAttributes";
-export { IncidentAttachmentUpdateData } from "./models/IncidentAttachmentUpdateData";
-export { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpdateRequest";
-export { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
@@ -3490,6 +3489,10 @@ export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
 export { PartialApplicationKeyAttributes } from "./models/PartialApplicationKeyAttributes";
 export { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
+export { PatchAttachmentRequest } from "./models/PatchAttachmentRequest";
+export { PatchAttachmentRequestData } from "./models/PatchAttachmentRequestData";
+export { PatchAttachmentRequestDataAttributes } from "./models/PatchAttachmentRequestDataAttributes";
+export { PatchAttachmentRequestDataAttributesAttachment } from "./models/PatchAttachmentRequestDataAttributesAttachment";
 export { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
 export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
 export { PatchNotificationRuleParametersData } from "./models/PatchNotificationRuleParametersData";
@@ -4574,6 +4577,7 @@ export { UsageObservabilityPipelinesResponse } from "./models/UsageObservability
 export { UsageTimeSeriesObject } from "./models/UsageTimeSeriesObject";
 export { UsageTimeSeriesType } from "./models/UsageTimeSeriesType";
 export { User } from "./models/User";
+export { User140420082644000 } from "./models/User140420082644000";
 export { UserAttributes } from "./models/UserAttributes";
 export { UserAttributesStatus } from "./models/UserAttributesStatus";
 export { UserCreateAttributes } from "./models/UserCreateAttributes";
@@ -4615,6 +4619,7 @@ export { UserTeamType } from "./models/UserTeamType";
 export { UserTeamUpdate } from "./models/UserTeamUpdate";
 export { UserTeamUpdateRequest } from "./models/UserTeamUpdateRequest";
 export { UserTeamUserType } from "./models/UserTeamUserType";
+export { UserType } from "./models/UserType";
 export { UserUpdateAttributes } from "./models/UserUpdateAttributes";
 export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";

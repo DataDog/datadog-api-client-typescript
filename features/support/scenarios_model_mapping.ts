@@ -5977,30 +5977,60 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "include": {
-            "type": "Array<IncidentAttachmentRelatedObject>",
-            "format": "",
-            },
         "filterAttachmentType": {
-            "type": "Array<IncidentAttachmentAttachmentType>",
+            "type": "string",
             "format": "",
             },
-        "operationResponseType": "IncidentAttachmentsResponse",
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AttachmentArray",
     },
-    "v2.UpdateIncidentAttachments": {
+    "v2.CreateIncidentAttachment": {
         "incidentId": {
             "type": "string",
             "format": "",
             },
         "include": {
-            "type": "Array<IncidentAttachmentRelatedObject>",
+            "type": "string",
             "format": "",
             },
         "body": {
-            "type": "IncidentAttachmentUpdateRequest",
+            "type": "CreateAttachmentRequest",
             "format": "",
             },
-        "operationResponseType": "IncidentAttachmentUpdateResponse",
+        "operationResponseType": "Attachment",
+    },
+    "v2.DeleteIncidentAttachment": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "attachmentId": {
+            "type": "any",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentAttachment": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "attachmentId": {
+            "type": "any",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchAttachmentRequest",
+            "format": "",
+            },
+        "operationResponseType": "Attachment",
     },
     "v2.ListIncidentImpacts": {
         "incidentId": {

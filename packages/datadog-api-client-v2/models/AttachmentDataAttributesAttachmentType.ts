@@ -3,12 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { User } from "./User";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-/**
- * An object related to an attachment that is included in the response.
- */
-
-export type IncidentAttachmentsResponseIncludedItem = User | UnparsedObject;
+export type AttachmentDataAttributesAttachmentType =
+  | typeof POSTMORTEM
+  | typeof LINK
+  | UnparsedObject;
+export const POSTMORTEM = "postmortem";
+export const LINK = "link";

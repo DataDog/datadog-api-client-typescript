@@ -3,21 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { PatchAttachmentRequestData } from "./PatchAttachmentRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The postmortem attachment.
- */
-export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
-  /**
-   * The URL of this notebook attachment.
-   */
-  "documentUrl": string;
-  /**
-   * The title of this postmortem attachment.
-   */
-  "title": string;
+export class PatchAttachmentRequest {
+  "data"?: PatchAttachmentRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,15 +26,9 @@ export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    documentUrl: {
-      baseName: "documentUrl",
-      type: "string",
-      required: true,
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    data: {
+      baseName: "data",
+      type: "PatchAttachmentRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +40,7 @@ export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentsPostmortemAttributesAttachmentObject.attributeTypeMap;
+    return PatchAttachmentRequest.attributeTypeMap;
   }
 
   public constructor() {}

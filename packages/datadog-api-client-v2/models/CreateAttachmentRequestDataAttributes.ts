@@ -3,27 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentAttachmentLinkAttachmentType } from "./IncidentAttachmentLinkAttachmentType";
-import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
+import { AttachmentDataAttributesAttachmentType } from "./AttachmentDataAttributesAttachmentType";
+import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The attributes object for a link attachment.
- */
-export class IncidentAttachmentLinkAttributes {
-  /**
-   * The link attachment.
-   */
-  "attachment": IncidentAttachmentLinkAttributesAttachmentObject;
-  /**
-   * The type of link attachment attributes.
-   */
-  "attachmentType": IncidentAttachmentLinkAttachmentType;
-  /**
-   * Timestamp when the incident attachment link was last modified.
-   */
-  "modified"?: Date;
+export class CreateAttachmentRequestDataAttributes {
+  "attachment"?: CreateAttachmentRequestDataAttributesAttachment;
+  "attachmentType"?: AttachmentDataAttributesAttachmentType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,18 +30,11 @@ export class IncidentAttachmentLinkAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attachment: {
       baseName: "attachment",
-      type: "IncidentAttachmentLinkAttributesAttachmentObject",
-      required: true,
+      type: "CreateAttachmentRequestDataAttributesAttachment",
     },
     attachmentType: {
       baseName: "attachment_type",
-      type: "IncidentAttachmentLinkAttachmentType",
-      required: true,
-    },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      format: "date-time",
+      type: "AttachmentDataAttributesAttachmentType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +46,7 @@ export class IncidentAttachmentLinkAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentLinkAttributes.attributeTypeMap;
+    return CreateAttachmentRequestDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

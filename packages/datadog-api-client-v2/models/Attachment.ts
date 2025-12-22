@@ -3,23 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentAttachmentPostmortemAttachmentType } from "./IncidentAttachmentPostmortemAttachmentType";
-import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./IncidentAttachmentsPostmortemAttributesAttachmentObject";
+import { AttachmentData } from "./AttachmentData";
+import { AttachmentIncluded } from "./AttachmentIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The attributes object for a postmortem attachment.
- */
-export class IncidentAttachmentPostmortemAttributes {
-  /**
-   * The postmortem attachment.
-   */
-  "attachment": IncidentAttachmentsPostmortemAttributesAttachmentObject;
-  /**
-   * The type of postmortem attachment attributes.
-   */
-  "attachmentType": IncidentAttachmentPostmortemAttachmentType;
+export class Attachment {
+  "data"?: AttachmentData;
+  "included"?: Array<AttachmentIncluded>;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,15 +28,13 @@ export class IncidentAttachmentPostmortemAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachment: {
-      baseName: "attachment",
-      type: "IncidentAttachmentsPostmortemAttributesAttachmentObject",
-      required: true,
+    data: {
+      baseName: "data",
+      type: "AttachmentData",
     },
-    attachmentType: {
-      baseName: "attachment_type",
-      type: "IncidentAttachmentPostmortemAttachmentType",
-      required: true,
+    included: {
+      baseName: "included",
+      type: "Array<AttachmentIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,7 +46,7 @@ export class IncidentAttachmentPostmortemAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentPostmortemAttributes.attributeTypeMap;
+    return Attachment.attributeTypeMap;
   }
 
   public constructor() {}

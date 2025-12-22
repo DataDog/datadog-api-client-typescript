@@ -3,23 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentAttachmentData } from "./IncidentAttachmentData";
-import { IncidentAttachmentsResponseIncludedItem } from "./IncidentAttachmentsResponseIncludedItem";
+import { AttachmentData } from "./AttachmentData";
+import { AttachmentIncluded } from "./AttachmentIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The response object containing an incident's attachments.
- */
-export class IncidentAttachmentsResponse {
-  /**
-   * An array of incident attachments.
-   */
-  "data": Array<IncidentAttachmentData>;
-  /**
-   * Included related resources that the user requested.
-   */
-  "included"?: Array<IncidentAttachmentsResponseIncludedItem>;
+export class AttachmentArray {
+  "data": Array<AttachmentData>;
+  "included"?: Array<AttachmentIncluded>;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,12 +30,12 @@ export class IncidentAttachmentsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<IncidentAttachmentData>",
+      type: "Array<AttachmentData>",
       required: true,
     },
     included: {
       baseName: "included",
-      type: "Array<IncidentAttachmentsResponseIncludedItem>",
+      type: "Array<AttachmentIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +47,7 @@ export class IncidentAttachmentsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentsResponse.attributeTypeMap;
+    return AttachmentArray.attributeTypeMap;
   }
 
   public constructor() {}
