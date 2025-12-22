@@ -25,11 +25,7 @@ export class ObservabilityPipelineSampleProcessor {
   /**
    * The percentage of logs to sample.
    */
-  "percentage"?: number;
-  /**
-   * Number of events to sample (1 in N).
-   */
-  "rate"?: number;
+  "percentage": number;
   /**
    * The processor type. The value should always be `sample`.
    */
@@ -71,12 +67,8 @@ export class ObservabilityPipelineSampleProcessor {
     percentage: {
       baseName: "percentage",
       type: "number",
+      required: true,
       format: "double",
-    },
-    rate: {
-      baseName: "rate",
-      type: "number",
-      format: "int64",
     },
     type: {
       baseName: "type",
