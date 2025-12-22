@@ -9330,6 +9330,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UserTeamResponse",
   },
+  "TeamsApi.V2.GetTeamNotificationRules": {
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TeamNotificationRulesResponse",
+  },
+  "TeamsApi.V2.CreateTeamNotificationRule": {
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TeamNotificationRule",
+      format: "",
+    },
+    operationResponseType: "TeamNotificationRule",
+  },
+  "TeamsApi.V2.GetTeamNotificationRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TeamNotificationRule",
+  },
+  "TeamsApi.V2.UpdateTeamNotificationRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TeamNotificationRule",
+      format: "",
+    },
+    operationResponseType: "TeamNotificationRule",
+  },
+  "TeamsApi.V2.DeleteTeamNotificationRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "TeamsApi.V2.GetTeamPermissionSettings": {
     teamId: {
       type: "string",
