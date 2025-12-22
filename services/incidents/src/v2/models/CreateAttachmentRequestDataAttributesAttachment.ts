@@ -1,15 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { RelationshipToUser } from "./RelationshipToUser";
-
-/**
- * The incident attachment's relationships.
- */
-export class IncidentAttachmentRelationships {
-  /**
-   * Relationship to user.
-   */
-  "lastModifiedByUser"?: RelationshipToUser;
+export class CreateAttachmentRequestDataAttributesAttachment {
+  "documentUrl"?: string;
+  "title"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +18,13 @@ export class IncidentAttachmentRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
+    documentUrl: {
+      baseName: "documentUrl",
+      type: "string",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +36,7 @@ export class IncidentAttachmentRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentRelationships.attributeTypeMap;
+    return CreateAttachmentRequestDataAttributesAttachment.attributeTypeMap;
   }
 
   public constructor() {}

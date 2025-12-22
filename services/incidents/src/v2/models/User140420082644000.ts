@@ -1,17 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-/**
- * The postmortem attachment.
- */
-export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
+import { UserAttributes } from "./UserAttributes";
+import { UserType } from "./UserType";
+
+export class User140420082644000 {
   /**
-   * The URL of this notebook attachment.
+   * Attributes of user object returned by the API.
    */
-  "documentUrl": string;
+  "attributes"?: UserAttributes;
+  "id"?: string;
   /**
-   * The title of this postmortem attachment.
+   * Users resource type.
    */
-  "title": string;
+  "type": UserType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,14 +28,17 @@ export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    documentUrl: {
-      baseName: "documentUrl",
-      type: "string",
-      required: true,
+    attributes: {
+      baseName: "attributes",
+      type: "UserAttributes",
     },
-    title: {
-      baseName: "title",
+    id: {
+      baseName: "id",
       type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "UserType",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +51,7 @@ export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentsPostmortemAttributesAttachmentObject.attributeTypeMap;
+    return User140420082644000.attributeTypeMap;
   }
 
   public constructor() {}

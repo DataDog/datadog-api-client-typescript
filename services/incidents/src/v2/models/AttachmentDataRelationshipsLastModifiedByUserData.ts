@@ -1,24 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { IncidentAttachmentType } from "./IncidentAttachmentType";
-import { IncidentAttachmentUpdateAttributes } from "./IncidentAttachmentUpdateAttributes";
+import { UserType } from "./UserType";
 
-/**
- * A single incident attachment.
- */
-export class IncidentAttachmentUpdateData {
+export class AttachmentDataRelationshipsLastModifiedByUserData {
+  "id": string;
   /**
-   * Incident attachment attributes.
+   * Users resource type.
    */
-  "attributes"?: IncidentAttachmentUpdateAttributes;
-  /**
-   * A unique identifier that represents the incident attachment.
-   */
-  "id"?: string;
-  /**
-   * The incident attachment resource type.
-   */
-  "type": IncidentAttachmentType;
+  "type": UserType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,17 +23,14 @@ export class IncidentAttachmentUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentAttachmentUpdateAttributes",
-    },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "IncidentAttachmentType",
+      type: "UserType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +43,7 @@ export class IncidentAttachmentUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentUpdateData.attributeTypeMap;
+    return AttachmentDataRelationshipsLastModifiedByUserData.attributeTypeMap;
   }
 
   public constructor() {}

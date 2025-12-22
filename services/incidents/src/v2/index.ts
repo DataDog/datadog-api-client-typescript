@@ -1,5 +1,6 @@
 export {
   IncidentsApiCreateIncidentRequest,
+  IncidentsApiCreateIncidentAttachmentRequest,
   IncidentsApiCreateIncidentImpactRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentNotificationRuleRequest,
@@ -7,6 +8,7 @@ export {
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
+  IncidentsApiDeleteIncidentAttachmentRequest,
   IncidentsApiDeleteIncidentImpactRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentNotificationRuleRequest,
@@ -29,7 +31,7 @@ export {
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
-  IncidentsApiUpdateIncidentAttachmentsRequest,
+  IncidentsApiUpdateIncidentAttachmentRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApiUpdateIncidentNotificationRuleRequest,
   IncidentsApiUpdateIncidentNotificationTemplateRequest,
@@ -39,28 +41,25 @@ export {
 } from "./IncidentsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { Attachment } from "./models/Attachment";
+export { AttachmentArray } from "./models/AttachmentArray";
+export { AttachmentData } from "./models/AttachmentData";
+export { AttachmentDataAttributes } from "./models/AttachmentDataAttributes";
+export { AttachmentDataAttributesAttachment } from "./models/AttachmentDataAttributesAttachment";
+export { AttachmentDataAttributesAttachmentType } from "./models/AttachmentDataAttributesAttachmentType";
+export { AttachmentDataRelationships } from "./models/AttachmentDataRelationships";
+export { AttachmentDataRelationshipsLastModifiedByUser } from "./models/AttachmentDataRelationshipsLastModifiedByUser";
+export { AttachmentDataRelationshipsLastModifiedByUserData } from "./models/AttachmentDataRelationshipsLastModifiedByUserData";
+export { AttachmentIncluded } from "./models/AttachmentIncluded";
+export { CreateAttachmentRequest } from "./models/CreateAttachmentRequest";
+export { CreateAttachmentRequestData } from "./models/CreateAttachmentRequestData";
+export { CreateAttachmentRequestDataAttributes } from "./models/CreateAttachmentRequestDataAttributes";
+export { CreateAttachmentRequestDataAttributesAttachment } from "./models/CreateAttachmentRequestDataAttributesAttachment";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
-export { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
-export { IncidentAttachmentAttributes } from "./models/IncidentAttachmentAttributes";
-export { IncidentAttachmentData } from "./models/IncidentAttachmentData";
-export { IncidentAttachmentLinkAttachmentType } from "./models/IncidentAttachmentLinkAttachmentType";
-export { IncidentAttachmentLinkAttributes } from "./models/IncidentAttachmentLinkAttributes";
-export { IncidentAttachmentLinkAttributesAttachmentObject } from "./models/IncidentAttachmentLinkAttributesAttachmentObject";
-export { IncidentAttachmentPostmortemAttachmentType } from "./models/IncidentAttachmentPostmortemAttachmentType";
-export { IncidentAttachmentPostmortemAttributes } from "./models/IncidentAttachmentPostmortemAttributes";
-export { IncidentAttachmentRelatedObject } from "./models/IncidentAttachmentRelatedObject";
-export { IncidentAttachmentRelationships } from "./models/IncidentAttachmentRelationships";
-export { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./models/IncidentAttachmentsPostmortemAttributesAttachmentObject";
-export { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsResponse";
-export { IncidentAttachmentsResponseIncludedItem } from "./models/IncidentAttachmentsResponseIncludedItem";
 export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
-export { IncidentAttachmentUpdateAttributes } from "./models/IncidentAttachmentUpdateAttributes";
-export { IncidentAttachmentUpdateData } from "./models/IncidentAttachmentUpdateData";
-export { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpdateRequest";
-export { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
@@ -197,6 +196,10 @@ export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegration
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OrganizationsType } from "./models/OrganizationsType";
+export { PatchAttachmentRequest } from "./models/PatchAttachmentRequest";
+export { PatchAttachmentRequestData } from "./models/PatchAttachmentRequestData";
+export { PatchAttachmentRequestDataAttributes } from "./models/PatchAttachmentRequestDataAttributes";
+export { PatchAttachmentRequestDataAttributesAttachment } from "./models/PatchAttachmentRequestDataAttributesAttachment";
 export { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 export { RelationshipToIncident } from "./models/RelationshipToIncident";
@@ -229,8 +232,10 @@ export { RolesType } from "./models/RolesType";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { User } from "./models/User";
+export { User140420082644000 } from "./models/User140420082644000";
 export { UserAttributes } from "./models/UserAttributes";
 export { UserResponseRelationships } from "./models/UserResponseRelationships";
 export { UsersType } from "./models/UsersType";
+export { UserType } from "./models/UserType";
 export { ZoomConfigurationReference } from "./models/ZoomConfigurationReference";
 export { ZoomConfigurationReferenceData } from "./models/ZoomConfigurationReferenceData";

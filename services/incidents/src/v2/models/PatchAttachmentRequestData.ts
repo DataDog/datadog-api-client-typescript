@@ -1,25 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { IncidentAttachmentAttributes } from "./IncidentAttachmentAttributes";
-import { IncidentAttachmentRelationships } from "./IncidentAttachmentRelationships";
 import { IncidentAttachmentType } from "./IncidentAttachmentType";
+import { PatchAttachmentRequestDataAttributes } from "./PatchAttachmentRequestDataAttributes";
 
-/**
- * A single incident attachment.
- */
-export class IncidentAttachmentData {
-  /**
-   * The attributes object for an attachment.
-   */
-  "attributes": IncidentAttachmentAttributes;
-  /**
-   * A unique identifier that represents the incident attachment.
-   */
-  "id": string;
-  /**
-   * The incident attachment's relationships.
-   */
-  "relationships": IncidentAttachmentRelationships;
+export class PatchAttachmentRequestData {
+  "attributes"?: PatchAttachmentRequestDataAttributes;
+  "id"?: string;
   /**
    * The incident attachment resource type.
    */
@@ -41,18 +27,11 @@ export class IncidentAttachmentData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "IncidentAttachmentAttributes",
-      required: true,
+      type: "PatchAttachmentRequestDataAttributes",
     },
     id: {
       baseName: "id",
       type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentAttachmentRelationships",
-      required: true,
     },
     type: {
       baseName: "type",
@@ -69,7 +48,7 @@ export class IncidentAttachmentData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentData.attributeTypeMap;
+    return PatchAttachmentRequestData.attributeTypeMap;
   }
 
   public constructor() {}
