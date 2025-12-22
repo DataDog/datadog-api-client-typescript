@@ -12,6 +12,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `kafka` source ingests data from Apache Kafka topics.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineKafkaSource {
   /**

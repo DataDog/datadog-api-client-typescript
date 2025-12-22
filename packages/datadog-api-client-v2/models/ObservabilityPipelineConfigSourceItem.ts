@@ -27,20 +27,20 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type ObservabilityPipelineConfigSourceItem =
-  | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineDatadogAgentSource
-  | ObservabilityPipelineSplunkTcpSource
-  | ObservabilityPipelineSplunkHecSource
-  | ObservabilityPipelineAmazonS3Source
-  | ObservabilityPipelineFluentdSource
-  | ObservabilityPipelineFluentBitSource
-  | ObservabilityPipelineHttpServerSource
-  | ObservabilityPipelineSumoLogicSource
-  | ObservabilityPipelineRsyslogSource
-  | ObservabilityPipelineSyslogNgSource
   | ObservabilityPipelineAmazonDataFirehoseSource
+  | ObservabilityPipelineAmazonS3Source
+  | ObservabilityPipelineFluentBitSource
+  | ObservabilityPipelineFluentdSource
   | ObservabilityPipelineGooglePubSubSource
   | ObservabilityPipelineHttpClientSource
+  | ObservabilityPipelineHttpServerSource
+  | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineLogstashSource
+  | ObservabilityPipelineRsyslogSource
   | ObservabilityPipelineSocketSource
+  | ObservabilityPipelineSplunkHecSource
+  | ObservabilityPipelineSplunkTcpSource
+  | ObservabilityPipelineSumoLogicSource
+  | ObservabilityPipelineSyslogNgSource
   | UnparsedObject;

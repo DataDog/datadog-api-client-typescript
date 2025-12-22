@@ -11,6 +11,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineEnrichmentTableProcessor {
   /**
