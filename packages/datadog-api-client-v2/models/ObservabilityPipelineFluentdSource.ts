@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `fluentd` source ingests logs from a Fluentd-compatible service.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineFluentdSource {
   /**

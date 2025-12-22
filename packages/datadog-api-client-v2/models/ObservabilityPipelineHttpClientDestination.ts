@@ -3,48 +3,48 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineSocketDestinationEncoding } from "./ObservabilityPipelineSocketDestinationEncoding";
-import { ObservabilityPipelineSocketDestinationFraming } from "./ObservabilityPipelineSocketDestinationFraming";
-import { ObservabilityPipelineSocketDestinationMode } from "./ObservabilityPipelineSocketDestinationMode";
-import { ObservabilityPipelineSocketDestinationType } from "./ObservabilityPipelineSocketDestinationType";
+import { ObservabilityPipelineHttpClientDestinationAuthStrategy } from "./ObservabilityPipelineHttpClientDestinationAuthStrategy";
+import { ObservabilityPipelineHttpClientDestinationCompression } from "./ObservabilityPipelineHttpClientDestinationCompression";
+import { ObservabilityPipelineHttpClientDestinationEncoding } from "./ObservabilityPipelineHttpClientDestinationEncoding";
+import { ObservabilityPipelineHttpClientDestinationType } from "./ObservabilityPipelineHttpClientDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `socket` destination sends logs over TCP or UDP to a remote server.
+ * The `http_client` destination sends data to an HTTP endpoint.
  *
- * **Supported pipeline types:** logs
+ * **Supported pipeline types:** logs, metrics
  */
-export class ObservabilityPipelineSocketDestination {
+export class ObservabilityPipelineHttpClientDestination {
+  /**
+   * HTTP authentication strategy.
+   */
+  "authStrategy"?: ObservabilityPipelineHttpClientDestinationAuthStrategy;
+  /**
+   * Compression configuration for HTTP requests.
+   */
+  "compression"?: ObservabilityPipelineHttpClientDestinationCompression;
   /**
    * Encoding format for log events.
    */
-  "encoding": ObservabilityPipelineSocketDestinationEncoding;
-  /**
-   * Framing method configuration.
-   */
-  "framing": ObservabilityPipelineSocketDestinationFraming;
+  "encoding": ObservabilityPipelineHttpClientDestinationEncoding;
   /**
    * The unique identifier for this component.
    */
   "id": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as the input for this component.
    */
   "inputs": Array<string>;
-  /**
-   * Protocol used to send logs.
-   */
-  "mode": ObservabilityPipelineSocketDestinationMode;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
   "tls"?: ObservabilityPipelineTls;
   /**
-   * The destination type. The value should always be `socket`.
+   * The destination type. The value should always be `http_client`.
    */
-  "type": ObservabilityPipelineSocketDestinationType;
+  "type": ObservabilityPipelineHttpClientDestinationType;
 
   /**
    * A container for additional, undeclared properties.
@@ -62,14 +62,17 @@ export class ObservabilityPipelineSocketDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authStrategy: {
+      baseName: "auth_strategy",
+      type: "ObservabilityPipelineHttpClientDestinationAuthStrategy",
+    },
+    compression: {
+      baseName: "compression",
+      type: "ObservabilityPipelineHttpClientDestinationCompression",
+    },
     encoding: {
       baseName: "encoding",
-      type: "ObservabilityPipelineSocketDestinationEncoding",
-      required: true,
-    },
-    framing: {
-      baseName: "framing",
-      type: "ObservabilityPipelineSocketDestinationFraming",
+      type: "ObservabilityPipelineHttpClientDestinationEncoding",
       required: true,
     },
     id: {
@@ -82,18 +85,13 @@ export class ObservabilityPipelineSocketDestination {
       type: "Array<string>",
       required: true,
     },
-    mode: {
-      baseName: "mode",
-      type: "ObservabilityPipelineSocketDestinationMode",
-      required: true,
-    },
     tls: {
       baseName: "tls",
       type: "ObservabilityPipelineTls",
     },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineSocketDestinationType",
+      type: "ObservabilityPipelineHttpClientDestinationType",
       required: true,
     },
     additionalProperties: {
@@ -106,7 +104,7 @@ export class ObservabilityPipelineSocketDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSocketDestination.attributeTypeMap;
+    return ObservabilityPipelineHttpClientDestination.attributeTypeMap;
   }
 
   public constructor() {}

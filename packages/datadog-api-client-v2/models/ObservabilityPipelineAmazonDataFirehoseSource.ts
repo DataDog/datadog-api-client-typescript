@@ -11,6 +11,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonDataFirehoseSource {
   /**

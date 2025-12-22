@@ -3,29 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineSplunkHecSourceType } from "./ObservabilityPipelineSplunkHecSourceType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineMetricTagsProcessorRuleAction } from "./ObservabilityPipelineMetricTagsProcessorRuleAction";
+import { ObservabilityPipelineMetricTagsProcessorRuleMode } from "./ObservabilityPipelineMetricTagsProcessorRuleMode";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
- *
- * **Supported pipeline types:** logs
+ * Defines a rule for filtering metric tags based on key patterns.
  */
-export class ObservabilityPipelineSplunkHecSource {
+export class ObservabilityPipelineMetricTagsProcessorRule {
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * The action to take on tags with matching keys.
    */
-  "id": string;
+  "action": ObservabilityPipelineMetricTagsProcessorRuleAction;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * A list of tag keys to include or exclude.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "keys": Array<string>;
   /**
-   * The source type. Always `splunk_hec`.
+   * The processing mode for tag filtering.
    */
-  "type": ObservabilityPipelineSplunkHecSourceType;
+  "mode": ObservabilityPipelineMetricTagsProcessorRuleMode;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,18 +41,19 @@ export class ObservabilityPipelineSplunkHecSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    action: {
+      baseName: "action",
+      type: "ObservabilityPipelineMetricTagsProcessorRuleAction",
       required: true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    keys: {
+      baseName: "keys",
+      type: "Array<string>",
+      required: true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineSplunkHecSourceType",
+    mode: {
+      baseName: "mode",
+      type: "ObservabilityPipelineMetricTagsProcessorRuleMode",
       required: true,
     },
     additionalProperties: {
@@ -67,7 +66,7 @@ export class ObservabilityPipelineSplunkHecSource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSplunkHecSource.attributeTypeMap;
+    return ObservabilityPipelineMetricTagsProcessorRule.attributeTypeMap;
   }
 
   public constructor() {}

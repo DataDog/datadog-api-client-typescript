@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `add_fields` processor adds static key-value fields to logs.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAddFieldsProcessor {
   /**

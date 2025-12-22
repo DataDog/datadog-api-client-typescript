@@ -11,6 +11,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
  * TLS is supported for secure transmission.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSplunkTcpSource {
   /**

@@ -12,6 +12,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGooglePubSubDestination {
   /**
