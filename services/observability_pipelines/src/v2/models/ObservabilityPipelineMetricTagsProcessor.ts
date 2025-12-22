@@ -1,17 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelineFilterProcessorType } from "./ObservabilityPipelineFilterProcessorType";
+import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
+import { ObservabilityPipelineMetricTagsProcessorType } from "./ObservabilityPipelineMetricTagsProcessorType";
 
 /**
- * The `filter` processor allows conditional processing of logs/metrics based on a Datadog search query. Logs/metrics that match the `include` query are passed through; others are discarded.
+ * The `metric_tags` processor filters metrics based on their tags using Datadog tag key patterns.
  *
- * **Supported pipeline types:** logs, metrics
+ * **Supported pipeline types:** metrics
  */
-export class ObservabilityPipelineFilterProcessor {
-  /**
-   * The display name for a component.
-   */
-  "displayName"?: string;
+export class ObservabilityPipelineMetricTagsProcessor {
   /**
    * Whether this processor is enabled.
    */
@@ -21,13 +18,17 @@ export class ObservabilityPipelineFilterProcessor {
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs/metrics should pass through the filter. Logs/metrics that match this query continue to downstream components; others are dropped.
+   * A Datadog search query used to determine which metrics this processor targets.
    */
   "include": string;
   /**
-   * The processor type. The value should always be `filter`.
+   * A list of rules for filtering metric tags.
    */
-  "type": ObservabilityPipelineFilterProcessorType;
+  "rules": Array<ObservabilityPipelineMetricTagsProcessorRule>;
+  /**
+   * The processor type. The value should always be `metric_tags`.
+   */
+  "type": ObservabilityPipelineMetricTagsProcessorType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -43,10 +44,6 @@ export class ObservabilityPipelineFilterProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
-    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
@@ -62,9 +59,14 @@ export class ObservabilityPipelineFilterProcessor {
       type: "string",
       required: true,
     },
+    rules: {
+      baseName: "rules",
+      type: "Array<ObservabilityPipelineMetricTagsProcessorRule>",
+      required: true,
+    },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineFilterProcessorType",
+      type: "ObservabilityPipelineMetricTagsProcessorType",
       required: true,
     },
     additionalProperties: {
@@ -77,7 +79,7 @@ export class ObservabilityPipelineFilterProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineFilterProcessor.attributeTypeMap;
+    return ObservabilityPipelineMetricTagsProcessor.attributeTypeMap;
   }
 
   public constructor() {}

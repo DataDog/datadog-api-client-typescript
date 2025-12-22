@@ -5,6 +5,8 @@ import { ObservabilityPipelineNewRelicDestinationType } from "./ObservabilityPip
 
 /**
  * The `new_relic` destination sends logs to the New Relic platform.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineNewRelicDestination {
   /**

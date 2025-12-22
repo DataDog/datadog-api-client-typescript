@@ -21,20 +21,20 @@ import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSysl
  * A data source for the pipeline.
  */
 export type ObservabilityPipelineConfigSourceItem =
-  | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineDatadogAgentSource
-  | ObservabilityPipelineSplunkTcpSource
-  | ObservabilityPipelineSplunkHecSource
-  | ObservabilityPipelineAmazonS3Source
-  | ObservabilityPipelineFluentdSource
-  | ObservabilityPipelineFluentBitSource
-  | ObservabilityPipelineHttpServerSource
-  | ObservabilityPipelineSumoLogicSource
-  | ObservabilityPipelineRsyslogSource
-  | ObservabilityPipelineSyslogNgSource
   | ObservabilityPipelineAmazonDataFirehoseSource
+  | ObservabilityPipelineAmazonS3Source
+  | ObservabilityPipelineFluentBitSource
+  | ObservabilityPipelineFluentdSource
   | ObservabilityPipelineGooglePubSubSource
   | ObservabilityPipelineHttpClientSource
+  | ObservabilityPipelineHttpServerSource
+  | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineLogstashSource
+  | ObservabilityPipelineRsyslogSource
   | ObservabilityPipelineSocketSource
+  | ObservabilityPipelineSplunkHecSource
+  | ObservabilityPipelineSplunkTcpSource
+  | ObservabilityPipelineSumoLogicSource
+  | ObservabilityPipelineSyslogNgSource
   | UnparsedObject;

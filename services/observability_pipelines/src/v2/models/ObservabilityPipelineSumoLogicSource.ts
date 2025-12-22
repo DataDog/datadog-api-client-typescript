@@ -4,6 +4,8 @@ import { ObservabilityPipelineSumoLogicSourceType } from "./ObservabilityPipelin
 
 /**
  * The `sumo_logic` source receives logs from Sumo Logic collectors.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSumoLogicSource {
   /**

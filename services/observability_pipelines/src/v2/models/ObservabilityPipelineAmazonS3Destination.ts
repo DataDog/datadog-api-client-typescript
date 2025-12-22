@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonS3Destination {
   /**
