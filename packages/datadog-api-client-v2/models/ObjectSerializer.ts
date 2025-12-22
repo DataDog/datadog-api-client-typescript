@@ -575,6 +575,8 @@ import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
+import { CreateOnCallNotificationRuleRequest } from "./CreateOnCallNotificationRuleRequest";
+import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificationRuleRequestData";
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
@@ -1422,6 +1424,7 @@ import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListNotificationChannelsResponse } from "./ListNotificationChannelsResponse";
+import { ListOnCallNotificationRulesResponse } from "./ListOnCallNotificationRulesResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
@@ -1782,6 +1785,14 @@ import { OktaAccountUpdateRequestData } from "./OktaAccountUpdateRequestData";
 import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OktaIntegration } from "./OktaIntegration";
 import { OktaIntegrationUpdate } from "./OktaIntegrationUpdate";
+import { OnCallNotificationRule } from "./OnCallNotificationRule";
+import { OnCallNotificationRuleAttributes } from "./OnCallNotificationRuleAttributes";
+import { OnCallNotificationRuleChannelRelationship } from "./OnCallNotificationRuleChannelRelationship";
+import { OnCallNotificationRuleChannelRelationshipData } from "./OnCallNotificationRuleChannelRelationshipData";
+import { OnCallNotificationRuleData } from "./OnCallNotificationRuleData";
+import { OnCallNotificationRuleRelationships } from "./OnCallNotificationRuleRelationships";
+import { OnCallNotificationRuleRequestAttributes } from "./OnCallNotificationRuleRequestAttributes";
+import { OnCallPhoneNotificationRuleSettings } from "./OnCallPhoneNotificationRuleSettings";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
@@ -2648,6 +2659,9 @@ import { UpdateDeploymentGateParamsDataAttributes } from "./UpdateDeploymentGate
 import { UpdateDeploymentRuleParams } from "./UpdateDeploymentRuleParams";
 import { UpdateDeploymentRuleParamsData } from "./UpdateDeploymentRuleParamsData";
 import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRuleParamsDataAttributes";
+import { UpdateOnCallNotificationRuleRequest } from "./UpdateOnCallNotificationRuleRequest";
+import { UpdateOnCallNotificationRuleRequestAttributes } from "./UpdateOnCallNotificationRuleRequestAttributes";
+import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
@@ -3816,7 +3830,10 @@ const enumsMap: { [key: string]: any[] } = {
   OktaAPITokenType: ["OktaAPIToken"],
   OktaAccountType: ["okta-accounts"],
   OktaIntegrationType: ["Okta"],
+  OnCallNotificationRuleCategory: ["high_urgency", "low_urgency"],
+  OnCallNotificationRuleType: ["notification_rules"],
   OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
+  OnCallPhoneNotificationRuleMethod: ["sms", "voice"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
   OpenAIIntegrationType: ["OpenAI"],
@@ -5125,6 +5142,9 @@ const typeMap: { [index: string]: any } = {
   CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
   CreateNotificationRuleParametersDataAttributes:
     CreateNotificationRuleParametersDataAttributes,
+  CreateOnCallNotificationRuleRequest: CreateOnCallNotificationRuleRequest,
+  CreateOnCallNotificationRuleRequestData:
+    CreateOnCallNotificationRuleRequestData,
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
@@ -6097,6 +6117,7 @@ const typeMap: { [index: string]: any } = {
   ListFindingsResponse: ListFindingsResponse,
   ListKindCatalogResponse: ListKindCatalogResponse,
   ListNotificationChannelsResponse: ListNotificationChannelsResponse,
+  ListOnCallNotificationRulesResponse: ListOnCallNotificationRulesResponse,
   ListPipelinesResponse: ListPipelinesResponse,
   ListPipelinesResponseMeta: ListPipelinesResponseMeta,
   ListPowerpacksResponse: ListPowerpacksResponse,
@@ -6575,6 +6596,17 @@ const typeMap: { [index: string]: any } = {
   OktaAccountsResponse: OktaAccountsResponse,
   OktaIntegration: OktaIntegration,
   OktaIntegrationUpdate: OktaIntegrationUpdate,
+  OnCallNotificationRule: OnCallNotificationRule,
+  OnCallNotificationRuleAttributes: OnCallNotificationRuleAttributes,
+  OnCallNotificationRuleChannelRelationship:
+    OnCallNotificationRuleChannelRelationship,
+  OnCallNotificationRuleChannelRelationshipData:
+    OnCallNotificationRuleChannelRelationshipData,
+  OnCallNotificationRuleData: OnCallNotificationRuleData,
+  OnCallNotificationRuleRelationships: OnCallNotificationRuleRelationships,
+  OnCallNotificationRuleRequestAttributes:
+    OnCallNotificationRuleRequestAttributes,
+  OnCallPhoneNotificationRuleSettings: OnCallPhoneNotificationRuleSettings,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
@@ -7579,6 +7611,11 @@ const typeMap: { [index: string]: any } = {
   UpdateDeploymentRuleParamsData: UpdateDeploymentRuleParamsData,
   UpdateDeploymentRuleParamsDataAttributes:
     UpdateDeploymentRuleParamsDataAttributes,
+  UpdateOnCallNotificationRuleRequest: UpdateOnCallNotificationRuleRequest,
+  UpdateOnCallNotificationRuleRequestAttributes:
+    UpdateOnCallNotificationRuleRequestAttributes,
+  UpdateOnCallNotificationRuleRequestData:
+    UpdateOnCallNotificationRuleRequestData,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
@@ -8110,6 +8147,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   OktaCredentials: ["OktaAPIToken"],
   OktaCredentialsUpdate: ["OktaAPITokenUpdate"],
+  OnCallNotificationRuleChannelSettings: [
+    "OnCallPhoneNotificationRuleSettings",
+  ],
+  OnCallNotificationRulesIncluded: ["NotificationChannelData"],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
   PatchTableRequestDataAttributesFileMetadata: [
