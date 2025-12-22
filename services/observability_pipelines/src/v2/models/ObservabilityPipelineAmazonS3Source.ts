@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 /**
  * The `amazon_s3` source ingests logs from an Amazon S3 bucket.
  * It supports AWS authentication and TLS encryption.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonS3Source {
   /**

@@ -5,6 +5,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `fluent_bit` source ingests logs from Fluent Bit.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineFluentBitSource {
   /**

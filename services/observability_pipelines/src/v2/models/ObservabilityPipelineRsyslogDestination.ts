@@ -5,6 +5,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineRsyslogDestination {
   /**

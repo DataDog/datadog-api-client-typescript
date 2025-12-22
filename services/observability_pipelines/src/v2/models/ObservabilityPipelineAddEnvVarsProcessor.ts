@@ -5,6 +5,8 @@ import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./Observabilit
 
 /**
  * The `add_env_vars` processor adds environment variable values to log events.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAddEnvVarsProcessor {
   /**

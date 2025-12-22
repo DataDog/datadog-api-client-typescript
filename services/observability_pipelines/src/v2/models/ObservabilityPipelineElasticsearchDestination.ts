@@ -5,6 +5,8 @@ import { ObservabilityPipelineElasticsearchDestinationType } from "./Observabili
 
 /**
  * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineElasticsearchDestination {
   /**

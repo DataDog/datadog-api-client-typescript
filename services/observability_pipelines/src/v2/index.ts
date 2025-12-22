@@ -37,6 +37,7 @@ export { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./models
 export { ObservabilityPipelineAwsAuth } from "./models/ObservabilityPipelineAwsAuth";
 export { ObservabilityPipelineConfig } from "./models/ObservabilityPipelineConfig";
 export { ObservabilityPipelineConfigDestinationItem } from "./models/ObservabilityPipelineConfigDestinationItem";
+export { ObservabilityPipelineConfigPipelineType } from "./models/ObservabilityPipelineConfigPipelineType";
 export { ObservabilityPipelineConfigProcessorGroup } from "./models/ObservabilityPipelineConfigProcessorGroup";
 export { ObservabilityPipelineConfigProcessorItem } from "./models/ObservabilityPipelineConfigProcessorItem";
 export { ObservabilityPipelineConfigSourceItem } from "./models/ObservabilityPipelineConfigSourceItem";
@@ -54,6 +55,8 @@ export { ObservabilityPipelineDatadogAgentSource } from "./models/ObservabilityP
 export { ObservabilityPipelineDatadogAgentSourceType } from "./models/ObservabilityPipelineDatadogAgentSourceType";
 export { ObservabilityPipelineDatadogLogsDestination } from "./models/ObservabilityPipelineDatadogLogsDestination";
 export { ObservabilityPipelineDatadogLogsDestinationType } from "./models/ObservabilityPipelineDatadogLogsDestinationType";
+export { ObservabilityPipelineDatadogMetricsDestination } from "./models/ObservabilityPipelineDatadogMetricsDestination";
+export { ObservabilityPipelineDatadogMetricsDestinationType } from "./models/ObservabilityPipelineDatadogMetricsDestinationType";
 export { ObservabilityPipelineDatadogTagsProcessor } from "./models/ObservabilityPipelineDatadogTagsProcessor";
 export { ObservabilityPipelineDatadogTagsProcessorAction } from "./models/ObservabilityPipelineDatadogTagsProcessorAction";
 export { ObservabilityPipelineDatadogTagsProcessorMode } from "./models/ObservabilityPipelineDatadogTagsProcessorMode";
@@ -103,6 +106,12 @@ export { ObservabilityPipelineGooglePubSubDestinationEncoding } from "./models/O
 export { ObservabilityPipelineGooglePubSubDestinationType } from "./models/ObservabilityPipelineGooglePubSubDestinationType";
 export { ObservabilityPipelineGooglePubSubSource } from "./models/ObservabilityPipelineGooglePubSubSource";
 export { ObservabilityPipelineGooglePubSubSourceType } from "./models/ObservabilityPipelineGooglePubSubSourceType";
+export { ObservabilityPipelineHttpClientDestination } from "./models/ObservabilityPipelineHttpClientDestination";
+export { ObservabilityPipelineHttpClientDestinationAuthStrategy } from "./models/ObservabilityPipelineHttpClientDestinationAuthStrategy";
+export { ObservabilityPipelineHttpClientDestinationCompression } from "./models/ObservabilityPipelineHttpClientDestinationCompression";
+export { ObservabilityPipelineHttpClientDestinationCompressionAlgorithm } from "./models/ObservabilityPipelineHttpClientDestinationCompressionAlgorithm";
+export { ObservabilityPipelineHttpClientDestinationEncoding } from "./models/ObservabilityPipelineHttpClientDestinationEncoding";
+export { ObservabilityPipelineHttpClientDestinationType } from "./models/ObservabilityPipelineHttpClientDestinationType";
 export { ObservabilityPipelineHttpClientSource } from "./models/ObservabilityPipelineHttpClientSource";
 export { ObservabilityPipelineHttpClientSourceAuthStrategy } from "./models/ObservabilityPipelineHttpClientSourceAuthStrategy";
 export { ObservabilityPipelineHttpClientSourceType } from "./models/ObservabilityPipelineHttpClientSourceType";
@@ -116,6 +125,11 @@ export { ObservabilityPipelineKafkaSourceType } from "./models/ObservabilityPipe
 export { ObservabilityPipelineLogstashSource } from "./models/ObservabilityPipelineLogstashSource";
 export { ObservabilityPipelineLogstashSourceType } from "./models/ObservabilityPipelineLogstashSourceType";
 export { ObservabilityPipelineMetadataEntry } from "./models/ObservabilityPipelineMetadataEntry";
+export { ObservabilityPipelineMetricTagsProcessor } from "./models/ObservabilityPipelineMetricTagsProcessor";
+export { ObservabilityPipelineMetricTagsProcessorRule } from "./models/ObservabilityPipelineMetricTagsProcessorRule";
+export { ObservabilityPipelineMetricTagsProcessorRuleAction } from "./models/ObservabilityPipelineMetricTagsProcessorRuleAction";
+export { ObservabilityPipelineMetricTagsProcessorRuleMode } from "./models/ObservabilityPipelineMetricTagsProcessorRuleMode";
+export { ObservabilityPipelineMetricTagsProcessorType } from "./models/ObservabilityPipelineMetricTagsProcessorType";
 export { ObservabilityPipelineMetricValue } from "./models/ObservabilityPipelineMetricValue";
 export { ObservabilityPipelineNewRelicDestination } from "./models/ObservabilityPipelineNewRelicDestination";
 export { ObservabilityPipelineNewRelicDestinationRegion } from "./models/ObservabilityPipelineNewRelicDestinationRegion";

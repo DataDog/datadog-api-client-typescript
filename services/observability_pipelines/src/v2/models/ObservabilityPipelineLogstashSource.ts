@@ -5,6 +5,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `logstash` source ingests logs from a Logstash forwarder.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineLogstashSource {
   /**

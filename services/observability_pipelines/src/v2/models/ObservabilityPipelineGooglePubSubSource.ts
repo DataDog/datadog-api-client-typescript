@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGooglePubSubSource {
   /**

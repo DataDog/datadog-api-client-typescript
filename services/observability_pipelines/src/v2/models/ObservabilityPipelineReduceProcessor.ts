@@ -5,6 +5,8 @@ import { ObservabilityPipelineReduceProcessorType } from "./ObservabilityPipelin
 
 /**
  * The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineReduceProcessor {
   /**

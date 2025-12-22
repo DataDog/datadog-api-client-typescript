@@ -5,6 +5,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `syslog_ng` destination forwards logs to an external `syslog-ng` server over TCP or UDP using the syslog protocol.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSyslogNgDestination {
   /**

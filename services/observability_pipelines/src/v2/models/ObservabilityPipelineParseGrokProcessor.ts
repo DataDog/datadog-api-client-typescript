@@ -5,6 +5,8 @@ import { ObservabilityPipelineParseGrokProcessorType } from "./ObservabilityPipe
 
 /**
  * The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineParseGrokProcessor {
   /**
