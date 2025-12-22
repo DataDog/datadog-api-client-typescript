@@ -4,6 +4,8 @@ import { ObservabilityPipelineDatadogLogsDestinationType } from "./Observability
 
 /**
  * The `datadog_logs` destination forwards logs to Datadog Log Management.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDatadogLogsDestination {
   /**

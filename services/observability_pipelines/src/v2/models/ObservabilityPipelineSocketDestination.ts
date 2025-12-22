@@ -8,6 +8,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `socket` destination sends logs over TCP or UDP to a remote server.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSocketDestination {
   /**

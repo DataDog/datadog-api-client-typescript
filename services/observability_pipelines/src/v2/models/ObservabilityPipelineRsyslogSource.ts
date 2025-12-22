@@ -6,6 +6,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineRsyslogSource {
   /**

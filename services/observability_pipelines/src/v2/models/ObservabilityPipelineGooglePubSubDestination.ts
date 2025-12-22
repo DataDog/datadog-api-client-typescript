@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGooglePubSubDestination {
   /**
