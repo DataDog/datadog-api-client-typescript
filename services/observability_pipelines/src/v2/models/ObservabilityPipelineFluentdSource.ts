@@ -5,6 +5,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `fluentd` source ingests logs from a Fluentd-compatible service.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineFluentdSource {
   /**

@@ -1,33 +1,25 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AzureStorageDestinationType } from "./AzureStorageDestinationType";
+import { ObservabilityPipelineDatadogMetricsDestinationType } from "./ObservabilityPipelineDatadogMetricsDestinationType";
 
 /**
- * The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+ * The `datadog_metrics` destination forwards metrics to Datadog.
  *
- * **Supported pipeline types:** logs
+ * **Supported pipeline types:** metrics
  */
-export class AzureStorageDestination {
-  /**
-   * Optional prefix for blobs written to the container.
-   */
-  "blobPrefix"?: string;
-  /**
-   * The name of the Azure Blob Storage container to store logs in.
-   */
-  "containerName": string;
+export class ObservabilityPipelineDatadogMetricsDestination {
   /**
    * The unique identifier for this component.
    */
   "id": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as the input for this component.
    */
   "inputs": Array<string>;
   /**
-   * The destination type. The value should always be `azure_storage`.
+   * The destination type. The value should always be `datadog_metrics`.
    */
-  "type": AzureStorageDestinationType;
+  "type": ObservabilityPipelineDatadogMetricsDestinationType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -43,15 +35,6 @@ export class AzureStorageDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    blobPrefix: {
-      baseName: "blob_prefix",
-      type: "string",
-    },
-    containerName: {
-      baseName: "container_name",
-      type: "string",
-      required: true,
-    },
     id: {
       baseName: "id",
       type: "string",
@@ -64,7 +47,7 @@ export class AzureStorageDestination {
     },
     type: {
       baseName: "type",
-      type: "AzureStorageDestinationType",
+      type: "ObservabilityPipelineDatadogMetricsDestinationType",
       required: true,
     },
     additionalProperties: {
@@ -77,7 +60,7 @@ export class AzureStorageDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AzureStorageDestination.attributeTypeMap;
+    return ObservabilityPipelineDatadogMetricsDestination.attributeTypeMap;
   }
 
   public constructor() {}

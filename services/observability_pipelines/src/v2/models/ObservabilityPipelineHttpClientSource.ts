@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineHttpClientSource {
   /**

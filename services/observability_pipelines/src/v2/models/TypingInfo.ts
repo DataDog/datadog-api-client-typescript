@@ -26,6 +26,7 @@ import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
@@ -48,6 +49,8 @@ import { ObservabilityPipelineGoogleChronicleDestination } from "./Observability
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
 import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
 import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
+import { ObservabilityPipelineHttpClientDestination } from "./ObservabilityPipelineHttpClientDestination";
+import { ObservabilityPipelineHttpClientDestinationCompression } from "./ObservabilityPipelineHttpClientDestinationCompression";
 import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
 import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
@@ -55,6 +58,8 @@ import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./Observabilit
 import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
+import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
+import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
@@ -146,6 +151,7 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAmazonSecurityLakeDestinationType: [
       "amazon_security_lake",
     ],
+    ObservabilityPipelineConfigPipelineType: ["logs", "metrics"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm:
       ["gzip", "zlib"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding: [
@@ -158,6 +164,7 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineCustomProcessorType: ["custom_processor"],
     ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
     ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
+    ObservabilityPipelineDatadogMetricsDestinationType: ["datadog_metrics"],
     ObservabilityPipelineDatadogTagsProcessorAction: ["include", "exclude"],
     ObservabilityPipelineDatadogTagsProcessorMode: ["filter"],
     ObservabilityPipelineDatadogTagsProcessorType: ["datadog_tags"],
@@ -227,12 +234,19 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ObservabilityPipelineGooglePubSubDestinationType: ["google_pubsub"],
     ObservabilityPipelineGooglePubSubSourceType: ["google_pubsub"],
+    ObservabilityPipelineHttpClientDestinationAuthStrategy: ["basic", "bearer"],
+    ObservabilityPipelineHttpClientDestinationCompressionAlgorithm: ["gzip"],
+    ObservabilityPipelineHttpClientDestinationEncoding: ["json"],
+    ObservabilityPipelineHttpClientDestinationType: ["http_client"],
     ObservabilityPipelineHttpClientSourceAuthStrategy: ["basic", "bearer"],
     ObservabilityPipelineHttpClientSourceType: ["http_client"],
     ObservabilityPipelineHttpServerSourceAuthStrategy: ["none", "plain"],
     ObservabilityPipelineHttpServerSourceType: ["http_server"],
     ObservabilityPipelineKafkaSourceType: ["kafka"],
     ObservabilityPipelineLogstashSourceType: ["logstash"],
+    ObservabilityPipelineMetricTagsProcessorRuleAction: ["include", "exclude"],
+    ObservabilityPipelineMetricTagsProcessorRuleMode: ["filter"],
+    ObservabilityPipelineMetricTagsProcessorType: ["metric_tags"],
     ObservabilityPipelineNewRelicDestinationRegion: ["us", "eu"],
     ObservabilityPipelineNewRelicDestinationType: ["new_relic"],
     ObservabilityPipelineOcsfMapperProcessorType: ["ocsf_mapper"],
@@ -358,63 +372,66 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     ObservabilityPipelineConfigDestinationItem: [
-      "ObservabilityPipelineDatadogLogsDestination",
+      "ObservabilityPipelineHttpClientDestination",
+      "ObservabilityPipelineAmazonOpenSearchDestination",
       "ObservabilityPipelineAmazonS3Destination",
+      "ObservabilityPipelineAmazonSecurityLakeDestination",
+      "AzureStorageDestination",
+      "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
+      "ObservabilityPipelineDatadogLogsDestination",
+      "ObservabilityPipelineElasticsearchDestination",
+      "ObservabilityPipelineGoogleChronicleDestination",
       "ObservabilityPipelineGoogleCloudStorageDestination",
+      "ObservabilityPipelineGooglePubSubDestination",
+      "MicrosoftSentinelDestination",
+      "ObservabilityPipelineNewRelicDestination",
+      "ObservabilityPipelineOpenSearchDestination",
+      "ObservabilityPipelineRsyslogDestination",
+      "ObservabilityPipelineSentinelOneDestination",
+      "ObservabilityPipelineSocketDestination",
       "ObservabilityPipelineSplunkHecDestination",
       "ObservabilityPipelineSumoLogicDestination",
-      "ObservabilityPipelineElasticsearchDestination",
-      "ObservabilityPipelineRsyslogDestination",
       "ObservabilityPipelineSyslogNgDestination",
-      "AzureStorageDestination",
-      "MicrosoftSentinelDestination",
-      "ObservabilityPipelineGoogleChronicleDestination",
-      "ObservabilityPipelineNewRelicDestination",
-      "ObservabilityPipelineSentinelOneDestination",
-      "ObservabilityPipelineOpenSearchDestination",
-      "ObservabilityPipelineAmazonOpenSearchDestination",
-      "ObservabilityPipelineSocketDestination",
-      "ObservabilityPipelineAmazonSecurityLakeDestination",
-      "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
-      "ObservabilityPipelineGooglePubSubDestination",
+      "ObservabilityPipelineDatadogMetricsDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
       "ObservabilityPipelineFilterProcessor",
-      "ObservabilityPipelineParseJSONProcessor",
-      "ObservabilityPipelineQuotaProcessor",
-      "ObservabilityPipelineAddFieldsProcessor",
-      "ObservabilityPipelineRemoveFieldsProcessor",
-      "ObservabilityPipelineRenameFieldsProcessor",
-      "ObservabilityPipelineGenerateMetricsProcessor",
-      "ObservabilityPipelineSampleProcessor",
-      "ObservabilityPipelineParseGrokProcessor",
-      "ObservabilityPipelineSensitiveDataScannerProcessor",
-      "ObservabilityPipelineOcsfMapperProcessor",
       "ObservabilityPipelineAddEnvVarsProcessor",
-      "ObservabilityPipelineDedupeProcessor",
-      "ObservabilityPipelineEnrichmentTableProcessor",
-      "ObservabilityPipelineReduceProcessor",
-      "ObservabilityPipelineThrottleProcessor",
+      "ObservabilityPipelineAddFieldsProcessor",
       "ObservabilityPipelineCustomProcessor",
       "ObservabilityPipelineDatadogTagsProcessor",
+      "ObservabilityPipelineDedupeProcessor",
+      "ObservabilityPipelineEnrichmentTableProcessor",
+      "ObservabilityPipelineGenerateMetricsProcessor",
+      "ObservabilityPipelineOcsfMapperProcessor",
+      "ObservabilityPipelineParseGrokProcessor",
+      "ObservabilityPipelineParseJSONProcessor",
+      "ObservabilityPipelineQuotaProcessor",
+      "ObservabilityPipelineReduceProcessor",
+      "ObservabilityPipelineRemoveFieldsProcessor",
+      "ObservabilityPipelineRenameFieldsProcessor",
+      "ObservabilityPipelineSampleProcessor",
+      "ObservabilityPipelineSensitiveDataScannerProcessor",
+      "ObservabilityPipelineThrottleProcessor",
+      "ObservabilityPipelineMetricTagsProcessor",
     ],
     ObservabilityPipelineConfigSourceItem: [
-      "ObservabilityPipelineKafkaSource",
       "ObservabilityPipelineDatadogAgentSource",
-      "ObservabilityPipelineSplunkTcpSource",
-      "ObservabilityPipelineSplunkHecSource",
-      "ObservabilityPipelineAmazonS3Source",
-      "ObservabilityPipelineFluentdSource",
-      "ObservabilityPipelineFluentBitSource",
-      "ObservabilityPipelineHttpServerSource",
-      "ObservabilityPipelineSumoLogicSource",
-      "ObservabilityPipelineRsyslogSource",
-      "ObservabilityPipelineSyslogNgSource",
       "ObservabilityPipelineAmazonDataFirehoseSource",
+      "ObservabilityPipelineAmazonS3Source",
+      "ObservabilityPipelineFluentBitSource",
+      "ObservabilityPipelineFluentdSource",
       "ObservabilityPipelineGooglePubSubSource",
       "ObservabilityPipelineHttpClientSource",
+      "ObservabilityPipelineHttpServerSource",
+      "ObservabilityPipelineKafkaSource",
       "ObservabilityPipelineLogstashSource",
+      "ObservabilityPipelineRsyslogSource",
       "ObservabilityPipelineSocketSource",
+      "ObservabilityPipelineSplunkHecSource",
+      "ObservabilityPipelineSplunkTcpSource",
+      "ObservabilityPipelineSumoLogicSource",
+      "ObservabilityPipelineSyslogNgSource",
     ],
     ObservabilityPipelineMetricValue: [
       "ObservabilityPipelineGeneratedMetricIncrementByOne",
@@ -491,6 +508,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineDatadogAgentSource,
     ObservabilityPipelineDatadogLogsDestination:
       ObservabilityPipelineDatadogLogsDestination,
+    ObservabilityPipelineDatadogMetricsDestination:
+      ObservabilityPipelineDatadogMetricsDestination,
     ObservabilityPipelineDatadogTagsProcessor:
       ObservabilityPipelineDatadogTagsProcessor,
     ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
@@ -528,6 +547,10 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineGooglePubSubDestination,
     ObservabilityPipelineGooglePubSubSource:
       ObservabilityPipelineGooglePubSubSource,
+    ObservabilityPipelineHttpClientDestination:
+      ObservabilityPipelineHttpClientDestination,
+    ObservabilityPipelineHttpClientDestinationCompression:
+      ObservabilityPipelineHttpClientDestinationCompression,
     ObservabilityPipelineHttpClientSource:
       ObservabilityPipelineHttpClientSource,
     ObservabilityPipelineHttpServerSource:
@@ -538,6 +561,10 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
     ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
     ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
+    ObservabilityPipelineMetricTagsProcessor:
+      ObservabilityPipelineMetricTagsProcessor,
+    ObservabilityPipelineMetricTagsProcessorRule:
+      ObservabilityPipelineMetricTagsProcessorRule,
     ObservabilityPipelineNewRelicDestination:
       ObservabilityPipelineNewRelicDestination,
     ObservabilityPipelineOcsfMapperProcessor:

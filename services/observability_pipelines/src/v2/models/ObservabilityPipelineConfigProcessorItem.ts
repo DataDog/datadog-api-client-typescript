@@ -8,6 +8,7 @@ import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDed
 import { ObservabilityPipelineEnrichmentTableProcessor } from "./ObservabilityPipelineEnrichmentTableProcessor";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
 import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
+import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
 import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
@@ -24,21 +25,22 @@ import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineT
  */
 export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineFilterProcessor
-  | ObservabilityPipelineParseJSONProcessor
-  | ObservabilityPipelineQuotaProcessor
-  | ObservabilityPipelineAddFieldsProcessor
-  | ObservabilityPipelineRemoveFieldsProcessor
-  | ObservabilityPipelineRenameFieldsProcessor
-  | ObservabilityPipelineGenerateMetricsProcessor
-  | ObservabilityPipelineSampleProcessor
-  | ObservabilityPipelineParseGrokProcessor
-  | ObservabilityPipelineSensitiveDataScannerProcessor
-  | ObservabilityPipelineOcsfMapperProcessor
   | ObservabilityPipelineAddEnvVarsProcessor
-  | ObservabilityPipelineDedupeProcessor
-  | ObservabilityPipelineEnrichmentTableProcessor
-  | ObservabilityPipelineReduceProcessor
-  | ObservabilityPipelineThrottleProcessor
+  | ObservabilityPipelineAddFieldsProcessor
   | ObservabilityPipelineCustomProcessor
   | ObservabilityPipelineDatadogTagsProcessor
+  | ObservabilityPipelineDedupeProcessor
+  | ObservabilityPipelineEnrichmentTableProcessor
+  | ObservabilityPipelineGenerateMetricsProcessor
+  | ObservabilityPipelineOcsfMapperProcessor
+  | ObservabilityPipelineParseGrokProcessor
+  | ObservabilityPipelineParseJSONProcessor
+  | ObservabilityPipelineQuotaProcessor
+  | ObservabilityPipelineReduceProcessor
+  | ObservabilityPipelineRemoveFieldsProcessor
+  | ObservabilityPipelineRenameFieldsProcessor
+  | ObservabilityPipelineSampleProcessor
+  | ObservabilityPipelineSensitiveDataScannerProcessor
+  | ObservabilityPipelineThrottleProcessor
+  | ObservabilityPipelineMetricTagsProcessor
   | UnparsedObject;
