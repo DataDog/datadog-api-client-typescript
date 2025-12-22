@@ -7592,6 +7592,73 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "OnCallApi.V2.ListUserNotificationRules": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListOnCallNotificationRulesResponse",
+  },
+  "OnCallApi.V2.CreateUserNotificationRule": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateOnCallNotificationRuleRequest",
+      format: "",
+    },
+    operationResponseType: "OnCallNotificationRule",
+  },
+  "OnCallApi.V2.GetUserNotificationRule": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "OnCallNotificationRule",
+  },
+  "OnCallApi.V2.UpdateUserNotificationRule": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateOnCallNotificationRuleRequest",
+      format: "",
+    },
+    operationResponseType: "OnCallNotificationRule",
+  },
+  "OnCallApi.V2.DeleteUserNotificationRule": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OnCallPagingApi.V2.CreateOnCallPage": {
     body: {
       type: "CreatePageRequest",
