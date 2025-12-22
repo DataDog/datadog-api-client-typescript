@@ -55,6 +55,14 @@ import { TeamLinkCreate } from "./TeamLinkCreate";
 import { TeamLinkCreateRequest } from "./TeamLinkCreateRequest";
 import { TeamLinkResponse } from "./TeamLinkResponse";
 import { TeamLinksResponse } from "./TeamLinksResponse";
+import { TeamNotificationRule } from "./TeamNotificationRule";
+import { TeamNotificationRuleAttributes } from "./TeamNotificationRuleAttributes";
+import { TeamNotificationRuleAttributesEmail } from "./TeamNotificationRuleAttributesEmail";
+import { TeamNotificationRuleAttributesMsTeams } from "./TeamNotificationRuleAttributesMsTeams";
+import { TeamNotificationRuleAttributesPagerduty } from "./TeamNotificationRuleAttributesPagerduty";
+import { TeamNotificationRuleAttributesSlack } from "./TeamNotificationRuleAttributesSlack";
+import { TeamNotificationRulesResponse } from "./TeamNotificationRulesResponse";
+import { TeamNotificationRulesResponseMeta } from "./TeamNotificationRulesResponseMeta";
 import { TeamPermissionSetting } from "./TeamPermissionSetting";
 import { TeamPermissionSettingAttributes } from "./TeamPermissionSettingAttributes";
 import { TeamPermissionSettingResponse } from "./TeamPermissionSettingResponse";
@@ -218,6 +226,16 @@ export const TypingInfo: ModelTypingInfo = {
     TeamLinkCreateRequest: TeamLinkCreateRequest,
     TeamLinkResponse: TeamLinkResponse,
     TeamLinksResponse: TeamLinksResponse,
+    TeamNotificationRule: TeamNotificationRule,
+    TeamNotificationRuleAttributes: TeamNotificationRuleAttributes,
+    TeamNotificationRuleAttributesEmail: TeamNotificationRuleAttributesEmail,
+    TeamNotificationRuleAttributesMsTeams:
+      TeamNotificationRuleAttributesMsTeams,
+    TeamNotificationRuleAttributesPagerduty:
+      TeamNotificationRuleAttributesPagerduty,
+    TeamNotificationRuleAttributesSlack: TeamNotificationRuleAttributesSlack,
+    TeamNotificationRulesResponse: TeamNotificationRulesResponse,
+    TeamNotificationRulesResponseMeta: TeamNotificationRulesResponseMeta,
     TeamPermissionSetting: TeamPermissionSetting,
     TeamPermissionSettingAttributes: TeamPermissionSettingAttributes,
     TeamPermissionSettingResponse: TeamPermissionSettingResponse,
