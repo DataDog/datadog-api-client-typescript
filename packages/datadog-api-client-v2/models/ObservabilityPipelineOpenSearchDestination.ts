@@ -9,6 +9,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `opensearch` destination writes logs to an OpenSearch cluster.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOpenSearchDestination {
   /**

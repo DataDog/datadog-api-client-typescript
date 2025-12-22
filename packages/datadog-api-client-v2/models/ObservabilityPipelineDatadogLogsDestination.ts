@@ -9,6 +9,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `datadog_logs` destination forwards logs to Datadog Log Management.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDatadogLogsDestination {
   /**

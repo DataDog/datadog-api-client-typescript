@@ -3,45 +3,37 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineReduceProcessorMergeStrategy } from "./ObservabilityPipelineReduceProcessorMergeStrategy";
-import { ObservabilityPipelineReduceProcessorType } from "./ObservabilityPipelineReduceProcessorType";
+import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
+import { ObservabilityPipelineMetricTagsProcessorType } from "./ObservabilityPipelineMetricTagsProcessorType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+ * The `metric_tags` processor filters metrics based on their tags using Datadog tag key patterns.
  *
- * **Supported pipeline types:** logs
+ * **Supported pipeline types:** metrics
  */
-export class ObservabilityPipelineReduceProcessor {
-  /**
-   * The display name for a component.
-   */
-  "displayName"?: string;
+export class ObservabilityPipelineMetricTagsProcessor {
   /**
    * Whether this processor is enabled.
    */
   "enabled": boolean;
   /**
-   * A list of fields used to group log events for merging.
-   */
-  "groupBy": Array<string>;
-  /**
-   * The unique identifier for this processor.
+   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * A Datadog search query used to determine which metrics this processor targets.
    */
   "include": string;
   /**
-   * List of merge strategies defining how values from grouped events should be combined.
+   * A list of rules for filtering metric tags.
    */
-  "mergeStrategies": Array<ObservabilityPipelineReduceProcessorMergeStrategy>;
+  "rules": Array<ObservabilityPipelineMetricTagsProcessorRule>;
   /**
-   * The processor type. The value should always be `reduce`.
+   * The processor type. The value should always be `metric_tags`.
    */
-  "type": ObservabilityPipelineReduceProcessorType;
+  "type": ObservabilityPipelineMetricTagsProcessorType;
 
   /**
    * A container for additional, undeclared properties.
@@ -59,18 +51,9 @@ export class ObservabilityPipelineReduceProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
-    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
-      required: true,
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
       required: true,
     },
     id: {
@@ -83,14 +66,14 @@ export class ObservabilityPipelineReduceProcessor {
       type: "string",
       required: true,
     },
-    mergeStrategies: {
-      baseName: "merge_strategies",
-      type: "Array<ObservabilityPipelineReduceProcessorMergeStrategy>",
+    rules: {
+      baseName: "rules",
+      type: "Array<ObservabilityPipelineMetricTagsProcessorRule>",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineReduceProcessorType",
+      type: "ObservabilityPipelineMetricTagsProcessorType",
       required: true,
     },
     additionalProperties: {
@@ -103,7 +86,7 @@ export class ObservabilityPipelineReduceProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineReduceProcessor.attributeTypeMap;
+    return ObservabilityPipelineMetricTagsProcessor.attributeTypeMap;
   }
 
   public constructor() {}

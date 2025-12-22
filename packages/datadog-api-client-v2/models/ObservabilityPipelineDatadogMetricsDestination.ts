@@ -3,37 +3,28 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./ObservabilityPipelineElasticsearchDestinationApiVersion";
-import { ObservabilityPipelineElasticsearchDestinationType } from "./ObservabilityPipelineElasticsearchDestinationType";
+import { ObservabilityPipelineDatadogMetricsDestinationType } from "./ObservabilityPipelineDatadogMetricsDestinationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+ * The `datadog_metrics` destination forwards metrics to Datadog.
  *
- * **Supported pipeline types:** logs
+ * **Supported pipeline types:** metrics
  */
-export class ObservabilityPipelineElasticsearchDestination {
-  /**
-   * The Elasticsearch API version to use. Set to `auto` to auto-detect.
-   */
-  "apiVersion"?: ObservabilityPipelineElasticsearchDestinationApiVersion;
-  /**
-   * The index to write logs to in Elasticsearch.
-   */
-  "bulkIndex"?: string;
+export class ObservabilityPipelineDatadogMetricsDestination {
   /**
    * The unique identifier for this component.
    */
   "id": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as the input for this component.
    */
   "inputs": Array<string>;
   /**
-   * The destination type. The value should always be `elasticsearch`.
+   * The destination type. The value should always be `datadog_metrics`.
    */
-  "type": ObservabilityPipelineElasticsearchDestinationType;
+  "type": ObservabilityPipelineDatadogMetricsDestinationType;
 
   /**
    * A container for additional, undeclared properties.
@@ -51,14 +42,6 @@ export class ObservabilityPipelineElasticsearchDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiVersion: {
-      baseName: "api_version",
-      type: "ObservabilityPipelineElasticsearchDestinationApiVersion",
-    },
-    bulkIndex: {
-      baseName: "bulk_index",
-      type: "string",
-    },
     id: {
       baseName: "id",
       type: "string",
@@ -71,7 +54,7 @@ export class ObservabilityPipelineElasticsearchDestination {
     },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineElasticsearchDestinationType",
+      type: "ObservabilityPipelineDatadogMetricsDestinationType",
       required: true,
     },
     additionalProperties: {
@@ -84,7 +67,7 @@ export class ObservabilityPipelineElasticsearchDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineElasticsearchDestination.attributeTypeMap;
+    return ObservabilityPipelineDatadogMetricsDestination.attributeTypeMap;
   }
 
   public constructor() {}

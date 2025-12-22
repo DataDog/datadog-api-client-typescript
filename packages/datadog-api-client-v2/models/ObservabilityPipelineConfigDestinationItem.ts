@@ -10,10 +10,12 @@ import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelin
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
 import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
+import { ObservabilityPipelineHttpClientDestination } from "./ObservabilityPipelineHttpClientDestination";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
@@ -30,23 +32,25 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type ObservabilityPipelineConfigDestinationItem =
-  | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineHttpClientDestination
+  | ObservabilityPipelineAmazonOpenSearchDestination
   | ObservabilityPipelineAmazonS3Destination
+  | ObservabilityPipelineAmazonSecurityLakeDestination
+  | AzureStorageDestination
+  | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+  | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineElasticsearchDestination
+  | ObservabilityPipelineGoogleChronicleDestination
   | ObservabilityPipelineGoogleCloudStorageDestination
+  | ObservabilityPipelineGooglePubSubDestination
+  | MicrosoftSentinelDestination
+  | ObservabilityPipelineNewRelicDestination
+  | ObservabilityPipelineOpenSearchDestination
+  | ObservabilityPipelineRsyslogDestination
+  | ObservabilityPipelineSentinelOneDestination
+  | ObservabilityPipelineSocketDestination
   | ObservabilityPipelineSplunkHecDestination
   | ObservabilityPipelineSumoLogicDestination
-  | ObservabilityPipelineElasticsearchDestination
-  | ObservabilityPipelineRsyslogDestination
   | ObservabilityPipelineSyslogNgDestination
-  | AzureStorageDestination
-  | MicrosoftSentinelDestination
-  | ObservabilityPipelineGoogleChronicleDestination
-  | ObservabilityPipelineNewRelicDestination
-  | ObservabilityPipelineSentinelOneDestination
-  | ObservabilityPipelineOpenSearchDestination
-  | ObservabilityPipelineAmazonOpenSearchDestination
-  | ObservabilityPipelineSocketDestination
-  | ObservabilityPipelineAmazonSecurityLakeDestination
-  | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
-  | ObservabilityPipelineGooglePubSubDestination
+  | ObservabilityPipelineDatadogMetricsDestination
   | UnparsedObject;

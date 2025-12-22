@@ -14,6 +14,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
  * It requires a bucket name, GCP authentication, and metadata fields.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGoogleCloudStorageDestination {
   /**

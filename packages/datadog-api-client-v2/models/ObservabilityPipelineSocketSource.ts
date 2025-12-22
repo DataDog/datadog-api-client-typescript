@@ -12,6 +12,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `socket` source ingests logs over TCP or UDP.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSocketSource {
   /**
