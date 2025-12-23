@@ -29,6 +29,7 @@ import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipe
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
+import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
 import { ObservabilityPipelineEnrichmentTableFileKeyItems } from "./ObservabilityPipelineEnrichmentTableFileKeyItems";
@@ -496,6 +497,8 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
     ObservabilityPipelineElasticsearchDestination:
       ObservabilityPipelineElasticsearchDestination,
+    ObservabilityPipelineElasticsearchDestinationDataStream:
+      ObservabilityPipelineElasticsearchDestinationDataStream,
     ObservabilityPipelineEnrichmentTableFile:
       ObservabilityPipelineEnrichmentTableFile,
     ObservabilityPipelineEnrichmentTableFileEncoding:
