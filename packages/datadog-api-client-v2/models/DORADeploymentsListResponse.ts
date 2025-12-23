@@ -3,25 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DORADeploymentObject } from "./DORADeploymentObject";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A DORA event.
+ * Response for the list deployments endpoint.
  */
-export class DORAEvent {
+export class DORADeploymentsListResponse {
   /**
-   * The attributes of the event.
+   * The list of DORA deployment events.
    */
-  "attributes"?: any;
-  /**
-   * The ID of the event.
-   */
-  "id"?: string;
-  /**
-   * The type of the event.
-   */
-  "type"?: string;
+  "data"?: Array<DORADeploymentObject>;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,17 +32,9 @@ export class DORAEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "any",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Array<DORADeploymentObject>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,7 +46,7 @@ export class DORAEvent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAEvent.attributeTypeMap;
+    return DORADeploymentsListResponse.attributeTypeMap;
   }
 
   public constructor() {}
