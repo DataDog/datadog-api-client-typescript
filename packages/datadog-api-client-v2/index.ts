@@ -3200,6 +3200,7 @@ export { ObservabilityPipelineDedupeProcessorMode } from "./models/Observability
 export { ObservabilityPipelineDedupeProcessorType } from "./models/ObservabilityPipelineDedupeProcessorType";
 export { ObservabilityPipelineElasticsearchDestination } from "./models/ObservabilityPipelineElasticsearchDestination";
 export { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./models/ObservabilityPipelineElasticsearchDestinationApiVersion";
+export { ObservabilityPipelineElasticsearchDestinationDataStream } from "./models/ObservabilityPipelineElasticsearchDestinationDataStream";
 export { ObservabilityPipelineElasticsearchDestinationType } from "./models/ObservabilityPipelineElasticsearchDestinationType";
 export { ObservabilityPipelineEnrichmentTableFile } from "./models/ObservabilityPipelineEnrichmentTableFile";
 export { ObservabilityPipelineEnrichmentTableFileEncoding } from "./models/ObservabilityPipelineEnrichmentTableFileEncoding";
