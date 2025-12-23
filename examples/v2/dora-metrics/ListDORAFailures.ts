@@ -22,7 +22,7 @@ const params: v2.DORAMetricsApiListDORAFailuresRequest = {
 
 apiInstance
   .listDORAFailures(params)
-  .then((data: v2.DORAListResponse) => {
+  .then((data: v2.DORAFailuresListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
