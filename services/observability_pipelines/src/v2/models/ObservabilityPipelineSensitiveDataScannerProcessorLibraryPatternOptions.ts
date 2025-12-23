@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions {
   /**
+   * Human-readable description providing context about a sensitive data scanner rule
+   */
+  "description"?: string;
+  /**
    * Identifier for a predefined pattern from the sensitive data scanner pattern library.
    */
   "id": string;
@@ -27,6 +31,10 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     id: {
       baseName: "id",
       type: "string",
