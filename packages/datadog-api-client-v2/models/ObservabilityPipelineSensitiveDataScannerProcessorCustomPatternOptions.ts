@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
   /**
+   * Human-readable description providing context about a sensitive data scanner rule
+   */
+  "description"?: string;
+  /**
    * A regular expression used to detect sensitive values. Must be a valid regex.
    */
   "rule": string;
@@ -31,6 +35,10 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     rule: {
       baseName: "rule",
       type: "string",
