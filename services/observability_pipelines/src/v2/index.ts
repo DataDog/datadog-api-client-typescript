@@ -75,6 +75,7 @@ export { ObservabilityPipelineEnrichmentTableFileSchemaItemsType } from "./model
 export { ObservabilityPipelineEnrichmentTableGeoIp } from "./models/ObservabilityPipelineEnrichmentTableGeoIp";
 export { ObservabilityPipelineEnrichmentTableProcessor } from "./models/ObservabilityPipelineEnrichmentTableProcessor";
 export { ObservabilityPipelineEnrichmentTableProcessorType } from "./models/ObservabilityPipelineEnrichmentTableProcessorType";
+export { ObservabilityPipelineEnrichmentTableReferenceTable } from "./models/ObservabilityPipelineEnrichmentTableReferenceTable";
 export { ObservabilityPipelineFieldValue } from "./models/ObservabilityPipelineFieldValue";
 export { ObservabilityPipelineFilterProcessor } from "./models/ObservabilityPipelineFilterProcessor";
 export { ObservabilityPipelineFilterProcessorType } from "./models/ObservabilityPipelineFilterProcessorType";
