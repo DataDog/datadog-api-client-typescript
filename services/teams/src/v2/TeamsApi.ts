@@ -40,6 +40,9 @@ import { TeamHierarchyLinksResponse } from "./models/TeamHierarchyLinksResponse"
 import { TeamLinkCreateRequest } from "./models/TeamLinkCreateRequest";
 import { TeamLinkResponse } from "./models/TeamLinkResponse";
 import { TeamLinksResponse } from "./models/TeamLinksResponse";
+import { TeamNotificationRuleRequest } from "./models/TeamNotificationRuleRequest";
+import { TeamNotificationRuleResponse } from "./models/TeamNotificationRuleResponse";
+import { TeamNotificationRulesResponse } from "./models/TeamNotificationRulesResponse";
 import { TeamPermissionSettingResponse } from "./models/TeamPermissionSettingResponse";
 import { TeamPermissionSettingsResponse } from "./models/TeamPermissionSettingsResponse";
 import { TeamPermissionSettingUpdateRequest } from "./models/TeamPermissionSettingUpdateRequest";
@@ -405,6 +408,66 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createTeamNotificationRule(
+    teamId: string,
+    body: TeamNotificationRuleRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "createTeamNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createTeamNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.createTeamNotificationRule",
+      TeamsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "TeamNotificationRuleRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteTeam(
     teamId: string,
     _options?: Configuration,
@@ -576,6 +639,56 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.deleteTeamMembership",
+      TeamsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTeamNotificationRule(
+    teamId: string,
+    ruleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "deleteTeamNotificationRule");
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "deleteTeamNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.deleteTeamNotificationRule",
       TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -853,6 +966,101 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
         serialize(filterKeyword, TypingInfo, "string", ""),
         "",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTeamNotificationRule(
+    teamId: string,
+    ruleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "getTeamNotificationRule");
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getTeamNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getTeamNotificationRule",
+      TeamsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTeamNotificationRules(
+    teamId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "getTeamNotificationRules");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getTeamNotificationRules",
+      TeamsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
     // Apply auth methods
@@ -1676,6 +1884,71 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateTeamNotificationRule(
+    teamId: string,
+    ruleId: string,
+    body: TeamNotificationRuleRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "updateTeamNotificationRule");
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "updateTeamNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateTeamNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.updateTeamNotificationRule",
+      TeamsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "TeamNotificationRuleRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateTeamPermissionSetting(
     teamId: string,
     action: string,
@@ -2095,6 +2368,67 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createTeamNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createTeamNotificationRule(
+    response: ResponseContext,
+  ): Promise<TeamNotificationRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: TeamNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRuleResponse",
+      ) as TeamNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRuleResponse",
+        "",
+      ) as TeamNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2241,6 +2575,55 @@ export class TeamsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteTeamMembership(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTeamNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTeamNotificationRule(
+    response: ResponseContext,
+  ): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
@@ -2568,6 +2951,126 @@ export class TeamsApiResponseProcessor {
         "UserTeamsResponse",
         "",
       ) as UserTeamsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getTeamNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTeamNotificationRule(
+    response: ResponseContext,
+  ): Promise<TeamNotificationRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TeamNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRuleResponse",
+      ) as TeamNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRuleResponse",
+        "",
+      ) as TeamNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getTeamNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTeamNotificationRules(
+    response: ResponseContext,
+  ): Promise<TeamNotificationRulesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TeamNotificationRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRulesResponse",
+      ) as TeamNotificationRulesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamNotificationRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRulesResponse",
+        "",
+      ) as TeamNotificationRulesResponse;
       return body;
     }
 
@@ -3311,6 +3814,66 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateTeamNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateTeamNotificationRule(
+    response: ResponseContext,
+  ): Promise<TeamNotificationRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TeamNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRuleResponse",
+      ) as TeamNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamNotificationRuleResponse",
+        "",
+      ) as TeamNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateTeamPermissionSetting
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3425,6 +3988,18 @@ export interface TeamsApiCreateTeamMembershipRequest {
   body: UserTeamRequest;
 }
 
+export interface TeamsApiCreateTeamNotificationRuleRequest {
+  /**
+   * None
+   * @type string
+   */
+  teamId: string;
+  /**
+   * @type TeamNotificationRuleRequest
+   */
+  body: TeamNotificationRuleRequest;
+}
+
 export interface TeamsApiDeleteTeamRequest {
   /**
    * None
@@ -3464,6 +4039,19 @@ export interface TeamsApiDeleteTeamMembershipRequest {
    * @type string
    */
   userId: string;
+}
+
+export interface TeamsApiDeleteTeamNotificationRuleRequest {
+  /**
+   * None
+   * @type string
+   */
+  teamId: string;
+  /**
+   * None
+   * @type string
+   */
+  ruleId: string;
 }
 
 export interface TeamsApiGetTeamRequest {
@@ -3529,6 +4117,27 @@ export interface TeamsApiGetTeamMembershipsRequest {
    * @type string
    */
   filterKeyword?: string;
+}
+
+export interface TeamsApiGetTeamNotificationRuleRequest {
+  /**
+   * None
+   * @type string
+   */
+  teamId: string;
+  /**
+   * None
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface TeamsApiGetTeamNotificationRulesRequest {
+  /**
+   * None
+   * @type string
+   */
+  teamId: string;
 }
 
 export interface TeamsApiGetTeamPermissionSettingsRequest {
@@ -3746,6 +4355,23 @@ export interface TeamsApiUpdateTeamMembershipRequest {
   body: UserTeamUpdateRequest;
 }
 
+export interface TeamsApiUpdateTeamNotificationRuleRequest {
+  /**
+   * None
+   * @type string
+   */
+  teamId: string;
+  /**
+   * None
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * @type TeamNotificationRuleRequest
+   */
+  body: TeamNotificationRuleRequest;
+}
+
 export interface TeamsApiUpdateTeamPermissionSettingRequest {
   /**
    * None
@@ -3918,6 +4544,30 @@ export class TeamsApi {
   }
 
   /**
+   * @param param The request object
+   */
+  public createTeamNotificationRule(
+    param: TeamsApiCreateTeamNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<TeamNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createTeamNotificationRule(
+        param.teamId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTeamNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Remove a team using the team's `id`.
    * @param param The request object
    */
@@ -4001,6 +4651,30 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteTeamMembership(responseContext);
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public deleteTeamNotificationRule(
+    param: TeamsApiDeleteTeamNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteTeamNotificationRule(
+        param.teamId,
+        param.ruleId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTeamNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -4155,6 +4829,51 @@ export class TeamsApi {
       }
       param.pageNumber = param.pageNumber + 1;
     }
+  }
+
+  /**
+   * @param param The request object
+   */
+  public getTeamNotificationRule(
+    param: TeamsApiGetTeamNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<TeamNotificationRuleResponse> {
+    const requestContextPromise = this.requestFactory.getTeamNotificationRule(
+      param.teamId,
+      param.ruleId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTeamNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public getTeamNotificationRules(
+    param: TeamsApiGetTeamNotificationRulesRequest,
+    options?: Configuration,
+  ): Promise<TeamNotificationRulesResponse> {
+    const requestContextPromise = this.requestFactory.getTeamNotificationRules(
+      param.teamId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTeamNotificationRules(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**
@@ -4641,6 +5360,31 @@ export class TeamsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateTeamMembership(responseContext);
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public updateTeamNotificationRule(
+    param: TeamsApiUpdateTeamNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<TeamNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateTeamNotificationRule(
+        param.teamId,
+        param.ruleId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateTeamNotificationRule(
+            responseContext,
+          );
         });
     });
   }
