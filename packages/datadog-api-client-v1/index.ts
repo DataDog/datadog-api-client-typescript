@@ -905,6 +905,8 @@ export { SunburstWidgetLegendTable } from "./models/SunburstWidgetLegendTable";
 export { SunburstWidgetLegendTableType } from "./models/SunburstWidgetLegendTableType";
 export { SunburstWidgetRequest } from "./models/SunburstWidgetRequest";
 export { SyntheticsAPIStep } from "./models/SyntheticsAPIStep";
+export { SyntheticsAPISubtestStep } from "./models/SyntheticsAPISubtestStep";
+export { SyntheticsAPISubtestStepSubtype } from "./models/SyntheticsAPISubtestStepSubtype";
 export { SyntheticsAPITest } from "./models/SyntheticsAPITest";
 export { SyntheticsAPITestConfig } from "./models/SyntheticsAPITestConfig";
 export { SyntheticsApiTestFailureCode } from "./models/SyntheticsApiTestFailureCode";
