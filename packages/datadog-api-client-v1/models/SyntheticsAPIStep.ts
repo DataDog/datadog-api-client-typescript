@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsAPISubtestStep } from "./SyntheticsAPISubtestStep";
 import { SyntheticsAPITestStep } from "./SyntheticsAPITestStep";
 import { SyntheticsAPIWaitStep } from "./SyntheticsAPIWaitStep";
 
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type SyntheticsAPIStep =
   | SyntheticsAPITestStep
   | SyntheticsAPIWaitStep
+  | SyntheticsAPISubtestStep
   | UnparsedObject;
