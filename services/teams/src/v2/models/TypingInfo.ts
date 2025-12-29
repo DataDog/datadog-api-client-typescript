@@ -55,6 +55,17 @@ import { TeamLinkCreate } from "./TeamLinkCreate";
 import { TeamLinkCreateRequest } from "./TeamLinkCreateRequest";
 import { TeamLinkResponse } from "./TeamLinkResponse";
 import { TeamLinksResponse } from "./TeamLinksResponse";
+import { TeamNotificationRule } from "./TeamNotificationRule";
+import { TeamNotificationRuleAttributes } from "./TeamNotificationRuleAttributes";
+import { TeamNotificationRuleAttributesEmail } from "./TeamNotificationRuleAttributesEmail";
+import { TeamNotificationRuleAttributesMsTeams } from "./TeamNotificationRuleAttributesMsTeams";
+import { TeamNotificationRuleAttributesPagerduty } from "./TeamNotificationRuleAttributesPagerduty";
+import { TeamNotificationRuleAttributesSlack } from "./TeamNotificationRuleAttributesSlack";
+import { TeamNotificationRuleRequest } from "./TeamNotificationRuleRequest";
+import { TeamNotificationRuleResponse } from "./TeamNotificationRuleResponse";
+import { TeamNotificationRulesResponse } from "./TeamNotificationRulesResponse";
+import { TeamNotificationRulesResponseMeta } from "./TeamNotificationRulesResponseMeta";
+import { TeamNotificationRulesResponseMetaPage } from "./TeamNotificationRulesResponseMetaPage";
 import { TeamPermissionSetting } from "./TeamPermissionSetting";
 import { TeamPermissionSettingAttributes } from "./TeamPermissionSettingAttributes";
 import { TeamPermissionSettingResponse } from "./TeamPermissionSettingResponse";
@@ -118,6 +129,7 @@ export const TypingInfo: ModelTypingInfo = {
     TeamConnectionType: ["team_connection"],
     TeamHierarchyLinkType: ["team_hierarchy_links"],
     TeamLinkType: ["team_links"],
+    TeamNotificationRuleType: ["team_notification_rules"],
     TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
     TeamPermissionSettingType: ["team_permission_settings"],
     TeamPermissionSettingValue: [
@@ -218,6 +230,20 @@ export const TypingInfo: ModelTypingInfo = {
     TeamLinkCreateRequest: TeamLinkCreateRequest,
     TeamLinkResponse: TeamLinkResponse,
     TeamLinksResponse: TeamLinksResponse,
+    TeamNotificationRule: TeamNotificationRule,
+    TeamNotificationRuleAttributes: TeamNotificationRuleAttributes,
+    TeamNotificationRuleAttributesEmail: TeamNotificationRuleAttributesEmail,
+    TeamNotificationRuleAttributesMsTeams:
+      TeamNotificationRuleAttributesMsTeams,
+    TeamNotificationRuleAttributesPagerduty:
+      TeamNotificationRuleAttributesPagerduty,
+    TeamNotificationRuleAttributesSlack: TeamNotificationRuleAttributesSlack,
+    TeamNotificationRuleRequest: TeamNotificationRuleRequest,
+    TeamNotificationRuleResponse: TeamNotificationRuleResponse,
+    TeamNotificationRulesResponse: TeamNotificationRulesResponse,
+    TeamNotificationRulesResponseMeta: TeamNotificationRulesResponseMeta,
+    TeamNotificationRulesResponseMetaPage:
+      TeamNotificationRulesResponseMetaPage,
     TeamPermissionSetting: TeamPermissionSetting,
     TeamPermissionSettingAttributes: TeamPermissionSettingAttributes,
     TeamPermissionSettingResponse: TeamPermissionSettingResponse,
