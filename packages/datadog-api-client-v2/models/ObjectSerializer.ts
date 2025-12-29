@@ -2564,6 +2564,17 @@ import { TeamLinkCreate } from "./TeamLinkCreate";
 import { TeamLinkCreateRequest } from "./TeamLinkCreateRequest";
 import { TeamLinkResponse } from "./TeamLinkResponse";
 import { TeamLinksResponse } from "./TeamLinksResponse";
+import { TeamNotificationRule } from "./TeamNotificationRule";
+import { TeamNotificationRuleAttributes } from "./TeamNotificationRuleAttributes";
+import { TeamNotificationRuleAttributesEmail } from "./TeamNotificationRuleAttributesEmail";
+import { TeamNotificationRuleAttributesMsTeams } from "./TeamNotificationRuleAttributesMsTeams";
+import { TeamNotificationRuleAttributesPagerduty } from "./TeamNotificationRuleAttributesPagerduty";
+import { TeamNotificationRuleAttributesSlack } from "./TeamNotificationRuleAttributesSlack";
+import { TeamNotificationRuleRequest } from "./TeamNotificationRuleRequest";
+import { TeamNotificationRuleResponse } from "./TeamNotificationRuleResponse";
+import { TeamNotificationRulesResponse } from "./TeamNotificationRulesResponse";
+import { TeamNotificationRulesResponseMeta } from "./TeamNotificationRulesResponseMeta";
+import { TeamNotificationRulesResponseMetaPage } from "./TeamNotificationRulesResponseMetaPage";
 import { TeamOnCallResponders } from "./TeamOnCallResponders";
 import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
 import { TeamOnCallRespondersDataRelationships } from "./TeamOnCallRespondersDataRelationships";
@@ -4283,6 +4294,7 @@ const enumsMap: { [key: string]: any[] } = {
   TeamConnectionType: ["team_connection"],
   TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
+  TeamNotificationRuleType: ["team_notification_rules"],
   TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
     "escalation_policy_steps",
   ],
@@ -7509,6 +7521,18 @@ const typeMap: { [index: string]: any } = {
   TeamLinkCreateRequest: TeamLinkCreateRequest,
   TeamLinkResponse: TeamLinkResponse,
   TeamLinksResponse: TeamLinksResponse,
+  TeamNotificationRule: TeamNotificationRule,
+  TeamNotificationRuleAttributes: TeamNotificationRuleAttributes,
+  TeamNotificationRuleAttributesEmail: TeamNotificationRuleAttributesEmail,
+  TeamNotificationRuleAttributesMsTeams: TeamNotificationRuleAttributesMsTeams,
+  TeamNotificationRuleAttributesPagerduty:
+    TeamNotificationRuleAttributesPagerduty,
+  TeamNotificationRuleAttributesSlack: TeamNotificationRuleAttributesSlack,
+  TeamNotificationRuleRequest: TeamNotificationRuleRequest,
+  TeamNotificationRuleResponse: TeamNotificationRuleResponse,
+  TeamNotificationRulesResponse: TeamNotificationRulesResponse,
+  TeamNotificationRulesResponseMeta: TeamNotificationRulesResponseMeta,
+  TeamNotificationRulesResponseMetaPage: TeamNotificationRulesResponseMetaPage,
   TeamOnCallResponders: TeamOnCallResponders,
   TeamOnCallRespondersData: TeamOnCallRespondersData,
   TeamOnCallRespondersDataRelationships: TeamOnCallRespondersDataRelationships,

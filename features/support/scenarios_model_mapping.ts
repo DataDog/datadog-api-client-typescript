@@ -9417,6 +9417,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserTeamResponse",
     },
+    "v2.GetTeamNotificationRules": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRulesResponse",
+    },
+    "v2.CreateTeamNotificationRule": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRuleResponse",
+    },
+    "v2.GetTeamNotificationRule": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRuleResponse",
+    },
+    "v2.UpdateTeamNotificationRule": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamNotificationRuleResponse",
+    },
+    "v2.DeleteTeamNotificationRule": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetTeamPermissionSettings": {
         "teamId": {
             "type": "string",
