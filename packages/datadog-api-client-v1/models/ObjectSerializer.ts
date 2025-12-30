@@ -404,6 +404,7 @@ import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
 import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
 import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
 import { SunburstWidgetRequest } from "./SunburstWidgetRequest";
+import { SyntheticsAPISubtestStep } from "./SyntheticsAPISubtestStep";
 import { SyntheticsAPITest } from "./SyntheticsAPITest";
 import { SyntheticsAPITestConfig } from "./SyntheticsAPITestConfig";
 import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
@@ -1294,6 +1295,7 @@ const enumsMap: { [key: string]: any[] } = {
   SunburstWidgetDefinitionType: ["sunburst"],
   SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
   SunburstWidgetLegendTableType: ["table", "none"],
+  SyntheticsAPISubtestStepSubtype: ["playSubTest"],
   SyntheticsAPITestStepSubtype: [
     "http",
     "grpc",
@@ -2162,6 +2164,7 @@ const typeMap: { [index: string]: any } = {
   SunburstWidgetLegendInlineAutomatic: SunburstWidgetLegendInlineAutomatic,
   SunburstWidgetLegendTable: SunburstWidgetLegendTable,
   SunburstWidgetRequest: SunburstWidgetRequest,
+  SyntheticsAPISubtestStep: SyntheticsAPISubtestStep,
   SyntheticsAPITest: SyntheticsAPITest,
   SyntheticsAPITestConfig: SyntheticsAPITestConfig,
   SyntheticsAPITestResultData: SyntheticsAPITestResultData,
@@ -2535,7 +2538,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "SunburstWidgetLegendTable",
     "SunburstWidgetLegendInlineAutomatic",
   ],
-  SyntheticsAPIStep: ["SyntheticsAPITestStep", "SyntheticsAPIWaitStep"],
+  SyntheticsAPIStep: [
+    "SyntheticsAPITestStep",
+    "SyntheticsAPIWaitStep",
+    "SyntheticsAPISubtestStep",
+  ],
   SyntheticsAssertion: [
     "SyntheticsAssertionTarget",
     "SyntheticsAssertionBodyHashTarget",
