@@ -8,12 +8,14 @@ import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
+import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
 import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
+import { ObservabilityPipelineKafkaDestination } from "./ObservabilityPipelineKafkaDestination";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
@@ -31,6 +33,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineCloudPremDestination
   | ObservabilityPipelineAmazonS3Destination
   | ObservabilityPipelineGoogleCloudStorageDestination
   | ObservabilityPipelineSplunkHecDestination
@@ -49,4 +52,5 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineAmazonSecurityLakeDestination
   | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
   | ObservabilityPipelineGooglePubSubDestination
+  | ObservabilityPipelineKafkaDestination
   | UnparsedObject;

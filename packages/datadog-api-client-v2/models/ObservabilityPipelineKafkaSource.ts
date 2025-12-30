@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
-import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
+import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipelineKafkaLibrdkafkaOption";
+import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
 import { ObservabilityPipelineKafkaSourceType } from "./ObservabilityPipelineKafkaSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
@@ -25,11 +25,11 @@ export class ObservabilityPipelineKafkaSource {
   /**
    * Optional list of advanced Kafka client configuration options, defined as key-value pairs.
    */
-  "librdkafkaOptions"?: Array<ObservabilityPipelineKafkaSourceLibrdkafkaOption>;
+  "librdkafkaOptions"?: Array<ObservabilityPipelineKafkaLibrdkafkaOption>;
   /**
    * Specifies the SASL mechanism for authenticating with a Kafka cluster.
    */
-  "sasl"?: ObservabilityPipelineKafkaSourceSasl;
+  "sasl"?: ObservabilityPipelineKafkaSasl;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
@@ -71,11 +71,11 @@ export class ObservabilityPipelineKafkaSource {
     },
     librdkafkaOptions: {
       baseName: "librdkafka_options",
-      type: "Array<ObservabilityPipelineKafkaSourceLibrdkafkaOption>",
+      type: "Array<ObservabilityPipelineKafkaLibrdkafkaOption>",
     },
     sasl: {
       baseName: "sasl",
-      type: "ObservabilityPipelineKafkaSourceSasl",
+      type: "ObservabilityPipelineKafkaSasl",
     },
     tls: {
       baseName: "tls",

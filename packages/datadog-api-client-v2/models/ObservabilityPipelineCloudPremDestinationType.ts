@@ -7,14 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * SASL mechanism used for Kafka authentication.
+ * The destination type. The value should always be `cloud_prem`.
  */
 
-export type ObservabilityPipelinePipelineKafkaSourceSaslMechanism =
-  | typeof PLAIN
-  | typeof SCRAMNOT_SHANOT_256
-  | typeof SCRAMNOT_SHANOT_512
+export type ObservabilityPipelineCloudPremDestinationType =
+  | typeof CLOUD_PREM
   | UnparsedObject;
-export const PLAIN = "PLAIN";
-export const SCRAMNOT_SHANOT_256 = "SCRAM-SHA-256";
-export const SCRAMNOT_SHANOT_512 = "SCRAM-SHA-512";
+export const CLOUD_PREM = "cloud_prem";
