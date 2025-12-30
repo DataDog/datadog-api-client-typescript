@@ -74,7 +74,7 @@ export const TypingInfo: ModelTypingInfo = {
     CaseSortableField: ["created_at", "priority", "status"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
     CaseType: ["STANDARD"],
-    CustomAttributeType: ["URL", "TEXT", "NUMBER"],
+    CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
     ProjectResourceType: ["project"],
     TeamLinkType: ["team_links"],
     TimelineCellAuthorUserType: ["USER"],
