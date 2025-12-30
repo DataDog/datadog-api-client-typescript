@@ -21,6 +21,8 @@ export { ObservabilityPipelineAddEnvVarsProcessorType } from "./models/Observabi
 export { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./models/ObservabilityPipelineAddEnvVarsProcessorVariable";
 export { ObservabilityPipelineAddFieldsProcessor } from "./models/ObservabilityPipelineAddFieldsProcessor";
 export { ObservabilityPipelineAddFieldsProcessorType } from "./models/ObservabilityPipelineAddFieldsProcessorType";
+export { ObservabilityPipelineAddHostnameProcessor } from "./models/ObservabilityPipelineAddHostnameProcessor";
+export { ObservabilityPipelineAddHostnameProcessorType } from "./models/ObservabilityPipelineAddHostnameProcessorType";
 export { ObservabilityPipelineAmazonDataFirehoseSource } from "./models/ObservabilityPipelineAmazonDataFirehoseSource";
 export { ObservabilityPipelineAmazonDataFirehoseSourceType } from "./models/ObservabilityPipelineAmazonDataFirehoseSourceType";
 export { ObservabilityPipelineAmazonOpenSearchDestination } from "./models/ObservabilityPipelineAmazonOpenSearchDestination";
@@ -134,6 +136,8 @@ export { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./models
 export { ObservabilityPipelineParseGrokProcessorType } from "./models/ObservabilityPipelineParseGrokProcessorType";
 export { ObservabilityPipelineParseJSONProcessor } from "./models/ObservabilityPipelineParseJSONProcessor";
 export { ObservabilityPipelineParseJSONProcessorType } from "./models/ObservabilityPipelineParseJSONProcessorType";
+export { ObservabilityPipelineParseXMLProcessor } from "./models/ObservabilityPipelineParseXMLProcessor";
+export { ObservabilityPipelineParseXMLProcessorType } from "./models/ObservabilityPipelineParseXMLProcessorType";
 export { ObservabilityPipelinePipelineKafkaSourceSaslMechanism } from "./models/ObservabilityPipelinePipelineKafkaSourceSaslMechanism";
 export { ObservabilityPipelineQuotaProcessor } from "./models/ObservabilityPipelineQuotaProcessor";
 export { ObservabilityPipelineQuotaProcessorLimit } from "./models/ObservabilityPipelineQuotaProcessorLimit";
@@ -215,6 +219,9 @@ export { ObservabilityPipelineSocketSourceMode } from "./models/ObservabilityPip
 export { ObservabilityPipelineSocketSourceType } from "./models/ObservabilityPipelineSocketSourceType";
 export { ObservabilityPipelineSpec } from "./models/ObservabilityPipelineSpec";
 export { ObservabilityPipelineSpecData } from "./models/ObservabilityPipelineSpecData";
+export { ObservabilityPipelineSplitArrayProcessor } from "./models/ObservabilityPipelineSplitArrayProcessor";
+export { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./models/ObservabilityPipelineSplitArrayProcessorArrayConfig";
+export { ObservabilityPipelineSplitArrayProcessorType } from "./models/ObservabilityPipelineSplitArrayProcessorType";
 export { ObservabilityPipelineSplunkHecDestination } from "./models/ObservabilityPipelineSplunkHecDestination";
 export { ObservabilityPipelineSplunkHecDestinationEncoding } from "./models/ObservabilityPipelineSplunkHecDestinationEncoding";
 export { ObservabilityPipelineSplunkHecDestinationType } from "./models/ObservabilityPipelineSplunkHecDestinationType";
