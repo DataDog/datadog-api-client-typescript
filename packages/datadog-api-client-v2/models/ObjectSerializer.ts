@@ -1669,6 +1669,7 @@ import { ObservabilityPipeline } from "./ObservabilityPipeline";
 import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
 import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./ObservabilityPipelineAddEnvVarsProcessorVariable";
 import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
+import { ObservabilityPipelineAddHostnameProcessor } from "./ObservabilityPipelineAddHostnameProcessor";
 import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
@@ -1724,6 +1725,7 @@ import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipe
 import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./ObservabilityPipelineParseGrokProcessorRuleMatchRule";
 import { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./ObservabilityPipelineParseGrokProcessorRuleSupportRule";
 import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
+import { ObservabilityPipelineParseXMLProcessor } from "./ObservabilityPipelineParseXMLProcessor";
 import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
 import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
 import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipelineQuotaProcessorOverride";
@@ -1764,6 +1766,8 @@ import { ObservabilityPipelineSocketSourceFramingNewlineDelimited } from "./Obse
 import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./ObservabilityPipelineSocketSourceFramingOctetCounting";
 import { ObservabilityPipelineSpec } from "./ObservabilityPipelineSpec";
 import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
+import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
+import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
 import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
 import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
@@ -3613,6 +3617,7 @@ const enumsMap: { [key: string]: any[] } = {
   NotionIntegrationType: ["Notion"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
+  ObservabilityPipelineAddHostnameProcessorType: ["add_hostname"],
   ObservabilityPipelineAmazonDataFirehoseSourceType: ["amazon_data_firehose"],
   ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy: [
     "basic",
@@ -3740,6 +3745,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
   ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
   ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
+  ObservabilityPipelineParseXMLProcessorType: ["parse_xml"],
   ObservabilityPipelinePipelineKafkaSourceSaslMechanism: [
     "PLAIN",
     "SCRAM-SHA-256",
@@ -3827,6 +3833,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineSocketSourceMode: ["tcp", "udp"],
   ObservabilityPipelineSocketSourceType: ["socket"],
+  ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
   ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
   ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
   ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
@@ -6423,6 +6430,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineAddEnvVarsProcessorVariable,
   ObservabilityPipelineAddFieldsProcessor:
     ObservabilityPipelineAddFieldsProcessor,
+  ObservabilityPipelineAddHostnameProcessor:
+    ObservabilityPipelineAddHostnameProcessor,
   ObservabilityPipelineAmazonDataFirehoseSource:
     ObservabilityPipelineAmazonDataFirehoseSource,
   ObservabilityPipelineAmazonOpenSearchDestination:
@@ -6514,6 +6523,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineParseGrokProcessorRuleSupportRule,
   ObservabilityPipelineParseJSONProcessor:
     ObservabilityPipelineParseJSONProcessor,
+  ObservabilityPipelineParseXMLProcessor:
+    ObservabilityPipelineParseXMLProcessor,
   ObservabilityPipelineQuotaProcessor: ObservabilityPipelineQuotaProcessor,
   ObservabilityPipelineQuotaProcessorLimit:
     ObservabilityPipelineQuotaProcessorLimit,
@@ -6587,6 +6598,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineSocketSourceFramingOctetCounting,
   ObservabilityPipelineSpec: ObservabilityPipelineSpec,
   ObservabilityPipelineSpecData: ObservabilityPipelineSpecData,
+  ObservabilityPipelineSplitArrayProcessor:
+    ObservabilityPipelineSplitArrayProcessor,
+  ObservabilityPipelineSplitArrayProcessorArrayConfig:
+    ObservabilityPipelineSplitArrayProcessorArrayConfig,
   ObservabilityPipelineSplunkHecDestination:
     ObservabilityPipelineSplunkHecDestination,
   ObservabilityPipelineSplunkHecSource: ObservabilityPipelineSplunkHecSource,
@@ -8104,24 +8119,27 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineGooglePubSubDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
-    "ObservabilityPipelineFilterProcessor",
-    "ObservabilityPipelineParseJSONProcessor",
-    "ObservabilityPipelineQuotaProcessor",
-    "ObservabilityPipelineAddFieldsProcessor",
-    "ObservabilityPipelineRemoveFieldsProcessor",
-    "ObservabilityPipelineRenameFieldsProcessor",
-    "ObservabilityPipelineGenerateMetricsProcessor",
-    "ObservabilityPipelineSampleProcessor",
-    "ObservabilityPipelineParseGrokProcessor",
-    "ObservabilityPipelineSensitiveDataScannerProcessor",
-    "ObservabilityPipelineOcsfMapperProcessor",
     "ObservabilityPipelineAddEnvVarsProcessor",
-    "ObservabilityPipelineDedupeProcessor",
-    "ObservabilityPipelineEnrichmentTableProcessor",
-    "ObservabilityPipelineReduceProcessor",
-    "ObservabilityPipelineThrottleProcessor",
+    "ObservabilityPipelineAddFieldsProcessor",
+    "ObservabilityPipelineAddHostnameProcessor",
     "ObservabilityPipelineCustomProcessor",
     "ObservabilityPipelineDatadogTagsProcessor",
+    "ObservabilityPipelineDedupeProcessor",
+    "ObservabilityPipelineEnrichmentTableProcessor",
+    "ObservabilityPipelineFilterProcessor",
+    "ObservabilityPipelineGenerateMetricsProcessor",
+    "ObservabilityPipelineOcsfMapperProcessor",
+    "ObservabilityPipelineParseGrokProcessor",
+    "ObservabilityPipelineParseJSONProcessor",
+    "ObservabilityPipelineParseXMLProcessor",
+    "ObservabilityPipelineQuotaProcessor",
+    "ObservabilityPipelineReduceProcessor",
+    "ObservabilityPipelineRemoveFieldsProcessor",
+    "ObservabilityPipelineRenameFieldsProcessor",
+    "ObservabilityPipelineSampleProcessor",
+    "ObservabilityPipelineSensitiveDataScannerProcessor",
+    "ObservabilityPipelineSplitArrayProcessor",
+    "ObservabilityPipelineThrottleProcessor",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineKafkaSource",
