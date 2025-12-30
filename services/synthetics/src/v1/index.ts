@@ -37,6 +37,8 @@ export { APIErrorResponse } from "./models/APIErrorResponse";
 export { Creator } from "./models/Creator";
 export { SLOHistoryResponseErrorWithType } from "./models/SLOHistoryResponseErrorWithType";
 export { SyntheticsAPIStep } from "./models/SyntheticsAPIStep";
+export { SyntheticsAPISubtestStep } from "./models/SyntheticsAPISubtestStep";
+export { SyntheticsAPISubtestStepSubtype } from "./models/SyntheticsAPISubtestStepSubtype";
 export { SyntheticsAPITest } from "./models/SyntheticsAPITest";
 export { SyntheticsAPITestConfig } from "./models/SyntheticsAPITestConfig";
 export { SyntheticsApiTestFailureCode } from "./models/SyntheticsApiTestFailureCode";
