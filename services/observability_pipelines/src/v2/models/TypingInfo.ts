@@ -16,6 +16,7 @@ import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelin
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
@@ -50,9 +51,10 @@ import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPip
 import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
 import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
 import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
+import { ObservabilityPipelineKafkaDestination } from "./ObservabilityPipelineKafkaDestination";
+import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipelineKafkaLibrdkafkaOption";
+import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
-import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
-import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
@@ -146,6 +148,7 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAmazonSecurityLakeDestinationType: [
       "amazon_security_lake",
     ],
+    ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm:
       ["gzip", "zlib"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding: [
@@ -231,6 +234,20 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineHttpClientSourceType: ["http_client"],
     ObservabilityPipelineHttpServerSourceAuthStrategy: ["none", "plain"],
     ObservabilityPipelineHttpServerSourceType: ["http_server"],
+    ObservabilityPipelineKafkaDestinationCompression: [
+      "none",
+      "gzip",
+      "snappy",
+      "lz4",
+      "zstd",
+    ],
+    ObservabilityPipelineKafkaDestinationEncoding: ["json", "raw_message"],
+    ObservabilityPipelineKafkaDestinationType: ["kafka"],
+    ObservabilityPipelineKafkaSaslMechanism: [
+      "PLAIN",
+      "SCRAM-SHA-256",
+      "SCRAM-SHA-512",
+    ],
     ObservabilityPipelineKafkaSourceType: ["kafka"],
     ObservabilityPipelineLogstashSourceType: ["logstash"],
     ObservabilityPipelineNewRelicDestinationRegion: ["us", "eu"],
@@ -252,11 +269,6 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
     ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
     ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
-    ObservabilityPipelinePipelineKafkaSourceSaslMechanism: [
-      "PLAIN",
-      "SCRAM-SHA-256",
-      "SCRAM-SHA-512",
-    ],
     ObservabilityPipelineQuotaProcessorLimitEnforceType: ["bytes", "events"],
     ObservabilityPipelineQuotaProcessorOverflowAction: [
       "drop",
@@ -359,6 +371,7 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {
     ObservabilityPipelineConfigDestinationItem: [
       "ObservabilityPipelineDatadogLogsDestination",
+      "ObservabilityPipelineCloudPremDestination",
       "ObservabilityPipelineAmazonS3Destination",
       "ObservabilityPipelineGoogleCloudStorageDestination",
       "ObservabilityPipelineSplunkHecDestination",
@@ -377,6 +390,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineAmazonSecurityLakeDestination",
       "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
       "ObservabilityPipelineGooglePubSubDestination",
+      "ObservabilityPipelineKafkaDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
       "ObservabilityPipelineFilterProcessor",
@@ -475,6 +489,8 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAmazonSecurityLakeDestination:
       ObservabilityPipelineAmazonSecurityLakeDestination,
     ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
+    ObservabilityPipelineCloudPremDestination:
+      ObservabilityPipelineCloudPremDestination,
     ObservabilityPipelineConfig: ObservabilityPipelineConfig,
     ObservabilityPipelineConfigProcessorGroup:
       ObservabilityPipelineConfigProcessorGroup,
@@ -532,10 +548,12 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineHttpClientSource,
     ObservabilityPipelineHttpServerSource:
       ObservabilityPipelineHttpServerSource,
+    ObservabilityPipelineKafkaDestination:
+      ObservabilityPipelineKafkaDestination,
+    ObservabilityPipelineKafkaLibrdkafkaOption:
+      ObservabilityPipelineKafkaLibrdkafkaOption,
+    ObservabilityPipelineKafkaSasl: ObservabilityPipelineKafkaSasl,
     ObservabilityPipelineKafkaSource: ObservabilityPipelineKafkaSource,
-    ObservabilityPipelineKafkaSourceLibrdkafkaOption:
-      ObservabilityPipelineKafkaSourceLibrdkafkaOption,
-    ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
     ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
     ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
     ObservabilityPipelineNewRelicDestination:
