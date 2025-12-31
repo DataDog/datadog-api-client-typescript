@@ -6,6 +6,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonSecurityLakeDestination {
   /**

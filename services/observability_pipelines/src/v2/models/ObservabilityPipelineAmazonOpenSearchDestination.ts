@@ -5,6 +5,8 @@ import { ObservabilityPipelineAmazonOpenSearchDestinationType } from "./Observab
 
 /**
  * The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonOpenSearchDestination {
   /**

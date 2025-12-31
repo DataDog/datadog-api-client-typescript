@@ -4,6 +4,8 @@ import { MicrosoftSentinelDestinationType } from "./MicrosoftSentinelDestination
 
 /**
  * The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
+ *
+ * **Supported pipeline types:** logs
  */
 export class MicrosoftSentinelDestination {
   /**

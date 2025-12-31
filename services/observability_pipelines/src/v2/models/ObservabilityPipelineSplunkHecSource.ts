@@ -5,6 +5,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSplunkHecSource {
   /**
