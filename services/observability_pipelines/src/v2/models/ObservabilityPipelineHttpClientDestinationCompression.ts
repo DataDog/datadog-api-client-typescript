@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelinePipelineKafkaSourceSaslMechanism } from "./ObservabilityPipelinePipelineKafkaSourceSaslMechanism";
+import { ObservabilityPipelineHttpClientDestinationCompressionAlgorithm } from "./ObservabilityPipelineHttpClientDestinationCompressionAlgorithm";
 
 /**
- * Specifies the SASL mechanism for authenticating with a Kafka cluster.
+ * Compression configuration for HTTP requests.
  */
-export class ObservabilityPipelineKafkaSourceSasl {
+export class ObservabilityPipelineHttpClientDestinationCompression {
   /**
-   * SASL mechanism used for Kafka authentication.
+   * Compression algorithm.
    */
-  "mechanism"?: ObservabilityPipelinePipelineKafkaSourceSaslMechanism;
+  "algorithm": ObservabilityPipelineHttpClientDestinationCompressionAlgorithm;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +25,10 @@ export class ObservabilityPipelineKafkaSourceSasl {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mechanism: {
-      baseName: "mechanism",
-      type: "ObservabilityPipelinePipelineKafkaSourceSaslMechanism",
+    algorithm: {
+      baseName: "algorithm",
+      type: "ObservabilityPipelineHttpClientDestinationCompressionAlgorithm",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +40,7 @@ export class ObservabilityPipelineKafkaSourceSasl {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineKafkaSourceSasl.attributeTypeMap;
+    return ObservabilityPipelineHttpClientDestinationCompression.attributeTypeMap;
   }
 
   public constructor() {}

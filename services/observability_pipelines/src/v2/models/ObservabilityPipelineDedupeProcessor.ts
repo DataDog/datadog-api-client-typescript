@@ -5,6 +5,8 @@ import { ObservabilityPipelineDedupeProcessorType } from "./ObservabilityPipelin
 
 /**
  * The `dedupe` processor removes duplicate fields in log events.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDedupeProcessor {
   /**
