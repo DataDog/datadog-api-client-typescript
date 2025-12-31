@@ -3,18 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelinePipelineKafkaSourceSaslMechanism } from "./ObservabilityPipelinePipelineKafkaSourceSaslMechanism";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Specifies the SASL mechanism for authenticating with a Kafka cluster.
+ * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
  */
-export class ObservabilityPipelineKafkaSourceSasl {
+export class ObservabilityPipelineElasticsearchDestinationDataStream {
   /**
-   * SASL mechanism used for Kafka authentication.
+   * The data stream dataset for your logs. This groups logs by their source or application.
    */
-  "mechanism"?: ObservabilityPipelinePipelineKafkaSourceSaslMechanism;
+  "dataset"?: string;
+  /**
+   * The data stream type for your logs. This determines how logs are categorized within the data stream.
+   */
+  "dtype"?: string;
+  /**
+   * The data stream namespace for your logs. This separates logs into different environments or domains.
+   */
+  "namespace"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +39,17 @@ export class ObservabilityPipelineKafkaSourceSasl {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mechanism: {
-      baseName: "mechanism",
-      type: "ObservabilityPipelinePipelineKafkaSourceSaslMechanism",
+    dataset: {
+      baseName: "dataset",
+      type: "string",
+    },
+    dtype: {
+      baseName: "dtype",
+      type: "string",
+    },
+    namespace: {
+      baseName: "namespace",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +61,7 @@ export class ObservabilityPipelineKafkaSourceSasl {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineKafkaSourceSasl.attributeTypeMap;
+    return ObservabilityPipelineElasticsearchDestinationDataStream.attributeTypeMap;
   }
 
   public constructor() {}

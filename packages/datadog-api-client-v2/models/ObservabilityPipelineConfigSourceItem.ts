@@ -13,6 +13,7 @@ import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHt
 import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineRsyslogSource } from "./ObservabilityPipelineRsyslogSource";
 import { ObservabilityPipelineSocketSource } from "./ObservabilityPipelineSocketSource";
 import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
@@ -27,20 +28,21 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type ObservabilityPipelineConfigSourceItem =
-  | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineDatadogAgentSource
-  | ObservabilityPipelineSplunkTcpSource
-  | ObservabilityPipelineSplunkHecSource
-  | ObservabilityPipelineAmazonS3Source
-  | ObservabilityPipelineFluentdSource
-  | ObservabilityPipelineFluentBitSource
-  | ObservabilityPipelineHttpServerSource
-  | ObservabilityPipelineSumoLogicSource
-  | ObservabilityPipelineRsyslogSource
-  | ObservabilityPipelineSyslogNgSource
   | ObservabilityPipelineAmazonDataFirehoseSource
+  | ObservabilityPipelineAmazonS3Source
+  | ObservabilityPipelineFluentBitSource
+  | ObservabilityPipelineFluentdSource
   | ObservabilityPipelineGooglePubSubSource
   | ObservabilityPipelineHttpClientSource
+  | ObservabilityPipelineHttpServerSource
+  | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineLogstashSource
+  | ObservabilityPipelineRsyslogSource
   | ObservabilityPipelineSocketSource
+  | ObservabilityPipelineSplunkHecSource
+  | ObservabilityPipelineSplunkTcpSource
+  | ObservabilityPipelineSumoLogicSource
+  | ObservabilityPipelineSyslogNgSource
+  | ObservabilityPipelineOpentelemetrySource
   | UnparsedObject;

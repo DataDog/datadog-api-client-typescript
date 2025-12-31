@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineParseGrokProcessor {
   /**

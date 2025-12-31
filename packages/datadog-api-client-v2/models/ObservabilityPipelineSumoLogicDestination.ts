@@ -11,6 +11,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `sumo_logic` destination forwards logs to Sumo Logic.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSumoLogicDestination {
   /**

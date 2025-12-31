@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `fluent_bit` source ingests logs from Fluent Bit.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineFluentBitSource {
   /**

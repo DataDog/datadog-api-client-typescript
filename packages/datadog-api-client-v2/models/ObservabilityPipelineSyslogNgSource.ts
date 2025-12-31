@@ -11,6 +11,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSyslogNgSource {
   /**

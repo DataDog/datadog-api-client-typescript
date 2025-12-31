@@ -12,6 +12,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * The `amazon_s3` source ingests logs from an Amazon S3 bucket.
  * It supports AWS authentication and TLS encryption.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonS3Source {
   /**

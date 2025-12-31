@@ -7,9 +7,9 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka sources, such as timeouts, buffer sizes, and security settings.
+ * Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka source and destination, such as timeouts, buffer sizes, and security settings.
  */
-export class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
+export class ObservabilityPipelineKafkaLibrdkafkaOption {
   /**
    * The name of the `librdkafka` configuration option to set.
    */
@@ -55,7 +55,7 @@ export class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineKafkaSourceLibrdkafkaOption.attributeTypeMap;
+    return ObservabilityPipelineKafkaLibrdkafkaOption.attributeTypeMap;
   }
 
   public constructor() {}
