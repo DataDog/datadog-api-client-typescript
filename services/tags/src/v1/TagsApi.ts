@@ -612,7 +612,7 @@ export class TagsApiResponseProcessor {
 
 export interface TagsApiCreateHostTagsRequest {
   /**
-   * This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
+   * Specified host name to add new tags
    * @type string
    */
   hostName: string;
@@ -622,8 +622,7 @@ export interface TagsApiCreateHostTagsRequest {
    */
   body: HostTags;
   /**
-   * The source of the tags.
-   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * Source to add tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). Use "user" source for custom-defined tags. If no source is specified, defaults to "user".
    * @type string
    */
   source?: string;
@@ -631,13 +630,12 @@ export interface TagsApiCreateHostTagsRequest {
 
 export interface TagsApiDeleteHostTagsRequest {
   /**
-   * This endpoint allows you to remove all user-assigned tags for a single host.
+   * Specified host name to delete tags
    * @type string
    */
   hostName: string;
   /**
-   * The source of the tags (for example chef, puppet).
-   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * Source of the tags to be deleted. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). Use "user" source for custom-defined tags.
    * @type string
    */
   source?: string;
@@ -645,12 +643,12 @@ export interface TagsApiDeleteHostTagsRequest {
 
 export interface TagsApiGetHostTagsRequest {
   /**
-   * When specified, filters list of tags to those tags with the specified source.
+   * Name of the host to retrieve tags for
    * @type string
    */
   hostName: string;
   /**
-   * Source to filter.
+   * Source to filter. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). Use "user" source for custom-defined tags.
    * @type string
    */
   source?: string;
@@ -658,7 +656,7 @@ export interface TagsApiGetHostTagsRequest {
 
 export interface TagsApiListHostTagsRequest {
   /**
-   * When specified, filters host list to those tags with the specified source.
+   * Source to filter. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). Use "user" source for custom-defined tags.
    * @type string
    */
   source?: string;
@@ -666,7 +664,7 @@ export interface TagsApiListHostTagsRequest {
 
 export interface TagsApiUpdateHostTagsRequest {
   /**
-   * This endpoint allows you to update/replace all in an integration source with those supplied in the request.
+   * Specified host name to change tags
    * @type string
    */
   hostName: string;
@@ -676,8 +674,7 @@ export interface TagsApiUpdateHostTagsRequest {
    */
   body: HostTags;
   /**
-   * The source of the tags (for example chef, puppet).
-   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+   * Source to update tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). Use "user" source for custom-defined tags. If no source specified, defaults to "user".
    * @type string
    */
   source?: string;
@@ -704,7 +701,7 @@ export class TagsApi {
 
   /**
    * This endpoint allows you to add new tags to a host,
-   * optionally specifying where these tags come from.
+   * optionally specifying what source these tags come from. If tags already exist, appends new tags to the tag list. If no source is specified, defaults to "user".
    * @param param The request object
    */
   public createHostTags(
@@ -727,8 +724,8 @@ export class TagsApi {
   }
 
   /**
-   * This endpoint allows you to remove all user-assigned tags
-   * for a single host.
+   * This endpoint allows you to remove all tags
+   * for a single host. If no source is specified, only deletes from the source "User".
    * @param param The request object
    */
   public deleteHostTags(
@@ -772,7 +769,7 @@ export class TagsApi {
   }
 
   /**
-   * Return a mapping of tags to hosts for your whole infrastructure.
+   * Returns a mapping of tags to hosts. For each tag, the response returns a list of host names that contain this tag. There is a restriction of 10k total host names from the org that can be attached to tags and returned.
    * @param param The request object
    */
   public listHostTags(
