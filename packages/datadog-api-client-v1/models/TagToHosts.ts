@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * In this object, the key is the tag, the value is a list of host names that are reporting that tag.
+ * In this object, the key is the tag, and the value is a list of host names that are reporting that tag.
  */
 export class TagToHosts {
   /**
-   * A list of tags to apply to the host.
+   * A mapping of tags to host names
    */
   "tags"?: { [key: string]: Array<string> };
 
