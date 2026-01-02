@@ -7,17 +7,21 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options for defining a custom regex pattern.
+ * Uses a Datadog reference table to enrich logs.
  */
-export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
+export class ObservabilityPipelineEnrichmentTableReferenceTable {
   /**
-   * Human-readable description providing context about a sensitive data scanner rule
+   * List of column names to include from the reference table. If not provided, all columns are included.
    */
-  "description"?: string;
+  "columns"?: Array<string>;
   /**
-   * A regular expression used to detect sensitive values. Must be a valid regex.
+   * Path to the field in the log event to match against the reference table.
    */
-  "rule": string;
+  "keyField": string;
+  /**
+   * The unique identifier of the reference table.
+   */
+  "tableId": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,12 +39,17 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    columns: {
+      baseName: "columns",
+      type: "Array<string>",
     },
-    rule: {
-      baseName: "rule",
+    keyField: {
+      baseName: "key_field",
+      type: "string",
+      required: true,
+    },
+    tableId: {
+      baseName: "table_id",
       type: "string",
       required: true,
     },
@@ -54,7 +63,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.attributeTypeMap;
+    return ObservabilityPipelineEnrichmentTableReferenceTable.attributeTypeMap;
   }
 
   public constructor() {}

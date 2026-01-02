@@ -40,8 +40,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    const localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     // Make Request Context
     const requestContext = _config
@@ -161,8 +160,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    const localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     // Make Request Context
     const requestContext = _config
@@ -269,8 +267,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
+    const localVarPath = "/api/v2/obs-pipelines/pipelines/validate";
 
     // Make Request Context
     const requestContext = _config
