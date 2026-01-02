@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelineSampleProcessorType";
+import { ObservabilityPipelineAddHostnameProcessorType } from "./ObservabilityPipelineAddHostnameProcessorType";
 
 /**
- * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+ * The `add_hostname` processor adds the hostname to log events.
  */
-export class ObservabilityPipelineSampleProcessor {
+export class ObservabilityPipelineAddHostnameProcessor {
   /**
    * The display name for a component.
    */
@@ -15,10 +15,6 @@ export class ObservabilityPipelineSampleProcessor {
    */
   "enabled": boolean;
   /**
-   * Optional list of fields to group events by. Each group is sampled independently.
-   */
-  "groupBy"?: Array<string>;
-  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -27,13 +23,9 @@ export class ObservabilityPipelineSampleProcessor {
    */
   "include": string;
   /**
-   * The percentage of logs to sample.
+   * The processor type. The value should always be `add_hostname`.
    */
-  "percentage": number;
-  /**
-   * The processor type. The value should always be `sample`.
-   */
-  "type": ObservabilityPipelineSampleProcessorType;
+  "type": ObservabilityPipelineAddHostnameProcessorType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -58,10 +50,6 @@ export class ObservabilityPipelineSampleProcessor {
       type: "boolean",
       required: true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
-    },
     id: {
       baseName: "id",
       type: "string",
@@ -72,15 +60,9 @@ export class ObservabilityPipelineSampleProcessor {
       type: "string",
       required: true,
     },
-    percentage: {
-      baseName: "percentage",
-      type: "number",
-      required: true,
-      format: "double",
-    },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineSampleProcessorType",
+      type: "ObservabilityPipelineAddHostnameProcessorType",
       required: true,
     },
     additionalProperties: {
@@ -93,7 +75,7 @@ export class ObservabilityPipelineSampleProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSampleProcessor.attributeTypeMap;
+    return ObservabilityPipelineAddHostnameProcessor.attributeTypeMap;
   }
 
   public constructor() {}

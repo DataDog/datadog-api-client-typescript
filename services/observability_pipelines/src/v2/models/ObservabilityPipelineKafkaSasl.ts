@@ -1,17 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineKafkaSaslMechanism } from "./ObservabilityPipelineKafkaSaslMechanism";
+
 /**
- * Options for defining a custom regex pattern.
+ * Specifies the SASL mechanism for authenticating with a Kafka cluster.
  */
-export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
+export class ObservabilityPipelineKafkaSasl {
   /**
-   * Human-readable description providing context about a sensitive data scanner rule
+   * SASL mechanism used for Kafka authentication.
    */
-  "description"?: string;
-  /**
-   * A regular expression used to detect sensitive values. Must be a valid regex.
-   */
-  "rule": string;
+  "mechanism"?: ObservabilityPipelineKafkaSaslMechanism;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,14 +25,9 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    rule: {
-      baseName: "rule",
-      type: "string",
-      required: true,
+    mechanism: {
+      baseName: "mechanism",
+      type: "ObservabilityPipelineKafkaSaslMechanism",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +39,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.attributeTypeMap;
+    return ObservabilityPipelineKafkaSasl.attributeTypeMap;
   }
 
   public constructor() {}

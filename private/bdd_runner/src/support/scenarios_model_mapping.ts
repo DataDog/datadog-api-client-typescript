@@ -7442,6 +7442,56 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SingleAggregatedDnsResponseArray",
   },
+  "ObservabilityPipelinesApi.V2.ListPipelines": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ListPipelinesResponse",
+  },
+  "ObservabilityPipelinesApi.V2.CreatePipeline": {
+    body: {
+      type: "ObservabilityPipelineSpec",
+      format: "",
+    },
+    operationResponseType: "ObservabilityPipeline",
+  },
+  "ObservabilityPipelinesApi.V2.ValidatePipeline": {
+    body: {
+      type: "ObservabilityPipelineSpec",
+      format: "",
+    },
+    operationResponseType: "ValidationResponse",
+  },
+  "ObservabilityPipelinesApi.V2.GetPipeline": {
+    pipelineId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ObservabilityPipeline",
+  },
+  "ObservabilityPipelinesApi.V2.UpdatePipeline": {
+    pipelineId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ObservabilityPipeline",
+      format: "",
+    },
+    operationResponseType: "ObservabilityPipeline",
+  },
+  "ObservabilityPipelinesApi.V2.DeletePipeline": {
+    pipelineId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OnCallApi.V2.CreateOnCallEscalationPolicy": {
     include: {
       type: "string",
@@ -8382,56 +8432,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
-  },
-  "ObservabilityPipelinesApi.V2.ListPipelines": {
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "ListPipelinesResponse",
-  },
-  "ObservabilityPipelinesApi.V2.CreatePipeline": {
-    body: {
-      type: "ObservabilityPipelineSpec",
-      format: "",
-    },
-    operationResponseType: "ObservabilityPipeline",
-  },
-  "ObservabilityPipelinesApi.V2.ValidatePipeline": {
-    body: {
-      type: "ObservabilityPipelineSpec",
-      format: "",
-    },
-    operationResponseType: "ValidationResponse",
-  },
-  "ObservabilityPipelinesApi.V2.GetPipeline": {
-    pipelineId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "ObservabilityPipeline",
-  },
-  "ObservabilityPipelinesApi.V2.UpdatePipeline": {
-    pipelineId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "ObservabilityPipeline",
-      format: "",
-    },
-    operationResponseType: "ObservabilityPipeline",
-  },
-  "ObservabilityPipelinesApi.V2.DeletePipeline": {
-    pipelineId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
   },
   "RestrictionPoliciesApi.V2.GetRestrictionPolicy": {
     resourceId: {

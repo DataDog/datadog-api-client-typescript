@@ -1,15 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelinePipelineKafkaSourceSaslMechanism } from "./ObservabilityPipelinePipelineKafkaSourceSaslMechanism";
-
 /**
- * Specifies the SASL mechanism for authenticating with a Kafka cluster.
+ * Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka source and destination, such as timeouts, buffer sizes, and security settings.
  */
-export class ObservabilityPipelineKafkaSourceSasl {
+export class ObservabilityPipelineKafkaLibrdkafkaOption {
   /**
-   * SASL mechanism used for Kafka authentication.
+   * The name of the `librdkafka` configuration option to set.
    */
-  "mechanism"?: ObservabilityPipelinePipelineKafkaSourceSaslMechanism;
+  "name": string;
+  /**
+   * The value assigned to the specified `librdkafka` configuration option.
+   */
+  "value": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +27,15 @@ export class ObservabilityPipelineKafkaSourceSasl {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mechanism: {
-      baseName: "mechanism",
-      type: "ObservabilityPipelinePipelineKafkaSourceSaslMechanism",
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    value: {
+      baseName: "value",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +47,7 @@ export class ObservabilityPipelineKafkaSourceSasl {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineKafkaSourceSasl.attributeTypeMap;
+    return ObservabilityPipelineKafkaLibrdkafkaOption.attributeTypeMap;
   }
 
   public constructor() {}
