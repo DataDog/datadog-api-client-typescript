@@ -3,21 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineKafkaSaslMechanism } from "./ObservabilityPipelineKafkaSaslMechanism";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options for defining a custom regex pattern.
+ * Specifies the SASL mechanism for authenticating with a Kafka cluster.
  */
-export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
+export class ObservabilityPipelineKafkaSasl {
   /**
-   * Human-readable description providing context about a sensitive data scanner rule
+   * SASL mechanism used for Kafka authentication.
    */
-  "description"?: string;
-  /**
-   * A regular expression used to detect sensitive values. Must be a valid regex.
-   */
-  "rule": string;
+  "mechanism"?: ObservabilityPipelineKafkaSaslMechanism;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,14 +32,9 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    rule: {
-      baseName: "rule",
-      type: "string",
-      required: true,
+    mechanism: {
+      baseName: "mechanism",
+      type: "ObservabilityPipelineKafkaSaslMechanism",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +46,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.attributeTypeMap;
+    return ObservabilityPipelineKafkaSasl.attributeTypeMap;
   }
 
   public constructor() {}

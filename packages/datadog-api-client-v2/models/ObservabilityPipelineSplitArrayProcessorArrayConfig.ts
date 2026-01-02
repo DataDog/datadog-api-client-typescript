@@ -7,17 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options for defining a custom regex pattern.
+ * Configuration for a single array split operation.
  */
-export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
+export class ObservabilityPipelineSplitArrayProcessorArrayConfig {
   /**
-   * Human-readable description providing context about a sensitive data scanner rule
+   * The path to the array field to split.
    */
-  "description"?: string;
+  "field": string;
   /**
-   * A regular expression used to detect sensitive values. Must be a valid regex.
+   * A Datadog search query used to determine which logs this array split operation targets.
    */
-  "rule": string;
+  "include": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,12 +35,13 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
+    field: {
+      baseName: "field",
       type: "string",
+      required: true,
     },
-    rule: {
-      baseName: "rule",
+    include: {
+      baseName: "include",
       type: "string",
       required: true,
     },
@@ -54,7 +55,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.attributeTypeMap;
+    return ObservabilityPipelineSplitArrayProcessorArrayConfig.attributeTypeMap;
   }
 
   public constructor() {}

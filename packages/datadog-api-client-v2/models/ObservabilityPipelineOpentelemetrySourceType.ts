@@ -7,14 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * SASL mechanism used for Kafka authentication.
+ * The source type. The value should always be `opentelemetry`.
  */
 
-export type ObservabilityPipelinePipelineKafkaSourceSaslMechanism =
-  | typeof PLAIN
-  | typeof SCRAMNOT_SHANOT_256
-  | typeof SCRAMNOT_SHANOT_512
+export type ObservabilityPipelineOpentelemetrySourceType =
+  | typeof OPENTELEMETRY
   | UnparsedObject;
-export const PLAIN = "PLAIN";
-export const SCRAMNOT_SHANOT_256 = "SCRAM-SHA-256";
-export const SCRAMNOT_SHANOT_512 = "SCRAM-SHA-512";
+export const OPENTELEMETRY = "opentelemetry";

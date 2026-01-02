@@ -20,7 +20,7 @@ export class ObservabilityPipelineConfig {
   /**
    * A list of processor groups that transform or enrich log data.
    */
-  "processors"?: Array<ObservabilityPipelineConfigProcessorGroup>;
+  "processorGroups"?: Array<ObservabilityPipelineConfigProcessorGroup>;
   /**
    * A list of configured data sources for the pipeline.
    */
@@ -47,8 +47,8 @@ export class ObservabilityPipelineConfig {
       type: "Array<ObservabilityPipelineConfigDestinationItem>",
       required: true,
     },
-    processors: {
-      baseName: "processors",
+    processorGroups: {
+      baseName: "processor_groups",
       type: "Array<ObservabilityPipelineConfigProcessorGroup>",
     },
     sources: {

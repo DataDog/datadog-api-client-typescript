@@ -3,21 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineCloudPremDestinationType } from "./ObservabilityPipelineCloudPremDestinationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options for defining a custom regex pattern.
+ * The `cloud_prem` destination sends logs to Datadog CloudPrem.
  */
-export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
+export class ObservabilityPipelineCloudPremDestination {
   /**
-   * Human-readable description providing context about a sensitive data scanner rule
+   * The unique identifier for this component.
    */
-  "description"?: string;
+  "id": string;
   /**
-   * A regular expression used to detect sensitive values. Must be a valid regex.
+   * A list of component IDs whose output is used as the `input` for this component.
    */
-  "rule": string;
+  "inputs": Array<string>;
+  /**
+   * The destination type. The value should always be `cloud_prem`.
+   */
+  "type": ObservabilityPipelineCloudPremDestinationType;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +40,19 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
+    id: {
+      baseName: "id",
       type: "string",
+      required: true,
     },
-    rule: {
-      baseName: "rule",
-      type: "string",
+    inputs: {
+      baseName: "inputs",
+      type: "Array<string>",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineCloudPremDestinationType",
       required: true,
     },
     additionalProperties: {
@@ -54,7 +65,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.attributeTypeMap;
+    return ObservabilityPipelineCloudPremDestination.attributeTypeMap;
   }
 
   public constructor() {}

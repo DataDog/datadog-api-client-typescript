@@ -3162,6 +3162,8 @@ export { ObservabilityPipelineAddEnvVarsProcessorType } from "./models/Observabi
 export { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./models/ObservabilityPipelineAddEnvVarsProcessorVariable";
 export { ObservabilityPipelineAddFieldsProcessor } from "./models/ObservabilityPipelineAddFieldsProcessor";
 export { ObservabilityPipelineAddFieldsProcessorType } from "./models/ObservabilityPipelineAddFieldsProcessorType";
+export { ObservabilityPipelineAddHostnameProcessor } from "./models/ObservabilityPipelineAddHostnameProcessor";
+export { ObservabilityPipelineAddHostnameProcessorType } from "./models/ObservabilityPipelineAddHostnameProcessorType";
 export { ObservabilityPipelineAmazonDataFirehoseSource } from "./models/ObservabilityPipelineAmazonDataFirehoseSource";
 export { ObservabilityPipelineAmazonDataFirehoseSourceType } from "./models/ObservabilityPipelineAmazonDataFirehoseSourceType";
 export { ObservabilityPipelineAmazonOpenSearchDestination } from "./models/ObservabilityPipelineAmazonOpenSearchDestination";
@@ -3176,6 +3178,8 @@ export { ObservabilityPipelineAmazonS3SourceType } from "./models/ObservabilityP
 export { ObservabilityPipelineAmazonSecurityLakeDestination } from "./models/ObservabilityPipelineAmazonSecurityLakeDestination";
 export { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./models/ObservabilityPipelineAmazonSecurityLakeDestinationType";
 export { ObservabilityPipelineAwsAuth } from "./models/ObservabilityPipelineAwsAuth";
+export { ObservabilityPipelineCloudPremDestination } from "./models/ObservabilityPipelineCloudPremDestination";
+export { ObservabilityPipelineCloudPremDestinationType } from "./models/ObservabilityPipelineCloudPremDestinationType";
 export { ObservabilityPipelineConfig } from "./models/ObservabilityPipelineConfig";
 export { ObservabilityPipelineConfigDestinationItem } from "./models/ObservabilityPipelineConfigDestinationItem";
 export { ObservabilityPipelineConfigProcessorGroup } from "./models/ObservabilityPipelineConfigProcessorGroup";
@@ -3205,6 +3209,7 @@ export { ObservabilityPipelineDedupeProcessorMode } from "./models/Observability
 export { ObservabilityPipelineDedupeProcessorType } from "./models/ObservabilityPipelineDedupeProcessorType";
 export { ObservabilityPipelineElasticsearchDestination } from "./models/ObservabilityPipelineElasticsearchDestination";
 export { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./models/ObservabilityPipelineElasticsearchDestinationApiVersion";
+export { ObservabilityPipelineElasticsearchDestinationDataStream } from "./models/ObservabilityPipelineElasticsearchDestinationDataStream";
 export { ObservabilityPipelineElasticsearchDestinationType } from "./models/ObservabilityPipelineElasticsearchDestinationType";
 export { ObservabilityPipelineEnrichmentTableFile } from "./models/ObservabilityPipelineEnrichmentTableFile";
 export { ObservabilityPipelineEnrichmentTableFileEncoding } from "./models/ObservabilityPipelineEnrichmentTableFileEncoding";
@@ -3216,6 +3221,7 @@ export { ObservabilityPipelineEnrichmentTableFileSchemaItemsType } from "./model
 export { ObservabilityPipelineEnrichmentTableGeoIp } from "./models/ObservabilityPipelineEnrichmentTableGeoIp";
 export { ObservabilityPipelineEnrichmentTableProcessor } from "./models/ObservabilityPipelineEnrichmentTableProcessor";
 export { ObservabilityPipelineEnrichmentTableProcessorType } from "./models/ObservabilityPipelineEnrichmentTableProcessorType";
+export { ObservabilityPipelineEnrichmentTableReferenceTable } from "./models/ObservabilityPipelineEnrichmentTableReferenceTable";
 export { ObservabilityPipelineFieldValue } from "./models/ObservabilityPipelineFieldValue";
 export { ObservabilityPipelineFilterProcessor } from "./models/ObservabilityPipelineFilterProcessor";
 export { ObservabilityPipelineFilterProcessorType } from "./models/ObservabilityPipelineFilterProcessorType";
@@ -3250,9 +3256,14 @@ export { ObservabilityPipelineHttpClientSourceType } from "./models/Observabilit
 export { ObservabilityPipelineHttpServerSource } from "./models/ObservabilityPipelineHttpServerSource";
 export { ObservabilityPipelineHttpServerSourceAuthStrategy } from "./models/ObservabilityPipelineHttpServerSourceAuthStrategy";
 export { ObservabilityPipelineHttpServerSourceType } from "./models/ObservabilityPipelineHttpServerSourceType";
+export { ObservabilityPipelineKafkaDestination } from "./models/ObservabilityPipelineKafkaDestination";
+export { ObservabilityPipelineKafkaDestinationCompression } from "./models/ObservabilityPipelineKafkaDestinationCompression";
+export { ObservabilityPipelineKafkaDestinationEncoding } from "./models/ObservabilityPipelineKafkaDestinationEncoding";
+export { ObservabilityPipelineKafkaDestinationType } from "./models/ObservabilityPipelineKafkaDestinationType";
+export { ObservabilityPipelineKafkaLibrdkafkaOption } from "./models/ObservabilityPipelineKafkaLibrdkafkaOption";
+export { ObservabilityPipelineKafkaSasl } from "./models/ObservabilityPipelineKafkaSasl";
+export { ObservabilityPipelineKafkaSaslMechanism } from "./models/ObservabilityPipelineKafkaSaslMechanism";
 export { ObservabilityPipelineKafkaSource } from "./models/ObservabilityPipelineKafkaSource";
-export { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./models/ObservabilityPipelineKafkaSourceLibrdkafkaOption";
-export { ObservabilityPipelineKafkaSourceSasl } from "./models/ObservabilityPipelineKafkaSourceSasl";
 export { ObservabilityPipelineKafkaSourceType } from "./models/ObservabilityPipelineKafkaSourceType";
 export { ObservabilityPipelineLogstashSource } from "./models/ObservabilityPipelineLogstashSource";
 export { ObservabilityPipelineLogstashSourceType } from "./models/ObservabilityPipelineLogstashSourceType";
@@ -3268,6 +3279,8 @@ export { ObservabilityPipelineOcsfMapperProcessorType } from "./models/Observabi
 export { ObservabilityPipelineOcsfMappingLibrary } from "./models/ObservabilityPipelineOcsfMappingLibrary";
 export { ObservabilityPipelineOpenSearchDestination } from "./models/ObservabilityPipelineOpenSearchDestination";
 export { ObservabilityPipelineOpenSearchDestinationType } from "./models/ObservabilityPipelineOpenSearchDestinationType";
+export { ObservabilityPipelineOpentelemetrySource } from "./models/ObservabilityPipelineOpentelemetrySource";
+export { ObservabilityPipelineOpentelemetrySourceType } from "./models/ObservabilityPipelineOpentelemetrySourceType";
 export { ObservabilityPipelineParseGrokProcessor } from "./models/ObservabilityPipelineParseGrokProcessor";
 export { ObservabilityPipelineParseGrokProcessorRule } from "./models/ObservabilityPipelineParseGrokProcessorRule";
 export { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./models/ObservabilityPipelineParseGrokProcessorRuleMatchRule";
@@ -3275,7 +3288,8 @@ export { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./models
 export { ObservabilityPipelineParseGrokProcessorType } from "./models/ObservabilityPipelineParseGrokProcessorType";
 export { ObservabilityPipelineParseJSONProcessor } from "./models/ObservabilityPipelineParseJSONProcessor";
 export { ObservabilityPipelineParseJSONProcessorType } from "./models/ObservabilityPipelineParseJSONProcessorType";
-export { ObservabilityPipelinePipelineKafkaSourceSaslMechanism } from "./models/ObservabilityPipelinePipelineKafkaSourceSaslMechanism";
+export { ObservabilityPipelineParseXMLProcessor } from "./models/ObservabilityPipelineParseXMLProcessor";
+export { ObservabilityPipelineParseXMLProcessorType } from "./models/ObservabilityPipelineParseXMLProcessorType";
 export { ObservabilityPipelineQuotaProcessor } from "./models/ObservabilityPipelineQuotaProcessor";
 export { ObservabilityPipelineQuotaProcessorLimit } from "./models/ObservabilityPipelineQuotaProcessorLimit";
 export { ObservabilityPipelineQuotaProcessorLimitEnforceType } from "./models/ObservabilityPipelineQuotaProcessorLimitEnforceType";
@@ -3356,6 +3370,9 @@ export { ObservabilityPipelineSocketSourceMode } from "./models/ObservabilityPip
 export { ObservabilityPipelineSocketSourceType } from "./models/ObservabilityPipelineSocketSourceType";
 export { ObservabilityPipelineSpec } from "./models/ObservabilityPipelineSpec";
 export { ObservabilityPipelineSpecData } from "./models/ObservabilityPipelineSpecData";
+export { ObservabilityPipelineSplitArrayProcessor } from "./models/ObservabilityPipelineSplitArrayProcessor";
+export { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./models/ObservabilityPipelineSplitArrayProcessorArrayConfig";
+export { ObservabilityPipelineSplitArrayProcessorType } from "./models/ObservabilityPipelineSplitArrayProcessorType";
 export { ObservabilityPipelineSplunkHecDestination } from "./models/ObservabilityPipelineSplunkHecDestination";
 export { ObservabilityPipelineSplunkHecDestinationEncoding } from "./models/ObservabilityPipelineSplunkHecDestinationEncoding";
 export { ObservabilityPipelineSplunkHecDestinationType } from "./models/ObservabilityPipelineSplunkHecDestinationType";
