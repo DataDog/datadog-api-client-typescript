@@ -1,17 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka sources, such as timeouts, buffer sizes, and security settings.
+ * Uses a Datadog reference table to enrich logs.
  */
-export class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
+export class ObservabilityPipelineEnrichmentTableReferenceTable {
   /**
-   * The name of the `librdkafka` configuration option to set.
+   * List of column names to include from the reference table. If not provided, all columns are included.
    */
-  "name": string;
+  "columns"?: Array<string>;
   /**
-   * The value assigned to the specified `librdkafka` configuration option.
+   * Path to the field in the log event to match against the reference table.
    */
-  "value": string;
+  "keyField": string;
+  /**
+   * The unique identifier of the reference table.
+   */
+  "tableId": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,13 +31,17 @@ export class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
+    columns: {
+      baseName: "columns",
+      type: "Array<string>",
+    },
+    keyField: {
+      baseName: "key_field",
       type: "string",
       required: true,
     },
-    value: {
-      baseName: "value",
+    tableId: {
+      baseName: "table_id",
       type: "string",
       required: true,
     },
@@ -47,7 +55,7 @@ export class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineKafkaSourceLibrdkafkaOption.attributeTypeMap;
+    return ObservabilityPipelineEnrichmentTableReferenceTable.attributeTypeMap;
   }
 
   public constructor() {}

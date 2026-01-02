@@ -10,6 +10,7 @@ import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHt
 import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineRsyslogSource } from "./ObservabilityPipelineRsyslogSource";
 import { ObservabilityPipelineSocketSource } from "./ObservabilityPipelineSocketSource";
 import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
@@ -37,4 +38,5 @@ export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineHttpClientSource
   | ObservabilityPipelineLogstashSource
   | ObservabilityPipelineSocketSource
+  | ObservabilityPipelineOpentelemetrySource
   | UnparsedObject;

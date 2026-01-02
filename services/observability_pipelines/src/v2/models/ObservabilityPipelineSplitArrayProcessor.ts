@@ -1,11 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelineSampleProcessorType";
+import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
+import { ObservabilityPipelineSplitArrayProcessorType } from "./ObservabilityPipelineSplitArrayProcessorType";
 
 /**
- * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+ * The `split_array` processor splits array fields into separate events based on configured rules.
  */
-export class ObservabilityPipelineSampleProcessor {
+export class ObservabilityPipelineSplitArrayProcessor {
+  /**
+   * A list of array split configurations.
+   */
+  "arrays": Array<ObservabilityPipelineSplitArrayProcessorArrayConfig>;
   /**
    * The display name for a component.
    */
@@ -15,25 +20,17 @@ export class ObservabilityPipelineSampleProcessor {
    */
   "enabled": boolean;
   /**
-   * Optional list of fields to group events by. Each group is sampled independently.
-   */
-  "groupBy"?: Array<string>;
-  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * A Datadog search query used to determine which logs this processor targets. For split_array, this should typically be `*`.
    */
   "include": string;
   /**
-   * The percentage of logs to sample.
+   * The processor type. The value should always be `split_array`.
    */
-  "percentage": number;
-  /**
-   * The processor type. The value should always be `sample`.
-   */
-  "type": ObservabilityPipelineSampleProcessorType;
+  "type": ObservabilityPipelineSplitArrayProcessorType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -49,6 +46,11 @@ export class ObservabilityPipelineSampleProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    arrays: {
+      baseName: "arrays",
+      type: "Array<ObservabilityPipelineSplitArrayProcessorArrayConfig>",
+      required: true,
+    },
     displayName: {
       baseName: "display_name",
       type: "string",
@@ -57,10 +59,6 @@ export class ObservabilityPipelineSampleProcessor {
       baseName: "enabled",
       type: "boolean",
       required: true,
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
     },
     id: {
       baseName: "id",
@@ -72,15 +70,9 @@ export class ObservabilityPipelineSampleProcessor {
       type: "string",
       required: true,
     },
-    percentage: {
-      baseName: "percentage",
-      type: "number",
-      required: true,
-      format: "double",
-    },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineSampleProcessorType",
+      type: "ObservabilityPipelineSplitArrayProcessorType",
       required: true,
     },
     additionalProperties: {
@@ -93,7 +85,7 @@ export class ObservabilityPipelineSampleProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineSampleProcessor.attributeTypeMap;
+    return ObservabilityPipelineSplitArrayProcessor.attributeTypeMap;
   }
 
   public constructor() {}
