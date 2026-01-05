@@ -23,14 +23,16 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { DORADeploymentFetchResponse } from "./models/DORADeploymentFetchResponse";
 import { DORADeploymentRequest } from "./models/DORADeploymentRequest";
 import { DORADeploymentResponse } from "./models/DORADeploymentResponse";
+import { DORADeploymentsListResponse } from "./models/DORADeploymentsListResponse";
+import { DORAFailureFetchResponse } from "./models/DORAFailureFetchResponse";
 import { DORAFailureRequest } from "./models/DORAFailureRequest";
 import { DORAFailureResponse } from "./models/DORAFailureResponse";
-import { DORAFetchResponse } from "./models/DORAFetchResponse";
+import { DORAFailuresListResponse } from "./models/DORAFailuresListResponse";
 import { DORAListDeploymentsRequest } from "./models/DORAListDeploymentsRequest";
 import { DORAListFailuresRequest } from "./models/DORAListFailuresRequest";
-import { DORAListResponse } from "./models/DORAListResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { version } from "../version";
 
@@ -830,14 +832,14 @@ export class DORAMetricsApiResponseProcessor {
    */
   public async getDORADeployment(
     response: ResponseContext,
-  ): Promise<DORAFetchResponse> {
+  ): Promise<DORADeploymentFetchResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DORAFetchResponse = deserialize(
+      const body: DORADeploymentFetchResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAFetchResponse",
-      ) as DORAFetchResponse;
+        "DORADeploymentFetchResponse",
+      ) as DORADeploymentFetchResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
@@ -882,12 +884,12 @@ export class DORAMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DORAFetchResponse = deserialize(
+      const body: DORADeploymentFetchResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAFetchResponse",
+        "DORADeploymentFetchResponse",
         "",
-      ) as DORAFetchResponse;
+      ) as DORADeploymentFetchResponse;
       return body;
     }
 
@@ -907,14 +909,14 @@ export class DORAMetricsApiResponseProcessor {
    */
   public async getDORAFailure(
     response: ResponseContext,
-  ): Promise<DORAFetchResponse> {
+  ): Promise<DORAFailureFetchResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DORAFetchResponse = deserialize(
+      const body: DORAFailureFetchResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAFetchResponse",
-      ) as DORAFetchResponse;
+        "DORAFailureFetchResponse",
+      ) as DORAFailureFetchResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
@@ -959,12 +961,12 @@ export class DORAMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DORAFetchResponse = deserialize(
+      const body: DORAFailureFetchResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAFetchResponse",
+        "DORAFailureFetchResponse",
         "",
-      ) as DORAFetchResponse;
+      ) as DORAFailureFetchResponse;
       return body;
     }
 
@@ -984,14 +986,14 @@ export class DORAMetricsApiResponseProcessor {
    */
   public async listDORADeployments(
     response: ResponseContext,
-  ): Promise<DORAListResponse> {
+  ): Promise<DORADeploymentsListResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DORAListResponse = deserialize(
+      const body: DORADeploymentsListResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAListResponse",
-      ) as DORAListResponse;
+        "DORADeploymentsListResponse",
+      ) as DORADeploymentsListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
@@ -1036,12 +1038,12 @@ export class DORAMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DORAListResponse = deserialize(
+      const body: DORADeploymentsListResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAListResponse",
+        "DORADeploymentsListResponse",
         "",
-      ) as DORAListResponse;
+      ) as DORADeploymentsListResponse;
       return body;
     }
 
@@ -1061,14 +1063,14 @@ export class DORAMetricsApiResponseProcessor {
    */
   public async listDORAFailures(
     response: ResponseContext,
-  ): Promise<DORAListResponse> {
+  ): Promise<DORAFailuresListResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DORAListResponse = deserialize(
+      const body: DORAFailuresListResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAListResponse",
-      ) as DORAListResponse;
+        "DORAFailuresListResponse",
+      ) as DORAFailuresListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
@@ -1113,12 +1115,12 @@ export class DORAMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DORAListResponse = deserialize(
+      const body: DORAFailuresListResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAListResponse",
+        "DORAFailuresListResponse",
         "",
-      ) as DORAListResponse;
+      ) as DORAFailuresListResponse;
       return body;
     }
 
@@ -1343,7 +1345,7 @@ export class DORAMetricsApi {
   public getDORADeployment(
     param: DORAMetricsApiGetDORADeploymentRequest,
     options?: Configuration,
-  ): Promise<DORAFetchResponse> {
+  ): Promise<DORADeploymentFetchResponse> {
     const requestContextPromise = this.requestFactory.getDORADeployment(
       param.deploymentId,
       options,
@@ -1364,7 +1366,7 @@ export class DORAMetricsApi {
   public getDORAFailure(
     param: DORAMetricsApiGetDORAFailureRequest,
     options?: Configuration,
-  ): Promise<DORAFetchResponse> {
+  ): Promise<DORAFailureFetchResponse> {
     const requestContextPromise = this.requestFactory.getDORAFailure(
       param.failureId,
       options,
@@ -1385,7 +1387,7 @@ export class DORAMetricsApi {
   public listDORADeployments(
     param: DORAMetricsApiListDORADeploymentsRequest,
     options?: Configuration,
-  ): Promise<DORAListResponse> {
+  ): Promise<DORADeploymentsListResponse> {
     const requestContextPromise = this.requestFactory.listDORADeployments(
       param.body,
       options,
@@ -1406,7 +1408,7 @@ export class DORAMetricsApi {
   public listDORAFailures(
     param: DORAMetricsApiListDORAFailuresRequest,
     options?: Configuration,
-  ): Promise<DORAListResponse> {
+  ): Promise<DORAFailuresListResponse> {
     const requestContextPromise = this.requestFactory.listDORAFailures(
       param.body,
       options,

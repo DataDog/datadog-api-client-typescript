@@ -1,21 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DORAIncidentObject } from "./DORAIncidentObject";
+
 /**
- * A DORA event.
+ * Response for the list failures endpoint.
  */
-export class DORAEvent {
+export class DORAFailuresListResponse {
   /**
-   * The attributes of the event.
+   * The list of DORA incident events.
    */
-  "attributes"?: any;
-  /**
-   * The ID of the event.
-   */
-  "id"?: string;
-  /**
-   * The type of the event.
-   */
-  "type"?: string;
+  "data"?: Array<DORAIncidentObject>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,17 +25,9 @@ export class DORAEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "any",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Array<DORAIncidentObject>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +39,7 @@ export class DORAEvent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAEvent.attributeTypeMap;
+    return DORAFailuresListResponse.attributeTypeMap;
   }
 
   public constructor() {}
