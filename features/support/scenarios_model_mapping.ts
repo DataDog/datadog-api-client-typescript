@@ -7995,6 +7995,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.SubmitProductAnalyticsEvent": {
+        "body": {
+            "type": "ProductAnalyticsServerSideEventItem",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
     "v2.GetAccountFacetInfo": {
         "body": {
             "type": "FacetInfoRequest",
