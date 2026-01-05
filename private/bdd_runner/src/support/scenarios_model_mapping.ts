@@ -5546,14 +5546,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "DORAListDeploymentsRequest",
       format: "",
     },
-    operationResponseType: "DORADeploymentsListResponse",
+    operationResponseType: "DORAListResponse",
   },
   "DORAMetricsApi.V2.GetDORADeployment": {
     deploymentId: {
       type: "string",
       format: "",
     },
-    operationResponseType: "DORADeploymentFetchResponse",
+    operationResponseType: "DORAFetchResponse",
   },
   "DORAMetricsApi.V2.CreateDORAFailure": {
     body: {
@@ -5574,14 +5574,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "DORAListFailuresRequest",
       format: "",
     },
-    operationResponseType: "DORAFailuresListResponse",
+    operationResponseType: "DORAListResponse",
   },
   "DORAMetricsApi.V2.GetDORAFailure": {
     failureId: {
       type: "string",
       format: "",
     },
-    operationResponseType: "DORAFailureFetchResponse",
+    operationResponseType: "DORAFetchResponse",
   },
   "DORAMetricsApi.V2.CreateDORAIncident": {
     body: {

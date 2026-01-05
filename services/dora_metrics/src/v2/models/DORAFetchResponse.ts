@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DORADeploymentObject } from "./DORADeploymentObject";
+import { DORAEvent } from "./DORAEvent";
 
 /**
- * Response for the list deployments endpoint.
+ * Response for the DORA fetch endpoints.
  */
-export class DORADeploymentsListResponse {
+export class DORAFetchResponse {
   /**
-   * The list of DORA deployment events.
+   * A DORA event.
    */
-  "data"?: Array<DORADeploymentObject>;
+  "data"?: DORAEvent;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class DORADeploymentsListResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<DORADeploymentObject>",
+      type: "DORAEvent",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +39,7 @@ export class DORADeploymentsListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORADeploymentsListResponse.attributeTypeMap;
+    return DORAFetchResponse.attributeTypeMap;
   }
 
   public constructor() {}
