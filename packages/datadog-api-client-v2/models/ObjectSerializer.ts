@@ -700,31 +700,26 @@ import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandle
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
-import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
-import { DORADeploymentObject } from "./DORADeploymentObject";
-import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
 import { DORADeploymentResponse } from "./DORADeploymentResponse";
 import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
-import { DORADeploymentsListResponse } from "./DORADeploymentsListResponse";
-import { DORAFailureFetchResponse } from "./DORAFailureFetchResponse";
+import { DORAEvent } from "./DORAEvent";
 import { DORAFailureRequest } from "./DORAFailureRequest";
 import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
 import { DORAFailureRequestData } from "./DORAFailureRequestData";
 import { DORAFailureResponse } from "./DORAFailureResponse";
 import { DORAFailureResponseData } from "./DORAFailureResponseData";
-import { DORAFailuresListResponse } from "./DORAFailuresListResponse";
+import { DORAFetchResponse } from "./DORAFetchResponse";
 import { DORAGitInfo } from "./DORAGitInfo";
-import { DORAIncidentObject } from "./DORAIncidentObject";
-import { DORAIncidentObjectAttributes } from "./DORAIncidentObjectAttributes";
 import { DORAListDeploymentsRequest } from "./DORAListDeploymentsRequest";
 import { DORAListDeploymentsRequestAttributes } from "./DORAListDeploymentsRequestAttributes";
 import { DORAListDeploymentsRequestData } from "./DORAListDeploymentsRequestData";
 import { DORAListFailuresRequest } from "./DORAListFailuresRequest";
 import { DORAListFailuresRequestAttributes } from "./DORAListFailuresRequestAttributes";
 import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
+import { DORAListResponse } from "./DORAListResponse";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -5333,31 +5328,26 @@ const typeMap: { [index: string]: any } = {
   CustomFrameworkMetadata: CustomFrameworkMetadata,
   CustomFrameworkRequirement: CustomFrameworkRequirement,
   CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
-  DORADeploymentFetchResponse: DORADeploymentFetchResponse,
-  DORADeploymentObject: DORADeploymentObject,
-  DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
   DORADeploymentRequest: DORADeploymentRequest,
   DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
   DORADeploymentRequestData: DORADeploymentRequestData,
   DORADeploymentResponse: DORADeploymentResponse,
   DORADeploymentResponseData: DORADeploymentResponseData,
-  DORADeploymentsListResponse: DORADeploymentsListResponse,
-  DORAFailureFetchResponse: DORAFailureFetchResponse,
+  DORAEvent: DORAEvent,
   DORAFailureRequest: DORAFailureRequest,
   DORAFailureRequestAttributes: DORAFailureRequestAttributes,
   DORAFailureRequestData: DORAFailureRequestData,
   DORAFailureResponse: DORAFailureResponse,
   DORAFailureResponseData: DORAFailureResponseData,
-  DORAFailuresListResponse: DORAFailuresListResponse,
+  DORAFetchResponse: DORAFetchResponse,
   DORAGitInfo: DORAGitInfo,
-  DORAIncidentObject: DORAIncidentObject,
-  DORAIncidentObjectAttributes: DORAIncidentObjectAttributes,
   DORAListDeploymentsRequest: DORAListDeploymentsRequest,
   DORAListDeploymentsRequestAttributes: DORAListDeploymentsRequestAttributes,
   DORAListDeploymentsRequestData: DORAListDeploymentsRequestData,
   DORAListFailuresRequest: DORAListFailuresRequest,
   DORAListFailuresRequestAttributes: DORAListFailuresRequestAttributes,
   DORAListFailuresRequestData: DORAListFailuresRequestData,
+  DORAListResponse: DORAListResponse,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,

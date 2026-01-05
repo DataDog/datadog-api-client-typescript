@@ -22,7 +22,7 @@ const params: v2.DORAMetricsApiListDORADeploymentsRequest = {
 
 apiInstance
   .listDORADeployments(params)
-  .then((data: v2.DORADeploymentsListResponse) => {
+  .then((data: v2.DORAListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

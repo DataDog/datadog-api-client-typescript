@@ -13,7 +13,7 @@ const params: v2.DORAMetricsApiGetDORADeploymentRequest = {
 
 apiInstance
   .getDORADeployment(params)
-  .then((data: v2.DORADeploymentFetchResponse) => {
+  .then((data: v2.DORAFetchResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
