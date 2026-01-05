@@ -252,6 +252,14 @@ export class MonthlyUsageAttributionValues {
    */
   "fargateUsage"?: number;
   /**
+   * The percentage of Flex Stored Logs usage by tags.
+   */
+  "flexStoredLogsPercentage"?: number;
+  /**
+   * The Flex Stored Logs usage by tags.
+   */
+  "flexStoredLogsUsage"?: number;
+  /**
    * The percentage of Lambda function usage by tag(s).
    */
   "functionsPercentage"?: number;
@@ -941,6 +949,16 @@ export class MonthlyUsageAttributionValues {
     },
     fargateUsage: {
       baseName: "fargate_usage",
+      type: "number",
+      format: "double",
+    },
+    flexStoredLogsPercentage: {
+      baseName: "flex_stored_logs_percentage",
+      type: "number",
+      format: "double",
+    },
+    flexStoredLogsUsage: {
+      baseName: "flex_stored_logs_usage",
       type: "number",
       format: "double",
     },
