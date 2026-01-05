@@ -1,31 +1,26 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
-import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
-import { DORADeploymentObject } from "./DORADeploymentObject";
-import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
 import { DORADeploymentResponse } from "./DORADeploymentResponse";
 import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
-import { DORADeploymentsListResponse } from "./DORADeploymentsListResponse";
-import { DORAFailureFetchResponse } from "./DORAFailureFetchResponse";
+import { DORAEvent } from "./DORAEvent";
 import { DORAFailureRequest } from "./DORAFailureRequest";
 import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
 import { DORAFailureRequestData } from "./DORAFailureRequestData";
 import { DORAFailureResponse } from "./DORAFailureResponse";
 import { DORAFailureResponseData } from "./DORAFailureResponseData";
-import { DORAFailuresListResponse } from "./DORAFailuresListResponse";
+import { DORAFetchResponse } from "./DORAFetchResponse";
 import { DORAGitInfo } from "./DORAGitInfo";
-import { DORAIncidentObject } from "./DORAIncidentObject";
-import { DORAIncidentObjectAttributes } from "./DORAIncidentObjectAttributes";
 import { DORAListDeploymentsRequest } from "./DORAListDeploymentsRequest";
 import { DORAListDeploymentsRequestAttributes } from "./DORAListDeploymentsRequestAttributes";
 import { DORAListDeploymentsRequestData } from "./DORAListDeploymentsRequestData";
 import { DORAListFailuresRequest } from "./DORAListFailuresRequest";
 import { DORAListFailuresRequestAttributes } from "./DORAListFailuresRequestAttributes";
 import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
+import { DORAListResponse } from "./DORAListResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -40,31 +35,26 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    DORADeploymentFetchResponse: DORADeploymentFetchResponse,
-    DORADeploymentObject: DORADeploymentObject,
-    DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
     DORADeploymentRequest: DORADeploymentRequest,
     DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
     DORADeploymentRequestData: DORADeploymentRequestData,
     DORADeploymentResponse: DORADeploymentResponse,
     DORADeploymentResponseData: DORADeploymentResponseData,
-    DORADeploymentsListResponse: DORADeploymentsListResponse,
-    DORAFailureFetchResponse: DORAFailureFetchResponse,
+    DORAEvent: DORAEvent,
     DORAFailureRequest: DORAFailureRequest,
     DORAFailureRequestAttributes: DORAFailureRequestAttributes,
     DORAFailureRequestData: DORAFailureRequestData,
     DORAFailureResponse: DORAFailureResponse,
     DORAFailureResponseData: DORAFailureResponseData,
-    DORAFailuresListResponse: DORAFailuresListResponse,
+    DORAFetchResponse: DORAFetchResponse,
     DORAGitInfo: DORAGitInfo,
-    DORAIncidentObject: DORAIncidentObject,
-    DORAIncidentObjectAttributes: DORAIncidentObjectAttributes,
     DORAListDeploymentsRequest: DORAListDeploymentsRequest,
     DORAListDeploymentsRequestAttributes: DORAListDeploymentsRequestAttributes,
     DORAListDeploymentsRequestData: DORAListDeploymentsRequestData,
     DORAListFailuresRequest: DORAListFailuresRequest,
     DORAListFailuresRequestAttributes: DORAListFailuresRequestAttributes,
     DORAListFailuresRequestData: DORAListFailuresRequestData,
+    DORAListResponse: DORAListResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
