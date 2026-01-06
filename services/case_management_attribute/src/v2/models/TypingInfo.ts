@@ -12,7 +12,7 @@ import { CustomAttributeConfigsResponse } from "./CustomAttributeConfigsResponse
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     CustomAttributeConfigResourceType: ["custom_attribute"],
-    CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
+    CustomAttributeType: ["URL", "TEXT", "NUMBER"],
   },
   oneOfMap: {},
   typeMap: {

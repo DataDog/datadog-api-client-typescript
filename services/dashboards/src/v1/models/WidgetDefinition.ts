@@ -22,6 +22,7 @@ import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
 import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
+import { SankeyWidgetDefinition } from "./SankeyWidgetDefinition";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
@@ -64,6 +65,7 @@ export type WidgetDefinition =
   | SLOListWidgetDefinition
   | SLOWidgetDefinition
   | ScatterPlotWidgetDefinition
+  | SankeyWidgetDefinition
   | ServiceMapWidgetDefinition
   | ServiceSummaryWidgetDefinition
   | SplitGraphWidgetDefinition
