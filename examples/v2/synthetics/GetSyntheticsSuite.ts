@@ -1,19 +1,19 @@
 /**
- * Get a deployment event returns "OK" response
+ * Synthetics: Get a suite returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-const apiInstance = new v2.DORAMetricsApi(configuration);
+const apiInstance = new v2.SyntheticsApi(configuration);
 
-const params: v2.DORAMetricsApiGetDORADeploymentRequest = {
-  deploymentId: "deployment_id",
+const params: v2.SyntheticsApiGetSyntheticsSuiteRequest = {
+  publicId: "public_id",
 };
 
 apiInstance
-  .getDORADeployment(params)
-  .then((data: v2.DORADeploymentFetchResponse) => {
+  .getSyntheticsSuite(params)
+  .then((data: v2.SyntheticsSuiteResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

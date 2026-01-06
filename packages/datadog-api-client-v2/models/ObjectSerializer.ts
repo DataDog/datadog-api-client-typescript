@@ -700,26 +700,31 @@ import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandle
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
+import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
+import { DORADeploymentObject } from "./DORADeploymentObject";
+import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
 import { DORADeploymentResponse } from "./DORADeploymentResponse";
 import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
-import { DORAEvent } from "./DORAEvent";
+import { DORADeploymentsListResponse } from "./DORADeploymentsListResponse";
+import { DORAFailureFetchResponse } from "./DORAFailureFetchResponse";
 import { DORAFailureRequest } from "./DORAFailureRequest";
 import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
 import { DORAFailureRequestData } from "./DORAFailureRequestData";
 import { DORAFailureResponse } from "./DORAFailureResponse";
 import { DORAFailureResponseData } from "./DORAFailureResponseData";
-import { DORAFetchResponse } from "./DORAFetchResponse";
+import { DORAFailuresListResponse } from "./DORAFailuresListResponse";
 import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAIncidentObject } from "./DORAIncidentObject";
+import { DORAIncidentObjectAttributes } from "./DORAIncidentObjectAttributes";
 import { DORAListDeploymentsRequest } from "./DORAListDeploymentsRequest";
 import { DORAListDeploymentsRequestAttributes } from "./DORAListDeploymentsRequestAttributes";
 import { DORAListDeploymentsRequestData } from "./DORAListDeploymentsRequestData";
 import { DORAListFailuresRequest } from "./DORAListFailuresRequest";
 import { DORAListFailuresRequestAttributes } from "./DORAListFailuresRequestAttributes";
 import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
-import { DORAListResponse } from "./DORAListResponse";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -772,6 +777,12 @@ import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
 import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
+import { DeletedSuiteResponseData } from "./DeletedSuiteResponseData";
+import { DeletedSuiteResponseDataAttributes } from "./DeletedSuiteResponseDataAttributes";
+import { DeletedSuitesRequestDelete } from "./DeletedSuitesRequestDelete";
+import { DeletedSuitesRequestDeleteAttributes } from "./DeletedSuitesRequestDeleteAttributes";
+import { DeletedSuitesRequestDeleteRequest } from "./DeletedSuitesRequestDeleteRequest";
+import { DeletedSuitesResponse } from "./DeletedSuitesResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { Deployment } from "./Deployment";
 import { DeploymentAttributes } from "./DeploymentAttributes";
@@ -2514,8 +2525,18 @@ import { StatsigIntegrationUpdate } from "./StatsigIntegrationUpdate";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
+import { SuiteCreateEdit } from "./SuiteCreateEdit";
+import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
+import { SyntheticsSuite } from "./SyntheticsSuite";
+import { SyntheticsSuiteOptions } from "./SyntheticsSuiteOptions";
+import { SyntheticsSuiteResponse } from "./SyntheticsSuiteResponse";
+import { SyntheticsSuiteResponseData } from "./SyntheticsSuiteResponseData";
+import { SyntheticsSuiteSearchResponse } from "./SyntheticsSuiteSearchResponse";
+import { SyntheticsSuiteSearchResponseData } from "./SyntheticsSuiteSearchResponseData";
+import { SyntheticsSuiteSearchResponseDataAttributes } from "./SyntheticsSuiteSearchResponseDataAttributes";
+import { SyntheticsSuiteTest } from "./SyntheticsSuiteTest";
 import { TableResultV2 } from "./TableResultV2";
 import { TableResultV2Array } from "./TableResultV2Array";
 import { TableResultV2Data } from "./TableResultV2Data";
@@ -3198,6 +3219,7 @@ const enumsMap: { [key: string]: any[] } = {
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
   DatastoreItemsDataType: ["items"],
   DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
+  DeletedSuitesRequestType: ["delete_suites_request"],
   DeploymentGateDataType: ["deployment_gate"],
   DeploymentRuleDataType: ["deployment_rule"],
   DeploymentRuleResponseDataAttributesType: [
@@ -4278,6 +4300,10 @@ const enumsMap: { [key: string]: any[] } = {
   StateVariableType: ["stateVariable"],
   StatsigAPIKeyType: ["StatsigAPIKey"],
   StatsigIntegrationType: ["Statsig"],
+  SuiteSearchResponseType: ["suites_search"],
+  SyntheticsSuiteTestAlertingCriticality: ["ignore", "critical"],
+  SyntheticsSuiteType: ["suite"],
+  SyntheticsSuiteTypes: ["suites"],
   TableResultV2DataAttributesFileMetadataCloudStorageErrorType: [
     "TABLE_SCHEMA_ERROR",
     "FILE_FORMAT_ERROR",
@@ -5328,26 +5354,31 @@ const typeMap: { [index: string]: any } = {
   CustomFrameworkMetadata: CustomFrameworkMetadata,
   CustomFrameworkRequirement: CustomFrameworkRequirement,
   CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
+  DORADeploymentFetchResponse: DORADeploymentFetchResponse,
+  DORADeploymentObject: DORADeploymentObject,
+  DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
   DORADeploymentRequest: DORADeploymentRequest,
   DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
   DORADeploymentRequestData: DORADeploymentRequestData,
   DORADeploymentResponse: DORADeploymentResponse,
   DORADeploymentResponseData: DORADeploymentResponseData,
-  DORAEvent: DORAEvent,
+  DORADeploymentsListResponse: DORADeploymentsListResponse,
+  DORAFailureFetchResponse: DORAFailureFetchResponse,
   DORAFailureRequest: DORAFailureRequest,
   DORAFailureRequestAttributes: DORAFailureRequestAttributes,
   DORAFailureRequestData: DORAFailureRequestData,
   DORAFailureResponse: DORAFailureResponse,
   DORAFailureResponseData: DORAFailureResponseData,
-  DORAFetchResponse: DORAFetchResponse,
+  DORAFailuresListResponse: DORAFailuresListResponse,
   DORAGitInfo: DORAGitInfo,
+  DORAIncidentObject: DORAIncidentObject,
+  DORAIncidentObjectAttributes: DORAIncidentObjectAttributes,
   DORAListDeploymentsRequest: DORAListDeploymentsRequest,
   DORAListDeploymentsRequestAttributes: DORAListDeploymentsRequestAttributes,
   DORAListDeploymentsRequestData: DORAListDeploymentsRequestData,
   DORAListFailuresRequest: DORAListFailuresRequest,
   DORAListFailuresRequestAttributes: DORAListFailuresRequestAttributes,
   DORAListFailuresRequestData: DORAListFailuresRequestData,
-  DORAListResponse: DORAListResponse,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
@@ -5401,6 +5432,12 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
   DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
+  DeletedSuiteResponseData: DeletedSuiteResponseData,
+  DeletedSuiteResponseDataAttributes: DeletedSuiteResponseDataAttributes,
+  DeletedSuitesRequestDelete: DeletedSuitesRequestDelete,
+  DeletedSuitesRequestDeleteAttributes: DeletedSuitesRequestDeleteAttributes,
+  DeletedSuitesRequestDeleteRequest: DeletedSuitesRequestDeleteRequest,
+  DeletedSuitesResponse: DeletedSuitesResponse,
   DependencyLocation: DependencyLocation,
   Deployment: Deployment,
   DeploymentAttributes: DeploymentAttributes,
@@ -7464,8 +7501,19 @@ const typeMap: { [index: string]: any } = {
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
+  SuiteCreateEdit: SuiteCreateEdit,
+  SuiteCreateEditRequest: SuiteCreateEditRequest,
   SuppressionVersionHistory: SuppressionVersionHistory,
   SuppressionVersions: SuppressionVersions,
+  SyntheticsSuite: SyntheticsSuite,
+  SyntheticsSuiteOptions: SyntheticsSuiteOptions,
+  SyntheticsSuiteResponse: SyntheticsSuiteResponse,
+  SyntheticsSuiteResponseData: SyntheticsSuiteResponseData,
+  SyntheticsSuiteSearchResponse: SyntheticsSuiteSearchResponse,
+  SyntheticsSuiteSearchResponseData: SyntheticsSuiteSearchResponseData,
+  SyntheticsSuiteSearchResponseDataAttributes:
+    SyntheticsSuiteSearchResponseDataAttributes,
+  SyntheticsSuiteTest: SyntheticsSuiteTest,
   TableResultV2: TableResultV2,
   TableResultV2Array: TableResultV2Array,
   TableResultV2Data: TableResultV2Data,

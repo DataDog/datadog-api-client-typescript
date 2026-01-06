@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DORAEvent } from "./DORAEvent";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for the DORA fetch endpoints.
+ * Object describing the extra options for a Synthetic suite.
  */
-export class DORAFetchResponse {
+export class SyntheticsSuiteOptions {
   /**
-   * A DORA event.
+   * Percentage of critical tests failure needed for a suite to fail.
    */
-  "data"?: DORAEvent;
+  "alertingThreshold"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +31,10 @@ export class DORAFetchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAEvent",
+    alertingThreshold: {
+      baseName: "alerting_threshold",
+      type: "number",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +46,7 @@ export class DORAFetchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAFetchResponse.attributeTypeMap;
+    return SyntheticsSuiteOptions.attributeTypeMap;
   }
 
   public constructor() {}
