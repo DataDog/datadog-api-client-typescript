@@ -5,6 +5,7 @@
  */
 import { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./ObservabilityPipelineAmazonSecurityLakeDestinationType";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -22,6 +23,10 @@ export class ObservabilityPipelineAmazonSecurityLakeDestination {
    * Name of the Amazon S3 bucket in Security Lake (3-63 characters).
    */
   "bucket": string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Custom source name for the logs in Security Lake.
    */
@@ -71,6 +76,10 @@ export class ObservabilityPipelineAmazonSecurityLakeDestination {
       baseName: "bucket",
       type: "string",
       required: true,
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     customSourceName: {
       baseName: "custom_source_name",

@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGooglePubSubDestinationEncoding } from "./ObservabilityPipelineGooglePubSubDestinationEncoding";
 import { ObservabilityPipelineGooglePubSubDestinationType } from "./ObservabilityPipelineGooglePubSubDestinationType";
@@ -18,6 +19,10 @@ export class ObservabilityPipelineGooglePubSubDestination {
    * GCP credentials used to authenticate with Google Cloud Storage.
    */
   "auth"?: ObservabilityPipelineGcpAuth;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Encoding format for log events.
    */
@@ -66,6 +71,10 @@ export class ObservabilityPipelineGooglePubSubDestination {
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineGcpAuth",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     encoding: {
       baseName: "encoding",

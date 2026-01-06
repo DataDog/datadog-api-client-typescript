@@ -700,26 +700,31 @@ import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandle
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
+import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
+import { DORADeploymentObject } from "./DORADeploymentObject";
+import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
 import { DORADeploymentResponse } from "./DORADeploymentResponse";
 import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
-import { DORAEvent } from "./DORAEvent";
+import { DORADeploymentsListResponse } from "./DORADeploymentsListResponse";
+import { DORAFailureFetchResponse } from "./DORAFailureFetchResponse";
 import { DORAFailureRequest } from "./DORAFailureRequest";
 import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
 import { DORAFailureRequestData } from "./DORAFailureRequestData";
 import { DORAFailureResponse } from "./DORAFailureResponse";
 import { DORAFailureResponseData } from "./DORAFailureResponseData";
-import { DORAFetchResponse } from "./DORAFetchResponse";
+import { DORAFailuresListResponse } from "./DORAFailuresListResponse";
 import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAIncidentObject } from "./DORAIncidentObject";
+import { DORAIncidentObjectAttributes } from "./DORAIncidentObjectAttributes";
 import { DORAListDeploymentsRequest } from "./DORAListDeploymentsRequest";
 import { DORAListDeploymentsRequestAttributes } from "./DORAListDeploymentsRequestAttributes";
 import { DORAListDeploymentsRequestData } from "./DORAListDeploymentsRequestData";
 import { DORAListFailuresRequest } from "./DORAListFailuresRequest";
 import { DORAListFailuresRequestAttributes } from "./DORAListFailuresRequestAttributes";
 import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
-import { DORAListResponse } from "./DORAListResponse";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -1688,6 +1693,7 @@ import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipeline
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
+import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
@@ -1714,6 +1720,8 @@ import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSo
 import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
 import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineMemoryBufferOptions } from "./ObservabilityPipelineMemoryBufferOptions";
+import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPipelineMemoryBufferSizeOptions";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
@@ -3635,6 +3643,9 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAmazonSecurityLakeDestinationType: [
     "amazon_security_lake",
   ],
+  ObservabilityPipelineBufferOptionsDiskType: ["disk"],
+  ObservabilityPipelineBufferOptionsMemoryType: ["memory"],
+  ObservabilityPipelineBufferOptionsWhenFull: ["block", "drop_newest"],
   ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm: [
     "gzip",
     "zlib",
@@ -5328,26 +5339,31 @@ const typeMap: { [index: string]: any } = {
   CustomFrameworkMetadata: CustomFrameworkMetadata,
   CustomFrameworkRequirement: CustomFrameworkRequirement,
   CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
+  DORADeploymentFetchResponse: DORADeploymentFetchResponse,
+  DORADeploymentObject: DORADeploymentObject,
+  DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
   DORADeploymentRequest: DORADeploymentRequest,
   DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
   DORADeploymentRequestData: DORADeploymentRequestData,
   DORADeploymentResponse: DORADeploymentResponse,
   DORADeploymentResponseData: DORADeploymentResponseData,
-  DORAEvent: DORAEvent,
+  DORADeploymentsListResponse: DORADeploymentsListResponse,
+  DORAFailureFetchResponse: DORAFailureFetchResponse,
   DORAFailureRequest: DORAFailureRequest,
   DORAFailureRequestAttributes: DORAFailureRequestAttributes,
   DORAFailureRequestData: DORAFailureRequestData,
   DORAFailureResponse: DORAFailureResponse,
   DORAFailureResponseData: DORAFailureResponseData,
-  DORAFetchResponse: DORAFetchResponse,
+  DORAFailuresListResponse: DORAFailuresListResponse,
   DORAGitInfo: DORAGitInfo,
+  DORAIncidentObject: DORAIncidentObject,
+  DORAIncidentObjectAttributes: DORAIncidentObjectAttributes,
   DORAListDeploymentsRequest: DORAListDeploymentsRequest,
   DORAListDeploymentsRequestAttributes: DORAListDeploymentsRequestAttributes,
   DORAListDeploymentsRequestData: DORAListDeploymentsRequestData,
   DORAListFailuresRequest: DORAListFailuresRequest,
   DORAListFailuresRequestAttributes: DORAListFailuresRequestAttributes,
   DORAListFailuresRequestData: DORAListFailuresRequestData,
-  DORAListResponse: DORAListResponse,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
@@ -6454,6 +6470,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineDatadogTagsProcessor:
     ObservabilityPipelineDatadogTagsProcessor,
   ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
+  ObservabilityPipelineDiskBufferOptions:
+    ObservabilityPipelineDiskBufferOptions,
   ObservabilityPipelineElasticsearchDestination:
     ObservabilityPipelineElasticsearchDestination,
   ObservabilityPipelineEnrichmentTableFile:
@@ -6495,6 +6513,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineKafkaSourceLibrdkafkaOption,
   ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
   ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
+  ObservabilityPipelineMemoryBufferOptions:
+    ObservabilityPipelineMemoryBufferOptions,
+  ObservabilityPipelineMemoryBufferSizeOptions:
+    ObservabilityPipelineMemoryBufferSizeOptions,
   ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
   ObservabilityPipelineNewRelicDestination:
     ObservabilityPipelineNewRelicDestination,
@@ -8082,6 +8104,11 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
+  ObservabilityPipelineBufferOptions: [
+    "ObservabilityPipelineDiskBufferOptions",
+    "ObservabilityPipelineMemoryBufferOptions",
+    "ObservabilityPipelineMemoryBufferSizeOptions",
+  ],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineDatadogLogsDestination",
     "ObservabilityPipelineAmazonS3Destination",

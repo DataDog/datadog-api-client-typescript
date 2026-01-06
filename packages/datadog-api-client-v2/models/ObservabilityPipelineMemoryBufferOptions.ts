@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DORAEvent } from "./DORAEvent";
+import { ObservabilityPipelineBufferOptionsMemoryType } from "./ObservabilityPipelineBufferOptionsMemoryType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for the DORA fetch endpoints.
+ * Options for configuring a memory buffer by byte size.
  */
-export class DORAFetchResponse {
+export class ObservabilityPipelineMemoryBufferOptions {
   /**
-   * A DORA event.
+   * Maximum size of the disk buffer.
    */
-  "data"?: DORAEvent;
+  "maxSize"?: number;
+  /**
+   * The type of the buffer that will be configured, a memory buffer.
+   */
+  "type"?: ObservabilityPipelineBufferOptionsMemoryType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +36,14 @@ export class DORAFetchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAEvent",
+    maxSize: {
+      baseName: "max_size",
+      type: "number",
+      format: "int64",
+    },
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineBufferOptionsMemoryType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +55,7 @@ export class DORAFetchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAFetchResponse.attributeTypeMap;
+    return ObservabilityPipelineMemoryBufferOptions.attributeTypeMap;
   }
 
   public constructor() {}

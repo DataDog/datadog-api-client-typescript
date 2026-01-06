@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGoogleCloudStorageDestinationAcl } from "./ObservabilityPipelineGoogleCloudStorageDestinationAcl";
 import { ObservabilityPipelineGoogleCloudStorageDestinationStorageClass } from "./ObservabilityPipelineGoogleCloudStorageDestinationStorageClass";
@@ -28,6 +29,10 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
    * Name of the GCS bucket.
    */
   "bucket": string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Unique identifier for the destination component.
    */
@@ -81,6 +86,10 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
       baseName: "bucket",
       type: "string",
       required: true,
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     id: {
       baseName: "id",
