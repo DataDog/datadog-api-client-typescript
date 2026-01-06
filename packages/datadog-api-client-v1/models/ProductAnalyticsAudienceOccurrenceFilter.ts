@@ -6,22 +6,9 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * A DORA event.
- */
-export class DORAEvent {
-  /**
-   * The attributes of the event.
-   */
-  "attributes"?: any;
-  /**
-   * The ID of the event.
-   */
-  "id"?: string;
-  /**
-   * The type of the event.
-   */
-  "type"?: string;
+export class ProductAnalyticsAudienceOccurrenceFilter {
+  "operator"?: string;
+  "value"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,16 +26,12 @@ export class DORAEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "any",
-    },
-    id: {
-      baseName: "id",
+    operator: {
+      baseName: "operator",
       type: "string",
     },
-    type: {
-      baseName: "type",
+    value: {
+      baseName: "value",
       type: "string",
     },
     additionalProperties: {
@@ -61,7 +44,7 @@ export class DORAEvent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAEvent.attributeTypeMap;
+    return ProductAnalyticsAudienceOccurrenceFilter.attributeTypeMap;
   }
 
   public constructor() {}

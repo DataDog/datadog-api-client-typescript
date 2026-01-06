@@ -13,7 +13,7 @@ const params: v2.DORAMetricsApiGetDORAFailureRequest = {
 
 apiInstance
   .getDORAFailure(params)
-  .then((data: v2.DORAFetchResponse) => {
+  .then((data: v2.DORAFailureFetchResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
