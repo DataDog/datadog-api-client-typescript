@@ -1,15 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DORAEvent } from "./DORAEvent";
-
-/**
- * Response for the DORA list endpoints.
- */
-export class DORAListResponse {
+export class DeletedSuiteResponseDataAttributes {
   /**
-   * The list of DORA events.
+   * Deletion timestamp of the Synthetic suite ID.
    */
-  "data"?: Array<DORAEvent>;
+  "deletedAt"?: string;
+  /**
+   * The Synthetic suite ID deleted.
+   */
+  "publicId"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +24,13 @@ export class DORAListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DORAEvent>",
+    deletedAt: {
+      baseName: "deleted_at",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +42,7 @@ export class DORAListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAListResponse.attributeTypeMap;
+    return DeletedSuiteResponseDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

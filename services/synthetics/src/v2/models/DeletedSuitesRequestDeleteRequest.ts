@@ -1,21 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-/**
- * A DORA event.
- */
-export class DORAEvent {
-  /**
-   * The attributes of the event.
-   */
-  "attributes"?: any;
-  /**
-   * The ID of the event.
-   */
-  "id"?: string;
-  /**
-   * The type of the event.
-   */
-  "type"?: string;
+import { DeletedSuitesRequestDelete } from "./DeletedSuitesRequestDelete";
+
+export class DeletedSuitesRequestDeleteRequest {
+  "data": DeletedSuitesRequestDelete;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,17 +19,10 @@ export class DORAEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "any",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "DeletedSuitesRequestDelete",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +34,7 @@ export class DORAEvent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAEvent.attributeTypeMap;
+    return DeletedSuitesRequestDeleteRequest.attributeTypeMap;
   }
 
   public constructor() {}
