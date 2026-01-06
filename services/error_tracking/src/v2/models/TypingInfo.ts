@@ -55,7 +55,7 @@ export const TypingInfo: ModelTypingInfo = {
     CaseResourceType: ["case"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
     CaseType: ["STANDARD"],
-    CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
+    CustomAttributeType: ["URL", "TEXT", "NUMBER"],
     GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
     IssueCaseResourceType: ["case"],
     IssueLanguage: [

@@ -1,16 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CasePriority } from "./CasePriority";
-import { CustomAttributeValue } from "./CustomAttributeValue";
 
 /**
  * Case creation attributes
  */
 export class CaseCreateAttributes {
-  /**
-   * Case custom attributes
-   */
-  "customAttributes"?: { [key: string]: CustomAttributeValue };
   /**
    * Description
    */
@@ -42,10 +37,6 @@ export class CaseCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customAttributes: {
-      baseName: "custom_attributes",
-      type: "{ [key: string]: CustomAttributeValue; }",
-    },
     description: {
       baseName: "description",
       type: "string",

@@ -78,6 +78,11 @@ import { PowerpackTemplateVariableContents } from "./PowerpackTemplateVariableCo
 import { PowerpackTemplateVariables } from "./PowerpackTemplateVariables";
 import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { ProductAnalyticsAudienceAccountSubquery } from "./ProductAnalyticsAudienceAccountSubquery";
+import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
+import { ProductAnalyticsAudienceOccurrenceFilter } from "./ProductAnalyticsAudienceOccurrenceFilter";
+import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
+import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
@@ -86,6 +91,14 @@ import { SLOListWidgetDefinition } from "./SLOListWidgetDefinition";
 import { SLOListWidgetQuery } from "./SLOListWidgetQuery";
 import { SLOListWidgetRequest } from "./SLOListWidgetRequest";
 import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
+import { SankeyJoinKeys } from "./SankeyJoinKeys";
+import { SankeyNetworkQuery } from "./SankeyNetworkQuery";
+import { SankeyNetworkQueryCompute } from "./SankeyNetworkQueryCompute";
+import { SankeyNetworkQuerySort } from "./SankeyNetworkQuerySort";
+import { SankeyNetworkRequest } from "./SankeyNetworkRequest";
+import { SankeyRumQuery } from "./SankeyRumQuery";
+import { SankeyRumRequest } from "./SankeyRumRequest";
+import { SankeyWidgetDefinition } from "./SankeyWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
@@ -184,6 +197,19 @@ export const TypingInfo: ModelTypingInfo = {
     DistributionWidgetHistogramRequestType: ["histogram"],
     EventStreamWidgetDefinitionType: ["event_stream"],
     EventTimelineWidgetDefinitionType: ["event_timeline"],
+    EventsAggregationValue: [
+      "avg",
+      "cardinality",
+      "count",
+      "delta",
+      "earliest",
+      "latest",
+      "max",
+      "median",
+      "min",
+      "most_frequent",
+      "sum",
+    ],
     FormulaAndFunctionApmDependencyStatName: [
       "avg_duration",
       "avg_root_duration",
@@ -324,6 +350,12 @@ export const TypingInfo: ModelTypingInfo = {
     SLOListWidgetDefinitionType: ["slo_list"],
     SLOListWidgetRequestType: ["slo_list"],
     SLOWidgetDefinitionType: ["slo"],
+    SankeyNetworkDataSource: ["network_device_flows", "network"],
+    SankeyNetworkQueryMode: ["target"],
+    SankeyNetworkRequestType: ["netflow_sankey"],
+    SankeyRumDataSource: ["rum", "product_analytics"],
+    SankeyRumQueryMode: ["source", "target"],
+    SankeyWidgetDefinitionType: ["sankey"],
     ScatterPlotWidgetDefinitionType: ["scatterplot"],
     ScatterplotDimension: ["x", "y", "radius", "color"],
     ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
@@ -504,6 +536,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionEventQueryDefinition",
       "FormulaAndFunctionApmResourceStatsQueryDefinition",
     ],
+    EventsAggregation: ["EventsAggregationValue", "string"],
     FormulaAndFunctionQueryDefinition: [
       "FormulaAndFunctionMetricQueryDefinition",
       "FormulaAndFunctionEventQueryDefinition",
@@ -514,6 +547,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionCloudCostQueryDefinition",
     ],
     NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
+    SankeyWidgetRequest: ["SankeyRumRequest", "SankeyNetworkRequest"],
     SharedDashboardInvitesData: [
       "SharedDashboardInvitesDataObject",
       "Array<SharedDashboardInvitesDataObject>",
@@ -564,6 +598,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SLOListWidgetDefinition",
       "SLOWidgetDefinition",
       "ScatterPlotWidgetDefinition",
+      "SankeyWidgetDefinition",
       "ServiceMapWidgetDefinition",
       "ServiceSummaryWidgetDefinition",
       "SplitGraphWidgetDefinition",
@@ -669,6 +704,14 @@ export const TypingInfo: ModelTypingInfo = {
     PowerpackTemplateVariables: PowerpackTemplateVariables,
     PowerpackWidgetDefinition: PowerpackWidgetDefinition,
     ProcessQueryDefinition: ProcessQueryDefinition,
+    ProductAnalyticsAudienceAccountSubquery:
+      ProductAnalyticsAudienceAccountSubquery,
+    ProductAnalyticsAudienceFilters: ProductAnalyticsAudienceFilters,
+    ProductAnalyticsAudienceOccurrenceFilter:
+      ProductAnalyticsAudienceOccurrenceFilter,
+    ProductAnalyticsAudienceSegmentSubquery:
+      ProductAnalyticsAudienceSegmentSubquery,
+    ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
     QueryValueWidgetDefinition: QueryValueWidgetDefinition,
     QueryValueWidgetRequest: QueryValueWidgetRequest,
     RunWorkflowWidgetDefinition: RunWorkflowWidgetDefinition,
@@ -677,6 +720,14 @@ export const TypingInfo: ModelTypingInfo = {
     SLOListWidgetQuery: SLOListWidgetQuery,
     SLOListWidgetRequest: SLOListWidgetRequest,
     SLOWidgetDefinition: SLOWidgetDefinition,
+    SankeyJoinKeys: SankeyJoinKeys,
+    SankeyNetworkQuery: SankeyNetworkQuery,
+    SankeyNetworkQueryCompute: SankeyNetworkQueryCompute,
+    SankeyNetworkQuerySort: SankeyNetworkQuerySort,
+    SankeyNetworkRequest: SankeyNetworkRequest,
+    SankeyRumQuery: SankeyRumQuery,
+    SankeyRumRequest: SankeyRumRequest,
+    SankeyWidgetDefinition: SankeyWidgetDefinition,
     ScatterPlotRequest: ScatterPlotRequest,
     ScatterPlotWidgetDefinition: ScatterPlotWidgetDefinition,
     ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
