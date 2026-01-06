@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CasePriority } from "./CasePriority";
-import { CustomAttributeValue } from "./CustomAttributeValue";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,10 +11,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Case creation attributes
  */
 export class CaseCreateAttributes {
-  /**
-   * Case custom attributes
-   */
-  "customAttributes"?: { [key: string]: CustomAttributeValue };
   /**
    * Description
    */
@@ -49,10 +44,6 @@ export class CaseCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customAttributes: {
-      baseName: "custom_attributes",
-      type: "{ [key: string]: CustomAttributeValue; }",
-    },
     description: {
       baseName: "description",
       type: "string",

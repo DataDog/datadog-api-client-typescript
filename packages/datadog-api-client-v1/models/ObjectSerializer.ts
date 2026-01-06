@@ -302,6 +302,11 @@ import { PowerpackTemplateVariableContents } from "./PowerpackTemplateVariableCo
 import { PowerpackTemplateVariables } from "./PowerpackTemplateVariables";
 import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { ProductAnalyticsAudienceAccountSubquery } from "./ProductAnalyticsAudienceAccountSubquery";
+import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
+import { ProductAnalyticsAudienceOccurrenceFilter } from "./ProductAnalyticsAudienceOccurrenceFilter";
+import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
+import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
@@ -352,6 +357,14 @@ import { SLOTimeSliceCondition } from "./SLOTimeSliceCondition";
 import { SLOTimeSliceQuery } from "./SLOTimeSliceQuery";
 import { SLOTimeSliceSpec } from "./SLOTimeSliceSpec";
 import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
+import { SankeyJoinKeys } from "./SankeyJoinKeys";
+import { SankeyNetworkQuery } from "./SankeyNetworkQuery";
+import { SankeyNetworkQueryCompute } from "./SankeyNetworkQueryCompute";
+import { SankeyNetworkQuerySort } from "./SankeyNetworkQuerySort";
+import { SankeyNetworkRequest } from "./SankeyNetworkRequest";
+import { SankeyRumQuery } from "./SankeyRumQuery";
+import { SankeyRumRequest } from "./SankeyRumRequest";
+import { SankeyWidgetDefinition } from "./SankeyWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
@@ -731,6 +744,19 @@ const enumsMap: { [key: string]: any[] } = {
   EventPriority: ["normal", "low"],
   EventStreamWidgetDefinitionType: ["event_stream"],
   EventTimelineWidgetDefinitionType: ["event_timeline"],
+  EventsAggregationValue: [
+    "avg",
+    "cardinality",
+    "count",
+    "delta",
+    "earliest",
+    "latest",
+    "max",
+    "median",
+    "min",
+    "most_frequent",
+    "sum",
+  ],
   FormulaAndFunctionApmDependencyStatName: [
     "avg_duration",
     "avg_root_duration",
@@ -1274,6 +1300,12 @@ const enumsMap: { [key: string]: any[] } = {
   SLOType: ["metric", "monitor", "time_slice"],
   SLOTypeNumeric: [0, 1, 2],
   SLOWidgetDefinitionType: ["slo"],
+  SankeyNetworkDataSource: ["network_device_flows", "network"],
+  SankeyNetworkQueryMode: ["target"],
+  SankeyNetworkRequestType: ["netflow_sankey"],
+  SankeyRumDataSource: ["rum", "product_analytics"],
+  SankeyRumQueryMode: ["source", "target"],
+  SankeyWidgetDefinitionType: ["sankey"],
   ScatterPlotWidgetDefinitionType: ["scatterplot"],
   ScatterplotDimension: ["x", "y", "radius", "color"],
   ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
@@ -2058,6 +2090,14 @@ const typeMap: { [index: string]: any } = {
   PowerpackTemplateVariables: PowerpackTemplateVariables,
   PowerpackWidgetDefinition: PowerpackWidgetDefinition,
   ProcessQueryDefinition: ProcessQueryDefinition,
+  ProductAnalyticsAudienceAccountSubquery:
+    ProductAnalyticsAudienceAccountSubquery,
+  ProductAnalyticsAudienceFilters: ProductAnalyticsAudienceFilters,
+  ProductAnalyticsAudienceOccurrenceFilter:
+    ProductAnalyticsAudienceOccurrenceFilter,
+  ProductAnalyticsAudienceSegmentSubquery:
+    ProductAnalyticsAudienceSegmentSubquery,
+  ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
   ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
@@ -2109,6 +2149,14 @@ const typeMap: { [index: string]: any } = {
   SLOTimeSliceQuery: SLOTimeSliceQuery,
   SLOTimeSliceSpec: SLOTimeSliceSpec,
   SLOWidgetDefinition: SLOWidgetDefinition,
+  SankeyJoinKeys: SankeyJoinKeys,
+  SankeyNetworkQuery: SankeyNetworkQuery,
+  SankeyNetworkQueryCompute: SankeyNetworkQueryCompute,
+  SankeyNetworkQuerySort: SankeyNetworkQuerySort,
+  SankeyNetworkRequest: SankeyNetworkRequest,
+  SankeyRumQuery: SankeyRumQuery,
+  SankeyRumRequest: SankeyRumRequest,
+  SankeyWidgetDefinition: SankeyWidgetDefinition,
   ScatterPlotRequest: ScatterPlotRequest,
   ScatterPlotWidgetDefinition: ScatterPlotWidgetDefinition,
   ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
@@ -2445,6 +2493,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionEventQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
   ],
+  EventsAggregation: ["EventsAggregationValue", "string"],
   FormulaAndFunctionQueryDefinition: [
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
@@ -2519,6 +2568,7 @@ const oneOfMap: { [index: string]: string[] } = {
   NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
   SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
   SLOSliSpec: ["SLOTimeSliceSpec"],
+  SankeyWidgetRequest: ["SankeyRumRequest", "SankeyNetworkRequest"],
   SharedDashboardInvitesData: [
     "SharedDashboardInvitesDataObject",
     "Array<SharedDashboardInvitesDataObject>",
@@ -2590,6 +2640,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SLOListWidgetDefinition",
     "SLOWidgetDefinition",
     "ScatterPlotWidgetDefinition",
+    "SankeyWidgetDefinition",
     "ServiceMapWidgetDefinition",
     "ServiceSummaryWidgetDefinition",
     "SplitGraphWidgetDefinition",

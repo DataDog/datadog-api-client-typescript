@@ -3,25 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DORAEvent } from "./DORAEvent";
+import { EventsAggregation } from "./EventsAggregation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for the DORA fetch endpoints.
+ * Compute aggregation for network queries.
  */
-export class DORAFetchResponse {
+export class SankeyNetworkQueryCompute {
   /**
-   * A DORA event.
+   * The type of aggregation that can be performed on events-based queries.
    */
-  "data"?: DORAEvent;
-
+  "aggregation": EventsAggregation;
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * Metric to aggregate.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "metric": string;
 
   /**
    * @ignore
@@ -32,13 +29,15 @@ export class DORAFetchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAEvent",
+    aggregation: {
+      baseName: "aggregation",
+      type: "EventsAggregation",
+      required: true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
+    metric: {
+      baseName: "metric",
+      type: "string",
+      required: true,
     },
   };
 
@@ -46,7 +45,7 @@ export class DORAFetchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAFetchResponse.attributeTypeMap;
+    return SankeyNetworkQueryCompute.attributeTypeMap;
   }
 
   public constructor() {}
