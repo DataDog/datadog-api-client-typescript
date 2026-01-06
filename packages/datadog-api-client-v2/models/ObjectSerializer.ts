@@ -3150,7 +3150,7 @@ const enumsMap: { [key: string]: any[] } = {
   CreateUploadRequestDataType: ["upload"],
   CreateUploadResponseDataType: ["upload"],
   CustomAttributeConfigResourceType: ["custom_attribute"],
-  CustomAttributeType: ["URL", "TEXT", "NUMBER"],
+  CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
