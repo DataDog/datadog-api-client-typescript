@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineSocketDestinationEncoding } from "./ObservabilityPipelineSocketDestinationEncoding";
 import { ObservabilityPipelineSocketDestinationFraming } from "./ObservabilityPipelineSocketDestinationFraming";
 import { ObservabilityPipelineSocketDestinationMode } from "./ObservabilityPipelineSocketDestinationMode";
@@ -10,6 +11,10 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
  * The `socket` destination sends logs over TCP or UDP to a remote server.
  */
 export class ObservabilityPipelineSocketDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Encoding format for log events.
    */
@@ -53,6 +58,10 @@ export class ObservabilityPipelineSocketDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     encoding: {
       baseName: "encoding",
       type: "ObservabilityPipelineSocketDestinationEncoding",

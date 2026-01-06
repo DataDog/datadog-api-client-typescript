@@ -1,15 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DORAEvent } from "./DORAEvent";
+import { ObservabilityPipelineBufferOptionsMemoryType } from "./ObservabilityPipelineBufferOptionsMemoryType";
 
 /**
- * Response for the DORA list endpoints.
+ * Options for configuring a memory buffer by byte size.
  */
-export class DORAListResponse {
+export class ObservabilityPipelineMemoryBufferOptions {
   /**
-   * The list of DORA events.
+   * Maximum size of the disk buffer.
    */
-  "data"?: Array<DORAEvent>;
+  "maxSize"?: number;
+  /**
+   * The type of the buffer that will be configured, a memory buffer.
+   */
+  "type"?: ObservabilityPipelineBufferOptionsMemoryType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +29,14 @@ export class DORAListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DORAEvent>",
+    maxSize: {
+      baseName: "max_size",
+      type: "number",
+      format: "int64",
+    },
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineBufferOptionsMemoryType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +48,7 @@ export class DORAListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAListResponse.attributeTypeMap;
+    return ObservabilityPipelineMemoryBufferOptions.attributeTypeMap;
   }
 
   public constructor() {}
