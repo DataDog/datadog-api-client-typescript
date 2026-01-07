@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityPipelineOpenSearchDestinationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The `opensearch` destination writes logs to an OpenSearch cluster.
  */
 export class ObservabilityPipelineOpenSearchDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The index to write logs to.
    */
@@ -44,6 +49,10 @@ export class ObservabilityPipelineOpenSearchDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     bulkIndex: {
       baseName: "bulk_index",
       type: "string",

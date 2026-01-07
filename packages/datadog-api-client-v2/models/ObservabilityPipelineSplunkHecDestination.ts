@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineSplunkHecDestinationEncoding } from "./ObservabilityPipelineSplunkHecDestinationEncoding";
 import { ObservabilityPipelineSplunkHecDestinationType } from "./ObservabilityPipelineSplunkHecDestinationType";
 
@@ -17,6 +18,10 @@ export class ObservabilityPipelineSplunkHecDestination {
    * If `false`, Splunk assigns the time the event was received.
    */
   "autoExtractTimestamp"?: boolean;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Encoding format for log events.
    */
@@ -61,6 +66,10 @@ export class ObservabilityPipelineSplunkHecDestination {
     autoExtractTimestamp: {
       baseName: "auto_extract_timestamp",
       type: "boolean",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     encoding: {
       baseName: "encoding",
