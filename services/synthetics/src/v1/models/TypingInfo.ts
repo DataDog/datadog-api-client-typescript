@@ -100,6 +100,7 @@ import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
 import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
 import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
+import { SyntheticsTestDetailsWithoutSteps } from "./SyntheticsTestDetailsWithoutSteps";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
@@ -538,6 +539,7 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsTestCiOptions: SyntheticsTestCiOptions,
     SyntheticsTestConfig: SyntheticsTestConfig,
     SyntheticsTestDetails: SyntheticsTestDetails,
+    SyntheticsTestDetailsWithoutSteps: SyntheticsTestDetailsWithoutSteps,
     SyntheticsTestOptions: SyntheticsTestOptions,
     SyntheticsTestOptionsMonitorOptions: SyntheticsTestOptionsMonitorOptions,
     SyntheticsTestOptionsRetry: SyntheticsTestOptionsRetry,

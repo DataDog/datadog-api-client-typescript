@@ -2168,7 +2168,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    operationResponseType: "SyntheticsTestDetails",
+    operationResponseType: "SyntheticsTestDetailsWithoutSteps",
   },
   "SyntheticsApi.V1.PatchTest": {
     publicId: {

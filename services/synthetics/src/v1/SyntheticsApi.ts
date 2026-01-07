@@ -44,6 +44,7 @@ import { SyntheticsPatchTestBody } from "./models/SyntheticsPatchTestBody";
 import { SyntheticsPrivateLocation } from "./models/SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "./models/SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsTestDetails } from "./models/SyntheticsTestDetails";
+import { SyntheticsTestDetailsWithoutSteps } from "./models/SyntheticsTestDetailsWithoutSteps";
 import { SyntheticsTestUptime } from "./models/SyntheticsTestUptime";
 import { SyntheticsTriggerBody } from "./models/SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestsResponse } from "./models/SyntheticsTriggerCITestsResponse";
@@ -3073,14 +3074,14 @@ export class SyntheticsApiResponseProcessor {
    */
   public async getTest(
     response: ResponseContext,
-  ): Promise<SyntheticsTestDetails> {
+  ): Promise<SyntheticsTestDetailsWithoutSteps> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SyntheticsTestDetails = deserialize(
+      const body: SyntheticsTestDetailsWithoutSteps = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "SyntheticsTestDetails",
-      ) as SyntheticsTestDetails;
+        "SyntheticsTestDetailsWithoutSteps",
+      ) as SyntheticsTestDetailsWithoutSteps;
       return body;
     }
     if (
@@ -3108,12 +3109,12 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsTestDetails = deserialize(
+      const body: SyntheticsTestDetailsWithoutSteps = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "SyntheticsTestDetails",
+        "SyntheticsTestDetailsWithoutSteps",
         "",
-      ) as SyntheticsTestDetails;
+      ) as SyntheticsTestDetailsWithoutSteps;
       return body;
     }
 
@@ -4670,7 +4671,7 @@ export class SyntheticsApi {
   public getTest(
     param: SyntheticsApiGetTestRequest,
     options?: Configuration,
-  ): Promise<SyntheticsTestDetails> {
+  ): Promise<SyntheticsTestDetailsWithoutSteps> {
     const requestContextPromise = this.requestFactory.getTest(
       param.publicId,
       options,
@@ -4746,7 +4747,7 @@ export class SyntheticsApi {
   public async *listTestsWithPagination(
     param: SyntheticsApiListTestsRequest = {},
     options?: Configuration,
-  ): AsyncGenerator<SyntheticsTestDetails> {
+  ): AsyncGenerator<SyntheticsTestDetailsWithoutSteps> {
     let pageSize = 100;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;

@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
+import { SyntheticsTestDetailsWithoutSteps } from "./SyntheticsTestDetailsWithoutSteps";
 
 /**
  * Object containing an array of Synthetic tests configuration.
@@ -9,7 +9,7 @@ export class SyntheticsListTestsResponse {
   /**
    * Array of Synthetic tests configuration.
    */
-  "tests"?: Array<SyntheticsTestDetails>;
+  "tests"?: Array<SyntheticsTestDetailsWithoutSteps>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class SyntheticsListTestsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
       baseName: "tests",
-      type: "Array<SyntheticsTestDetails>",
+      type: "Array<SyntheticsTestDetailsWithoutSteps>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
