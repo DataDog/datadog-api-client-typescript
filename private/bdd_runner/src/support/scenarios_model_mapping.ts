@@ -8005,6 +8005,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProcessSummariesResponse",
   },
+  "ProductAnalyticsApi.V2.SubmitProductAnalyticsEvent": {
+    body: {
+      type: "ProductAnalyticsServerSideEventItem",
+      format: "",
+    },
+    operationResponseType: "any",
+  },
   "RumAudienceManagementApi.V2.GetAccountFacetInfo": {
     body: {
       type: "FacetInfoRequest",
