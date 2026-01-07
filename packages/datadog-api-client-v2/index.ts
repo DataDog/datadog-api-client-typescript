@@ -664,6 +664,11 @@ export {
 } from "./apis/ProcessesApi";
 
 export {
+  ProductAnalyticsApiSubmitProductAnalyticsEventRequest,
+  ProductAnalyticsApi,
+} from "./apis/ProductAnalyticsApi";
+
+export {
   RUMApiAggregateRUMEventsRequest,
   RUMApiCreateRUMApplicationRequest,
   RUMApiDeleteRUMApplicationRequest,
@@ -3545,6 +3550,15 @@ export { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";
 export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
+export { ProductAnalyticsServerSideEventError } from "./models/ProductAnalyticsServerSideEventError";
+export { ProductAnalyticsServerSideEventErrors } from "./models/ProductAnalyticsServerSideEventErrors";
+export { ProductAnalyticsServerSideEventItem } from "./models/ProductAnalyticsServerSideEventItem";
+export { ProductAnalyticsServerSideEventItemAccount } from "./models/ProductAnalyticsServerSideEventItemAccount";
+export { ProductAnalyticsServerSideEventItemApplication } from "./models/ProductAnalyticsServerSideEventItemApplication";
+export { ProductAnalyticsServerSideEventItemEvent } from "./models/ProductAnalyticsServerSideEventItemEvent";
+export { ProductAnalyticsServerSideEventItemSession } from "./models/ProductAnalyticsServerSideEventItemSession";
+export { ProductAnalyticsServerSideEventItemType } from "./models/ProductAnalyticsServerSideEventItemType";
+export { ProductAnalyticsServerSideEventItemUsr } from "./models/ProductAnalyticsServerSideEventItemUsr";
 export { Project } from "./models/Project";
 export { ProjectAttributes } from "./models/ProjectAttributes";
 export { ProjectCreate } from "./models/ProjectCreate";

@@ -1909,6 +1909,14 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { ProductAnalyticsServerSideEventError } from "./ProductAnalyticsServerSideEventError";
+import { ProductAnalyticsServerSideEventErrors } from "./ProductAnalyticsServerSideEventErrors";
+import { ProductAnalyticsServerSideEventItem } from "./ProductAnalyticsServerSideEventItem";
+import { ProductAnalyticsServerSideEventItemAccount } from "./ProductAnalyticsServerSideEventItemAccount";
+import { ProductAnalyticsServerSideEventItemApplication } from "./ProductAnalyticsServerSideEventItemApplication";
+import { ProductAnalyticsServerSideEventItemEvent } from "./ProductAnalyticsServerSideEventItemEvent";
+import { ProductAnalyticsServerSideEventItemSession } from "./ProductAnalyticsServerSideEventItemSession";
+import { ProductAnalyticsServerSideEventItemUsr } from "./ProductAnalyticsServerSideEventItemUsr";
 import { Project } from "./Project";
 import { ProjectAttributes } from "./ProjectAttributes";
 import { ProjectCreate } from "./ProjectCreate";
@@ -3882,6 +3890,7 @@ const enumsMap: { [key: string]: any[] } = {
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
+  ProductAnalyticsServerSideEventItemType: ["server"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   QueryAccountRequestDataType: ["query_account_request"],
@@ -6756,6 +6765,19 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  ProductAnalyticsServerSideEventError: ProductAnalyticsServerSideEventError,
+  ProductAnalyticsServerSideEventErrors: ProductAnalyticsServerSideEventErrors,
+  ProductAnalyticsServerSideEventItem: ProductAnalyticsServerSideEventItem,
+  ProductAnalyticsServerSideEventItemAccount:
+    ProductAnalyticsServerSideEventItemAccount,
+  ProductAnalyticsServerSideEventItemApplication:
+    ProductAnalyticsServerSideEventItemApplication,
+  ProductAnalyticsServerSideEventItemEvent:
+    ProductAnalyticsServerSideEventItemEvent,
+  ProductAnalyticsServerSideEventItemSession:
+    ProductAnalyticsServerSideEventItemSession,
+  ProductAnalyticsServerSideEventItemUsr:
+    ProductAnalyticsServerSideEventItemUsr,
   Project: Project,
   ProjectAttributes: ProjectAttributes,
   ProjectCreate: ProjectCreate,

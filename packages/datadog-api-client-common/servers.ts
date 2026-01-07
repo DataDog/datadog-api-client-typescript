@@ -324,4 +324,33 @@ export const operationServers: {
       subdomain: "api",
     }),
   ],
+  "v2.ProductAnalyticsApi.submitProductAnalyticsEvent": [
+    new ServerConfiguration<{
+      site:
+        | "datadoghq.com"
+        | "us3.datadoghq.com"
+        | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
+        | "ap2.datadoghq.com"
+        | "datadoghq.eu";
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "browser-intake",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "browser-intake-datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "browser-intake",
+    }),
+  ],
 };
