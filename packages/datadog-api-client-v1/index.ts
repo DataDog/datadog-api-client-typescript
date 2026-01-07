@@ -1049,6 +1049,7 @@ export { SyntheticsTestConfig } from "./models/SyntheticsTestConfig";
 export { SyntheticsTestDetails } from "./models/SyntheticsTestDetails";
 export { SyntheticsTestDetailsSubType } from "./models/SyntheticsTestDetailsSubType";
 export { SyntheticsTestDetailsType } from "./models/SyntheticsTestDetailsType";
+export { SyntheticsTestDetailsWithoutSteps } from "./models/SyntheticsTestDetailsWithoutSteps";
 export { SyntheticsTestExecutionRule } from "./models/SyntheticsTestExecutionRule";
 export { SyntheticsTestMonitorStatus } from "./models/SyntheticsTestMonitorStatus";
 export { SyntheticsTestOptions } from "./models/SyntheticsTestOptions";

@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { Creator } from "./Creator";
-import { SyntheticsStep } from "./SyntheticsStep";
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
 import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
@@ -14,9 +13,9 @@ import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object containing details about your Synthetic test.
+ * Object containing details about your Synthetic test, without test steps.
  */
-export class SyntheticsTestDetails {
+export class SyntheticsTestDetailsWithoutSteps {
   /**
    * Configuration object for a Synthetic test.
    */
@@ -54,10 +53,6 @@ export class SyntheticsTestDetails {
    * Synthetic test.
    */
   "status"?: SyntheticsTestPauseStatus;
-  /**
-   * The steps of the test if they exist.
-   */
-  "steps"?: Array<SyntheticsStep>;
   /**
    * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
    * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
@@ -125,10 +120,6 @@ export class SyntheticsTestDetails {
       baseName: "status",
       type: "SyntheticsTestPauseStatus",
     },
-    steps: {
-      baseName: "steps",
-      type: "Array<SyntheticsStep>",
-    },
     subtype: {
       baseName: "subtype",
       type: "SyntheticsTestDetailsSubType",
@@ -151,7 +142,7 @@ export class SyntheticsTestDetails {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestDetails.attributeTypeMap;
+    return SyntheticsTestDetailsWithoutSteps.attributeTypeMap;
   }
 
   public constructor() {}

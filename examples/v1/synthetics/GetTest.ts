@@ -13,7 +13,7 @@ const params: v1.SyntheticsApiGetTestRequest = {
 
 apiInstance
   .getTest(params)
-  .then((data: v1.SyntheticsTestDetails) => {
+  .then((data: v1.SyntheticsTestDetailsWithoutSteps) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
