@@ -62,6 +62,14 @@ export class MonthlyUsageAttributionValues {
    */
   "asmServerlessTracedInvocationsUsage"?: number;
   /**
+   * The percentage of Bits AI `SRE` investigation usage by tag(s).
+   */
+  "bitsAiInvestigationsPercentage"?: number;
+  /**
+   * The Bits AI `SRE` investigation usage by tag(s).
+   */
+  "bitsAiInvestigationsUsage"?: number;
+  /**
    * The percentage of synthetic browser test usage by tag(s).
    */
   "browserPercentage"?: number;
@@ -711,6 +719,16 @@ export class MonthlyUsageAttributionValues {
     },
     asmServerlessTracedInvocationsUsage: {
       baseName: "asm_serverless_traced_invocations_usage",
+      type: "number",
+      format: "double",
+    },
+    bitsAiInvestigationsPercentage: {
+      baseName: "bits_ai_investigations_percentage",
+      type: "number",
+      format: "double",
+    },
+    bitsAiInvestigationsUsage: {
+      baseName: "bits_ai_investigations_usage",
       type: "number",
       format: "double",
     },
