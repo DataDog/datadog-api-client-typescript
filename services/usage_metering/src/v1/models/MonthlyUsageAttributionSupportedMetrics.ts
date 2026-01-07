@@ -18,6 +18,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof APPSEC_PERCENTAGE
   | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE
   | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
+  | typeof BITS_AI_INVESTIGATIONS_USAGE
+  | typeof BITS_AI_INVESTIGATIONS_PERCENTAGE
   | typeof BROWSER_USAGE
   | typeof BROWSER_PERCENTAGE
   | typeof CI_VISIBILITY_ITR_USAGE
@@ -180,6 +182,9 @@ export const ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
   "asm_serverless_traced_invocations_usage";
 export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
   "asm_serverless_traced_invocations_percentage";
+export const BITS_AI_INVESTIGATIONS_USAGE = "bits_ai_investigations_usage";
+export const BITS_AI_INVESTIGATIONS_PERCENTAGE =
+  "bits_ai_investigations_percentage";
 export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
 export const CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
