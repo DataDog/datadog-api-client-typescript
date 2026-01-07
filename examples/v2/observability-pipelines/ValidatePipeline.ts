@@ -20,7 +20,7 @@ const params: v2.ObservabilityPipelinesApiValidatePipelineRequest = {
               type: "datadog_logs",
             },
           ],
-          processors: [
+          processorGroups: [
             {
               enabled: true,
               id: "my-processor-group",

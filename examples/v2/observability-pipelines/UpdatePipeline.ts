@@ -23,7 +23,7 @@ const params: v2.ObservabilityPipelinesApiUpdatePipelineRequest = {
               type: "datadog_logs",
             },
           ],
-          processors: [
+          processorGroups: [
             {
               enabled: true,
               id: "my-processor-group",
