@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType";
@@ -9,6 +10,10 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
  * The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
  */
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression configuration for log events.
    */
@@ -48,6 +53,10 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     compression: {
       baseName: "compression",
       type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression",

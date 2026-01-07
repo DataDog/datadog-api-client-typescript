@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineSentinelOneDestinationRegion } from "./ObservabilityPipelineSentinelOneDestinationRegion";
 import { ObservabilityPipelineSentinelOneDestinationType } from "./ObservabilityPipelineSentinelOneDestinationType";
 
@@ -7,6 +8,10 @@ import { ObservabilityPipelineSentinelOneDestinationType } from "./Observability
  * The `sentinel_one` destination sends logs to SentinelOne.
  */
 export class ObservabilityPipelineSentinelOneDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The unique identifier for this component.
    */
@@ -38,6 +43,10 @@ export class ObservabilityPipelineSentinelOneDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     id: {
       baseName: "id",
       type: "string",
