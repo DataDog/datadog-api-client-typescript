@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-01-08
+
+### Changed
+* Add documentation for GET, POST, PATCH, and DELETE api/v2/incidents/incident_id/attachments endpoints [#3090](https://github.com/DataDog/datadog-api-client-typescript/pull/3090)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Changed

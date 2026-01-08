@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-01-08
+
+### Changed
+* Remove steps from certain expected synthetics api response [#3214](https://github.com/DataDog/datadog-api-client-typescript/pull/3214)
+
+### Added
+* Add documentation for synthetics global variable jsonpatch endpoint [#3044](https://github.com/DataDog/datadog-api-client-typescript/pull/3044)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

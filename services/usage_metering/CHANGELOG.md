@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-08
+
+### Added
+* Add new bits_ai usage attribution type to Usage Attribution Public API Documentation [#3216](https://github.com/DataDog/datadog-api-client-typescript/pull/3216)
+* [RQ-7160] Add llm_spans and deprecate llm_observability [#3166](https://github.com/DataDog/datadog-api-client-typescript/pull/3166)
+* Added spec for flex_stored_logs [#3119](https://github.com/DataDog/datadog-api-client-typescript/pull/3119)
+
 ## 0.0.1-beta.3/2025-12-17
 
 ### Security

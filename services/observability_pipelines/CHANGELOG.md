@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-01-08
+
+### Added
+* Add display_name to Observability Pipeline processors [#3162](https://github.com/DataDog/datadog-api-client-typescript/pull/3162)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

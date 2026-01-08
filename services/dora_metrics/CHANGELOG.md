@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-01-08
+
+### Added
+* Added spec for flex_stored_logs [#3119](https://github.com/DataDog/datadog-api-client-typescript/pull/3119)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

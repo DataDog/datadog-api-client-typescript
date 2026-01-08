@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-08
+
+### Added
+* Documentation for team notifications API [#3184](https://github.com/DataDog/datadog-api-client-typescript/pull/3184)
+* Remove preview/unstable tags from GitHub team sync and connections endpoints [#3130](https://github.com/DataDog/datadog-api-client-typescript/pull/3130)
+
 ## 0.0.1-beta.3/2025-12-17
 
 ### Security
