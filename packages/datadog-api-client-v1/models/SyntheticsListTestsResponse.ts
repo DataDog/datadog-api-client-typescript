@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
+import { SyntheticsTestDetailsWithoutSteps } from "./SyntheticsTestDetailsWithoutSteps";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +14,7 @@ export class SyntheticsListTestsResponse {
   /**
    * Array of Synthetic tests configuration.
    */
-  "tests"?: Array<SyntheticsTestDetails>;
+  "tests"?: Array<SyntheticsTestDetailsWithoutSteps>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class SyntheticsListTestsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
       baseName: "tests",
-      type: "Array<SyntheticsTestDetails>",
+      type: "Array<SyntheticsTestDetailsWithoutSteps>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
