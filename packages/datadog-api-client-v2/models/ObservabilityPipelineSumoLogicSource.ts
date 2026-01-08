@@ -9,6 +9,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `sumo_logic` source receives logs from Sumo Logic collectors.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSumoLogicSource {
   /**

@@ -7432,6 +7432,56 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SingleAggregatedDnsResponseArray",
     },
+    "v2.ListPipelines": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListPipelinesResponse",
+    },
+    "v2.CreatePipeline": {
+        "body": {
+            "type": "ObservabilityPipelineSpec",
+            "format": "",
+            },
+        "operationResponseType": "ObservabilityPipeline",
+    },
+    "v2.ValidatePipeline": {
+        "body": {
+            "type": "ObservabilityPipelineSpec",
+            "format": "",
+            },
+        "operationResponseType": "ValidationResponse",
+    },
+    "v2.GetPipeline": {
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ObservabilityPipeline",
+    },
+    "v2.UpdatePipeline": {
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ObservabilityPipeline",
+            "format": "",
+            },
+        "operationResponseType": "ObservabilityPipeline",
+    },
+    "v2.DeletePipeline": {
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateOnCallEscalationPolicy": {
         "include": {
             "type": "string",
@@ -8379,56 +8429,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
-    },
-    "v2.ListPipelines": {
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "ListPipelinesResponse",
-    },
-    "v2.CreatePipeline": {
-        "body": {
-            "type": "ObservabilityPipelineSpec",
-            "format": "",
-            },
-        "operationResponseType": "ObservabilityPipeline",
-    },
-    "v2.ValidatePipeline": {
-        "body": {
-            "type": "ObservabilityPipelineSpec",
-            "format": "",
-            },
-        "operationResponseType": "ValidationResponse",
-    },
-    "v2.GetPipeline": {
-        "pipelineId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ObservabilityPipeline",
-    },
-    "v2.UpdatePipeline": {
-        "pipelineId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "ObservabilityPipeline",
-            "format": "",
-            },
-        "operationResponseType": "ObservabilityPipeline",
-    },
-    "v2.DeletePipeline": {
-        "pipelineId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
     },
     "v2.GetRestrictionPolicy": {
         "resourceId": {

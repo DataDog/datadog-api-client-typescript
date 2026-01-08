@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `reduce` processor aggregates and merges logs based on matching keys and merge strategies.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineReduceProcessor {
   /**

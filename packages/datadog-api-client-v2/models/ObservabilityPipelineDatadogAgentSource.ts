@@ -9,7 +9,9 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `datadog_agent` source collects logs from the Datadog Agent.
+ * The `datadog_agent` source collects logs/metrics from the Datadog Agent.
+ *
+ * **Supported pipeline types:** logs, metrics
  */
 export class ObservabilityPipelineDatadogAgentSource {
   /**

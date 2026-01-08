@@ -12,6 +12,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
   /**
