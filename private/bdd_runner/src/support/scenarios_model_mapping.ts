@@ -9110,6 +9110,231 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ResolveVulnerableSymbolsResponse",
   },
+  "StatusPagesApi.V2.ListStatusPages": {
+    pageOffset: {
+      type: "number",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "StatusPageArray",
+  },
+  "StatusPagesApi.V2.CreateStatusPage": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateStatusPageRequest",
+      format: "",
+    },
+    operationResponseType: "StatusPage",
+  },
+  "StatusPagesApi.V2.ListDegradations": {
+    pageOffset: {
+      type: "number",
+      format: "",
+    },
+    filterStatus: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    filterPageId: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "DegradationArray",
+  },
+  "StatusPagesApi.V2.GetStatusPage": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "StatusPage",
+  },
+  "StatusPagesApi.V2.DeleteStatusPage": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "StatusPagesApi.V2.UpdateStatusPage": {
+    deleteSubscribers: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "PatchStatusPageRequest",
+      format: "",
+    },
+    operationResponseType: "StatusPage",
+  },
+  "StatusPagesApi.V2.ListComponents": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "StatusPagesComponentArray",
+  },
+  "StatusPagesApi.V2.CreateComponent": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateComponentRequest",
+      format: "",
+    },
+    operationResponseType: "StatusPagesComponent",
+  },
+  "StatusPagesApi.V2.GetComponent": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    componentId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "StatusPagesComponent",
+  },
+  "StatusPagesApi.V2.DeleteComponent": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    componentId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "StatusPagesApi.V2.UpdateComponent": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    componentId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "PatchComponentRequest",
+      format: "",
+    },
+    operationResponseType: "StatusPagesComponent",
+  },
+  "StatusPagesApi.V2.CreateDegradation": {
+    notifySubscribers: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateDegradationRequest",
+      format: "",
+    },
+    operationResponseType: "Degradation",
+  },
+  "StatusPagesApi.V2.GetDegradation": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    degradationId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "Degradation",
+  },
+  "StatusPagesApi.V2.DeleteDegradation": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    degradationId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "StatusPagesApi.V2.UpdateDegradation": {
+    notifySubscribers: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    degradationId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "PatchDegradationRequest",
+      format: "",
+    },
+    operationResponseType: "Degradation",
+  },
   "SyntheticsApi.V2.GetOnDemandConcurrencyCap": {
     operationResponseType: "OnDemandConcurrencyCapResponse",
   },
