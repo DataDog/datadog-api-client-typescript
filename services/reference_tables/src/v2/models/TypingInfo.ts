@@ -90,6 +90,7 @@ export const TypingInfo: ModelTypingInfo = {
     TableRowResourceDataType: ["row"],
   },
   oneOfMap: {
+    BatchUpsertRowsRequestDataAttributesValue: ["string", "number"],
     CreateTableRequestDataAttributesFileMetadata: [
       "CreateTableRequestDataAttributesFileMetadataCloudStorage",
       "CreateTableRequestDataAttributesFileMetadataLocalFile",
