@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 1.50.0/2026-01-08
+
+### Added
+* Add new bits_ai usage attribution type to Usage Attribution Public API Documentation [#3217](https://github.com/DataDog/datadog-api-client-typescript/pull/3217)
+* Add Product Analytics Server-Side Events API endpoint [#3207](https://github.com/DataDog/datadog-api-client-typescript/pull/3207)
+* Update /api/v2/cases endpoint to add custom attributes support [#3203](https://github.com/DataDog/datadog-api-client-typescript/pull/3203)
+* Documentation for team notifications API [#3195](https://github.com/DataDog/datadog-api-client-typescript/pull/3195)
+* [RQ-7160] Add llm_spans and deprecate llm_observability [#3167](https://github.com/DataDog/datadog-api-client-typescript/pull/3167)
+* Add display_name to Observability Pipeline processors [#3163](https://github.com/DataDog/datadog-api-client-typescript/pull/3163)
+* Add a new includeDiscovered query parameter to Software Catalog APIs [#3144](https://github.com/DataDog/datadog-api-client-typescript/pull/3144)
+* Add routes for managing On-Call user notification rules [#3142](https://github.com/DataDog/datadog-api-client-typescript/pull/3142)
+* Add anomaly detection options to security monitoring rules [#3136](https://github.com/DataDog/datadog-api-client-typescript/pull/3136)
+* Remove preview/unstable tags from GitHub team sync and connections endpoints [#3131](https://github.com/DataDog/datadog-api-client-typescript/pull/3131)
+* Added spec for flex_stored_logs [#3120](https://github.com/DataDog/datadog-api-client-typescript/pull/3120)
+* Add documentation for synthetics global variable jsonpatch endpoint [#3045](https://github.com/DataDog/datadog-api-client-typescript/pull/3045)
+
+### Changed
+* Remove steps from certain expected synthetics api response [#3215](https://github.com/DataDog/datadog-api-client-typescript/pull/3215)
+* Add documentation for GET, POST, PATCH, and DELETE api/v2/incidents/incident_id/attachments endpoints [#3091](https://github.com/DataDog/datadog-api-client-typescript/pull/3091)
+
 ## 1.49.0/2025-12-17
 
 ### Changed
