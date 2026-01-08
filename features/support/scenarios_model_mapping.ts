@@ -9110,6 +9110,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
+    "v2.PatchGlobalVariable": {
+        "variableId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GlobalVariableJsonPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "GlobalVariableResponse",
+    },
     "v2.ListTeams": {
         "pageNumber": {
             "type": "number",

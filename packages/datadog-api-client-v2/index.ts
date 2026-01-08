@@ -901,6 +901,7 @@ export {
 } from "./apis/StaticAnalysisApi";
 
 export {
+  SyntheticsApiPatchGlobalVariableRequest,
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
   SyntheticsApi,
 } from "./apis/SyntheticsApi";
@@ -2508,6 +2509,13 @@ export { GitlabCredentialsUpdate } from "./models/GitlabCredentialsUpdate";
 export { GitlabIntegration } from "./models/GitlabIntegration";
 export { GitlabIntegrationType } from "./models/GitlabIntegrationType";
 export { GitlabIntegrationUpdate } from "./models/GitlabIntegrationUpdate";
+export { GlobalVariableData } from "./models/GlobalVariableData";
+export { GlobalVariableJsonPatchRequest } from "./models/GlobalVariableJsonPatchRequest";
+export { GlobalVariableJsonPatchRequestData } from "./models/GlobalVariableJsonPatchRequestData";
+export { GlobalVariableJsonPatchRequestDataAttributes } from "./models/GlobalVariableJsonPatchRequestDataAttributes";
+export { GlobalVariableJsonPatchType } from "./models/GlobalVariableJsonPatchType";
+export { GlobalVariableResponse } from "./models/GlobalVariableResponse";
+export { GlobalVariableType } from "./models/GlobalVariableType";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
 export { GreyNoiseAPIKey } from "./models/GreyNoiseAPIKey";
@@ -2789,6 +2797,8 @@ export { JobDefinitionFromRule } from "./models/JobDefinitionFromRule";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { JsonPatchOperation } from "./models/JsonPatchOperation";
+export { JsonPatchOperationOp } from "./models/JsonPatchOperationOp";
 export { KindAttributes } from "./models/KindAttributes";
 export { KindData } from "./models/KindData";
 export { KindMetadata } from "./models/KindMetadata";
@@ -4363,6 +4373,15 @@ export { StepDisplay } from "./models/StepDisplay";
 export { StepDisplayBounds } from "./models/StepDisplayBounds";
 export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
 export { SuppressionVersions } from "./models/SuppressionVersions";
+export { SyntheticsGlobalVariable } from "./models/SyntheticsGlobalVariable";
+export { SyntheticsGlobalVariableAttributes } from "./models/SyntheticsGlobalVariableAttributes";
+export { SyntheticsGlobalVariableOptions } from "./models/SyntheticsGlobalVariableOptions";
+export { SyntheticsGlobalVariableParserType } from "./models/SyntheticsGlobalVariableParserType";
+export { SyntheticsGlobalVariableParseTestOptions } from "./models/SyntheticsGlobalVariableParseTestOptions";
+export { SyntheticsGlobalVariableParseTestOptionsType } from "./models/SyntheticsGlobalVariableParseTestOptionsType";
+export { SyntheticsGlobalVariableTOTPParameters } from "./models/SyntheticsGlobalVariableTOTPParameters";
+export { SyntheticsGlobalVariableValue } from "./models/SyntheticsGlobalVariableValue";
+export { SyntheticsVariableParser } from "./models/SyntheticsVariableParser";
 export { TableResultV2 } from "./models/TableResultV2";
 export { TableResultV2Array } from "./models/TableResultV2Array";
 export { TableResultV2Data } from "./models/TableResultV2Data";
