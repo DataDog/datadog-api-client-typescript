@@ -1165,6 +1165,11 @@ import { GitlabAPIKey } from "./GitlabAPIKey";
 import { GitlabAPIKeyUpdate } from "./GitlabAPIKeyUpdate";
 import { GitlabIntegration } from "./GitlabIntegration";
 import { GitlabIntegrationUpdate } from "./GitlabIntegrationUpdate";
+import { GlobalVariableData } from "./GlobalVariableData";
+import { GlobalVariableJsonPatchRequest } from "./GlobalVariableJsonPatchRequest";
+import { GlobalVariableJsonPatchRequestData } from "./GlobalVariableJsonPatchRequestData";
+import { GlobalVariableJsonPatchRequestDataAttributes } from "./GlobalVariableJsonPatchRequestDataAttributes";
+import { GlobalVariableResponse } from "./GlobalVariableResponse";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
 import { GreyNoiseAPIKey } from "./GreyNoiseAPIKey";
@@ -1379,6 +1384,7 @@ import { JobCreateResponse } from "./JobCreateResponse";
 import { JobCreateResponseData } from "./JobCreateResponseData";
 import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
+import { JsonPatchOperation } from "./JsonPatchOperation";
 import { KindAttributes } from "./KindAttributes";
 import { KindData } from "./KindData";
 import { KindMetadata } from "./KindMetadata";
@@ -2529,6 +2535,13 @@ import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
+import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
+import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
+import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
+import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
+import { SyntheticsGlobalVariableTOTPParameters } from "./SyntheticsGlobalVariableTOTPParameters";
+import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
+import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableResultV2 } from "./TableResultV2";
 import { TableResultV2Array } from "./TableResultV2Array";
 import { TableResultV2Data } from "./TableResultV2Data";
@@ -3387,6 +3400,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GitlabAPIKeyType: ["GitlabAPIKey"],
   GitlabIntegrationType: ["Gitlab"],
+  GlobalVariableJsonPatchType: ["global_variables_json_patch"],
+  GlobalVariableType: ["global_variables"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
   HTTPIntegrationType: ["HTTP"],
@@ -3522,6 +3537,7 @@ const enumsMap: { [key: string]: any[] } = {
   IssuesSearchRequestDataType: ["search_request"],
   IssuesSearchResultType: ["error_tracking_search_result"],
   JiraIssuesDataType: ["jira_issues"],
+  JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
   LaunchDarklyAPIKeyType: ["LaunchDarklyAPIKey"],
   LaunchDarklyIntegrationType: ["LaunchDarkly"],
   LayerRelationshipsMembersDataItemsType: ["members"],
@@ -4292,6 +4308,13 @@ const enumsMap: { [key: string]: any[] } = {
   StateVariableType: ["stateVariable"],
   StatsigAPIKeyType: ["StatsigAPIKey"],
   StatsigIntegrationType: ["Statsig"],
+  SyntheticsGlobalVariableParseTestOptionsType: [
+    "http_body",
+    "http_header",
+    "http_status_code",
+    "local_variable",
+  ],
+  SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
   TableResultV2DataAttributesFileMetadataCloudStorageErrorType: [
     "TABLE_SCHEMA_ERROR",
     "FILE_FORMAT_ERROR",
@@ -5864,6 +5887,12 @@ const typeMap: { [index: string]: any } = {
   GitlabAPIKeyUpdate: GitlabAPIKeyUpdate,
   GitlabIntegration: GitlabIntegration,
   GitlabIntegrationUpdate: GitlabIntegrationUpdate,
+  GlobalVariableData: GlobalVariableData,
+  GlobalVariableJsonPatchRequest: GlobalVariableJsonPatchRequest,
+  GlobalVariableJsonPatchRequestData: GlobalVariableJsonPatchRequestData,
+  GlobalVariableJsonPatchRequestDataAttributes:
+    GlobalVariableJsonPatchRequestDataAttributes,
+  GlobalVariableResponse: GlobalVariableResponse,
   GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
   GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
   GreyNoiseAPIKey: GreyNoiseAPIKey,
@@ -6099,6 +6128,7 @@ const typeMap: { [index: string]: any } = {
   JobCreateResponseData: JobCreateResponseData,
   JobDefinition: JobDefinition,
   JobDefinitionFromRule: JobDefinitionFromRule,
+  JsonPatchOperation: JsonPatchOperation,
   KindAttributes: KindAttributes,
   KindData: KindData,
   KindMetadata: KindMetadata,
@@ -7498,6 +7528,15 @@ const typeMap: { [index: string]: any } = {
   StepDisplayBounds: StepDisplayBounds,
   SuppressionVersionHistory: SuppressionVersionHistory,
   SuppressionVersions: SuppressionVersions,
+  SyntheticsGlobalVariable: SyntheticsGlobalVariable,
+  SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
+  SyntheticsGlobalVariableOptions: SyntheticsGlobalVariableOptions,
+  SyntheticsGlobalVariableParseTestOptions:
+    SyntheticsGlobalVariableParseTestOptions,
+  SyntheticsGlobalVariableTOTPParameters:
+    SyntheticsGlobalVariableTOTPParameters,
+  SyntheticsGlobalVariableValue: SyntheticsGlobalVariableValue,
+  SyntheticsVariableParser: SyntheticsVariableParser,
   TableResultV2: TableResultV2,
   TableResultV2Array: TableResultV2Array,
   TableResultV2Data: TableResultV2Data,
