@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-08
+
+### Added
+* Add a new includeDiscovered query parameter to Software Catalog APIs [#3143](https://github.com/DataDog/datadog-api-client-typescript/pull/3143)
+
 ## 0.0.1-beta.3/2025-12-17
 
 ### Security

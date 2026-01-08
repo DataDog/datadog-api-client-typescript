@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-08
+
+### Added
+* Add anomaly detection options to security monitoring rules [#3135](https://github.com/DataDog/datadog-api-client-typescript/pull/3135)
+
 ## 0.0.1-beta.3/2025-12-17
 
 ### Security
