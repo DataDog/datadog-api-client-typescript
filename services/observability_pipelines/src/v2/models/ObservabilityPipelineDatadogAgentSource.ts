@@ -4,7 +4,9 @@ import { ObservabilityPipelineDatadogAgentSourceType } from "./ObservabilityPipe
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
- * The `datadog_agent` source collects logs from the Datadog Agent.
+ * The `datadog_agent` source collects logs/metrics from the Datadog Agent.
+ *
+ * **Supported pipeline types:** logs, metrics
  */
 export class ObservabilityPipelineDatadogAgentSource {
   /**

@@ -58,8 +58,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    const localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -118,7 +117,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Path Params
     const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines/{pipeline_id}".replace(
+      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
         "{pipeline_id}",
         encodeURIComponent(String(pipelineId)),
       );
@@ -171,7 +170,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Path Params
     const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines/{pipeline_id}".replace(
+      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
         "{pipeline_id}",
         encodeURIComponent(String(pipelineId)),
       );
@@ -219,8 +218,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    const localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -292,7 +290,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Path Params
     const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines/{pipeline_id}".replace(
+      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
         "{pipeline_id}",
         encodeURIComponent(String(pipelineId)),
       );
@@ -355,8 +353,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
+    const localVarPath = "/api/v2/obs-pipelines/pipelines/validate";
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
