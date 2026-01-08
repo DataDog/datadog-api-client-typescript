@@ -1361,6 +1361,7 @@ export { BatchDeleteRowsRequestData } from "./models/BatchDeleteRowsRequestData"
 export { BatchUpsertRowsRequestArray } from "./models/BatchUpsertRowsRequestArray";
 export { BatchUpsertRowsRequestData } from "./models/BatchUpsertRowsRequestData";
 export { BatchUpsertRowsRequestDataAttributes } from "./models/BatchUpsertRowsRequestDataAttributes";
+export { BatchUpsertRowsRequestDataAttributesValue } from "./models/BatchUpsertRowsRequestDataAttributesValue";
 export { BillConfig } from "./models/BillConfig";
 export { BillingDimensionsMappingBodyItem } from "./models/BillingDimensionsMappingBodyItem";
 export { BillingDimensionsMappingBodyItemAttributes } from "./models/BillingDimensionsMappingBodyItemAttributes";

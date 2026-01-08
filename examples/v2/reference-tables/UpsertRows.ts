@@ -12,10 +12,7 @@ const params: v2.ReferenceTablesApiUpsertRowsRequest = {
     data: [
       {
         attributes: {
-          values: {
-            example_key_value: "primary_key_value",
-            name: "row_name",
-          },
+          values: {},
         },
         id: "primary_key_value",
         type: "row",

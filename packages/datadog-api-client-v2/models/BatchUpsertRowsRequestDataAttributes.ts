@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { BatchUpsertRowsRequestDataAttributesValue } from "./BatchUpsertRowsRequestDataAttributesValue";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class BatchUpsertRowsRequestDataAttributes {
   /**
-   * Key-value pairs representing row data, where keys are field names from the schema.
+   * Key-value pairs representing row data, where keys are schema field names and values match the corresponding column types.
    */
-  "values": { [key: string]: any };
+  "values": { [key: string]: BatchUpsertRowsRequestDataAttributesValue };
 
   /**
    * A container for additional, undeclared properties.
@@ -33,7 +34,7 @@ export class BatchUpsertRowsRequestDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     values: {
       baseName: "values",
-      type: "{ [key: string]: any; }",
+      type: "{ [key: string]: BatchUpsertRowsRequestDataAttributesValue; }",
       required: true,
     },
     additionalProperties: {
