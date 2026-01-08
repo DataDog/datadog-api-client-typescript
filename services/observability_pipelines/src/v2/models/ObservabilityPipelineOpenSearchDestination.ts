@@ -4,6 +4,8 @@ import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityP
 
 /**
  * The `opensearch` destination writes logs to an OpenSearch cluster.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOpenSearchDestination {
   /**

@@ -3,7 +3,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 /**
  * SASL mechanism used for Kafka authentication.
  */
-export type ObservabilityPipelinePipelineKafkaSourceSaslMechanism =
+export type ObservabilityPipelineKafkaSaslMechanism =
   | typeof PLAIN
   | typeof SCRAMNOT_SHANOT_256
   | typeof SCRAMNOT_SHANOT_512
