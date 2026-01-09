@@ -1618,7 +1618,7 @@ export interface FleetAutomationApiGetFleetScheduleRequest {
 
 export interface FleetAutomationApiListFleetAgentsRequest {
   /**
-   * Page number for pagination (must be greater than 0).
+   * Page number for pagination (starts at 0).
    * @type number
    */
   pageNumber?: number;
