@@ -2607,9 +2607,9 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
   WidgetTime: [
-    "WidgetLegacyLiveSpan",
     "WidgetNewLiveSpan",
     "WidgetNewFixedSpan",
+    "WidgetLegacyLiveSpan",
   ],
 };
 

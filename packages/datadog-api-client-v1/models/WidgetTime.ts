@@ -14,7 +14,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type WidgetTime =
-  | WidgetLegacyLiveSpan
   | WidgetNewLiveSpan
   | WidgetNewFixedSpan
+  | WidgetLegacyLiveSpan
   | UnparsedObject;
