@@ -7965,6 +7965,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   AzureCredentials: ["AzureTenant"],
   AzureCredentialsUpdate: ["AzureTenantUpdate"],
+  BatchUpsertRowsRequestDataAttributesValue: ["string", "number"],
   CIAppAggregateBucketValue: [
     "string",
     "number",
