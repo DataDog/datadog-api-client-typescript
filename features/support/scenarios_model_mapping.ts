@@ -3909,6 +3909,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetFindingResponse",
     },
+    "v2.ListSecurityFindings": {
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "SecurityFindingsSort",
+            "format": "",
+            },
+        "operationResponseType": "ListSecurityFindingsResponse",
+    },
     "v2.CreateCases": {
         "body": {
             "type": "CreateCaseRequestArray",
@@ -3947,6 +3966,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "FindingCaseResponse",
+    },
+    "v2.SearchSecurityFindings": {
+        "body": {
+            "type": "SecurityFindingsSearchRequest",
+            "format": "",
+            },
+        "operationResponseType": "ListSecurityFindingsResponse",
     },
     "v2.ListAssetsSBOMs": {
         "pageToken": {
