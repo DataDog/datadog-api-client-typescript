@@ -1090,6 +1090,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-status-pages@workspace:services/status_pages":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-status-pages@workspace:services/status_pages"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-synthetics@workspace:services/synthetics":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-synthetics@workspace:services/synthetics"
