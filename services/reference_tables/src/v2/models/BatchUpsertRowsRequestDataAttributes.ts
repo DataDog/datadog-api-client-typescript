@@ -1,13 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { BatchUpsertRowsRequestDataAttributesValue } from "./BatchUpsertRowsRequestDataAttributesValue";
+
 /**
  * Attributes containing row data values for row creation or update operations.
  */
 export class BatchUpsertRowsRequestDataAttributes {
   /**
-   * Key-value pairs representing row data, where keys are field names from the schema.
+   * Key-value pairs representing row data, where keys are schema field names and values match the corresponding column types.
    */
-  "values": { [key: string]: any };
+  "values": { [key: string]: BatchUpsertRowsRequestDataAttributesValue };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,7 +27,7 @@ export class BatchUpsertRowsRequestDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     values: {
       baseName: "values",
-      type: "{ [key: string]: any; }",
+      type: "{ [key: string]: BatchUpsertRowsRequestDataAttributesValue; }",
       required: true,
     },
     additionalProperties: {

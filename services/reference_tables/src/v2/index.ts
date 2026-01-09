@@ -17,6 +17,7 @@ export { BatchDeleteRowsRequestData } from "./models/BatchDeleteRowsRequestData"
 export { BatchUpsertRowsRequestArray } from "./models/BatchUpsertRowsRequestArray";
 export { BatchUpsertRowsRequestData } from "./models/BatchUpsertRowsRequestData";
 export { BatchUpsertRowsRequestDataAttributes } from "./models/BatchUpsertRowsRequestDataAttributes";
+export { BatchUpsertRowsRequestDataAttributesValue } from "./models/BatchUpsertRowsRequestDataAttributesValue";
 export { CreateTableRequest } from "./models/CreateTableRequest";
 export { CreateTableRequestData } from "./models/CreateTableRequestData";
 export { CreateTableRequestDataAttributes } from "./models/CreateTableRequestDataAttributes";
