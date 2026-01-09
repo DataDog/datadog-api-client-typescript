@@ -305,9 +305,9 @@ export const TypingInfo: ModelTypingInfo = {
     ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
     WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
     WidgetTime: [
-      "WidgetLegacyLiveSpan",
       "WidgetNewLiveSpan",
       "WidgetNewFixedSpan",
+      "WidgetLegacyLiveSpan",
     ],
   },
   typeMap: {

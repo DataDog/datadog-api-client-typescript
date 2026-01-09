@@ -8,7 +8,7 @@ import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
  * Time setting for the widget.
  */
 export type WidgetTime =
-  | WidgetLegacyLiveSpan
   | WidgetNewLiveSpan
   | WidgetNewFixedSpan
+  | WidgetLegacyLiveSpan
   | UnparsedObject;
