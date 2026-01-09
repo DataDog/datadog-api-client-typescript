@@ -3057,16 +3057,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "SecurityMonitoringApi.v2.listSecurityFindings"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listSecurityFindings' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listSecurityFindings'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/security/findings";
 
@@ -4348,16 +4338,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "SecurityMonitoringApi.v2.searchSecurityFindings"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'searchSecurityFindings' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.searchSecurityFindings'] = true`",
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -12062,10 +12042,6 @@ export class SecurityMonitoringApi {
   /**
    * Get a list of security findings that match a search query.
    *
-   * This endpoint requires one of the following permissions:
-   * - `security_monitoring_findings_read`
-   * - `appsec_vm_read`
-   *
    * ### Query Syntax
    *
    * This endpoint uses the logs query syntax. Findings attributes (living in the custom. namespace) are prefixed by @ when queried. Tags are queried without a prefix.
@@ -12631,10 +12607,6 @@ export class SecurityMonitoringApi {
 
   /**
    * Get a list of security findings that match a search query.
-   *
-   * This endpoint requires one of the following permissions:
-   * - `security_monitoring_findings_read`
-   * - `appsec_vm_read`
    *
    * ### Query Syntax
    *
