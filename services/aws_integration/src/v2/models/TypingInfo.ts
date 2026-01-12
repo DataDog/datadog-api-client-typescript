@@ -13,7 +13,6 @@ import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
 import { AWSAccountsResponse } from "./AWSAccountsResponse";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
-import { AWSCCMConfig } from "./AWSCCMConfig";
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
 import { AWSEventBridgeCreateRequestAttributes } from "./AWSEventBridgeCreateRequestAttributes";
@@ -52,7 +51,6 @@ import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
-import { DataExportConfig } from "./DataExportConfig";
 import { XRayServicesIncludeAll } from "./XRayServicesIncludeAll";
 import { XRayServicesIncludeOnly } from "./XRayServicesIncludeOnly";
 
@@ -90,7 +88,6 @@ export const TypingInfo: ModelTypingInfo = {
     AWSAccountsResponse: AWSAccountsResponse,
     AWSAuthConfigKeys: AWSAuthConfigKeys,
     AWSAuthConfigRole: AWSAuthConfigRole,
-    AWSCCMConfig: AWSCCMConfig,
     AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
     AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
     AWSEventBridgeCreateRequestAttributes:
@@ -136,7 +133,6 @@ export const TypingInfo: ModelTypingInfo = {
     AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
     AWSResourcesConfig: AWSResourcesConfig,
     AWSTracesConfig: AWSTracesConfig,
-    DataExportConfig: DataExportConfig,
     XRayServicesIncludeAll: XRayServicesIncludeAll,
     XRayServicesIncludeOnly: XRayServicesIncludeOnly,
   },

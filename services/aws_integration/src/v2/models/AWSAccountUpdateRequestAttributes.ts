@@ -2,7 +2,6 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AWSAccountPartition } from "./AWSAccountPartition";
 import { AWSAuthConfig } from "./AWSAuthConfig";
-import { AWSCCMConfig } from "./AWSCCMConfig";
 import { AWSLogsConfig } from "./AWSLogsConfig";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
 import { AWSRegions } from "./AWSRegions";
@@ -35,10 +34,6 @@ export class AWSAccountUpdateRequestAttributes {
    * AWS Regions to collect data from. Defaults to `include_all`.
    */
   "awsRegions"?: AWSRegions;
-  /**
-   * AWS Cloud Cost Management config.
-   */
-  "ccmConfig"?: AWSCCMConfig;
   /**
    * AWS Logs Collection config.
    */
@@ -90,10 +85,6 @@ export class AWSAccountUpdateRequestAttributes {
     awsRegions: {
       baseName: "aws_regions",
       type: "AWSRegions",
-    },
-    ccmConfig: {
-      baseName: "ccm_config",
-      type: "AWSCCMConfig",
     },
     logsConfig: {
       baseName: "logs_config",
