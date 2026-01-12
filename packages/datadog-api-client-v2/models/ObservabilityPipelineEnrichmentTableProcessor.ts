@@ -6,11 +6,14 @@
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableGeoIp } from "./ObservabilityPipelineEnrichmentTableGeoIp";
 import { ObservabilityPipelineEnrichmentTableProcessorType } from "./ObservabilityPipelineEnrichmentTableProcessorType";
+import { ObservabilityPipelineEnrichmentTableReferenceTable } from "./ObservabilityPipelineEnrichmentTableReferenceTable";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
+ * The `enrichment_table` processor enriches logs using a static CSV file, GeoIP database, or reference table. Exactly one of `file`, `geoip`, or `reference_table` must be configured.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineEnrichmentTableProcessor {
   /**
@@ -37,6 +40,10 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    * A Datadog search query used to determine which logs this processor targets.
    */
   "include": string;
+  /**
+   * Uses a Datadog reference table to enrich logs.
+   */
+  "referenceTable"?: ObservabilityPipelineEnrichmentTableReferenceTable;
   /**
    * Path where enrichment results should be stored in the log.
    */
@@ -88,6 +95,10 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
       baseName: "include",
       type: "string",
       required: true,
+    },
+    referenceTable: {
+      baseName: "reference_table",
+      type: "ObservabilityPipelineEnrichmentTableReferenceTable",
     },
     target: {
       baseName: "target",

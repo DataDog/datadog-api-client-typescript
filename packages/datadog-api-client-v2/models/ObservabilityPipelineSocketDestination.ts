@@ -13,6 +13,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `socket` destination sends logs over TCP or UDP to a remote server.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSocketDestination {
   /**

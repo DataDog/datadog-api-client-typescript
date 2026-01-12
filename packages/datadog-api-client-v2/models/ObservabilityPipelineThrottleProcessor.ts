@@ -9,6 +9,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `throttle` processor limits the number of events that pass through over a given time window.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineThrottleProcessor {
   /**

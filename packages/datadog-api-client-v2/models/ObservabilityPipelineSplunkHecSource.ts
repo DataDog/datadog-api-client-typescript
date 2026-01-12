@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSplunkHecSource {
   /**
