@@ -9,6 +9,8 @@ import { MatchingDowntime } from "./MatchingDowntime";
 import { Monitor } from "./Monitor";
 import { MonitorAsset } from "./MonitorAsset";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
+import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
+import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
@@ -66,6 +68,12 @@ export const TypingInfo: ModelTypingInfo = {
       "metrics",
       "cloud_cost",
       "datadog_usage",
+    ],
+    MonitorFormulaAndFunctionDataQualityDataSource: ["data_quality_metrics"],
+    MonitorFormulaAndFunctionDataQualityModelTypeOverride: [
+      "freshness",
+      "percentage",
+      "any",
     ],
     MonitorFormulaAndFunctionEventAggregation: [
       "count",
@@ -128,6 +136,7 @@ export const TypingInfo: ModelTypingInfo = {
       "database-monitoring alert",
       "network-performance alert",
       "cost alert",
+      "data-quality alert",
     ],
     OnMissingDataOption: [
       "default",
@@ -141,6 +150,7 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorFormulaAndFunctionQueryDefinition: [
       "MonitorFormulaAndFunctionEventQueryDefinition",
       "MonitorFormulaAndFunctionCostQueryDefinition",
+      "MonitorFormulaAndFunctionDataQualityQueryDefinition",
     ],
   },
   typeMap: {
@@ -154,6 +164,10 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorAsset: MonitorAsset,
     MonitorFormulaAndFunctionCostQueryDefinition:
       MonitorFormulaAndFunctionCostQueryDefinition,
+    MonitorFormulaAndFunctionDataQualityMonitorOptions:
+      MonitorFormulaAndFunctionDataQualityMonitorOptions,
+    MonitorFormulaAndFunctionDataQualityQueryDefinition:
+      MonitorFormulaAndFunctionDataQualityQueryDefinition,
     MonitorFormulaAndFunctionEventQueryDefinition:
       MonitorFormulaAndFunctionEventQueryDefinition,
     MonitorFormulaAndFunctionEventQueryDefinitionCompute:
