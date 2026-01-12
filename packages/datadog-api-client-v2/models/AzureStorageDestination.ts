@@ -9,6 +9,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+ *
+ * **Supported pipeline types:** logs
  */
 export class AzureStorageDestination {
   /**

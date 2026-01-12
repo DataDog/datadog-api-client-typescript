@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSplunkHecDestination {
   /**
@@ -22,7 +24,7 @@ export class ObservabilityPipelineSplunkHecDestination {
    */
   "encoding"?: ObservabilityPipelineSplunkHecDestinationEncoding;
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
   "id": string;
   /**

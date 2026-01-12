@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `custom_processor` processor transforms events using [Vector Remap Language (VRL)](https://vector.dev/docs/reference/vrl/) scripts with advanced filtering capabilities.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineCustomProcessor {
   /**
@@ -17,7 +19,7 @@ export class ObservabilityPipelineCustomProcessor {
    */
   "displayName"?: string;
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    */
   "enabled": boolean;
   /**

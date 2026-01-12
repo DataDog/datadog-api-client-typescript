@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `dedupe` processor removes duplicate fields in log events.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDedupeProcessor {
   /**
@@ -17,7 +19,7 @@ export class ObservabilityPipelineDedupeProcessor {
    */
   "displayName"?: string;
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    */
   "enabled": boolean;
   /**
