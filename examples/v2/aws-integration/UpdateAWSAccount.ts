@@ -20,17 +20,6 @@ const params: v2.AWSIntegrationApiUpdateAWSAccountRequest = {
         },
         awsAccountId: "123456789012",
         awsPartition: "aws",
-        ccmConfig: {
-          dataExportConfigs: [
-            {
-              bucketName: "updated-bucket",
-              bucketRegion: "us-west-2",
-              reportName: "updated-report",
-              reportPrefix: "cost-reports",
-              reportType: "CUR2.0",
-            },
-          ],
-        },
         logsConfig: {
           lambdaForwarder: {
             lambdas: [

@@ -26,7 +26,6 @@ import { AWSAssumeRole } from "./AWSAssumeRole";
 import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
-import { AWSCCMConfig } from "./AWSCCMConfig";
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
 import { AWSEventBridgeCreateRequestAttributes } from "./AWSEventBridgeCreateRequestAttributes";
@@ -739,7 +738,6 @@ import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
-import { DataExportConfig } from "./DataExportConfig";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { DataScalarColumn } from "./DataScalarColumn";
@@ -4554,7 +4552,6 @@ const typeMap: { [index: string]: any } = {
   AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
   AWSAuthConfigKeys: AWSAuthConfigKeys,
   AWSAuthConfigRole: AWSAuthConfigRole,
-  AWSCCMConfig: AWSCCMConfig,
   AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
   AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
   AWSEventBridgeCreateRequestAttributes: AWSEventBridgeCreateRequestAttributes,
@@ -5417,7 +5414,6 @@ const typeMap: { [index: string]: any } = {
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
-  DataExportConfig: DataExportConfig,
   DataRelationshipsTeams: DataRelationshipsTeams,
   DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
   DataScalarColumn: DataScalarColumn,
