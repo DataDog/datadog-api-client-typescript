@@ -4,6 +4,8 @@ import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelin
 
 /**
  * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSampleProcessor {
   /**
@@ -11,11 +13,15 @@ export class ObservabilityPipelineSampleProcessor {
    */
   "displayName"?: string;
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    */
   "enabled": boolean;
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
+   * Optional list of fields to group events by. Each group is sampled independently.
+   */
+  "groupBy"?: Array<string>;
+  /**
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
   "id": string;
   /**
@@ -25,11 +31,7 @@ export class ObservabilityPipelineSampleProcessor {
   /**
    * The percentage of logs to sample.
    */
-  "percentage"?: number;
-  /**
-   * Number of events to sample (1 in N).
-   */
-  "rate"?: number;
+  "percentage": number;
   /**
    * The processor type. The value should always be `sample`.
    */
@@ -58,6 +60,10 @@ export class ObservabilityPipelineSampleProcessor {
       type: "boolean",
       required: true,
     },
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<string>",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -71,12 +77,8 @@ export class ObservabilityPipelineSampleProcessor {
     percentage: {
       baseName: "percentage",
       type: "number",
+      required: true,
       format: "double",
-    },
-    rate: {
-      baseName: "rate",
-      type: "number",
-      format: "int64",
     },
     type: {
       baseName: "type",

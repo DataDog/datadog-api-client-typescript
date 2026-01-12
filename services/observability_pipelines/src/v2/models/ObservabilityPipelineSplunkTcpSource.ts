@@ -6,10 +6,12 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 /**
  * The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
  * TLS is supported for secure transmission.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSplunkTcpSource {
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
   "id": string;
   /**

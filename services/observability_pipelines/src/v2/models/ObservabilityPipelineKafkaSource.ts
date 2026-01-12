@@ -1,12 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
-import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
+import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipelineKafkaLibrdkafkaOption";
+import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
 import { ObservabilityPipelineKafkaSourceType } from "./ObservabilityPipelineKafkaSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `kafka` source ingests data from Apache Kafka topics.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineKafkaSource {
   /**
@@ -14,17 +16,17 @@ export class ObservabilityPipelineKafkaSource {
    */
   "groupId": string;
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
   "id": string;
   /**
    * Optional list of advanced Kafka client configuration options, defined as key-value pairs.
    */
-  "librdkafkaOptions"?: Array<ObservabilityPipelineKafkaSourceLibrdkafkaOption>;
+  "librdkafkaOptions"?: Array<ObservabilityPipelineKafkaLibrdkafkaOption>;
   /**
    * Specifies the SASL mechanism for authenticating with a Kafka cluster.
    */
-  "sasl"?: ObservabilityPipelineKafkaSourceSasl;
+  "sasl"?: ObservabilityPipelineKafkaSasl;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
@@ -64,11 +66,11 @@ export class ObservabilityPipelineKafkaSource {
     },
     librdkafkaOptions: {
       baseName: "librdkafka_options",
-      type: "Array<ObservabilityPipelineKafkaSourceLibrdkafkaOption>",
+      type: "Array<ObservabilityPipelineKafkaLibrdkafkaOption>",
     },
     sasl: {
       baseName: "sasl",
-      type: "ObservabilityPipelineKafkaSourceSasl",
+      type: "ObservabilityPipelineKafkaSasl",
     },
     tls: {
       baseName: "tls",

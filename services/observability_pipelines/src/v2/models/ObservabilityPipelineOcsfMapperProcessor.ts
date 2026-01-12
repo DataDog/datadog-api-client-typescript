@@ -5,6 +5,8 @@ import { ObservabilityPipelineOcsfMapperProcessorType } from "./ObservabilityPip
 
 /**
  * The `ocsf_mapper` processor transforms logs into the OCSF schema using a predefined mapping configuration.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOcsfMapperProcessor {
   /**
@@ -12,7 +14,7 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    */
   "displayName"?: string;
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    */
   "enabled": boolean;
   /**

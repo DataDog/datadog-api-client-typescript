@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `socket` source ingests logs over TCP or UDP.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSocketSource {
   /**
@@ -14,7 +16,7 @@ export class ObservabilityPipelineSocketSource {
    */
   "framing": ObservabilityPipelineSocketSourceFraming;
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
   "id": string;
   /**
