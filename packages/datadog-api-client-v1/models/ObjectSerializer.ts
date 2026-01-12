@@ -217,6 +217,8 @@ import { MetricsQueryUnit } from "./MetricsQueryUnit";
 import { Monitor } from "./Monitor";
 import { MonitorAsset } from "./MonitorAsset";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
+import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
+import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
@@ -1008,6 +1010,12 @@ const enumsMap: { [key: string]: any[] } = {
     "cloud_cost",
     "datadog_usage",
   ],
+  MonitorFormulaAndFunctionDataQualityDataSource: ["data_quality_metrics"],
+  MonitorFormulaAndFunctionDataQualityModelTypeOverride: [
+    "freshness",
+    "percentage",
+    "any",
+  ],
   MonitorFormulaAndFunctionEventAggregation: [
     "count",
     "cardinality",
@@ -1070,6 +1078,7 @@ const enumsMap: { [key: string]: any[] } = {
     "database-monitoring alert",
     "network-performance alert",
     "cost alert",
+    "data-quality alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
@@ -1968,6 +1977,10 @@ const typeMap: { [index: string]: any } = {
   MonitorAsset: MonitorAsset,
   MonitorFormulaAndFunctionCostQueryDefinition:
     MonitorFormulaAndFunctionCostQueryDefinition,
+  MonitorFormulaAndFunctionDataQualityMonitorOptions:
+    MonitorFormulaAndFunctionDataQualityMonitorOptions,
+  MonitorFormulaAndFunctionDataQualityQueryDefinition:
+    MonitorFormulaAndFunctionDataQualityQueryDefinition,
   MonitorFormulaAndFunctionEventQueryDefinition:
     MonitorFormulaAndFunctionEventQueryDefinition,
   MonitorFormulaAndFunctionEventQueryDefinitionCompute:
@@ -2490,6 +2503,7 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
     "MonitorFormulaAndFunctionCostQueryDefinition",
+    "MonitorFormulaAndFunctionDataQualityQueryDefinition",
   ],
   NotebookCellCreateRequestAttributes: [
     "NotebookMarkdownCellAttributes",

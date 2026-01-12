@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
+import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type MonitorFormulaAndFunctionQueryDefinition =
   | MonitorFormulaAndFunctionEventQueryDefinition
   | MonitorFormulaAndFunctionCostQueryDefinition
+  | MonitorFormulaAndFunctionDataQualityQueryDefinition
   | UnparsedObject;
