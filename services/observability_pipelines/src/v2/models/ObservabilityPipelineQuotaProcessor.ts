@@ -6,7 +6,9 @@ import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipe
 import { ObservabilityPipelineQuotaProcessorType } from "./ObservabilityPipelineQuotaProcessorType";
 
 /**
- * The Quota Processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
+ * The `quota` processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineQuotaProcessor {
   /**

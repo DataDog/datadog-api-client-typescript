@@ -6,6 +6,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `amazon_data_firehose` source ingests logs from AWS Data Firehose.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonDataFirehoseSource {
   /**

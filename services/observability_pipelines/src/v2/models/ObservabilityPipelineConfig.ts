@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineConfigDestinationItem } from "./ObservabilityPipelineConfigDestinationItem";
+import { ObservabilityPipelineConfigPipelineType } from "./ObservabilityPipelineConfigPipelineType";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
 import { ObservabilityPipelineConfigSourceItem } from "./ObservabilityPipelineConfigSourceItem";
 
@@ -12,6 +13,10 @@ export class ObservabilityPipelineConfig {
    * A list of destination components where processed logs are sent.
    */
   "destinations": Array<ObservabilityPipelineConfigDestinationItem>;
+  /**
+   * The type of data being ingested. Defaults to `logs` if not specified.
+   */
+  "pipelineType"?: ObservabilityPipelineConfigPipelineType;
   /**
    * A list of processor groups that transform or enrich log data.
    */
@@ -39,6 +44,10 @@ export class ObservabilityPipelineConfig {
       baseName: "destinations",
       type: "Array<ObservabilityPipelineConfigDestinationItem>",
       required: true,
+    },
+    pipelineType: {
+      baseName: "pipeline_type",
+      type: "ObservabilityPipelineConfigPipelineType",
     },
     processors: {
       baseName: "processors",

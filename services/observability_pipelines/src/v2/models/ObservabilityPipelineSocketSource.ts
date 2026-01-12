@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `socket` source ingests logs over TCP or UDP.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSocketSource {
   /**

@@ -4,6 +4,8 @@ import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelin
 
 /**
  * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSampleProcessor {
   /**
