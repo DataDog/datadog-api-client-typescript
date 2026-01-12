@@ -25,7 +25,6 @@ export { AWSAccountUpdateRequestData } from "./models/AWSAccountUpdateRequestDat
 export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
 export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
-export { AWSCCMConfig } from "./models/AWSCCMConfig";
 export { AWSEventBridgeAccountConfiguration } from "./models/AWSEventBridgeAccountConfiguration";
 export { AWSEventBridgeCreateRequest } from "./models/AWSEventBridgeCreateRequest";
 export { AWSEventBridgeCreateRequestAttributes } from "./models/AWSEventBridgeCreateRequestAttributes";
@@ -72,7 +71,6 @@ export { AWSRegionsIncludeAll } from "./models/AWSRegionsIncludeAll";
 export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
 export { AWSTracesConfig } from "./models/AWSTracesConfig";
-export { DataExportConfig } from "./models/DataExportConfig";
 export { XRayServicesIncludeAll } from "./models/XRayServicesIncludeAll";
 export { XRayServicesIncludeOnly } from "./models/XRayServicesIncludeOnly";
 export { XRayServicesList } from "./models/XRayServicesList";
