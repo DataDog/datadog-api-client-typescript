@@ -7,29 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * X Axis controls for the distribution widget.
+ * X Axis controls for the heat map widget.
  */
-export class DistributionWidgetXAxis {
+export class HeatMapWidgetXAxis {
   /**
-   * True includes zero.
-   */
-  "includeZero"?: boolean;
-  /**
-   * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
-   */
-  "max"?: string;
-  /**
-   * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
-   */
-  "min"?: string;
-  /**
-   * Number of value buckets to target, also known as the resolution of the value bins.
+   * Number of time buckets to target, also known as the resolution
+   * of the time bins. This is only applicable for distribution of
+   * points (group distributions use the roll-up modifier).
    */
   "numBuckets"?: number;
-  /**
-   * Specifies the scale type. Possible values are `linear`.
-   */
-  "scale"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,26 +33,10 @@ export class DistributionWidgetXAxis {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeZero: {
-      baseName: "include_zero",
-      type: "boolean",
-    },
-    max: {
-      baseName: "max",
-      type: "string",
-    },
-    min: {
-      baseName: "min",
-      type: "string",
-    },
     numBuckets: {
       baseName: "num_buckets",
       type: "number",
       format: "int64",
-    },
-    scale: {
-      baseName: "scale",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,7 +48,7 @@ export class DistributionWidgetXAxis {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetXAxis.attributeTypeMap;
+    return HeatMapWidgetXAxis.attributeTypeMap;
   }
 
   public constructor() {}
