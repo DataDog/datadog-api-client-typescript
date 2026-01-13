@@ -1705,6 +1705,7 @@ import { ObservabilityPipelineEnrichmentTableFileKeyItems } from "./Observabilit
 import { ObservabilityPipelineEnrichmentTableFileSchemaItems } from "./ObservabilityPipelineEnrichmentTableFileSchemaItems";
 import { ObservabilityPipelineEnrichmentTableGeoIp } from "./ObservabilityPipelineEnrichmentTableGeoIp";
 import { ObservabilityPipelineEnrichmentTableProcessor } from "./ObservabilityPipelineEnrichmentTableProcessor";
+import { ObservabilityPipelineEnrichmentTableReferenceTable } from "./ObservabilityPipelineEnrichmentTableReferenceTable";
 import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldValue";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
 import { ObservabilityPipelineFluentBitSource } from "./ObservabilityPipelineFluentBitSource";
@@ -6527,6 +6528,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineEnrichmentTableGeoIp,
   ObservabilityPipelineEnrichmentTableProcessor:
     ObservabilityPipelineEnrichmentTableProcessor,
+  ObservabilityPipelineEnrichmentTableReferenceTable:
+    ObservabilityPipelineEnrichmentTableReferenceTable,
   ObservabilityPipelineFieldValue: ObservabilityPipelineFieldValue,
   ObservabilityPipelineFilterProcessor: ObservabilityPipelineFilterProcessor,
   ObservabilityPipelineFluentBitSource: ObservabilityPipelineFluentBitSource,
