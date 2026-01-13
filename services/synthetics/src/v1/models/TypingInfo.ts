@@ -3,6 +3,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { Creator } from "./Creator";
 import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
+import { SyntheticsAPISubtestStep } from "./SyntheticsAPISubtestStep";
 import { SyntheticsAPITest } from "./SyntheticsAPITest";
 import { SyntheticsAPITestConfig } from "./SyntheticsAPITestConfig";
 import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
@@ -125,6 +126,7 @@ import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    SyntheticsAPISubtestStepSubtype: ["playSubTest"],
     SyntheticsAPITestStepSubtype: [
       "http",
       "grpc",
@@ -399,7 +401,11 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsWarningType: ["user_locator"],
   },
   oneOfMap: {
-    SyntheticsAPIStep: ["SyntheticsAPITestStep", "SyntheticsAPIWaitStep"],
+    SyntheticsAPIStep: [
+      "SyntheticsAPITestStep",
+      "SyntheticsAPIWaitStep",
+      "SyntheticsAPISubtestStep",
+    ],
     SyntheticsAssertion: [
       "SyntheticsAssertionTarget",
       "SyntheticsAssertionBodyHashTarget",
@@ -425,6 +431,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     Creator: Creator,
     SLOHistoryResponseErrorWithType: SLOHistoryResponseErrorWithType,
+    SyntheticsAPISubtestStep: SyntheticsAPISubtestStep,
     SyntheticsAPITest: SyntheticsAPITest,
     SyntheticsAPITestConfig: SyntheticsAPITestConfig,
     SyntheticsAPITestResultData: SyntheticsAPITestResultData,

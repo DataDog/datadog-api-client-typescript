@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { SyntheticsAPISubtestStep } from "./SyntheticsAPISubtestStep";
 import { SyntheticsAPITestStep } from "./SyntheticsAPITestStep";
 import { SyntheticsAPIWaitStep } from "./SyntheticsAPIWaitStep";
 
@@ -9,4 +10,5 @@ import { SyntheticsAPIWaitStep } from "./SyntheticsAPIWaitStep";
 export type SyntheticsAPIStep =
   | SyntheticsAPITestStep
   | SyntheticsAPIWaitStep
+  | SyntheticsAPISubtestStep
   | UnparsedObject;
