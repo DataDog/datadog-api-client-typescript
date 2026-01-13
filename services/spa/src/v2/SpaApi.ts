@@ -36,8 +36,8 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
     }
   }
   public async getSPARecommendations(
-    shard: string,
     service: string,
+    bypassCache?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -48,20 +48,16 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // verify required parameter 'shard' is not null or undefined
-    if (shard === null || shard === undefined) {
-      throw new RequiredError("shard", "getSPARecommendations");
-    }
-
     // verify required parameter 'service' is not null or undefined
     if (service === null || service === undefined) {
       throw new RequiredError("service", "getSPARecommendations");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/spa/recommendations/{service}/{shard}"
-      .replace("{shard}", encodeURIComponent(String(shard)))
-      .replace("{service}", encodeURIComponent(String(service)));
+    const localVarPath = "/api/v2/spa/recommendations/{service}".replace(
+      "{service}",
+      encodeURIComponent(String(service)),
+    );
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -81,11 +77,81 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Query Params
+    if (bypassCache !== undefined) {
+      requestContext.setQueryParam(
+        "bypass_cache",
+        serialize(bypassCache, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ"]);
+
+    return requestContext;
+  }
+
+  public async getSPARecommendationsWithShard(
+    shard: string,
+    service: string,
+    bypassCache?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SpaApi.v2.getSPARecommendationsWithShard"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSPARecommendationsWithShard' is disabled. Enable it by setting `configuration.unstableOperations['SpaApi.v2.getSPARecommendationsWithShard'] = true`",
+      );
+    }
+
+    // verify required parameter 'shard' is not null or undefined
+    if (shard === null || shard === undefined) {
+      throw new RequiredError("shard", "getSPARecommendationsWithShard");
+    }
+
+    // verify required parameter 'service' is not null or undefined
+    if (service === null || service === undefined) {
+      throw new RequiredError("service", "getSPARecommendationsWithShard");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/spa/recommendations/{service}/{shard}"
+      .replace("{shard}", encodeURIComponent(String(shard)))
+      .replace("{service}", encodeURIComponent(String(service)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpaApi.v2.getSPARecommendationsWithShard",
+      SpaApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (bypassCache !== undefined) {
+      requestContext.setQueryParam(
+        "bypass_cache",
+        serialize(bypassCache, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["AuthZ"]);
 
     return requestContext;
   }
@@ -151,9 +217,82 @@ export class SpaApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSPARecommendationsWithShard
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSPARecommendationsWithShard(
+    response: ResponseContext,
+  ): Promise<RecommendationDocument> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RecommendationDocument = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RecommendationDocument",
+      ) as RecommendationDocument;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RecommendationDocument = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RecommendationDocument",
+        "",
+      ) as RecommendationDocument;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface SpaApiGetSPARecommendationsRequest {
+  /**
+   * The service name for a spark job.
+   * @type string
+   */
+  service: string;
+  /**
+   * The recommendation service should not use its metrics cache.
+   * @type string
+   */
+  bypassCache?: string;
+}
+
+export interface SpaApiGetSPARecommendationsWithShardRequest {
   /**
    * The shard tag for a spark job, which differentiates jobs within the same service that have different resource needs
    * @type string
@@ -164,6 +303,11 @@ export interface SpaApiGetSPARecommendationsRequest {
    * @type string
    */
   service: string;
+  /**
+   * The recommendation service should not use its metrics cache.
+   * @type string
+   */
+  bypassCache?: string;
 }
 
 export class SpaApi {
@@ -185,7 +329,7 @@ export class SpaApi {
   }
 
   /**
-   * Retrieve resource recommendations for a Spark job. The caller (Spark Gateway or DJM UI) provides a service name and shard identifier, and SPA returns structured recommendations for driver and executor resources.
+   * This endpoint is currently experimental and restricted to Datadog internal use only. Retrieve resource recommendations for a Spark job. The caller (Spark Gateway or DJM UI) provides a service name and SPA returns structured recommendations for driver and executor resources. The version with a shard should be preferred, where possible, as it gives more accurate results.
    * @param param The request object
    */
   public getSPARecommendations(
@@ -193,8 +337,8 @@ export class SpaApi {
     options?: Configuration,
   ): Promise<RecommendationDocument> {
     const requestContextPromise = this.requestFactory.getSPARecommendations(
-      param.shard,
       param.service,
+      param.bypassCache,
       options,
     );
     return requestContextPromise.then((requestContext) => {
@@ -202,6 +346,32 @@ export class SpaApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSPARecommendations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * This endpoint is currently experimental and restricted to Datadog internal use only. Retrieve resource recommendations for a Spark job. The caller (Spark Gateway or DJM UI) provides a service name and shard identifier, and SPA returns structured recommendations for driver and executor resources.
+   * @param param The request object
+   */
+  public getSPARecommendationsWithShard(
+    param: SpaApiGetSPARecommendationsWithShardRequest,
+    options?: Configuration,
+  ): Promise<RecommendationDocument> {
+    const requestContextPromise =
+      this.requestFactory.getSPARecommendationsWithShard(
+        param.shard,
+        param.service,
+        param.bypassCache,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSPARecommendationsWithShard(
+            responseContext,
+          );
         });
     });
   }
