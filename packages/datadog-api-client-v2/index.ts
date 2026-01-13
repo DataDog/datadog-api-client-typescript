@@ -879,7 +879,11 @@ export {
   SoftwareCatalogApi,
 } from "./apis/SoftwareCatalogApi";
 
-export { SpaApiGetSPARecommendationsRequest, SpaApi } from "./apis/SpaApi";
+export {
+  SpaApiGetSPARecommendationsRequest,
+  SpaApiGetSPARecommendationsWithShardRequest,
+  SpaApi,
+} from "./apis/SpaApi";
 
 export {
   SpansApiAggregateSpansRequest,
