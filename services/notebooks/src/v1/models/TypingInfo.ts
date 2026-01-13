@@ -21,6 +21,7 @@ import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionPr
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
+import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
@@ -92,7 +93,6 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ApmStatsQueryRowType: ["service", "resource", "span"],
     DistributionWidgetDefinitionType: ["distribution"],
-    DistributionWidgetHistogramRequestType: ["histogram"],
     FormulaAndFunctionApmDependencyStatName: [
       "avg_duration",
       "avg_root_duration",
@@ -207,6 +207,7 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetDisplayType: ["area", "bars", "line", "overlay"],
     WidgetFormulaCellDisplayModeOptionsTrendType: ["area", "line", "bars"],
     WidgetFormulaCellDisplayModeOptionsYScale: ["shared", "independent"],
+    WidgetHistogramRequestType: ["histogram"],
     WidgetLineType: ["dashed", "dotted", "solid"],
     WidgetLineWidth: ["normal", "thick", "thin"],
     WidgetLiveSpan: [
@@ -341,6 +342,7 @@ export const TypingInfo: ModelTypingInfo = {
     FormulaAndFunctionSLOQueryDefinition: FormulaAndFunctionSLOQueryDefinition,
     HeatMapWidgetDefinition: HeatMapWidgetDefinition,
     HeatMapWidgetRequest: HeatMapWidgetRequest,
+    HeatMapWidgetXAxis: HeatMapWidgetXAxis,
     LogQueryDefinition: LogQueryDefinition,
     LogQueryDefinitionGroupBy: LogQueryDefinitionGroupBy,
     LogQueryDefinitionGroupBySort: LogQueryDefinitionGroupBySort,

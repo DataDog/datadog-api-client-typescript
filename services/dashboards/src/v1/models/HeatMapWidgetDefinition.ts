@@ -2,9 +2,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { HeatMapWidgetDefinitionType } from "./HeatMapWidgetDefinitionType";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
+import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
 import { WidgetAxis } from "./WidgetAxis";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetEvent } from "./WidgetEvent";
+import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
@@ -24,6 +26,10 @@ export class HeatMapWidgetDefinition {
    * Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
    */
   "legendSize"?: string;
+  /**
+   * List of markers.
+   */
+  "markers"?: Array<WidgetMarker>;
   /**
    * List of widget types.
    */
@@ -52,6 +58,10 @@ export class HeatMapWidgetDefinition {
    * Type of the heat map widget.
    */
   "type": HeatMapWidgetDefinitionType;
+  /**
+   * X Axis controls for the heat map widget.
+   */
+  "xaxis"?: HeatMapWidgetXAxis;
   /**
    * Axis controls for the widget.
    */
@@ -83,6 +93,10 @@ export class HeatMapWidgetDefinition {
       baseName: "legend_size",
       type: "string",
     },
+    markers: {
+      baseName: "markers",
+      type: "Array<WidgetMarker>",
+    },
     requests: {
       baseName: "requests",
       type: "[HeatMapWidgetRequest]",
@@ -112,6 +126,10 @@ export class HeatMapWidgetDefinition {
       baseName: "type",
       type: "HeatMapWidgetDefinitionType",
       required: true,
+    },
+    xaxis: {
+      baseName: "xaxis",
+      type: "HeatMapWidgetXAxis",
     },
     yaxis: {
       baseName: "yaxis",
