@@ -9071,11 +9071,26 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "SLOReportStatusGetResponse",
   },
   "SpaApi.V2.GetSPARecommendations": {
+    bypassCache: {
+      type: "string",
+      format: "",
+    },
+    service: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RecommendationDocument",
+  },
+  "SpaApi.V2.GetSPARecommendationsWithShard": {
     shard: {
       type: "string",
       format: "",
     },
     service: {
+      type: "string",
+      format: "",
+    },
+    bypassCache: {
       type: "string",
       format: "",
     },

@@ -6,6 +6,7 @@ import { ComponentRecommendation } from "./ComponentRecommendation";
  * Attributes of the SPA Recommendation resource. Contains recommendations for both driver and executor components.
  */
 export class RecommendationAttributes {
+  "confidenceLevel"?: number;
   /**
    * Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
    */
@@ -29,6 +30,11 @@ export class RecommendationAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    confidenceLevel: {
+      baseName: "confidence_level",
+      type: "number",
+      format: "double",
+    },
     driver: {
       baseName: "driver",
       type: "ComponentRecommendation",

@@ -1,4 +1,8 @@
-export { SpaApiGetSPARecommendationsRequest, SpaApi } from "./SpaApi";
+export {
+  SpaApiGetSPARecommendationsRequest,
+  SpaApiGetSPARecommendationsWithShardRequest,
+  SpaApi,
+} from "./SpaApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { ComponentRecommendation } from "./models/ComponentRecommendation";
