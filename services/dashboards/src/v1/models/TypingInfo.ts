@@ -51,6 +51,7 @@ import { GeomapWidgetRequestStyle } from "./GeomapWidgetRequestStyle";
 import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
+import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
 import { HostMapRequest } from "./HostMapRequest";
 import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
 import { HostMapWidgetDefinitionRequests } from "./HostMapWidgetDefinitionRequests";
@@ -181,7 +182,6 @@ export const TypingInfo: ModelTypingInfo = {
     DashboardShareType: ["open", "invite", "embed"],
     DashboardType: ["custom_timeboard", "custom_screenboard"],
     DistributionWidgetDefinitionType: ["distribution"],
-    DistributionWidgetHistogramRequestType: ["histogram"],
     EventStreamWidgetDefinitionType: ["event_stream"],
     EventTimelineWidgetDefinitionType: ["event_timeline"],
     FormulaAndFunctionApmDependencyStatName: [
@@ -393,6 +393,7 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetFormulaCellDisplayModeOptionsTrendType: ["area", "line", "bars"],
     WidgetFormulaCellDisplayModeOptionsYScale: ["shared", "independent"],
     WidgetGrouping: ["check", "cluster"],
+    WidgetHistogramRequestType: ["histogram"],
     WidgetHorizontalAlign: ["center", "left", "right"],
     WidgetImageSizing: [
       "fill",
@@ -642,6 +643,7 @@ export const TypingInfo: ModelTypingInfo = {
     GroupWidgetDefinition: GroupWidgetDefinition,
     HeatMapWidgetDefinition: HeatMapWidgetDefinition,
     HeatMapWidgetRequest: HeatMapWidgetRequest,
+    HeatMapWidgetXAxis: HeatMapWidgetXAxis,
     HostMapRequest: HostMapRequest,
     HostMapWidgetDefinition: HostMapWidgetDefinition,
     HostMapWidgetDefinitionRequests: HostMapWidgetDefinitionRequests,
