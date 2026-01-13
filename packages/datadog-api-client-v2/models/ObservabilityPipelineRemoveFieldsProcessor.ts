@@ -9,6 +9,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `remove_fields` processor deletes specified fields from logs.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineRemoveFieldsProcessor {
   /**

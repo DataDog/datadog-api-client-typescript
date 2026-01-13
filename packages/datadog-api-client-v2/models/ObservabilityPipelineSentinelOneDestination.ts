@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `sentinel_one` destination sends logs to SentinelOne.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSentinelOneDestination {
   /**

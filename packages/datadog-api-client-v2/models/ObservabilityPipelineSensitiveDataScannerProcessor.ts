@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessor {
   /**
