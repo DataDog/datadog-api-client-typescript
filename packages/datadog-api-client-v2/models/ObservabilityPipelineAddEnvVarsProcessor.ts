@@ -10,6 +10,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `add_env_vars` processor adds environment variable values to log events.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAddEnvVarsProcessor {
   /**
@@ -17,7 +19,7 @@ export class ObservabilityPipelineAddEnvVarsProcessor {
    */
   "displayName"?: string;
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    */
   "enabled": boolean;
   /**
