@@ -758,12 +758,14 @@ export {
   SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
@@ -773,12 +775,14 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
+  SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
+  SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
@@ -795,6 +799,7 @@ export {
   SecurityMonitoringApiListMultipleRulesetsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
+  SecurityMonitoringApiListSecurityMonitoringCriticalAssetsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
@@ -814,6 +819,7 @@ export {
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiValidateSecurityMonitoringRuleRequest,
@@ -4059,6 +4065,18 @@ export { SecurityFindingsSearchRequestDataAttributes } from "./models/SecurityFi
 export { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSearchRequestPage";
 export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
 export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
+export { SecurityMonitoringCriticalAsset } from "./models/SecurityMonitoringCriticalAsset";
+export { SecurityMonitoringCriticalAssetAttributes } from "./models/SecurityMonitoringCriticalAssetAttributes";
+export { SecurityMonitoringCriticalAssetCreateAttributes } from "./models/SecurityMonitoringCriticalAssetCreateAttributes";
+export { SecurityMonitoringCriticalAssetCreateData } from "./models/SecurityMonitoringCriticalAssetCreateData";
+export { SecurityMonitoringCriticalAssetCreateRequest } from "./models/SecurityMonitoringCriticalAssetCreateRequest";
+export { SecurityMonitoringCriticalAssetResponse } from "./models/SecurityMonitoringCriticalAssetResponse";
+export { SecurityMonitoringCriticalAssetSeverity } from "./models/SecurityMonitoringCriticalAssetSeverity";
+export { SecurityMonitoringCriticalAssetsResponse } from "./models/SecurityMonitoringCriticalAssetsResponse";
+export { SecurityMonitoringCriticalAssetType } from "./models/SecurityMonitoringCriticalAssetType";
+export { SecurityMonitoringCriticalAssetUpdateAttributes } from "./models/SecurityMonitoringCriticalAssetUpdateAttributes";
+export { SecurityMonitoringCriticalAssetUpdateData } from "./models/SecurityMonitoringCriticalAssetUpdateData";
+export { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
