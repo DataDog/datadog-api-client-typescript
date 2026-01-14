@@ -4381,6 +4381,52 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListVulnerableAssetsResponse",
   },
+  "SecurityMonitoringApi.V2.ListSecurityMonitoringCriticalAssets": {
+    query: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringCriticalAssetsResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityMonitoringCriticalAsset": {
+    body: {
+      type: "SecurityMonitoringCriticalAssetCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringCriticalAssetResponse",
+  },
+  "SecurityMonitoringApi.V2.GetCriticalAssetsAffectingRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringCriticalAssetsResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringCriticalAsset": {
+    criticalAssetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringCriticalAssetResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityMonitoringCriticalAsset": {
+    criticalAssetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityMonitoringCriticalAsset": {
+    criticalAssetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SecurityMonitoringCriticalAssetUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringCriticalAssetResponse",
+  },
   "SecurityMonitoringApi.V2.ListSecurityFilters": {
     operationResponseType: "SecurityFiltersResponse",
   },
