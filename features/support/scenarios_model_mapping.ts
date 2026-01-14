@@ -4490,6 +4490,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "SecurityMonitoringListRulesResponse",
     },
     "v2.CreateSecurityMonitoringRule": {
