@@ -3217,6 +3217,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async listSecurityMonitoringRules(
     pageSize?: number,
     pageNumber?: number,
+    query?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3254,6 +3255,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[number]",
         serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        serialize(query, TypingInfo, "string", ""),
         "",
       );
     }
@@ -10158,6 +10166,11 @@ export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
    * @type number
    */
   pageNumber?: number;
+  /**
+   * A search query to filter security rules. You can filter by attributes such as `type`, `source`, `tags`.
+   * @type string
+   */
+  query?: string;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
@@ -12163,6 +12176,7 @@ export class SecurityMonitoringApi {
       this.requestFactory.listSecurityMonitoringRules(
         param.pageSize,
         param.pageNumber,
+        param.query,
         options,
       );
     return requestContextPromise.then((requestContext) => {
