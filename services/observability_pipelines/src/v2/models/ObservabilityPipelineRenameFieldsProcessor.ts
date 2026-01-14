@@ -5,6 +5,8 @@ import { ObservabilityPipelineRenameFieldsProcessorType } from "./ObservabilityP
 
 /**
  * The `rename_fields` processor changes field names.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineRenameFieldsProcessor {
   /**
@@ -12,7 +14,7 @@ export class ObservabilityPipelineRenameFieldsProcessor {
    */
   "displayName"?: string;
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    */
   "enabled": boolean;
   /**

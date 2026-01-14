@@ -4,6 +4,8 @@ import { AzureStorageDestinationType } from "./AzureStorageDestinationType";
 
 /**
  * The `azure_storage` destination forwards logs to an Azure Blob Storage container.
+ *
+ * **Supported pipeline types:** logs
  */
 export class AzureStorageDestination {
   /**

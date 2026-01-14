@@ -7,6 +7,8 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `http_server` source collects logs over HTTP POST from external services.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineHttpServerSource {
   /**

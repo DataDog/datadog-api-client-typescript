@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineConfigDestinationItem } from "./ObservabilityPipelineConfigDestinationItem";
+import { ObservabilityPipelineConfigPipelineType } from "./ObservabilityPipelineConfigPipelineType";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
 import { ObservabilityPipelineConfigSourceItem } from "./ObservabilityPipelineConfigSourceItem";
 
@@ -13,7 +14,17 @@ export class ObservabilityPipelineConfig {
    */
   "destinations": Array<ObservabilityPipelineConfigDestinationItem>;
   /**
+   * The type of data being ingested. Defaults to `logs` if not specified.
+   */
+  "pipelineType"?: ObservabilityPipelineConfigPipelineType;
+  /**
    * A list of processor groups that transform or enrich log data.
+   */
+  "processorGroups"?: Array<ObservabilityPipelineConfigProcessorGroup>;
+  /**
+   * A list of processor groups that transform or enrich log data.
+   *
+   * **Deprecated:** This field is deprecated, you should now use the processor_groups field.
    */
   "processors"?: Array<ObservabilityPipelineConfigProcessorGroup>;
   /**
@@ -39,6 +50,14 @@ export class ObservabilityPipelineConfig {
       baseName: "destinations",
       type: "Array<ObservabilityPipelineConfigDestinationItem>",
       required: true,
+    },
+    pipelineType: {
+      baseName: "pipeline_type",
+      type: "ObservabilityPipelineConfigPipelineType",
+    },
+    processorGroups: {
+      baseName: "processor_groups",
+      type: "Array<ObservabilityPipelineConfigProcessorGroup>",
     },
     processors: {
       baseName: "processors",

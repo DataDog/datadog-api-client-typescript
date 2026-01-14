@@ -5,6 +5,8 @@ import { ObservabilityPipelineSentinelOneDestinationType } from "./Observability
 
 /**
  * The `sentinel_one` destination sends logs to SentinelOne.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSentinelOneDestination {
   /**

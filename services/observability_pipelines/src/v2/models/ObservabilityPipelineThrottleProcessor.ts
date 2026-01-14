@@ -4,6 +4,8 @@ import { ObservabilityPipelineThrottleProcessorType } from "./ObservabilityPipel
 
 /**
  * The `throttle` processor limits the number of events that pass through over a given time window.
+ *
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineThrottleProcessor {
   /**
@@ -11,7 +13,7 @@ export class ObservabilityPipelineThrottleProcessor {
    */
   "displayName"?: string;
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    */
   "enabled": boolean;
   /**
