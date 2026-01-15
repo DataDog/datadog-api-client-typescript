@@ -6331,6 +6331,72 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GCPSTSDelegateAccountResponse",
   },
+  "GoogleChatIntegrationApi.V2.GetSpaceByDisplayName": {
+    domainName: {
+      type: "string",
+      format: "",
+    },
+    spaceDisplayName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GoogleChatAppNamedSpaceResponse",
+  },
+  "GoogleChatIntegrationApi.V2.ListOrganizationHandles": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GoogleChatOrganizationHandlesResponse",
+  },
+  "GoogleChatIntegrationApi.V2.CreateOrganizationHandle": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GoogleChatCreateOrganizationHandleRequest",
+      format: "",
+    },
+    operationResponseType: "GoogleChatOrganizationHandleResponse",
+  },
+  "GoogleChatIntegrationApi.V2.GetOrganizationHandle": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    handleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GoogleChatOrganizationHandleResponse",
+  },
+  "GoogleChatIntegrationApi.V2.DeleteOrganizationHandle": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    handleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "GoogleChatIntegrationApi.V2.UpdateOrganizationHandle": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    handleId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GoogleChatUpdateOrganizationHandleRequest",
+      format: "",
+    },
+    operationResponseType: "GoogleChatOrganizationHandleResponse",
+  },
   "MicrosoftTeamsIntegrationApi.V2.GetChannelByName": {
     tenantName: {
       type: "string",

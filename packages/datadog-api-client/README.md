@@ -387,6 +387,7 @@ apiInstance
 | Fastly Integration | @datadog/datadog-api-client-fastly-integration | [README.md](../../services/fastly-integration/README.md) |
 | Fleet Automation | @datadog/datadog-api-client-fleet-automation | [README.md](../../services/fleet-automation/README.md) |
 | GCP Integration | @datadog/datadog-api-client-gcp-integration | [README.md](../../services/gcp-integration/README.md) |
+| Google Chat Integration | @datadog/datadog-api-client-google-chat-integration | [README.md](../../services/google-chat-integration/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
 | Incident Services | @datadog/datadog-api-client-incident-services | [README.md](../../services/incident-services/README.md) |
 | Incident Teams | @datadog/datadog-api-client-incident-teams | [README.md](../../services/incident-teams/README.md) |
