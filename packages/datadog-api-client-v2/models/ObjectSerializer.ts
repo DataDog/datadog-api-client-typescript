@@ -2435,6 +2435,7 @@ import { SensitiveDataScannerStandardPatternAttributes } from "./SensitiveDataSc
 import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerStandardPatternData";
 import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDataScannerStandardPatternsResponseData";
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
+import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
@@ -7519,6 +7520,7 @@ const typeMap: { [index: string]: any } = {
     SensitiveDataScannerStandardPatternsResponseData,
   SensitiveDataScannerStandardPatternsResponseItem:
     SensitiveDataScannerStandardPatternsResponseItem,
+  SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
   SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
