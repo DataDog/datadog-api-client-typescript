@@ -5,6 +5,11 @@ import { AlertGraphWidgetDefinition } from "./AlertGraphWidgetDefinition";
 import { AlertValueWidgetDefinition } from "./AlertValueWidgetDefinition";
 import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
 import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
+import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
+import { BarChartWidgetFlat } from "./BarChartWidgetFlat";
+import { BarChartWidgetRequest } from "./BarChartWidgetRequest";
+import { BarChartWidgetStacked } from "./BarChartWidgetStacked";
+import { BarChartWidgetStyle } from "./BarChartWidgetStyle";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
@@ -163,6 +168,11 @@ export const TypingInfo: ModelTypingInfo = {
     AlertGraphWidgetDefinitionType: ["alert_graph"],
     AlertValueWidgetDefinitionType: ["alert_value"],
     ApmStatsQueryRowType: ["service", "resource", "span"],
+    BarChartWidgetDefinitionType: ["bar_chart"],
+    BarChartWidgetFlatType: ["flat"],
+    BarChartWidgetLegend: ["automatic", "inline", "none"],
+    BarChartWidgetScaling: ["absolute", "relative"],
+    BarChartWidgetStackedType: ["stacked"],
     ChangeWidgetDefinitionType: ["change"],
     CheckStatusWidgetDefinitionType: ["check_status"],
     DashboardGlobalTimeLiveSpan: [
@@ -500,6 +510,7 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetVizType: ["timeseries", "toplist"],
   },
   oneOfMap: {
+    BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
     DistributionWidgetHistogramRequestQuery: [
       "FormulaAndFunctionMetricQueryDefinition",
       "FormulaAndFunctionEventQueryDefinition",
@@ -520,6 +531,7 @@ export const TypingInfo: ModelTypingInfo = {
       "Array<SharedDashboardInvitesDataObject>",
     ],
     SplitGraphSourceWidgetDefinition: [
+      "BarChartWidgetDefinition",
       "ChangeWidgetDefinition",
       "GeomapWidgetDefinition",
       "QueryValueWidgetDefinition",
@@ -542,6 +554,7 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetDefinition: [
       "AlertGraphWidgetDefinition",
       "AlertValueWidgetDefinition",
+      "BarChartWidgetDefinition",
       "ChangeWidgetDefinition",
       "CheckStatusWidgetDefinition",
       "DistributionWidgetDefinition",
@@ -588,6 +601,11 @@ export const TypingInfo: ModelTypingInfo = {
     AlertValueWidgetDefinition: AlertValueWidgetDefinition,
     ApmStatsQueryColumnType: ApmStatsQueryColumnType,
     ApmStatsQueryDefinition: ApmStatsQueryDefinition,
+    BarChartWidgetDefinition: BarChartWidgetDefinition,
+    BarChartWidgetFlat: BarChartWidgetFlat,
+    BarChartWidgetRequest: BarChartWidgetRequest,
+    BarChartWidgetStacked: BarChartWidgetStacked,
+    BarChartWidgetStyle: BarChartWidgetStyle,
     ChangeWidgetDefinition: ChangeWidgetDefinition,
     ChangeWidgetRequest: ChangeWidgetRequest,
     CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
