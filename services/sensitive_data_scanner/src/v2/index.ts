@@ -64,5 +64,6 @@ export { SensitiveDataScannerStandardPatternData } from "./models/SensitiveDataS
 export { SensitiveDataScannerStandardPatternsResponseData } from "./models/SensitiveDataScannerStandardPatternsResponseData";
 export { SensitiveDataScannerStandardPatternsResponseItem } from "./models/SensitiveDataScannerStandardPatternsResponseItem";
 export { SensitiveDataScannerStandardPatternType } from "./models/SensitiveDataScannerStandardPatternType";
+export { SensitiveDataScannerSuppressions } from "./models/SensitiveDataScannerSuppressions";
 export { SensitiveDataScannerTextReplacement } from "./models/SensitiveDataScannerTextReplacement";
 export { SensitiveDataScannerTextReplacementType } from "./models/SensitiveDataScannerTextReplacementType";
