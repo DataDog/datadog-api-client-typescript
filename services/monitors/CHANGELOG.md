@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-15
+
+### Added
+* feat - Add data-quality alert monitor type support [#3265](https://github.com/DataDog/datadog-api-client-typescript/pull/3265)
+
 ## 0.0.1-beta.3/2025-12-17
 
 ### Security

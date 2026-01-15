@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-01-15
+
+### Deprecated
+* Update docs for Security Finding API endpoints [#3261](https://github.com/DataDog/datadog-api-client-typescript/pull/3261)
+
+### Added
+* Add Critical Assets specs to security_monitoring feature [#3243](https://github.com/DataDog/datadog-api-client-typescript/pull/3243)
+* Add `query` param in rules list endpoint [#3180](https://github.com/DataDog/datadog-api-client-typescript/pull/3180)
+* Add Security Findings Public API beta endpoints [#3137](https://github.com/DataDog/datadog-api-client-typescript/pull/3137)
+
 ## 0.0.1-beta.4/2026-01-08
 
 ### Added

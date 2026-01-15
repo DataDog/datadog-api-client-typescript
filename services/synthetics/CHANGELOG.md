@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-15
+
+### Added
+* Add subtest for synthetics multistep tests [#3196](https://github.com/DataDog/datadog-api-client-typescript/pull/3196)
+
 ## 0.0.1-beta.3/2026-01-08
 
 ### Changed
