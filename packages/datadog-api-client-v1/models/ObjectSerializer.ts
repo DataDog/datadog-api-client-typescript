@@ -34,6 +34,11 @@ import { ApplicationKeyListResponse } from "./ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { AuthenticationValidationResponse } from "./AuthenticationValidationResponse";
 import { AzureAccount } from "./AzureAccount";
+import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
+import { BarChartWidgetFlat } from "./BarChartWidgetFlat";
+import { BarChartWidgetRequest } from "./BarChartWidgetRequest";
+import { BarChartWidgetStacked } from "./BarChartWidgetStacked";
+import { BarChartWidgetStyle } from "./BarChartWidgetStyle";
 import { CancelDowntimesByScopeRequest } from "./CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "./CanceledDowntimesIds";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
@@ -701,6 +706,11 @@ const enumsMap: { [key: string]: any[] } = {
   AlertGraphWidgetDefinitionType: ["alert_graph"],
   AlertValueWidgetDefinitionType: ["alert_value"],
   ApmStatsQueryRowType: ["service", "resource", "span"],
+  BarChartWidgetDefinitionType: ["bar_chart"],
+  BarChartWidgetFlatType: ["flat"],
+  BarChartWidgetLegend: ["automatic", "inline", "none"],
+  BarChartWidgetScaling: ["absolute", "relative"],
+  BarChartWidgetStackedType: ["stacked"],
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
   ContentEncoding: ["gzip", "deflate"],
@@ -1787,6 +1797,11 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyResponse: ApplicationKeyResponse,
   AuthenticationValidationResponse: AuthenticationValidationResponse,
   AzureAccount: AzureAccount,
+  BarChartWidgetDefinition: BarChartWidgetDefinition,
+  BarChartWidgetFlat: BarChartWidgetFlat,
+  BarChartWidgetRequest: BarChartWidgetRequest,
+  BarChartWidgetStacked: BarChartWidgetStacked,
+  BarChartWidgetStyle: BarChartWidgetStyle,
   CancelDowntimesByScopeRequest: CancelDowntimesByScopeRequest,
   CanceledDowntimesIds: CanceledDowntimesIds,
   ChangeWidgetDefinition: ChangeWidgetDefinition,
@@ -2462,6 +2477,7 @@ const typeMap: { [index: string]: any } = {
 };
 
 const oneOfMap: { [index: string]: string[] } = {
+  BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
   DistributionPointItem: ["number", "Array<number>"],
   DistributionWidgetHistogramRequestQuery: [
     "FormulaAndFunctionMetricQueryDefinition",
@@ -2548,6 +2564,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "Array<SharedDashboardInvitesDataObject>",
   ],
   SplitGraphSourceWidgetDefinition: [
+    "BarChartWidgetDefinition",
     "ChangeWidgetDefinition",
     "GeomapWidgetDefinition",
     "QueryValueWidgetDefinition",
@@ -2595,6 +2612,7 @@ const oneOfMap: { [index: string]: string[] } = {
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
     "AlertValueWidgetDefinition",
+    "BarChartWidgetDefinition",
     "ChangeWidgetDefinition",
     "CheckStatusWidgetDefinition",
     "DistributionWidgetDefinition",
