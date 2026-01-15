@@ -4371,6 +4371,52 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListVulnerableAssetsResponse",
     },
+    "v2.ListSecurityMonitoringCriticalAssets": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringCriticalAssetsResponse",
+    },
+    "v2.CreateSecurityMonitoringCriticalAsset": {
+        "body": {
+            "type": "SecurityMonitoringCriticalAssetCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringCriticalAssetResponse",
+    },
+    "v2.GetCriticalAssetsAffectingRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringCriticalAssetsResponse",
+    },
+    "v2.GetSecurityMonitoringCriticalAsset": {
+        "criticalAssetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringCriticalAssetResponse",
+    },
+    "v2.DeleteSecurityMonitoringCriticalAsset": {
+        "criticalAssetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSecurityMonitoringCriticalAsset": {
+        "criticalAssetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringCriticalAssetUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringCriticalAssetResponse",
+    },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },

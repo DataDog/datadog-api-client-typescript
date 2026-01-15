@@ -2302,6 +2302,16 @@ import { SecurityFindingsSearchRequest } from "./SecurityFindingsSearchRequest";
 import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchRequestData";
 import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
+import { SecurityMonitoringCriticalAsset } from "./SecurityMonitoringCriticalAsset";
+import { SecurityMonitoringCriticalAssetAttributes } from "./SecurityMonitoringCriticalAssetAttributes";
+import { SecurityMonitoringCriticalAssetCreateAttributes } from "./SecurityMonitoringCriticalAssetCreateAttributes";
+import { SecurityMonitoringCriticalAssetCreateData } from "./SecurityMonitoringCriticalAssetCreateData";
+import { SecurityMonitoringCriticalAssetCreateRequest } from "./SecurityMonitoringCriticalAssetCreateRequest";
+import { SecurityMonitoringCriticalAssetResponse } from "./SecurityMonitoringCriticalAssetResponse";
+import { SecurityMonitoringCriticalAssetUpdateAttributes } from "./SecurityMonitoringCriticalAssetUpdateAttributes";
+import { SecurityMonitoringCriticalAssetUpdateData } from "./SecurityMonitoringCriticalAssetUpdateData";
+import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitoringCriticalAssetUpdateRequest";
+import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
@@ -4166,6 +4176,16 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFindingsDataType: ["finding"],
   SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
   SecurityFindingsStatus: ["done", "timeout"],
+  SecurityMonitoringCriticalAssetSeverity: [
+    "info",
+    "low",
+    "medium",
+    "high",
+    "critical",
+    "increase",
+    "decrease",
+  ],
+  SecurityMonitoringCriticalAssetType: ["critical_assets"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
   SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [
     300, 600, 900, 1800, 3600, 10800,
@@ -7300,6 +7320,25 @@ const typeMap: { [index: string]: any } = {
   SecurityFindingsSearchRequestDataAttributes:
     SecurityFindingsSearchRequestDataAttributes,
   SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
+  SecurityMonitoringCriticalAsset: SecurityMonitoringCriticalAsset,
+  SecurityMonitoringCriticalAssetAttributes:
+    SecurityMonitoringCriticalAssetAttributes,
+  SecurityMonitoringCriticalAssetCreateAttributes:
+    SecurityMonitoringCriticalAssetCreateAttributes,
+  SecurityMonitoringCriticalAssetCreateData:
+    SecurityMonitoringCriticalAssetCreateData,
+  SecurityMonitoringCriticalAssetCreateRequest:
+    SecurityMonitoringCriticalAssetCreateRequest,
+  SecurityMonitoringCriticalAssetResponse:
+    SecurityMonitoringCriticalAssetResponse,
+  SecurityMonitoringCriticalAssetUpdateAttributes:
+    SecurityMonitoringCriticalAssetUpdateAttributes,
+  SecurityMonitoringCriticalAssetUpdateData:
+    SecurityMonitoringCriticalAssetUpdateData,
+  SecurityMonitoringCriticalAssetUpdateRequest:
+    SecurityMonitoringCriticalAssetUpdateRequest,
+  SecurityMonitoringCriticalAssetsResponse:
+    SecurityMonitoringCriticalAssetsResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
   SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,

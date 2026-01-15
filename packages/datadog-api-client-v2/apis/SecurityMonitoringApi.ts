@@ -71,6 +71,10 @@ import { SecurityFindingsSearchRequestData } from "../models/SecurityFindingsSea
 import { SecurityFindingsSearchRequestDataAttributes } from "../models/SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "../models/SecurityFindingsSearchRequestPage";
 import { SecurityFindingsSort } from "../models/SecurityFindingsSort";
+import { SecurityMonitoringCriticalAssetCreateRequest } from "../models/SecurityMonitoringCriticalAssetCreateRequest";
+import { SecurityMonitoringCriticalAssetResponse } from "../models/SecurityMonitoringCriticalAssetResponse";
+import { SecurityMonitoringCriticalAssetsResponse } from "../models/SecurityMonitoringCriticalAssetsResponse";
+import { SecurityMonitoringCriticalAssetUpdateRequest } from "../models/SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringListRulesResponse } from "../models/SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringRuleConvertPayload } from "../models/SecurityMonitoringRuleConvertPayload";
 import { SecurityMonitoringRuleConvertResponse } from "../models/SecurityMonitoringRuleConvertResponse";
@@ -559,6 +563,55 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createSecurityMonitoringCriticalAsset(
+    body: SecurityMonitoringCriticalAssetCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSecurityMonitoringCriticalAsset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/critical_assets";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityMonitoringCriticalAsset"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringCriticalAssetCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSecurityMonitoringRule(
     body: SecurityMonitoringRuleCreatePayload,
     _options?: Configuration
@@ -795,6 +848,46 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.deleteSecurityFilter")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityMonitoringCriticalAsset(
+    criticalAssetId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'criticalAssetId' is not null or undefined
+    if (criticalAssetId === null || criticalAssetId === undefined) {
+      throw new RequiredError(
+        "criticalAssetId",
+        "deleteSecurityMonitoringCriticalAsset"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}".replace(
+        "{critical_asset_id}",
+        encodeURIComponent(String(criticalAssetId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityMonitoringCriticalAsset"
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1207,6 +1300,41 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getCriticalAssetsAffectingRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getCriticalAssetsAffectingRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/critical_assets/rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getCriticalAssetsAffectingRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCustomFramework(
     handle: string,
     version: string,
@@ -1525,6 +1653,44 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.getSecurityFilter")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityMonitoringCriticalAsset(
+    criticalAssetId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'criticalAssetId' is not null or undefined
+    if (criticalAssetId === null || criticalAssetId === undefined) {
+      throw new RequiredError(
+        "criticalAssetId",
+        "getSecurityMonitoringCriticalAsset"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}".replace(
+        "{critical_asset_id}",
+        encodeURIComponent(String(criticalAssetId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringCriticalAsset")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2536,6 +2702,44 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         ObjectSerializer.serialize(sort, "SecurityFindingsSort", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityMonitoringCriticalAssets(
+    query?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/critical_assets";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityMonitoringCriticalAssets"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", ""),
         ""
       );
     }
@@ -4038,6 +4242,67 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateSecurityMonitoringCriticalAsset(
+    criticalAssetId: string,
+    body: SecurityMonitoringCriticalAssetUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'criticalAssetId' is not null or undefined
+    if (criticalAssetId === null || criticalAssetId === undefined) {
+      throw new RequiredError(
+        "criticalAssetId",
+        "updateSecurityMonitoringCriticalAsset"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSecurityMonitoringCriticalAsset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}".replace(
+        "{critical_asset_id}",
+        encodeURIComponent(String(criticalAssetId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.updateSecurityMonitoringCriticalAsset"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringCriticalAssetUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateSecurityMonitoringRule(
     ruleId: string,
     body: SecurityMonitoringRuleUpdatePayload,
@@ -4869,6 +5134,71 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityMonitoringCriticalAsset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityMonitoringCriticalAsset(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringCriticalAssetResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringCriticalAssetResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse"
+        ) as SecurityMonitoringCriticalAssetResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringCriticalAssetResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse",
+          ""
+        ) as SecurityMonitoringCriticalAssetResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5186,6 +5516,59 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteSecurityFilter(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityMonitoringCriticalAsset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityMonitoringCriticalAsset(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -5747,6 +6130,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCriticalAssetsAffectingRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCriticalAssetsAffectingRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringCriticalAssetsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringCriticalAssetsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetsResponse"
+        ) as SecurityMonitoringCriticalAssetsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringCriticalAssetsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetsResponse",
+          ""
+        ) as SecurityMonitoringCriticalAssetsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCustomFramework
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6191,6 +6638,70 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityFilterResponse",
         ""
       ) as SecurityFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityMonitoringCriticalAsset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringCriticalAsset(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringCriticalAssetResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringCriticalAssetResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse"
+        ) as SecurityMonitoringCriticalAssetResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringCriticalAssetResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse",
+          ""
+        ) as SecurityMonitoringCriticalAssetResponse;
       return body;
     }
 
@@ -7414,6 +7925,66 @@ export class SecurityMonitoringApiResponseProcessor {
         "ListSecurityFindingsResponse",
         ""
       ) as ListSecurityFindingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityMonitoringCriticalAssets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityMonitoringCriticalAssets(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringCriticalAssetsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringCriticalAssetsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetsResponse"
+        ) as SecurityMonitoringCriticalAssetsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringCriticalAssetsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetsResponse",
+          ""
+        ) as SecurityMonitoringCriticalAssetsResponse;
       return body;
     }
 
@@ -8725,6 +9296,72 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSecurityMonitoringCriticalAsset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityMonitoringCriticalAsset(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringCriticalAssetResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringCriticalAssetResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse"
+        ) as SecurityMonitoringCriticalAssetResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringCriticalAssetResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringCriticalAssetResponse",
+          ""
+        ) as SecurityMonitoringCriticalAssetResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9036,6 +9673,14 @@ export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   body: SecurityFilterCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest {
+  /**
+   * The definition of the new critical asset.
+   * @type SecurityMonitoringCriticalAssetCreateRequest
+   */
+  body: SecurityMonitoringCriticalAssetCreateRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
   /**
    * @type SecurityMonitoringRuleCreatePayload
@@ -9088,6 +9733,14 @@ export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
    * @type string
    */
   securityFilterId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest {
+  /**
+   * The ID of the critical asset.
+   * @type string
+   */
+  criticalAssetId: string;
 }
 
 export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
@@ -9174,6 +9827,14 @@ export interface SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest {
    * @type SecurityMonitoringSignalStateUpdateRequest
    */
   body: SecurityMonitoringSignalStateUpdateRequest;
+}
+
+export interface SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest {
+  /**
+   * The ID of the rule.
+   * @type string
+   */
+  ruleId: string;
 }
 
 export interface SecurityMonitoringApiGetCustomFrameworkRequest {
@@ -9267,6 +9928,14 @@ export interface SecurityMonitoringApiGetSecurityFilterRequest {
    * @type string
    */
   securityFilterId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest {
+  /**
+   * The ID of the critical asset.
+   * @type string
+   */
+  criticalAssetId: string;
 }
 
 export interface SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest {
@@ -9578,6 +10247,14 @@ export interface SecurityMonitoringApiListSecurityFindingsRequest {
    * @type SecurityFindingsSort
    */
   sort?: SecurityFindingsSort;
+}
+
+export interface SecurityMonitoringApiListSecurityMonitoringCriticalAssetsRequest {
+  /**
+   * Query string.
+   * @type string
+   */
+  query?: string;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
@@ -10126,6 +10803,19 @@ export interface SecurityMonitoringApiUpdateSecurityFilterRequest {
   body: SecurityFilterUpdateRequest;
 }
 
+export interface SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest {
+  /**
+   * The ID of the critical asset.
+   * @type string
+   */
+  criticalAssetId: string;
+  /**
+   * New definition of the critical asset. Supports partial updates.
+   * @type SecurityMonitoringCriticalAssetUpdateRequest
+   */
+  body: SecurityMonitoringCriticalAssetUpdateRequest;
+}
+
 export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -10421,6 +11111,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a new critical asset.
+   * @param param The request object
+   */
+  public createSecurityMonitoringCriticalAsset(
+    param: SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringCriticalAssetResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringCriticalAsset(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityMonitoringCriticalAsset(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a detection rule.
    * @param param The request object
    */
@@ -10549,6 +11263,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a specific critical asset.
+   * @param param The request object
+   */
+  public deleteSecurityMonitoringCriticalAsset(
+    param: SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringCriticalAsset(
+        param.criticalAssetId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityMonitoringCriticalAsset(
+            responseContext
+          );
         });
     });
   }
@@ -10762,6 +11500,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get the list of critical assets that affect a specific existing rule by the rule's ID.
+   * @param param The request object
+   */
+  public getCriticalAssetsAffectingRule(
+    param: SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringCriticalAssetsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCriticalAssetsAffectingRule(param.ruleId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCriticalAssetsAffectingRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a custom framework.
    * @param param The request object
    */
@@ -10913,6 +11672,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the details of a specific critical asset.
+   * @param param The request object
+   */
+  public getSecurityMonitoringCriticalAsset(
+    param: SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringCriticalAssetResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringCriticalAsset(
+        param.criticalAssetId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringCriticalAsset(
+            responseContext
+          );
         });
     });
   }
@@ -11592,6 +12375,30 @@ export class SecurityMonitoringApi {
 
       param.pageCursor = cursorMetaPageAfter;
     }
+  }
+
+  /**
+   * Get the list of all critical assets.
+   * @param param The request object
+   */
+  public listSecurityMonitoringCriticalAssets(
+    param: SecurityMonitoringApiListSecurityMonitoringCriticalAssetsRequest = {},
+    options?: Configuration
+  ): Promise<SecurityMonitoringCriticalAssetsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringCriticalAssets(
+        param.query,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityMonitoringCriticalAssets(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -12385,6 +13192,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateSecurityFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a specific critical asset.
+   * @param param The request object
+   */
+  public updateSecurityMonitoringCriticalAsset(
+    param: SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringCriticalAssetResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringCriticalAsset(
+        param.criticalAssetId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityMonitoringCriticalAsset(
+            responseContext
+          );
         });
     });
   }
