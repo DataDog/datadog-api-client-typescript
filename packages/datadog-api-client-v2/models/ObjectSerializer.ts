@@ -2314,6 +2314,7 @@ import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitori
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
@@ -2375,6 +2376,8 @@ import { SecurityMonitoringSuppressionResponse } from "./SecurityMonitoringSuppr
 import { SecurityMonitoringSuppressionUpdateAttributes } from "./SecurityMonitoringSuppressionUpdateAttributes";
 import { SecurityMonitoringSuppressionUpdateData } from "./SecurityMonitoringSuppressionUpdateData";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./SecurityMonitoringSuppressionUpdateRequest";
+import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
+import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
 import { SecurityMonitoringSuppressionsResponse } from "./SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
@@ -4281,6 +4284,18 @@ const enumsMap: { [key: string]: any[] } = {
     "security_runtime",
     "network",
     "events",
+  ],
+  SecurityMonitoringSuppressionSort: [
+    "name",
+    "start_date",
+    "expiration_date",
+    "update_date",
+    "enabled",
+    "-name",
+    "-start_date",
+    "-expiration_date",
+    "-update_date",
+    "-enabled",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
   SendSlackMessageActionType: ["send_slack_message"],
@@ -7341,6 +7356,8 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringCriticalAssetsResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
+  SecurityMonitoringPaginatedSuppressionsResponse:
+    SecurityMonitoringPaginatedSuppressionsResponse,
   SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
   SecurityMonitoringRuleAnomalyDetectionOptions:
     SecurityMonitoringRuleAnomalyDetectionOptions,
@@ -7439,6 +7456,9 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSuppressionUpdateData,
   SecurityMonitoringSuppressionUpdateRequest:
     SecurityMonitoringSuppressionUpdateRequest,
+  SecurityMonitoringSuppressionsMeta: SecurityMonitoringSuppressionsMeta,
+  SecurityMonitoringSuppressionsPageMeta:
+    SecurityMonitoringSuppressionsPageMeta,
   SecurityMonitoringSuppressionsResponse:
     SecurityMonitoringSuppressionsResponse,
   SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
