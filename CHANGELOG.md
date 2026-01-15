@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 1.51.0/2026-01-15
+
+### Added
+* Add subtest for synthetics multistep tests [#3270](https://github.com/DataDog/datadog-api-client-typescript/pull/3270)
+* feat - Add data-quality alert monitor type support [#3266](https://github.com/DataDog/datadog-api-client-typescript/pull/3266)
+* Add a new end point that allows the SPA recommendation to be called without the shard parameter [#3252](https://github.com/DataDog/datadog-api-client-typescript/pull/3252)
+* Add Critical Assets specs to security_monitoring feature [#3244](https://github.com/DataDog/datadog-api-client-typescript/pull/3244)
+* Add new Observability Pipelines components [#3233](https://github.com/DataDog/datadog-api-client-typescript/pull/3233)
+* Specify accepted types for UpsertRows values [#3219](https://github.com/DataDog/datadog-api-client-typescript/pull/3219)
+* Add subtest for synthetics multistep tests [#3197](https://github.com/DataDog/datadog-api-client-typescript/pull/3197)
+* Add `query` param in rules list endpoint [#3181](https://github.com/DataDog/datadog-api-client-typescript/pull/3181)
+* Add Security Findings Public API beta endpoints [#3138](https://github.com/DataDog/datadog-api-client-typescript/pull/3138)
+* Add bar chart widget to Dashboards API [#3086](https://github.com/DataDog/datadog-api-client-typescript/pull/3086)
+* Update distribution and heatmap's `markers` ,`num_buckets` properties and allowed request/query [#3084](https://github.com/DataDog/datadog-api-client-typescript/pull/3084)
+* Add region_filter_configs and is_global_location_enabled to v2 GCP API [#3070](https://github.com/DataDog/datadog-api-client-typescript/pull/3070)
+
+### Deprecated
+* Update docs for Security Finding API endpoints [#3262](https://github.com/DataDog/datadog-api-client-typescript/pull/3262)
+
+### Removed
+* Revert - Update specs for AWS account updates and creation for CCM configs [#3239](https://github.com/DataDog/datadog-api-client-typescript/pull/3239)
+
+### Fixed
+* remove duplicate sync_enabled field for PATCH Reference Tables request schema [#3033](https://github.com/DataDog/datadog-api-client-typescript/pull/3033)
+
 ## 1.50.0/2026-01-08
 
 ### Added
