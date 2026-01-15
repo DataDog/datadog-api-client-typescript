@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-01-15
+
+### Added
+* Add region_filter_configs and is_global_location_enabled to v2 GCP API [#3069](https://github.com/DataDog/datadog-api-client-typescript/pull/3069)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

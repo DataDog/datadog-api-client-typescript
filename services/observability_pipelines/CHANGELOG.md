@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-15
+
+### Added
+* Add new Observability Pipelines components [#3232](https://github.com/DataDog/datadog-api-client-typescript/pull/3232)
+
 ## 0.0.1-beta.3/2026-01-08
 
 ### Added

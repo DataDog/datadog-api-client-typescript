@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-01-15
+
+### Added
+* Add bar chart widget to Dashboards API [#3085](https://github.com/DataDog/datadog-api-client-typescript/pull/3085)
+* Update distribution and heatmap's `markers` ,`num_buckets` properties and allowed request/query [#3083](https://github.com/DataDog/datadog-api-client-typescript/pull/3083)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

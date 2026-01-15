@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-01-15
+
+### Removed
+* Revert - Update specs for AWS account updates and creation for CCM configs [#3238](https://github.com/DataDog/datadog-api-client-typescript/pull/3238)
+
 ## 0.0.1-beta.3/2025-12-17
 
 ### Security
