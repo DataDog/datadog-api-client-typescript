@@ -6321,6 +6321,72 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GCPSTSDelegateAccountResponse",
     },
+    "v2.GetSpaceByDisplayName": {
+        "domainName": {
+            "type": "string",
+            "format": "",
+            },
+        "spaceDisplayName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatAppNamedSpaceResponse",
+    },
+    "v2.ListOrganizationHandles": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatOrganizationHandlesResponse",
+    },
+    "v2.CreateOrganizationHandle": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GoogleChatCreateOrganizationHandleRequest",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatOrganizationHandleResponse",
+    },
+    "v2.GetOrganizationHandle": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatOrganizationHandleResponse",
+    },
+    "v2.DeleteOrganizationHandle": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOrganizationHandle": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GoogleChatUpdateOrganizationHandleRequest",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatOrganizationHandleResponse",
+    },
     "v2.GetChannelByName": {
         "tenantName": {
             "type": "string",
