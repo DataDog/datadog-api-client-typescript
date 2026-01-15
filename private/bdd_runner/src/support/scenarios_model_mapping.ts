@@ -4467,7 +4467,19 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    operationResponseType: "SecurityMonitoringSuppressionsResponse",
+    sort: {
+      type: "SecurityMonitoringSuppressionSort",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SecurityMonitoringPaginatedSuppressionsResponse",
   },
   "SecurityMonitoringApi.V2.CreateSecurityMonitoringSuppression": {
     body: {
