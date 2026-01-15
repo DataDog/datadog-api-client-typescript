@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
@@ -20,6 +21,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type SplitGraphSourceWidgetDefinition =
+  | BarChartWidgetDefinition
   | ChangeWidgetDefinition
   | GeomapWidgetDefinition
   | QueryValueWidgetDefinition
