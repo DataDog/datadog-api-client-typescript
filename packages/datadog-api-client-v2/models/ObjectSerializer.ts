@@ -26,6 +26,13 @@ import { AWSAssumeRole } from "./AWSAssumeRole";
 import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSCcmConfig } from "./AWSCcmConfig";
+import { AWSCcmConfigRequest } from "./AWSCcmConfigRequest";
+import { AWSCcmConfigRequestAttributes } from "./AWSCcmConfigRequestAttributes";
+import { AWSCcmConfigRequestData } from "./AWSCcmConfigRequestData";
+import { AWSCcmConfigResponse } from "./AWSCcmConfigResponse";
+import { AWSCcmConfigResponseAttributes } from "./AWSCcmConfigResponseAttributes";
+import { AWSCcmConfigResponseData } from "./AWSCcmConfigResponseData";
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
 import { AWSEventBridgeCreateRequestAttributes } from "./AWSEventBridgeCreateRequestAttributes";
@@ -738,6 +745,7 @@ import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
+import { DataExportConfig } from "./DataExportConfig";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { DataScalarColumn } from "./DataScalarColumn";
@@ -2894,6 +2902,7 @@ const enumsMap: { [key: string]: any[] } = {
   AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
   AWSAccountType: ["account"],
   AWSAssumeRoleType: ["AWSAssumeRole"],
+  AWSCcmConfigType: ["ccm_config"],
   AWSEventBridgeCreateStatus: ["created"],
   AWSEventBridgeDeleteStatus: ["empty"],
   AWSEventBridgeType: ["event_bridge"],
@@ -4617,6 +4626,13 @@ const typeMap: { [index: string]: any } = {
   AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
   AWSAuthConfigKeys: AWSAuthConfigKeys,
   AWSAuthConfigRole: AWSAuthConfigRole,
+  AWSCcmConfig: AWSCcmConfig,
+  AWSCcmConfigRequest: AWSCcmConfigRequest,
+  AWSCcmConfigRequestAttributes: AWSCcmConfigRequestAttributes,
+  AWSCcmConfigRequestData: AWSCcmConfigRequestData,
+  AWSCcmConfigResponse: AWSCcmConfigResponse,
+  AWSCcmConfigResponseAttributes: AWSCcmConfigResponseAttributes,
+  AWSCcmConfigResponseData: AWSCcmConfigResponseData,
   AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
   AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
   AWSEventBridgeCreateRequestAttributes: AWSEventBridgeCreateRequestAttributes,
@@ -5479,6 +5495,7 @@ const typeMap: { [index: string]: any } = {
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
+  DataExportConfig: DataExportConfig,
   DataRelationshipsTeams: DataRelationshipsTeams,
   DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
   DataScalarColumn: DataScalarColumn,
