@@ -57,8 +57,10 @@ import { IncidentTypeListResponse } from "./models/IncidentTypeListResponse";
 import { IncidentTypePatchRequest } from "./models/IncidentTypePatchRequest";
 import { IncidentTypeResponse } from "./models/IncidentTypeResponse";
 import { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { PatchAttachmentRequest } from "./models/PatchAttachmentRequest";
 import { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
+import { PostmortemAttachmentRequest } from "./models/PostmortemAttachmentRequest";
 import { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 import { version } from "../version";
 
@@ -477,6 +479,79 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentPostmortemAttachment(
+    incidentId: string,
+    body: PostmortemAttachmentRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createIncidentPostmortemAttachment"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentPostmortemAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentPostmortemAttachment'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError(
+        "incidentId",
+        "createIncidentPostmortemAttachment",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentPostmortemAttachment");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/attachments/postmortems".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentPostmortemAttachment",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PostmortemAttachmentRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -2927,6 +3002,83 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentPostmortemAttachment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentPostmortemAttachment(
+    response: ResponseContext,
+  ): Promise<Attachment> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: Attachment = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Attachment",
+      ) as Attachment;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Attachment = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Attachment",
+        "",
+      ) as Attachment;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4872,6 +5024,18 @@ export interface IncidentsApiCreateIncidentNotificationTemplateRequest {
   body: CreateIncidentNotificationTemplateRequest;
 }
 
+export interface IncidentsApiCreateIncidentPostmortemAttachmentRequest {
+  /**
+   * The ID of the incident
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * @type PostmortemAttachmentRequest
+   */
+  body: PostmortemAttachmentRequest;
+}
+
 export interface IncidentsApiCreateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -5458,6 +5622,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentNotificationTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a postmortem attachment for an incident.
+   * @param param The request object
+   */
+  public createIncidentPostmortemAttachment(
+    param: IncidentsApiCreateIncidentPostmortemAttachmentRequest,
+    options?: Configuration,
+  ): Promise<Attachment> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentPostmortemAttachment(
+        param.incidentId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentPostmortemAttachment(
             responseContext,
           );
         });

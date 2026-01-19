@@ -113,6 +113,9 @@ import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentUserAttributes } from "./IncidentUserAttributes";
 import { IncidentUserData } from "./IncidentUserData";
 import { IncidentsResponse } from "./IncidentsResponse";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
@@ -126,6 +129,12 @@ import { PatchAttachmentRequestData } from "./PatchAttachmentRequestData";
 import { PatchAttachmentRequestDataAttributes } from "./PatchAttachmentRequestDataAttributes";
 import { PatchAttachmentRequestDataAttributesAttachment } from "./PatchAttachmentRequestDataAttributesAttachment";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
+import { PostmortemAttachmentRequest } from "./PostmortemAttachmentRequest";
+import { PostmortemAttachmentRequestAttributes } from "./PostmortemAttachmentRequestAttributes";
+import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestData";
+import { PostmortemCell } from "./PostmortemCell";
+import { PostmortemCellAttributes } from "./PostmortemCellAttributes";
+import { PostmortemCellDefinition } from "./PostmortemCellDefinition";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { RelationshipToIncident } from "./RelationshipToIncident";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
@@ -214,6 +223,7 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentTypeType: ["incident_types"],
     IncidentUserDefinedFieldType: ["user_defined_field"],
     OrganizationsType: ["orgs"],
+    PostmortemCellType: ["markdown"],
     RolesType: ["roles"],
     UserType: ["users"],
     UsersType: ["users"],
@@ -389,6 +399,9 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentUserAttributes: IncidentUserAttributes,
     IncidentUserData: IncidentUserData,
     IncidentsResponse: IncidentsResponse,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     JiraIntegrationMetadata: JiraIntegrationMetadata,
     JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
     MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
@@ -405,6 +418,13 @@ export const TypingInfo: ModelTypingInfo = {
       PatchAttachmentRequestDataAttributesAttachment,
     PatchIncidentNotificationTemplateRequest:
       PatchIncidentNotificationTemplateRequest,
+    PostmortemAttachmentRequest: PostmortemAttachmentRequest,
+    PostmortemAttachmentRequestAttributes:
+      PostmortemAttachmentRequestAttributes,
+    PostmortemAttachmentRequestData: PostmortemAttachmentRequestData,
+    PostmortemCell: PostmortemCell,
+    PostmortemCellAttributes: PostmortemCellAttributes,
+    PostmortemCellDefinition: PostmortemCellDefinition,
     PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
     RelationshipToIncident: RelationshipToIncident,
     RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
