@@ -1,20 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
-import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
+import { WebIntegrationAccountUpdateRequestData } from "./WebIntegrationAccountUpdateRequestData";
 
 /**
- * Response object containing the available suppression rules with pagination metadata.
+ * Payload for updating a web integration account.
  */
-export class SecurityMonitoringPaginatedSuppressionsResponse {
+export class WebIntegrationAccountUpdateRequest {
   /**
-   * A list of suppressions objects.
+   * Data object for updating a web integration account.
    */
-  "data"?: Array<SecurityMonitoringSuppression>;
-  /**
-   * Metadata for the suppression list response.
-   */
-  "meta"?: SecurityMonitoringSuppressionsMeta;
+  "data": WebIntegrationAccountUpdateRequestData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,11 +27,8 @@ export class SecurityMonitoringPaginatedSuppressionsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<SecurityMonitoringSuppression>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringSuppressionsMeta",
+      type: "WebIntegrationAccountUpdateRequestData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +40,7 @@ export class SecurityMonitoringPaginatedSuppressionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringPaginatedSuppressionsResponse.attributeTypeMap;
+    return WebIntegrationAccountUpdateRequest.attributeTypeMap;
   }
 
   public constructor() {}

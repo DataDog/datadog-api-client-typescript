@@ -1,21 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Pagination metadata.
+ * Attributes for a web integration account.
  */
-export class SecurityMonitoringSuppressionsPageMeta {
+export class WebIntegrationAccountAttributes {
   /**
-   * Current page number.
+   * The name of the account.
    */
-  "pageNumber"?: number;
+  "name": string;
   /**
-   * Current page size.
+   * Integration-specific settings for the account. The structure and required fields vary by integration type.
+   * Use the schema endpoint to retrieve the specific requirements for each integration.
    */
-  "pageSize"?: number;
-  /**
-   * Total count of suppressions.
-   */
-  "totalCount"?: number;
+  "settings": { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,20 +28,15 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pageNumber: {
-      baseName: "pageNumber",
-      type: "number",
-      format: "int64",
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
-    pageSize: {
-      baseName: "pageSize",
-      type: "number",
-      format: "int64",
-    },
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int64",
+    settings: {
+      baseName: "settings",
+      type: "{ [key: string]: any; }",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +48,7 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSuppressionsPageMeta.attributeTypeMap;
+    return WebIntegrationAccountAttributes.attributeTypeMap;
   }
 
   public constructor() {}

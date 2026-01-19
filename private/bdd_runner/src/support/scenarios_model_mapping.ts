@@ -4467,19 +4467,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    sort: {
-      type: "SecurityMonitoringSuppressionSort",
-      format: "",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "SecurityMonitoringPaginatedSuppressionsResponse",
+    operationResponseType: "SecurityMonitoringSuppressionsResponse",
   },
   "SecurityMonitoringApi.V2.CreateSecurityMonitoringSuppression": {
     body: {
@@ -9791,6 +9779,68 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "PermissionsResponse",
+  },
+  "WebIntegrationsApi.V2.ListWebIntegrationAccounts": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountsResponse",
+  },
+  "WebIntegrationsApi.V2.CreateWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "WebIntegrationAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
+  "WebIntegrationsApi.V2.GetWebIntegrationAccountSchema": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountSchemaResponse",
+  },
+  "WebIntegrationsApi.V2.GetWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
+  "WebIntegrationsApi.V2.DeleteWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "WebIntegrationsApi.V2.UpdateWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "WebIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
   },
   "WorkflowAutomationApi.V2.CreateWorkflow": {
     body: {

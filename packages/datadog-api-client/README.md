@@ -445,5 +445,6 @@ apiInstance
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
 | Users | @datadog/datadog-api-client-users | [README.md](../../services/users/README.md) |
+| Web Integrations | @datadog/datadog-api-client-web-integrations | [README.md](../../services/web-integrations/README.md) |
 | Webhooks Integration | @datadog/datadog-api-client-webhooks-integration | [README.md](../../services/webhooks-integration/README.md) |
 | Workflow Automation | @datadog/datadog-api-client-workflow-automation | [README.md](../../services/workflow-automation/README.md) |
