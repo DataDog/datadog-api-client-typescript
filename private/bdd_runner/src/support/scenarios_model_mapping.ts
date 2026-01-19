@@ -6388,6 +6388,51 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GCPSTSDelegateAccountResponse",
   },
+  "JiraIntegrationApi.V2.ListJiraAccounts": {
+    operationResponseType: "JiraAccountsResponse",
+  },
+  "JiraIntegrationApi.V2.DeleteJiraAccount": {
+    accountId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "JiraIntegrationApi.V2.ListJiraIssueTemplates": {
+    operationResponseType: "JiraIssueTemplatesResponse",
+  },
+  "JiraIntegrationApi.V2.CreateJiraIssueTemplate": {
+    body: {
+      type: "JiraIssueTemplateCreateRequest",
+      format: "",
+    },
+    operationResponseType: "JiraIssueTemplateResponse",
+  },
+  "JiraIntegrationApi.V2.GetJiraIssueTemplate": {
+    issueTemplateId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "JiraIssueTemplateResponse",
+  },
+  "JiraIntegrationApi.V2.DeleteJiraIssueTemplate": {
+    issueTemplateId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "JiraIntegrationApi.V2.UpdateJiraIssueTemplate": {
+    issueTemplateId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "JiraIssueTemplateUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "JiraIssueTemplateResponse",
+  },
   "MicrosoftTeamsIntegrationApi.V2.GetChannelByName": {
     tenantName: {
       type: "string",

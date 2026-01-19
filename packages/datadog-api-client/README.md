@@ -393,6 +393,7 @@ apiInstance
 | Incidents | @datadog/datadog-api-client-incidents | [README.md](../../services/incidents/README.md) |
 | IP Allowlist | @datadog/datadog-api-client-ip-allowlist | [README.md](../../services/ip-allowlist/README.md) |
 | IP Ranges | @datadog/datadog-api-client-ip-ranges | [README.md](../../services/ip-ranges/README.md) |
+| Jira Integration | @datadog/datadog-api-client-jira-integration | [README.md](../../services/jira-integration/README.md) |
 | Key Management | @datadog/datadog-api-client-key-management | [README.md](../../services/key-management/README.md) |
 | Logs | @datadog/datadog-api-client-logs | [README.md](../../services/logs/README.md) |
 | Logs Archives | @datadog/datadog-api-client-logs-archives | [README.md](../../services/logs-archives/README.md) |
