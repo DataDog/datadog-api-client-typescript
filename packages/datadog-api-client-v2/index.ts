@@ -408,6 +408,7 @@ export {
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentNotificationRuleRequest,
   IncidentsApiCreateIncidentNotificationTemplateRequest,
+  IncidentsApiCreateIncidentPostmortemAttachmentRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
@@ -3582,6 +3583,13 @@ export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
 export { PermissionsType } from "./models/PermissionsType";
+export { PostmortemAttachmentRequest } from "./models/PostmortemAttachmentRequest";
+export { PostmortemAttachmentRequestAttributes } from "./models/PostmortemAttachmentRequestAttributes";
+export { PostmortemAttachmentRequestData } from "./models/PostmortemAttachmentRequestData";
+export { PostmortemCell } from "./models/PostmortemCell";
+export { PostmortemCellAttributes } from "./models/PostmortemCellAttributes";
+export { PostmortemCellDefinition } from "./models/PostmortemCellDefinition";
+export { PostmortemCellType } from "./models/PostmortemCellType";
 export { Powerpack } from "./models/Powerpack";
 export { PowerpackAttributes } from "./models/PowerpackAttributes";
 export { PowerpackData } from "./models/PowerpackData";

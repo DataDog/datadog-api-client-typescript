@@ -286,6 +286,7 @@ export function createConfiguration(
       "v2.createIncidentIntegration": false,
       "v2.createIncidentNotificationRule": false,
       "v2.createIncidentNotificationTemplate": false,
+      "v2.createIncidentPostmortemAttachment": false,
       "v2.createIncidentTodo": false,
       "v2.createIncidentType": false,
       "v2.deleteIncident": false,
