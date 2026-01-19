@@ -2320,7 +2320,6 @@ import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitori
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
-import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
@@ -2382,8 +2381,6 @@ import { SecurityMonitoringSuppressionResponse } from "./SecurityMonitoringSuppr
 import { SecurityMonitoringSuppressionUpdateAttributes } from "./SecurityMonitoringSuppressionUpdateAttributes";
 import { SecurityMonitoringSuppressionUpdateData } from "./SecurityMonitoringSuppressionUpdateData";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./SecurityMonitoringSuppressionUpdateRequest";
-import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
-import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
 import { SecurityMonitoringSuppressionsResponse } from "./SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
@@ -2836,6 +2833,21 @@ import { VulnerabilityRelationships } from "./VulnerabilityRelationships";
 import { VulnerabilityRelationshipsAffects } from "./VulnerabilityRelationshipsAffects";
 import { VulnerabilityRelationshipsAffectsData } from "./VulnerabilityRelationshipsAffectsData";
 import { VulnerabilityRisks } from "./VulnerabilityRisks";
+import { WebIntegrationAccountAttributes } from "./WebIntegrationAccountAttributes";
+import { WebIntegrationAccountCreateRequest } from "./WebIntegrationAccountCreateRequest";
+import { WebIntegrationAccountCreateRequestAttributes } from "./WebIntegrationAccountCreateRequestAttributes";
+import { WebIntegrationAccountCreateRequestData } from "./WebIntegrationAccountCreateRequestData";
+import { WebIntegrationAccountResponse } from "./WebIntegrationAccountResponse";
+import { WebIntegrationAccountResponseData } from "./WebIntegrationAccountResponseData";
+import { WebIntegrationAccountSchemaResponse } from "./WebIntegrationAccountSchemaResponse";
+import { WebIntegrationAccountSchemaResponseProperties } from "./WebIntegrationAccountSchemaResponseProperties";
+import { WebIntegrationAccountSchemaResponseSecretsObject } from "./WebIntegrationAccountSchemaResponseSecretsObject";
+import { WebIntegrationAccountSchemaResponseSettingsField } from "./WebIntegrationAccountSchemaResponseSettingsField";
+import { WebIntegrationAccountSchemaResponseSettingsObject } from "./WebIntegrationAccountSchemaResponseSettingsObject";
+import { WebIntegrationAccountUpdateRequest } from "./WebIntegrationAccountUpdateRequest";
+import { WebIntegrationAccountUpdateRequestAttributes } from "./WebIntegrationAccountUpdateRequestAttributes";
+import { WebIntegrationAccountUpdateRequestData } from "./WebIntegrationAccountUpdateRequestData";
+import { WebIntegrationAccountsResponse } from "./WebIntegrationAccountsResponse";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -4292,18 +4304,6 @@ const enumsMap: { [key: string]: any[] } = {
     "network",
     "events",
   ],
-  SecurityMonitoringSuppressionSort: [
-    "name",
-    "start_date",
-    "expiration_date",
-    "update_date",
-    "enabled",
-    "-name",
-    "-start_date",
-    "-expiration_date",
-    "-update_date",
-    "-enabled",
-  ],
   SecurityMonitoringSuppressionType: ["suppressions"],
   SendSlackMessageActionType: ["send_slack_message"],
   SendTeamsMessageActionType: ["send_teams_message"],
@@ -4580,6 +4580,7 @@ const enumsMap: { [key: string]: any[] } = {
     "XPathInjection",
     "Xss",
   ],
+  WebIntegrationAccountType: ["Account"],
   Weekday: [
     "monday",
     "tuesday",
@@ -7369,8 +7370,6 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringCriticalAssetsResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
-  SecurityMonitoringPaginatedSuppressionsResponse:
-    SecurityMonitoringPaginatedSuppressionsResponse,
   SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
   SecurityMonitoringRuleAnomalyDetectionOptions:
     SecurityMonitoringRuleAnomalyDetectionOptions,
@@ -7469,9 +7468,6 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSuppressionUpdateData,
   SecurityMonitoringSuppressionUpdateRequest:
     SecurityMonitoringSuppressionUpdateRequest,
-  SecurityMonitoringSuppressionsMeta: SecurityMonitoringSuppressionsMeta,
-  SecurityMonitoringSuppressionsPageMeta:
-    SecurityMonitoringSuppressionsPageMeta,
   SecurityMonitoringSuppressionsResponse:
     SecurityMonitoringSuppressionsResponse,
   SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
@@ -7988,6 +7984,29 @@ const typeMap: { [index: string]: any } = {
   VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
   VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,
   VulnerabilityRisks: VulnerabilityRisks,
+  WebIntegrationAccountAttributes: WebIntegrationAccountAttributes,
+  WebIntegrationAccountCreateRequest: WebIntegrationAccountCreateRequest,
+  WebIntegrationAccountCreateRequestAttributes:
+    WebIntegrationAccountCreateRequestAttributes,
+  WebIntegrationAccountCreateRequestData:
+    WebIntegrationAccountCreateRequestData,
+  WebIntegrationAccountResponse: WebIntegrationAccountResponse,
+  WebIntegrationAccountResponseData: WebIntegrationAccountResponseData,
+  WebIntegrationAccountSchemaResponse: WebIntegrationAccountSchemaResponse,
+  WebIntegrationAccountSchemaResponseProperties:
+    WebIntegrationAccountSchemaResponseProperties,
+  WebIntegrationAccountSchemaResponseSecretsObject:
+    WebIntegrationAccountSchemaResponseSecretsObject,
+  WebIntegrationAccountSchemaResponseSettingsField:
+    WebIntegrationAccountSchemaResponseSettingsField,
+  WebIntegrationAccountSchemaResponseSettingsObject:
+    WebIntegrationAccountSchemaResponseSettingsObject,
+  WebIntegrationAccountUpdateRequest: WebIntegrationAccountUpdateRequest,
+  WebIntegrationAccountUpdateRequestAttributes:
+    WebIntegrationAccountUpdateRequestAttributes,
+  WebIntegrationAccountUpdateRequestData:
+    WebIntegrationAccountUpdateRequestData,
+  WebIntegrationAccountsResponse: WebIntegrationAccountsResponse,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,

@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
-import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
+import { WebIntegrationAccountUpdateRequestData } from "./WebIntegrationAccountUpdateRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object containing the available suppression rules with pagination metadata.
+ * Payload for updating a web integration account.
  */
-export class SecurityMonitoringPaginatedSuppressionsResponse {
+export class WebIntegrationAccountUpdateRequest {
   /**
-   * A list of suppressions objects.
+   * Data object for updating a web integration account.
    */
-  "data"?: Array<SecurityMonitoringSuppression>;
-  /**
-   * Metadata for the suppression list response.
-   */
-  "meta"?: SecurityMonitoringSuppressionsMeta;
+  "data": WebIntegrationAccountUpdateRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,11 +34,8 @@ export class SecurityMonitoringPaginatedSuppressionsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<SecurityMonitoringSuppression>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringSuppressionsMeta",
+      type: "WebIntegrationAccountUpdateRequestData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +47,7 @@ export class SecurityMonitoringPaginatedSuppressionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringPaginatedSuppressionsResponse.attributeTypeMap;
+    return WebIntegrationAccountUpdateRequest.attributeTypeMap;
   }
 
   public constructor() {}
