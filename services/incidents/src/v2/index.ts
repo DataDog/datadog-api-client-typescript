@@ -5,6 +5,7 @@ export {
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentNotificationRuleRequest,
   IncidentsApiCreateIncidentNotificationTemplateRequest,
+  IncidentsApiCreateIncidentPostmortemAttachmentRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
@@ -189,6 +190,9 @@ export { IncidentUserData } from "./models/IncidentUserData";
 export { IncidentUserDefinedFieldType } from "./models/IncidentUserDefinedFieldType";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { MicrosoftTeamsConfigurationReference } from "./models/MicrosoftTeamsConfigurationReference";
 export { MicrosoftTeamsConfigurationReferenceData } from "./models/MicrosoftTeamsConfigurationReferenceData";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
@@ -201,6 +205,13 @@ export { PatchAttachmentRequestData } from "./models/PatchAttachmentRequestData"
 export { PatchAttachmentRequestDataAttributes } from "./models/PatchAttachmentRequestDataAttributes";
 export { PatchAttachmentRequestDataAttributesAttachment } from "./models/PatchAttachmentRequestDataAttributesAttachment";
 export { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
+export { PostmortemAttachmentRequest } from "./models/PostmortemAttachmentRequest";
+export { PostmortemAttachmentRequestAttributes } from "./models/PostmortemAttachmentRequestAttributes";
+export { PostmortemAttachmentRequestData } from "./models/PostmortemAttachmentRequestData";
+export { PostmortemCell } from "./models/PostmortemCell";
+export { PostmortemCellAttributes } from "./models/PostmortemCellAttributes";
+export { PostmortemCellDefinition } from "./models/PostmortemCellDefinition";
+export { PostmortemCellType } from "./models/PostmortemCellType";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 export { RelationshipToIncident } from "./models/RelationshipToIncident";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
