@@ -990,6 +990,16 @@ export {
 } from "./apis/UsersApi";
 
 export {
+  WebIntegrationsApiCreateWebIntegrationAccountRequest,
+  WebIntegrationsApiDeleteWebIntegrationAccountRequest,
+  WebIntegrationsApiGetWebIntegrationAccountRequest,
+  WebIntegrationsApiGetWebIntegrationAccountSchemaRequest,
+  WebIntegrationsApiListWebIntegrationAccountsRequest,
+  WebIntegrationsApiUpdateWebIntegrationAccountRequest,
+  WebIntegrationsApi,
+} from "./apis/WebIntegrationsApi";
+
+export {
   WorkflowAutomationApiCancelWorkflowInstanceRequest,
   WorkflowAutomationApiCreateWorkflowRequest,
   WorkflowAutomationApiCreateWorkflowInstanceRequest,
@@ -4088,7 +4098,6 @@ export { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityM
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
-export { SecurityMonitoringPaginatedSuppressionsResponse } from "./models/SecurityMonitoringPaginatedSuppressionsResponse";
 export { SecurityMonitoringReferenceTable } from "./models/SecurityMonitoringReferenceTable";
 export { SecurityMonitoringRuleAnomalyDetectionOptions } from "./models/SecurityMonitoringRuleAnomalyDetectionOptions";
 export { SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration";
@@ -4179,9 +4188,6 @@ export { SecurityMonitoringSuppressionCreateAttributes } from "./models/Security
 export { SecurityMonitoringSuppressionCreateData } from "./models/SecurityMonitoringSuppressionCreateData";
 export { SecurityMonitoringSuppressionCreateRequest } from "./models/SecurityMonitoringSuppressionCreateRequest";
 export { SecurityMonitoringSuppressionResponse } from "./models/SecurityMonitoringSuppressionResponse";
-export { SecurityMonitoringSuppressionsMeta } from "./models/SecurityMonitoringSuppressionsMeta";
-export { SecurityMonitoringSuppressionSort } from "./models/SecurityMonitoringSuppressionSort";
-export { SecurityMonitoringSuppressionsPageMeta } from "./models/SecurityMonitoringSuppressionsPageMeta";
 export { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
 export { SecurityMonitoringSuppressionType } from "./models/SecurityMonitoringSuppressionType";
 export { SecurityMonitoringSuppressionUpdateAttributes } from "./models/SecurityMonitoringSuppressionUpdateAttributes";
@@ -4789,6 +4795,22 @@ export { VulnerabilitySeverity } from "./models/VulnerabilitySeverity";
 export { VulnerabilityStatus } from "./models/VulnerabilityStatus";
 export { VulnerabilityTool } from "./models/VulnerabilityTool";
 export { VulnerabilityType } from "./models/VulnerabilityType";
+export { WebIntegrationAccountAttributes } from "./models/WebIntegrationAccountAttributes";
+export { WebIntegrationAccountCreateRequest } from "./models/WebIntegrationAccountCreateRequest";
+export { WebIntegrationAccountCreateRequestAttributes } from "./models/WebIntegrationAccountCreateRequestAttributes";
+export { WebIntegrationAccountCreateRequestData } from "./models/WebIntegrationAccountCreateRequestData";
+export { WebIntegrationAccountResponse } from "./models/WebIntegrationAccountResponse";
+export { WebIntegrationAccountResponseData } from "./models/WebIntegrationAccountResponseData";
+export { WebIntegrationAccountSchemaResponse } from "./models/WebIntegrationAccountSchemaResponse";
+export { WebIntegrationAccountSchemaResponseProperties } from "./models/WebIntegrationAccountSchemaResponseProperties";
+export { WebIntegrationAccountSchemaResponseSecretsObject } from "./models/WebIntegrationAccountSchemaResponseSecretsObject";
+export { WebIntegrationAccountSchemaResponseSettingsField } from "./models/WebIntegrationAccountSchemaResponseSettingsField";
+export { WebIntegrationAccountSchemaResponseSettingsObject } from "./models/WebIntegrationAccountSchemaResponseSettingsObject";
+export { WebIntegrationAccountsResponse } from "./models/WebIntegrationAccountsResponse";
+export { WebIntegrationAccountType } from "./models/WebIntegrationAccountType";
+export { WebIntegrationAccountUpdateRequest } from "./models/WebIntegrationAccountUpdateRequest";
+export { WebIntegrationAccountUpdateRequestAttributes } from "./models/WebIntegrationAccountUpdateRequestAttributes";
+export { WebIntegrationAccountUpdateRequestData } from "./models/WebIntegrationAccountUpdateRequestData";
 export { Weekday } from "./models/Weekday";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
 export { WorkflowData } from "./models/WorkflowData";

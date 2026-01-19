@@ -3,25 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { WebIntegrationAccountType } from "./WebIntegrationAccountType";
+import { WebIntegrationAccountUpdateRequestAttributes } from "./WebIntegrationAccountUpdateRequestAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Pagination metadata.
+ * Data object for updating a web integration account.
  */
-export class SecurityMonitoringSuppressionsPageMeta {
+export class WebIntegrationAccountUpdateRequestData {
   /**
-   * Current page number.
+   * Attributes for updating a web integration account. All fields are optional -
+   * only provide the fields you want to update. Partial updates are supported,
+   * allowing you to modify specific settings or secrets without providing all fields.
    */
-  "pageNumber"?: number;
+  "attributes"?: WebIntegrationAccountUpdateRequestAttributes;
   /**
-   * Current page size.
+   * The JSON:API type for web integration accounts.
    */
-  "pageSize"?: number;
-  /**
-   * Total count of suppressions.
-   */
-  "totalCount"?: number;
+  "type": WebIntegrationAccountType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,20 +39,14 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pageNumber: {
-      baseName: "pageNumber",
-      type: "number",
-      format: "int64",
+    attributes: {
+      baseName: "attributes",
+      type: "WebIntegrationAccountUpdateRequestAttributes",
     },
-    pageSize: {
-      baseName: "pageSize",
-      type: "number",
-      format: "int64",
-    },
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int64",
+    type: {
+      baseName: "type",
+      type: "WebIntegrationAccountType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +58,7 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSuppressionsPageMeta.attributeTypeMap;
+    return WebIntegrationAccountUpdateRequestData.attributeTypeMap;
   }
 
   public constructor() {}

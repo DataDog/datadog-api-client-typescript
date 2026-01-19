@@ -3,18 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
+import { WebIntegrationAccountAttributes } from "./WebIntegrationAccountAttributes";
+import { WebIntegrationAccountType } from "./WebIntegrationAccountType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Metadata for the suppression list response.
+ * Data object for a web integration account response.
  */
-export class SecurityMonitoringSuppressionsMeta {
+export class WebIntegrationAccountResponseData {
   /**
-   * Pagination metadata.
+   * Attributes for a web integration account.
    */
-  "page"?: SecurityMonitoringSuppressionsPageMeta;
+  "attributes": WebIntegrationAccountAttributes;
+  /**
+   * The unique identifier for the account.
+   */
+  "id": string;
+  /**
+   * The JSON:API type for web integration accounts.
+   */
+  "type": WebIntegrationAccountType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +41,20 @@ export class SecurityMonitoringSuppressionsMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SecurityMonitoringSuppressionsPageMeta",
+    attributes: {
+      baseName: "attributes",
+      type: "WebIntegrationAccountAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "WebIntegrationAccountType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +66,7 @@ export class SecurityMonitoringSuppressionsMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSuppressionsMeta.attributeTypeMap;
+    return WebIntegrationAccountResponseData.attributeTypeMap;
   }
 
   public constructor() {}

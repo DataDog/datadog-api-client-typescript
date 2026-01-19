@@ -9,7 +9,7 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 apiInstance
   .listSecurityMonitoringSuppressions()
-  .then((data: v2.SecurityMonitoringPaginatedSuppressionsResponse) => {
+  .then((data: v2.SecurityMonitoringSuppressionsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
