@@ -20,12 +20,16 @@ export {
 
 export {
   AWSIntegrationApiCreateAWSAccountRequest,
+  AWSIntegrationApiCreateAWSAccountCCMConfigRequest,
   AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
   AWSIntegrationApiDeleteAWSAccountRequest,
+  AWSIntegrationApiDeleteAWSAccountCCMConfigRequest,
   AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
   AWSIntegrationApiGetAWSAccountRequest,
+  AWSIntegrationApiGetAWSAccountCCMConfigRequest,
   AWSIntegrationApiListAWSAccountsRequest,
   AWSIntegrationApiUpdateAWSAccountRequest,
+  AWSIntegrationApiUpdateAWSAccountCCMConfigRequest,
   AWSIntegrationApi,
 } from "./apis/AWSIntegrationApi";
 
@@ -1244,6 +1248,14 @@ export { AWSAssumeRoleUpdate } from "./models/AWSAssumeRoleUpdate";
 export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
 export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
+export { AWSCcmConfig } from "./models/AWSCcmConfig";
+export { AWSCcmConfigRequest } from "./models/AWSCcmConfigRequest";
+export { AWSCcmConfigRequestAttributes } from "./models/AWSCcmConfigRequestAttributes";
+export { AWSCcmConfigRequestData } from "./models/AWSCcmConfigRequestData";
+export { AWSCcmConfigResponse } from "./models/AWSCcmConfigResponse";
+export { AWSCcmConfigResponseAttributes } from "./models/AWSCcmConfigResponseAttributes";
+export { AWSCcmConfigResponseData } from "./models/AWSCcmConfigResponseData";
+export { AWSCcmConfigType } from "./models/AWSCcmConfigType";
 export { AWSCredentials } from "./models/AWSCredentials";
 export { AWSCredentialsUpdate } from "./models/AWSCredentialsUpdate";
 export { AwsCURConfig } from "./models/AwsCURConfig";
@@ -1946,6 +1958,7 @@ export { DatadogCredentialsUpdate } from "./models/DatadogCredentialsUpdate";
 export { DatadogIntegration } from "./models/DatadogIntegration";
 export { DatadogIntegrationType } from "./models/DatadogIntegrationType";
 export { DatadogIntegrationUpdate } from "./models/DatadogIntegrationUpdate";
+export { DataExportConfig } from "./models/DataExportConfig";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
