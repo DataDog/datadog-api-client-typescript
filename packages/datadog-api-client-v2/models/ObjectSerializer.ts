@@ -1908,6 +1908,12 @@ import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRe
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { PostmortemAttachmentRequest } from "./PostmortemAttachmentRequest";
+import { PostmortemAttachmentRequestAttributes } from "./PostmortemAttachmentRequestAttributes";
+import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestData";
+import { PostmortemCell } from "./PostmortemCell";
+import { PostmortemCellAttributes } from "./PostmortemCellAttributes";
+import { PostmortemCellDefinition } from "./PostmortemCellDefinition";
 import { Powerpack } from "./Powerpack";
 import { PowerpackAttributes } from "./PowerpackAttributes";
 import { PowerpackData } from "./PowerpackData";
@@ -3968,6 +3974,7 @@ const enumsMap: { [key: string]: any[] } = {
   PageUrgency: ["low", "high"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
+  PostmortemCellType: ["markdown"],
   ProcessSummaryType: ["process"],
   ProductAnalyticsServerSideEventItemType: ["server"],
   ProjectResourceType: ["project"],
@@ -6877,6 +6884,12 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  PostmortemAttachmentRequest: PostmortemAttachmentRequest,
+  PostmortemAttachmentRequestAttributes: PostmortemAttachmentRequestAttributes,
+  PostmortemAttachmentRequestData: PostmortemAttachmentRequestData,
+  PostmortemCell: PostmortemCell,
+  PostmortemCellAttributes: PostmortemCellAttributes,
+  PostmortemCellDefinition: PostmortemCellDefinition,
   Powerpack: Powerpack,
   PowerpackAttributes: PowerpackAttributes,
   PowerpackData: PowerpackData,

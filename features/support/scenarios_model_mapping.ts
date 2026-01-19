@@ -6078,6 +6078,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Attachment",
     },
+    "v2.CreateIncidentPostmortemAttachment": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PostmortemAttachmentRequest",
+            "format": "",
+            },
+        "operationResponseType": "Attachment",
+    },
     "v2.DeleteIncidentAttachment": {
         "incidentId": {
             "type": "string",
