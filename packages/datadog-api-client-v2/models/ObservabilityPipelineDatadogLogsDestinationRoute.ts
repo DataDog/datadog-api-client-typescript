@@ -3,27 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsSuite } from "./SyntheticsSuite";
-import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Synthetics suite response data
+ * Defines how the `datadog_logs` destination routes matching logs to a Datadog site using a specific API key.
  */
-export class SyntheticsSuiteResponseData {
+export class ObservabilityPipelineDatadogLogsDestinationRoute {
   /**
-   * Object containing details about a Synthetic suite.
+   * Name of the environment variable or secret that stores the Datadog API key used by this route.
    */
-  "attributes"?: SyntheticsSuite;
+  "apiKeyKey"?: string;
   /**
-   * The public ID for the suite.
+   * A Datadog search query that determines which logs are forwarded using this route.
    */
-  "id"?: string;
+  "include"?: string;
   /**
-   * Type for the Synthetics suites responses, `suites`.
+   * Unique identifier for this route within the destination.
    */
-  "type"?: SyntheticsSuiteTypes;
+  "routeId"?: string;
+  /**
+   * Datadog site where matching logs are sent (for example, `us1`).
+   */
+  "site"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +43,21 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsSuite",
-    },
-    id: {
-      baseName: "id",
+    apiKeyKey: {
+      baseName: "api_key_key",
       type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsSuiteTypes",
+    include: {
+      baseName: "include",
+      type: "string",
+    },
+    routeId: {
+      baseName: "route_id",
+      type: "string",
+    },
+    site: {
+      baseName: "site",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +69,7 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSuiteResponseData.attributeTypeMap;
+    return ObservabilityPipelineDatadogLogsDestinationRoute.attributeTypeMap;
   }
 
   public constructor() {}

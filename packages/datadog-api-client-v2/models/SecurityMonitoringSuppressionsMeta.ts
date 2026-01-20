@@ -3,19 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsSuiteTestAlertingCriticality } from "./SyntheticsSuiteTestAlertingCriticality";
+import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object containing details about a Synthetic test included in a Synthetic suite.
+ * Metadata for the suppression list response.
  */
-export class SyntheticsSuiteTest {
+export class SecurityMonitoringSuppressionsMeta {
   /**
-   * Alerting criticality for each the test.
+   * Pagination metadata.
    */
-  "alertingCriticality"?: SyntheticsSuiteTestAlertingCriticality;
-  "publicId": string;
+  "page"?: SecurityMonitoringSuppressionsPageMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -33,14 +32,9 @@ export class SyntheticsSuiteTest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alertingCriticality: {
-      baseName: "alerting_criticality",
-      type: "SyntheticsSuiteTestAlertingCriticality",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-      required: true,
+    page: {
+      baseName: "page",
+      type: "SecurityMonitoringSuppressionsPageMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -52,7 +46,7 @@ export class SyntheticsSuiteTest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSuiteTest.attributeTypeMap;
+    return SecurityMonitoringSuppressionsMeta.attributeTypeMap;
   }
 
   public constructor() {}
