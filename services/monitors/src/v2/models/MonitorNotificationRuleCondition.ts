@@ -1,7 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Conditions for `conditional_recipients`.
+ * A conditional recipient rule composed of a `scope` (the matching condition) and
+ * `recipients` (who to notify when it matches).
  */
 export class MonitorNotificationRuleCondition {
   /**
@@ -9,7 +10,9 @@ export class MonitorNotificationRuleCondition {
    */
   "recipients": Array<string>;
   /**
-   * The scope to which the monitor applied.
+   * Defines the condition under which the recipients are notified. Supported formats:
+   * - Monitor status condition using `transition_type:<status>`, for example `transition_type:is_alert`.
+   * - A single tag key:value pair, for example `env:prod`.
    */
   "scope": string;
   /**
