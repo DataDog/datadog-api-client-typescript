@@ -28,6 +28,7 @@ import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./ObservabilityPipelineDatadogLogsDestinationRoute";
 import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
@@ -549,6 +550,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineDatadogAgentSource,
     ObservabilityPipelineDatadogLogsDestination:
       ObservabilityPipelineDatadogLogsDestination,
+    ObservabilityPipelineDatadogLogsDestinationRoute:
+      ObservabilityPipelineDatadogLogsDestinationRoute,
     ObservabilityPipelineDatadogMetricsDestination:
       ObservabilityPipelineDatadogMetricsDestination,
     ObservabilityPipelineDatadogTagsProcessor:
