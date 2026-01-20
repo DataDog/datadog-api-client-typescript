@@ -2657,7 +2657,7 @@ export interface OnCallApiGetScheduleOnCallUserRequest {
    */
   include?: string;
   /**
-   * Retrieves the on-call user at the given timestamp (ISO-8601). Defaults to the current time if omitted."
+   * Retrieves the on-call user at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
    * @type string
    */
   filterAtTs?: string;
