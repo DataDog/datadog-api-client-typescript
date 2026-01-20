@@ -17,7 +17,7 @@ export class MonitorNotificationRuleAttributes {
    */
   "conditionalRecipients"?: MonitorNotificationRuleConditionalRecipients;
   /**
-   * Filter used to associate the notification rule with monitors.
+   * Specifies the matching criteria for monitor notifications.
    */
   "filter"?: MonitorNotificationRuleFilter;
   /**
