@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./ObservabilityPipelineDatadogLogsDestinationRoute";
 import { ObservabilityPipelineDatadogLogsDestinationType } from "./ObservabilityPipelineDatadogLogsDestinationType";
 
 /**
@@ -16,6 +17,10 @@ export class ObservabilityPipelineDatadogLogsDestination {
    * A list of component IDs whose output is used as the `input` for this component.
    */
   "inputs": Array<string>;
+  /**
+   * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+   */
+  "routes"?: Array<ObservabilityPipelineDatadogLogsDestinationRoute>;
   /**
    * The destination type. The value should always be `datadog_logs`.
    */
@@ -44,6 +49,10 @@ export class ObservabilityPipelineDatadogLogsDestination {
       baseName: "inputs",
       type: "Array<string>",
       required: true,
+    },
+    routes: {
+      baseName: "routes",
+      type: "Array<ObservabilityPipelineDatadogLogsDestinationRoute>",
     },
     type: {
       baseName: "type",

@@ -58,6 +58,7 @@ export { ObservabilityPipelineDataAttributes } from "./models/ObservabilityPipel
 export { ObservabilityPipelineDatadogAgentSource } from "./models/ObservabilityPipelineDatadogAgentSource";
 export { ObservabilityPipelineDatadogAgentSourceType } from "./models/ObservabilityPipelineDatadogAgentSourceType";
 export { ObservabilityPipelineDatadogLogsDestination } from "./models/ObservabilityPipelineDatadogLogsDestination";
+export { ObservabilityPipelineDatadogLogsDestinationRoute } from "./models/ObservabilityPipelineDatadogLogsDestinationRoute";
 export { ObservabilityPipelineDatadogLogsDestinationType } from "./models/ObservabilityPipelineDatadogLogsDestinationType";
 export { ObservabilityPipelineDatadogMetricsDestination } from "./models/ObservabilityPipelineDatadogMetricsDestination";
 export { ObservabilityPipelineDatadogMetricsDestinationType } from "./models/ObservabilityPipelineDatadogMetricsDestinationType";
