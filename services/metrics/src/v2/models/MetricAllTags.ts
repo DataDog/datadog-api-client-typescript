@@ -4,11 +4,11 @@ import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
 import { MetricType } from "./MetricType";
 
 /**
- * Object for a single metric's indexed tags.
+ * Object for a single metric's indexed and ingested tags.
  */
 export class MetricAllTags {
   /**
-   * Object containing the definition of a metric's tags.
+   * Object containing the definition of a metric's indexed and ingested tags.
    */
   "attributes"?: MetricAllTagsAttributes;
   /**
