@@ -61,6 +61,7 @@ export {
   SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiPreviewSecurityMonitoringRuleQueryRequest,
   SecurityMonitoringApiRunThreatHuntingJobRequest,
   SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
@@ -315,6 +316,7 @@ export { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityM
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
+export { SecurityMonitoringPaginatedSuppressionsResponse } from "./models/SecurityMonitoringPaginatedSuppressionsResponse";
 export { SecurityMonitoringReferenceTable } from "./models/SecurityMonitoringReferenceTable";
 export { SecurityMonitoringRuleAnomalyDetectionOptions } from "./models/SecurityMonitoringRuleAnomalyDetectionOptions";
 export { SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration";
@@ -334,6 +336,8 @@ export { SecurityMonitoringRuleEvaluationWindow } from "./models/SecurityMonitor
 export { SecurityMonitoringRuleHardcodedEvaluatorType } from "./models/SecurityMonitoringRuleHardcodedEvaluatorType";
 export { SecurityMonitoringRuleImpossibleTravelOptions } from "./models/SecurityMonitoringRuleImpossibleTravelOptions";
 export { SecurityMonitoringRuleKeepAlive } from "./models/SecurityMonitoringRuleKeepAlive";
+export { SecurityMonitoringRuleLivetailRequest } from "./models/SecurityMonitoringRuleLivetailRequest";
+export { SecurityMonitoringRuleLivetailResponse } from "./models/SecurityMonitoringRuleLivetailResponse";
 export { SecurityMonitoringRuleMaxSignalDuration } from "./models/SecurityMonitoringRuleMaxSignalDuration";
 export { SecurityMonitoringRuleNewValueOptions } from "./models/SecurityMonitoringRuleNewValueOptions";
 export { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./models/SecurityMonitoringRuleNewValueOptionsForgetAfter";
@@ -405,6 +409,9 @@ export { SecurityMonitoringSuppressionCreateAttributes } from "./models/Security
 export { SecurityMonitoringSuppressionCreateData } from "./models/SecurityMonitoringSuppressionCreateData";
 export { SecurityMonitoringSuppressionCreateRequest } from "./models/SecurityMonitoringSuppressionCreateRequest";
 export { SecurityMonitoringSuppressionResponse } from "./models/SecurityMonitoringSuppressionResponse";
+export { SecurityMonitoringSuppressionsMeta } from "./models/SecurityMonitoringSuppressionsMeta";
+export { SecurityMonitoringSuppressionSort } from "./models/SecurityMonitoringSuppressionSort";
+export { SecurityMonitoringSuppressionsPageMeta } from "./models/SecurityMonitoringSuppressionsPageMeta";
 export { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
 export { SecurityMonitoringSuppressionType } from "./models/SecurityMonitoringSuppressionType";
 export { SecurityMonitoringSuppressionUpdateAttributes } from "./models/SecurityMonitoringSuppressionUpdateAttributes";

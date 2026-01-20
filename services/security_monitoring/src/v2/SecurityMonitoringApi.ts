@@ -82,9 +82,12 @@ import { SecurityMonitoringCriticalAssetResponse } from "./models/SecurityMonito
 import { SecurityMonitoringCriticalAssetsResponse } from "./models/SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringPaginatedSuppressionsResponse } from "./models/SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
 import { SecurityMonitoringRuleConvertResponse } from "./models/SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleCreatePayload } from "./models/SecurityMonitoringRuleCreatePayload";
+import { SecurityMonitoringRuleLivetailRequest } from "./models/SecurityMonitoringRuleLivetailRequest";
+import { SecurityMonitoringRuleLivetailResponse } from "./models/SecurityMonitoringRuleLivetailResponse";
 import { SecurityMonitoringRuleResponse } from "./models/SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleTestRequest } from "./models/SecurityMonitoringRuleTestRequest";
 import { SecurityMonitoringRuleTestResponse } from "./models/SecurityMonitoringRuleTestResponse";
@@ -102,6 +105,7 @@ import { SecurityMonitoringSignalStateUpdateRequest } from "./models/SecurityMon
 import { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 import { SecurityMonitoringSuppressionCreateRequest } from "./models/SecurityMonitoringSuppressionCreateRequest";
 import { SecurityMonitoringSuppressionResponse } from "./models/SecurityMonitoringSuppressionResponse";
+import { SecurityMonitoringSuppressionSort } from "./models/SecurityMonitoringSuppressionSort";
 import { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./models/SecurityMonitoringSuppressionUpdateRequest";
 import { ThreatHuntingJobResponse } from "./models/ThreatHuntingJobResponse";
@@ -3616,6 +3620,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listSecurityMonitoringSuppressions(
     query?: string,
+    sort?: SecurityMonitoringSuppressionSort,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3647,6 +3654,27 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "query",
         serialize(query, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "SecurityMonitoringSuppressionSort", ""),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -4527,6 +4555,57 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async previewSecurityMonitoringRuleQuery(
+    body: SecurityMonitoringRuleLivetailRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "previewSecurityMonitoringRuleQuery");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/livetail";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.previewSecurityMonitoringRuleQuery",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringRuleLivetailRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -8837,14 +8916,14 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async listSecurityMonitoringSuppressions(
     response: ResponseContext,
-  ): Promise<SecurityMonitoringSuppressionsResponse> {
+  ): Promise<SecurityMonitoringPaginatedSuppressionsResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionsResponse = deserialize(
+      const body: SecurityMonitoringPaginatedSuppressionsResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "SecurityMonitoringSuppressionsResponse",
-      ) as SecurityMonitoringSuppressionsResponse;
+        "SecurityMonitoringPaginatedSuppressionsResponse",
+      ) as SecurityMonitoringPaginatedSuppressionsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
@@ -8868,12 +8947,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionsResponse = deserialize(
+      const body: SecurityMonitoringPaginatedSuppressionsResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "SecurityMonitoringSuppressionsResponse",
+        "SecurityMonitoringPaginatedSuppressionsResponse",
         "",
-      ) as SecurityMonitoringSuppressionsResponse;
+      ) as SecurityMonitoringPaginatedSuppressionsResponse;
       return body;
     }
 
@@ -9325,6 +9404,66 @@ export class SecurityMonitoringApiResponseProcessor {
         "NotificationRuleResponse",
         "",
       ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to previewSecurityMonitoringRuleQuery
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async previewSecurityMonitoringRuleQuery(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringRuleLivetailResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringRuleLivetailResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleLivetailResponse",
+      ) as SecurityMonitoringRuleLivetailResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringRuleLivetailResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleLivetailResponse",
+        "",
+      ) as SecurityMonitoringRuleLivetailResponse;
       return body;
     }
 
@@ -10921,6 +11060,21 @@ export interface SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest 
    * @type string
    */
   query?: string;
+  /**
+   * Attribute used to sort the list of suppression rules. Prefix with `-` to sort in descending order.
+   * @type SecurityMonitoringSuppressionSort
+   */
+  sort?: SecurityMonitoringSuppressionSort;
+  /**
+   * Size for a given page. Use `-1` to return all items.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListThreatHuntingJobsRequest {
@@ -11291,6 +11445,13 @@ export interface SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest 
    * @type PatchNotificationRuleParameters
    */
   body: PatchNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiPreviewSecurityMonitoringRuleQueryRequest {
+  /**
+   * @type SecurityMonitoringRuleLivetailRequest
+   */
+  body: SecurityMonitoringRuleLivetailRequest;
 }
 
 export interface SecurityMonitoringApiRunThreatHuntingJobRequest {
@@ -13125,10 +13286,13 @@ export class SecurityMonitoringApi {
   public listSecurityMonitoringSuppressions(
     param: SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest = {},
     options?: Configuration,
-  ): Promise<SecurityMonitoringSuppressionsResponse> {
+  ): Promise<SecurityMonitoringPaginatedSuppressionsResponse> {
     const requestContextPromise =
       this.requestFactory.listSecurityMonitoringSuppressions(
         param.query,
+        param.sort,
+        param.pageSize,
+        param.pageNumber,
         options,
       );
     return requestContextPromise.then((requestContext) => {
@@ -13431,6 +13595,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchVulnerabilityNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Preview a security monitoring rule query with security filters, group by fields, and distinct fields applied.
+   * This endpoint is used in the rule editor to show how the query will be transformed after applying additional filters.
+   * @param param The request object
+   */
+  public previewSecurityMonitoringRuleQuery(
+    param: SecurityMonitoringApiPreviewSecurityMonitoringRuleQueryRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringRuleLivetailResponse> {
+    const requestContextPromise =
+      this.requestFactory.previewSecurityMonitoringRuleQuery(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.previewSecurityMonitoringRuleQuery(
             responseContext,
           );
         });

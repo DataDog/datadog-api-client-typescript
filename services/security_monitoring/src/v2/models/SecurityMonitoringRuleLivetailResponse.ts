@@ -1,24 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SyntheticsSuite } from "./SyntheticsSuite";
-import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
-
 /**
- * Synthetics suite response data
+ * Response containing the modified query with applied filters.
  */
-export class SyntheticsSuiteResponseData {
+export class SecurityMonitoringRuleLivetailResponse {
   /**
-   * Object containing details about a Synthetic suite.
+   * The modified query with all filters applied.
    */
-  "attributes"?: SyntheticsSuite;
-  /**
-   * The public ID for the suite.
-   */
-  "id"?: string;
-  /**
-   * Type for the Synthetics suites responses, `suites`.
-   */
-  "type"?: SyntheticsSuiteTypes;
+  "query"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,17 +23,9 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsSuite",
-    },
-    id: {
-      baseName: "id",
+    query: {
+      baseName: "query",
       type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsSuiteTypes",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +37,7 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSuiteResponseData.attributeTypeMap;
+    return SecurityMonitoringRuleLivetailResponse.attributeTypeMap;
   }
 
   public constructor() {}

@@ -4467,7 +4467,19 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    operationResponseType: "SecurityMonitoringSuppressionsResponse",
+    sort: {
+      type: "SecurityMonitoringSuppressionSort",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SecurityMonitoringPaginatedSuppressionsResponse",
   },
   "SecurityMonitoringApi.V2.CreateSecurityMonitoringSuppression": {
     body: {
@@ -4536,6 +4548,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int64",
     },
     operationResponseType: "GetSuppressionVersionHistoryResponse",
+  },
+  "SecurityMonitoringApi.V2.PreviewSecurityMonitoringRuleQuery": {
+    body: {
+      type: "SecurityMonitoringRuleLivetailRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringRuleLivetailResponse",
   },
   "SecurityMonitoringApi.V2.ListSecurityMonitoringRules": {
     pageSize: {
@@ -9266,61 +9285,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "OnDemandConcurrencyCapResponse",
-  },
-  "SyntheticsApi.V2.CreateSyntheticsSuite": {
-    body: {
-      type: "SuiteCreateEditRequest",
-      format: "",
-    },
-    operationResponseType: "SyntheticsSuiteResponse",
-  },
-  "SyntheticsApi.V2.DeleteSyntheticsSuites": {
-    body: {
-      type: "DeletedSuitesRequestDeleteRequest",
-      format: "",
-    },
-    operationResponseType: "DeletedSuitesResponse",
-  },
-  "SyntheticsApi.V2.SearchSuites": {
-    query: {
-      type: "string",
-      format: "",
-    },
-    sort: {
-      type: "string",
-      format: "",
-    },
-    facetsOnly: {
-      type: "boolean",
-      format: "",
-    },
-    start: {
-      type: "number",
-      format: "int64",
-    },
-    count: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "SyntheticsSuiteSearchResponse",
-  },
-  "SyntheticsApi.V2.GetSyntheticsSuite": {
-    publicId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "SyntheticsSuiteResponse",
-  },
-  "SyntheticsApi.V2.EditSyntheticsSuite": {
-    publicId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "SuiteCreateEditRequest",
-      format: "",
-    },
-    operationResponseType: "SyntheticsSuiteResponse",
   },
   "SyntheticsApi.V2.PatchGlobalVariable": {
     variableId: {

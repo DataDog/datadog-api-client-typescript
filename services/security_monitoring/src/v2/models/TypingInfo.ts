@@ -196,6 +196,7 @@ import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitori
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
@@ -204,6 +205,8 @@ import { SecurityMonitoringRuleCaseActionOptions } from "./SecurityMonitoringRul
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
+import { SecurityMonitoringRuleLivetailRequest } from "./SecurityMonitoringRuleLivetailRequest";
+import { SecurityMonitoringRuleLivetailResponse } from "./SecurityMonitoringRuleLivetailResponse";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
@@ -257,6 +260,8 @@ import { SecurityMonitoringSuppressionResponse } from "./SecurityMonitoringSuppr
 import { SecurityMonitoringSuppressionUpdateAttributes } from "./SecurityMonitoringSuppressionUpdateAttributes";
 import { SecurityMonitoringSuppressionUpdateData } from "./SecurityMonitoringSuppressionUpdateData";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./SecurityMonitoringSuppressionUpdateRequest";
+import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
+import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
 import { SecurityMonitoringSuppressionsResponse } from "./SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
@@ -497,6 +502,18 @@ export const TypingInfo: ModelTypingInfo = {
       "security_runtime",
       "network",
       "events",
+    ],
+    SecurityMonitoringSuppressionSort: [
+      "name",
+      "start_date",
+      "expiration_date",
+      "update_date",
+      "enabled",
+      "-name",
+      "-start_date",
+      "-expiration_date",
+      "-update_date",
+      "-enabled",
     ],
     SecurityMonitoringSuppressionType: ["suppressions"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
@@ -838,6 +855,8 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringCriticalAssetsResponse,
     SecurityMonitoringFilter: SecurityMonitoringFilter,
     SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
+    SecurityMonitoringPaginatedSuppressionsResponse:
+      SecurityMonitoringPaginatedSuppressionsResponse,
     SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
     SecurityMonitoringRuleAnomalyDetectionOptions:
       SecurityMonitoringRuleAnomalyDetectionOptions,
@@ -850,6 +869,10 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringRuleConvertResponse,
     SecurityMonitoringRuleImpossibleTravelOptions:
       SecurityMonitoringRuleImpossibleTravelOptions,
+    SecurityMonitoringRuleLivetailRequest:
+      SecurityMonitoringRuleLivetailRequest,
+    SecurityMonitoringRuleLivetailResponse:
+      SecurityMonitoringRuleLivetailResponse,
     SecurityMonitoringRuleNewValueOptions:
       SecurityMonitoringRuleNewValueOptions,
     SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
@@ -941,6 +964,9 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringSuppressionUpdateData,
     SecurityMonitoringSuppressionUpdateRequest:
       SecurityMonitoringSuppressionUpdateRequest,
+    SecurityMonitoringSuppressionsMeta: SecurityMonitoringSuppressionsMeta,
+    SecurityMonitoringSuppressionsPageMeta:
+      SecurityMonitoringSuppressionsPageMeta,
     SecurityMonitoringSuppressionsResponse:
       SecurityMonitoringSuppressionsResponse,
     SecurityMonitoringThirdPartyRootQuery:
