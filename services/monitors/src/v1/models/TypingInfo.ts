@@ -99,6 +99,7 @@ export const TypingInfo: ModelTypingInfo = {
       "spans",
       "database_queries",
       "network",
+      "network_path",
     ],
     MonitorOptionsNotificationPresets: [
       "show_all",
@@ -137,6 +138,7 @@ export const TypingInfo: ModelTypingInfo = {
       "network-performance alert",
       "cost alert",
       "data-quality alert",
+      "network-path alert",
     ],
     OnMissingDataOption: [
       "default",
