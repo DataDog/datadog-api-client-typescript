@@ -1,15 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
+import { DeletedSuitesRequestDelete } from "./DeletedSuitesRequestDelete";
 
-/**
- * Metadata for the suppression list response.
- */
-export class SecurityMonitoringSuppressionsMeta {
-  /**
-   * Pagination metadata.
-   */
-  "page"?: SecurityMonitoringSuppressionsPageMeta;
+export class DeletedSuitesRequestDeleteRequest {
+  "data": DeletedSuitesRequestDelete;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +19,10 @@ export class SecurityMonitoringSuppressionsMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SecurityMonitoringSuppressionsPageMeta",
+    data: {
+      baseName: "data",
+      type: "DeletedSuitesRequestDelete",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +34,7 @@ export class SecurityMonitoringSuppressionsMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSuppressionsMeta.attributeTypeMap;
+    return DeletedSuitesRequestDeleteRequest.attributeTypeMap;
   }
 
   public constructor() {}

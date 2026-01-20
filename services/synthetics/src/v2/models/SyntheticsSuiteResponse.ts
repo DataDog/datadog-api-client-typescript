@@ -1,20 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
-import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
+import { SyntheticsSuiteResponseData } from "./SyntheticsSuiteResponseData";
 
 /**
- * Response object containing the available suppression rules with pagination metadata.
+ * Synthetics suite response
  */
-export class SecurityMonitoringPaginatedSuppressionsResponse {
+export class SyntheticsSuiteResponse {
   /**
-   * A list of suppressions objects.
+   * Synthetics suite response data
    */
-  "data"?: Array<SecurityMonitoringSuppression>;
-  /**
-   * Metadata for the suppression list response.
-   */
-  "meta"?: SecurityMonitoringSuppressionsMeta;
+  "data"?: SyntheticsSuiteResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,11 +27,7 @@ export class SecurityMonitoringPaginatedSuppressionsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<SecurityMonitoringSuppression>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringSuppressionsMeta",
+      type: "SyntheticsSuiteResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +39,7 @@ export class SecurityMonitoringPaginatedSuppressionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringPaginatedSuppressionsResponse.attributeTypeMap;
+    return SyntheticsSuiteResponse.attributeTypeMap;
   }
 
   public constructor() {}
