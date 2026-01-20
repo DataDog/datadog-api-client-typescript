@@ -82,6 +82,7 @@ import { SecurityMonitoringCriticalAssetResponse } from "./models/SecurityMonito
 import { SecurityMonitoringCriticalAssetsResponse } from "./models/SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringPaginatedSuppressionsResponse } from "./models/SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
 import { SecurityMonitoringRuleConvertResponse } from "./models/SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleCreatePayload } from "./models/SecurityMonitoringRuleCreatePayload";
@@ -102,6 +103,7 @@ import { SecurityMonitoringSignalStateUpdateRequest } from "./models/SecurityMon
 import { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 import { SecurityMonitoringSuppressionCreateRequest } from "./models/SecurityMonitoringSuppressionCreateRequest";
 import { SecurityMonitoringSuppressionResponse } from "./models/SecurityMonitoringSuppressionResponse";
+import { SecurityMonitoringSuppressionSort } from "./models/SecurityMonitoringSuppressionSort";
 import { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./models/SecurityMonitoringSuppressionUpdateRequest";
 import { ThreatHuntingJobResponse } from "./models/ThreatHuntingJobResponse";
@@ -3616,6 +3618,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listSecurityMonitoringSuppressions(
     query?: string,
+    sort?: SecurityMonitoringSuppressionSort,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3647,6 +3652,27 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "query",
         serialize(query, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "SecurityMonitoringSuppressionSort", ""),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -8837,14 +8863,14 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async listSecurityMonitoringSuppressions(
     response: ResponseContext,
-  ): Promise<SecurityMonitoringSuppressionsResponse> {
+  ): Promise<SecurityMonitoringPaginatedSuppressionsResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionsResponse = deserialize(
+      const body: SecurityMonitoringPaginatedSuppressionsResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "SecurityMonitoringSuppressionsResponse",
-      ) as SecurityMonitoringSuppressionsResponse;
+        "SecurityMonitoringPaginatedSuppressionsResponse",
+      ) as SecurityMonitoringPaginatedSuppressionsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
@@ -8868,12 +8894,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionsResponse = deserialize(
+      const body: SecurityMonitoringPaginatedSuppressionsResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "SecurityMonitoringSuppressionsResponse",
+        "SecurityMonitoringPaginatedSuppressionsResponse",
         "",
-      ) as SecurityMonitoringSuppressionsResponse;
+      ) as SecurityMonitoringPaginatedSuppressionsResponse;
       return body;
     }
 
@@ -10921,6 +10947,21 @@ export interface SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest 
    * @type string
    */
   query?: string;
+  /**
+   * Attribute used to sort the list of suppression rules. Prefix with `-` to sort in descending order.
+   * @type SecurityMonitoringSuppressionSort
+   */
+  sort?: SecurityMonitoringSuppressionSort;
+  /**
+   * Size for a given page. Use `-1` to return all items.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiListThreatHuntingJobsRequest {
@@ -13125,10 +13166,13 @@ export class SecurityMonitoringApi {
   public listSecurityMonitoringSuppressions(
     param: SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest = {},
     options?: Configuration,
-  ): Promise<SecurityMonitoringSuppressionsResponse> {
+  ): Promise<SecurityMonitoringPaginatedSuppressionsResponse> {
     const requestContextPromise =
       this.requestFactory.listSecurityMonitoringSuppressions(
         param.query,
+        param.sort,
+        param.pageSize,
+        param.pageNumber,
         options,
       );
     return requestContextPromise.then((requestContext) => {
