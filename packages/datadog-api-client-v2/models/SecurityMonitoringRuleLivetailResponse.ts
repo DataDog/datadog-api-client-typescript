@@ -3,27 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsSuite } from "./SyntheticsSuite";
-import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Synthetics suite response data
+ * Response containing the modified query with applied filters.
  */
-export class SyntheticsSuiteResponseData {
+export class SecurityMonitoringRuleLivetailResponse {
   /**
-   * Object containing details about a Synthetic suite.
+   * The modified query with all filters applied.
    */
-  "attributes"?: SyntheticsSuite;
-  /**
-   * The public ID for the suite.
-   */
-  "id"?: string;
-  /**
-   * Type for the Synthetics suites responses, `suites`.
-   */
-  "type"?: SyntheticsSuiteTypes;
+  "query"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +31,9 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsSuite",
-    },
-    id: {
-      baseName: "id",
+    query: {
+      baseName: "query",
       type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsSuiteTypes",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +45,7 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSuiteResponseData.attributeTypeMap;
+    return SecurityMonitoringRuleLivetailResponse.attributeTypeMap;
   }
 
   public constructor() {}

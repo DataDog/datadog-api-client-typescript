@@ -4457,7 +4457,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
+        "sort": {
+            "type": "SecurityMonitoringSuppressionSort",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringPaginatedSuppressionsResponse",
     },
     "v2.CreateSecurityMonitoringSuppression": {
         "body": {
@@ -4526,6 +4538,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "operationResponseType": "GetSuppressionVersionHistoryResponse",
+    },
+    "v2.PreviewSecurityMonitoringRuleQuery": {
+        "body": {
+            "type": "SecurityMonitoringRuleLivetailRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleLivetailResponse",
     },
     "v2.ListSecurityMonitoringRules": {
         "pageSize": {
@@ -9256,61 +9275,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "OnDemandConcurrencyCapResponse",
-    },
-    "v2.CreateSyntheticsSuite": {
-        "body": {
-            "type": "SuiteCreateEditRequest",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsSuiteResponse",
-    },
-    "v2.DeleteSyntheticsSuites": {
-        "body": {
-            "type": "DeletedSuitesRequestDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "DeletedSuitesResponse",
-    },
-    "v2.SearchSuites": {
-        "query": {
-            "type": "string",
-            "format": "",
-            },
-        "sort": {
-            "type": "string",
-            "format": "",
-            },
-        "facetsOnly": {
-            "type": "boolean",
-            "format": "",
-            },
-        "start": {
-            "type": "number",
-            "format": "int64",
-            },
-        "count": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "SyntheticsSuiteSearchResponse",
-    },
-    "v2.GetSyntheticsSuite": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsSuiteResponse",
-    },
-    "v2.EditSyntheticsSuite": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SuiteCreateEditRequest",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsSuiteResponse",
     },
     "v2.PatchGlobalVariable": {
         "variableId": {
