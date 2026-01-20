@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Filter monitor notifications. A monitor notification must match the scope.
+ * Filters monitor notifications using a scope expression over key:value pairs with boolean logic (AND, OR, NOT).
  */
 export class MonitorNotificationRuleFilterScope {
   /**
-   * A scope composed of one or several key:value pairs, which can be used to filter monitor notifications on monitor and group tags.
+   * A scope expression composed by key:value pairs (e.g. `service:foo`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
    */
   "scope": string;
 
