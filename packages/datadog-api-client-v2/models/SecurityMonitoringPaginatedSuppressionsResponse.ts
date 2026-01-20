@@ -3,12 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DeletedSuiteResponseData } from "./DeletedSuiteResponseData";
+import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
+import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-export class DeletedSuitesResponse {
-  "data"?: Array<DeletedSuiteResponseData>;
+/**
+ * Response object containing the available suppression rules with pagination metadata.
+ */
+export class SecurityMonitoringPaginatedSuppressionsResponse {
+  /**
+   * A list of suppressions objects.
+   */
+  "data"?: Array<SecurityMonitoringSuppression>;
+  /**
+   * Metadata for the suppression list response.
+   */
+  "meta"?: SecurityMonitoringSuppressionsMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -28,7 +39,11 @@ export class DeletedSuitesResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<DeletedSuiteResponseData>",
+      type: "Array<SecurityMonitoringSuppression>",
+    },
+    meta: {
+      baseName: "meta",
+      type: "SecurityMonitoringSuppressionsMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +55,7 @@ export class DeletedSuitesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DeletedSuitesResponse.attributeTypeMap;
+    return SecurityMonitoringPaginatedSuppressionsResponse.attributeTypeMap;
   }
 
   public constructor() {}
