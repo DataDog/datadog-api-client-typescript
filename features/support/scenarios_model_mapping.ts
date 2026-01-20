@@ -6390,6 +6390,51 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GCPSTSDelegateAccountResponse",
     },
+    "v2.ListJiraAccounts": {
+        "operationResponseType": "JiraAccountsResponse",
+    },
+    "v2.DeleteJiraAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListJiraIssueTemplates": {
+        "operationResponseType": "JiraIssueTemplatesResponse",
+    },
+    "v2.CreateJiraIssueTemplate": {
+        "body": {
+            "type": "JiraIssueTemplateCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "JiraIssueTemplateResponse",
+    },
+    "v2.GetJiraIssueTemplate": {
+        "issueTemplateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "JiraIssueTemplateResponse",
+    },
+    "v2.DeleteJiraIssueTemplate": {
+        "issueTemplateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateJiraIssueTemplate": {
+        "issueTemplateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "JiraIssueTemplateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "JiraIssueTemplateResponse",
+    },
     "v2.GetChannelByName": {
         "tenantName": {
             "type": "string",
