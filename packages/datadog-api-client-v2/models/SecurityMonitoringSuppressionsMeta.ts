@@ -3,12 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-export class DeletedSuitesRequestDeleteAttributes {
-  "forceDeleteDependencies"?: boolean;
-  "publicIds": Array<string>;
+/**
+ * Metadata for the suppression list response.
+ */
+export class SecurityMonitoringSuppressionsMeta {
+  /**
+   * Pagination metadata.
+   */
+  "page"?: SecurityMonitoringSuppressionsPageMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -26,14 +32,9 @@ export class DeletedSuitesRequestDeleteAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    forceDeleteDependencies: {
-      baseName: "force_delete_dependencies",
-      type: "boolean",
-    },
-    publicIds: {
-      baseName: "public_ids",
-      type: "Array<string>",
-      required: true,
+    page: {
+      baseName: "page",
+      type: "SecurityMonitoringSuppressionsPageMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,7 +46,7 @@ export class DeletedSuitesRequestDeleteAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DeletedSuitesRequestDeleteAttributes.attributeTypeMap;
+    return SecurityMonitoringSuppressionsMeta.attributeTypeMap;
   }
 
   public constructor() {}

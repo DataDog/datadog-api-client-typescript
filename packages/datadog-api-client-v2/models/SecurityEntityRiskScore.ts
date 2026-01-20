@@ -3,27 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsSuite } from "./SyntheticsSuite";
-import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
+import { SecurityEntityRiskScoreAttributes } from "./SecurityEntityRiskScoreAttributes";
+import { SecurityEntityRiskScoreType } from "./SecurityEntityRiskScoreType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Synthetics suite response data
+ * An entity risk score containing security risk assessment information
  */
-export class SyntheticsSuiteResponseData {
+export class SecurityEntityRiskScore {
   /**
-   * Object containing details about a Synthetic suite.
+   * Attributes of an entity risk score
    */
-  "attributes"?: SyntheticsSuite;
+  "attributes": SecurityEntityRiskScoreAttributes;
   /**
-   * The public ID for the suite.
+   * Unique identifier for the entity
    */
-  "id"?: string;
+  "id": string;
   /**
-   * Type for the Synthetics suites responses, `suites`.
+   * Resource type
    */
-  "type"?: SyntheticsSuiteTypes;
+  "type": SecurityEntityRiskScoreType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,15 +43,18 @@ export class SyntheticsSuiteResponseData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "SyntheticsSuite",
+      type: "SecurityEntityRiskScoreAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "SyntheticsSuiteTypes",
+      type: "SecurityEntityRiskScoreType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +66,7 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSuiteResponseData.attributeTypeMap;
+    return SecurityEntityRiskScore.attributeTypeMap;
   }
 
   public constructor() {}

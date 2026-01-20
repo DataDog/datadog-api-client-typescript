@@ -7,12 +7,18 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Alerting criticality for each the test.
+ * Severity level based on risk score
  */
 
-export type SyntheticsSuiteTestAlertingCriticality =
-  | typeof IGNORE
+export type SecurityEntityRiskScoreAttributesSeverity =
   | typeof CRITICAL
+  | typeof HIGH
+  | typeof MEDIUM
+  | typeof LOW
+  | typeof INFO
   | UnparsedObject;
-export const IGNORE = "ignore";
 export const CRITICAL = "critical";
+export const HIGH = "high";
+export const MEDIUM = "medium";
+export const LOW = "low";
+export const INFO = "info";

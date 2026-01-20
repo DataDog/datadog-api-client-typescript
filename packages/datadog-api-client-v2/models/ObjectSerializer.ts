@@ -775,12 +775,6 @@ import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
 import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
-import { DeletedSuiteResponseData } from "./DeletedSuiteResponseData";
-import { DeletedSuiteResponseDataAttributes } from "./DeletedSuiteResponseDataAttributes";
-import { DeletedSuitesRequestDelete } from "./DeletedSuitesRequestDelete";
-import { DeletedSuitesRequestDeleteAttributes } from "./DeletedSuitesRequestDeleteAttributes";
-import { DeletedSuitesRequestDeleteRequest } from "./DeletedSuitesRequestDeleteRequest";
-import { DeletedSuitesResponse } from "./DeletedSuitesResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { Deployment } from "./Deployment";
 import { DeploymentAttributes } from "./DeploymentAttributes";
@@ -2309,6 +2303,12 @@ import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
 import { SecretRuleDataAttributesMatchValidation } from "./SecretRuleDataAttributesMatchValidation";
 import { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
 import { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
+import { SecurityEntityConfigRisks } from "./SecurityEntityConfigRisks";
+import { SecurityEntityMetadata } from "./SecurityEntityMetadata";
+import { SecurityEntityRiskScore } from "./SecurityEntityRiskScore";
+import { SecurityEntityRiskScoreAttributes } from "./SecurityEntityRiskScoreAttributes";
+import { SecurityEntityRiskScoresMeta } from "./SecurityEntityRiskScoresMeta";
+import { SecurityEntityRiskScoresResponse } from "./SecurityEntityRiskScoresResponse";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -2343,6 +2343,7 @@ import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitori
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
@@ -2404,6 +2405,8 @@ import { SecurityMonitoringSuppressionResponse } from "./SecurityMonitoringSuppr
 import { SecurityMonitoringSuppressionUpdateAttributes } from "./SecurityMonitoringSuppressionUpdateAttributes";
 import { SecurityMonitoringSuppressionUpdateData } from "./SecurityMonitoringSuppressionUpdateData";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./SecurityMonitoringSuppressionUpdateRequest";
+import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
+import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
 import { SecurityMonitoringSuppressionsResponse } from "./SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
@@ -2594,8 +2597,6 @@ import { StatsigIntegrationUpdate } from "./StatsigIntegrationUpdate";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
-import { SuiteCreateEdit } from "./SuiteCreateEdit";
-import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
@@ -2604,14 +2605,6 @@ import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptio
 import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
 import { SyntheticsGlobalVariableTOTPParameters } from "./SyntheticsGlobalVariableTOTPParameters";
 import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
-import { SyntheticsSuite } from "./SyntheticsSuite";
-import { SyntheticsSuiteOptions } from "./SyntheticsSuiteOptions";
-import { SyntheticsSuiteResponse } from "./SyntheticsSuiteResponse";
-import { SyntheticsSuiteResponseData } from "./SyntheticsSuiteResponseData";
-import { SyntheticsSuiteSearchResponse } from "./SyntheticsSuiteSearchResponse";
-import { SyntheticsSuiteSearchResponseData } from "./SyntheticsSuiteSearchResponseData";
-import { SyntheticsSuiteSearchResponseDataAttributes } from "./SyntheticsSuiteSearchResponseDataAttributes";
-import { SyntheticsSuiteTest } from "./SyntheticsSuiteTest";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableResultV2 } from "./TableResultV2";
 import { TableResultV2Array } from "./TableResultV2Array";
@@ -3295,7 +3288,6 @@ const enumsMap: { [key: string]: any[] } = {
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
   DatastoreItemsDataType: ["items"],
   DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
-  DeletedSuitesRequestType: ["delete_suites_request"],
   DeploymentGateDataType: ["deployment_gate"],
   DeploymentRuleDataType: ["deployment_rule"],
   DeploymentRuleResponseDataAttributesType: [
@@ -4214,6 +4206,14 @@ const enumsMap: { [key: string]: any[] } = {
     "issue.team_owners",
   ],
   SecretRuleDataType: ["secret_rule"],
+  SecurityEntityRiskScoreAttributesSeverity: [
+    "critical",
+    "high",
+    "medium",
+    "low",
+    "info",
+  ],
+  SecurityEntityRiskScoreType: ["security_entity_risk_score"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityFindingsDataType: ["finding"],
@@ -4325,6 +4325,18 @@ const enumsMap: { [key: string]: any[] } = {
     "network",
     "events",
   ],
+  SecurityMonitoringSuppressionSort: [
+    "name",
+    "start_date",
+    "expiration_date",
+    "update_date",
+    "enabled",
+    "-name",
+    "-start_date",
+    "-expiration_date",
+    "-update_date",
+    "-enabled",
+  ],
   SecurityMonitoringSuppressionType: ["suppressions"],
   SendSlackMessageActionType: ["send_slack_message"],
   SendTeamsMessageActionType: ["send_teams_message"],
@@ -4427,7 +4439,6 @@ const enumsMap: { [key: string]: any[] } = {
   StateVariableType: ["stateVariable"],
   StatsigAPIKeyType: ["StatsigAPIKey"],
   StatsigIntegrationType: ["Statsig"],
-  SuiteSearchResponseType: ["suites_search"],
   SyntheticsGlobalVariableParseTestOptionsType: [
     "http_body",
     "http_header",
@@ -4435,9 +4446,6 @@ const enumsMap: { [key: string]: any[] } = {
     "local_variable",
   ],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
-  SyntheticsSuiteTestAlertingCriticality: ["ignore", "critical"],
-  SyntheticsSuiteType: ["suite"],
-  SyntheticsSuiteTypes: ["suites"],
   TableResultV2DataAttributesFileMetadataCloudStorageErrorType: [
     "TABLE_SCHEMA_ERROR",
     "FILE_FORMAT_ERROR",
@@ -5564,12 +5572,6 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
   DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
-  DeletedSuiteResponseData: DeletedSuiteResponseData,
-  DeletedSuiteResponseDataAttributes: DeletedSuiteResponseDataAttributes,
-  DeletedSuitesRequestDelete: DeletedSuitesRequestDelete,
-  DeletedSuitesRequestDeleteAttributes: DeletedSuitesRequestDeleteAttributes,
-  DeletedSuitesRequestDeleteRequest: DeletedSuitesRequestDeleteRequest,
-  DeletedSuitesResponse: DeletedSuitesResponse,
   DependencyLocation: DependencyLocation,
   Deployment: Deployment,
   DeploymentAttributes: DeploymentAttributes,
@@ -7376,6 +7378,12 @@ const typeMap: { [index: string]: any } = {
     SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems,
   SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems:
     SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems,
+  SecurityEntityConfigRisks: SecurityEntityConfigRisks,
+  SecurityEntityMetadata: SecurityEntityMetadata,
+  SecurityEntityRiskScore: SecurityEntityRiskScore,
+  SecurityEntityRiskScoreAttributes: SecurityEntityRiskScoreAttributes,
+  SecurityEntityRiskScoresMeta: SecurityEntityRiskScoresMeta,
+  SecurityEntityRiskScoresResponse: SecurityEntityRiskScoresResponse,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -7420,6 +7428,8 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringCriticalAssetsResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
+  SecurityMonitoringPaginatedSuppressionsResponse:
+    SecurityMonitoringPaginatedSuppressionsResponse,
   SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
   SecurityMonitoringRuleAnomalyDetectionOptions:
     SecurityMonitoringRuleAnomalyDetectionOptions,
@@ -7518,6 +7528,9 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSuppressionUpdateData,
   SecurityMonitoringSuppressionUpdateRequest:
     SecurityMonitoringSuppressionUpdateRequest,
+  SecurityMonitoringSuppressionsMeta: SecurityMonitoringSuppressionsMeta,
+  SecurityMonitoringSuppressionsPageMeta:
+    SecurityMonitoringSuppressionsPageMeta,
   SecurityMonitoringSuppressionsResponse:
     SecurityMonitoringSuppressionsResponse,
   SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
@@ -7736,8 +7749,6 @@ const typeMap: { [index: string]: any } = {
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
-  SuiteCreateEdit: SuiteCreateEdit,
-  SuiteCreateEditRequest: SuiteCreateEditRequest,
   SuppressionVersionHistory: SuppressionVersionHistory,
   SuppressionVersions: SuppressionVersions,
   SyntheticsGlobalVariable: SyntheticsGlobalVariable,
@@ -7748,15 +7759,6 @@ const typeMap: { [index: string]: any } = {
   SyntheticsGlobalVariableTOTPParameters:
     SyntheticsGlobalVariableTOTPParameters,
   SyntheticsGlobalVariableValue: SyntheticsGlobalVariableValue,
-  SyntheticsSuite: SyntheticsSuite,
-  SyntheticsSuiteOptions: SyntheticsSuiteOptions,
-  SyntheticsSuiteResponse: SyntheticsSuiteResponse,
-  SyntheticsSuiteResponseData: SyntheticsSuiteResponseData,
-  SyntheticsSuiteSearchResponse: SyntheticsSuiteSearchResponse,
-  SyntheticsSuiteSearchResponseData: SyntheticsSuiteSearchResponseData,
-  SyntheticsSuiteSearchResponseDataAttributes:
-    SyntheticsSuiteSearchResponseDataAttributes,
-  SyntheticsSuiteTest: SyntheticsSuiteTest,
   SyntheticsVariableParser: SyntheticsVariableParser,
   TableResultV2: TableResultV2,
   TableResultV2Array: TableResultV2Array,

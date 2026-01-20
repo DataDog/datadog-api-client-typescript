@@ -6,15 +6,26 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-export class DeletedSuiteResponseDataAttributes {
+/**
+ * Metadata for pagination
+ */
+export class SecurityEntityRiskScoresMeta {
   /**
-   * Deletion timestamp of the Synthetic suite ID.
+   * Current page number (1-indexed)
    */
-  "deletedAt"?: string;
+  "pageNumber": number;
   /**
-   * The Synthetic suite ID deleted.
+   * Number of items per page
    */
-  "publicId"?: string;
+  "pageSize": number;
+  /**
+   * Query ID for pagination consistency
+   */
+  "queryId": string;
+  /**
+   * Total number of entities matching the query
+   */
+  "totalRowCount": number;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,13 +43,28 @@ export class DeletedSuiteResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedAt: {
-      baseName: "deleted_at",
-      type: "string",
+    pageNumber: {
+      baseName: "pageNumber",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    publicId: {
-      baseName: "public_id",
+    pageSize: {
+      baseName: "pageSize",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    queryId: {
+      baseName: "queryId",
       type: "string",
+      required: true,
+    },
+    totalRowCount: {
+      baseName: "totalRowCount",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -50,7 +76,7 @@ export class DeletedSuiteResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DeletedSuiteResponseDataAttributes.attributeTypeMap;
+    return SecurityEntityRiskScoresMeta.attributeTypeMap;
   }
 
   public constructor() {}

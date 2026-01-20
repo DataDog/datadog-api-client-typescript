@@ -3,19 +3,20 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsSuiteTestAlertingCriticality } from "./SyntheticsSuiteTestAlertingCriticality";
+import { SecurityEntityRiskScore } from "./SecurityEntityRiskScore";
+import { SecurityEntityRiskScoresMeta } from "./SecurityEntityRiskScoresMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object containing details about a Synthetic test included in a Synthetic suite.
+ * Response containing a list of entity risk scores
  */
-export class SyntheticsSuiteTest {
+export class SecurityEntityRiskScoresResponse {
+  "data": Array<SecurityEntityRiskScore>;
   /**
-   * Alerting criticality for each the test.
+   * Metadata for pagination
    */
-  "alertingCriticality"?: SyntheticsSuiteTestAlertingCriticality;
-  "publicId": string;
+  "meta": SecurityEntityRiskScoresMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -33,13 +34,14 @@ export class SyntheticsSuiteTest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alertingCriticality: {
-      baseName: "alerting_criticality",
-      type: "SyntheticsSuiteTestAlertingCriticality",
+    data: {
+      baseName: "data",
+      type: "Array<SecurityEntityRiskScore>",
+      required: true,
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    meta: {
+      baseName: "meta",
+      type: "SecurityEntityRiskScoresMeta",
       required: true,
     },
     additionalProperties: {
@@ -52,7 +54,7 @@ export class SyntheticsSuiteTest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSuiteTest.attributeTypeMap;
+    return SecurityEntityRiskScoresResponse.attributeTypeMap;
   }
 
   public constructor() {}

@@ -4457,7 +4457,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
+        "sort": {
+            "type": "SecurityMonitoringSuppressionSort",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringPaginatedSuppressionsResponse",
     },
     "v2.CreateSecurityMonitoringSuppression": {
         "body": {
@@ -8893,6 +8905,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListEntityRiskScores": {
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "to": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "pageQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterSort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "entityType": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "SecurityEntityRiskScoresResponse",
+    },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
     },
@@ -9256,61 +9303,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "OnDemandConcurrencyCapResponse",
-    },
-    "v2.CreateSyntheticsSuite": {
-        "body": {
-            "type": "SuiteCreateEditRequest",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsSuiteResponse",
-    },
-    "v2.DeleteSyntheticsSuites": {
-        "body": {
-            "type": "DeletedSuitesRequestDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "DeletedSuitesResponse",
-    },
-    "v2.SearchSuites": {
-        "query": {
-            "type": "string",
-            "format": "",
-            },
-        "sort": {
-            "type": "string",
-            "format": "",
-            },
-        "facetsOnly": {
-            "type": "boolean",
-            "format": "",
-            },
-        "start": {
-            "type": "number",
-            "format": "int64",
-            },
-        "count": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "SyntheticsSuiteSearchResponse",
-    },
-    "v2.GetSyntheticsSuite": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsSuiteResponse",
-    },
-    "v2.EditSyntheticsSuite": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SuiteCreateEditRequest",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsSuiteResponse",
     },
     "v2.PatchGlobalVariable": {
         "variableId": {
