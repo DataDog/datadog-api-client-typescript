@@ -7213,6 +7213,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "windowSeconds": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMatch": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIncludeTagValues": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAllowPartial": {
+            "type": "boolean",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
         "operationResponseType": "MetricAllTagsResponse",
     },
     "v2.ListMetricAssets": {

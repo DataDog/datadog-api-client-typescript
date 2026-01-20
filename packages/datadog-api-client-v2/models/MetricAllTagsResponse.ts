@@ -8,11 +8,11 @@ import { MetricAllTags } from "./MetricAllTags";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object that includes a single metric's indexed tags.
+ * Response object that includes a single metric's indexed and ingested tags.
  */
 export class MetricAllTagsResponse {
   /**
-   * Object for a single metric's indexed tags.
+   * Object for a single metric's indexed and ingested tags.
    */
   "data"?: MetricAllTags;
 
