@@ -1,21 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SyntheticsSuiteSearchResponseData } from "./SyntheticsSuiteSearchResponseData";
+
 /**
- * Pagination metadata.
+ * Synthetics suite search response
  */
-export class SecurityMonitoringSuppressionsPageMeta {
+export class SyntheticsSuiteSearchResponse {
   /**
-   * Current page number.
+   * Synthetics suite search response data
    */
-  "pageNumber"?: number;
-  /**
-   * Current page size.
-   */
-  "pageSize"?: number;
-  /**
-   * Total count of suppressions.
-   */
-  "totalCount"?: number;
+  "data"?: SyntheticsSuiteSearchResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,20 +25,9 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pageNumber: {
-      baseName: "pageNumber",
-      type: "number",
-      format: "int64",
-    },
-    pageSize: {
-      baseName: "pageSize",
-      type: "number",
-      format: "int64",
-    },
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int64",
+    data: {
+      baseName: "data",
+      type: "SyntheticsSuiteSearchResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +39,7 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSuppressionsPageMeta.attributeTypeMap;
+    return SyntheticsSuiteSearchResponse.attributeTypeMap;
   }
 
   public constructor() {}
