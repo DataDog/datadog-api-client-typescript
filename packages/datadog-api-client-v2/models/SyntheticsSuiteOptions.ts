@@ -7,21 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Pagination metadata.
+ * Object describing the extra options for a Synthetic suite.
  */
-export class SecurityMonitoringSuppressionsPageMeta {
+export class SyntheticsSuiteOptions {
   /**
-   * Current page number.
+   * Percentage of critical tests failure needed for a suite to fail.
    */
-  "pageNumber"?: number;
-  /**
-   * Current page size.
-   */
-  "pageSize"?: number;
-  /**
-   * Total count of suppressions.
-   */
-  "totalCount"?: number;
+  "alertingThreshold"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,20 +31,10 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pageNumber: {
-      baseName: "pageNumber",
+    alertingThreshold: {
+      baseName: "alerting_threshold",
       type: "number",
-      format: "int64",
-    },
-    pageSize: {
-      baseName: "pageSize",
-      type: "number",
-      format: "int64",
-    },
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int64",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +46,7 @@ export class SecurityMonitoringSuppressionsPageMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSuppressionsPageMeta.attributeTypeMap;
+    return SyntheticsSuiteOptions.attributeTypeMap;
   }
 
   public constructor() {}

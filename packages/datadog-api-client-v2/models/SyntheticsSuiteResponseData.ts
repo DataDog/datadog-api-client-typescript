@@ -3,18 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
+import { SyntheticsSuite } from "./SyntheticsSuite";
+import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Metadata for the suppression list response.
+ * Synthetics suite response data
  */
-export class SecurityMonitoringSuppressionsMeta {
+export class SyntheticsSuiteResponseData {
   /**
-   * Pagination metadata.
+   * Object containing details about a Synthetic suite.
    */
-  "page"?: SecurityMonitoringSuppressionsPageMeta;
+  "attributes"?: SyntheticsSuite;
+  /**
+   * The public ID for the suite.
+   */
+  "id"?: string;
+  /**
+   * Type for the Synthetics suites responses, `suites`.
+   */
+  "type"?: SyntheticsSuiteTypes;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +41,17 @@ export class SecurityMonitoringSuppressionsMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SecurityMonitoringSuppressionsPageMeta",
+    attributes: {
+      baseName: "attributes",
+      type: "SyntheticsSuite",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "SyntheticsSuiteTypes",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +63,7 @@ export class SecurityMonitoringSuppressionsMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSuppressionsMeta.attributeTypeMap;
+    return SyntheticsSuiteResponseData.attributeTypeMap;
   }
 
   public constructor() {}
