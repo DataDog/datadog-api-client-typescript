@@ -1171,6 +1171,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-web-integrations@workspace:services/web_integrations":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-web-integrations@workspace:services/web_integrations"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-webhooks-integration@workspace:services/webhooks_integration":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-webhooks-integration@workspace:services/webhooks_integration"
