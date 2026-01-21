@@ -7,11 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object containing the definition of a metric's tags.
+ * Object containing the definition of a metric's indexed and ingested tags.
  */
 export class MetricAllTagsAttributes {
   /**
-   * List of indexed tag value pairs.
+   * List of ingested tags that are not indexed.
+   */
+  "ingestedTags"?: Array<string>;
+  /**
+   * List of indexed tags.
    */
   "tags"?: Array<string>;
 
@@ -31,6 +35,10 @@ export class MetricAllTagsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    ingestedTags: {
+      baseName: "ingested_tags",
+      type: "Array<string>",
+    },
     tags: {
       baseName: "tags",
       type: "Array<string>",

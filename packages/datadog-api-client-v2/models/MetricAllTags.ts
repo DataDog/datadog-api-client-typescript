@@ -9,11 +9,11 @@ import { MetricType } from "./MetricType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object for a single metric's indexed tags.
+ * Object for a single metric's indexed and ingested tags.
  */
 export class MetricAllTags {
   /**
-   * Object containing the definition of a metric's tags.
+   * Object containing the definition of a metric's indexed and ingested tags.
    */
   "attributes"?: MetricAllTagsAttributes;
   /**
