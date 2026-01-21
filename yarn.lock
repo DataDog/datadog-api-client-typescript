@@ -631,6 +631,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-high-availability-multi-region@workspace:services/high_availability_multi_region":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-high-availability-multi-region@workspace:services/high_availability_multi_region"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-hosts@workspace:services/hosts":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-hosts@workspace:services/hosts"
