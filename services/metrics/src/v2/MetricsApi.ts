@@ -661,6 +661,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listTagsByMetricName(
     metricName: string,
+    windowSeconds?: number,
+    filterTags?: string,
+    filterMatch?: string,
+    filterIncludeTagValues?: boolean,
+    filterAllowPartial?: boolean,
+    pageLimit?: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -692,6 +698,50 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (windowSeconds !== undefined) {
+      requestContext.setQueryParam(
+        "window[seconds]",
+        serialize(windowSeconds, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterTags !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tags]",
+        serialize(filterTags, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterMatch !== undefined) {
+      requestContext.setQueryParam(
+        "filter[match]",
+        serialize(filterMatch, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterIncludeTagValues !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_tag_values]",
+        serialize(filterIncludeTagValues, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (filterAllowPartial !== undefined) {
+      requestContext.setQueryParam(
+        "filter[allow_partial]",
+        serialize(filterAllowPartial, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int32"),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -2103,6 +2153,41 @@ export interface MetricsApiListTagsByMetricNameRequest {
    * @type string
    */
   metricName: string;
+  /**
+   * The number of seconds of look back (from now) to query for tag data.
+   * Default value is 14400 (4 hours), minimum value is 14400 (4 hours).
+   * @type number
+   */
+  windowSeconds?: number;
+  /**
+   * Filter results to tags from data points that have the specified tags.
+   * For example, `filter[tags]=env:staging,host:123` returns tags only from data points with both `env:staging` and `host:123`.
+   * @type string
+   */
+  filterTags?: string;
+  /**
+   * Filter returned tags to those matching a substring.
+   * For example, `filter[match]=env` returns tags like `env:prod`, `environment:staging`, etc.
+   * @type string
+   */
+  filterMatch?: string;
+  /**
+   * Whether to include tag values in the response.
+   * Defaults to true.
+   * @type boolean
+   */
+  filterIncludeTagValues?: boolean;
+  /**
+   * Whether to allow partial results.
+   * Defaults to false.
+   * @type boolean
+   */
+  filterAllowPartial?: boolean;
+  /**
+   * Maximum number of results to return.
+   * @type number
+   */
+  pageLimit?: number;
 }
 
 export interface MetricsApiListVolumesByMetricNameRequest {
@@ -2488,7 +2573,8 @@ export class MetricsApi {
   }
 
   /**
-   * View indexed tag key-value pairs for a given metric name over the previous hour.
+   * View indexed and ingested tags for a given metric name.
+   * Results are filtered by the `window[seconds]` parameter, which defaults to 14400 (4 hours).
    * @param param The request object
    */
   public listTagsByMetricName(
@@ -2497,6 +2583,12 @@ export class MetricsApi {
   ): Promise<MetricAllTagsResponse> {
     const requestContextPromise = this.requestFactory.listTagsByMetricName(
       param.metricName,
+      param.windowSeconds,
+      param.filterTags,
+      param.filterMatch,
+      param.filterIncludeTagValues,
+      param.filterAllowPartial,
+      param.pageLimit,
       options,
     );
     return requestContextPromise.then((requestContext) => {
