@@ -384,6 +384,11 @@ export {
 } from "./apis/GCPIntegrationApi";
 
 export {
+  HighAvailabilityMultiRegionApiCreateHamrOrgConnectionRequest,
+  HighAvailabilityMultiRegionApi,
+} from "./apis/HighAvailabilityMultiRegionApi";
+
+export {
   IPAllowlistApiUpdateIPAllowlistRequest,
   IPAllowlistApi,
 } from "./apis/IPAllowlistApi";
@@ -2566,6 +2571,14 @@ export { GreyNoiseIntegration } from "./models/GreyNoiseIntegration";
 export { GreyNoiseIntegrationType } from "./models/GreyNoiseIntegrationType";
 export { GreyNoiseIntegrationUpdate } from "./models/GreyNoiseIntegrationUpdate";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
+export { HamrOrgConnectionAttributesRequest } from "./models/HamrOrgConnectionAttributesRequest";
+export { HamrOrgConnectionAttributesResponse } from "./models/HamrOrgConnectionAttributesResponse";
+export { HamrOrgConnectionDataRequest } from "./models/HamrOrgConnectionDataRequest";
+export { HamrOrgConnectionDataResponse } from "./models/HamrOrgConnectionDataResponse";
+export { HamrOrgConnectionRequest } from "./models/HamrOrgConnectionRequest";
+export { HamrOrgConnectionResponse } from "./models/HamrOrgConnectionResponse";
+export { HamrOrgConnectionStatus } from "./models/HamrOrgConnectionStatus";
+export { HamrOrgConnectionType } from "./models/HamrOrgConnectionType";
 export { HourlyUsage } from "./models/HourlyUsage";
 export { HourlyUsageAttributes } from "./models/HourlyUsageAttributes";
 export { HourlyUsageMeasurement } from "./models/HourlyUsageMeasurement";

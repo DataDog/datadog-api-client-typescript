@@ -1198,6 +1198,12 @@ import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
 import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
+import { HamrOrgConnectionAttributesRequest } from "./HamrOrgConnectionAttributesRequest";
+import { HamrOrgConnectionAttributesResponse } from "./HamrOrgConnectionAttributesResponse";
+import { HamrOrgConnectionDataRequest } from "./HamrOrgConnectionDataRequest";
+import { HamrOrgConnectionDataResponse } from "./HamrOrgConnectionDataResponse";
+import { HamrOrgConnectionRequest } from "./HamrOrgConnectionRequest";
+import { HamrOrgConnectionResponse } from "./HamrOrgConnectionResponse";
 import { HourlyUsage } from "./HourlyUsage";
 import { HourlyUsageAttributes } from "./HourlyUsageAttributes";
 import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
@@ -3491,6 +3497,8 @@ const enumsMap: { [key: string]: any[] } = {
   GreyNoiseIntegrationType: ["GreyNoise"],
   HTTPIntegrationType: ["HTTP"],
   HTTPTokenAuthType: ["HTTPTokenAuth"],
+  HamrOrgConnectionStatus: [0, 1, 2, 3, 4, 5],
+  HamrOrgConnectionType: ["hamr_org_connections"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -6080,6 +6088,12 @@ const typeMap: { [index: string]: any } = {
   HTTPTokenAuth: HTTPTokenAuth,
   HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
   HTTPTokenUpdate: HTTPTokenUpdate,
+  HamrOrgConnectionAttributesRequest: HamrOrgConnectionAttributesRequest,
+  HamrOrgConnectionAttributesResponse: HamrOrgConnectionAttributesResponse,
+  HamrOrgConnectionDataRequest: HamrOrgConnectionDataRequest,
+  HamrOrgConnectionDataResponse: HamrOrgConnectionDataResponse,
+  HamrOrgConnectionRequest: HamrOrgConnectionRequest,
+  HamrOrgConnectionResponse: HamrOrgConnectionResponse,
   HourlyUsage: HourlyUsage,
   HourlyUsageAttributes: HourlyUsageAttributes,
   HourlyUsageMeasurement: HourlyUsageMeasurement,

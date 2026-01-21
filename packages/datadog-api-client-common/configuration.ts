@@ -281,6 +281,8 @@ export function createConfiguration(
       "v2.getDeploymentRule": false,
       "v2.updateDeploymentGate": false,
       "v2.updateDeploymentRule": false,
+      "v2.createHamrOrgConnection": false,
+      "v2.getHamrOrgConnection": false,
       "v2.createIncident": false,
       "v2.createIncidentAttachment": false,
       "v2.createIncidentIntegration": false,
