@@ -23,7 +23,7 @@ export class RumRetentionFilterCreateAttributes {
    */
   "query"?: string;
   /**
-   * The sample rate for a RUM retention filter, between 0 and 100.
+   * The sample rate for a RUM retention filter, between 0.1 and 100.
    */
   "sampleRate": number;
   /**
@@ -63,7 +63,7 @@ export class RumRetentionFilterCreateAttributes {
       baseName: "sample_rate",
       type: "number",
       required: true,
-      format: "int64",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
