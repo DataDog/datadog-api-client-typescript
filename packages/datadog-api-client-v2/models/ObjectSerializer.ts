@@ -188,8 +188,6 @@ import { AttachmentData } from "./AttachmentData";
 import { AttachmentDataAttributes } from "./AttachmentDataAttributes";
 import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
 import { AttachmentDataRelationships } from "./AttachmentDataRelationships";
-import { AttachmentDataRelationshipsLastModifiedByUser } from "./AttachmentDataRelationshipsLastModifiedByUser";
-import { AttachmentDataRelationshipsLastModifiedByUserData } from "./AttachmentDataRelationshipsLastModifiedByUserData";
 import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
@@ -2922,7 +2920,6 @@ import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocat
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
 import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 import { User } from "./User";
-import { User140420082644000 } from "./User140420082644000";
 import { UserAttributes } from "./UserAttributes";
 import { UserCreateAttributes } from "./UserCreateAttributes";
 import { UserCreateData } from "./UserCreateData";
@@ -4692,7 +4689,6 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamTeamType: ["team"],
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
-  UserType: ["users"],
   UsersType: ["users"],
   VersionHistoryUpdateType: ["create", "update", "delete"],
   VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
@@ -5048,10 +5044,6 @@ const typeMap: { [index: string]: any } = {
   AttachmentDataAttributes: AttachmentDataAttributes,
   AttachmentDataAttributesAttachment: AttachmentDataAttributesAttachment,
   AttachmentDataRelationships: AttachmentDataRelationships,
-  AttachmentDataRelationshipsLastModifiedByUser:
-    AttachmentDataRelationshipsLastModifiedByUser,
-  AttachmentDataRelationshipsLastModifiedByUserData:
-    AttachmentDataRelationshipsLastModifiedByUserData,
   AuditLogsEvent: AuditLogsEvent,
   AuditLogsEventAttributes: AuditLogsEventAttributes,
   AuditLogsEventsResponse: AuditLogsEventsResponse,
@@ -8325,7 +8317,6 @@ const typeMap: { [index: string]: any } = {
   UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
   UsageTimeSeriesObject: UsageTimeSeriesObject,
   User: User,
-  User140420082644000: User140420082644000,
   UserAttributes: UserAttributes,
   UserCreateAttributes: UserCreateAttributes,
   UserCreateData: UserCreateData,
@@ -8483,7 +8474,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   AsanaCredentials: ["AsanaAccessToken"],
   AsanaCredentialsUpdate: ["AsanaAccessTokenUpdate"],
-  AttachmentIncluded: ["User140420082644000"],
+  AttachmentIncluded: ["IncidentUserData"],
   AuthNMappingCreateRelationships: [
     "AuthNMappingRelationshipToRole",
     "AuthNMappingRelationshipToTeam",

@@ -8,8 +8,17 @@ import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachm
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attributes for creating an attachment.
+ */
 export class CreateAttachmentRequestDataAttributes {
+  /**
+   * The attachment object for creating an attachment.
+   */
   "attachment"?: CreateAttachmentRequestDataAttributesAttachment;
+  /**
+   * The type of the attachment.
+   */
   "attachmentType"?: AttachmentDataAttributesAttachmentType;
 
   /**

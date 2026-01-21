@@ -8,22 +8,24 @@ const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.createIncidentAttachment"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 
+// there is a valid "incident" in the system
+const INCIDENT_DATA_ID = process.env.INCIDENT_DATA_ID as string;
+
 const params: v2.IncidentsApiCreateIncidentAttachmentRequest = {
   body: {
     data: {
       attributes: {
         attachment: {
           documentUrl:
-            "https://app.datadoghq.com/notebook/123/Postmortem-IR-123",
-          title: "Postmortem-IR-123",
+            "https://app.datadoghq.com/notebook/ExampleIncident/Example-Incident",
+          title: "Example-Incident",
         },
         attachmentType: "postmortem",
       },
-      id: "00000000-0000-0000-0000-000000000000",
       type: "incident_attachments",
     },
   },
-  incidentId: "incident_id",
+  incidentId: INCIDENT_DATA_ID,
 };
 
 apiInstance

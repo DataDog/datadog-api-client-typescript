@@ -9,9 +9,21 @@ import { IncidentAttachmentType } from "./IncidentAttachmentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attachment data from a response.
+ */
 export class AttachmentData {
+  /**
+   * The attachment's attributes.
+   */
   "attributes": AttachmentDataAttributes;
+  /**
+   * The unique identifier of the attachment.
+   */
   "id": string;
+  /**
+   * The attachment's resource relationships.
+   */
   "relationships": AttachmentDataRelationships;
   /**
    * The incident attachment resource type.

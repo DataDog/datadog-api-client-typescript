@@ -8,9 +8,21 @@ import { AttachmentDataAttributesAttachmentType } from "./AttachmentDataAttribut
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attachment's attributes.
+ */
 export class AttachmentDataAttributes {
+  /**
+   * The attachment object.
+   */
   "attachment"?: AttachmentDataAttributesAttachment;
+  /**
+   * The type of the attachment.
+   */
   "attachmentType"?: AttachmentDataAttributesAttachmentType;
+  /**
+   * Timestamp when the attachment was last modified.
+   */
   "modified"?: Date;
 
   /**
