@@ -5847,6 +5847,16 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "V2EventResponse",
   },
+  "HighAvailabilityMultiRegionApi.V2.GetHamrOrgConnection": {
+    operationResponseType: "HamrOrgConnectionResponse",
+  },
+  "HighAvailabilityMultiRegionApi.V2.CreateHamrOrgConnection": {
+    body: {
+      type: "HamrOrgConnectionRequest",
+      format: "",
+    },
+    operationResponseType: "HamrOrgConnectionResponse",
+  },
   "IncidentsApi.V2.ListIncidents": {
     include: {
       type: "Array<IncidentRelatedObject>",
