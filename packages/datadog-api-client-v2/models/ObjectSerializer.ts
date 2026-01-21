@@ -2347,6 +2347,9 @@ import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRul
 import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
+import { SecurityMonitoringRuleBulkExportAttributes } from "./SecurityMonitoringRuleBulkExportAttributes";
+import { SecurityMonitoringRuleBulkExportData } from "./SecurityMonitoringRuleBulkExportData";
+import { SecurityMonitoringRuleBulkExportPayload } from "./SecurityMonitoringRuleBulkExportPayload";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseAction } from "./SecurityMonitoringRuleCaseAction";
 import { SecurityMonitoringRuleCaseActionOptions } from "./SecurityMonitoringRuleCaseActionOptions";
@@ -4239,6 +4242,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration: [
     1, 6, 12, 24, 48, 168, 336,
+  ],
+  SecurityMonitoringRuleBulkExportDataType: [
+    "security_monitoring_rules_bulk_export",
   ],
   SecurityMonitoringRuleCaseActionOptionsFlaggedIPType: [
     "SUSPICIOUS",
@@ -7436,6 +7442,11 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
   SecurityMonitoringRuleAnomalyDetectionOptions:
     SecurityMonitoringRuleAnomalyDetectionOptions,
+  SecurityMonitoringRuleBulkExportAttributes:
+    SecurityMonitoringRuleBulkExportAttributes,
+  SecurityMonitoringRuleBulkExportData: SecurityMonitoringRuleBulkExportData,
+  SecurityMonitoringRuleBulkExportPayload:
+    SecurityMonitoringRuleBulkExportPayload,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseAction: SecurityMonitoringRuleCaseAction,
   SecurityMonitoringRuleCaseActionOptions:
