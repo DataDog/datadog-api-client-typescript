@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  HttpFile,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -83,6 +84,7 @@ import { SecurityMonitoringCriticalAssetsResponse } from "./models/SecurityMonit
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringPaginatedSuppressionsResponse } from "./models/SecurityMonitoringPaginatedSuppressionsResponse";
+import { SecurityMonitoringRuleBulkExportPayload } from "./models/SecurityMonitoringRuleBulkExportPayload";
 import { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
 import { SecurityMonitoringRuleConvertResponse } from "./models/SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleCreatePayload } from "./models/SecurityMonitoringRuleCreatePayload";
@@ -232,6 +234,65 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AttachJiraIssueRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async bulkExportSecurityMonitoringRules(
+    body: SecurityMonitoringRuleBulkExportPayload,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "bulkExportSecurityMonitoringRules");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/rules/bulk_export";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.bulkExportSecurityMonitoringRules",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/zip, application/json",
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringRuleBulkExportPayload",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -5494,6 +5555,59 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to bulkExportSecurityMonitoringRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async bulkExportSecurityMonitoringRules(
+    response: ResponseContext,
+  ): Promise<HttpFile> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: HttpFile =
+        (await response.getBodyAsFile()) as any as HttpFile;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to cancelThreatHuntingJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -10214,6 +10328,13 @@ export interface SecurityMonitoringApiAttachJiraIssueRequest {
   body: AttachJiraIssueRequest;
 }
 
+export interface SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest {
+  /**
+   * @type SecurityMonitoringRuleBulkExportPayload
+   */
+  body: SecurityMonitoringRuleBulkExportPayload;
+}
+
 export interface SecurityMonitoringApiCancelThreatHuntingJobRequest {
   /**
    * The ID of the job.
@@ -11531,6 +11652,32 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.attachJiraIssue(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Export a list of security monitoring rules as a ZIP file containing JSON rule definitions.
+   * The endpoint accepts a list of rule IDs and returns a ZIP archive where each rule is
+   * saved as a separate JSON file named after the rule.
+   * @param param The request object
+   */
+  public bulkExportSecurityMonitoringRules(
+    param: SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
+    options?: Configuration,
+  ): Promise<HttpFile> {
+    const requestContextPromise =
+      this.requestFactory.bulkExportSecurityMonitoringRules(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.bulkExportSecurityMonitoringRules(
+            responseContext,
+          );
         });
     });
   }

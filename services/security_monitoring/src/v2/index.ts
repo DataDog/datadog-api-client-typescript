@@ -1,6 +1,7 @@
 export {
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
   SecurityMonitoringApiCancelThreatHuntingJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
@@ -321,6 +322,10 @@ export { SecurityMonitoringRuleAnomalyDetectionOptions } from "./models/Security
 export { SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration";
 export { SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance";
 export { SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration";
+export { SecurityMonitoringRuleBulkExportAttributes } from "./models/SecurityMonitoringRuleBulkExportAttributes";
+export { SecurityMonitoringRuleBulkExportData } from "./models/SecurityMonitoringRuleBulkExportData";
+export { SecurityMonitoringRuleBulkExportDataType } from "./models/SecurityMonitoringRuleBulkExportDataType";
+export { SecurityMonitoringRuleBulkExportPayload } from "./models/SecurityMonitoringRuleBulkExportPayload";
 export { SecurityMonitoringRuleCase } from "./models/SecurityMonitoringRuleCase";
 export { SecurityMonitoringRuleCaseAction } from "./models/SecurityMonitoringRuleCaseAction";
 export { SecurityMonitoringRuleCaseActionOptions } from "./models/SecurityMonitoringRuleCaseActionOptions";

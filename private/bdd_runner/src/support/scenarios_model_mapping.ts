@@ -4571,6 +4571,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityMonitoringRuleResponse",
   },
+  "SecurityMonitoringApi.V2.BulkExportSecurityMonitoringRules": {
+    body: {
+      type: "SecurityMonitoringRuleBulkExportPayload",
+      format: "",
+    },
+    operationResponseType: "HttpFile",
+  },
   "SecurityMonitoringApi.V2.ConvertSecurityMonitoringRuleFromJSONToTerraform": {
     body: {
       type: "SecurityMonitoringRuleConvertPayload",
