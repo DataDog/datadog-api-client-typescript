@@ -2304,6 +2304,12 @@ import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
 import { SecretRuleDataAttributesMatchValidation } from "./SecretRuleDataAttributesMatchValidation";
 import { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
 import { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
+import { SecurityEntityConfigRisks } from "./SecurityEntityConfigRisks";
+import { SecurityEntityMetadata } from "./SecurityEntityMetadata";
+import { SecurityEntityRiskScore } from "./SecurityEntityRiskScore";
+import { SecurityEntityRiskScoreAttributes } from "./SecurityEntityRiskScoreAttributes";
+import { SecurityEntityRiskScoresMeta } from "./SecurityEntityRiskScoresMeta";
+import { SecurityEntityRiskScoresResponse } from "./SecurityEntityRiskScoresResponse";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -4201,6 +4207,14 @@ const enumsMap: { [key: string]: any[] } = {
     "issue.team_owners",
   ],
   SecretRuleDataType: ["secret_rule"],
+  SecurityEntityRiskScoreAttributesSeverity: [
+    "critical",
+    "high",
+    "medium",
+    "low",
+    "info",
+  ],
+  SecurityEntityRiskScoreType: ["security_entity_risk_score"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityFindingsDataType: ["finding"],
@@ -7367,6 +7381,12 @@ const typeMap: { [index: string]: any } = {
     SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems,
   SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems:
     SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems,
+  SecurityEntityConfigRisks: SecurityEntityConfigRisks,
+  SecurityEntityMetadata: SecurityEntityMetadata,
+  SecurityEntityRiskScore: SecurityEntityRiskScore,
+  SecurityEntityRiskScoreAttributes: SecurityEntityRiskScoreAttributes,
+  SecurityEntityRiskScoresMeta: SecurityEntityRiskScoresMeta,
+  SecurityEntityRiskScoresResponse: SecurityEntityRiskScoresResponse,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,

@@ -8905,6 +8905,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListEntityRiskScores": {
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "to": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "pageQueryId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterSort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "entityType": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "SecurityEntityRiskScoresResponse",
+    },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
     },

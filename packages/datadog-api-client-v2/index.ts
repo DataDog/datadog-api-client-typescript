@@ -325,6 +325,11 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  EntityRiskScoresApiListEntityRiskScoresRequest,
+  EntityRiskScoresApi,
+} from "./apis/EntityRiskScoresApi";
+
+export {
   ErrorTrackingApiDeleteIssueAssigneeRequest,
   ErrorTrackingApiGetIssueRequest,
   ErrorTrackingApiSearchIssuesRequest,
@@ -4075,6 +4080,14 @@ export { SecretRuleDataAttributesMatchValidation } from "./models/SecretRuleData
 export { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./models/SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
 export { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./models/SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
 export { SecretRuleDataType } from "./models/SecretRuleDataType";
+export { SecurityEntityConfigRisks } from "./models/SecurityEntityConfigRisks";
+export { SecurityEntityMetadata } from "./models/SecurityEntityMetadata";
+export { SecurityEntityRiskScore } from "./models/SecurityEntityRiskScore";
+export { SecurityEntityRiskScoreAttributes } from "./models/SecurityEntityRiskScoreAttributes";
+export { SecurityEntityRiskScoreAttributesSeverity } from "./models/SecurityEntityRiskScoreAttributesSeverity";
+export { SecurityEntityRiskScoresMeta } from "./models/SecurityEntityRiskScoresMeta";
+export { SecurityEntityRiskScoresResponse } from "./models/SecurityEntityRiskScoresResponse";
+export { SecurityEntityRiskScoreType } from "./models/SecurityEntityRiskScoreType";
 export { SecurityFilter } from "./models/SecurityFilter";
 export { SecurityFilterAttributes } from "./models/SecurityFilterAttributes";
 export { SecurityFilterCreateAttributes } from "./models/SecurityFilterCreateAttributes";
