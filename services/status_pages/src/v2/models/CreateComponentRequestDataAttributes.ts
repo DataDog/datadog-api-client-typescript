@@ -1,0 +1,75 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { CreateComponentRequestDataAttributesComponentsItems } from "./CreateComponentRequestDataAttributesComponentsItems";
+import { CreateComponentRequestDataAttributesType } from "./CreateComponentRequestDataAttributesType";
+
+/**
+ * The supported attributes for creating a component.
+ */
+export class CreateComponentRequestDataAttributes {
+  /**
+   * If creating a component of type `group`, the components to create within the group.
+   */
+  "components"?: Array<CreateComponentRequestDataAttributesComponentsItems>;
+  /**
+   * The name of the component.
+   */
+  "name": string;
+  /**
+   * The zero-indexed position of the component.
+   */
+  "position": number;
+  /**
+   * The type of the component.
+   */
+  "type": CreateComponentRequestDataAttributesType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    components: {
+      baseName: "components",
+      type: "Array<CreateComponentRequestDataAttributesComponentsItems>",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    position: {
+      baseName: "position",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    type: {
+      baseName: "type",
+      type: "CreateComponentRequestDataAttributesType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CreateComponentRequestDataAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
