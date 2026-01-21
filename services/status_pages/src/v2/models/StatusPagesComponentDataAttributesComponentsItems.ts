@@ -1,0 +1,69 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./StatusPagesComponentGroupAttributesComponentsItemsStatus";
+import { StatusPagesComponentGroupAttributesComponentsItemsType } from "./StatusPagesComponentGroupAttributesComponentsItemsType";
+
+export class StatusPagesComponentDataAttributesComponentsItems {
+  "id"?: string;
+  "name"?: string;
+  "position"?: number;
+  /**
+   * The status of the component.
+   */
+  "status"?: StatusPagesComponentGroupAttributesComponentsItemsStatus;
+  /**
+   * The type of the component.
+   */
+  "type"?: StatusPagesComponentGroupAttributesComponentsItemsType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "uuid",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    position: {
+      baseName: "position",
+      type: "number",
+      format: "int64",
+    },
+    status: {
+      baseName: "status",
+      type: "StatusPagesComponentGroupAttributesComponentsItemsStatus",
+    },
+    type: {
+      baseName: "type",
+      type: "StatusPagesComponentGroupAttributesComponentsItemsType",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return StatusPagesComponentDataAttributesComponentsItems.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
