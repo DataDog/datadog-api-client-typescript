@@ -49,6 +49,7 @@ import { SensitiveDataScannerStandardPatternAttributes } from "./SensitiveDataSc
 import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerStandardPatternData";
 import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDataScannerStandardPatternsResponseData";
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
+import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -151,6 +152,7 @@ export const TypingInfo: ModelTypingInfo = {
       SensitiveDataScannerStandardPatternsResponseData,
     SensitiveDataScannerStandardPatternsResponseItem:
       SensitiveDataScannerStandardPatternsResponseItem,
+    SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
     SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
   },
 };
