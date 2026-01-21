@@ -53,6 +53,10 @@ export class LogsIndexUpdateRequest {
    */
   "numRetentionDays"?: number;
   /**
+   * A list of tags associated with the index. Tags must be in `key:value` format.
+   */
+  "tags"?: Array<string>;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -103,6 +107,10 @@ export class LogsIndexUpdateRequest {
       baseName: "num_retention_days",
       type: "number",
       format: "int64",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
