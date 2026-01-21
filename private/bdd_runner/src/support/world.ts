@@ -22,6 +22,7 @@ export class World {
 
   public fixtures: { [key: string]: any } = {};
   public opts: { [key: string]: any } = {};
+  public pathParameters: { [key: string]: any } = {};
 
   public cassettesDir: string;
   public packagePrefix: string;

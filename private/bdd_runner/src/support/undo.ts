@@ -45,6 +45,7 @@ function buildUndoFor(
   response: any,
   request: any,
   servicesDir: string,
+  pathParameters: { [key: string]: any } = {},
 ): { (): void } {
   return async function () {
     const apiName: string = tagToApiClassName(operationUndo.tag);
@@ -84,7 +85,9 @@ function buildUndoFor(
     const opts: { [key: string]: any } = {};
     for (const p of operationUndo.undo.parameters) {
       let dataSource: { [key: string]: any };
-      if (p.origin === undefined) {
+      if (p.origin === "path") {
+        dataSource = pathParameters;
+      } else if (p.origin === undefined) {
         dataSource = response;
       } else if (p.origin === "request") {
         dataSource = request.body;
@@ -92,7 +95,19 @@ function buildUndoFor(
         dataSource = response;
       }
       if (p.source !== undefined) {
-        opts[p.name.toAttributeName()] = pathLookup(dataSource, p.source);
+        if (p.origin === "path") {
+          // For path parameters, try both attribute name and original name
+          const attrName = p.source.toAttributeName();
+          if (attrName in dataSource) {
+            opts[p.name.toAttributeName()] = dataSource[attrName];
+          } else if (p.source in dataSource) {
+            opts[p.name.toAttributeName()] = dataSource[p.source];
+          } else {
+            throw new Error(`Path parameter '${p.source}' not found`);
+          }
+        } else {
+          opts[p.name.toAttributeName()] = pathLookup(dataSource, p.source);
+        }
       } else if (p.template !== undefined) {
         const data = JSON.parse(p.template.templated(dataSource));
         const param: { [key: string]: any } = {};
@@ -100,6 +115,8 @@ function buildUndoFor(
           param[key.toAttributeName()] = value;
         }
         opts[p.name.toAttributeName()] = param;
+      } else if (p.origin === "path") {
+        throw new Error(`Path origin requires 'source' field`);
       }
     }
     try {

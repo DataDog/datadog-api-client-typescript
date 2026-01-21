@@ -151,6 +151,7 @@ When("the request is sent", async function (this: World) {
           this.response,
           this.opts,
           this.servicesDir,
+          this.opts,
         ),
       );
     }
