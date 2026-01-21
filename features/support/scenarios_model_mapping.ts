@@ -9335,6 +9335,231 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ResolveVulnerableSymbolsResponse",
     },
+    "v2.ListStatusPages": {
+        "pageOffset": {
+            "type": "number",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "StatusPageArray",
+    },
+    "v2.CreateStatusPage": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateStatusPageRequest",
+            "format": "",
+            },
+        "operationResponseType": "StatusPage",
+    },
+    "v2.ListDegradations": {
+        "filterPageId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DegradationArray",
+    },
+    "v2.GetStatusPage": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "StatusPage",
+    },
+    "v2.DeleteStatusPage": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateStatusPage": {
+        "deleteSubscribers": {
+            "type": "boolean",
+            "format": "",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchStatusPageRequest",
+            "format": "",
+            },
+        "operationResponseType": "StatusPage",
+    },
+    "v2.ListComponents": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "StatusPagesComponentArray",
+    },
+    "v2.CreateComponent": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateComponentRequest",
+            "format": "",
+            },
+        "operationResponseType": "StatusPagesComponent",
+    },
+    "v2.GetComponent": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "componentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "StatusPagesComponent",
+    },
+    "v2.DeleteComponent": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "componentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateComponent": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "componentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchComponentRequest",
+            "format": "",
+            },
+        "operationResponseType": "StatusPagesComponent",
+    },
+    "v2.CreateDegradation": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "notifySubscribers": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateDegradationRequest",
+            "format": "",
+            },
+        "operationResponseType": "Degradation",
+    },
+    "v2.GetDegradation": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "degradationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Degradation",
+    },
+    "v2.DeleteDegradation": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "degradationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateDegradation": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "notifySubscribers": {
+            "type": "boolean",
+            "format": "",
+            },
+        "degradationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchDegradationRequest",
+            "format": "",
+            },
+        "operationResponseType": "Degradation",
+    },
     "v2.GetOnDemandConcurrencyCap": {
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },

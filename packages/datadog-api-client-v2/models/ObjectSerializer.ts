@@ -558,6 +558,13 @@ import { CreateCaseRequestArray } from "./CreateCaseRequestArray";
 import { CreateCaseRequestData } from "./CreateCaseRequestData";
 import { CreateCaseRequestDataAttributes } from "./CreateCaseRequestDataAttributes";
 import { CreateCaseRequestDataRelationships } from "./CreateCaseRequestDataRelationships";
+import { CreateComponentRequest } from "./CreateComponentRequest";
+import { CreateComponentRequestData } from "./CreateComponentRequestData";
+import { CreateComponentRequestDataAttributes } from "./CreateComponentRequestDataAttributes";
+import { CreateComponentRequestDataAttributesComponentsItems } from "./CreateComponentRequestDataAttributesComponentsItems";
+import { CreateComponentRequestDataRelationships } from "./CreateComponentRequestDataRelationships";
+import { CreateComponentRequestDataRelationshipsGroup } from "./CreateComponentRequestDataRelationshipsGroup";
+import { CreateComponentRequestDataRelationshipsGroupData } from "./CreateComponentRequestDataRelationshipsGroupData";
 import { CreateConnectionRequest } from "./CreateConnectionRequest";
 import { CreateConnectionRequestData } from "./CreateConnectionRequestData";
 import { CreateConnectionRequestDataAttributes } from "./CreateConnectionRequestDataAttributes";
@@ -568,6 +575,10 @@ import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateDegradationRequest } from "./CreateDegradationRequest";
+import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
+import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
+import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
 import { CreateDeploymentGateParams } from "./CreateDeploymentGateParams";
 import { CreateDeploymentGateParamsData } from "./CreateDeploymentGateParamsData";
 import { CreateDeploymentGateParamsDataAttributes } from "./CreateDeploymentGateParamsDataAttributes";
@@ -611,6 +622,11 @@ import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRules
 import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
+import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
+import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
+import { CreateStatusPageRequestDataAttributesComponentsItems } from "./CreateStatusPageRequestDataAttributesComponentsItems";
+import { CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems } from "./CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems";
 import { CreateTableRequest } from "./CreateTableRequest";
 import { CreateTableRequestData } from "./CreateTableRequestData";
 import { CreateTableRequestDataAttributes } from "./CreateTableRequestDataAttributes";
@@ -762,6 +778,20 @@ import { DatastoreData } from "./DatastoreData";
 import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
 import { DatastoreTrigger } from "./DatastoreTrigger";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
+import { Degradation } from "./Degradation";
+import { DegradationArray } from "./DegradationArray";
+import { DegradationData } from "./DegradationData";
+import { DegradationDataAttributes } from "./DegradationDataAttributes";
+import { DegradationDataAttributesComponentsAffectedItems } from "./DegradationDataAttributesComponentsAffectedItems";
+import { DegradationDataAttributesUpdatesItems } from "./DegradationDataAttributesUpdatesItems";
+import { DegradationDataAttributesUpdatesItemsComponentsAffectedItems } from "./DegradationDataAttributesUpdatesItemsComponentsAffectedItems";
+import { DegradationDataRelationships } from "./DegradationDataRelationships";
+import { DegradationDataRelationshipsCreatedByUser } from "./DegradationDataRelationshipsCreatedByUser";
+import { DegradationDataRelationshipsCreatedByUserData } from "./DegradationDataRelationshipsCreatedByUserData";
+import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDataRelationshipsLastModifiedByUser";
+import { DegradationDataRelationshipsLastModifiedByUserData } from "./DegradationDataRelationshipsLastModifiedByUserData";
+import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
+import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRelationshipsStatusPageData";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest";
@@ -1920,10 +1950,20 @@ import { PatchAttachmentRequest } from "./PatchAttachmentRequest";
 import { PatchAttachmentRequestData } from "./PatchAttachmentRequestData";
 import { PatchAttachmentRequestDataAttributes } from "./PatchAttachmentRequestDataAttributes";
 import { PatchAttachmentRequestDataAttributesAttachment } from "./PatchAttachmentRequestDataAttributesAttachment";
+import { PatchComponentRequest } from "./PatchComponentRequest";
+import { PatchComponentRequestData } from "./PatchComponentRequestData";
+import { PatchComponentRequestDataAttributes } from "./PatchComponentRequestDataAttributes";
+import { PatchDegradationRequest } from "./PatchDegradationRequest";
+import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
+import { PatchDegradationRequestDataAttributes } from "./PatchDegradationRequestDataAttributes";
+import { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./PatchDegradationRequestDataAttributesComponentsAffectedItems";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
+import { PatchStatusPageRequest } from "./PatchStatusPageRequest";
+import { PatchStatusPageRequestData } from "./PatchStatusPageRequestData";
+import { PatchStatusPageRequestDataAttributes } from "./PatchStatusPageRequestDataAttributes";
 import { PatchTableRequest } from "./PatchTableRequest";
 import { PatchTableRequestData } from "./PatchTableRequestData";
 import { PatchTableRequestDataAttributes } from "./PatchTableRequestDataAttributes";
@@ -2610,6 +2650,56 @@ import { StatsigAPIKey } from "./StatsigAPIKey";
 import { StatsigAPIKeyUpdate } from "./StatsigAPIKeyUpdate";
 import { StatsigIntegration } from "./StatsigIntegration";
 import { StatsigIntegrationUpdate } from "./StatsigIntegrationUpdate";
+import { StatusPage } from "./StatusPage";
+import { StatusPageArray } from "./StatusPageArray";
+import { StatusPageAsIncluded } from "./StatusPageAsIncluded";
+import { StatusPageAsIncludedAttributes } from "./StatusPageAsIncludedAttributes";
+import { StatusPageAsIncludedAttributesComponentsItems } from "./StatusPageAsIncludedAttributesComponentsItems";
+import { StatusPageAsIncludedAttributesComponentsItemsComponentsItems } from "./StatusPageAsIncludedAttributesComponentsItemsComponentsItems";
+import { StatusPageAsIncludedRelationships } from "./StatusPageAsIncludedRelationships";
+import { StatusPageAsIncludedRelationshipsCreatedByUser } from "./StatusPageAsIncludedRelationshipsCreatedByUser";
+import { StatusPageAsIncludedRelationshipsCreatedByUserData } from "./StatusPageAsIncludedRelationshipsCreatedByUserData";
+import { StatusPageAsIncludedRelationshipsLastModifiedByUser } from "./StatusPageAsIncludedRelationshipsLastModifiedByUser";
+import { StatusPageAsIncludedRelationshipsLastModifiedByUserData } from "./StatusPageAsIncludedRelationshipsLastModifiedByUserData";
+import { StatusPageData } from "./StatusPageData";
+import { StatusPageDataAttributes } from "./StatusPageDataAttributes";
+import { StatusPageDataAttributesComponentsItems } from "./StatusPageDataAttributesComponentsItems";
+import { StatusPageDataAttributesComponentsItemsComponentsItems } from "./StatusPageDataAttributesComponentsItemsComponentsItems";
+import { StatusPageDataRelationships } from "./StatusPageDataRelationships";
+import { StatusPageDataRelationshipsCreatedByUser } from "./StatusPageDataRelationshipsCreatedByUser";
+import { StatusPageDataRelationshipsCreatedByUserData } from "./StatusPageDataRelationshipsCreatedByUserData";
+import { StatusPageDataRelationshipsLastModifiedByUser } from "./StatusPageDataRelationshipsLastModifiedByUser";
+import { StatusPageDataRelationshipsLastModifiedByUserData } from "./StatusPageDataRelationshipsLastModifiedByUserData";
+import { StatusPagesComponent } from "./StatusPagesComponent";
+import { StatusPagesComponentArray } from "./StatusPagesComponentArray";
+import { StatusPagesComponentData } from "./StatusPagesComponentData";
+import { StatusPagesComponentDataAttributes } from "./StatusPagesComponentDataAttributes";
+import { StatusPagesComponentDataAttributesComponentsItems } from "./StatusPagesComponentDataAttributesComponentsItems";
+import { StatusPagesComponentDataRelationships } from "./StatusPagesComponentDataRelationships";
+import { StatusPagesComponentDataRelationshipsCreatedByUser } from "./StatusPagesComponentDataRelationshipsCreatedByUser";
+import { StatusPagesComponentDataRelationshipsCreatedByUserData } from "./StatusPagesComponentDataRelationshipsCreatedByUserData";
+import { StatusPagesComponentDataRelationshipsGroup } from "./StatusPagesComponentDataRelationshipsGroup";
+import { StatusPagesComponentDataRelationshipsGroupData } from "./StatusPagesComponentDataRelationshipsGroupData";
+import { StatusPagesComponentDataRelationshipsLastModifiedByUser } from "./StatusPagesComponentDataRelationshipsLastModifiedByUser";
+import { StatusPagesComponentDataRelationshipsLastModifiedByUserData } from "./StatusPagesComponentDataRelationshipsLastModifiedByUserData";
+import { StatusPagesComponentDataRelationshipsStatusPage } from "./StatusPagesComponentDataRelationshipsStatusPage";
+import { StatusPagesComponentDataRelationshipsStatusPageData } from "./StatusPagesComponentDataRelationshipsStatusPageData";
+import { StatusPagesComponentGroup } from "./StatusPagesComponentGroup";
+import { StatusPagesComponentGroupAttributes } from "./StatusPagesComponentGroupAttributes";
+import { StatusPagesComponentGroupAttributesComponentsItems } from "./StatusPagesComponentGroupAttributesComponentsItems";
+import { StatusPagesComponentGroupRelationships } from "./StatusPagesComponentGroupRelationships";
+import { StatusPagesComponentGroupRelationshipsCreatedByUser } from "./StatusPagesComponentGroupRelationshipsCreatedByUser";
+import { StatusPagesComponentGroupRelationshipsCreatedByUserData } from "./StatusPagesComponentGroupRelationshipsCreatedByUserData";
+import { StatusPagesComponentGroupRelationshipsGroup } from "./StatusPagesComponentGroupRelationshipsGroup";
+import { StatusPagesComponentGroupRelationshipsGroupData } from "./StatusPagesComponentGroupRelationshipsGroupData";
+import { StatusPagesComponentGroupRelationshipsLastModifiedByUser } from "./StatusPagesComponentGroupRelationshipsLastModifiedByUser";
+import { StatusPagesComponentGroupRelationshipsLastModifiedByUserData } from "./StatusPagesComponentGroupRelationshipsLastModifiedByUserData";
+import { StatusPagesComponentGroupRelationshipsStatusPage } from "./StatusPagesComponentGroupRelationshipsStatusPage";
+import { StatusPagesComponentGroupRelationshipsStatusPageData } from "./StatusPagesComponentGroupRelationshipsStatusPageData";
+import { StatusPagesPagination } from "./StatusPagesPagination";
+import { StatusPagesResponseMeta } from "./StatusPagesResponseMeta";
+import { StatusPagesUser } from "./StatusPagesUser";
+import { StatusPagesUserAttributes } from "./StatusPagesUserAttributes";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
@@ -3258,10 +3348,23 @@ const enumsMap: { [key: string]: any[] } = {
     "viewer",
     "manager",
   ],
+  CreateComponentRequestDataAttributesType: ["component", "group"],
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
+  CreateDegradationRequestDataAttributesStatus: [
+    "investigating",
+    "identified",
+    "monitoring",
+    "resolved",
+  ],
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
   CreateRulesetRequestDataType: ["create_ruleset"],
+  CreateStatusPageRequestDataAttributesType: ["public", "internal"],
+  CreateStatusPageRequestDataAttributesVisualizationType: [
+    "bars_and_uptime_percentage",
+    "bars_only",
+    "component_name_only",
+  ],
   CreateTableRequestDataType: ["reference_table"],
   CreateUploadRequestDataType: ["upload"],
   CreateUploadResponseDataType: ["upload"],
@@ -4029,6 +4132,13 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_OBJECT",
   ],
   PageUrgency: ["low", "high"],
+  PatchDegradationRequestDataAttributesStatus: [
+    "investigating",
+    "identified",
+    "monitoring",
+    "resolved",
+  ],
+  PatchDegradationRequestDataType: ["degradations"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
   PostmortemCellType: ["markdown"],
@@ -4471,6 +4581,23 @@ const enumsMap: { [key: string]: any[] } = {
   StateVariableType: ["stateVariable"],
   StatsigAPIKeyType: ["StatsigAPIKey"],
   StatsigIntegrationType: ["Statsig"],
+  StatusPageDataType: ["status_pages"],
+  StatusPagesComponentDataAttributesStatus: [
+    "operational",
+    "degraded",
+    "partial_outage",
+    "major_outage",
+  ],
+  StatusPagesComponentGroupAttributesComponentsItemsStatus: [
+    "operational",
+    "degraded",
+    "partial_outage",
+    "major_outage",
+  ],
+  StatusPagesComponentGroupAttributesComponentsItemsType: ["component"],
+  StatusPagesComponentGroupType: ["components"],
+  StatusPagesPaginationType: ["offset_limit"],
+  StatusPagesUserType: ["users"],
   SuiteSearchResponseType: ["suites_search"],
   SyntheticsGlobalVariableParseTestOptionsType: [
     "http_body",
@@ -5342,6 +5469,17 @@ const typeMap: { [index: string]: any } = {
   CreateCaseRequestData: CreateCaseRequestData,
   CreateCaseRequestDataAttributes: CreateCaseRequestDataAttributes,
   CreateCaseRequestDataRelationships: CreateCaseRequestDataRelationships,
+  CreateComponentRequest: CreateComponentRequest,
+  CreateComponentRequestData: CreateComponentRequestData,
+  CreateComponentRequestDataAttributes: CreateComponentRequestDataAttributes,
+  CreateComponentRequestDataAttributesComponentsItems:
+    CreateComponentRequestDataAttributesComponentsItems,
+  CreateComponentRequestDataRelationships:
+    CreateComponentRequestDataRelationships,
+  CreateComponentRequestDataRelationshipsGroup:
+    CreateComponentRequestDataRelationshipsGroup,
+  CreateComponentRequestDataRelationshipsGroupData:
+    CreateComponentRequestDataRelationshipsGroupData,
   CreateConnectionRequest: CreateConnectionRequest,
   CreateConnectionRequestData: CreateConnectionRequestData,
   CreateConnectionRequestDataAttributes: CreateConnectionRequestDataAttributes,
@@ -5354,6 +5492,12 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateDegradationRequest: CreateDegradationRequest,
+  CreateDegradationRequestData: CreateDegradationRequestData,
+  CreateDegradationRequestDataAttributes:
+    CreateDegradationRequestDataAttributes,
+  CreateDegradationRequestDataAttributesComponentsAffectedItems:
+    CreateDegradationRequestDataAttributesComponentsAffectedItems,
   CreateDeploymentGateParams: CreateDeploymentGateParams,
   CreateDeploymentGateParamsData: CreateDeploymentGateParamsData,
   CreateDeploymentGateParamsDataAttributes:
@@ -5409,6 +5553,13 @@ const typeMap: { [index: string]: any } = {
     CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
   CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
     CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+  CreateStatusPageRequest: CreateStatusPageRequest,
+  CreateStatusPageRequestData: CreateStatusPageRequestData,
+  CreateStatusPageRequestDataAttributes: CreateStatusPageRequestDataAttributes,
+  CreateStatusPageRequestDataAttributesComponentsItems:
+    CreateStatusPageRequestDataAttributesComponentsItems,
+  CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems:
+    CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems,
   CreateTableRequest: CreateTableRequest,
   CreateTableRequestData: CreateTableRequestData,
   CreateTableRequestDataAttributes: CreateTableRequestDataAttributes,
@@ -5594,6 +5745,28 @@ const typeMap: { [index: string]: any } = {
   DatastoreDataAttributes: DatastoreDataAttributes,
   DatastoreTrigger: DatastoreTrigger,
   DatastoreTriggerWrapper: DatastoreTriggerWrapper,
+  Degradation: Degradation,
+  DegradationArray: DegradationArray,
+  DegradationData: DegradationData,
+  DegradationDataAttributes: DegradationDataAttributes,
+  DegradationDataAttributesComponentsAffectedItems:
+    DegradationDataAttributesComponentsAffectedItems,
+  DegradationDataAttributesUpdatesItems: DegradationDataAttributesUpdatesItems,
+  DegradationDataAttributesUpdatesItemsComponentsAffectedItems:
+    DegradationDataAttributesUpdatesItemsComponentsAffectedItems,
+  DegradationDataRelationships: DegradationDataRelationships,
+  DegradationDataRelationshipsCreatedByUser:
+    DegradationDataRelationshipsCreatedByUser,
+  DegradationDataRelationshipsCreatedByUserData:
+    DegradationDataRelationshipsCreatedByUserData,
+  DegradationDataRelationshipsLastModifiedByUser:
+    DegradationDataRelationshipsLastModifiedByUser,
+  DegradationDataRelationshipsLastModifiedByUserData:
+    DegradationDataRelationshipsLastModifiedByUserData,
+  DegradationDataRelationshipsStatusPage:
+    DegradationDataRelationshipsStatusPage,
+  DegradationDataRelationshipsStatusPageData:
+    DegradationDataRelationshipsStatusPageData,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsDatastoreItemRequest: DeleteAppsDatastoreItemRequest,
@@ -6975,12 +7148,23 @@ const typeMap: { [index: string]: any } = {
   PatchAttachmentRequestDataAttributes: PatchAttachmentRequestDataAttributes,
   PatchAttachmentRequestDataAttributesAttachment:
     PatchAttachmentRequestDataAttributesAttachment,
+  PatchComponentRequest: PatchComponentRequest,
+  PatchComponentRequestData: PatchComponentRequestData,
+  PatchComponentRequestDataAttributes: PatchComponentRequestDataAttributes,
+  PatchDegradationRequest: PatchDegradationRequest,
+  PatchDegradationRequestData: PatchDegradationRequestData,
+  PatchDegradationRequestDataAttributes: PatchDegradationRequestDataAttributes,
+  PatchDegradationRequestDataAttributesComponentsAffectedItems:
+    PatchDegradationRequestDataAttributesComponentsAffectedItems,
   PatchIncidentNotificationTemplateRequest:
     PatchIncidentNotificationTemplateRequest,
   PatchNotificationRuleParameters: PatchNotificationRuleParameters,
   PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
   PatchNotificationRuleParametersDataAttributes:
     PatchNotificationRuleParametersDataAttributes,
+  PatchStatusPageRequest: PatchStatusPageRequest,
+  PatchStatusPageRequestData: PatchStatusPageRequestData,
+  PatchStatusPageRequestDataAttributes: PatchStatusPageRequestDataAttributes,
   PatchTableRequest: PatchTableRequest,
   PatchTableRequestData: PatchTableRequestData,
   PatchTableRequestDataAttributes: PatchTableRequestDataAttributes,
@@ -7801,6 +7985,87 @@ const typeMap: { [index: string]: any } = {
   StatsigAPIKeyUpdate: StatsigAPIKeyUpdate,
   StatsigIntegration: StatsigIntegration,
   StatsigIntegrationUpdate: StatsigIntegrationUpdate,
+  StatusPage: StatusPage,
+  StatusPageArray: StatusPageArray,
+  StatusPageAsIncluded: StatusPageAsIncluded,
+  StatusPageAsIncludedAttributes: StatusPageAsIncludedAttributes,
+  StatusPageAsIncludedAttributesComponentsItems:
+    StatusPageAsIncludedAttributesComponentsItems,
+  StatusPageAsIncludedAttributesComponentsItemsComponentsItems:
+    StatusPageAsIncludedAttributesComponentsItemsComponentsItems,
+  StatusPageAsIncludedRelationships: StatusPageAsIncludedRelationships,
+  StatusPageAsIncludedRelationshipsCreatedByUser:
+    StatusPageAsIncludedRelationshipsCreatedByUser,
+  StatusPageAsIncludedRelationshipsCreatedByUserData:
+    StatusPageAsIncludedRelationshipsCreatedByUserData,
+  StatusPageAsIncludedRelationshipsLastModifiedByUser:
+    StatusPageAsIncludedRelationshipsLastModifiedByUser,
+  StatusPageAsIncludedRelationshipsLastModifiedByUserData:
+    StatusPageAsIncludedRelationshipsLastModifiedByUserData,
+  StatusPageData: StatusPageData,
+  StatusPageDataAttributes: StatusPageDataAttributes,
+  StatusPageDataAttributesComponentsItems:
+    StatusPageDataAttributesComponentsItems,
+  StatusPageDataAttributesComponentsItemsComponentsItems:
+    StatusPageDataAttributesComponentsItemsComponentsItems,
+  StatusPageDataRelationships: StatusPageDataRelationships,
+  StatusPageDataRelationshipsCreatedByUser:
+    StatusPageDataRelationshipsCreatedByUser,
+  StatusPageDataRelationshipsCreatedByUserData:
+    StatusPageDataRelationshipsCreatedByUserData,
+  StatusPageDataRelationshipsLastModifiedByUser:
+    StatusPageDataRelationshipsLastModifiedByUser,
+  StatusPageDataRelationshipsLastModifiedByUserData:
+    StatusPageDataRelationshipsLastModifiedByUserData,
+  StatusPagesComponent: StatusPagesComponent,
+  StatusPagesComponentArray: StatusPagesComponentArray,
+  StatusPagesComponentData: StatusPagesComponentData,
+  StatusPagesComponentDataAttributes: StatusPagesComponentDataAttributes,
+  StatusPagesComponentDataAttributesComponentsItems:
+    StatusPagesComponentDataAttributesComponentsItems,
+  StatusPagesComponentDataRelationships: StatusPagesComponentDataRelationships,
+  StatusPagesComponentDataRelationshipsCreatedByUser:
+    StatusPagesComponentDataRelationshipsCreatedByUser,
+  StatusPagesComponentDataRelationshipsCreatedByUserData:
+    StatusPagesComponentDataRelationshipsCreatedByUserData,
+  StatusPagesComponentDataRelationshipsGroup:
+    StatusPagesComponentDataRelationshipsGroup,
+  StatusPagesComponentDataRelationshipsGroupData:
+    StatusPagesComponentDataRelationshipsGroupData,
+  StatusPagesComponentDataRelationshipsLastModifiedByUser:
+    StatusPagesComponentDataRelationshipsLastModifiedByUser,
+  StatusPagesComponentDataRelationshipsLastModifiedByUserData:
+    StatusPagesComponentDataRelationshipsLastModifiedByUserData,
+  StatusPagesComponentDataRelationshipsStatusPage:
+    StatusPagesComponentDataRelationshipsStatusPage,
+  StatusPagesComponentDataRelationshipsStatusPageData:
+    StatusPagesComponentDataRelationshipsStatusPageData,
+  StatusPagesComponentGroup: StatusPagesComponentGroup,
+  StatusPagesComponentGroupAttributes: StatusPagesComponentGroupAttributes,
+  StatusPagesComponentGroupAttributesComponentsItems:
+    StatusPagesComponentGroupAttributesComponentsItems,
+  StatusPagesComponentGroupRelationships:
+    StatusPagesComponentGroupRelationships,
+  StatusPagesComponentGroupRelationshipsCreatedByUser:
+    StatusPagesComponentGroupRelationshipsCreatedByUser,
+  StatusPagesComponentGroupRelationshipsCreatedByUserData:
+    StatusPagesComponentGroupRelationshipsCreatedByUserData,
+  StatusPagesComponentGroupRelationshipsGroup:
+    StatusPagesComponentGroupRelationshipsGroup,
+  StatusPagesComponentGroupRelationshipsGroupData:
+    StatusPagesComponentGroupRelationshipsGroupData,
+  StatusPagesComponentGroupRelationshipsLastModifiedByUser:
+    StatusPagesComponentGroupRelationshipsLastModifiedByUser,
+  StatusPagesComponentGroupRelationshipsLastModifiedByUserData:
+    StatusPagesComponentGroupRelationshipsLastModifiedByUserData,
+  StatusPagesComponentGroupRelationshipsStatusPage:
+    StatusPagesComponentGroupRelationshipsStatusPage,
+  StatusPagesComponentGroupRelationshipsStatusPageData:
+    StatusPagesComponentGroupRelationshipsStatusPageData,
+  StatusPagesPagination: StatusPagesPagination,
+  StatusPagesResponseMeta: StatusPagesResponseMeta,
+  StatusPagesUser: StatusPagesUser,
+  StatusPagesUserAttributes: StatusPagesUserAttributes,
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
@@ -8304,6 +8569,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
+  DegradationArrayIncluded: ["StatusPagesUser", "StatusPageAsIncluded"],
   DeploymentRulesOptions: [
     "DeploymentRuleOptionsFaultyDeploymentDetection",
     "DeploymentRuleOptionsMonitor",
@@ -8639,6 +8905,12 @@ const oneOfMap: { [index: string]: string[] } = {
   SplitCredentialsUpdate: ["SplitAPIKeyUpdate"],
   StatsigCredentials: ["StatsigAPIKey"],
   StatsigCredentialsUpdate: ["StatsigAPIKeyUpdate"],
+  StatusPageArrayIncluded: ["StatusPagesUser"],
+  StatusPagesComponentArrayIncluded: [
+    "StatusPagesUser",
+    "StatusPageAsIncluded",
+    "StatusPagesComponentGroup",
+  ],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TeamOnCallRespondersIncluded: ["User", "Escalation"],
   TeamRoutingRulesIncluded: ["RoutingRule"],
