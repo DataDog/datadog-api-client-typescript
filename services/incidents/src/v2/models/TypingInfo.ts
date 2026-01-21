@@ -7,8 +7,6 @@ import { AttachmentData } from "./AttachmentData";
 import { AttachmentDataAttributes } from "./AttachmentDataAttributes";
 import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
 import { AttachmentDataRelationships } from "./AttachmentDataRelationships";
-import { AttachmentDataRelationshipsLastModifiedByUser } from "./AttachmentDataRelationshipsLastModifiedByUser";
-import { AttachmentDataRelationshipsLastModifiedByUserData } from "./AttachmentDataRelationshipsLastModifiedByUserData";
 import { CreateAttachmentRequest } from "./CreateAttachmentRequest";
 import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
 import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
@@ -165,7 +163,6 @@ import { RelationshipToUsers } from "./RelationshipToUsers";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { User } from "./User";
-import { User140420082644000 } from "./User140420082644000";
 import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
 import { ZoomConfigurationReference } from "./ZoomConfigurationReference";
@@ -225,11 +222,10 @@ export const TypingInfo: ModelTypingInfo = {
     OrganizationsType: ["orgs"],
     PostmortemCellType: ["markdown"],
     RolesType: ["roles"],
-    UserType: ["users"],
     UsersType: ["users"],
   },
   oneOfMap: {
-    AttachmentIncluded: ["User140420082644000"],
+    AttachmentIncluded: ["IncidentUserData"],
     IncidentFieldAttributes: [
       "IncidentFieldAttributesSingleValue",
       "IncidentFieldAttributesMultipleValue",
@@ -261,10 +257,6 @@ export const TypingInfo: ModelTypingInfo = {
     AttachmentDataAttributes: AttachmentDataAttributes,
     AttachmentDataAttributesAttachment: AttachmentDataAttributesAttachment,
     AttachmentDataRelationships: AttachmentDataRelationships,
-    AttachmentDataRelationshipsLastModifiedByUser:
-      AttachmentDataRelationshipsLastModifiedByUser,
-    AttachmentDataRelationshipsLastModifiedByUserData:
-      AttachmentDataRelationshipsLastModifiedByUserData,
     CreateAttachmentRequest: CreateAttachmentRequest,
     CreateAttachmentRequestData: CreateAttachmentRequestData,
     CreateAttachmentRequestDataAttributes:
@@ -461,7 +453,6 @@ export const TypingInfo: ModelTypingInfo = {
     SlackIntegrationMetadata: SlackIntegrationMetadata,
     SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
     User: User,
-    User140420082644000: User140420082644000,
     UserAttributes: UserAttributes,
     UserResponseRelationships: UserResponseRelationships,
     ZoomConfigurationReference: ZoomConfigurationReference,

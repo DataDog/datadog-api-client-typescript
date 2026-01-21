@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { IncidentAttachmentType } from "./IncidentAttachmentType";
 import { PatchAttachmentRequestDataAttributes } from "./PatchAttachmentRequestDataAttributes";
 
+/**
+ * Attachment data for an update request.
+ */
 export class PatchAttachmentRequestData {
+  /**
+   * The attributes for updating an attachment.
+   */
   "attributes"?: PatchAttachmentRequestDataAttributes;
+  /**
+   * The unique identifier of the attachment.
+   */
   "id"?: string;
   /**
    * The incident attachment resource type.

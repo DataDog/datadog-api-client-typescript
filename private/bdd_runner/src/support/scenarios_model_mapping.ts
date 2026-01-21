@@ -6134,7 +6134,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     attachmentId: {
-      type: "any",
+      type: "string",
       format: "",
     },
     operationResponseType: "{}",
@@ -6145,7 +6145,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     attachmentId: {
-      type: "any",
+      type: "string",
       format: "",
     },
     include: {

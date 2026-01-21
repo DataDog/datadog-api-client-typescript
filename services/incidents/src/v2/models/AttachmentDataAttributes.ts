@@ -3,9 +3,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
 import { AttachmentDataAttributesAttachmentType } from "./AttachmentDataAttributesAttachmentType";
 
+/**
+ * The attachment's attributes.
+ */
 export class AttachmentDataAttributes {
+  /**
+   * The attachment object.
+   */
   "attachment"?: AttachmentDataAttributesAttachment;
+  /**
+   * The type of the attachment.
+   */
   "attachmentType"?: AttachmentDataAttributesAttachmentType;
+  /**
+   * Timestamp when the attachment was last modified.
+   */
   "modified"?: Date;
   /**
    * A container for additional, undeclared properties.
