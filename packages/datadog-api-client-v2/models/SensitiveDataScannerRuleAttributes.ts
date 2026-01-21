@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SensitiveDataScannerIncludedKeywordConfiguration } from "./SensitiveDataScannerIncludedKeywordConfiguration";
+import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -48,6 +49,11 @@ export class SensitiveDataScannerRuleAttributes {
    * Integer from 1 (high) to 5 (low) indicating rule issue severity.
    */
   "priority"?: number;
+  /**
+   * Object describing the suppressions for a rule. There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+   * Suppressed matches are not obfuscated, counted in metrics, or displayed in the Findings page.
+   */
+  "suppressions"?: SensitiveDataScannerSuppressions;
   /**
    * List of tags.
    */
@@ -105,6 +111,10 @@ export class SensitiveDataScannerRuleAttributes {
       baseName: "priority",
       type: "number",
       format: "int64",
+    },
+    suppressions: {
+      baseName: "suppressions",
+      type: "SensitiveDataScannerSuppressions",
     },
     tags: {
       baseName: "tags",
