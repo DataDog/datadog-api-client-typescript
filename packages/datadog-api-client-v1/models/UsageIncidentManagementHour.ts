@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident management usage for a given organization for a given hour.
+ * Incident Management usage for a given organization for a given hour.
  */
 export class UsageIncidentManagementHour {
   /**
