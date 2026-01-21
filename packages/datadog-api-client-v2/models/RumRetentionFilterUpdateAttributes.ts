@@ -28,7 +28,7 @@ export class RumRetentionFilterUpdateAttributes {
    */
   "query"?: string;
   /**
-   * The sample rate for a RUM retention filter, between 0 and 100.
+   * The sample rate for a RUM retention filter, between 0.1 and 100.
    */
   "sampleRate"?: number;
 
