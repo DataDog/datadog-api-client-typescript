@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityPipelineOpenSearchDestinationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,6 +18,10 @@ export class ObservabilityPipelineOpenSearchDestination {
    * The index to write logs to.
    */
   "bulkIndex"?: string;
+  /**
+   * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+   */
+  "dataStream"?: ObservabilityPipelineOpenSearchDestinationDataStream;
   /**
    * The unique identifier for this component.
    */
@@ -49,6 +54,10 @@ export class ObservabilityPipelineOpenSearchDestination {
     bulkIndex: {
       baseName: "bulk_index",
       type: "string",
+    },
+    dataStream: {
+      baseName: "data_stream",
+      type: "ObservabilityPipelineOpenSearchDestinationDataStream",
     },
     id: {
       baseName: "id",
