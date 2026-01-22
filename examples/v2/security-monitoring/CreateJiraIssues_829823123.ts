@@ -1,5 +1,5 @@
 /**
- * Create Jira issues for security findings returns "Created" response
+ * Create Jira issue for security findings returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -19,30 +19,11 @@ const params: v2.SecurityMonitoringApiCreateJiraIssuesRequest = {
           findings: {
             data: [
               {
-                id: "eWswLWJsdC1hZm5-aS0wMjRlYTgwMzVkZTU1MGIwYQ==",
+                id: "a3ZoLXNjbS14eXV-aS0wNWY5MGYwMGE4NDg2ODdlOA==",
                 type: "findings",
               },
-            ],
-          },
-          project: {
-            data: {
-              id: "959a6f71-bac8-4027-b1d3-2264f569296f",
-              type: "projects",
-            },
-          },
-        },
-        type: "jira_issues",
-      },
-      {
-        attributes: {
-          title: "A title",
-          description: "A description",
-        },
-        relationships: {
-          findings: {
-            data: [
               {
-                id: "a3ZoLXNjbS14eXV-aS0wNWY5MGYwMGE4NDg2ODdlOA==",
+                id: "eWswLWJsdC1hZm5-aS0wMjRlYTgwMzVkZTU1MGIwYQ==",
                 type: "findings",
               },
             ],
