@@ -1,9 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AttachmentDataRelationshipsLastModifiedByUser } from "./AttachmentDataRelationshipsLastModifiedByUser";
+import { RelationshipToIncident } from "./RelationshipToIncident";
+import { RelationshipToUser } from "./RelationshipToUser";
 
+/**
+ * The attachment's resource relationships.
+ */
 export class AttachmentDataRelationships {
-  "lastModifiedByUser"?: AttachmentDataRelationshipsLastModifiedByUser;
+  /**
+   * Relationship to incident.
+   */
+  "incident"?: RelationshipToIncident;
+  /**
+   * Relationship to user.
+   */
+  "lastModifiedByUser"?: RelationshipToUser;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -19,9 +30,13 @@ export class AttachmentDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    incident: {
+      baseName: "incident",
+      type: "RelationshipToIncident",
+    },
     lastModifiedByUser: {
       baseName: "last_modified_by_user",
-      type: "AttachmentDataRelationshipsLastModifiedByUser",
+      type: "RelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",

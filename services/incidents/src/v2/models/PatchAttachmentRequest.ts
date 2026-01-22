@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PatchAttachmentRequestData } from "./PatchAttachmentRequestData";
 
+/**
+ * Request to update an attachment.
+ */
 export class PatchAttachmentRequest {
+  /**
+   * Attachment data for an update request.
+   */
   "data"?: PatchAttachmentRequestData;
   /**
    * A container for additional, undeclared properties.

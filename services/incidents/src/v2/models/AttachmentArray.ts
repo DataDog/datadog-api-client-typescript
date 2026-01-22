@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AttachmentData } from "./AttachmentData";
 import { AttachmentIncluded } from "./AttachmentIncluded";
 
+/**
+ * A list of incident attachments.
+ */
 export class AttachmentArray {
   "data": Array<AttachmentData>;
   "included"?: Array<AttachmentIncluded>;

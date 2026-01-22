@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * The attachment object for creating an attachment.
+ */
 export class CreateAttachmentRequestDataAttributesAttachment {
+  /**
+   * The URL of the attachment.
+   */
   "documentUrl"?: string;
+  /**
+   * The title of the attachment.
+   */
   "title"?: string;
   /**
    * A container for additional, undeclared properties.

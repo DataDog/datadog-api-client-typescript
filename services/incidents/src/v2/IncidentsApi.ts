@@ -734,7 +734,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async deleteIncidentAttachment(
     incidentId: string,
-    attachmentId: any,
+    attachmentId: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2153,7 +2153,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async updateIncidentAttachment(
     incidentId: string,
-    attachmentId: any,
+    attachmentId: string,
     body: PatchAttachmentRequest,
     include?: string,
     _options?: Configuration,
@@ -5073,9 +5073,9 @@ export interface IncidentsApiDeleteIncidentAttachmentRequest {
   incidentId: string;
   /**
    * The ID of the attachment.
-   * @type any
+   * @type string
    */
-  attachmentId: any;
+  attachmentId: string;
 }
 
 export interface IncidentsApiDeleteIncidentImpactRequest {
@@ -5374,9 +5374,9 @@ export interface IncidentsApiUpdateIncidentAttachmentRequest {
   incidentId: string;
   /**
    * The ID of the attachment.
-   * @type any
+   * @type string
    */
-  attachmentId: any;
+  attachmentId: string;
   /**
    * @type PatchAttachmentRequest
    */
