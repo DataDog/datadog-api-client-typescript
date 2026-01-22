@@ -30,6 +30,7 @@ const params: v1.LogsIndexesApiCreateLogsIndexRequest = {
     name: "main",
     numFlexLogsRetentionDays: 360,
     numRetentionDays: 15,
+    tags: ["team:backend", "env:production"],
   },
 };
 
