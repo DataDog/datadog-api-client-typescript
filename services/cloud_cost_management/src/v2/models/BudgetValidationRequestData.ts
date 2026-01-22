@@ -1,23 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TagFilter } from "./TagFilter";
+import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
+import { BudgetWithEntriesDataType } from "./BudgetWithEntriesDataType";
 
-/**
- * The entry of a budget.
- */
-export class BudgetEntry {
+export class BudgetValidationRequestData {
+  "attributes"?: BudgetWithEntriesDataAttributes;
+  "id"?: string;
   /**
-   * The `amount` of the budget entry.
+   * Budget resource type.
    */
-  "amount"?: number;
-  /**
-   * The `month` of the budget entry.
-   */
-  "month"?: number;
-  /**
-   * The `tag_filters` of the budget entry.
-   */
-  "tagFilters"?: Array<TagFilter>;
+  "type": BudgetWithEntriesDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,19 +25,18 @@ export class BudgetEntry {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    amount: {
-      baseName: "amount",
-      type: "number",
-      format: "double",
+    attributes: {
+      baseName: "attributes",
+      type: "BudgetWithEntriesDataAttributes",
     },
-    month: {
-      baseName: "month",
-      type: "number",
-      format: "int64",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    tagFilters: {
-      baseName: "tag_filters",
-      type: "Array<TagFilter>",
+    type: {
+      baseName: "type",
+      type: "BudgetWithEntriesDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,7 +48,7 @@ export class BudgetEntry {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BudgetEntry.attributeTypeMap;
+    return BudgetValidationRequestData.attributeTypeMap;
   }
 
   public constructor() {}

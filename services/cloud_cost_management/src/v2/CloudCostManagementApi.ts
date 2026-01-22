@@ -35,6 +35,8 @@ import { AzureUCConfigPatchRequest } from "./models/AzureUCConfigPatchRequest";
 import { AzureUCConfigPostRequest } from "./models/AzureUCConfigPostRequest";
 import { AzureUCConfigsResponse } from "./models/AzureUCConfigsResponse";
 import { BudgetArray } from "./models/BudgetArray";
+import { BudgetValidationRequest } from "./models/BudgetValidationRequest";
+import { BudgetValidationResponse } from "./models/BudgetValidationResponse";
 import { BudgetWithEntries } from "./models/BudgetWithEntries";
 import { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
@@ -54,6 +56,7 @@ import { RulesValidateQueryRequest } from "./models/RulesValidateQueryRequest";
 import { RulesValidateQueryResponse } from "./models/RulesValidateQueryResponse";
 import { UCConfigPair } from "./models/UCConfigPair";
 import { UpdateRulesetRequest } from "./models/UpdateRulesetRequest";
+import { ValidationResponse } from "./models/ValidationResponse";
 import { version } from "../version";
 
 export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -359,7 +362,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-      "AuthZ",
     ]);
 
     return requestContext;
@@ -677,7 +679,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-      "AuthZ",
     ]);
 
     return requestContext;
@@ -984,7 +985,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-      "AuthZ",
     ]);
 
     return requestContext;
@@ -1741,8 +1741,86 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-      "AuthZ",
     ]);
+
+    return requestContext;
+  }
+
+  public async validateBudget(
+    body: BudgetValidationRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "validateBudget");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/budget/validate";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.validateBudget",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "BudgetValidationRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validateCsvBudget(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/budget/csv/validate";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.validateCsvBudget",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     return requestContext;
   }
@@ -2104,7 +2182,7 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -2428,21 +2506,17 @@ export class CloudCostManagementApiResponseProcessor {
    */
   public async getBudget(
     response: ResponseContext,
-  ): Promise<BudgetWithEntries> {
+  ): Promise<BudgetValidationRequest> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: BudgetWithEntries = deserialize(
+      const body: BudgetValidationRequest = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "BudgetWithEntries",
-      ) as BudgetWithEntries;
+        "BudgetValidationRequest",
+      ) as BudgetValidationRequest;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -2463,12 +2537,12 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: BudgetWithEntries = deserialize(
+      const body: BudgetValidationRequest = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "BudgetWithEntries",
+        "BudgetValidationRequest",
         "",
-      ) as BudgetWithEntries;
+      ) as BudgetValidationRequest;
       return body;
     }
 
@@ -3721,6 +3795,118 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to validateBudget
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateBudget(
+    response: ResponseContext,
+  ): Promise<BudgetValidationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: BudgetValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "BudgetValidationResponse",
+      ) as BudgetValidationResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: BudgetValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "BudgetValidationResponse",
+        "",
+      ) as BudgetValidationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateCsvBudget
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateCsvBudget(
+    response: ResponseContext,
+  ): Promise<ValidationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ValidationResponse",
+      ) as ValidationResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ValidationResponse",
+        "",
+      ) as ValidationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to validateQuery
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4032,6 +4218,13 @@ export interface CloudCostManagementApiUpsertBudgetRequest {
   body: BudgetWithEntries;
 }
 
+export interface CloudCostManagementApiValidateBudgetRequest {
+  /**
+   * @type BudgetValidationRequest
+   */
+  body: BudgetValidationRequest;
+}
+
 export interface CloudCostManagementApiValidateQueryRequest {
   /**
    * @type RulesValidateQueryRequest
@@ -4181,7 +4374,7 @@ export class CloudCostManagementApi {
   }
 
   /**
-   * Delete a budget.
+   * Delete a budget
    * @param param The request object
    */
   public deleteBudget(
@@ -4335,13 +4528,13 @@ export class CloudCostManagementApi {
   }
 
   /**
-   * Get a budget.
+   * Get a budget
    * @param param The request object
    */
   public getBudget(
     param: CloudCostManagementApiGetBudgetRequest,
     options?: Configuration,
-  ): Promise<BudgetWithEntries> {
+  ): Promise<BudgetValidationRequest> {
     const requestContextPromise = this.requestFactory.getBudget(
       param.budgetId,
       options,
@@ -4839,6 +5032,44 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.upsertBudget(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Validate a budget configuration without creating or modifying it
+   * @param param The request object
+   */
+  public validateBudget(
+    param: CloudCostManagementApiValidateBudgetRequest,
+    options?: Configuration,
+  ): Promise<BudgetValidationResponse> {
+    const requestContextPromise = this.requestFactory.validateBudget(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateBudget(responseContext);
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public validateCsvBudget(
+    options?: Configuration,
+  ): Promise<ValidationResponse> {
+    const requestContextPromise =
+      this.requestFactory.validateCsvBudget(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateCsvBudget(responseContext);
         });
     });
   }
