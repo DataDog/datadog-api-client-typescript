@@ -1004,6 +1004,7 @@ export {
 
 export {
   TestOptimizationApiSearchFlakyTestsRequest,
+  TestOptimizationApiUpdateFlakyTestsRequest,
   TestOptimizationApi,
 } from "./apis/TestOptimizationApi";
 
@@ -4884,6 +4885,17 @@ export { UpdateDeploymentGateParamsDataAttributes } from "./models/UpdateDeploym
 export { UpdateDeploymentRuleParams } from "./models/UpdateDeploymentRuleParams";
 export { UpdateDeploymentRuleParamsData } from "./models/UpdateDeploymentRuleParamsData";
 export { UpdateDeploymentRuleParamsDataAttributes } from "./models/UpdateDeploymentRuleParamsDataAttributes";
+export { UpdateFlakyTestsRequest } from "./models/UpdateFlakyTestsRequest";
+export { UpdateFlakyTestsRequestAttributes } from "./models/UpdateFlakyTestsRequestAttributes";
+export { UpdateFlakyTestsRequestData } from "./models/UpdateFlakyTestsRequestData";
+export { UpdateFlakyTestsRequestDataType } from "./models/UpdateFlakyTestsRequestDataType";
+export { UpdateFlakyTestsRequestTest } from "./models/UpdateFlakyTestsRequestTest";
+export { UpdateFlakyTestsRequestTestNewState } from "./models/UpdateFlakyTestsRequestTestNewState";
+export { UpdateFlakyTestsResponse } from "./models/UpdateFlakyTestsResponse";
+export { UpdateFlakyTestsResponseAttributes } from "./models/UpdateFlakyTestsResponseAttributes";
+export { UpdateFlakyTestsResponseData } from "./models/UpdateFlakyTestsResponseData";
+export { UpdateFlakyTestsResponseDataType } from "./models/UpdateFlakyTestsResponseDataType";
+export { UpdateFlakyTestsResponseResult } from "./models/UpdateFlakyTestsResponseResult";
 export { UpdateOnCallNotificationRuleRequest } from "./models/UpdateOnCallNotificationRuleRequest";
 export { UpdateOnCallNotificationRuleRequestAttributes } from "./models/UpdateOnCallNotificationRuleRequestAttributes";
 export { UpdateOnCallNotificationRuleRequestData } from "./models/UpdateOnCallNotificationRuleRequestData";

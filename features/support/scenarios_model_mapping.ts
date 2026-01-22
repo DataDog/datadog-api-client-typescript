@@ -10106,6 +10106,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FlakyTestsSearchResponse",
     },
+    "v2.UpdateFlakyTests": {
+        "body": {
+            "type": "UpdateFlakyTestsRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateFlakyTestsResponse",
+    },
     "v2.SendInvitations": {
         "body": {
             "type": "UserInvitationsRequest",
