@@ -219,6 +219,7 @@ export {
   CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
+  CloudCostManagementApiValidateBudgetRequest,
   CloudCostManagementApiValidateQueryRequest,
   CloudCostManagementApi,
 } from "./apis/CloudCostManagementApi";
@@ -1427,9 +1428,18 @@ export { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMapp
 export { Budget } from "./models/Budget";
 export { BudgetArray } from "./models/BudgetArray";
 export { BudgetAttributes } from "./models/BudgetAttributes";
-export { BudgetEntry } from "./models/BudgetEntry";
+export { BudgetValidationRequest } from "./models/BudgetValidationRequest";
+export { BudgetValidationRequestData } from "./models/BudgetValidationRequestData";
+export { BudgetValidationResponse } from "./models/BudgetValidationResponse";
+export { BudgetValidationResponseData } from "./models/BudgetValidationResponseData";
+export { BudgetValidationResponseDataAttributes } from "./models/BudgetValidationResponseDataAttributes";
+export { BudgetValidationResponseDataType } from "./models/BudgetValidationResponseDataType";
 export { BudgetWithEntries } from "./models/BudgetWithEntries";
 export { BudgetWithEntriesData } from "./models/BudgetWithEntriesData";
+export { BudgetWithEntriesDataAttributes } from "./models/BudgetWithEntriesDataAttributes";
+export { BudgetWithEntriesDataAttributesEntriesItems } from "./models/BudgetWithEntriesDataAttributesEntriesItems";
+export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
 export { BulkDeleteAppsDatastoreItemsRequest } from "./models/BulkDeleteAppsDatastoreItemsRequest";
 export { BulkDeleteAppsDatastoreItemsRequestData } from "./models/BulkDeleteAppsDatastoreItemsRequestData";
 export { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./models/BulkDeleteAppsDatastoreItemsRequestDataAttributes";
@@ -4689,7 +4699,6 @@ export { TableRowResourceArray } from "./models/TableRowResourceArray";
 export { TableRowResourceData } from "./models/TableRowResourceData";
 export { TableRowResourceDataAttributes } from "./models/TableRowResourceDataAttributes";
 export { TableRowResourceDataType } from "./models/TableRowResourceDataType";
-export { TagFilter } from "./models/TagFilter";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
 export { TeamConnection } from "./models/TeamConnection";

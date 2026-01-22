@@ -5022,12 +5022,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "BudgetWithEntries",
     },
+    "v2.ValidateCsvBudget": {
+        "operationResponseType": "ValidationResponse",
+    },
+    "v2.ValidateBudget": {
+        "body": {
+            "type": "BudgetValidationRequest",
+            "format": "",
+            },
+        "operationResponseType": "BudgetValidationResponse",
+    },
     "v2.GetBudget": {
         "budgetId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "BudgetWithEntries",
+        "operationResponseType": "BudgetValidationRequest",
     },
     "v2.DeleteBudget": {
         "budgetId": {

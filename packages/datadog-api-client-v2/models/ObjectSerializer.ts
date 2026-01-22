@@ -282,9 +282,16 @@ import { BillingDimensionsMappingResponse } from "./BillingDimensionsMappingResp
 import { Budget } from "./Budget";
 import { BudgetArray } from "./BudgetArray";
 import { BudgetAttributes } from "./BudgetAttributes";
-import { BudgetEntry } from "./BudgetEntry";
+import { BudgetValidationRequest } from "./BudgetValidationRequest";
+import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
+import { BudgetValidationResponse } from "./BudgetValidationResponse";
+import { BudgetValidationResponseData } from "./BudgetValidationResponseData";
+import { BudgetValidationResponseDataAttributes } from "./BudgetValidationResponseDataAttributes";
 import { BudgetWithEntries } from "./BudgetWithEntries";
 import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
+import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
+import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
+import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 import { BulkDeleteAppsDatastoreItemsRequest } from "./BulkDeleteAppsDatastoreItemsRequest";
 import { BulkDeleteAppsDatastoreItemsRequestData } from "./BulkDeleteAppsDatastoreItemsRequestData";
 import { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./BulkDeleteAppsDatastoreItemsRequestDataAttributes";
@@ -2736,7 +2743,6 @@ import { TableResultV2DataAttributesSchemaFieldsItems } from "./TableResultV2Dat
 import { TableRowResourceArray } from "./TableRowResourceArray";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
-import { TagFilter } from "./TagFilter";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamConnection } from "./TeamConnection";
@@ -3206,6 +3212,8 @@ const enumsMap: { [key: string]: any[] } = {
     "OK",
     "NOT_FOUND",
   ],
+  BudgetValidationResponseDataType: ["budget_validation"],
+  BudgetWithEntriesDataType: ["budget"],
   BulkDeleteAppsDatastoreItemsRequestDataType: ["items"],
   CIAppAggregateSortType: ["alphabetical", "measure"],
   CIAppAggregationFunction: [
@@ -5148,9 +5156,19 @@ const typeMap: { [index: string]: any } = {
   Budget: Budget,
   BudgetArray: BudgetArray,
   BudgetAttributes: BudgetAttributes,
-  BudgetEntry: BudgetEntry,
+  BudgetValidationRequest: BudgetValidationRequest,
+  BudgetValidationRequestData: BudgetValidationRequestData,
+  BudgetValidationResponse: BudgetValidationResponse,
+  BudgetValidationResponseData: BudgetValidationResponseData,
+  BudgetValidationResponseDataAttributes:
+    BudgetValidationResponseDataAttributes,
   BudgetWithEntries: BudgetWithEntries,
   BudgetWithEntriesData: BudgetWithEntriesData,
+  BudgetWithEntriesDataAttributes: BudgetWithEntriesDataAttributes,
+  BudgetWithEntriesDataAttributesEntriesItems:
+    BudgetWithEntriesDataAttributesEntriesItems,
+  BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
+    BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
   BulkDeleteAppsDatastoreItemsRequest: BulkDeleteAppsDatastoreItemsRequest,
   BulkDeleteAppsDatastoreItemsRequestData:
     BulkDeleteAppsDatastoreItemsRequestData,
@@ -8111,7 +8129,6 @@ const typeMap: { [index: string]: any } = {
   TableRowResourceArray: TableRowResourceArray,
   TableRowResourceData: TableRowResourceData,
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
-  TagFilter: TagFilter,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamConnection: TeamConnection,

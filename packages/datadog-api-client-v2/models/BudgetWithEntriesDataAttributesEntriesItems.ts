@@ -3,26 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagFilter } from "./TagFilter";
+import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The entry of a budget.
- */
-export class BudgetEntry {
-  /**
-   * The `amount` of the budget entry.
-   */
+export class BudgetWithEntriesDataAttributesEntriesItems {
   "amount"?: number;
-  /**
-   * The `month` of the budget entry.
-   */
   "month"?: number;
-  /**
-   * The `tag_filters` of the budget entry.
-   */
-  "tagFilters"?: Array<TagFilter>;
+  "tagFilters"?: Array<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,7 +40,7 @@ export class BudgetEntry {
     },
     tagFilters: {
       baseName: "tag_filters",
-      type: "Array<TagFilter>",
+      type: "Array<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +52,7 @@ export class BudgetEntry {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BudgetEntry.attributeTypeMap;
+    return BudgetWithEntriesDataAttributesEntriesItems.attributeTypeMap;
   }
 
   public constructor() {}
