@@ -161,5 +161,6 @@ export { WidgetSort } from "./models/WidgetSort";
 export { WidgetSortBy } from "./models/WidgetSortBy";
 export { WidgetSortOrderBy } from "./models/WidgetSortOrderBy";
 export { WidgetStyle } from "./models/WidgetStyle";
+export { WidgetStyleOrderBy } from "./models/WidgetStyleOrderBy";
 export { WidgetTextAlign } from "./models/WidgetTextAlign";
 export { WidgetTime } from "./models/WidgetTime";

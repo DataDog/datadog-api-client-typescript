@@ -255,6 +255,7 @@ export const TypingInfo: ModelTypingInfo = {
       "black_on_light_red",
     ],
     WidgetSort: ["asc", "desc"],
+    WidgetStyleOrderBy: ["tags", "values"],
     WidgetTextAlign: ["center", "left", "right"],
   },
   oneOfMap: {
