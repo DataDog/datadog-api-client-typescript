@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityPipelineOpenSearchDestinationType";
 
 /**
@@ -12,6 +13,10 @@ export class ObservabilityPipelineOpenSearchDestination {
    * The index to write logs to.
    */
   "bulkIndex"?: string;
+  /**
+   * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+   */
+  "dataStream"?: ObservabilityPipelineOpenSearchDestinationDataStream;
   /**
    * The unique identifier for this component.
    */
@@ -42,6 +47,10 @@ export class ObservabilityPipelineOpenSearchDestination {
     bulkIndex: {
       baseName: "bulk_index",
       type: "string",
+    },
+    dataStream: {
+      baseName: "data_stream",
+      type: "ObservabilityPipelineOpenSearchDestinationDataStream",
     },
     id: {
       baseName: "id",

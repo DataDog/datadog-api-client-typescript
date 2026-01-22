@@ -70,6 +70,7 @@ import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelin
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
+import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
 import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
@@ -258,6 +259,7 @@ export const TypingInfo: ModelTypingInfo = {
       "none",
       "basic",
       "bearer",
+      "custom",
     ],
     ObservabilityPipelineHttpClientSourceType: ["http_client"],
     ObservabilityPipelineHttpServerSourceAuthStrategy: ["none", "plain"],
@@ -623,6 +625,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineOcsfMapperProcessorMapping,
     ObservabilityPipelineOpenSearchDestination:
       ObservabilityPipelineOpenSearchDestination,
+    ObservabilityPipelineOpenSearchDestinationDataStream:
+      ObservabilityPipelineOpenSearchDestinationDataStream,
     ObservabilityPipelineOpentelemetrySource:
       ObservabilityPipelineOpentelemetrySource,
     ObservabilityPipelineParseGrokProcessor:
