@@ -52,9 +52,16 @@ import { BillConfig } from "./BillConfig";
 import { Budget } from "./Budget";
 import { BudgetArray } from "./BudgetArray";
 import { BudgetAttributes } from "./BudgetAttributes";
-import { BudgetEntry } from "./BudgetEntry";
+import { BudgetValidationRequest } from "./BudgetValidationRequest";
+import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
+import { BudgetValidationResponse } from "./BudgetValidationResponse";
+import { BudgetValidationResponseData } from "./BudgetValidationResponseData";
+import { BudgetValidationResponseDataAttributes } from "./BudgetValidationResponseDataAttributes";
 import { BudgetWithEntries } from "./BudgetWithEntries";
 import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
+import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
+import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
+import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 import { CreateRulesetRequest } from "./CreateRulesetRequest";
 import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
 import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
@@ -112,7 +119,6 @@ import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttri
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
 import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
-import { TagFilter } from "./TagFilter";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
@@ -126,6 +132,9 @@ import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRules
 import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { ValidationError } from "./ValidationError";
+import { ValidationErrorMeta } from "./ValidationErrorMeta";
+import { ValidationResponse } from "./ValidationResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -138,6 +147,8 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPairType: ["azure_uc_configs"],
     AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
     AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
+    BudgetValidationResponseDataType: ["budget_validation"],
+    BudgetWithEntriesDataType: ["budget"],
     CreateRulesetRequestDataType: ["create_ruleset"],
     GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
     GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
@@ -221,9 +232,19 @@ export const TypingInfo: ModelTypingInfo = {
     Budget: Budget,
     BudgetArray: BudgetArray,
     BudgetAttributes: BudgetAttributes,
-    BudgetEntry: BudgetEntry,
+    BudgetValidationRequest: BudgetValidationRequest,
+    BudgetValidationRequestData: BudgetValidationRequestData,
+    BudgetValidationResponse: BudgetValidationResponse,
+    BudgetValidationResponseData: BudgetValidationResponseData,
+    BudgetValidationResponseDataAttributes:
+      BudgetValidationResponseDataAttributes,
     BudgetWithEntries: BudgetWithEntries,
     BudgetWithEntriesData: BudgetWithEntriesData,
+    BudgetWithEntriesDataAttributes: BudgetWithEntriesDataAttributes,
+    BudgetWithEntriesDataAttributesEntriesItems:
+      BudgetWithEntriesDataAttributesEntriesItems,
+    BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
+      BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
     CreateRulesetRequest: CreateRulesetRequest,
     CreateRulesetRequestData: CreateRulesetRequestData,
     CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
@@ -297,7 +318,6 @@ export const TypingInfo: ModelTypingInfo = {
       RulesetRespDataAttributesRulesItemsReferenceTable,
     RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
       RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
-    TagFilter: TagFilter,
     UCConfigPair: UCConfigPair,
     UCConfigPairData: UCConfigPairData,
     UCConfigPairDataAttributes: UCConfigPairDataAttributes,
@@ -318,5 +338,8 @@ export const TypingInfo: ModelTypingInfo = {
       UpdateRulesetRequestDataAttributesRulesItemsReferenceTable,
     UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
       UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    ValidationError: ValidationError,
+    ValidationErrorMeta: ValidationErrorMeta,
+    ValidationResponse: ValidationResponse,
   },
 };

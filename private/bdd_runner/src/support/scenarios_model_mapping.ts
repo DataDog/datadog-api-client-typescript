@@ -5032,12 +5032,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "BudgetWithEntries",
   },
+  "CloudCostManagementApi.V2.ValidateCsvBudget": {
+    operationResponseType: "ValidationResponse",
+  },
+  "CloudCostManagementApi.V2.ValidateBudget": {
+    body: {
+      type: "BudgetValidationRequest",
+      format: "",
+    },
+    operationResponseType: "BudgetValidationResponse",
+  },
   "CloudCostManagementApi.V2.GetBudget": {
     budgetId: {
       type: "string",
       format: "",
     },
-    operationResponseType: "BudgetWithEntries",
+    operationResponseType: "BudgetValidationRequest",
   },
   "CloudCostManagementApi.V2.DeleteBudget": {
     budgetId: {

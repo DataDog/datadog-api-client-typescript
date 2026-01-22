@@ -1,17 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-/**
- * Tag filter for the budget's entries.
- */
-export class TagFilter {
+import { BudgetValidationResponseDataAttributes } from "./BudgetValidationResponseDataAttributes";
+import { BudgetValidationResponseDataType } from "./BudgetValidationResponseDataType";
+
+export class BudgetValidationResponseData {
+  "attributes"?: BudgetValidationResponseDataAttributes;
+  "id"?: string;
   /**
-   * The key of the tag.
+   * Budget validation resource type.
    */
-  "tagKey"?: string;
-  /**
-   * The value of the tag.
-   */
-  "tagValue"?: string;
+  "type": BudgetValidationResponseDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,13 +25,18 @@ export class TagFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagKey: {
-      baseName: "tag_key",
+    attributes: {
+      baseName: "attributes",
+      type: "BudgetValidationResponseDataAttributes",
+    },
+    id: {
+      baseName: "id",
       type: "string",
     },
-    tagValue: {
-      baseName: "tag_value",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "BudgetValidationResponseDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,7 +48,7 @@ export class TagFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagFilter.attributeTypeMap;
+    return BudgetValidationResponseData.attributeTypeMap;
   }
 
   public constructor() {}
