@@ -61,7 +61,7 @@ export class SyntheticsMobileTestOptions {
    */
   "noScreenshot"?: boolean;
   /**
-   * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
+   * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access. This field is deprecated. Use the restriction policies API to manage permissions.
    */
   "restrictedRoles"?: Array<string>;
   /**
