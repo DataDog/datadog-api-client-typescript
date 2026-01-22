@@ -14,6 +14,14 @@ import { FlakyTestsSearchRequestAttributes } from "./FlakyTestsSearchRequestAttr
 import { FlakyTestsSearchRequestData } from "./FlakyTestsSearchRequestData";
 import { FlakyTestsSearchResponse } from "./FlakyTestsSearchResponse";
 import { FlakyTestsSearchResponseMeta } from "./FlakyTestsSearchResponseMeta";
+import { UpdateFlakyTestsRequest } from "./UpdateFlakyTestsRequest";
+import { UpdateFlakyTestsRequestAttributes } from "./UpdateFlakyTestsRequestAttributes";
+import { UpdateFlakyTestsRequestData } from "./UpdateFlakyTestsRequestData";
+import { UpdateFlakyTestsRequestTest } from "./UpdateFlakyTestsRequestTest";
+import { UpdateFlakyTestsResponse } from "./UpdateFlakyTestsResponse";
+import { UpdateFlakyTestsResponseAttributes } from "./UpdateFlakyTestsResponseAttributes";
+import { UpdateFlakyTestsResponseData } from "./UpdateFlakyTestsResponseData";
+import { UpdateFlakyTestsResponseResult } from "./UpdateFlakyTestsResponseResult";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -39,6 +47,14 @@ export const TypingInfo: ModelTypingInfo = {
       "pipelines_duration_lost",
       "-pipelines_duration_lost",
     ],
+    UpdateFlakyTestsRequestDataType: ["update_flaky_test_state_request"],
+    UpdateFlakyTestsRequestTestNewState: [
+      "active",
+      "quarantined",
+      "disabled",
+      "fixed",
+    ],
+    UpdateFlakyTestsResponseDataType: ["update_flaky_test_state_response"],
   },
   oneOfMap: {},
   typeMap: {
@@ -56,5 +72,13 @@ export const TypingInfo: ModelTypingInfo = {
     FlakyTestsSearchRequestData: FlakyTestsSearchRequestData,
     FlakyTestsSearchResponse: FlakyTestsSearchResponse,
     FlakyTestsSearchResponseMeta: FlakyTestsSearchResponseMeta,
+    UpdateFlakyTestsRequest: UpdateFlakyTestsRequest,
+    UpdateFlakyTestsRequestAttributes: UpdateFlakyTestsRequestAttributes,
+    UpdateFlakyTestsRequestData: UpdateFlakyTestsRequestData,
+    UpdateFlakyTestsRequestTest: UpdateFlakyTestsRequestTest,
+    UpdateFlakyTestsResponse: UpdateFlakyTestsResponse,
+    UpdateFlakyTestsResponseAttributes: UpdateFlakyTestsResponseAttributes,
+    UpdateFlakyTestsResponseData: UpdateFlakyTestsResponseData,
+    UpdateFlakyTestsResponseResult: UpdateFlakyTestsResponseResult,
   },
 };
