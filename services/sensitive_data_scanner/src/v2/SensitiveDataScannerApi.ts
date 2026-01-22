@@ -524,7 +524,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     response: ResponseContext,
   ): Promise<SensitiveDataScannerCreateGroupResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateGroupResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -584,7 +584,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     response: ResponseContext,
   ): Promise<SensitiveDataScannerCreateRuleResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
