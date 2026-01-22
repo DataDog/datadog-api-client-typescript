@@ -3,21 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
+import { BudgetWithEntriesDataType } from "./BudgetWithEntriesDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Tag filter for the budget's entries.
- */
-export class TagFilter {
+export class BudgetValidationRequestData {
+  "attributes"?: BudgetWithEntriesDataAttributes;
+  "id"?: string;
   /**
-   * The key of the tag.
+   * Budget resource type.
    */
-  "tagKey"?: string;
-  /**
-   * The value of the tag.
-   */
-  "tagValue"?: string;
+  "type": BudgetWithEntriesDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +32,18 @@ export class TagFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagKey: {
-      baseName: "tag_key",
+    attributes: {
+      baseName: "attributes",
+      type: "BudgetWithEntriesDataAttributes",
+    },
+    id: {
+      baseName: "id",
       type: "string",
     },
-    tagValue: {
-      baseName: "tag_value",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "BudgetWithEntriesDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +55,7 @@ export class TagFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagFilter.attributeTypeMap;
+    return BudgetValidationRequestData.attributeTypeMap;
   }
 
   public constructor() {}
