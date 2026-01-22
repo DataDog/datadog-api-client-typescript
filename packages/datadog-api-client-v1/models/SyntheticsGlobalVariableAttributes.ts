@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsGlobalVariableAttributes {
   /**
-   * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
+   * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access. This field is deprecated. Use the restriction policies API to manage permissions.
    */
   "restrictedRoles"?: Array<string>;
 
