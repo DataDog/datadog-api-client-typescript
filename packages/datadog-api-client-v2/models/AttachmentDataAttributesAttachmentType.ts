@@ -6,6 +6,10 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * The type of the attachment.
+ */
+
 export type AttachmentDataAttributesAttachmentType =
   | typeof POSTMORTEM
   | typeof LINK

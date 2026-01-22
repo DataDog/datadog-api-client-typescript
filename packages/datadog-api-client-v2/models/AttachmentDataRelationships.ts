@@ -3,12 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AttachmentDataRelationshipsLastModifiedByUser } from "./AttachmentDataRelationshipsLastModifiedByUser";
+import { RelationshipToIncident } from "./RelationshipToIncident";
+import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attachment's resource relationships.
+ */
 export class AttachmentDataRelationships {
-  "lastModifiedByUser"?: AttachmentDataRelationshipsLastModifiedByUser;
+  /**
+   * Relationship to incident.
+   */
+  "incident"?: RelationshipToIncident;
+  /**
+   * Relationship to user.
+   */
+  "lastModifiedByUser"?: RelationshipToUser;
 
   /**
    * A container for additional, undeclared properties.
@@ -26,9 +37,13 @@ export class AttachmentDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    incident: {
+      baseName: "incident",
+      type: "RelationshipToIncident",
+    },
     lastModifiedByUser: {
       baseName: "last_modified_by_user",
-      type: "AttachmentDataRelationshipsLastModifiedByUser",
+      type: "RelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",

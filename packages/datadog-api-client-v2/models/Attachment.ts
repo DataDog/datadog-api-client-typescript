@@ -8,7 +8,13 @@ import { AttachmentIncluded } from "./AttachmentIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * An attachment response containing the attachment data and related objects.
+ */
 export class Attachment {
+  /**
+   * Attachment data from a response.
+   */
   "data"?: AttachmentData;
   "included"?: Array<AttachmentIncluded>;
 

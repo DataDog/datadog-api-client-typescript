@@ -8,8 +8,11 @@ const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.listIncidentAttachments"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 
+// there is a valid "incident" in the system
+const INCIDENT_DATA_ID = process.env.INCIDENT_DATA_ID as string;
+
 const params: v2.IncidentsApiListIncidentAttachmentsRequest = {
-  incidentId: "incident_id",
+  incidentId: INCIDENT_DATA_ID,
 };
 
 apiInstance

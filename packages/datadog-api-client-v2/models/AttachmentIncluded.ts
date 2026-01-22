@@ -3,8 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { User140420082644000 } from "./User140420082644000";
+import { IncidentUserData } from "./IncidentUserData";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-export type AttachmentIncluded = User140420082644000 | UnparsedObject;
+/**
+ * Objects related to an attachment.
+ */
+
+export type AttachmentIncluded = IncidentUserData | UnparsedObject;

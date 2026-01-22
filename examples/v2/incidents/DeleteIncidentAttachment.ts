@@ -8,9 +8,16 @@ const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.deleteIncidentAttachment"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 
+// there is a valid "incident" in the system
+const INCIDENT_DATA_ID = process.env.INCIDENT_DATA_ID as string;
+
+// there is a valid "incident_attachment" in the system
+const INCIDENT_ATTACHMENT_DATA_ID = process.env
+  .INCIDENT_ATTACHMENT_DATA_ID as string;
+
 const params: v2.IncidentsApiDeleteIncidentAttachmentRequest = {
-  incidentId: "incident_id",
-  attachmentId: "00000000-0000-0000-0000-000000000002",
+  incidentId: INCIDENT_DATA_ID,
+  attachmentId: INCIDENT_ATTACHMENT_DATA_ID,
 };
 
 apiInstance

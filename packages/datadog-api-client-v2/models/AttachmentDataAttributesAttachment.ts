@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attachment object.
+ */
 export class AttachmentDataAttributesAttachment {
+  /**
+   * The URL of the attachment.
+   */
   "documentUrl"?: string;
+  /**
+   * The title of the attachment.
+   */
   "title"?: string;
 
   /**

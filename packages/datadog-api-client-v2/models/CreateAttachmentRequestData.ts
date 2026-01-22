@@ -8,7 +8,13 @@ import { IncidentAttachmentType } from "./IncidentAttachmentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attachment data for a create request.
+ */
 export class CreateAttachmentRequestData {
+  /**
+   * The attributes for creating an attachment.
+   */
   "attributes"?: CreateAttachmentRequestDataAttributes;
   "id"?: string;
   /**
