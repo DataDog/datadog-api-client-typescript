@@ -7,7 +7,7 @@ import { CasePriority } from "./CasePriority";
  */
 export class CreateJiraIssueRequestDataAttributes {
   /**
-   * Unique identifier of the user assigned to the Jira issue.
+   * Unique identifier of the Datadog user assigned to the Jira issue.
    */
   "assigneeId"?: string;
   /**
