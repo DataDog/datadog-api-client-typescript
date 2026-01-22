@@ -2882,6 +2882,14 @@ import { UpdateDeploymentGateParamsDataAttributes } from "./UpdateDeploymentGate
 import { UpdateDeploymentRuleParams } from "./UpdateDeploymentRuleParams";
 import { UpdateDeploymentRuleParamsData } from "./UpdateDeploymentRuleParamsData";
 import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRuleParamsDataAttributes";
+import { UpdateFlakyTestsRequest } from "./UpdateFlakyTestsRequest";
+import { UpdateFlakyTestsRequestAttributes } from "./UpdateFlakyTestsRequestAttributes";
+import { UpdateFlakyTestsRequestData } from "./UpdateFlakyTestsRequestData";
+import { UpdateFlakyTestsRequestTest } from "./UpdateFlakyTestsRequestTest";
+import { UpdateFlakyTestsResponse } from "./UpdateFlakyTestsResponse";
+import { UpdateFlakyTestsResponseAttributes } from "./UpdateFlakyTestsResponseAttributes";
+import { UpdateFlakyTestsResponseData } from "./UpdateFlakyTestsResponseData";
+import { UpdateFlakyTestsResponseResult } from "./UpdateFlakyTestsResponseResult";
 import { UpdateOnCallNotificationRuleRequest } from "./UpdateOnCallNotificationRuleRequest";
 import { UpdateOnCallNotificationRuleRequestAttributes } from "./UpdateOnCallNotificationRuleRequestAttributes";
 import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
@@ -4679,6 +4687,14 @@ const enumsMap: { [key: string]: any[] } = {
   UCConfigPairDataType: ["azure_uc_configs"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateConnectionRequestDataType: ["connection_id"],
+  UpdateFlakyTestsRequestDataType: ["update_flaky_test_state_request"],
+  UpdateFlakyTestsRequestTestNewState: [
+    "active",
+    "quarantined",
+    "disabled",
+    "fixed",
+  ],
+  UpdateFlakyTestsResponseDataType: ["update_flaky_test_state_response"],
   UpdateOutcomesAsyncType: ["batched-outcome"],
   UpdateRulesetRequestDataType: ["update_ruleset"],
   Urgency: ["low", "high", "dynamic"],
@@ -8272,6 +8288,14 @@ const typeMap: { [index: string]: any } = {
   UpdateDeploymentRuleParamsData: UpdateDeploymentRuleParamsData,
   UpdateDeploymentRuleParamsDataAttributes:
     UpdateDeploymentRuleParamsDataAttributes,
+  UpdateFlakyTestsRequest: UpdateFlakyTestsRequest,
+  UpdateFlakyTestsRequestAttributes: UpdateFlakyTestsRequestAttributes,
+  UpdateFlakyTestsRequestData: UpdateFlakyTestsRequestData,
+  UpdateFlakyTestsRequestTest: UpdateFlakyTestsRequestTest,
+  UpdateFlakyTestsResponse: UpdateFlakyTestsResponse,
+  UpdateFlakyTestsResponseAttributes: UpdateFlakyTestsResponseAttributes,
+  UpdateFlakyTestsResponseData: UpdateFlakyTestsResponseData,
+  UpdateFlakyTestsResponseResult: UpdateFlakyTestsResponseResult,
   UpdateOnCallNotificationRuleRequest: UpdateOnCallNotificationRuleRequest,
   UpdateOnCallNotificationRuleRequestAttributes:
     UpdateOnCallNotificationRuleRequestAttributes,
