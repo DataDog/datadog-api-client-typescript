@@ -152,6 +152,7 @@ export { ObservabilityPipelineOcsfMapperProcessorMappingMapping } from "./models
 export { ObservabilityPipelineOcsfMapperProcessorType } from "./models/ObservabilityPipelineOcsfMapperProcessorType";
 export { ObservabilityPipelineOcsfMappingLibrary } from "./models/ObservabilityPipelineOcsfMappingLibrary";
 export { ObservabilityPipelineOpenSearchDestination } from "./models/ObservabilityPipelineOpenSearchDestination";
+export { ObservabilityPipelineOpenSearchDestinationDataStream } from "./models/ObservabilityPipelineOpenSearchDestinationDataStream";
 export { ObservabilityPipelineOpenSearchDestinationType } from "./models/ObservabilityPipelineOpenSearchDestinationType";
 export { ObservabilityPipelineOpentelemetrySource } from "./models/ObservabilityPipelineOpentelemetrySource";
 export { ObservabilityPipelineOpentelemetrySourceType } from "./models/ObservabilityPipelineOpentelemetrySourceType";
