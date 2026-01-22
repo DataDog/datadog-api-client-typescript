@@ -1944,12 +1944,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["SecurityMonitoringApi.v2.getSBOM"]) {
-      throw new Error(
-        "Unstable operation 'getSBOM' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSBOM'] = true`",
-      );
-    }
-
     // verify required parameter 'assetType' is not null or undefined
     if (assetType === null || assetType === undefined) {
       throw new RequiredError("assetType", "getSBOM");
@@ -2852,14 +2846,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["SecurityMonitoringApi.v2.listAssetsSBOMs"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listAssetsSBOMs' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listAssetsSBOMs'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/security/sboms";
