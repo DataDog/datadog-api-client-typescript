@@ -3267,6 +3267,7 @@ const enumsMap: { [key: string]: any[] } = {
   CaseResourceType: ["case"],
   CaseSortableField: ["created_at", "priority", "status"],
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
+  CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
   CaseType: ["STANDARD"],
   CaseTypeResourceType: ["case_type"],
   ChangeEventAttributesAuthorType: ["user", "system", "api", "automation"],

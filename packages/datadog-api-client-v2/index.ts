@@ -1486,6 +1486,7 @@ export { CasesResponse } from "./models/CasesResponse";
 export { CasesResponseMeta } from "./models/CasesResponseMeta";
 export { CasesResponseMetaPagination } from "./models/CasesResponseMetaPagination";
 export { CaseStatus } from "./models/CaseStatus";
+export { CaseStatusGroup } from "./models/CaseStatusGroup";
 export { CaseTrigger } from "./models/CaseTrigger";
 export { CaseTriggerWrapper } from "./models/CaseTriggerWrapper";
 export { CaseType } from "./models/CaseType";
