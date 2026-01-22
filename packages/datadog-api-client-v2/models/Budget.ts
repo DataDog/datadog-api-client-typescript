@@ -22,7 +22,7 @@ export class Budget {
   /**
    * The type of the object, must be `budget`.
    */
-  "type"?: string;
+  "type": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -51,6 +51,7 @@ export class Budget {
     type: {
       baseName: "type",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

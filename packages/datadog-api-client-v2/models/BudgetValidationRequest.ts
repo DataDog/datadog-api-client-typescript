@@ -3,18 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Budget } from "./Budget";
+import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * An array of budgets.
- */
-export class BudgetArray {
-  /**
-   * The `BudgetArray` `data`.
-   */
-  "data": Array<Budget>;
+export class BudgetValidationRequest {
+  "data"?: BudgetValidationRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,8 +28,7 @@ export class BudgetArray {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<Budget>",
-      required: true,
+      type: "BudgetValidationRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +40,7 @@ export class BudgetArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BudgetArray.attributeTypeMap;
+    return BudgetValidationRequest.attributeTypeMap;
   }
 
   public constructor() {}
