@@ -1,15 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { Budget } from "./Budget";
-
 /**
- * An array of budgets.
+ * Describes additional metadata for validation errors, including field names and error messages.
  */
-export class BudgetArray {
+export class ValidationErrorMeta {
   /**
-   * The `BudgetArray` `data`.
+   * The field name that caused the error.
    */
-  "data": Array<Budget>;
+  "field"?: string;
+  /**
+   * The ID of the component in which the error occurred.
+   */
+  "id"?: string;
+  /**
+   * The detailed error message.
+   */
+  "message": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +31,17 @@ export class BudgetArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Budget>",
+    field: {
+      baseName: "field",
+      type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +54,7 @@ export class BudgetArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BudgetArray.attributeTypeMap;
+    return ValidationErrorMeta.attributeTypeMap;
   }
 
   public constructor() {}

@@ -28,6 +28,7 @@ export {
   CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
+  CloudCostManagementApiValidateBudgetRequest,
   CloudCostManagementApiValidateQueryRequest,
   CloudCostManagementApi,
 } from "./CloudCostManagementApi";
@@ -93,9 +94,18 @@ export { BillConfig } from "./models/BillConfig";
 export { Budget } from "./models/Budget";
 export { BudgetArray } from "./models/BudgetArray";
 export { BudgetAttributes } from "./models/BudgetAttributes";
-export { BudgetEntry } from "./models/BudgetEntry";
+export { BudgetValidationRequest } from "./models/BudgetValidationRequest";
+export { BudgetValidationRequestData } from "./models/BudgetValidationRequestData";
+export { BudgetValidationResponse } from "./models/BudgetValidationResponse";
+export { BudgetValidationResponseData } from "./models/BudgetValidationResponseData";
+export { BudgetValidationResponseDataAttributes } from "./models/BudgetValidationResponseDataAttributes";
+export { BudgetValidationResponseDataType } from "./models/BudgetValidationResponseDataType";
 export { BudgetWithEntries } from "./models/BudgetWithEntries";
 export { BudgetWithEntriesData } from "./models/BudgetWithEntriesData";
+export { BudgetWithEntriesDataAttributes } from "./models/BudgetWithEntriesDataAttributes";
+export { BudgetWithEntriesDataAttributesEntriesItems } from "./models/BudgetWithEntriesDataAttributesEntriesItems";
+export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
 export { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 export { CreateRulesetRequestData } from "./models/CreateRulesetRequestData";
 export { CreateRulesetRequestDataAttributes } from "./models/CreateRulesetRequestDataAttributes";
@@ -163,7 +173,6 @@ export { RulesValidateQueryResponse } from "./models/RulesValidateQueryResponse"
 export { RulesValidateQueryResponseData } from "./models/RulesValidateQueryResponseData";
 export { RulesValidateQueryResponseDataAttributes } from "./models/RulesValidateQueryResponseDataAttributes";
 export { RulesValidateQueryResponseDataType } from "./models/RulesValidateQueryResponseDataType";
-export { TagFilter } from "./models/TagFilter";
 export { UCConfigPair } from "./models/UCConfigPair";
 export { UCConfigPairData } from "./models/UCConfigPairData";
 export { UCConfigPairDataAttributes } from "./models/UCConfigPairDataAttributes";
@@ -179,3 +188,6 @@ export { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./mod
 export { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./models/UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
 export { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./models/UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
 export { UpdateRulesetRequestDataType } from "./models/UpdateRulesetRequestDataType";
+export { ValidationError } from "./models/ValidationError";
+export { ValidationErrorMeta } from "./models/ValidationErrorMeta";
+export { ValidationResponse } from "./models/ValidationResponse";

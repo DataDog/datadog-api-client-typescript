@@ -1,15 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { Budget } from "./Budget";
+import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
 
-/**
- * An array of budgets.
- */
-export class BudgetArray {
-  /**
-   * The `BudgetArray` `data`.
-   */
-  "data": Array<Budget>;
+export class BudgetValidationRequest {
+  "data"?: BudgetValidationRequestData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,8 +21,7 @@ export class BudgetArray {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<Budget>",
-      required: true,
+      type: "BudgetValidationRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +33,7 @@ export class BudgetArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BudgetArray.attributeTypeMap;
+    return BudgetValidationRequest.attributeTypeMap;
   }
 
   public constructor() {}
