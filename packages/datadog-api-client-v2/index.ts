@@ -3597,6 +3597,8 @@ export { OnCallNotificationRuleType } from "./models/OnCallNotificationRuleType"
 export { OnCallPageTargetType } from "./models/OnCallPageTargetType";
 export { OnCallPhoneNotificationRuleMethod } from "./models/OnCallPhoneNotificationRuleMethod";
 export { OnCallPhoneNotificationRuleSettings } from "./models/OnCallPhoneNotificationRuleSettings";
+export { OnCallTrigger } from "./models/OnCallTrigger";
+export { OnCallTriggerWrapper } from "./models/OnCallTriggerWrapper";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
 export { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";
