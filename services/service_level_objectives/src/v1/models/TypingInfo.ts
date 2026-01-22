@@ -14,6 +14,8 @@ import { SLOCorrection } from "./SLOCorrection";
 import { SLOCorrectionListResponse } from "./SLOCorrectionListResponse";
 import { SLOCorrectionResponseAttributes } from "./SLOCorrectionResponseAttributes";
 import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
+import { SLOCountDefinition } from "./SLOCountDefinition";
+import { SLOCountSpec } from "./SLOCountSpec";
 import { SLOCreator } from "./SLOCreator";
 import { SLODeleteResponse } from "./SLODeleteResponse";
 import { SLOFormula } from "./SLOFormula";
@@ -89,7 +91,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
-    SLOSliSpec: ["SLOTimeSliceSpec"],
+    SLOSliSpec: ["SLOTimeSliceSpec", "SLOCountSpec"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -108,6 +110,8 @@ export const TypingInfo: ModelTypingInfo = {
     SLOCorrectionResponseAttributes: SLOCorrectionResponseAttributes,
     SLOCorrectionResponseAttributesModifier:
       SLOCorrectionResponseAttributesModifier,
+    SLOCountDefinition: SLOCountDefinition,
+    SLOCountSpec: SLOCountSpec,
     SLOCreator: SLOCreator,
     SLODeleteResponse: SLODeleteResponse,
     SLOFormula: SLOFormula,
