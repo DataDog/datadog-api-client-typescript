@@ -54,7 +54,7 @@ export class IssueCaseAttributes {
    */
   "priority"?: CasePriority;
   /**
-   * Case status
+   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
    */
   "status"?: CaseStatus;
   /**

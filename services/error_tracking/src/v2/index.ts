@@ -15,6 +15,7 @@ export { CasePriority } from "./models/CasePriority";
 export { CaseRelationships } from "./models/CaseRelationships";
 export { CaseResourceType } from "./models/CaseResourceType";
 export { CaseStatus } from "./models/CaseStatus";
+export { CaseStatusGroup } from "./models/CaseStatusGroup";
 export { CaseType } from "./models/CaseType";
 export { CustomAttributeType } from "./models/CustomAttributeType";
 export { CustomAttributeValue } from "./models/CustomAttributeValue";

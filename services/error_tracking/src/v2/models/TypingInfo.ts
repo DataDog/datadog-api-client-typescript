@@ -54,6 +54,7 @@ export const TypingInfo: ModelTypingInfo = {
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
     CaseResourceType: ["case"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
+    CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
     CaseType: ["STANDARD"],
     CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
     GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
