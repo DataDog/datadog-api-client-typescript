@@ -10116,6 +10116,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FlakyTestsSearchResponse",
   },
+  "TestOptimizationApi.V2.UpdateFlakyTests": {
+    body: {
+      type: "UpdateFlakyTestsRequest",
+      format: "",
+    },
+    operationResponseType: "UpdateFlakyTestsResponse",
+  },
   "UsersApi.V2.SendInvitations": {
     body: {
       type: "UserInvitationsRequest",

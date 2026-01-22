@@ -1,5 +1,6 @@
 export {
   TestOptimizationApiSearchFlakyTestsRequest,
+  TestOptimizationApiUpdateFlakyTestsRequest,
   TestOptimizationApi,
 } from "./TestOptimizationApi";
 
@@ -21,3 +22,14 @@ export { FlakyTestsSearchResponseMeta } from "./models/FlakyTestsSearchResponseM
 export { FlakyTestsSearchSort } from "./models/FlakyTestsSearchSort";
 export { FlakyTestStats } from "./models/FlakyTestStats";
 export { FlakyTestType } from "./models/FlakyTestType";
+export { UpdateFlakyTestsRequest } from "./models/UpdateFlakyTestsRequest";
+export { UpdateFlakyTestsRequestAttributes } from "./models/UpdateFlakyTestsRequestAttributes";
+export { UpdateFlakyTestsRequestData } from "./models/UpdateFlakyTestsRequestData";
+export { UpdateFlakyTestsRequestDataType } from "./models/UpdateFlakyTestsRequestDataType";
+export { UpdateFlakyTestsRequestTest } from "./models/UpdateFlakyTestsRequestTest";
+export { UpdateFlakyTestsRequestTestNewState } from "./models/UpdateFlakyTestsRequestTestNewState";
+export { UpdateFlakyTestsResponse } from "./models/UpdateFlakyTestsResponse";
+export { UpdateFlakyTestsResponseAttributes } from "./models/UpdateFlakyTestsResponseAttributes";
+export { UpdateFlakyTestsResponseData } from "./models/UpdateFlakyTestsResponseData";
+export { UpdateFlakyTestsResponseDataType } from "./models/UpdateFlakyTestsResponseDataType";
+export { UpdateFlakyTestsResponseResult } from "./models/UpdateFlakyTestsResponseResult";
