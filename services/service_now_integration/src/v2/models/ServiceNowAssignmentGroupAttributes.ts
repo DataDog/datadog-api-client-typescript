@@ -1,0 +1,64 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Attributes of a ServiceNow assignment group
+ */
+export class ServiceNowAssignmentGroupAttributes {
+  /**
+   * The name of the assignment group
+   */
+  "assignmentGroupName": string;
+  /**
+   * The system ID of the assignment group in ServiceNow
+   */
+  "assignmentGroupSysId": string;
+  /**
+   * The ID of the ServiceNow instance
+   */
+  "instanceId": string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    assignmentGroupName: {
+      baseName: "assignment_group_name",
+      type: "string",
+      required: true,
+    },
+    assignmentGroupSysId: {
+      baseName: "assignment_group_sys_id",
+      type: "string",
+      required: true,
+    },
+    instanceId: {
+      baseName: "instance_id",
+      type: "string",
+      required: true,
+      format: "uuid",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ServiceNowAssignmentGroupAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -435,6 +435,7 @@ apiInstance
 | Service Level Objective Corrections | @datadog/datadog-api-client-service-level-objective-corrections | [README.md](../../services/service-level-objective-corrections/README.md) |
 | Service Level Objectives | @datadog/datadog-api-client-service-level-objectives | [README.md](../../services/service-level-objectives/README.md) |
 | Service Scorecards | @datadog/datadog-api-client-service-scorecards | [README.md](../../services/service-scorecards/README.md) |
+| ServiceNow Integration | @datadog/datadog-api-client-service-now-integration | [README.md](../../services/service-now-integration/README.md) |
 | Slack Integration | @datadog/datadog-api-client-slack-integration | [README.md](../../services/slack-integration/README.md) |
 | Snapshots | @datadog/datadog-api-client-snapshots | [README.md](../../services/snapshots/README.md) |
 | Software Catalog | @datadog/datadog-api-client-software-catalog | [README.md](../../services/software-catalog/README.md) |
