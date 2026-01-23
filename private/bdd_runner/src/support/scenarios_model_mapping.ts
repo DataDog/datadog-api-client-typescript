@@ -6646,6 +6646,65 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OpsgenieServiceResponse",
   },
+  "ServiceNowIntegrationApi.V2.ListServiceNowAssignmentGroups": {
+    instanceId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ServiceNowAssignmentGroupsResponse",
+  },
+  "ServiceNowIntegrationApi.V2.ListServiceNowBusinessServices": {
+    instanceId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ServiceNowBusinessServicesResponse",
+  },
+  "ServiceNowIntegrationApi.V2.ListServiceNowTemplates": {
+    operationResponseType: "ServiceNowTemplatesResponse",
+  },
+  "ServiceNowIntegrationApi.V2.CreateServiceNowTemplate": {
+    body: {
+      type: "ServiceNowTemplateCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ServiceNowTemplateResponse",
+  },
+  "ServiceNowIntegrationApi.V2.GetServiceNowTemplate": {
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ServiceNowTemplateResponse",
+  },
+  "ServiceNowIntegrationApi.V2.UpdateServiceNowTemplate": {
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ServiceNowTemplateUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ServiceNowTemplateResponse",
+  },
+  "ServiceNowIntegrationApi.V2.DeleteServiceNowTemplate": {
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceNowIntegrationApi.V2.ListServiceNowInstances": {
+    operationResponseType: "ServiceNowInstancesResponse",
+  },
+  "ServiceNowIntegrationApi.V2.ListServiceNowUsers": {
+    instanceId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ServiceNowUsersResponse",
+  },
   "CloudflareIntegrationApi.V2.ListCloudflareAccounts": {
     operationResponseType: "CloudflareAccountsResponse",
   },
