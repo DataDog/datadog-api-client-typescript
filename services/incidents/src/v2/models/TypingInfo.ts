@@ -13,6 +13,12 @@ import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequest
 import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
+import { GlobalIncidentSettingsAttributesRequest } from "./GlobalIncidentSettingsAttributesRequest";
+import { GlobalIncidentSettingsAttributesResponse } from "./GlobalIncidentSettingsAttributesResponse";
+import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataRequest";
+import { GlobalIncidentSettingsDataResponse } from "./GlobalIncidentSettingsDataResponse";
+import { GlobalIncidentSettingsRequest } from "./GlobalIncidentSettingsRequest";
+import { GlobalIncidentSettingsResponse } from "./GlobalIncidentSettingsResponse";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
@@ -21,6 +27,18 @@ import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentHandleAttributesFields } from "./IncidentHandleAttributesFields";
+import { IncidentHandleAttributesRequest } from "./IncidentHandleAttributesRequest";
+import { IncidentHandleAttributesResponse } from "./IncidentHandleAttributesResponse";
+import { IncidentHandleDataRequest } from "./IncidentHandleDataRequest";
+import { IncidentHandleDataResponse } from "./IncidentHandleDataResponse";
+import { IncidentHandleRelationship } from "./IncidentHandleRelationship";
+import { IncidentHandleRelationshipData } from "./IncidentHandleRelationshipData";
+import { IncidentHandleRelationships } from "./IncidentHandleRelationships";
+import { IncidentHandleRelationshipsRequest } from "./IncidentHandleRelationshipsRequest";
+import { IncidentHandleRequest } from "./IncidentHandleRequest";
+import { IncidentHandleResponse } from "./IncidentHandleResponse";
+import { IncidentHandlesResponse } from "./IncidentHandlesResponse";
 import { IncidentImpactAttributes } from "./IncidentImpactAttributes";
 import { IncidentImpactCreateAttributes } from "./IncidentImpactCreateAttributes";
 import { IncidentImpactCreateData } from "./IncidentImpactCreateData";
@@ -171,6 +189,7 @@ import { ZoomConfigurationReferenceData } from "./ZoomConfigurationReferenceData
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AttachmentDataAttributesAttachmentType: ["postmortem", "link"],
+    GlobalIncidentSettingsType: ["incidents_global_settings"],
     IncidentAttachmentType: ["incident_attachments"],
     IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
     IncidentFieldAttributesValueType: [
@@ -179,6 +198,7 @@ export const TypingInfo: ModelTypingInfo = {
       "metrictag",
       "autocomplete",
     ],
+    IncidentHandleType: ["incidents_handles"],
     IncidentImpactRelatedObject: [
       "incident",
       "created_by_user",
@@ -230,6 +250,10 @@ export const TypingInfo: ModelTypingInfo = {
       "IncidentFieldAttributesSingleValue",
       "IncidentFieldAttributesMultipleValue",
     ],
+    IncidentHandleIncludedItemResponse: [
+      "IncidentUserData",
+      "IncidentTypeObject",
+    ],
     IncidentIntegrationMetadataMetadata: [
       "SlackIntegrationMetadata",
       "JiraIntegrationMetadata",
@@ -267,6 +291,14 @@ export const TypingInfo: ModelTypingInfo = {
       CreateIncidentNotificationRuleRequest,
     CreateIncidentNotificationTemplateRequest:
       CreateIncidentNotificationTemplateRequest,
+    GlobalIncidentSettingsAttributesRequest:
+      GlobalIncidentSettingsAttributesRequest,
+    GlobalIncidentSettingsAttributesResponse:
+      GlobalIncidentSettingsAttributesResponse,
+    GlobalIncidentSettingsDataRequest: GlobalIncidentSettingsDataRequest,
+    GlobalIncidentSettingsDataResponse: GlobalIncidentSettingsDataResponse,
+    GlobalIncidentSettingsRequest: GlobalIncidentSettingsRequest,
+    GlobalIncidentSettingsResponse: GlobalIncidentSettingsResponse,
     GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
     GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
     IncidentCreateAttributes: IncidentCreateAttributes,
@@ -275,6 +307,18 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentCreateRequest: IncidentCreateRequest,
     IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
     IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+    IncidentHandleAttributesFields: IncidentHandleAttributesFields,
+    IncidentHandleAttributesRequest: IncidentHandleAttributesRequest,
+    IncidentHandleAttributesResponse: IncidentHandleAttributesResponse,
+    IncidentHandleDataRequest: IncidentHandleDataRequest,
+    IncidentHandleDataResponse: IncidentHandleDataResponse,
+    IncidentHandleRelationship: IncidentHandleRelationship,
+    IncidentHandleRelationshipData: IncidentHandleRelationshipData,
+    IncidentHandleRelationships: IncidentHandleRelationships,
+    IncidentHandleRelationshipsRequest: IncidentHandleRelationshipsRequest,
+    IncidentHandleRequest: IncidentHandleRequest,
+    IncidentHandleResponse: IncidentHandleResponse,
+    IncidentHandlesResponse: IncidentHandlesResponse,
     IncidentImpactAttributes: IncidentImpactAttributes,
     IncidentImpactCreateAttributes: IncidentImpactCreateAttributes,
     IncidentImpactCreateData: IncidentImpactCreateData,

@@ -5896,6 +5896,48 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentResponse",
   },
+  "IncidentsApi.V2.ListGlobalIncidentHandles": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentHandlesResponse",
+  },
+  "IncidentsApi.V2.UpdateGlobalIncidentHandle": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentHandleRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentHandleResponse",
+  },
+  "IncidentsApi.V2.CreateGlobalIncidentHandle": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentHandleRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentHandleResponse",
+  },
+  "IncidentsApi.V2.DeleteGlobalIncidentHandle": {
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.GetGlobalIncidentSettings": {
+    operationResponseType: "GlobalIncidentSettingsResponse",
+  },
+  "IncidentsApi.V2.UpdateGlobalIncidentSettings": {
+    body: {
+      type: "GlobalIncidentSettingsRequest",
+      format: "",
+    },
+    operationResponseType: "GlobalIncidentSettingsResponse",
+  },
   "IncidentsApi.V2.ListIncidentNotificationRules": {
     include: {
       type: "string",
