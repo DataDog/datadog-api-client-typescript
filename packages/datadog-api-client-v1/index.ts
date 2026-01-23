@@ -1293,6 +1293,7 @@ export { WidgetSort } from "./models/WidgetSort";
 export { WidgetSortBy } from "./models/WidgetSortBy";
 export { WidgetSortOrderBy } from "./models/WidgetSortOrderBy";
 export { WidgetStyle } from "./models/WidgetStyle";
+export { WidgetStyleOrderBy } from "./models/WidgetStyleOrderBy";
 export { WidgetSummaryType } from "./models/WidgetSummaryType";
 export { WidgetTextAlign } from "./models/WidgetTextAlign";
 export { WidgetTickEdge } from "./models/WidgetTickEdge";

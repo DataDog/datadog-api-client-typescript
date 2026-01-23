@@ -1742,6 +1742,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   WidgetSizeFormat: ["small", "medium", "large"],
   WidgetSort: ["asc", "desc"],
+  WidgetStyleOrderBy: ["tags", "values"],
   WidgetSummaryType: ["monitors", "groups", "combined"],
   WidgetTextAlign: ["center", "left", "right"],
   WidgetTickEdge: ["bottom", "left", "right", "top"],
