@@ -12,7 +12,7 @@ const params: v2.StatusPagesApiCreateStatusPageRequest = {
     data: {
       attributes: {
         name: "A Status Page",
-        domainPrefix: "status-page-5e2fd69be33e79aa",
+        domainPrefix: "5e2fd69be33e79aa",
         components: [
           {
             name: "Login",
