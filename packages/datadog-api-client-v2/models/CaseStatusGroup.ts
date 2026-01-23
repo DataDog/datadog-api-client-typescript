@@ -7,14 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
+ * Status group of the case.
  */
 
-export type CaseStatus =
-  | typeof OPEN
-  | typeof IN_PROGRESS
-  | typeof CLOSED
+export type CaseStatusGroup =
+  | typeof SG_OPEN
+  | typeof SG_IN_PROGRESS
+  | typeof SG_CLOSED
   | UnparsedObject;
-export const OPEN = "OPEN";
-export const IN_PROGRESS = "IN_PROGRESS";
-export const CLOSED = "CLOSED";
+export const SG_OPEN = "SG_OPEN";
+export const SG_IN_PROGRESS = "SG_IN_PROGRESS";
+export const SG_CLOSED = "SG_CLOSED";

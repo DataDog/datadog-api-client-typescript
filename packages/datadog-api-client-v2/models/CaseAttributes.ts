@@ -5,6 +5,7 @@
  */
 import { CasePriority } from "./CasePriority";
 import { CaseStatus } from "./CaseStatus";
+import { CaseStatusGroup } from "./CaseStatusGroup";
 import { CaseType } from "./CaseType";
 import { CustomAttributeValue } from "./CustomAttributeValue";
 import { JiraIssue } from "./JiraIssue";
@@ -61,9 +62,17 @@ export class CaseAttributes {
    */
   "serviceNowTicket"?: ServiceNowTicket;
   /**
-   * Case status
+   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
    */
   "status"?: CaseStatus;
+  /**
+   * Status group of the case.
+   */
+  "statusGroup"?: CaseStatusGroup;
+  /**
+   * Status of the case. Must be one of the existing statuses for the case's type.
+   */
+  "statusName"?: string;
   /**
    * Title
    */
@@ -144,6 +153,14 @@ export class CaseAttributes {
     status: {
       baseName: "status",
       type: "CaseStatus",
+    },
+    statusGroup: {
+      baseName: "status_group",
+      type: "CaseStatusGroup",
+    },
+    statusName: {
+      baseName: "status_name",
+      type: "string",
     },
     title: {
       baseName: "title",
