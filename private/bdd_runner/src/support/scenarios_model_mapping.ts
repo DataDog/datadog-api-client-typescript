@@ -9355,6 +9355,128 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ResolveVulnerableSymbolsResponse",
   },
+  "StaticAnalysisApi.V2.GetCustomRuleset": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CustomRulesetResponse",
+  },
+  "StaticAnalysisApi.V2.DeleteCustomRuleset": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.UpdateCustomRuleset": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CustomRulesetRequest",
+      format: "",
+    },
+    operationResponseType: "CustomRulesetResponse",
+  },
+  "StaticAnalysisApi.V2.CreateCustomRule": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CustomRuleRequest",
+      format: "",
+    },
+    operationResponseType: "CustomRuleResponse",
+  },
+  "StaticAnalysisApi.V2.GetCustomRule": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CustomRuleResponse",
+  },
+  "StaticAnalysisApi.V2.DeleteCustomRule": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.ListCustomRuleRevisions": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    pageOffset: {
+      type: "number",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "CustomRuleRevisionsResponse",
+  },
+  "StaticAnalysisApi.V2.CreateCustomRuleRevision": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CustomRuleRevisionRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.RevertCustomRuleRevision": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RevertCustomRuleRevisionRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.GetCustomRuleRevision": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CustomRuleRevisionResponse",
+  },
   "StatusPagesApi.V2.ListStatusPages": {
     pageOffset: {
       type: "number",
