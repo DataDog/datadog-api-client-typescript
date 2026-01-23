@@ -413,6 +413,7 @@ export {
 } from "./apis/IncidentTeamsApi";
 
 export {
+  IncidentsApiCreateGlobalIncidentHandleRequest,
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentAttachmentRequest,
   IncidentsApiCreateIncidentImpactRequest,
@@ -436,6 +437,7 @@ export {
   IncidentsApiGetIncidentNotificationTemplateRequest,
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
+  IncidentsApiListGlobalIncidentHandlesRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentImpactsRequest,
   IncidentsApiListIncidentIntegrationsRequest,
@@ -445,6 +447,8 @@ export {
   IncidentsApiListIncidentTypesRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
+  IncidentsApiUpdateGlobalIncidentHandleRequest,
+  IncidentsApiUpdateGlobalIncidentSettingsRequest,
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
@@ -2653,6 +2657,13 @@ export { GitlabCredentialsUpdate } from "./models/GitlabCredentialsUpdate";
 export { GitlabIntegration } from "./models/GitlabIntegration";
 export { GitlabIntegrationType } from "./models/GitlabIntegrationType";
 export { GitlabIntegrationUpdate } from "./models/GitlabIntegrationUpdate";
+export { GlobalIncidentSettingsAttributesRequest } from "./models/GlobalIncidentSettingsAttributesRequest";
+export { GlobalIncidentSettingsAttributesResponse } from "./models/GlobalIncidentSettingsAttributesResponse";
+export { GlobalIncidentSettingsDataRequest } from "./models/GlobalIncidentSettingsDataRequest";
+export { GlobalIncidentSettingsDataResponse } from "./models/GlobalIncidentSettingsDataResponse";
+export { GlobalIncidentSettingsRequest } from "./models/GlobalIncidentSettingsRequest";
+export { GlobalIncidentSettingsResponse } from "./models/GlobalIncidentSettingsResponse";
+export { GlobalIncidentSettingsType } from "./models/GlobalIncidentSettingsType";
 export { GlobalVariableData } from "./models/GlobalVariableData";
 export { GlobalVariableJsonPatchRequest } from "./models/GlobalVariableJsonPatchRequest";
 export { GlobalVariableJsonPatchRequestData } from "./models/GlobalVariableJsonPatchRequestData";
@@ -2717,6 +2728,20 @@ export { IncidentFieldAttributesMultipleValue } from "./models/IncidentFieldAttr
 export { IncidentFieldAttributesSingleValue } from "./models/IncidentFieldAttributesSingleValue";
 export { IncidentFieldAttributesSingleValueType } from "./models/IncidentFieldAttributesSingleValueType";
 export { IncidentFieldAttributesValueType } from "./models/IncidentFieldAttributesValueType";
+export { IncidentHandleAttributesFields } from "./models/IncidentHandleAttributesFields";
+export { IncidentHandleAttributesRequest } from "./models/IncidentHandleAttributesRequest";
+export { IncidentHandleAttributesResponse } from "./models/IncidentHandleAttributesResponse";
+export { IncidentHandleDataRequest } from "./models/IncidentHandleDataRequest";
+export { IncidentHandleDataResponse } from "./models/IncidentHandleDataResponse";
+export { IncidentHandleIncludedItemResponse } from "./models/IncidentHandleIncludedItemResponse";
+export { IncidentHandleRelationship } from "./models/IncidentHandleRelationship";
+export { IncidentHandleRelationshipData } from "./models/IncidentHandleRelationshipData";
+export { IncidentHandleRelationships } from "./models/IncidentHandleRelationships";
+export { IncidentHandleRelationshipsRequest } from "./models/IncidentHandleRelationshipsRequest";
+export { IncidentHandleRequest } from "./models/IncidentHandleRequest";
+export { IncidentHandleResponse } from "./models/IncidentHandleResponse";
+export { IncidentHandlesResponse } from "./models/IncidentHandlesResponse";
+export { IncidentHandleType } from "./models/IncidentHandleType";
 export { IncidentImpactAttributes } from "./models/IncidentImpactAttributes";
 export { IncidentImpactCreateAttributes } from "./models/IncidentImpactCreateAttributes";
 export { IncidentImpactCreateData } from "./models/IncidentImpactCreateData";
