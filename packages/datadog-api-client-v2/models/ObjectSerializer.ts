@@ -1225,6 +1225,12 @@ import { GitlabAPIKey } from "./GitlabAPIKey";
 import { GitlabAPIKeyUpdate } from "./GitlabAPIKeyUpdate";
 import { GitlabIntegration } from "./GitlabIntegration";
 import { GitlabIntegrationUpdate } from "./GitlabIntegrationUpdate";
+import { GlobalIncidentSettingsAttributesRequest } from "./GlobalIncidentSettingsAttributesRequest";
+import { GlobalIncidentSettingsAttributesResponse } from "./GlobalIncidentSettingsAttributesResponse";
+import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataRequest";
+import { GlobalIncidentSettingsDataResponse } from "./GlobalIncidentSettingsDataResponse";
+import { GlobalIncidentSettingsRequest } from "./GlobalIncidentSettingsRequest";
+import { GlobalIncidentSettingsResponse } from "./GlobalIncidentSettingsResponse";
 import { GlobalVariableData } from "./GlobalVariableData";
 import { GlobalVariableJsonPatchRequest } from "./GlobalVariableJsonPatchRequest";
 import { GlobalVariableJsonPatchRequestData } from "./GlobalVariableJsonPatchRequestData";
@@ -1279,6 +1285,18 @@ import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentHandleAttributesFields } from "./IncidentHandleAttributesFields";
+import { IncidentHandleAttributesRequest } from "./IncidentHandleAttributesRequest";
+import { IncidentHandleAttributesResponse } from "./IncidentHandleAttributesResponse";
+import { IncidentHandleDataRequest } from "./IncidentHandleDataRequest";
+import { IncidentHandleDataResponse } from "./IncidentHandleDataResponse";
+import { IncidentHandleRelationship } from "./IncidentHandleRelationship";
+import { IncidentHandleRelationshipData } from "./IncidentHandleRelationshipData";
+import { IncidentHandleRelationships } from "./IncidentHandleRelationships";
+import { IncidentHandleRelationshipsRequest } from "./IncidentHandleRelationshipsRequest";
+import { IncidentHandleRequest } from "./IncidentHandleRequest";
+import { IncidentHandleResponse } from "./IncidentHandleResponse";
+import { IncidentHandlesResponse } from "./IncidentHandlesResponse";
 import { IncidentImpactAttributes } from "./IncidentImpactAttributes";
 import { IncidentImpactCreateAttributes } from "./IncidentImpactCreateAttributes";
 import { IncidentImpactCreateData } from "./IncidentImpactCreateData";
@@ -3644,6 +3662,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GitlabAPIKeyType: ["GitlabAPIKey"],
   GitlabIntegrationType: ["Gitlab"],
+  GlobalIncidentSettingsType: ["incidents_global_settings"],
   GlobalVariableJsonPatchType: ["global_variables_json_patch"],
   GlobalVariableType: ["global_variables"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
@@ -3667,6 +3686,7 @@ const enumsMap: { [key: string]: any[] } = {
     "metrictag",
     "autocomplete",
   ],
+  IncidentHandleType: ["incidents_handles"],
   IncidentImpactRelatedObject: [
     "incident",
     "created_by_user",
@@ -6330,6 +6350,14 @@ const typeMap: { [index: string]: any } = {
   GitlabAPIKeyUpdate: GitlabAPIKeyUpdate,
   GitlabIntegration: GitlabIntegration,
   GitlabIntegrationUpdate: GitlabIntegrationUpdate,
+  GlobalIncidentSettingsAttributesRequest:
+    GlobalIncidentSettingsAttributesRequest,
+  GlobalIncidentSettingsAttributesResponse:
+    GlobalIncidentSettingsAttributesResponse,
+  GlobalIncidentSettingsDataRequest: GlobalIncidentSettingsDataRequest,
+  GlobalIncidentSettingsDataResponse: GlobalIncidentSettingsDataResponse,
+  GlobalIncidentSettingsRequest: GlobalIncidentSettingsRequest,
+  GlobalIncidentSettingsResponse: GlobalIncidentSettingsResponse,
   GlobalVariableData: GlobalVariableData,
   GlobalVariableJsonPatchRequest: GlobalVariableJsonPatchRequest,
   GlobalVariableJsonPatchRequestData: GlobalVariableJsonPatchRequestData,
@@ -6385,6 +6413,18 @@ const typeMap: { [index: string]: any } = {
   IncidentCreateRequest: IncidentCreateRequest,
   IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
   IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+  IncidentHandleAttributesFields: IncidentHandleAttributesFields,
+  IncidentHandleAttributesRequest: IncidentHandleAttributesRequest,
+  IncidentHandleAttributesResponse: IncidentHandleAttributesResponse,
+  IncidentHandleDataRequest: IncidentHandleDataRequest,
+  IncidentHandleDataResponse: IncidentHandleDataResponse,
+  IncidentHandleRelationship: IncidentHandleRelationship,
+  IncidentHandleRelationshipData: IncidentHandleRelationshipData,
+  IncidentHandleRelationships: IncidentHandleRelationships,
+  IncidentHandleRelationshipsRequest: IncidentHandleRelationshipsRequest,
+  IncidentHandleRequest: IncidentHandleRequest,
+  IncidentHandleResponse: IncidentHandleResponse,
+  IncidentHandlesResponse: IncidentHandlesResponse,
   IncidentImpactAttributes: IncidentImpactAttributes,
   IncidentImpactCreateAttributes: IncidentImpactCreateAttributes,
   IncidentImpactCreateData: IncidentImpactCreateData,
@@ -8747,6 +8787,10 @@ const oneOfMap: { [index: string]: string[] } = {
   IncidentFieldAttributes: [
     "IncidentFieldAttributesSingleValue",
     "IncidentFieldAttributesMultipleValue",
+  ],
+  IncidentHandleIncludedItemResponse: [
+    "IncidentUserData",
+    "IncidentTypeObject",
   ],
   IncidentIntegrationMetadataMetadata: [
     "SlackIntegrationMetadata",

@@ -22,7 +22,12 @@ import { AttachmentArray } from "../models/AttachmentArray";
 import { CreateAttachmentRequest } from "../models/CreateAttachmentRequest";
 import { CreateIncidentNotificationRuleRequest } from "../models/CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "../models/CreateIncidentNotificationTemplateRequest";
+import { GlobalIncidentSettingsRequest } from "../models/GlobalIncidentSettingsRequest";
+import { GlobalIncidentSettingsResponse } from "../models/GlobalIncidentSettingsResponse";
 import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
+import { IncidentHandleRequest } from "../models/IncidentHandleRequest";
+import { IncidentHandleResponse } from "../models/IncidentHandleResponse";
+import { IncidentHandlesResponse } from "../models/IncidentHandlesResponse";
 import { IncidentImpactCreateRequest } from "../models/IncidentImpactCreateRequest";
 import { IncidentImpactRelatedObject } from "../models/IncidentImpactRelatedObject";
 import { IncidentImpactResponse } from "../models/IncidentImpactResponse";
@@ -58,6 +63,64 @@ import { PostmortemAttachmentRequest } from "../models/PostmortemAttachmentReque
 import { PutIncidentNotificationRuleRequest } from "../models/PutIncidentNotificationRuleRequest";
 
 export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
+  public async createGlobalIncidentHandle(
+    body: IncidentHandleRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createGlobalIncidentHandle'");
+    if (!_config.unstableOperations["v2.createGlobalIncidentHandle"]) {
+      throw new Error(
+        "Unstable operation 'createGlobalIncidentHandle' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createGlobalIncidentHandle");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createGlobalIncidentHandle")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentHandleRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createIncident(
     body: IncidentCreateRequest,
     _options?: Configuration
@@ -576,6 +639,37 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteGlobalIncidentHandle(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteGlobalIncidentHandle'");
+    if (!_config.unstableOperations["v2.deleteGlobalIncidentHandle"]) {
+      throw new Error(
+        "Unstable operation 'deleteGlobalIncidentHandle' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteGlobalIncidentHandle")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteIncident(
     incidentId: string,
     _options?: Configuration
@@ -945,6 +1039,37 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getGlobalIncidentSettings(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getGlobalIncidentSettings'");
+    if (!_config.unstableOperations["v2.getGlobalIncidentSettings"]) {
+      throw new Error(
+        "Unstable operation 'getGlobalIncidentSettings' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/global/settings";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getGlobalIncidentSettings")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getIncident(
     incidentId: string,
     include?: Array<IncidentRelatedObject>,
@@ -1231,6 +1356,47 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listGlobalIncidentHandles(
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listGlobalIncidentHandles'");
+    if (!_config.unstableOperations["v2.listGlobalIncidentHandles"]) {
+      throw new Error(
+        "Unstable operation 'listGlobalIncidentHandles' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listGlobalIncidentHandles")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -1684,6 +1850,112 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateGlobalIncidentHandle(
+    body: IncidentHandleRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateGlobalIncidentHandle'");
+    if (!_config.unstableOperations["v2.updateGlobalIncidentHandle"]) {
+      throw new Error(
+        "Unstable operation 'updateGlobalIncidentHandle' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateGlobalIncidentHandle");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateGlobalIncidentHandle")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentHandleRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateGlobalIncidentSettings(
+    body: GlobalIncidentSettingsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateGlobalIncidentSettings'");
+    if (!_config.unstableOperations["v2.updateGlobalIncidentSettings"]) {
+      throw new Error(
+        "Unstable operation 'updateGlobalIncidentSettings' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateGlobalIncidentSettings");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/global/settings";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateGlobalIncidentSettings")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "GlobalIncidentSettingsRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -2172,6 +2444,87 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class IncidentsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createGlobalIncidentHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createGlobalIncidentHandle(
+    response: ResponseContext
+  ): Promise<IncidentHandleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentHandleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentHandleResponse"
+      ) as IncidentHandleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentHandleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentHandleResponse",
+        ""
+      ) as IncidentHandleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -2769,6 +3122,78 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteGlobalIncidentHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteGlobalIncidentHandle(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3199,6 +3624,87 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getGlobalIncidentSettings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getGlobalIncidentSettings(
+    response: ResponseContext
+  ): Promise<GlobalIncidentSettingsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GlobalIncidentSettingsResponse"
+      ) as GlobalIncidentSettingsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GlobalIncidentSettingsResponse",
+        ""
+      ) as GlobalIncidentSettingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3571,6 +4077,87 @@ export class IncidentsApiResponseProcessor {
         "IncidentTypeResponse",
         ""
       ) as IncidentTypeResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listGlobalIncidentHandles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listGlobalIncidentHandles(
+    response: ResponseContext
+  ): Promise<IncidentHandlesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentHandlesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentHandlesResponse"
+      ) as IncidentHandlesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentHandlesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentHandlesResponse",
+        ""
+      ) as IncidentHandlesResponse;
       return body;
     }
 
@@ -4158,6 +4745,168 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateGlobalIncidentHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateGlobalIncidentHandle(
+    response: ResponseContext
+  ): Promise<IncidentHandleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentHandleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentHandleResponse"
+      ) as IncidentHandleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentHandleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentHandleResponse",
+        ""
+      ) as IncidentHandleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateGlobalIncidentSettings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateGlobalIncidentSettings(
+    response: ResponseContext
+  ): Promise<GlobalIncidentSettingsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GlobalIncidentSettingsResponse"
+      ) as GlobalIncidentSettingsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GlobalIncidentSettingsResponse",
+        ""
+      ) as GlobalIncidentSettingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4604,6 +5353,18 @@ export class IncidentsApiResponseProcessor {
   }
 }
 
+export interface IncidentsApiCreateGlobalIncidentHandleRequest {
+  /**
+   * @type IncidentHandleRequest
+   */
+  body: IncidentHandleRequest;
+  /**
+   * Comma-separated list of related resources to include in the response
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiCreateIncidentRequest {
   /**
    * Incident payload.
@@ -4874,6 +5635,14 @@ export interface IncidentsApiGetIncidentTypeRequest {
   incidentTypeId: string;
 }
 
+export interface IncidentsApiListGlobalIncidentHandlesRequest {
+  /**
+   * Comma-separated list of related resources to include in the response
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiListIncidentAttachmentsRequest {
   /**
    * The UUID of the incident.
@@ -4996,6 +5765,25 @@ export interface IncidentsApiSearchIncidentsRequest {
    * @type number
    */
   pageOffset?: number;
+}
+
+export interface IncidentsApiUpdateGlobalIncidentHandleRequest {
+  /**
+   * @type IncidentHandleRequest
+   */
+  body: IncidentHandleRequest;
+  /**
+   * Comma-separated list of related resources to include in the response
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiUpdateGlobalIncidentSettingsRequest {
+  /**
+   * @type GlobalIncidentSettingsRequest
+   */
+  body: GlobalIncidentSettingsRequest;
 }
 
 export interface IncidentsApiUpdateIncidentRequest {
@@ -5136,6 +5924,31 @@ export class IncidentsApi {
       requestFactory || new IncidentsApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new IncidentsApiResponseProcessor();
+  }
+
+  /**
+   * Create a new global incident handle.
+   * @param param The request object
+   */
+  public createGlobalIncidentHandle(
+    param: IncidentsApiCreateGlobalIncidentHandleRequest,
+    options?: Configuration
+  ): Promise<IncidentHandleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createGlobalIncidentHandle(
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createGlobalIncidentHandle(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -5345,6 +6158,24 @@ export class IncidentsApi {
   }
 
   /**
+   * Delete a global incident handle.
+   * @param param The request object
+   */
+  public deleteGlobalIncidentHandle(options?: Configuration): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteGlobalIncidentHandle(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteGlobalIncidentHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Deletes an existing incident from the users organization.
    * @param param The request object
    */
@@ -5528,6 +6359,26 @@ export class IncidentsApi {
   }
 
   /**
+   * Retrieve global incident settings for the organization.
+   * @param param The request object
+   */
+  public getGlobalIncidentSettings(
+    options?: Configuration
+  ): Promise<GlobalIncidentSettingsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getGlobalIncidentSettings(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getGlobalIncidentSettings(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the details of an incident by `incident_id`.
    * @param param The request object
    */
@@ -5660,6 +6511,29 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve a list of global incident handles.
+   * @param param The request object
+   */
+  public listGlobalIncidentHandles(
+    param: IncidentsApiListGlobalIncidentHandlesRequest = {},
+    options?: Configuration
+  ): Promise<IncidentHandlesResponse> {
+    const requestContextPromise = this.requestFactory.listGlobalIncidentHandles(
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listGlobalIncidentHandles(
+            responseContext
+          );
         });
     });
   }
@@ -5968,6 +6842,52 @@ export class IncidentsApi {
         param.pageOffset = param.pageOffset + pageSize;
       }
     }
+  }
+
+  /**
+   * Update an existing global incident handle.
+   * @param param The request object
+   */
+  public updateGlobalIncidentHandle(
+    param: IncidentsApiUpdateGlobalIncidentHandleRequest,
+    options?: Configuration
+  ): Promise<IncidentHandleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateGlobalIncidentHandle(
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateGlobalIncidentHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update global incident settings for the organization.
+   * @param param The request object
+   */
+  public updateGlobalIncidentSettings(
+    param: IncidentsApiUpdateGlobalIncidentSettingsRequest,
+    options?: Configuration
+  ): Promise<GlobalIncidentSettingsResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateGlobalIncidentSettings(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateGlobalIncidentSettings(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
