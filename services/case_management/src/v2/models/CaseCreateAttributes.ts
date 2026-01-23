@@ -20,6 +20,10 @@ export class CaseCreateAttributes {
    */
   "priority"?: CasePriority;
   /**
+   * Status of the case. Must be one of the existing statuses for the case's type.
+   */
+  "statusName"?: string;
+  /**
    * Title
    */
   "title": string;
@@ -53,6 +57,10 @@ export class CaseCreateAttributes {
     priority: {
       baseName: "priority",
       type: "CasePriority",
+    },
+    statusName: {
+      baseName: "status_name",
+      type: "string",
     },
     title: {
       baseName: "title",

@@ -7,9 +7,13 @@ import { CaseStatus } from "./CaseStatus";
  */
 export class CaseUpdateStatusAttributes {
   /**
-   * Case status
+   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
    */
-  "status": CaseStatus;
+  "status"?: CaseStatus;
+  /**
+   * Status of the case. Must be one of the existing statuses for the case's type.
+   */
+  "statusName"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,7 +32,10 @@ export class CaseUpdateStatusAttributes {
     status: {
       baseName: "status",
       type: "CaseStatus",
-      required: true,
+    },
+    statusName: {
+      baseName: "status_name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -46,6 +46,7 @@ export { CasesResponse } from "./models/CasesResponse";
 export { CasesResponseMeta } from "./models/CasesResponseMeta";
 export { CasesResponseMetaPagination } from "./models/CasesResponseMetaPagination";
 export { CaseStatus } from "./models/CaseStatus";
+export { CaseStatusGroup } from "./models/CaseStatusGroup";
 export { CaseType } from "./models/CaseType";
 export { CaseUpdateAttributes } from "./models/CaseUpdateAttributes";
 export { CaseUpdateAttributesAttributes } from "./models/CaseUpdateAttributesAttributes";

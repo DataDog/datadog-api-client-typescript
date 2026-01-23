@@ -73,6 +73,7 @@ export const TypingInfo: ModelTypingInfo = {
     CaseResourceType: ["case"],
     CaseSortableField: ["created_at", "priority", "status"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
+    CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
     CaseType: ["STANDARD"],
     CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
     ProjectResourceType: ["project"],
