@@ -166,6 +166,7 @@ import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./A
 import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { Argument } from "./Argument";
 import { AsanaAccessToken } from "./AsanaAccessToken";
 import { AsanaAccessTokenUpdate } from "./AsanaAccessTokenUpdate";
 import { AsanaIntegration } from "./AsanaIntegration";
@@ -720,6 +721,26 @@ import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandle
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
+import { CustomRule } from "./CustomRule";
+import { CustomRuleRequest } from "./CustomRuleRequest";
+import { CustomRuleRequestData } from "./CustomRuleRequestData";
+import { CustomRuleRequestDataAttributes } from "./CustomRuleRequestDataAttributes";
+import { CustomRuleResponse } from "./CustomRuleResponse";
+import { CustomRuleResponseData } from "./CustomRuleResponseData";
+import { CustomRuleRevision } from "./CustomRuleRevision";
+import { CustomRuleRevisionAttributes } from "./CustomRuleRevisionAttributes";
+import { CustomRuleRevisionInputAttributes } from "./CustomRuleRevisionInputAttributes";
+import { CustomRuleRevisionRequest } from "./CustomRuleRevisionRequest";
+import { CustomRuleRevisionRequestData } from "./CustomRuleRevisionRequestData";
+import { CustomRuleRevisionResponse } from "./CustomRuleRevisionResponse";
+import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
+import { CustomRuleRevisionsResponse } from "./CustomRuleRevisionsResponse";
+import { CustomRuleset } from "./CustomRuleset";
+import { CustomRulesetAttributes } from "./CustomRulesetAttributes";
+import { CustomRulesetRequest } from "./CustomRulesetRequest";
+import { CustomRulesetRequestData } from "./CustomRulesetRequestData";
+import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
+import { CustomRulesetResponse } from "./CustomRulesetResponse";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
@@ -2200,6 +2221,9 @@ import { RetentionFilterWithoutAttributes } from "./RetentionFilterWithoutAttrib
 import { RetentionFiltersResponse } from "./RetentionFiltersResponse";
 import { RetryStrategy } from "./RetryStrategy";
 import { RetryStrategyLinear } from "./RetryStrategyLinear";
+import { RevertCustomRuleRevisionRequest } from "./RevertCustomRuleRevisionRequest";
+import { RevertCustomRuleRevisionRequestData } from "./RevertCustomRuleRevisionRequestData";
+import { RevertCustomRuleRevisionRequestDataAttributes } from "./RevertCustomRuleRevisionRequestDataAttributes";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleClone } from "./RoleClone";
@@ -3411,6 +3435,17 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CustomDestinationType: ["custom_destination"],
   CustomFrameworkType: ["custom_framework"],
+  CustomRuleDataType: ["custom_rule"],
+  CustomRuleRevisionAttributesCategory: [
+    "SECURITY",
+    "BEST_PRACTICES",
+    "CODE_STYLE",
+    "ERROR_PRONE",
+    "PERFORMANCE",
+  ],
+  CustomRuleRevisionAttributesSeverity: ["ERROR", "WARNING", "NOTICE"],
+  CustomRuleRevisionDataType: ["custom_rule_revision"],
+  CustomRulesetDataType: ["custom_ruleset"],
   DORADeploymentType: ["dora_deployment"],
   DORAFailureType: ["dora_failure"],
   DORAListDeploymentsRequestDataType: ["dora_deployments_list_request"],
@@ -3750,6 +3785,19 @@ const enumsMap: { [key: string]: any[] } = {
   JiraIssueTemplateType: ["jira-issue-template"],
   JiraIssuesDataType: ["jira_issues"],
   JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
+  Language: [
+    "PYTHON",
+    "JAVASCRIPT",
+    "TYPESCRIPT",
+    "JAVA",
+    "GO",
+    "YAML",
+    "RUBY",
+    "CSHARP",
+    "PHP",
+    "KOTLIN",
+    "SWIFT",
+  ],
   LaunchDarklyAPIKeyType: ["LaunchDarklyAPIKey"],
   LaunchDarklyIntegrationType: ["LaunchDarkly"],
   LayerRelationshipsMembersDataItemsType: ["members"],
@@ -4247,6 +4295,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RetentionFilterType: ["spans-sampling-processor"],
   RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
+  RevertCustomRuleRevisionDataType: ["revert_custom_rule_revision_request"],
   RoleTemplateDataType: ["roles"],
   RolesSort: [
     "name",
@@ -5047,6 +5096,7 @@ const typeMap: { [index: string]: any } = {
     ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
   ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems:
     ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
+  Argument: Argument,
   AsanaAccessToken: AsanaAccessToken,
   AsanaAccessTokenUpdate: AsanaAccessTokenUpdate,
   AsanaIntegration: AsanaIntegration,
@@ -5710,6 +5760,26 @@ const typeMap: { [index: string]: any } = {
   CustomFrameworkMetadata: CustomFrameworkMetadata,
   CustomFrameworkRequirement: CustomFrameworkRequirement,
   CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
+  CustomRule: CustomRule,
+  CustomRuleRequest: CustomRuleRequest,
+  CustomRuleRequestData: CustomRuleRequestData,
+  CustomRuleRequestDataAttributes: CustomRuleRequestDataAttributes,
+  CustomRuleResponse: CustomRuleResponse,
+  CustomRuleResponseData: CustomRuleResponseData,
+  CustomRuleRevision: CustomRuleRevision,
+  CustomRuleRevisionAttributes: CustomRuleRevisionAttributes,
+  CustomRuleRevisionInputAttributes: CustomRuleRevisionInputAttributes,
+  CustomRuleRevisionRequest: CustomRuleRevisionRequest,
+  CustomRuleRevisionRequestData: CustomRuleRevisionRequestData,
+  CustomRuleRevisionResponse: CustomRuleRevisionResponse,
+  CustomRuleRevisionTest: CustomRuleRevisionTest,
+  CustomRuleRevisionsResponse: CustomRuleRevisionsResponse,
+  CustomRuleset: CustomRuleset,
+  CustomRulesetAttributes: CustomRulesetAttributes,
+  CustomRulesetRequest: CustomRulesetRequest,
+  CustomRulesetRequestData: CustomRulesetRequestData,
+  CustomRulesetRequestDataAttributes: CustomRulesetRequestDataAttributes,
+  CustomRulesetResponse: CustomRulesetResponse,
   DORADeploymentFetchResponse: DORADeploymentFetchResponse,
   DORADeploymentObject: DORADeploymentObject,
   DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
@@ -7455,6 +7525,10 @@ const typeMap: { [index: string]: any } = {
   RetentionFiltersResponse: RetentionFiltersResponse,
   RetryStrategy: RetryStrategy,
   RetryStrategyLinear: RetryStrategyLinear,
+  RevertCustomRuleRevisionRequest: RevertCustomRuleRevisionRequest,
+  RevertCustomRuleRevisionRequestData: RevertCustomRuleRevisionRequestData,
+  RevertCustomRuleRevisionRequestDataAttributes:
+    RevertCustomRuleRevisionRequestDataAttributes,
   Role: Role,
   RoleAttributes: RoleAttributes,
   RoleClone: RoleClone,

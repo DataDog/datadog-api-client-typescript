@@ -9345,6 +9345,128 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ResolveVulnerableSymbolsResponse",
     },
+    "v2.GetCustomRuleset": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomRulesetResponse",
+    },
+    "v2.DeleteCustomRuleset": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCustomRuleset": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CustomRulesetRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomRulesetResponse",
+    },
+    "v2.CreateCustomRule": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CustomRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomRuleResponse",
+    },
+    "v2.GetCustomRule": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomRuleResponse",
+    },
+    "v2.DeleteCustomRule": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListCustomRuleRevisions": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "CustomRuleRevisionsResponse",
+    },
+    "v2.CreateCustomRuleRevision": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CustomRuleRevisionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.RevertCustomRuleRevision": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RevertCustomRuleRevisionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetCustomRuleRevision": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomRuleRevisionResponse",
+    },
     "v2.ListStatusPages": {
         "pageOffset": {
             "type": "number",

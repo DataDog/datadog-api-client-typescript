@@ -929,8 +929,18 @@ export {
 } from "./apis/SpansMetricsApi";
 
 export {
+  StaticAnalysisApiCreateCustomRuleRequest,
+  StaticAnalysisApiCreateCustomRuleRevisionRequest,
   StaticAnalysisApiCreateSCAResolveVulnerableSymbolsRequest,
   StaticAnalysisApiCreateSCAResultRequest,
+  StaticAnalysisApiDeleteCustomRuleRequest,
+  StaticAnalysisApiDeleteCustomRulesetRequest,
+  StaticAnalysisApiGetCustomRuleRequest,
+  StaticAnalysisApiGetCustomRuleRevisionRequest,
+  StaticAnalysisApiGetCustomRulesetRequest,
+  StaticAnalysisApiListCustomRuleRevisionsRequest,
+  StaticAnalysisApiRevertCustomRuleRevisionRequest,
+  StaticAnalysisApiUpdateCustomRulesetRequest,
   StaticAnalysisApi,
 } from "./apis/StaticAnalysisApi";
 
@@ -1205,6 +1215,7 @@ export { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTag
 export { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./models/ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
 export { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./models/ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
 export { ArbitraryRuleResponseDataType } from "./models/ArbitraryRuleResponseDataType";
+export { Argument } from "./models/Argument";
 export { AsanaAccessToken } from "./models/AsanaAccessToken";
 export { AsanaAccessTokenType } from "./models/AsanaAccessTokenType";
 export { AsanaAccessTokenUpdate } from "./models/AsanaAccessTokenUpdate";
@@ -1994,6 +2005,31 @@ export { CustomFrameworkMetadata } from "./models/CustomFrameworkMetadata";
 export { CustomFrameworkRequirement } from "./models/CustomFrameworkRequirement";
 export { CustomFrameworkType } from "./models/CustomFrameworkType";
 export { CustomFrameworkWithoutRequirements } from "./models/CustomFrameworkWithoutRequirements";
+export { CustomRule } from "./models/CustomRule";
+export { CustomRuleDataType } from "./models/CustomRuleDataType";
+export { CustomRuleRequest } from "./models/CustomRuleRequest";
+export { CustomRuleRequestData } from "./models/CustomRuleRequestData";
+export { CustomRuleRequestDataAttributes } from "./models/CustomRuleRequestDataAttributes";
+export { CustomRuleResponse } from "./models/CustomRuleResponse";
+export { CustomRuleResponseData } from "./models/CustomRuleResponseData";
+export { CustomRuleRevision } from "./models/CustomRuleRevision";
+export { CustomRuleRevisionAttributes } from "./models/CustomRuleRevisionAttributes";
+export { CustomRuleRevisionAttributesCategory } from "./models/CustomRuleRevisionAttributesCategory";
+export { CustomRuleRevisionAttributesSeverity } from "./models/CustomRuleRevisionAttributesSeverity";
+export { CustomRuleRevisionDataType } from "./models/CustomRuleRevisionDataType";
+export { CustomRuleRevisionInputAttributes } from "./models/CustomRuleRevisionInputAttributes";
+export { CustomRuleRevisionRequest } from "./models/CustomRuleRevisionRequest";
+export { CustomRuleRevisionRequestData } from "./models/CustomRuleRevisionRequestData";
+export { CustomRuleRevisionResponse } from "./models/CustomRuleRevisionResponse";
+export { CustomRuleRevisionsResponse } from "./models/CustomRuleRevisionsResponse";
+export { CustomRuleRevisionTest } from "./models/CustomRuleRevisionTest";
+export { CustomRuleset } from "./models/CustomRuleset";
+export { CustomRulesetAttributes } from "./models/CustomRulesetAttributes";
+export { CustomRulesetDataType } from "./models/CustomRulesetDataType";
+export { CustomRulesetRequest } from "./models/CustomRulesetRequest";
+export { CustomRulesetRequestData } from "./models/CustomRulesetRequestData";
+export { CustomRulesetRequestDataAttributes } from "./models/CustomRulesetRequestDataAttributes";
+export { CustomRulesetResponse } from "./models/CustomRulesetResponse";
 export { CVSS } from "./models/CVSS";
 export { DashboardListAddItemsRequest } from "./models/DashboardListAddItemsRequest";
 export { DashboardListAddItemsResponse } from "./models/DashboardListAddItemsResponse";
@@ -2938,6 +2974,7 @@ export { KindData } from "./models/KindData";
 export { KindMetadata } from "./models/KindMetadata";
 export { KindObj } from "./models/KindObj";
 export { KindResponseMeta } from "./models/KindResponseMeta";
+export { Language } from "./models/Language";
 export { LaunchDarklyAPIKey } from "./models/LaunchDarklyAPIKey";
 export { LaunchDarklyAPIKeyType } from "./models/LaunchDarklyAPIKeyType";
 export { LaunchDarklyAPIKeyUpdate } from "./models/LaunchDarklyAPIKeyUpdate";
@@ -3930,6 +3967,10 @@ export { RetentionFilterWithoutAttributes } from "./models/RetentionFilterWithou
 export { RetryStrategy } from "./models/RetryStrategy";
 export { RetryStrategyKind } from "./models/RetryStrategyKind";
 export { RetryStrategyLinear } from "./models/RetryStrategyLinear";
+export { RevertCustomRuleRevisionDataType } from "./models/RevertCustomRuleRevisionDataType";
+export { RevertCustomRuleRevisionRequest } from "./models/RevertCustomRuleRevisionRequest";
+export { RevertCustomRuleRevisionRequestData } from "./models/RevertCustomRuleRevisionRequestData";
+export { RevertCustomRuleRevisionRequestDataAttributes } from "./models/RevertCustomRuleRevisionRequestDataAttributes";
 export { Role } from "./models/Role";
 export { RoleAttributes } from "./models/RoleAttributes";
 export { RoleClone } from "./models/RoleClone";
