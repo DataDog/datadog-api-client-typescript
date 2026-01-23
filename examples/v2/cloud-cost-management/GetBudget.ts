@@ -13,7 +13,7 @@ const params: v2.CloudCostManagementApiGetBudgetRequest = {
 
 apiInstance
   .getBudget(params)
-  .then((data: v2.BudgetValidationRequest) => {
+  .then((data: v2.BudgetWithEntries) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

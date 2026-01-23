@@ -5037,7 +5037,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "BudgetValidationRequest",
+        "operationResponseType": "BudgetWithEntries",
     },
     "v2.DeleteBudget": {
         "budgetId": {
