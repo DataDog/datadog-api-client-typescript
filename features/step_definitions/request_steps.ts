@@ -155,6 +155,7 @@ When("the request is sent", async function (this: World) {
           this.operationId,
           this.response,
           this.opts,
+          this.opts  // Pass opts as pathParameters (contains all parameters including path ones)
         )
       );
     }

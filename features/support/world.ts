@@ -22,6 +22,7 @@ export class World {
 
   public fixtures: { [key: string]: any } = {};
   public opts: { [key: string]: any } = {};
+  public pathParameters: { [key: string]: any } = {};
 
   async cleanup() {
     const undo = this.undo;
