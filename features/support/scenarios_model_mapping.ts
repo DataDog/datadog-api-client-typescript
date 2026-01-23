@@ -6636,6 +6636,65 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OpsgenieServiceResponse",
     },
+    "v2.ListServiceNowAssignmentGroups": {
+        "instanceId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ServiceNowAssignmentGroupsResponse",
+    },
+    "v2.ListServiceNowBusinessServices": {
+        "instanceId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ServiceNowBusinessServicesResponse",
+    },
+    "v2.ListServiceNowTemplates": {
+        "operationResponseType": "ServiceNowTemplatesResponse",
+    },
+    "v2.CreateServiceNowTemplate": {
+        "body": {
+            "type": "ServiceNowTemplateCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ServiceNowTemplateResponse",
+    },
+    "v2.GetServiceNowTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ServiceNowTemplateResponse",
+    },
+    "v2.UpdateServiceNowTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ServiceNowTemplateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ServiceNowTemplateResponse",
+    },
+    "v2.DeleteServiceNowTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListServiceNowInstances": {
+        "operationResponseType": "ServiceNowInstancesResponse",
+    },
+    "v2.ListServiceNowUsers": {
+        "instanceId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ServiceNowUsersResponse",
+    },
     "v2.ListCloudflareAccounts": {
         "operationResponseType": "CloudflareAccountsResponse",
     },
