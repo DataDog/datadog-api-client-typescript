@@ -2506,14 +2506,14 @@ export class CloudCostManagementApiResponseProcessor {
    */
   public async getBudget(
     response: ResponseContext,
-  ): Promise<BudgetValidationRequest> {
+  ): Promise<BudgetWithEntries> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: BudgetValidationRequest = deserialize(
+      const body: BudgetWithEntries = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "BudgetValidationRequest",
-      ) as BudgetValidationRequest;
+        "BudgetWithEntries",
+      ) as BudgetWithEntries;
       return body;
     }
     if (response.httpStatusCode === 429) {
@@ -2537,12 +2537,12 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: BudgetValidationRequest = deserialize(
+      const body: BudgetWithEntries = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "BudgetValidationRequest",
+        "BudgetWithEntries",
         "",
-      ) as BudgetValidationRequest;
+      ) as BudgetWithEntries;
       return body;
     }
 
@@ -4534,7 +4534,7 @@ export class CloudCostManagementApi {
   public getBudget(
     param: CloudCostManagementApiGetBudgetRequest,
     options?: Configuration,
-  ): Promise<BudgetValidationRequest> {
+  ): Promise<BudgetWithEntries> {
     const requestContextPromise = this.requestFactory.getBudget(
       param.budgetId,
       options,

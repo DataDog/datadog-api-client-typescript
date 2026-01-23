@@ -5047,7 +5047,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    operationResponseType: "BudgetValidationRequest",
+    operationResponseType: "BudgetWithEntries",
   },
   "CloudCostManagementApi.V2.DeleteBudget": {
     budgetId: {
