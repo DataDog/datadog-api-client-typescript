@@ -2615,12 +2615,34 @@ import { ServiceList } from "./ServiceList";
 import { ServiceListData } from "./ServiceListData";
 import { ServiceListDataAttributes } from "./ServiceListDataAttributes";
 import { ServiceListDataAttributesMetadataItems } from "./ServiceListDataAttributesMetadataItems";
+import { ServiceNowAssignmentGroupAttributes } from "./ServiceNowAssignmentGroupAttributes";
+import { ServiceNowAssignmentGroupData } from "./ServiceNowAssignmentGroupData";
+import { ServiceNowAssignmentGroupsResponse } from "./ServiceNowAssignmentGroupsResponse";
 import { ServiceNowBasicAuth } from "./ServiceNowBasicAuth";
 import { ServiceNowBasicAuthUpdate } from "./ServiceNowBasicAuthUpdate";
+import { ServiceNowBusinessServiceAttributes } from "./ServiceNowBusinessServiceAttributes";
+import { ServiceNowBusinessServiceData } from "./ServiceNowBusinessServiceData";
+import { ServiceNowBusinessServicesResponse } from "./ServiceNowBusinessServicesResponse";
+import { ServiceNowInstanceAttributes } from "./ServiceNowInstanceAttributes";
+import { ServiceNowInstanceData } from "./ServiceNowInstanceData";
+import { ServiceNowInstancesResponse } from "./ServiceNowInstancesResponse";
 import { ServiceNowIntegration } from "./ServiceNowIntegration";
 import { ServiceNowIntegrationUpdate } from "./ServiceNowIntegrationUpdate";
+import { ServiceNowTemplateAttributes } from "./ServiceNowTemplateAttributes";
+import { ServiceNowTemplateCreateRequest } from "./ServiceNowTemplateCreateRequest";
+import { ServiceNowTemplateCreateRequestAttributes } from "./ServiceNowTemplateCreateRequestAttributes";
+import { ServiceNowTemplateCreateRequestData } from "./ServiceNowTemplateCreateRequestData";
+import { ServiceNowTemplateData } from "./ServiceNowTemplateData";
+import { ServiceNowTemplateResponse } from "./ServiceNowTemplateResponse";
+import { ServiceNowTemplateUpdateRequest } from "./ServiceNowTemplateUpdateRequest";
+import { ServiceNowTemplateUpdateRequestAttributes } from "./ServiceNowTemplateUpdateRequestAttributes";
+import { ServiceNowTemplateUpdateRequestData } from "./ServiceNowTemplateUpdateRequestData";
+import { ServiceNowTemplatesResponse } from "./ServiceNowTemplatesResponse";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
+import { ServiceNowUserAttributes } from "./ServiceNowUserAttributes";
+import { ServiceNowUserData } from "./ServiceNowUserData";
+import { ServiceNowUsersResponse } from "./ServiceNowUsersResponse";
 import { Shift } from "./Shift";
 import { ShiftData } from "./ShiftData";
 import { ShiftDataAttributes } from "./ShiftDataAttributes";
@@ -4627,8 +4649,13 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
   ServiceListDataType: ["services_list"],
+  ServiceNowAssignmentGroupType: ["assignment_groups"],
   ServiceNowBasicAuthType: ["ServiceNowBasicAuth"],
+  ServiceNowBusinessServiceType: ["business_services"],
+  ServiceNowInstanceType: ["instance"],
   ServiceNowIntegrationType: ["ServiceNow"],
+  ServiceNowTemplateType: ["servicenow_templates"],
+  ServiceNowUserType: ["users"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
@@ -8040,12 +8067,36 @@ const typeMap: { [index: string]: any } = {
   ServiceListDataAttributes: ServiceListDataAttributes,
   ServiceListDataAttributesMetadataItems:
     ServiceListDataAttributesMetadataItems,
+  ServiceNowAssignmentGroupAttributes: ServiceNowAssignmentGroupAttributes,
+  ServiceNowAssignmentGroupData: ServiceNowAssignmentGroupData,
+  ServiceNowAssignmentGroupsResponse: ServiceNowAssignmentGroupsResponse,
   ServiceNowBasicAuth: ServiceNowBasicAuth,
   ServiceNowBasicAuthUpdate: ServiceNowBasicAuthUpdate,
+  ServiceNowBusinessServiceAttributes: ServiceNowBusinessServiceAttributes,
+  ServiceNowBusinessServiceData: ServiceNowBusinessServiceData,
+  ServiceNowBusinessServicesResponse: ServiceNowBusinessServicesResponse,
+  ServiceNowInstanceAttributes: ServiceNowInstanceAttributes,
+  ServiceNowInstanceData: ServiceNowInstanceData,
+  ServiceNowInstancesResponse: ServiceNowInstancesResponse,
   ServiceNowIntegration: ServiceNowIntegration,
   ServiceNowIntegrationUpdate: ServiceNowIntegrationUpdate,
+  ServiceNowTemplateAttributes: ServiceNowTemplateAttributes,
+  ServiceNowTemplateCreateRequest: ServiceNowTemplateCreateRequest,
+  ServiceNowTemplateCreateRequestAttributes:
+    ServiceNowTemplateCreateRequestAttributes,
+  ServiceNowTemplateCreateRequestData: ServiceNowTemplateCreateRequestData,
+  ServiceNowTemplateData: ServiceNowTemplateData,
+  ServiceNowTemplateResponse: ServiceNowTemplateResponse,
+  ServiceNowTemplateUpdateRequest: ServiceNowTemplateUpdateRequest,
+  ServiceNowTemplateUpdateRequestAttributes:
+    ServiceNowTemplateUpdateRequestAttributes,
+  ServiceNowTemplateUpdateRequestData: ServiceNowTemplateUpdateRequestData,
+  ServiceNowTemplatesResponse: ServiceNowTemplatesResponse,
   ServiceNowTicket: ServiceNowTicket,
   ServiceNowTicketResult: ServiceNowTicketResult,
+  ServiceNowUserAttributes: ServiceNowUserAttributes,
+  ServiceNowUserData: ServiceNowUserData,
+  ServiceNowUsersResponse: ServiceNowUsersResponse,
   Shift: Shift,
   ShiftData: ShiftData,
   ShiftDataAttributes: ShiftDataAttributes,
