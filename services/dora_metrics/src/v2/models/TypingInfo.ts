@@ -4,6 +4,10 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
+import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation";
+import { DORADeploymentPatchRequest } from "./DORADeploymentPatchRequest";
+import { DORADeploymentPatchRequestAttributes } from "./DORADeploymentPatchRequestAttributes";
+import { DORADeploymentPatchRequestData } from "./DORADeploymentPatchRequestData";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
@@ -32,6 +36,8 @@ import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    DORADeploymentPatchRemediationType: ["rollback", "rollforward"],
+    DORADeploymentPatchRequestDataType: ["dora_deployment_patch_request"],
     DORADeploymentType: ["dora_deployment"],
     DORAFailureType: ["dora_failure"],
     DORAListDeploymentsRequestDataType: ["dora_deployments_list_request"],
@@ -43,6 +49,10 @@ export const TypingInfo: ModelTypingInfo = {
     DORADeploymentFetchResponse: DORADeploymentFetchResponse,
     DORADeploymentObject: DORADeploymentObject,
     DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
+    DORADeploymentPatchRemediation: DORADeploymentPatchRemediation,
+    DORADeploymentPatchRequest: DORADeploymentPatchRequest,
+    DORADeploymentPatchRequestAttributes: DORADeploymentPatchRequestAttributes,
+    DORADeploymentPatchRequestData: DORADeploymentPatchRequestData,
     DORADeploymentRequest: DORADeploymentRequest,
     DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
     DORADeploymentRequestData: DORADeploymentRequestData,
