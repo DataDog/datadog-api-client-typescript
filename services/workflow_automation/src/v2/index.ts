@@ -49,6 +49,8 @@ export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { MonitorTrigger } from "./models/MonitorTrigger";
 export { MonitorTriggerWrapper } from "./models/MonitorTriggerWrapper";
 export { NotebookTriggerWrapper } from "./models/NotebookTriggerWrapper";
+export { OnCallTrigger } from "./models/OnCallTrigger";
+export { OnCallTriggerWrapper } from "./models/OnCallTriggerWrapper";
 export { OutboundEdge } from "./models/OutboundEdge";
 export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";

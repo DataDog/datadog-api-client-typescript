@@ -36,6 +36,8 @@ import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { MonitorTrigger } from "./MonitorTrigger";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
+import { OnCallTrigger } from "./OnCallTrigger";
+import { OnCallTriggerWrapper } from "./OnCallTriggerWrapper";
 import { OutboundEdge } from "./OutboundEdge";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
@@ -134,6 +136,7 @@ export const TypingInfo: ModelTypingInfo = {
       "IncidentTriggerWrapper",
       "MonitorTriggerWrapper",
       "NotebookTriggerWrapper",
+      "OnCallTriggerWrapper",
       "ScheduleTriggerWrapper",
       "SecurityTriggerWrapper",
       "SelfServiceTriggerWrapper",
@@ -179,6 +182,8 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorTrigger: MonitorTrigger,
     MonitorTriggerWrapper: MonitorTriggerWrapper,
     NotebookTriggerWrapper: NotebookTriggerWrapper,
+    OnCallTrigger: OnCallTrigger,
+    OnCallTriggerWrapper: OnCallTriggerWrapper,
     OutboundEdge: OutboundEdge,
     OutputSchema: OutputSchema,
     OutputSchemaParameters: OutputSchemaParameters,

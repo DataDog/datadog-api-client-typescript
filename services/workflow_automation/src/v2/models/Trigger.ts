@@ -11,6 +11,7 @@ import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
+import { OnCallTriggerWrapper } from "./OnCallTriggerWrapper";
 import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
 import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
@@ -33,6 +34,7 @@ export type Trigger =
   | IncidentTriggerWrapper
   | MonitorTriggerWrapper
   | NotebookTriggerWrapper
+  | OnCallTriggerWrapper
   | ScheduleTriggerWrapper
   | SecurityTriggerWrapper
   | SelfServiceTriggerWrapper
