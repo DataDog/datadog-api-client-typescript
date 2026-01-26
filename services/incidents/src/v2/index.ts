@@ -2,6 +2,7 @@ export {
   IncidentsApiCreateGlobalIncidentHandleRequest,
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentAttachmentRequest,
+  IncidentsApiCreateIncidentConfigRuleRequest,
   IncidentsApiCreateIncidentImpactRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentNotificationRuleRequest,
@@ -11,6 +12,7 @@ export {
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentAttachmentRequest,
+  IncidentsApiDeleteIncidentConfigRuleRequest,
   IncidentsApiDeleteIncidentImpactRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentNotificationRuleRequest,
@@ -18,6 +20,7 @@ export {
   IncidentsApiDeleteIncidentTodoRequest,
   IncidentsApiDeleteIncidentTypeRequest,
   IncidentsApiGetIncidentRequest,
+  IncidentsApiGetIncidentConfigRuleRequest,
   IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiGetIncidentNotificationRuleRequest,
   IncidentsApiGetIncidentNotificationTemplateRequest,
@@ -37,6 +40,7 @@ export {
   IncidentsApiUpdateGlobalIncidentSettingsRequest,
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentRequest,
+  IncidentsApiUpdateIncidentConfigRuleRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApiUpdateIncidentNotificationRuleRequest,
   IncidentsApiUpdateIncidentNotificationTemplateRequest,
@@ -159,6 +163,14 @@ export { IncidentResponseIncludedItem } from "./models/IncidentResponseIncludedI
 export { IncidentResponseMeta } from "./models/IncidentResponseMeta";
 export { IncidentResponseMetaPagination } from "./models/IncidentResponseMetaPagination";
 export { IncidentResponseRelationships } from "./models/IncidentResponseRelationships";
+export { IncidentRuleAttributesRequest } from "./models/IncidentRuleAttributesRequest";
+export { IncidentRuleAttributesResponse } from "./models/IncidentRuleAttributesResponse";
+export { IncidentRuleDataRequest } from "./models/IncidentRuleDataRequest";
+export { IncidentRuleDataResponse } from "./models/IncidentRuleDataResponse";
+export { IncidentRuleRequest } from "./models/IncidentRuleRequest";
+export { IncidentRuleResponse } from "./models/IncidentRuleResponse";
+export { IncidentRulesResponse } from "./models/IncidentRulesResponse";
+export { IncidentRuleType } from "./models/IncidentRuleType";
 export { IncidentSearchResponse } from "./models/IncidentSearchResponse";
 export { IncidentSearchResponseAttributes } from "./models/IncidentSearchResponseAttributes";
 export { IncidentSearchResponseData } from "./models/IncidentSearchResponseData";
