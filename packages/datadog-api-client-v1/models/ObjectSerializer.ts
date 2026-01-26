@@ -1058,9 +1058,6 @@ const enumsMap: { [key: string]: any[] } = {
     "hide_query",
     "hide_handles",
     "hide_all",
-    "hide_query_and_handles",
-    "show_only_snapshot",
-    "hide_handles_and_footer",
   ],
   MonitorOverallStates: [
     "Alert",
@@ -1579,9 +1576,6 @@ const enumsMap: { [key: string]: any[] } = {
     "hide_all",
     "hide_query",
     "hide_handles",
-    "hide_query_and_handles",
-    "show_only_snapshot",
-    "hide_handles_and_footer",
   ],
   SyntheticsTestPauseStatus: ["live", "paused"],
   SyntheticsTestProcessStatus: [
