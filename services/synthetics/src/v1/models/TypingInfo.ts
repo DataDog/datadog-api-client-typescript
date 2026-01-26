@@ -379,6 +379,9 @@ export const TypingInfo: ModelTypingInfo = {
       "hide_all",
       "hide_query",
       "hide_handles",
+      "hide_query_and_handles",
+      "show_only_snapshot",
+      "hide_handles_and_footer",
     ],
     SyntheticsTestPauseStatus: ["live", "paused"],
     SyntheticsTestProcessStatus: [
