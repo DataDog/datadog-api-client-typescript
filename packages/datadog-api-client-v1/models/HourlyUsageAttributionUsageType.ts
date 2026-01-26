@@ -46,6 +46,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
   | typeof ESTIMATED_INGESTED_SPANS_USAGE
   | typeof FARGATE_USAGE
+  | typeof FLEX_LOGS_STARTER
   | typeof FLEX_STORED_LOGS
   | typeof FUNCTIONS_USAGE
   | typeof INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE
@@ -133,6 +134,7 @@ export const ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage";
 export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
 export const ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage";
 export const FARGATE_USAGE = "fargate_usage";
+export const FLEX_LOGS_STARTER = "flex_logs_starter";
 export const FLEX_STORED_LOGS = "flex_stored_logs";
 export const FUNCTIONS_USAGE = "functions_usage";
 export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
