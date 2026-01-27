@@ -101,6 +101,14 @@ export class UsageSummaryResponse {
    */
   "browserRumUnitsAggSum"?: number;
   /**
+   * Shows the sum of the last value of the amount of cloud spend monitored for Enterprise in the current month for all organizations.
+   */
+  "ccmSpendMonitoredEntLastSum"?: number;
+  /**
+   * Shows the sum of the last value of the amount of cloud spend monitored for Pro in the current month for all organizations.
+   */
+  "ccmSpendMonitoredProLastSum"?: number;
+  /**
    * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.
    */
   "ciPipelineIndexedSpansAggSum"?: number;
@@ -1020,6 +1028,16 @@ export class UsageSummaryResponse {
     },
     browserRumUnitsAggSum: {
       baseName: "browser_rum_units_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    ccmSpendMonitoredEntLastSum: {
+      baseName: "ccm_spend_monitored_ent_last_sum",
+      type: "number",
+      format: "int64",
+    },
+    ccmSpendMonitoredProLastSum: {
+      baseName: "ccm_spend_monitored_pro_last_sum",
       type: "number",
       format: "int64",
     },
