@@ -9,15 +9,18 @@ export {
   CaseManagementApiDeleteProjectRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
+  CaseManagementApiListCaseWatchersRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUnwatchCaseRequest,
   CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdateCaseCustomAttributeRequest,
   CaseManagementApiUpdateCaseDescriptionRequest,
   CaseManagementApiUpdateCaseTitleRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateStatusRequest,
+  CaseManagementApiWatchCaseRequest,
   CaseManagementApi,
 } from "./CaseManagementApi";
 
@@ -70,6 +73,9 @@ export { CustomAttributeValue } from "./models/CustomAttributeValue";
 export { CustomAttributeValuesUnion } from "./models/CustomAttributeValuesUnion";
 export { JiraIssue } from "./models/JiraIssue";
 export { JiraIssueResult } from "./models/JiraIssueResult";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
 export { Project } from "./models/Project";
@@ -103,3 +109,8 @@ export { TimelineResponse } from "./models/TimelineResponse";
 export { UserRelationshipData } from "./models/UserRelationshipData";
 export { UserResourceType } from "./models/UserResourceType";
 export { UsersRelationship } from "./models/UsersRelationship";
+export { Watcher } from "./models/Watcher";
+export { WatcherRelationships } from "./models/WatcherRelationships";
+export { WatcherResourceType } from "./models/WatcherResourceType";
+export { WatchersResponse } from "./models/WatchersResponse";
+export { WatcherUserRelationship } from "./models/WatcherUserRelationship";
