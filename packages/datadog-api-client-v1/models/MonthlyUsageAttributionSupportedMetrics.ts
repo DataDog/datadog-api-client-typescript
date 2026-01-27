@@ -69,6 +69,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof ESTIMATED_INGESTED_SPANS_PERCENTAGE
   | typeof FARGATE_USAGE
   | typeof FARGATE_PERCENTAGE
+  | typeof FLEX_LOGS_STARTER_USAGE
+  | typeof FLEX_LOGS_STARTER_PERCENTAGE
   | typeof FLEX_STORED_LOGS_USAGE
   | typeof FLEX_STORED_LOGS_PERCENTAGE
   | typeof FUNCTIONS_USAGE
@@ -241,6 +243,8 @@ export const ESTIMATED_INGESTED_SPANS_PERCENTAGE =
   "estimated_ingested_spans_percentage";
 export const FARGATE_USAGE = "fargate_usage";
 export const FARGATE_PERCENTAGE = "fargate_percentage";
+export const FLEX_LOGS_STARTER_USAGE = "flex_logs_starter_usage";
+export const FLEX_LOGS_STARTER_PERCENTAGE = "flex_logs_starter_percentage";
 export const FLEX_STORED_LOGS_USAGE = "flex_stored_logs_usage";
 export const FLEX_STORED_LOGS_PERCENTAGE = "flex_stored_logs_percentage";
 export const FUNCTIONS_USAGE = "functions_usage";
