@@ -164,15 +164,18 @@ export {
   CaseManagementApiDeleteProjectRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
+  CaseManagementApiListCaseWatchersRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUnwatchCaseRequest,
   CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdateCaseCustomAttributeRequest,
   CaseManagementApiUpdateCaseDescriptionRequest,
   CaseManagementApiUpdateCaseTitleRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateStatusRequest,
+  CaseManagementApiWatchCaseRequest,
   CaseManagementApi,
 } from "./apis/CaseManagementApi";
 
@@ -5125,6 +5128,11 @@ export { VulnerabilitySeverity } from "./models/VulnerabilitySeverity";
 export { VulnerabilityStatus } from "./models/VulnerabilityStatus";
 export { VulnerabilityTool } from "./models/VulnerabilityTool";
 export { VulnerabilityType } from "./models/VulnerabilityType";
+export { Watcher } from "./models/Watcher";
+export { WatcherRelationships } from "./models/WatcherRelationships";
+export { WatcherResourceType } from "./models/WatcherResourceType";
+export { WatchersResponse } from "./models/WatchersResponse";
+export { WatcherUserRelationship } from "./models/WatcherUserRelationship";
 export { Weekday } from "./models/Weekday";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
 export { WorkflowData } from "./models/WorkflowData";
