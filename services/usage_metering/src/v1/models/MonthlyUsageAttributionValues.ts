@@ -254,6 +254,14 @@ export class MonthlyUsageAttributionValues {
    */
   "fargateUsage"?: number;
   /**
+   * The percentage of Flex Logs Starter usage by tags.
+   */
+  "flexLogsStarterPercentage"?: number;
+  /**
+   * The Flex Logs Starter usage by tags.
+   */
+  "flexLogsStarterUsage"?: number;
+  /**
    * The percentage of Flex Stored Logs usage by tags.
    */
   "flexStoredLogsPercentage"?: number;
@@ -959,6 +967,16 @@ export class MonthlyUsageAttributionValues {
     },
     fargateUsage: {
       baseName: "fargate_usage",
+      type: "number",
+      format: "double",
+    },
+    flexLogsStarterPercentage: {
+      baseName: "flex_logs_starter_percentage",
+      type: "number",
+      format: "double",
+    },
+    flexLogsStarterUsage: {
+      baseName: "flex_logs_starter_usage",
       type: "number",
       format: "double",
     },
