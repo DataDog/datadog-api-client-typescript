@@ -31,10 +31,12 @@ import { CaseUpdateDescriptionRequest } from "../models/CaseUpdateDescriptionReq
 import { CaseUpdatePriorityRequest } from "../models/CaseUpdatePriorityRequest";
 import { CaseUpdateStatusRequest } from "../models/CaseUpdateStatusRequest";
 import { CaseUpdateTitleRequest } from "../models/CaseUpdateTitleRequest";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ProjectCreateRequest } from "../models/ProjectCreateRequest";
 import { ProjectResponse } from "../models/ProjectResponse";
 import { ProjectsResponse } from "../models/ProjectsResponse";
 import { TimelineResponse } from "../models/TimelineResponse";
+import { WatchersResponse } from "../models/WatchersResponse";
 
 export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   public async archiveCase(
@@ -482,6 +484,45 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listCaseWatchers(
+    caseId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listCaseWatchers'");
+    if (!_config.unstableOperations["v2.listCaseWatchers"]) {
+      throw new Error("Unstable operation 'listCaseWatchers' is disabled");
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "listCaseWatchers");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cases/{case_id}/watchers".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CaseManagementApi.listCaseWatchers")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async searchCases(
     pageSize?: number,
     pageNumber?: number,
@@ -640,6 +681,50 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async unwatchCase(
+    caseId: string,
+    userId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'unwatchCase'");
+    if (!_config.unstableOperations["v2.unwatchCase"]) {
+      throw new Error("Unstable operation 'unwatchCase' is disabled");
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "unwatchCase");
+    }
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "unwatchCase");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_id}"
+      .replace("{case_id}", encodeURIComponent(String(caseId)))
+      .replace("{user_id}", encodeURIComponent(String(userId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CaseManagementApi.unwatchCase")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -958,6 +1043,50 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async watchCase(
+    caseId: string,
+    userId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'watchCase'");
+    if (!_config.unstableOperations["v2.watchCase"]) {
+      throw new Error("Unstable operation 'watchCase' is disabled");
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "watchCase");
+    }
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "watchCase");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_id}"
+      .replace("{case_id}", encodeURIComponent(String(caseId)))
+      .replace("{user_id}", encodeURIComponent(String(userId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CaseManagementApi.watchCase")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1644,6 +1773,92 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCaseWatchers
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCaseWatchers(
+    response: ResponseContext
+  ): Promise<WatchersResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: WatchersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WatchersResponse"
+      ) as WatchersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: WatchersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WatchersResponse",
+        ""
+      ) as WatchersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchCases
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1817,6 +2032,81 @@ export class CaseManagementApiResponseProcessor {
         ""
       ) as CaseResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to unwatchCase
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async unwatchCase(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -2207,6 +2497,81 @@ export class CaseManagementApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to watchCase
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async watchCase(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface CaseManagementApiArchiveCaseRequest {
@@ -2314,6 +2679,14 @@ export interface CaseManagementApiGetProjectRequest {
   projectId: string;
 }
 
+export interface CaseManagementApiListCaseWatchersRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+}
+
 export interface CaseManagementApiSearchCasesRequest {
   /**
    * Size for a given page. The maximum allowed value is 100.
@@ -2366,6 +2739,19 @@ export interface CaseManagementApiUnassignCaseRequest {
    * @type CaseEmptyRequest
    */
   body: CaseEmptyRequest;
+}
+
+export interface CaseManagementApiUnwatchCaseRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * User UUID
+   * @type string
+   */
+  userId: string;
 }
 
 export interface CaseManagementApiUpdateAttributesRequest {
@@ -2449,6 +2835,19 @@ export interface CaseManagementApiUpdateStatusRequest {
    * @type CaseUpdateStatusRequest
    */
   body: CaseUpdateStatusRequest;
+}
+
+export interface CaseManagementApiWatchCaseRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * User UUID
+   * @type string
+   */
+  userId: string;
 }
 
 export class CaseManagementApi {
@@ -2701,6 +3100,27 @@ export class CaseManagementApi {
   }
 
   /**
+   * Get all users watching a case
+   * @param param The request object
+   */
+  public listCaseWatchers(
+    param: CaseManagementApiListCaseWatchersRequest,
+    options?: Configuration
+  ): Promise<WatchersResponse> {
+    const requestContextPromise = this.requestFactory.listCaseWatchers(
+      param.caseId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCaseWatchers(responseContext);
+        });
+    });
+  }
+
+  /**
    * Search cases.
    * @param param The request object
    */
@@ -2809,6 +3229,28 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.unassignCase(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove a user from the watchers list for a case
+   * @param param The request object
+   */
+  public unwatchCase(
+    param: CaseManagementApiUnwatchCaseRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.unwatchCase(
+      param.caseId,
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.unwatchCase(responseContext);
         });
     });
   }
@@ -2944,6 +3386,28 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateStatus(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Add a user as a watcher for a case
+   * @param param The request object
+   */
+  public watchCase(
+    param: CaseManagementApiWatchCaseRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.watchCase(
+      param.caseId,
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.watchCase(responseContext);
         });
     });
   }

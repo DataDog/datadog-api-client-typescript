@@ -3496,6 +3496,35 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.ListCaseWatchers": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "WatchersResponse",
+    },
+    "v2.WatchCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnwatchCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetAllCaseTypes": {
         "operationResponseType": "CaseTypesResponse",
     },

@@ -3053,6 +3053,10 @@ import { VulnerabilityRelationships } from "./VulnerabilityRelationships";
 import { VulnerabilityRelationshipsAffects } from "./VulnerabilityRelationshipsAffects";
 import { VulnerabilityRelationshipsAffectsData } from "./VulnerabilityRelationshipsAffectsData";
 import { VulnerabilityRisks } from "./VulnerabilityRisks";
+import { Watcher } from "./Watcher";
+import { WatcherRelationships } from "./WatcherRelationships";
+import { WatcherUserRelationship } from "./WatcherUserRelationship";
+import { WatchersResponse } from "./WatchersResponse";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -4897,6 +4901,7 @@ const enumsMap: { [key: string]: any[] } = {
     "XPathInjection",
     "Xss",
   ],
+  WatcherResourceType: ["watcher"],
   Weekday: [
     "monday",
     "tuesday",
@@ -8584,6 +8589,10 @@ const typeMap: { [index: string]: any } = {
   VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
   VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,
   VulnerabilityRisks: VulnerabilityRisks,
+  Watcher: Watcher,
+  WatcherRelationships: WatcherRelationships,
+  WatcherUserRelationship: WatcherUserRelationship,
+  WatchersResponse: WatchersResponse,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,
