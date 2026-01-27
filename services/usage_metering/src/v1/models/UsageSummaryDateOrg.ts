@@ -97,6 +97,14 @@ export class UsageSummaryDateOrg {
    */
   "browserRumUnitsSum"?: number;
   /**
+   * Shows the last value of the amount of cloud spend monitored for Enterprise over all hours in the current date for the given org.
+   */
+  "ccmSpendMonitoredEntLast"?: number;
+  /**
+   * Shows the last value of the amount of cloud spend monitored for Pro over all hours in the current date for the given org.
+   */
+  "ccmSpendMonitoredProLast"?: number;
+  /**
    * Shows the sum of all CI pipeline indexed spans over all hours in the current date for the given org.
    */
   "ciPipelineIndexedSpansSum"?: number;
@@ -993,6 +1001,16 @@ export class UsageSummaryDateOrg {
     },
     browserRumUnitsSum: {
       baseName: "browser_rum_units_sum",
+      type: "number",
+      format: "int64",
+    },
+    ccmSpendMonitoredEntLast: {
+      baseName: "ccm_spend_monitored_ent_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmSpendMonitoredProLast: {
+      baseName: "ccm_spend_monitored_pro_last",
       type: "number",
       format: "int64",
     },
