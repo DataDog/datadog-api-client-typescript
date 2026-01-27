@@ -3506,6 +3506,35 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CaseResponse",
   },
+  "CaseManagementApi.V2.ListCaseWatchers": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WatchersResponse",
+  },
+  "CaseManagementApi.V2.WatchCase": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementApi.V2.UnwatchCase": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "CaseManagementTypeApi.V2.GetAllCaseTypes": {
     operationResponseType: "CaseTypesResponse",
   },

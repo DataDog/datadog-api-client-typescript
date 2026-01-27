@@ -38,6 +38,9 @@ import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
 import { CustomAttributeValue } from "./CustomAttributeValue";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIssue } from "./JiraIssue";
 import { JiraIssueResult } from "./JiraIssueResult";
 import { NullableUserRelationship } from "./NullableUserRelationship";
@@ -65,6 +68,10 @@ import { TimelineCellResource } from "./TimelineCellResource";
 import { TimelineResponse } from "./TimelineResponse";
 import { UserRelationshipData } from "./UserRelationshipData";
 import { UsersRelationship } from "./UsersRelationship";
+import { Watcher } from "./Watcher";
+import { WatcherRelationships } from "./WatcherRelationships";
+import { WatcherUserRelationship } from "./WatcherUserRelationship";
+import { WatchersResponse } from "./WatchersResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -82,6 +89,7 @@ export const TypingInfo: ModelTypingInfo = {
     TimelineCellResourceType: ["timeline_cell"],
     TimelineCellType: ["COMMENT"],
     UserResourceType: ["user"],
+    WatcherResourceType: ["watcher"],
   },
   oneOfMap: {
     CustomAttributeValuesUnion: [
@@ -132,6 +140,9 @@ export const TypingInfo: ModelTypingInfo = {
     CasesResponseMeta: CasesResponseMeta,
     CasesResponseMetaPagination: CasesResponseMetaPagination,
     CustomAttributeValue: CustomAttributeValue,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     JiraIssue: JiraIssue,
     JiraIssueResult: JiraIssueResult,
     NullableUserRelationship: NullableUserRelationship,
@@ -159,5 +170,9 @@ export const TypingInfo: ModelTypingInfo = {
     TimelineResponse: TimelineResponse,
     UserRelationshipData: UserRelationshipData,
     UsersRelationship: UsersRelationship,
+    Watcher: Watcher,
+    WatcherRelationships: WatcherRelationships,
+    WatcherUserRelationship: WatcherUserRelationship,
+    WatchersResponse: WatchersResponse,
   },
 };
