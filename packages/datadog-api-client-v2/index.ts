@@ -162,11 +162,13 @@ export {
   CaseManagementApiDeleteCaseCommentRequest,
   CaseManagementApiDeleteCaseCustomAttributeRequest,
   CaseManagementApiDeleteProjectRequest,
+  CaseManagementApiFavoriteProjectRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUnfavoriteProjectRequest,
   CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdateCaseCustomAttributeRequest,
   CaseManagementApiUpdateCaseDescriptionRequest,
@@ -3841,6 +3843,11 @@ export { ProjectedCost } from "./models/ProjectedCost";
 export { ProjectedCostAttributes } from "./models/ProjectedCostAttributes";
 export { ProjectedCostResponse } from "./models/ProjectedCostResponse";
 export { ProjectedCostType } from "./models/ProjectedCostType";
+export { ProjectFavorite } from "./models/ProjectFavorite";
+export { ProjectFavoriteRelationships } from "./models/ProjectFavoriteRelationships";
+export { ProjectFavoriteResourceType } from "./models/ProjectFavoriteResourceType";
+export { ProjectFavoritesResponse } from "./models/ProjectFavoritesResponse";
+export { ProjectFavoriteUserRelationship } from "./models/ProjectFavoriteUserRelationship";
 export { ProjectRelationship } from "./models/ProjectRelationship";
 export { ProjectRelationshipData } from "./models/ProjectRelationshipData";
 export { ProjectRelationships } from "./models/ProjectRelationships";
