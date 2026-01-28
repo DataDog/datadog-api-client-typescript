@@ -51,28 +51,30 @@ Given(/body from file "(.*)"/, function (this: World, filename: string) {
 Given(
   "request contains {string} parameter from {string}",
   function (this: World, parameterName: string, fixturePath: string) {
-    this.opts[parameterName.toAttributeName()] = pathLookup(
-      this.fixtures,
-      fixturePath
-    );
-
+    const value = pathLookup(this.fixtures, fixturePath);
+    this.opts[parameterName.toAttributeName()] = value;
+    // Store in pathParameters for undo operations with naming variants
+    this.pathParameters[parameterName] = value;
+    this.pathParameters[parameterName.toAttributeName()] = value;
   }
 );
 
 Given(
   /request contains "([^"]+)" parameter with value (.*)/,
   function (this: World, parameterName: string, value: string) {
-    this.opts[parameterName.toAttributeName().toOperationName()] = JSON.parse(
-      value.templated(this.fixtures)
-    );
-
-
-
+    const parsedValue = JSON.parse(value.templated(this.fixtures));
+    const attrName = parameterName.toAttributeName().toOperationName();
+    this.opts[attrName] = parsedValue;
+    // Store in pathParameters for undo operations with naming variants
+    this.pathParameters[parameterName] = parsedValue;
+    this.pathParameters[attrName] = parsedValue;
   }
 );
 
 Given("new {string} request", function (this: World, operationId: string) {
   this.operationId = operationId;
+  this.opts = {};
+  this.pathParameters = {}; // Clear path parameters for new request
 });
 
 When("the request is sent", async function (this: World) {
@@ -159,7 +161,7 @@ When("the request is sent", async function (this: World) {
           this.operationId,
           this.response,
           this.opts,
-          this.opts  // Pass opts as pathParameters (contains all parameters including path ones)
+          this.pathParameters
         )
       );
     }

@@ -89,15 +89,25 @@ for (const apiVersion of Versions) {
       if (operation.parameters !== undefined) {
         for (const p of operation.parameters) {
           if (p.value !== undefined) {
-            opts[p.name.toAttributeName()] = JSON.parse(
+            const value = JSON.parse(
               p.value?.templated(this.fixtures),
             );
+            opts[p.name.toAttributeName()] = value;
+
+            // Store in pathParameters for undo operations with naming variants
+            this.pathParameters[p.name] = value;
+            this.pathParameters[p.name.toAttributeName()] = value;
           }
           if (p.source !== undefined) {
-            opts[p.name.toAttributeName()] = pathLookup(
+            const value = pathLookup(
               this.fixtures,
               p.source
             );
+            opts[p.name.toAttributeName()] = value;
+
+            // Store in pathParameters for undo operations with naming variants
+            this.pathParameters[p.name] = value;
+            this.pathParameters[p.name.toAttributeName()] = value;
           }
           if (p.origin === "request") {
             for (const key in opts[p.name]) {
@@ -140,7 +150,7 @@ for (const apiVersion of Versions) {
       // register undo method
       if (undoAction.undo.type == "unsafe") {
         this.undo.push(
-          buildUndoFor(apiVersion, undoAction, operationName, result, opts)
+          buildUndoFor(apiVersion, undoAction, operationName, result, opts, this.pathParameters)
         );
       }
 
