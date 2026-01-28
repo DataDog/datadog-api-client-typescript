@@ -241,6 +241,7 @@ export function createConfiguration(
       "v2.getOpenAPI": false,
       "v2.listAPIs": false,
       "v2.updateOpenAPI": false,
+      "v2.listAWSCloudAuthPersonaMappings": false,
       "v2.cancelThreatHuntingJob": false,
       "v2.convertJobResultToSignal": false,
       "v2.deleteThreatHuntingJob": false,
