@@ -7,11 +7,13 @@ export {
   CaseManagementApiDeleteCaseCommentRequest,
   CaseManagementApiDeleteCaseCustomAttributeRequest,
   CaseManagementApiDeleteProjectRequest,
+  CaseManagementApiFavoriteProjectRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUnfavoriteProjectRequest,
   CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdateCaseCustomAttributeRequest,
   CaseManagementApiUpdateCaseDescriptionRequest,
@@ -70,6 +72,9 @@ export { CustomAttributeValue } from "./models/CustomAttributeValue";
 export { CustomAttributeValuesUnion } from "./models/CustomAttributeValuesUnion";
 export { JiraIssue } from "./models/JiraIssue";
 export { JiraIssueResult } from "./models/JiraIssueResult";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
 export { Project } from "./models/Project";
@@ -77,6 +82,11 @@ export { ProjectAttributes } from "./models/ProjectAttributes";
 export { ProjectCreate } from "./models/ProjectCreate";
 export { ProjectCreateAttributes } from "./models/ProjectCreateAttributes";
 export { ProjectCreateRequest } from "./models/ProjectCreateRequest";
+export { ProjectFavorite } from "./models/ProjectFavorite";
+export { ProjectFavoriteRelationships } from "./models/ProjectFavoriteRelationships";
+export { ProjectFavoriteResourceType } from "./models/ProjectFavoriteResourceType";
+export { ProjectFavoritesResponse } from "./models/ProjectFavoritesResponse";
+export { ProjectFavoriteUserRelationship } from "./models/ProjectFavoriteUserRelationship";
 export { ProjectRelationship } from "./models/ProjectRelationship";
 export { ProjectRelationshipData } from "./models/ProjectRelationshipData";
 export { ProjectRelationships } from "./models/ProjectRelationships";
