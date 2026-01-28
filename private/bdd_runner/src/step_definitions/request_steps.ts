@@ -59,10 +59,15 @@ Given(/body from file "(.*)"/, function (this: World, filename: string) {
 Given(
   "request contains {string} parameter from {string}",
   function (this: World, parameterName: string, fixturePath: string) {
-    this.opts[parameterName.toAttributeName()] = pathLookup(
+    const value = pathLookup(
       this.fixtures,
       fixturePath,
     );
+    this.opts[parameterName.toAttributeName()] = value;
+
+    // Store in pathParameters for undo operations with naming variants
+    this.pathParameters[parameterName] = value;
+    this.pathParameters[parameterName.toAttributeName()] = value;
   },
 );
 
@@ -77,6 +82,8 @@ Given(
 
 Given("new {string} request", function (this: World, operationId: string) {
   this.operationId = operationId;
+  this.opts = {};
+  this.pathParameters = {};
 });
 
 When("the request is sent", async function (this: World) {
@@ -151,7 +158,7 @@ When("the request is sent", async function (this: World) {
           this.response,
           this.opts,
           this.servicesDir,
-          this.opts,
+          this.pathParameters,
         ),
       );
     }
