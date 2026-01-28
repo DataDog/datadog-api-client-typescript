@@ -32,6 +32,13 @@ export class ObservabilityPipelineConfig {
    */
   "sources": Array<ObservabilityPipelineConfigSourceItem>;
   /**
+   * Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`.
+   * The legacy syntax is deprecated and will eventually be removed.
+   * Requires Observability Pipelines Worker 2.11 or later.
+   * See [Upgrade Your Filter Queries to the New Search Syntax](https://docs.datadoghq.com/observability_pipelines/guide/upgrade_your_filter_queries_to_the_new_search_syntax/) for more information.
+   */
+  "useLegacySearchSyntax"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -67,6 +74,10 @@ export class ObservabilityPipelineConfig {
       baseName: "sources",
       type: "Array<ObservabilityPipelineConfigSourceItem>",
       required: true,
+    },
+    useLegacySearchSyntax: {
+      baseName: "use_legacy_search_syntax",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
