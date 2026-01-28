@@ -12,11 +12,11 @@ export class PatchComponentRequestData {
   /**
    * The supported attributes for updating a component.
    */
-  "attributes"?: PatchComponentRequestDataAttributes;
+  "attributes": PatchComponentRequestDataAttributes;
   /**
    * The ID of the component.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Components resource type.
    */
@@ -41,10 +41,12 @@ export class PatchComponentRequestData {
     attributes: {
       baseName: "attributes",
       type: "PatchComponentRequestDataAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
       format: "uuid",
     },
     type: {
