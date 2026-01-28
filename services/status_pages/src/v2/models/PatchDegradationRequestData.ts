@@ -7,11 +7,11 @@ export class PatchDegradationRequestData {
   /**
    * The supported attributes for updating a degradation.
    */
-  "attributes"?: PatchDegradationRequestDataAttributes;
+  "attributes": PatchDegradationRequestDataAttributes;
   /**
    * The ID of the degradation.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Degradations resource type.
    */
@@ -34,10 +34,12 @@ export class PatchDegradationRequestData {
     attributes: {
       baseName: "attributes",
       type: "PatchDegradationRequestDataAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
       format: "uuid",
     },
     type: {
