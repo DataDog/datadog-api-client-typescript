@@ -12,11 +12,11 @@ export class PatchStatusPageRequestData {
   /**
    * The supported attributes for updating a status page.
    */
-  "attributes"?: PatchStatusPageRequestDataAttributes;
+  "attributes": PatchStatusPageRequestDataAttributes;
   /**
    * The ID of the status page.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Status pages resource type.
    */
@@ -41,10 +41,12 @@ export class PatchStatusPageRequestData {
     attributes: {
       baseName: "attributes",
       type: "PatchStatusPageRequestDataAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
       format: "uuid",
     },
     type: {
