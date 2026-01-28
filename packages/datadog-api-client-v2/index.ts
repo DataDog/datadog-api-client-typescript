@@ -158,15 +158,22 @@ export {
   CaseManagementApiAssignCaseRequest,
   CaseManagementApiCommentCaseRequest,
   CaseManagementApiCreateCaseRequest,
+  CaseManagementApiCreateCaseJiraIssueRequest,
+  CaseManagementApiCreateCaseNotebookRequest,
+  CaseManagementApiCreateCaseServiceNowTicketRequest,
   CaseManagementApiCreateProjectRequest,
   CaseManagementApiDeleteCaseCommentRequest,
   CaseManagementApiDeleteCaseCustomAttributeRequest,
   CaseManagementApiDeleteProjectRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
+  CaseManagementApiLinkIncidentRequest,
+  CaseManagementApiLinkJiraIssueToCaseRequest,
+  CaseManagementApiMoveCaseToProjectRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUnlinkJiraIssueRequest,
   CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdateCaseCustomAttributeRequest,
   CaseManagementApiUpdateCaseDescriptionRequest,
@@ -2811,6 +2818,8 @@ export { IncidentNotificationTemplateUpdateAttributes } from "./models/IncidentN
 export { IncidentNotificationTemplateUpdateData } from "./models/IncidentNotificationTemplateUpdateData";
 export { IncidentPostmortemType } from "./models/IncidentPostmortemType";
 export { IncidentRelatedObject } from "./models/IncidentRelatedObject";
+export { IncidentRelationshipData } from "./models/IncidentRelationshipData";
+export { IncidentResourceType } from "./models/IncidentResourceType";
 export { IncidentRespondersType } from "./models/IncidentRespondersType";
 export { IncidentResponse } from "./models/IncidentResponse";
 export { IncidentResponseAttributes } from "./models/IncidentResponseAttributes";
@@ -2982,6 +2991,13 @@ export { JiraAccountType } from "./models/JiraAccountType";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { JiraIssue } from "./models/JiraIssue";
+export { JiraIssueCreateAttributes } from "./models/JiraIssueCreateAttributes";
+export { JiraIssueCreateData } from "./models/JiraIssueCreateData";
+export { JiraIssueCreateRequest } from "./models/JiraIssueCreateRequest";
+export { JiraIssueLinkAttributes } from "./models/JiraIssueLinkAttributes";
+export { JiraIssueLinkData } from "./models/JiraIssueLinkData";
+export { JiraIssueLinkRequest } from "./models/JiraIssueLinkRequest";
+export { JiraIssueResourceType } from "./models/JiraIssueResourceType";
 export { JiraIssueResult } from "./models/JiraIssueResult";
 export { JiraIssuesDataType } from "./models/JiraIssuesDataType";
 export { JiraIssueTemplateCreateRequest } from "./models/JiraIssueTemplateCreateRequest";
@@ -3355,6 +3371,9 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
+export { NotebookCreateData } from "./models/NotebookCreateData";
+export { NotebookCreateRequest } from "./models/NotebookCreateRequest";
+export { NotebookResourceType } from "./models/NotebookResourceType";
 export { NotebookTriggerWrapper } from "./models/NotebookTriggerWrapper";
 export { NotificationChannel } from "./models/NotificationChannel";
 export { NotificationChannelAttributes } from "./models/NotificationChannelAttributes";
@@ -3906,6 +3925,7 @@ export { RelationshipToIncidentNotificationTemplate } from "./models/Relationshi
 export { RelationshipToIncidentNotificationTemplateData } from "./models/RelationshipToIncidentNotificationTemplateData";
 export { RelationshipToIncidentPostmortem } from "./models/RelationshipToIncidentPostmortem";
 export { RelationshipToIncidentPostmortemData } from "./models/RelationshipToIncidentPostmortemData";
+export { RelationshipToIncidentRequest } from "./models/RelationshipToIncidentRequest";
 export { RelationshipToIncidentResponderData } from "./models/RelationshipToIncidentResponderData";
 export { RelationshipToIncidentResponders } from "./models/RelationshipToIncidentResponders";
 export { RelationshipToIncidentType } from "./models/RelationshipToIncidentType";
@@ -4581,6 +4601,10 @@ export { ServiceNowTemplateUpdateRequest } from "./models/ServiceNowTemplateUpda
 export { ServiceNowTemplateUpdateRequestAttributes } from "./models/ServiceNowTemplateUpdateRequestAttributes";
 export { ServiceNowTemplateUpdateRequestData } from "./models/ServiceNowTemplateUpdateRequestData";
 export { ServiceNowTicket } from "./models/ServiceNowTicket";
+export { ServiceNowTicketCreateAttributes } from "./models/ServiceNowTicketCreateAttributes";
+export { ServiceNowTicketCreateData } from "./models/ServiceNowTicketCreateData";
+export { ServiceNowTicketCreateRequest } from "./models/ServiceNowTicketCreateRequest";
+export { ServiceNowTicketResourceType } from "./models/ServiceNowTicketResourceType";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
 export { ServiceNowUserAttributes } from "./models/ServiceNowUserAttributes";
 export { ServiceNowUserData } from "./models/ServiceNowUserData";
