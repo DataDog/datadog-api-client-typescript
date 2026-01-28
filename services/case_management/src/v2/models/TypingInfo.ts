@@ -38,6 +38,9 @@ import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
 import { CustomAttributeValue } from "./CustomAttributeValue";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIssue } from "./JiraIssue";
 import { JiraIssueResult } from "./JiraIssueResult";
 import { NullableUserRelationship } from "./NullableUserRelationship";
@@ -47,6 +50,10 @@ import { ProjectAttributes } from "./ProjectAttributes";
 import { ProjectCreate } from "./ProjectCreate";
 import { ProjectCreateAttributes } from "./ProjectCreateAttributes";
 import { ProjectCreateRequest } from "./ProjectCreateRequest";
+import { ProjectFavorite } from "./ProjectFavorite";
+import { ProjectFavoriteRelationships } from "./ProjectFavoriteRelationships";
+import { ProjectFavoriteUserRelationship } from "./ProjectFavoriteUserRelationship";
+import { ProjectFavoritesResponse } from "./ProjectFavoritesResponse";
 import { ProjectRelationship } from "./ProjectRelationship";
 import { ProjectRelationshipData } from "./ProjectRelationshipData";
 import { ProjectRelationships } from "./ProjectRelationships";
@@ -76,6 +83,7 @@ export const TypingInfo: ModelTypingInfo = {
     CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
     CaseType: ["STANDARD"],
     CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
+    ProjectFavoriteResourceType: ["project_favorite"],
     ProjectResourceType: ["project"],
     TeamLinkType: ["team_links"],
     TimelineCellAuthorUserType: ["USER"],
@@ -132,6 +140,9 @@ export const TypingInfo: ModelTypingInfo = {
     CasesResponseMeta: CasesResponseMeta,
     CasesResponseMetaPagination: CasesResponseMetaPagination,
     CustomAttributeValue: CustomAttributeValue,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     JiraIssue: JiraIssue,
     JiraIssueResult: JiraIssueResult,
     NullableUserRelationship: NullableUserRelationship,
@@ -141,6 +152,10 @@ export const TypingInfo: ModelTypingInfo = {
     ProjectCreate: ProjectCreate,
     ProjectCreateAttributes: ProjectCreateAttributes,
     ProjectCreateRequest: ProjectCreateRequest,
+    ProjectFavorite: ProjectFavorite,
+    ProjectFavoriteRelationships: ProjectFavoriteRelationships,
+    ProjectFavoriteUserRelationship: ProjectFavoriteUserRelationship,
+    ProjectFavoritesResponse: ProjectFavoritesResponse,
     ProjectRelationship: ProjectRelationship,
     ProjectRelationshipData: ProjectRelationshipData,
     ProjectRelationships: ProjectRelationships,
