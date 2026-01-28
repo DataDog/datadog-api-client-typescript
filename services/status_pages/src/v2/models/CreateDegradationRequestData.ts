@@ -7,7 +7,7 @@ export class CreateDegradationRequestData {
   /**
    * The supported attributes for creating a degradation.
    */
-  "attributes"?: CreateDegradationRequestDataAttributes;
+  "attributes": CreateDegradationRequestDataAttributes;
   /**
    * Degradations resource type.
    */
@@ -30,6 +30,7 @@ export class CreateDegradationRequestData {
     attributes: {
       baseName: "attributes",
       type: "CreateDegradationRequestDataAttributes",
+      required: true,
     },
     type: {
       baseName: "type",

@@ -8,7 +8,7 @@ export class CreateComponentRequestData {
   /**
    * The supported attributes for creating a component.
    */
-  "attributes"?: CreateComponentRequestDataAttributes;
+  "attributes": CreateComponentRequestDataAttributes;
   /**
    * The supported relationships for creating a component.
    */
@@ -35,6 +35,7 @@ export class CreateComponentRequestData {
     attributes: {
       baseName: "attributes",
       type: "CreateComponentRequestDataAttributes",
+      required: true,
     },
     relationships: {
       baseName: "relationships",

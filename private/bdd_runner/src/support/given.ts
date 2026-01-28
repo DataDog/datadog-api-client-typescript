@@ -86,9 +86,7 @@ for (const [apiVersion, givenFile] of Object.entries(
       if (operation.parameters !== undefined) {
         for (const p of operation.parameters) {
           if (p.value !== undefined) {
-            const value = JSON.parse(
-              p.value?.templated(this.fixtures),
-            );
+            const value = JSON.parse(p.value?.templated(this.fixtures));
             opts[p.name.toAttributeName()] = value;
 
             // Store in pathParameters for undo operations with naming variants
@@ -96,10 +94,7 @@ for (const [apiVersion, givenFile] of Object.entries(
             this.pathParameters[p.name.toAttributeName()] = value;
           }
           if (p.source !== undefined) {
-            const value = pathLookup(
-              this.fixtures,
-              p.source,
-            );
+            const value = pathLookup(this.fixtures, p.source);
             opts[p.name.toAttributeName()] = value;
 
             // Store in pathParameters for undo operations with naming variants

@@ -7,7 +7,7 @@ export class CreateStatusPageRequestData {
   /**
    * The supported attributes for creating a status page.
    */
-  "attributes"?: CreateStatusPageRequestDataAttributes;
+  "attributes": CreateStatusPageRequestDataAttributes;
   /**
    * Status pages resource type.
    */
@@ -30,6 +30,7 @@ export class CreateStatusPageRequestData {
     attributes: {
       baseName: "attributes",
       type: "CreateStatusPageRequestDataAttributes",
+      required: true,
     },
     type: {
       baseName: "type",

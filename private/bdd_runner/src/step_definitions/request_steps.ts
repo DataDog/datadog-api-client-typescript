@@ -59,10 +59,7 @@ Given(/body from file "(.*)"/, function (this: World, filename: string) {
 Given(
   "request contains {string} parameter from {string}",
   function (this: World, parameterName: string, fixturePath: string) {
-    const value = pathLookup(
-      this.fixtures,
-      fixturePath,
-    );
+    const value = pathLookup(this.fixtures, fixturePath);
     this.opts[parameterName.toAttributeName()] = value;
 
     // Store in pathParameters for undo operations with naming variants
