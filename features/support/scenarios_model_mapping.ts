@@ -3496,6 +3496,23 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.ListUserProjectFavorites": {
+        "operationResponseType": "ProjectFavoritesResponse",
+    },
+    "v2.FavoriteProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnfavoriteProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetAllCaseTypes": {
         "operationResponseType": "CaseTypesResponse",
     },

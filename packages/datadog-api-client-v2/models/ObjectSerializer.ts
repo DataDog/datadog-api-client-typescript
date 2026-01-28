@@ -2064,6 +2064,10 @@ import { ProjectAttributes } from "./ProjectAttributes";
 import { ProjectCreate } from "./ProjectCreate";
 import { ProjectCreateAttributes } from "./ProjectCreateAttributes";
 import { ProjectCreateRequest } from "./ProjectCreateRequest";
+import { ProjectFavorite } from "./ProjectFavorite";
+import { ProjectFavoriteRelationships } from "./ProjectFavoriteRelationships";
+import { ProjectFavoriteUserRelationship } from "./ProjectFavoriteUserRelationship";
+import { ProjectFavoritesResponse } from "./ProjectFavoritesResponse";
 import { ProjectRelationship } from "./ProjectRelationship";
 import { ProjectRelationshipData } from "./ProjectRelationshipData";
 import { ProjectRelationships } from "./ProjectRelationships";
@@ -4252,6 +4256,7 @@ const enumsMap: { [key: string]: any[] } = {
   PostmortemCellType: ["markdown"],
   ProcessSummaryType: ["process"],
   ProductAnalyticsServerSideEventItemType: ["server"],
+  ProjectFavoriteResourceType: ["project_favorite"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   QueryAccountRequestDataType: ["query_account_request"],
@@ -7402,6 +7407,10 @@ const typeMap: { [index: string]: any } = {
   ProjectCreate: ProjectCreate,
   ProjectCreateAttributes: ProjectCreateAttributes,
   ProjectCreateRequest: ProjectCreateRequest,
+  ProjectFavorite: ProjectFavorite,
+  ProjectFavoriteRelationships: ProjectFavoriteRelationships,
+  ProjectFavoriteUserRelationship: ProjectFavoriteUserRelationship,
+  ProjectFavoritesResponse: ProjectFavoritesResponse,
   ProjectRelationship: ProjectRelationship,
   ProjectRelationshipData: ProjectRelationshipData,
   ProjectRelationships: ProjectRelationships,
