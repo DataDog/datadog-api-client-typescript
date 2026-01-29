@@ -2444,6 +2444,28 @@ import { SecurityMonitoringCriticalAssetUpdateAttributes } from "./SecurityMonit
 import { SecurityMonitoringCriticalAssetUpdateData } from "./SecurityMonitoringCriticalAssetUpdateData";
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
+import { SecurityMonitoringDatasetAttributesResponse } from "./SecurityMonitoringDatasetAttributesResponse";
+import { SecurityMonitoringDatasetCreateAttributesRequest } from "./SecurityMonitoringDatasetCreateAttributesRequest";
+import { SecurityMonitoringDatasetCreateDataRequest } from "./SecurityMonitoringDatasetCreateDataRequest";
+import { SecurityMonitoringDatasetCreateDataResponse } from "./SecurityMonitoringDatasetCreateDataResponse";
+import { SecurityMonitoringDatasetCreateRequest } from "./SecurityMonitoringDatasetCreateRequest";
+import { SecurityMonitoringDatasetCreateResponse } from "./SecurityMonitoringDatasetCreateResponse";
+import { SecurityMonitoringDatasetDataResponse } from "./SecurityMonitoringDatasetDataResponse";
+import { SecurityMonitoringDatasetDefinition } from "./SecurityMonitoringDatasetDefinition";
+import { SecurityMonitoringDatasetDefinitionColumn } from "./SecurityMonitoringDatasetDefinitionColumn";
+import { SecurityMonitoringDatasetDependenciesAttributesRequest } from "./SecurityMonitoringDatasetDependenciesAttributesRequest";
+import { SecurityMonitoringDatasetDependenciesDataRequest } from "./SecurityMonitoringDatasetDependenciesDataRequest";
+import { SecurityMonitoringDatasetDependenciesRequest } from "./SecurityMonitoringDatasetDependenciesRequest";
+import { SecurityMonitoringDatasetDependenciesResponse } from "./SecurityMonitoringDatasetDependenciesResponse";
+import { SecurityMonitoringDatasetDependencyAttributesResponse } from "./SecurityMonitoringDatasetDependencyAttributesResponse";
+import { SecurityMonitoringDatasetDependencyDataResponse } from "./SecurityMonitoringDatasetDependencyDataResponse";
+import { SecurityMonitoringDatasetListMeta } from "./SecurityMonitoringDatasetListMeta";
+import { SecurityMonitoringDatasetResponse } from "./SecurityMonitoringDatasetResponse";
+import { SecurityMonitoringDatasetUpdateAttributesRequest } from "./SecurityMonitoringDatasetUpdateAttributesRequest";
+import { SecurityMonitoringDatasetUpdateDataRequest } from "./SecurityMonitoringDatasetUpdateDataRequest";
+import { SecurityMonitoringDatasetUpdateRequest } from "./SecurityMonitoringDatasetUpdateRequest";
+import { SecurityMonitoringDatasetsHistoryResponse } from "./SecurityMonitoringDatasetsHistoryResponse";
+import { SecurityMonitoringDatasetsListResponse } from "./SecurityMonitoringDatasetsListResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
@@ -4477,6 +4499,16 @@ const enumsMap: { [key: string]: any[] } = {
     "decrease",
   ],
   SecurityMonitoringCriticalAssetType: ["critical_assets"],
+  SecurityMonitoringDatasetDefinitionColumnType: [
+    "string",
+    "integer",
+    "double",
+    "boolean",
+  ],
+  SecurityMonitoringDatasetDependenciesType: [
+    "security_monitoring_dataset_dependencies",
+  ],
+  SecurityMonitoringDatasetType: ["security_monitoring_dataset"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
   SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [
     300, 600, 900, 1800, 3600, 10800,
@@ -7836,6 +7868,46 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringCriticalAssetUpdateRequest,
   SecurityMonitoringCriticalAssetsResponse:
     SecurityMonitoringCriticalAssetsResponse,
+  SecurityMonitoringDatasetAttributesResponse:
+    SecurityMonitoringDatasetAttributesResponse,
+  SecurityMonitoringDatasetCreateAttributesRequest:
+    SecurityMonitoringDatasetCreateAttributesRequest,
+  SecurityMonitoringDatasetCreateDataRequest:
+    SecurityMonitoringDatasetCreateDataRequest,
+  SecurityMonitoringDatasetCreateDataResponse:
+    SecurityMonitoringDatasetCreateDataResponse,
+  SecurityMonitoringDatasetCreateRequest:
+    SecurityMonitoringDatasetCreateRequest,
+  SecurityMonitoringDatasetCreateResponse:
+    SecurityMonitoringDatasetCreateResponse,
+  SecurityMonitoringDatasetDataResponse: SecurityMonitoringDatasetDataResponse,
+  SecurityMonitoringDatasetDefinition: SecurityMonitoringDatasetDefinition,
+  SecurityMonitoringDatasetDefinitionColumn:
+    SecurityMonitoringDatasetDefinitionColumn,
+  SecurityMonitoringDatasetDependenciesAttributesRequest:
+    SecurityMonitoringDatasetDependenciesAttributesRequest,
+  SecurityMonitoringDatasetDependenciesDataRequest:
+    SecurityMonitoringDatasetDependenciesDataRequest,
+  SecurityMonitoringDatasetDependenciesRequest:
+    SecurityMonitoringDatasetDependenciesRequest,
+  SecurityMonitoringDatasetDependenciesResponse:
+    SecurityMonitoringDatasetDependenciesResponse,
+  SecurityMonitoringDatasetDependencyAttributesResponse:
+    SecurityMonitoringDatasetDependencyAttributesResponse,
+  SecurityMonitoringDatasetDependencyDataResponse:
+    SecurityMonitoringDatasetDependencyDataResponse,
+  SecurityMonitoringDatasetListMeta: SecurityMonitoringDatasetListMeta,
+  SecurityMonitoringDatasetResponse: SecurityMonitoringDatasetResponse,
+  SecurityMonitoringDatasetUpdateAttributesRequest:
+    SecurityMonitoringDatasetUpdateAttributesRequest,
+  SecurityMonitoringDatasetUpdateDataRequest:
+    SecurityMonitoringDatasetUpdateDataRequest,
+  SecurityMonitoringDatasetUpdateRequest:
+    SecurityMonitoringDatasetUpdateRequest,
+  SecurityMonitoringDatasetsHistoryResponse:
+    SecurityMonitoringDatasetsHistoryResponse,
+  SecurityMonitoringDatasetsListResponse:
+    SecurityMonitoringDatasetsListResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
   SecurityMonitoringPaginatedSuppressionsResponse:

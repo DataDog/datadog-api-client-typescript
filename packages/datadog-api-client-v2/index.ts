@@ -775,6 +775,7 @@ export {
 export {
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
   SecurityMonitoringApiCancelThreatHuntingJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
@@ -785,6 +786,7 @@ export {
   SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
@@ -792,6 +794,7 @@ export {
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
@@ -809,6 +812,9 @@ export {
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiGetSecurityMonitoringDatasetRequest,
+  SecurityMonitoringApiGetSecurityMonitoringDatasetByVersionRequest,
+  SecurityMonitoringApiGetSecurityMonitoringDatasetHistoryRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
@@ -826,6 +832,7 @@ export {
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
   SecurityMonitoringApiListSecurityMonitoringCriticalAssetsRequest,
+  SecurityMonitoringApiListSecurityMonitoringDatasetsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
@@ -846,6 +853,7 @@ export {
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiValidateSecurityMonitoringRuleRequest,
@@ -4309,6 +4317,31 @@ export { SecurityMonitoringCriticalAssetType } from "./models/SecurityMonitoring
 export { SecurityMonitoringCriticalAssetUpdateAttributes } from "./models/SecurityMonitoringCriticalAssetUpdateAttributes";
 export { SecurityMonitoringCriticalAssetUpdateData } from "./models/SecurityMonitoringCriticalAssetUpdateData";
 export { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
+export { SecurityMonitoringDatasetAttributesResponse } from "./models/SecurityMonitoringDatasetAttributesResponse";
+export { SecurityMonitoringDatasetCreateAttributesRequest } from "./models/SecurityMonitoringDatasetCreateAttributesRequest";
+export { SecurityMonitoringDatasetCreateDataRequest } from "./models/SecurityMonitoringDatasetCreateDataRequest";
+export { SecurityMonitoringDatasetCreateDataResponse } from "./models/SecurityMonitoringDatasetCreateDataResponse";
+export { SecurityMonitoringDatasetCreateRequest } from "./models/SecurityMonitoringDatasetCreateRequest";
+export { SecurityMonitoringDatasetCreateResponse } from "./models/SecurityMonitoringDatasetCreateResponse";
+export { SecurityMonitoringDatasetDataResponse } from "./models/SecurityMonitoringDatasetDataResponse";
+export { SecurityMonitoringDatasetDefinition } from "./models/SecurityMonitoringDatasetDefinition";
+export { SecurityMonitoringDatasetDefinitionColumn } from "./models/SecurityMonitoringDatasetDefinitionColumn";
+export { SecurityMonitoringDatasetDefinitionColumnType } from "./models/SecurityMonitoringDatasetDefinitionColumnType";
+export { SecurityMonitoringDatasetDependenciesAttributesRequest } from "./models/SecurityMonitoringDatasetDependenciesAttributesRequest";
+export { SecurityMonitoringDatasetDependenciesDataRequest } from "./models/SecurityMonitoringDatasetDependenciesDataRequest";
+export { SecurityMonitoringDatasetDependenciesRequest } from "./models/SecurityMonitoringDatasetDependenciesRequest";
+export { SecurityMonitoringDatasetDependenciesResponse } from "./models/SecurityMonitoringDatasetDependenciesResponse";
+export { SecurityMonitoringDatasetDependenciesType } from "./models/SecurityMonitoringDatasetDependenciesType";
+export { SecurityMonitoringDatasetDependencyAttributesResponse } from "./models/SecurityMonitoringDatasetDependencyAttributesResponse";
+export { SecurityMonitoringDatasetDependencyDataResponse } from "./models/SecurityMonitoringDatasetDependencyDataResponse";
+export { SecurityMonitoringDatasetListMeta } from "./models/SecurityMonitoringDatasetListMeta";
+export { SecurityMonitoringDatasetResponse } from "./models/SecurityMonitoringDatasetResponse";
+export { SecurityMonitoringDatasetsHistoryResponse } from "./models/SecurityMonitoringDatasetsHistoryResponse";
+export { SecurityMonitoringDatasetsListResponse } from "./models/SecurityMonitoringDatasetsListResponse";
+export { SecurityMonitoringDatasetType } from "./models/SecurityMonitoringDatasetType";
+export { SecurityMonitoringDatasetUpdateAttributesRequest } from "./models/SecurityMonitoringDatasetUpdateAttributesRequest";
+export { SecurityMonitoringDatasetUpdateDataRequest } from "./models/SecurityMonitoringDatasetUpdateDataRequest";
+export { SecurityMonitoringDatasetUpdateRequest } from "./models/SecurityMonitoringDatasetUpdateRequest";
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
