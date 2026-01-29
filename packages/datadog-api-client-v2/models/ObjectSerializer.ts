@@ -1347,6 +1347,13 @@ import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
+import { IncidentRuleAttributesRequest } from "./IncidentRuleAttributesRequest";
+import { IncidentRuleAttributesResponse } from "./IncidentRuleAttributesResponse";
+import { IncidentRuleDataRequest } from "./IncidentRuleDataRequest";
+import { IncidentRuleDataResponse } from "./IncidentRuleDataResponse";
+import { IncidentRuleRequest } from "./IncidentRuleRequest";
+import { IncidentRuleResponse } from "./IncidentRuleResponse";
+import { IncidentRulesResponse } from "./IncidentRulesResponse";
 import { IncidentSearchResponse } from "./IncidentSearchResponse";
 import { IncidentSearchResponseAttributes } from "./IncidentSearchResponseAttributes";
 import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
@@ -3734,6 +3741,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
   IncidentRespondersType: ["incident_responders"],
+  IncidentRuleType: ["incident_rule"],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
   IncidentServiceType: ["services"],
@@ -6520,6 +6528,13 @@ const typeMap: { [index: string]: any } = {
   IncidentResponseMeta: IncidentResponseMeta,
   IncidentResponseMetaPagination: IncidentResponseMetaPagination,
   IncidentResponseRelationships: IncidentResponseRelationships,
+  IncidentRuleAttributesRequest: IncidentRuleAttributesRequest,
+  IncidentRuleAttributesResponse: IncidentRuleAttributesResponse,
+  IncidentRuleDataRequest: IncidentRuleDataRequest,
+  IncidentRuleDataResponse: IncidentRuleDataResponse,
+  IncidentRuleRequest: IncidentRuleRequest,
+  IncidentRuleResponse: IncidentRuleResponse,
+  IncidentRulesResponse: IncidentRulesResponse,
   IncidentSearchResponse: IncidentSearchResponse,
   IncidentSearchResponseAttributes: IncidentSearchResponseAttributes,
   IncidentSearchResponseData: IncidentSearchResponseData,
