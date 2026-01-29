@@ -3,29 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CaseNotificationRuleCreateAttributes } from "./CaseNotificationRuleCreateAttributes";
+import { CaseNotificationRuleResourceType } from "./CaseNotificationRuleResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project creation attributes
+ * Notification rule create
  */
-export class ProjectCreateAttributes {
+export class CaseNotificationRuleCreate {
   /**
-   * List of enabled custom case type IDs
+   * Notification rule creation attributes
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "attributes": CaseNotificationRuleCreateAttributes;
   /**
-   * Project's key. Cannot be "CASE"
+   * Notification rule resource type
    */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "type": CaseNotificationRuleResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +37,15 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
+    attributes: {
+      baseName: "attributes",
+      type: "CaseNotificationRuleCreateAttributes",
       required: true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "CaseNotificationRuleResourceType",
       required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +57,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return CaseNotificationRuleCreate.attributeTypeMap;
   }
 
   public constructor() {}

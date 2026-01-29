@@ -7,25 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project creation attributes
+ * Auto-close inactive cases settings
  */
-export class ProjectCreateAttributes {
+export class AutoCloseInactiveCases {
   /**
-   * List of enabled custom case type IDs
+   * Whether auto-close is enabled
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "enabled"?: boolean;
   /**
-   * Project's key. Cannot be "CASE"
+   * Maximum inactive time in seconds before auto-closing
    */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "maxInactiveTimeInSecs"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +35,14 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    maxInactiveTimeInSecs: {
+      baseName: "max_inactive_time_in_secs",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +54,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return AutoCloseInactiveCases.attributeTypeMap;
   }
 
   public constructor() {}

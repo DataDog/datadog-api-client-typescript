@@ -9,9 +9,9 @@ import { ProjectSettings } from "./ProjectSettings";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project attributes
+ * Project update attributes
  */
-export class ProjectAttributes {
+export class ProjectUpdateAttributes {
   /**
    * Project columns configuration
    */
@@ -21,21 +21,17 @@ export class ProjectAttributes {
    */
   "enabledCustomCaseTypes"?: Array<string>;
   /**
-   * The project's key
-   */
-  "key"?: string;
-  /**
-   * Project's name
+   * Project name
    */
   "name"?: string;
-  /**
-   * Whether the project is restricted
-   */
-  "restricted"?: boolean;
   /**
    * Project settings
    */
   "settings"?: ProjectSettings;
+  /**
+   * Team UUID to associate with the project
+   */
+  "teamUuid"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,21 +57,17 @@ export class ProjectAttributes {
       baseName: "enabled_custom_case_types",
       type: "Array<string>",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-    },
     name: {
       baseName: "name",
       type: "string",
     },
-    restricted: {
-      baseName: "restricted",
-      type: "boolean",
-    },
     settings: {
       baseName: "settings",
       type: "ProjectSettings",
+    },
+    teamUuid: {
+      baseName: "team_uuid",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,7 +79,7 @@ export class ProjectAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectAttributes.attributeTypeMap;
+    return ProjectUpdateAttributes.attributeTypeMap;
   }
 
   public constructor() {}

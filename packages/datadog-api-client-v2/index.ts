@@ -159,11 +159,14 @@ export {
   CaseManagementApiCommentCaseRequest,
   CaseManagementApiCreateCaseRequest,
   CaseManagementApiCreateProjectRequest,
+  CaseManagementApiCreateProjectNotificationRuleRequest,
   CaseManagementApiDeleteCaseCommentRequest,
   CaseManagementApiDeleteCaseCustomAttributeRequest,
   CaseManagementApiDeleteProjectRequest,
+  CaseManagementApiDeleteProjectNotificationRuleRequest,
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
+  CaseManagementApiGetProjectNotificationRulesRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
@@ -172,6 +175,8 @@ export {
   CaseManagementApiUpdateCaseDescriptionRequest,
   CaseManagementApiUpdateCaseTitleRequest,
   CaseManagementApiUpdatePriorityRequest,
+  CaseManagementApiUpdateProjectRequest,
+  CaseManagementApiUpdateProjectNotificationRuleRequest,
   CaseManagementApiUpdateStatusRequest,
   CaseManagementApi,
 } from "./apis/CaseManagementApi";
@@ -1124,6 +1129,8 @@ export { AnthropicCredentialsUpdate } from "./models/AnthropicCredentialsUpdate"
 export { AnthropicIntegration } from "./models/AnthropicIntegration";
 export { AnthropicIntegrationType } from "./models/AnthropicIntegrationType";
 export { AnthropicIntegrationUpdate } from "./models/AnthropicIntegrationUpdate";
+export { AnyValue } from "./models/AnyValue";
+export { AnyValueItem } from "./models/AnyValueItem";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { APIKeyCreateAttributes } from "./models/APIKeyCreateAttributes";
 export { APIKeyCreateData } from "./models/APIKeyCreateData";
@@ -1296,6 +1303,8 @@ export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttribu
 export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { AutoCloseInactiveCases } from "./models/AutoCloseInactiveCases";
+export { AutoTransitionAssignedCases } from "./models/AutoTransitionAssignedCases";
 export { AWSAccountCreateRequest } from "./models/AWSAccountCreateRequest";
 export { AWSAccountCreateRequestAttributes } from "./models/AWSAccountCreateRequestAttributes";
 export { AWSAccountCreateRequestData } from "./models/AWSAccountCreateRequestData";
@@ -1502,6 +1511,20 @@ export { CaseInsightsItems } from "./models/CaseInsightsItems";
 export { CaseManagementProject } from "./models/CaseManagementProject";
 export { CaseManagementProjectData } from "./models/CaseManagementProjectData";
 export { CaseManagementProjectDataType } from "./models/CaseManagementProjectDataType";
+export { CaseNotificationRule } from "./models/CaseNotificationRule";
+export { CaseNotificationRuleAttributes } from "./models/CaseNotificationRuleAttributes";
+export { CaseNotificationRuleCreate } from "./models/CaseNotificationRuleCreate";
+export { CaseNotificationRuleCreateAttributes } from "./models/CaseNotificationRuleCreateAttributes";
+export { CaseNotificationRuleCreateRequest } from "./models/CaseNotificationRuleCreateRequest";
+export { CaseNotificationRuleRecipient } from "./models/CaseNotificationRuleRecipient";
+export { CaseNotificationRuleRecipientData } from "./models/CaseNotificationRuleRecipientData";
+export { CaseNotificationRuleResourceType } from "./models/CaseNotificationRuleResourceType";
+export { CaseNotificationRuleResponse } from "./models/CaseNotificationRuleResponse";
+export { CaseNotificationRulesResponse } from "./models/CaseNotificationRulesResponse";
+export { CaseNotificationRuleTrigger } from "./models/CaseNotificationRuleTrigger";
+export { CaseNotificationRuleTriggerData } from "./models/CaseNotificationRuleTriggerData";
+export { CaseNotificationRuleUpdate } from "./models/CaseNotificationRuleUpdate";
+export { CaseNotificationRuleUpdateRequest } from "./models/CaseNotificationRuleUpdateRequest";
 export { CasePriority } from "./models/CasePriority";
 export { CaseRelationships } from "./models/CaseRelationships";
 export { CaseResourceType } from "./models/CaseResourceType";
@@ -2904,6 +2927,25 @@ export { InputSchema } from "./models/InputSchema";
 export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
+export { IntegrationIncident } from "./models/IntegrationIncident";
+export { IntegrationIncidentFieldMappingsItems } from "./models/IntegrationIncidentFieldMappingsItems";
+export { IntegrationIncidentSeverityConfig } from "./models/IntegrationIncidentSeverityConfig";
+export { IntegrationJira } from "./models/IntegrationJira";
+export { IntegrationJiraAutoCreation } from "./models/IntegrationJiraAutoCreation";
+export { IntegrationJiraMetadata } from "./models/IntegrationJiraMetadata";
+export { IntegrationJiraSync } from "./models/IntegrationJiraSync";
+export { IntegrationJiraSyncDueDate } from "./models/IntegrationJiraSyncDueDate";
+export { IntegrationJiraSyncProperties } from "./models/IntegrationJiraSyncProperties";
+export { IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties } from "./models/IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties";
+export { IntegrationMonitor } from "./models/IntegrationMonitor";
+export { IntegrationOnCall } from "./models/IntegrationOnCall";
+export { IntegrationOnCallEscalationQueriesItems } from "./models/IntegrationOnCallEscalationQueriesItems";
+export { IntegrationOnCallEscalationQueriesItemsTarget } from "./models/IntegrationOnCallEscalationQueriesItemsTarget";
+export { IntegrationServiceNow } from "./models/IntegrationServiceNow";
+export { IntegrationServiceNowAutoCreation } from "./models/IntegrationServiceNowAutoCreation";
+export { IntegrationServiceNowSyncConfig } from "./models/IntegrationServiceNowSyncConfig";
+export { IntegrationServiceNowSyncConfig139772721534496 } from "./models/IntegrationServiceNowSyncConfig139772721534496";
+export { IntegrationServiceNowSyncConfigPriority } from "./models/IntegrationServiceNowSyncConfigPriority";
 export { InterfaceAttributes } from "./models/InterfaceAttributes";
 export { InterfaceAttributesStatus } from "./models/InterfaceAttributesStatus";
 export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
@@ -3834,6 +3876,9 @@ export { ProductAnalyticsServerSideEventItemType } from "./models/ProductAnalyti
 export { ProductAnalyticsServerSideEventItemUsr } from "./models/ProductAnalyticsServerSideEventItemUsr";
 export { Project } from "./models/Project";
 export { ProjectAttributes } from "./models/ProjectAttributes";
+export { ProjectColumnsConfig } from "./models/ProjectColumnsConfig";
+export { ProjectColumnsConfigColumnsItems } from "./models/ProjectColumnsConfigColumnsItems";
+export { ProjectColumnsConfigColumnsItemsSort } from "./models/ProjectColumnsConfigColumnsItemsSort";
 export { ProjectCreate } from "./models/ProjectCreate";
 export { ProjectCreateAttributes } from "./models/ProjectCreateAttributes";
 export { ProjectCreateRequest } from "./models/ProjectCreateRequest";
@@ -3841,12 +3886,17 @@ export { ProjectedCost } from "./models/ProjectedCost";
 export { ProjectedCostAttributes } from "./models/ProjectedCostAttributes";
 export { ProjectedCostResponse } from "./models/ProjectedCostResponse";
 export { ProjectedCostType } from "./models/ProjectedCostType";
+export { ProjectNotificationSettings } from "./models/ProjectNotificationSettings";
 export { ProjectRelationship } from "./models/ProjectRelationship";
 export { ProjectRelationshipData } from "./models/ProjectRelationshipData";
 export { ProjectRelationships } from "./models/ProjectRelationships";
 export { ProjectResourceType } from "./models/ProjectResourceType";
 export { ProjectResponse } from "./models/ProjectResponse";
+export { ProjectSettings } from "./models/ProjectSettings";
 export { ProjectsResponse } from "./models/ProjectsResponse";
+export { ProjectUpdate } from "./models/ProjectUpdate";
+export { ProjectUpdateAttributes } from "./models/ProjectUpdateAttributes";
+export { ProjectUpdateRequest } from "./models/ProjectUpdateRequest";
 export { PublishAppResponse } from "./models/PublishAppResponse";
 export { PutAppsDatastoreItemResponseArray } from "./models/PutAppsDatastoreItemResponseArray";
 export { PutAppsDatastoreItemResponseData } from "./models/PutAppsDatastoreItemResponseData";
@@ -4769,6 +4819,8 @@ export { SuiteCreateEditRequest } from "./models/SuiteCreateEditRequest";
 export { SuiteSearchResponseType } from "./models/SuiteSearchResponseType";
 export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
 export { SuppressionVersions } from "./models/SuppressionVersions";
+export { SyncProperty } from "./models/SyncProperty";
+export { SyncPropertyWithMapping } from "./models/SyncPropertyWithMapping";
 export { SyntheticsGlobalVariable } from "./models/SyntheticsGlobalVariable";
 export { SyntheticsGlobalVariableAttributes } from "./models/SyntheticsGlobalVariableAttributes";
 export { SyntheticsGlobalVariableOptions } from "./models/SyntheticsGlobalVariableOptions";

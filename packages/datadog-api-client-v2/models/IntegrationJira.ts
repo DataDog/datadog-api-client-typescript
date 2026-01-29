@@ -3,29 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { IntegrationJiraAutoCreation } from "./IntegrationJiraAutoCreation";
+import { IntegrationJiraMetadata } from "./IntegrationJiraMetadata";
+import { IntegrationJiraSync } from "./IntegrationJiraSync";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project creation attributes
+ * Jira integration settings
  */
-export class ProjectCreateAttributes {
+export class IntegrationJira {
+  "autoCreation"?: IntegrationJiraAutoCreation;
   /**
-   * List of enabled custom case type IDs
+   * Whether Jira integration is enabled
    */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "enabled"?: boolean;
+  "metadata"?: IntegrationJiraMetadata;
+  "sync"?: IntegrationJiraSync;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +37,21 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    autoCreation: {
+      baseName: "auto_creation",
+      type: "IntegrationJiraAutoCreation",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    metadata: {
+      baseName: "metadata",
+      type: "IntegrationJiraMetadata",
     },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    sync: {
+      baseName: "sync",
+      type: "IntegrationJiraSync",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +63,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationJira.attributeTypeMap;
   }
 
   public constructor() {}

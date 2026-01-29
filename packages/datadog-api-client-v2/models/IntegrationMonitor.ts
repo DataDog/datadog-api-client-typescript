@@ -3,39 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
-import { ProjectSettings } from "./ProjectSettings";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project attributes
+ * Monitor integration settings
  */
-export class ProjectAttributes {
+export class IntegrationMonitor {
   /**
-   * Project columns configuration
+   * Whether auto-resolve is enabled
    */
-  "columnsConfig"?: ProjectColumnsConfig;
+  "autoResolveEnabled"?: boolean;
   /**
-   * List of enabled custom case type IDs
+   * Case type ID for monitor integration
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "caseTypeId"?: string;
   /**
-   * The project's key
+   * Whether monitor integration is enabled
    */
-  "key"?: string;
+  "enabled"?: boolean;
   /**
-   * Project's name
+   * Monitor handle
    */
-  "name"?: string;
-  /**
-   * Whether the project is restricted
-   */
-  "restricted"?: boolean;
-  /**
-   * Project settings
-   */
-  "settings"?: ProjectSettings;
+  "handle"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,29 +43,21 @@ export class ProjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columnsConfig: {
-      baseName: "columns_config",
-      type: "ProjectColumnsConfig",
-    },
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    restricted: {
-      baseName: "restricted",
+    autoResolveEnabled: {
+      baseName: "auto_resolve_enabled",
       type: "boolean",
     },
-    settings: {
-      baseName: "settings",
-      type: "ProjectSettings",
+    caseTypeId: {
+      baseName: "case_type_id",
+      type: "string",
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    handle: {
+      baseName: "handle",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,7 +69,7 @@ export class ProjectAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectAttributes.attributeTypeMap;
+    return IntegrationMonitor.attributeTypeMap;
   }
 
   public constructor() {}

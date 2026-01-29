@@ -3,29 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { IntegrationServiceNowSyncConfigPriority } from "./IntegrationServiceNowSyncConfigPriority";
+import { SyncProperty } from "./SyncProperty";
+import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Project creation attributes
- */
-export class ProjectCreateAttributes {
+export class IntegrationServiceNowSyncConfig139772721534496 {
   /**
-   * List of enabled custom case type IDs
+   * Sync property configuration
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "comments"?: SyncProperty;
+  "priority"?: IntegrationServiceNowSyncConfigPriority;
   /**
-   * Project's key. Cannot be "CASE"
+   * Sync property with mapping configuration
    */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "status"?: SyncPropertyWithMapping;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +36,17 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    comments: {
+      baseName: "comments",
+      type: "SyncProperty",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    priority: {
+      baseName: "priority",
+      type: "IntegrationServiceNowSyncConfigPriority",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    status: {
+      baseName: "status",
+      type: "SyncPropertyWithMapping",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +58,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationServiceNowSyncConfig139772721534496.attributeTypeMap;
   }
 
   public constructor() {}

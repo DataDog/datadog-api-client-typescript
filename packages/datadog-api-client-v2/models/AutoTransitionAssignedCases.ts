@@ -7,25 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project creation attributes
+ * Auto-transition assigned cases settings
  */
-export class ProjectCreateAttributes {
+export class AutoTransitionAssignedCases {
   /**
-   * List of enabled custom case type IDs
+   * Whether to auto-transition cases when self-assigned
    */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "autoTransitionAssignedCasesOnSelfAssigned"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +31,9 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    autoTransitionAssignedCasesOnSelfAssigned: {
+      baseName: "auto_transition_assigned_cases_on_self_assigned",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +45,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return AutoTransitionAssignedCases.attributeTypeMap;
   }
 
   public constructor() {}

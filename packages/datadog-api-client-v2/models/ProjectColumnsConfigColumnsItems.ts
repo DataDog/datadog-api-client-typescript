@@ -3,29 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ProjectColumnsConfigColumnsItemsSort } from "./ProjectColumnsConfigColumnsItemsSort";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Project creation attributes
- */
-export class ProjectCreateAttributes {
-  /**
-   * List of enabled custom case type IDs
-   */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+export class ProjectColumnsConfigColumnsItems {
+  "sort"?: ProjectColumnsConfigColumnsItemsSort;
+  "sortField"?: string;
+  "type"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,22 +28,16 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    sort: {
+      baseName: "sort",
+      type: "ProjectColumnsConfigColumnsItemsSort",
     },
-    key: {
-      baseName: "key",
+    sortField: {
+      baseName: "sort_field",
       type: "string",
-      required: true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
+    type: {
+      baseName: "type",
       type: "string",
     },
     additionalProperties: {
@@ -71,7 +50,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return ProjectColumnsConfigColumnsItems.attributeTypeMap;
   }
 
   public constructor() {}

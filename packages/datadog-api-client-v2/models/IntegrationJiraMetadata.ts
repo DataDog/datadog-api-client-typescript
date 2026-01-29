@@ -6,26 +6,10 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Project creation attributes
- */
-export class ProjectCreateAttributes {
-  /**
-   * List of enabled custom case type IDs
-   */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+export class IntegrationJiraMetadata {
+  "accountId"?: string;
+  "issueTypeId"?: string;
+  "projectId"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,22 +27,16 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
-    },
-    key: {
-      baseName: "key",
+    accountId: {
+      baseName: "account_id",
       type: "string",
-      required: true,
     },
-    name: {
-      baseName: "name",
+    issueTypeId: {
+      baseName: "issue_type_id",
       type: "string",
-      required: true,
     },
-    teamUuid: {
-      baseName: "team_uuid",
+    projectId: {
+      baseName: "project_id",
       type: "string",
     },
     additionalProperties: {
@@ -71,7 +49,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationJiraMetadata.attributeTypeMap;
   }
 
   public constructor() {}
