@@ -3352,6 +3352,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CaseManagementApi.V2.UpdateProject": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ProjectUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ProjectResponse",
+  },
+  "CaseManagementApi.V2.GetProjectNotificationRules": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CaseNotificationRulesResponse",
+  },
+  "CaseManagementApi.V2.CreateProjectNotificationRule": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseNotificationRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "CaseNotificationRuleResponse",
+  },
+  "CaseManagementApi.V2.UpdateProjectNotificationRule": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    notificationRuleId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseNotificationRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementApi.V2.DeleteProjectNotificationRule": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    notificationRuleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "CaseManagementApi.V2.GetCase": {
     caseId: {
       type: "string",

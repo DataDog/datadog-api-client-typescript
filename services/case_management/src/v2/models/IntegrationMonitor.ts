@@ -1,25 +1,25 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Project creation attributes
+ * Monitor integration settings
  */
-export class ProjectCreateAttributes {
+export class IntegrationMonitor {
   /**
-   * List of enabled custom case type IDs
+   * Whether auto-resolve is enabled
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "autoResolveEnabled"?: boolean;
   /**
-   * Project's key. Cannot be "CASE"
+   * Case type ID for monitor integration
    */
-  "key": string;
+  "caseTypeId"?: string;
   /**
-   * Project name
+   * Whether monitor integration is enabled
    */
-  "name": string;
+  "enabled"?: boolean;
   /**
-   * Team UUID to associate with the project
+   * Monitor handle
    */
-  "teamUuid"?: string;
+  "handle"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,22 +35,20 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    autoResolveEnabled: {
+      baseName: "auto_resolve_enabled",
+      type: "boolean",
     },
-    key: {
-      baseName: "key",
+    caseTypeId: {
+      baseName: "case_type_id",
       type: "string",
-      required: true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    teamUuid: {
-      baseName: "team_uuid",
+    handle: {
+      baseName: "handle",
       type: "string",
     },
     additionalProperties: {
@@ -63,7 +61,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationMonitor.attributeTypeMap;
   }
 
   public constructor() {}

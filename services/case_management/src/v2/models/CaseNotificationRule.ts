@@ -1,25 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CaseNotificationRuleAttributes } from "./CaseNotificationRuleAttributes";
+import { CaseNotificationRuleResourceType } from "./CaseNotificationRuleResourceType";
+
 /**
- * Project creation attributes
+ * A notification rule for case management
  */
-export class ProjectCreateAttributes {
+export class CaseNotificationRule {
   /**
-   * List of enabled custom case type IDs
+   * Notification rule attributes
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "attributes": CaseNotificationRuleAttributes;
   /**
-   * Project's key. Cannot be "CASE"
+   * The notification rule's identifier
    */
-  "key": string;
+  "id": string;
   /**
-   * Project name
+   * Notification rule resource type
    */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "type": CaseNotificationRuleResourceType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,23 +34,20 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    attributes: {
+      baseName: "attributes",
+      type: "CaseNotificationRuleAttributes",
+      required: true,
     },
-    key: {
-      baseName: "key",
+    id: {
+      baseName: "id",
       type: "string",
       required: true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "CaseNotificationRuleResourceType",
       required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +59,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return CaseNotificationRule.attributeTypeMap;
   }
 
   public constructor() {}

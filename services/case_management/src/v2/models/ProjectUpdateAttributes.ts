@@ -1,21 +1,28 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
+import { ProjectSettings } from "./ProjectSettings";
+
 /**
- * Project creation attributes
+ * Project update attributes
  */
-export class ProjectCreateAttributes {
+export class ProjectUpdateAttributes {
+  /**
+   * Project columns configuration
+   */
+  "columnsConfig"?: ProjectColumnsConfig;
   /**
    * List of enabled custom case type IDs
    */
   "enabledCustomCaseTypes"?: Array<string>;
   /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
    * Project name
    */
-  "name": string;
+  "name"?: string;
+  /**
+   * Project settings
+   */
+  "settings"?: ProjectSettings;
   /**
    * Team UUID to associate with the project
    */
@@ -35,19 +42,21 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    columnsConfig: {
+      baseName: "columns_config",
+      type: "ProjectColumnsConfig",
+    },
     enabledCustomCaseTypes: {
       baseName: "enabled_custom_case_types",
       type: "Array<string>",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
-    },
     name: {
       baseName: "name",
       type: "string",
-      required: true,
+    },
+    settings: {
+      baseName: "settings",
+      type: "ProjectSettings",
     },
     teamUuid: {
       baseName: "team_uuid",
@@ -63,7 +72,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return ProjectUpdateAttributes.attributeTypeMap;
   }
 
   public constructor() {}

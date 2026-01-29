@@ -1,25 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { IntegrationOnCallEscalationQueriesItems } from "./IntegrationOnCallEscalationQueriesItems";
+
 /**
- * Project creation attributes
+ * On-Call integration settings
  */
-export class ProjectCreateAttributes {
+export class IntegrationOnCall {
   /**
-   * List of enabled custom case type IDs
+   * Whether to auto-assign on-call
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "autoAssignOnCall"?: boolean;
   /**
-   * Project's key. Cannot be "CASE"
+   * Whether On-Call integration is enabled
    */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "enabled"?: boolean;
+  "escalationQueries"?: Array<IntegrationOnCallEscalationQueriesItems>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,23 +30,17 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    autoAssignOnCall: {
+      baseName: "auto_assign_on_call",
+      type: "boolean",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    escalationQueries: {
+      baseName: "escalation_queries",
+      type: "Array<IntegrationOnCallEscalationQueriesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +52,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationOnCall.attributeTypeMap;
   }
 
   public constructor() {}
