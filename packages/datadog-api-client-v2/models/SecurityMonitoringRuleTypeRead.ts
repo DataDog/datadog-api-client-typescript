@@ -17,6 +17,7 @@ export type SecurityMonitoringRuleTypeRead =
   | typeof CLOUD_CONFIGURATION
   | typeof APPLICATION_SECURITY
   | typeof API_SECURITY
+  | typeof WORKLOAD_ACTIVITY
   | UnparsedObject;
 export const LOG_DETECTION = "log_detection";
 export const INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration";
@@ -24,3 +25,4 @@ export const WORKLOAD_SECURITY = "workload_security";
 export const CLOUD_CONFIGURATION = "cloud_configuration";
 export const APPLICATION_SECURITY = "application_security";
 export const API_SECURITY = "api_security";
+export const WORKLOAD_ACTIVITY = "workload_activity";
