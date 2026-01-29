@@ -3342,6 +3342,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.UpdateProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ProjectUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProjectResponse",
+    },
+    "v2.GetProjectNotificationRules": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CaseNotificationRulesResponse",
+    },
+    "v2.CreateProjectNotificationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseNotificationRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseNotificationRuleResponse",
+    },
+    "v2.UpdateProjectNotificationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseNotificationRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteProjectNotificationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetCase": {
         "caseId": {
             "type": "string",

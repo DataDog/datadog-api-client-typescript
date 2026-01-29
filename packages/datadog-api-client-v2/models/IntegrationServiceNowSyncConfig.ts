@@ -3,29 +3,13 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { IntegrationServiceNowSyncConfig139772721534496 } from "./IntegrationServiceNowSyncConfig139772721534496";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Project creation attributes
- */
-export class ProjectCreateAttributes {
-  /**
-   * List of enabled custom case type IDs
-   */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+export class IntegrationServiceNowSyncConfig {
+  "enabled"?: boolean;
+  "properties"?: IntegrationServiceNowSyncConfig139772721534496;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +27,13 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    properties: {
+      baseName: "properties",
+      type: "IntegrationServiceNowSyncConfig139772721534496",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +45,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationServiceNowSyncConfig.attributeTypeMap;
   }
 
   public constructor() {}

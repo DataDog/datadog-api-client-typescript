@@ -3,29 +3,31 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CaseNotificationRuleRecipient } from "./CaseNotificationRuleRecipient";
+import { CaseNotificationRuleTrigger } from "./CaseNotificationRuleTrigger";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project creation attributes
+ * Notification rule creation attributes
  */
-export class ProjectCreateAttributes {
+export class CaseNotificationRuleCreateAttributes {
   /**
-   * List of enabled custom case type IDs
+   * Whether the notification rule is enabled
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "isEnabled"?: boolean;
   /**
-   * Project's key. Cannot be "CASE"
+   * Query to filter cases for this notification rule
    */
-  "key": string;
+  "query"?: string;
   /**
-   * Project name
+   * List of notification recipients
    */
-  "name": string;
+  "recipients": Array<CaseNotificationRuleRecipient>;
   /**
-   * Team UUID to associate with the project
+   * List of triggers for this notification rule
    */
-  "teamUuid"?: string;
+  "triggers": Array<CaseNotificationRuleTrigger>;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +45,23 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
     },
-    key: {
-      baseName: "key",
+    query: {
+      baseName: "query",
       type: "string",
+    },
+    recipients: {
+      baseName: "recipients",
+      type: "Array<CaseNotificationRuleRecipient>",
       required: true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    triggers: {
+      baseName: "triggers",
+      type: "Array<CaseNotificationRuleTrigger>",
       required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +73,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return CaseNotificationRuleCreateAttributes.attributeTypeMap;
   }
 
   public constructor() {}

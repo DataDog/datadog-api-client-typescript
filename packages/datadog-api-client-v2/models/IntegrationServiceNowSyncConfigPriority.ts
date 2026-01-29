@@ -6,26 +6,10 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Project creation attributes
- */
-export class ProjectCreateAttributes {
-  /**
-   * List of enabled custom case type IDs
-   */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+export class IntegrationServiceNowSyncConfigPriority {
+  "impactMapping"?: { [key: string]: string };
+  "syncType"?: string;
+  "urgencyMapping"?: { [key: string]: string };
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +27,17 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    impactMapping: {
+      baseName: "impact_mapping",
+      type: "{ [key: string]: string; }",
     },
-    key: {
-      baseName: "key",
+    syncType: {
+      baseName: "sync_type",
       type: "string",
-      required: true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    urgencyMapping: {
+      baseName: "urgency_mapping",
+      type: "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +49,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationServiceNowSyncConfigPriority.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,29 +3,15 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { IntegrationOnCallEscalationQueriesItemsTarget } from "./IntegrationOnCallEscalationQueriesItemsTarget";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Project creation attributes
- */
-export class ProjectCreateAttributes {
-  /**
-   * List of enabled custom case type IDs
-   */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+export class IntegrationOnCallEscalationQueriesItems {
+  "enabled"?: boolean;
+  "id"?: string;
+  "query"?: string;
+  "target"?: IntegrationOnCallEscalationQueriesItemsTarget;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +29,21 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    key: {
-      baseName: "key",
+    id: {
+      baseName: "id",
       type: "string",
-      required: true,
     },
-    name: {
-      baseName: "name",
+    query: {
+      baseName: "query",
       type: "string",
-      required: true,
     },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    target: {
+      baseName: "target",
+      type: "IntegrationOnCallEscalationQueriesItemsTarget",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +55,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationOnCallEscalationQueriesItems.attributeTypeMap;
   }
 
   public constructor() {}

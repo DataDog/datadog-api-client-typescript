@@ -215,6 +215,8 @@ import { AuthNMappingUpdateAttributes } from "./AuthNMappingUpdateAttributes";
 import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { AutoCloseInactiveCases } from "./AutoCloseInactiveCases";
+import { AutoTransitionAssignedCases } from "./AutoTransitionAssignedCases";
 import { AwsCURConfig } from "./AwsCURConfig";
 import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
 import { AwsCURConfigPatchData } from "./AwsCURConfigPatchData";
@@ -370,6 +372,19 @@ import { CaseEmptyRequest } from "./CaseEmptyRequest";
 import { CaseInsightsItems } from "./CaseInsightsItems";
 import { CaseManagementProject } from "./CaseManagementProject";
 import { CaseManagementProjectData } from "./CaseManagementProjectData";
+import { CaseNotificationRule } from "./CaseNotificationRule";
+import { CaseNotificationRuleAttributes } from "./CaseNotificationRuleAttributes";
+import { CaseNotificationRuleCreate } from "./CaseNotificationRuleCreate";
+import { CaseNotificationRuleCreateAttributes } from "./CaseNotificationRuleCreateAttributes";
+import { CaseNotificationRuleCreateRequest } from "./CaseNotificationRuleCreateRequest";
+import { CaseNotificationRuleRecipient } from "./CaseNotificationRuleRecipient";
+import { CaseNotificationRuleRecipientData } from "./CaseNotificationRuleRecipientData";
+import { CaseNotificationRuleResponse } from "./CaseNotificationRuleResponse";
+import { CaseNotificationRuleTrigger } from "./CaseNotificationRuleTrigger";
+import { CaseNotificationRuleTriggerData } from "./CaseNotificationRuleTriggerData";
+import { CaseNotificationRuleUpdate } from "./CaseNotificationRuleUpdate";
+import { CaseNotificationRuleUpdateRequest } from "./CaseNotificationRuleUpdateRequest";
+import { CaseNotificationRulesResponse } from "./CaseNotificationRulesResponse";
 import { CaseRelationships } from "./CaseRelationships";
 import { CaseResponse } from "./CaseResponse";
 import { CaseTrigger } from "./CaseTrigger";
@@ -1414,6 +1429,25 @@ import { IncidentsResponse } from "./IncidentsResponse";
 import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { IntegrationIncident } from "./IntegrationIncident";
+import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
+import { IntegrationIncidentSeverityConfig } from "./IntegrationIncidentSeverityConfig";
+import { IntegrationJira } from "./IntegrationJira";
+import { IntegrationJiraAutoCreation } from "./IntegrationJiraAutoCreation";
+import { IntegrationJiraMetadata } from "./IntegrationJiraMetadata";
+import { IntegrationJiraSync } from "./IntegrationJiraSync";
+import { IntegrationJiraSyncDueDate } from "./IntegrationJiraSyncDueDate";
+import { IntegrationJiraSyncProperties } from "./IntegrationJiraSyncProperties";
+import { IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties } from "./IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties";
+import { IntegrationMonitor } from "./IntegrationMonitor";
+import { IntegrationOnCall } from "./IntegrationOnCall";
+import { IntegrationOnCallEscalationQueriesItems } from "./IntegrationOnCallEscalationQueriesItems";
+import { IntegrationOnCallEscalationQueriesItemsTarget } from "./IntegrationOnCallEscalationQueriesItemsTarget";
+import { IntegrationServiceNow } from "./IntegrationServiceNow";
+import { IntegrationServiceNowAutoCreation } from "./IntegrationServiceNowAutoCreation";
+import { IntegrationServiceNowSyncConfig } from "./IntegrationServiceNowSyncConfig";
+import { IntegrationServiceNowSyncConfig139772721534496 } from "./IntegrationServiceNowSyncConfig139772721534496";
+import { IntegrationServiceNowSyncConfigPriority } from "./IntegrationServiceNowSyncConfigPriority";
 import { InterfaceAttributes } from "./InterfaceAttributes";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
@@ -2061,13 +2095,21 @@ import { ProductAnalyticsServerSideEventItemSession } from "./ProductAnalyticsSe
 import { ProductAnalyticsServerSideEventItemUsr } from "./ProductAnalyticsServerSideEventItemUsr";
 import { Project } from "./Project";
 import { ProjectAttributes } from "./ProjectAttributes";
+import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
+import { ProjectColumnsConfigColumnsItems } from "./ProjectColumnsConfigColumnsItems";
+import { ProjectColumnsConfigColumnsItemsSort } from "./ProjectColumnsConfigColumnsItemsSort";
 import { ProjectCreate } from "./ProjectCreate";
 import { ProjectCreateAttributes } from "./ProjectCreateAttributes";
 import { ProjectCreateRequest } from "./ProjectCreateRequest";
+import { ProjectNotificationSettings } from "./ProjectNotificationSettings";
 import { ProjectRelationship } from "./ProjectRelationship";
 import { ProjectRelationshipData } from "./ProjectRelationshipData";
 import { ProjectRelationships } from "./ProjectRelationships";
 import { ProjectResponse } from "./ProjectResponse";
+import { ProjectSettings } from "./ProjectSettings";
+import { ProjectUpdate } from "./ProjectUpdate";
+import { ProjectUpdateAttributes } from "./ProjectUpdateAttributes";
+import { ProjectUpdateRequest } from "./ProjectUpdateRequest";
 import { ProjectedCost } from "./ProjectedCost";
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
@@ -2779,6 +2821,8 @@ import { SuiteCreateEdit } from "./SuiteCreateEdit";
 import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
+import { SyncProperty } from "./SyncProperty";
+import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
 import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
@@ -3335,6 +3379,7 @@ const enumsMap: { [key: string]: any[] } = {
   Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
   CaseDataType: ["cases"],
   CaseManagementProjectDataType: ["projects"],
+  CaseNotificationRuleResourceType: ["notification_rule"],
   CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
   CaseResourceType: ["case"],
   CaseSortableField: ["created_at", "priority", "status"],
@@ -5196,6 +5241,8 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateData: AuthNMappingUpdateData,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  AutoCloseInactiveCases: AutoCloseInactiveCases,
+  AutoTransitionAssignedCases: AutoTransitionAssignedCases,
   AwsCURConfig: AwsCURConfig,
   AwsCURConfigAttributes: AwsCURConfigAttributes,
   AwsCURConfigPatchData: AwsCURConfigPatchData,
@@ -5365,6 +5412,19 @@ const typeMap: { [index: string]: any } = {
   CaseInsightsItems: CaseInsightsItems,
   CaseManagementProject: CaseManagementProject,
   CaseManagementProjectData: CaseManagementProjectData,
+  CaseNotificationRule: CaseNotificationRule,
+  CaseNotificationRuleAttributes: CaseNotificationRuleAttributes,
+  CaseNotificationRuleCreate: CaseNotificationRuleCreate,
+  CaseNotificationRuleCreateAttributes: CaseNotificationRuleCreateAttributes,
+  CaseNotificationRuleCreateRequest: CaseNotificationRuleCreateRequest,
+  CaseNotificationRuleRecipient: CaseNotificationRuleRecipient,
+  CaseNotificationRuleRecipientData: CaseNotificationRuleRecipientData,
+  CaseNotificationRuleResponse: CaseNotificationRuleResponse,
+  CaseNotificationRuleTrigger: CaseNotificationRuleTrigger,
+  CaseNotificationRuleTriggerData: CaseNotificationRuleTriggerData,
+  CaseNotificationRuleUpdate: CaseNotificationRuleUpdate,
+  CaseNotificationRuleUpdateRequest: CaseNotificationRuleUpdateRequest,
+  CaseNotificationRulesResponse: CaseNotificationRulesResponse,
   CaseRelationships: CaseRelationships,
   CaseResponse: CaseResponse,
   CaseTrigger: CaseTrigger,
@@ -6592,6 +6652,30 @@ const typeMap: { [index: string]: any } = {
   InputSchema: InputSchema,
   InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  IntegrationIncident: IntegrationIncident,
+  IntegrationIncidentFieldMappingsItems: IntegrationIncidentFieldMappingsItems,
+  IntegrationIncidentSeverityConfig: IntegrationIncidentSeverityConfig,
+  IntegrationJira: IntegrationJira,
+  IntegrationJiraAutoCreation: IntegrationJiraAutoCreation,
+  IntegrationJiraMetadata: IntegrationJiraMetadata,
+  IntegrationJiraSync: IntegrationJiraSync,
+  IntegrationJiraSyncDueDate: IntegrationJiraSyncDueDate,
+  IntegrationJiraSyncProperties: IntegrationJiraSyncProperties,
+  IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties:
+    IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties,
+  IntegrationMonitor: IntegrationMonitor,
+  IntegrationOnCall: IntegrationOnCall,
+  IntegrationOnCallEscalationQueriesItems:
+    IntegrationOnCallEscalationQueriesItems,
+  IntegrationOnCallEscalationQueriesItemsTarget:
+    IntegrationOnCallEscalationQueriesItemsTarget,
+  IntegrationServiceNow: IntegrationServiceNow,
+  IntegrationServiceNowAutoCreation: IntegrationServiceNowAutoCreation,
+  IntegrationServiceNowSyncConfig: IntegrationServiceNowSyncConfig,
+  IntegrationServiceNowSyncConfig139772721534496:
+    IntegrationServiceNowSyncConfig139772721534496,
+  IntegrationServiceNowSyncConfigPriority:
+    IntegrationServiceNowSyncConfigPriority,
   InterfaceAttributes: InterfaceAttributes,
   Issue: Issue,
   IssueAssigneeRelationship: IssueAssigneeRelationship,
@@ -7399,13 +7483,21 @@ const typeMap: { [index: string]: any } = {
     ProductAnalyticsServerSideEventItemUsr,
   Project: Project,
   ProjectAttributes: ProjectAttributes,
+  ProjectColumnsConfig: ProjectColumnsConfig,
+  ProjectColumnsConfigColumnsItems: ProjectColumnsConfigColumnsItems,
+  ProjectColumnsConfigColumnsItemsSort: ProjectColumnsConfigColumnsItemsSort,
   ProjectCreate: ProjectCreate,
   ProjectCreateAttributes: ProjectCreateAttributes,
   ProjectCreateRequest: ProjectCreateRequest,
+  ProjectNotificationSettings: ProjectNotificationSettings,
   ProjectRelationship: ProjectRelationship,
   ProjectRelationshipData: ProjectRelationshipData,
   ProjectRelationships: ProjectRelationships,
   ProjectResponse: ProjectResponse,
+  ProjectSettings: ProjectSettings,
+  ProjectUpdate: ProjectUpdate,
+  ProjectUpdateAttributes: ProjectUpdateAttributes,
+  ProjectUpdateRequest: ProjectUpdateRequest,
   ProjectedCost: ProjectedCost,
   ProjectedCostAttributes: ProjectedCostAttributes,
   ProjectedCostResponse: ProjectedCostResponse,
@@ -8273,6 +8365,8 @@ const typeMap: { [index: string]: any } = {
   SuiteCreateEditRequest: SuiteCreateEditRequest,
   SuppressionVersionHistory: SuppressionVersionHistory,
   SuppressionVersions: SuppressionVersions,
+  SyncProperty: SyncProperty,
+  SyncPropertyWithMapping: SyncPropertyWithMapping,
   SyntheticsGlobalVariable: SyntheticsGlobalVariable,
   SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
   SyntheticsGlobalVariableOptions: SyntheticsGlobalVariableOptions,
@@ -8686,6 +8780,14 @@ const oneOfMap: { [index: string]: string[] } = {
   ActionQuerySpecInputs: ["string", "{ [key: string]: any; }"],
   AnthropicCredentials: ["AnthropicAPIKey"],
   AnthropicCredentialsUpdate: ["AnthropicAPIKeyUpdate"],
+  AnyValue: [
+    "string",
+    "number",
+    "{ [key: string]: any; }",
+    "Array<AnyValueItem>",
+    "boolean",
+  ],
+  AnyValueItem: ["string", "number", "{ [key: string]: any; }", "boolean"],
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   AsanaCredentials: ["AsanaAccessToken"],
   AsanaCredentialsUpdate: ["AsanaAccessTokenUpdate"],

@@ -3,29 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CaseNotificationRuleTriggerData } from "./CaseNotificationRuleTriggerData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project creation attributes
+ * Notification rule trigger
  */
-export class ProjectCreateAttributes {
+export class CaseNotificationRuleTrigger {
   /**
-   * List of enabled custom case type IDs
+   * Trigger data
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "data"?: CaseNotificationRuleTriggerData;
   /**
-   * Project's key. Cannot be "CASE"
+   * Type of trigger (CASE_CREATED, STATUS_TRANSITIONED, ATTRIBUTE_VALUE_CHANGED, EVENT_CORRELATION_SIGNAL_CORRELATED)
    */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "type"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,22 +36,12 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    data: {
+      baseName: "data",
+      type: "CaseNotificationRuleTriggerData",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
+    type: {
+      baseName: "type",
       type: "string",
     },
     additionalProperties: {
@@ -71,7 +54,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return CaseNotificationRuleTrigger.attributeTypeMap;
   }
 
   public constructor() {}

@@ -6,26 +6,10 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Project creation attributes
- */
-export class ProjectCreateAttributes {
-  /**
-   * List of enabled custom case type IDs
-   */
-  "enabledCustomCaseTypes"?: Array<string>;
-  /**
-   * Project's key. Cannot be "CASE"
-   */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+export class IntegrationOnCallEscalationQueriesItemsTarget {
+  "dynamicTeamPaging"?: boolean;
+  "teamId"?: string;
+  "userId"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,22 +27,16 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    dynamicTeamPaging: {
+      baseName: "dynamic_team_paging",
+      type: "boolean",
     },
-    key: {
-      baseName: "key",
+    teamId: {
+      baseName: "team_id",
       type: "string",
-      required: true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
+    userId: {
+      baseName: "user_id",
       type: "string",
     },
     additionalProperties: {
@@ -71,7 +49,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return IntegrationOnCallEscalationQueriesItemsTarget.attributeTypeMap;
   }
 
   public constructor() {}

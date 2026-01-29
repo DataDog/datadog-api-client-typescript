@@ -3,39 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
-import { ProjectSettings } from "./ProjectSettings";
+import { IntegrationServiceNowAutoCreation } from "./IntegrationServiceNowAutoCreation";
+import { IntegrationServiceNowSyncConfig } from "./IntegrationServiceNowSyncConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project attributes
+ * ServiceNow integration settings
  */
-export class ProjectAttributes {
+export class IntegrationServiceNow {
   /**
-   * Project columns configuration
+   * Assignment group
    */
-  "columnsConfig"?: ProjectColumnsConfig;
+  "assignmentGroup"?: string;
+  "autoCreation"?: IntegrationServiceNowAutoCreation;
   /**
-   * List of enabled custom case type IDs
+   * Whether ServiceNow integration is enabled
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "enabled"?: boolean;
   /**
-   * The project's key
+   * ServiceNow instance name
    */
-  "key"?: string;
-  /**
-   * Project's name
-   */
-  "name"?: string;
-  /**
-   * Whether the project is restricted
-   */
-  "restricted"?: boolean;
-  /**
-   * Project settings
-   */
-  "settings"?: ProjectSettings;
+  "instanceName"?: string;
+  "syncConfig"?: IntegrationServiceNowSyncConfig;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,29 +43,25 @@ export class ProjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columnsConfig: {
-      baseName: "columns_config",
-      type: "ProjectColumnsConfig",
-    },
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
-    },
-    key: {
-      baseName: "key",
+    assignmentGroup: {
+      baseName: "assignment_group",
       type: "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    autoCreation: {
+      baseName: "auto_creation",
+      type: "IntegrationServiceNowAutoCreation",
     },
-    restricted: {
-      baseName: "restricted",
+    enabled: {
+      baseName: "enabled",
       type: "boolean",
     },
-    settings: {
-      baseName: "settings",
-      type: "ProjectSettings",
+    instanceName: {
+      baseName: "instance_name",
+      type: "string",
+    },
+    syncConfig: {
+      baseName: "sync_config",
+      type: "IntegrationServiceNowSyncConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,7 +73,7 @@ export class ProjectAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectAttributes.attributeTypeMap;
+    return IntegrationServiceNow.attributeTypeMap;
   }
 
   public constructor() {}

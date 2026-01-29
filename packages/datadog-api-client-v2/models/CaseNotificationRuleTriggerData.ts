@@ -3,39 +3,37 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
-import { ProjectSettings } from "./ProjectSettings";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project attributes
+ * Trigger data
  */
-export class ProjectAttributes {
+export class CaseNotificationRuleTriggerData {
   /**
-   * Project columns configuration
+   * Change type (added, removed, changed)
    */
-  "columnsConfig"?: ProjectColumnsConfig;
+  "changeType"?: string;
   /**
-   * List of enabled custom case type IDs
+   * Field name for attribute value changed trigger
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "field"?: string;
   /**
-   * The project's key
+   * Status ID to transition from
    */
-  "key"?: string;
+  "fromStatus"?: string;
   /**
-   * Project's name
+   * Status name to transition from
    */
-  "name"?: string;
+  "fromStatusName"?: string;
   /**
-   * Whether the project is restricted
+   * Status ID to transition to
    */
-  "restricted"?: boolean;
+  "toStatus"?: string;
   /**
-   * Project settings
+   * Status name to transition to
    */
-  "settings"?: ProjectSettings;
+  "toStatusName"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,29 +51,29 @@ export class ProjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columnsConfig: {
-      baseName: "columns_config",
-      type: "ProjectColumnsConfig",
-    },
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
-    },
-    key: {
-      baseName: "key",
+    changeType: {
+      baseName: "change_type",
       type: "string",
     },
-    name: {
-      baseName: "name",
+    field: {
+      baseName: "field",
       type: "string",
     },
-    restricted: {
-      baseName: "restricted",
-      type: "boolean",
+    fromStatus: {
+      baseName: "from_status",
+      type: "string",
     },
-    settings: {
-      baseName: "settings",
-      type: "ProjectSettings",
+    fromStatusName: {
+      baseName: "from_status_name",
+      type: "string",
+    },
+    toStatus: {
+      baseName: "to_status",
+      type: "string",
+    },
+    toStatusName: {
+      baseName: "to_status_name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,7 +85,7 @@ export class ProjectAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectAttributes.attributeTypeMap;
+    return CaseNotificationRuleTriggerData.attributeTypeMap;
   }
 
   public constructor() {}
