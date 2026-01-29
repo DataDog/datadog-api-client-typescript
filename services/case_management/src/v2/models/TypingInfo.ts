@@ -38,8 +38,20 @@ import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
 import { CustomAttributeValue } from "./CustomAttributeValue";
+import { IncidentRelationshipData } from "./IncidentRelationshipData";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIssue } from "./JiraIssue";
+import { JiraIssueCreateAttributes } from "./JiraIssueCreateAttributes";
+import { JiraIssueCreateData } from "./JiraIssueCreateData";
+import { JiraIssueCreateRequest } from "./JiraIssueCreateRequest";
+import { JiraIssueLinkAttributes } from "./JiraIssueLinkAttributes";
+import { JiraIssueLinkData } from "./JiraIssueLinkData";
+import { JiraIssueLinkRequest } from "./JiraIssueLinkRequest";
 import { JiraIssueResult } from "./JiraIssueResult";
+import { NotebookCreateData } from "./NotebookCreateData";
+import { NotebookCreateRequest } from "./NotebookCreateRequest";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 import { Project } from "./Project";
@@ -52,9 +64,13 @@ import { ProjectRelationshipData } from "./ProjectRelationshipData";
 import { ProjectRelationships } from "./ProjectRelationships";
 import { ProjectResponse } from "./ProjectResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
+import { RelationshipToIncidentRequest } from "./RelationshipToIncidentRequest";
 import { RelationshipToTeamLinkData } from "./RelationshipToTeamLinkData";
 import { RelationshipToTeamLinks } from "./RelationshipToTeamLinks";
 import { ServiceNowTicket } from "./ServiceNowTicket";
+import { ServiceNowTicketCreateAttributes } from "./ServiceNowTicketCreateAttributes";
+import { ServiceNowTicketCreateData } from "./ServiceNowTicketCreateData";
+import { ServiceNowTicketCreateRequest } from "./ServiceNowTicketCreateRequest";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TimelineCell } from "./TimelineCell";
@@ -76,7 +92,11 @@ export const TypingInfo: ModelTypingInfo = {
     CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
     CaseType: ["STANDARD"],
     CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
+    IncidentResourceType: ["incidents"],
+    JiraIssueResourceType: ["issues"],
+    NotebookResourceType: ["notebook"],
     ProjectResourceType: ["project"],
+    ServiceNowTicketResourceType: ["tickets"],
     TeamLinkType: ["team_links"],
     TimelineCellAuthorUserType: ["USER"],
     TimelineCellResourceType: ["timeline_cell"],
@@ -132,8 +152,20 @@ export const TypingInfo: ModelTypingInfo = {
     CasesResponseMeta: CasesResponseMeta,
     CasesResponseMetaPagination: CasesResponseMetaPagination,
     CustomAttributeValue: CustomAttributeValue,
+    IncidentRelationshipData: IncidentRelationshipData,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     JiraIssue: JiraIssue,
+    JiraIssueCreateAttributes: JiraIssueCreateAttributes,
+    JiraIssueCreateData: JiraIssueCreateData,
+    JiraIssueCreateRequest: JiraIssueCreateRequest,
+    JiraIssueLinkAttributes: JiraIssueLinkAttributes,
+    JiraIssueLinkData: JiraIssueLinkData,
+    JiraIssueLinkRequest: JiraIssueLinkRequest,
     JiraIssueResult: JiraIssueResult,
+    NotebookCreateData: NotebookCreateData,
+    NotebookCreateRequest: NotebookCreateRequest,
     NullableUserRelationship: NullableUserRelationship,
     NullableUserRelationshipData: NullableUserRelationshipData,
     Project: Project,
@@ -146,9 +178,13 @@ export const TypingInfo: ModelTypingInfo = {
     ProjectRelationships: ProjectRelationships,
     ProjectResponse: ProjectResponse,
     ProjectsResponse: ProjectsResponse,
+    RelationshipToIncidentRequest: RelationshipToIncidentRequest,
     RelationshipToTeamLinkData: RelationshipToTeamLinkData,
     RelationshipToTeamLinks: RelationshipToTeamLinks,
     ServiceNowTicket: ServiceNowTicket,
+    ServiceNowTicketCreateAttributes: ServiceNowTicketCreateAttributes,
+    ServiceNowTicketCreateData: ServiceNowTicketCreateData,
+    ServiceNowTicketCreateRequest: ServiceNowTicketCreateRequest,
     ServiceNowTicketResult: ServiceNowTicketResult,
     TeamRelationshipsLinks: TeamRelationshipsLinks,
     TimelineCell: TimelineCell,
