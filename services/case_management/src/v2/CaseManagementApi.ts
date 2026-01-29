@@ -37,7 +37,9 @@ import { CaseUpdateDescriptionRequest } from "./models/CaseUpdateDescriptionRequ
 import { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 import { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
 import { CaseUpdateTitleRequest } from "./models/CaseUpdateTitleRequest";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { ProjectCreateRequest } from "./models/ProjectCreateRequest";
+import { ProjectFavoritesResponse } from "./models/ProjectFavoritesResponse";
 import { ProjectResponse } from "./models/ProjectResponse";
 import { ProjectsResponse } from "./models/ProjectsResponse";
 import { TimelineResponse } from "./models/TimelineResponse";
@@ -484,6 +486,57 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async favoriteProject(
+    projectId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["CaseManagementApi.v2.favoriteProject"]) {
+      throw new Error(
+        "Unstable operation 'favoriteProject' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.favoriteProject'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "favoriteProject");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/projects/{project_id}/favorites".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.favoriteProject",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCase(
     caseId: string,
     _options?: Configuration,
@@ -583,6 +636,52 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.getProjects",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listUserProjectFavorites(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CaseManagementApi.v2.listUserProjectFavorites"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listUserProjectFavorites' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listUserProjectFavorites'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/projects/favorites";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.listUserProjectFavorites",
       CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -795,6 +894,57 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async unfavoriteProject(
+    projectId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["CaseManagementApi.v2.unfavoriteProject"]) {
+      throw new Error(
+        "Unstable operation 'unfavoriteProject' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.unfavoriteProject'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "unfavoriteProject");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/projects/{project_id}/favorites".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.unfavoriteProject",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1645,6 +1795,75 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to favoriteProject
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async favoriteProject(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCase
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1827,6 +2046,87 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listUserProjectFavorites
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listUserProjectFavorites(
+    response: ResponseContext,
+  ): Promise<ProjectFavoritesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProjectFavoritesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProjectFavoritesResponse",
+      ) as ProjectFavoritesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProjectFavoritesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProjectFavoritesResponse",
+        "",
+      ) as ProjectFavoritesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchCases
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1994,6 +2294,75 @@ export class CaseManagementApiResponseProcessor {
         "",
       ) as CaseResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to unfavoriteProject
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async unfavoriteProject(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -2463,6 +2832,14 @@ export interface CaseManagementApiDeleteProjectRequest {
   projectId: string;
 }
 
+export interface CaseManagementApiFavoriteProjectRequest {
+  /**
+   * Project UUID
+   * @type string
+   */
+  projectId: string;
+}
+
 export interface CaseManagementApiGetCaseRequest {
   /**
    * Case's UUID or key
@@ -2531,6 +2908,14 @@ export interface CaseManagementApiUnassignCaseRequest {
    * @type CaseEmptyRequest
    */
   body: CaseEmptyRequest;
+}
+
+export interface CaseManagementApiUnfavoriteProjectRequest {
+  /**
+   * Project UUID
+   * @type string
+   */
+  projectId: string;
 }
 
 export interface CaseManagementApiUpdateAttributesRequest {
@@ -2811,6 +3196,27 @@ export class CaseManagementApi {
   }
 
   /**
+   * Add a project to the current user's favorites
+   * @param param The request object
+   */
+  public favoriteProject(
+    param: CaseManagementApiFavoriteProjectRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.favoriteProject(
+      param.projectId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.favoriteProject(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get the details of case by `case_id`
    * @param param The request object
    */
@@ -2863,6 +3269,26 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getProjects(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all projects marked as favorite by the current user
+   * @param param The request object
+   */
+  public listUserProjectFavorites(
+    options?: Configuration,
+  ): Promise<ProjectFavoritesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listUserProjectFavorites(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUserProjectFavorites(
+            responseContext,
+          );
         });
     });
   }
@@ -2974,6 +3400,27 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.unassignCase(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove a project from the current user's favorites
+   * @param param The request object
+   */
+  public unfavoriteProject(
+    param: CaseManagementApiUnfavoriteProjectRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.unfavoriteProject(
+      param.projectId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.unfavoriteProject(responseContext);
         });
     });
   }
