@@ -1,25 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CaseNotificationRuleRecipientData } from "./CaseNotificationRuleRecipientData";
+
 /**
- * Project creation attributes
+ * Notification rule recipient
  */
-export class ProjectCreateAttributes {
+export class CaseNotificationRuleRecipient {
   /**
-   * List of enabled custom case type IDs
+   * Recipient data
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "data"?: CaseNotificationRuleRecipientData;
   /**
-   * Project's key. Cannot be "CASE"
+   * Type of recipient (SLACK_CHANNEL, EMAIL, HTTP, PAGERDUTY_SERVICE, MS_TEAMS_CHANNEL)
    */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "type"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,22 +29,12 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    data: {
+      baseName: "data",
+      type: "CaseNotificationRuleRecipientData",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
+    type: {
+      baseName: "type",
       type: "string",
     },
     additionalProperties: {
@@ -63,7 +47,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return CaseNotificationRuleRecipient.attributeTypeMap;
   }
 
   public constructor() {}

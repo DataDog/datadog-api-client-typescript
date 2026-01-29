@@ -1,9 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
+import { ProjectSettings } from "./ProjectSettings";
+
 /**
  * Project attributes
  */
 export class ProjectAttributes {
+  /**
+   * Project columns configuration
+   */
+  "columnsConfig"?: ProjectColumnsConfig;
+  /**
+   * List of enabled custom case type IDs
+   */
+  "enabledCustomCaseTypes"?: Array<string>;
   /**
    * The project's key
    */
@@ -12,6 +23,14 @@ export class ProjectAttributes {
    * Project's name
    */
   "name"?: string;
+  /**
+   * Whether the project is restricted
+   */
+  "restricted"?: boolean;
+  /**
+   * Project settings
+   */
+  "settings"?: ProjectSettings;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,6 +46,14 @@ export class ProjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    columnsConfig: {
+      baseName: "columns_config",
+      type: "ProjectColumnsConfig",
+    },
+    enabledCustomCaseTypes: {
+      baseName: "enabled_custom_case_types",
+      type: "Array<string>",
+    },
     key: {
       baseName: "key",
       type: "string",
@@ -34,6 +61,14 @@ export class ProjectAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    restricted: {
+      baseName: "restricted",
+      type: "boolean",
+    },
+    settings: {
+      baseName: "settings",
+      type: "ProjectSettings",
     },
     additionalProperties: {
       baseName: "additionalProperties",

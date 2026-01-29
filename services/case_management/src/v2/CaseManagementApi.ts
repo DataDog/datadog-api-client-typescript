@@ -28,6 +28,10 @@ import { CaseAssignRequest } from "./models/CaseAssignRequest";
 import { CaseCommentRequest } from "./models/CaseCommentRequest";
 import { CaseCreateRequest } from "./models/CaseCreateRequest";
 import { CaseEmptyRequest } from "./models/CaseEmptyRequest";
+import { CaseNotificationRuleCreateRequest } from "./models/CaseNotificationRuleCreateRequest";
+import { CaseNotificationRuleResponse } from "./models/CaseNotificationRuleResponse";
+import { CaseNotificationRulesResponse } from "./models/CaseNotificationRulesResponse";
+import { CaseNotificationRuleUpdateRequest } from "./models/CaseNotificationRuleUpdateRequest";
 import { CaseResponse } from "./models/CaseResponse";
 import { CaseSortableField } from "./models/CaseSortableField";
 import { CasesResponse } from "./models/CasesResponse";
@@ -40,6 +44,7 @@ import { CaseUpdateTitleRequest } from "./models/CaseUpdateTitleRequest";
 import { ProjectCreateRequest } from "./models/ProjectCreateRequest";
 import { ProjectResponse } from "./models/ProjectResponse";
 import { ProjectsResponse } from "./models/ProjectsResponse";
+import { ProjectUpdateRequest } from "./models/ProjectUpdateRequest";
 import { TimelineResponse } from "./models/TimelineResponse";
 import { version } from "../version";
 
@@ -333,6 +338,67 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createProjectNotificationRule(
+    projectId: string,
+    body: CaseNotificationRuleCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "createProjectNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createProjectNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/projects/{project_id}/notification_rules".replace(
+        "{project_id}",
+        encodeURIComponent(String(projectId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.createProjectNotificationRule",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseNotificationRuleCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteCaseComment(
     caseId: string,
     cellId: string,
@@ -484,6 +550,63 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteProjectNotificationRule(
+    projectId: string,
+    notificationRuleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "deleteProjectNotificationRule");
+    }
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "deleteProjectNotificationRule",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace(
+          "{notification_rule_id}",
+          encodeURIComponent(String(notificationRuleId)),
+        );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.deleteProjectNotificationRule",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCase(
     caseId: string,
     _options?: Configuration,
@@ -549,6 +672,52 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.getProject",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getProjectNotificationRules(
+    projectId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "getProjectNotificationRules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/projects/{project_id}/notification_rules".replace(
+        "{project_id}",
+        encodeURIComponent(String(projectId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.getProjectNotificationRules",
       CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1118,6 +1287,138 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateProject(
+    projectId: string,
+    body: ProjectUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "updateProject");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateProject");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cases/projects/{project_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.updateProject",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProjectUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateProjectNotificationRule(
+    projectId: string,
+    notificationRuleId: string,
+    body: CaseNotificationRuleUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "updateProjectNotificationRule");
+    }
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "updateProjectNotificationRule",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateProjectNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace(
+          "{notification_rule_id}",
+          encodeURIComponent(String(notificationRuleId)),
+        );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.updateProjectNotificationRule",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseNotificationRuleUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateStatus(
     caseId: string,
     body: CaseUpdateStatusRequest,
@@ -1488,6 +1789,68 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createProjectNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createProjectNotificationRule(
+    response: ResponseContext,
+  ): Promise<CaseNotificationRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: CaseNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseNotificationRuleResponse",
+      ) as CaseNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CaseNotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseNotificationRuleResponse",
+        "",
+      ) as CaseNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteCaseComment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1645,6 +2008,55 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteProjectNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteProjectNotificationRule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCase
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1751,6 +2163,68 @@ export class CaseManagementApiResponseProcessor {
         "ProjectResponse",
         "",
       ) as ProjectResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getProjectNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getProjectNotificationRules(
+    response: ResponseContext,
+  ): Promise<CaseNotificationRulesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CaseNotificationRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseNotificationRulesResponse",
+      ) as CaseNotificationRulesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CaseNotificationRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseNotificationRulesResponse",
+        "",
+      ) as CaseNotificationRulesResponse;
       return body;
     }
 
@@ -2317,6 +2791,119 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateProject
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateProject(
+    response: ResponseContext,
+  ): Promise<ProjectResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ProjectResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProjectResponse",
+      ) as ProjectResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProjectResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ProjectResponse",
+        "",
+      ) as ProjectResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateProjectNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateProjectNotificationRule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateStatus
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2429,6 +3016,19 @@ export interface CaseManagementApiCreateProjectRequest {
   body: ProjectCreateRequest;
 }
 
+export interface CaseManagementApiCreateProjectNotificationRuleRequest {
+  /**
+   * Project UUID
+   * @type string
+   */
+  projectId: string;
+  /**
+   * Notification rule payload
+   * @type CaseNotificationRuleCreateRequest
+   */
+  body: CaseNotificationRuleCreateRequest;
+}
+
 export interface CaseManagementApiDeleteCaseCommentRequest {
   /**
    * Case's UUID or key
@@ -2463,6 +3063,19 @@ export interface CaseManagementApiDeleteProjectRequest {
   projectId: string;
 }
 
+export interface CaseManagementApiDeleteProjectNotificationRuleRequest {
+  /**
+   * Project UUID
+   * @type string
+   */
+  projectId: string;
+  /**
+   * Notification Rule UUID
+   * @type string
+   */
+  notificationRuleId: string;
+}
+
 export interface CaseManagementApiGetCaseRequest {
   /**
    * Case's UUID or key
@@ -2472,6 +3085,14 @@ export interface CaseManagementApiGetCaseRequest {
 }
 
 export interface CaseManagementApiGetProjectRequest {
+  /**
+   * Project UUID
+   * @type string
+   */
+  projectId: string;
+}
+
+export interface CaseManagementApiGetProjectNotificationRulesRequest {
   /**
    * Project UUID
    * @type string
@@ -2601,6 +3222,37 @@ export interface CaseManagementApiUpdatePriorityRequest {
    * @type CaseUpdatePriorityRequest
    */
   body: CaseUpdatePriorityRequest;
+}
+
+export interface CaseManagementApiUpdateProjectRequest {
+  /**
+   * Project UUID
+   * @type string
+   */
+  projectId: string;
+  /**
+   * Project payload
+   * @type ProjectUpdateRequest
+   */
+  body: ProjectUpdateRequest;
+}
+
+export interface CaseManagementApiUpdateProjectNotificationRuleRequest {
+  /**
+   * Project UUID
+   * @type string
+   */
+  projectId: string;
+  /**
+   * Notification Rule UUID
+   * @type string
+   */
+  notificationRuleId: string;
+  /**
+   * Notification rule payload
+   * @type CaseNotificationRuleUpdateRequest
+   */
+  body: CaseNotificationRuleUpdateRequest;
 }
 
 export interface CaseManagementApiUpdateStatusRequest {
@@ -2744,6 +3396,31 @@ export class CaseManagementApi {
   }
 
   /**
+   * Create a notification rule for a project.
+   * @param param The request object
+   */
+  public createProjectNotificationRule(
+    param: CaseManagementApiCreateProjectNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<CaseNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createProjectNotificationRule(
+        param.projectId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createProjectNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete case comment
    * @param param The request object
    */
@@ -2811,6 +3488,31 @@ export class CaseManagementApi {
   }
 
   /**
+   * Delete a notification rule using the notification rule's `id`.
+   * @param param The request object
+   */
+  public deleteProjectNotificationRule(
+    param: CaseManagementApiDeleteProjectNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteProjectNotificationRule(
+        param.projectId,
+        param.notificationRuleId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteProjectNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get the details of case by `case_id`
    * @param param The request object
    */
@@ -2848,6 +3550,27 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getProject(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all notification rules for a project.
+   * @param param The request object
+   */
+  public getProjectNotificationRules(
+    param: CaseManagementApiGetProjectNotificationRulesRequest,
+    options?: Configuration,
+  ): Promise<CaseNotificationRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getProjectNotificationRules(param.projectId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getProjectNotificationRules(
+            responseContext,
+          );
         });
     });
   }
@@ -3087,6 +3810,54 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updatePriority(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a project.
+   * @param param The request object
+   */
+  public updateProject(
+    param: CaseManagementApiUpdateProjectRequest,
+    options?: Configuration,
+  ): Promise<ProjectResponse> {
+    const requestContextPromise = this.requestFactory.updateProject(
+      param.projectId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateProject(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a notification rule.
+   * @param param The request object
+   */
+  public updateProjectNotificationRule(
+    param: CaseManagementApiUpdateProjectNotificationRuleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateProjectNotificationRule(
+        param.projectId,
+        param.notificationRuleId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateProjectNotificationRule(
+            responseContext,
+          );
         });
     });
   }

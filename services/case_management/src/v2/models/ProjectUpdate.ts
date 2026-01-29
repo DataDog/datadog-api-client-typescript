@@ -1,25 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ProjectResourceType } from "./ProjectResourceType";
+import { ProjectUpdateAttributes } from "./ProjectUpdateAttributes";
+
 /**
- * Project creation attributes
+ * Project update
  */
-export class ProjectCreateAttributes {
+export class ProjectUpdate {
   /**
-   * List of enabled custom case type IDs
+   * Project update attributes
    */
-  "enabledCustomCaseTypes"?: Array<string>;
+  "attributes"?: ProjectUpdateAttributes;
   /**
-   * Project's key. Cannot be "CASE"
+   * Project resource type
    */
-  "key": string;
-  /**
-   * Project name
-   */
-  "name": string;
-  /**
-   * Team UUID to associate with the project
-   */
-  "teamUuid"?: string;
+  "type": ProjectResourceType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,23 +30,14 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    attributes: {
+      baseName: "attributes",
+      type: "ProjectUpdateAttributes",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "ProjectResourceType",
       required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +49,7 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ProjectCreateAttributes.attributeTypeMap;
+    return ProjectUpdate.attributeTypeMap;
   }
 
   public constructor() {}
