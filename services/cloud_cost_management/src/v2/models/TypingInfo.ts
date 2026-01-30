@@ -66,7 +66,6 @@ import { CreateRulesetRequest } from "./CreateRulesetRequest";
 import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
 import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
 import { CreateRulesetRequestDataAttributesRulesItems } from "./CreateRulesetRequestDataAttributesRulesItems";
-import { CreateRulesetRequestDataAttributesRulesItemsMapping } from "./CreateRulesetRequestDataAttributesRulesItemsMapping";
 import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRulesetRequestDataAttributesRulesItemsQuery";
 import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
@@ -84,6 +83,7 @@ import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMe
 import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
+import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
 import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
 import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
@@ -114,7 +114,6 @@ import { RulesetRespDataAttributes } from "./RulesetRespDataAttributes";
 import { RulesetRespDataAttributesCreated } from "./RulesetRespDataAttributesCreated";
 import { RulesetRespDataAttributesModified } from "./RulesetRespDataAttributesModified";
 import { RulesetRespDataAttributesRulesItems } from "./RulesetRespDataAttributesRulesItems";
-import { RulesetRespDataAttributesRulesItemsMapping } from "./RulesetRespDataAttributesRulesItemsMapping";
 import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttributesRulesItemsQuery";
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
@@ -127,7 +126,6 @@ import { UpdateRulesetRequest } from "./UpdateRulesetRequest";
 import { UpdateRulesetRequestData } from "./UpdateRulesetRequestData";
 import { UpdateRulesetRequestDataAttributes } from "./UpdateRulesetRequestDataAttributes";
 import { UpdateRulesetRequestDataAttributesRulesItems } from "./UpdateRulesetRequestDataAttributesRulesItems";
-import { UpdateRulesetRequestDataAttributesRulesItemsMapping } from "./UpdateRulesetRequestDataAttributesRulesItemsMapping";
 import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRulesetRequestDataAttributesRulesItemsQuery";
 import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
@@ -150,6 +148,7 @@ export const TypingInfo: ModelTypingInfo = {
     BudgetValidationResponseDataType: ["budget_validation"],
     BudgetWithEntriesDataType: ["budget"],
     CreateRulesetRequestDataType: ["create_ruleset"],
+    DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
     GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
     GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
     GCPUsageCostConfigType: ["gcp_uc_config"],
@@ -250,8 +249,6 @@ export const TypingInfo: ModelTypingInfo = {
     CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
     CreateRulesetRequestDataAttributesRulesItems:
       CreateRulesetRequestDataAttributesRulesItems,
-    CreateRulesetRequestDataAttributesRulesItemsMapping:
-      CreateRulesetRequestDataAttributesRulesItemsMapping,
     CreateRulesetRequestDataAttributesRulesItemsQuery:
       CreateRulesetRequestDataAttributesRulesItemsQuery,
     CreateRulesetRequestDataAttributesRulesItemsQueryAddition:
@@ -274,6 +271,7 @@ export const TypingInfo: ModelTypingInfo = {
     CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
     CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
     CustomCostsUser: CustomCostsUser,
+    DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
     GCPUsageCostConfig: GCPUsageCostConfig,
     GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
     GCPUsageCostConfigPatchData: GCPUsageCostConfigPatchData,
@@ -308,8 +306,6 @@ export const TypingInfo: ModelTypingInfo = {
     RulesetRespDataAttributesCreated: RulesetRespDataAttributesCreated,
     RulesetRespDataAttributesModified: RulesetRespDataAttributesModified,
     RulesetRespDataAttributesRulesItems: RulesetRespDataAttributesRulesItems,
-    RulesetRespDataAttributesRulesItemsMapping:
-      RulesetRespDataAttributesRulesItemsMapping,
     RulesetRespDataAttributesRulesItemsQuery:
       RulesetRespDataAttributesRulesItemsQuery,
     RulesetRespDataAttributesRulesItemsQueryAddition:
@@ -328,8 +324,6 @@ export const TypingInfo: ModelTypingInfo = {
     UpdateRulesetRequestDataAttributes: UpdateRulesetRequestDataAttributes,
     UpdateRulesetRequestDataAttributesRulesItems:
       UpdateRulesetRequestDataAttributesRulesItems,
-    UpdateRulesetRequestDataAttributesRulesItemsMapping:
-      UpdateRulesetRequestDataAttributesRulesItemsMapping,
     UpdateRulesetRequestDataAttributesRulesItemsQuery:
       UpdateRulesetRequestDataAttributesRulesItemsQuery,
     UpdateRulesetRequestDataAttributesRulesItemsQueryAddition:
