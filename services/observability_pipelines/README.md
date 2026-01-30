@@ -25,14 +25,6 @@ import { ObservabilityPipelinesApiV2 } from "@datadog/datadog-api-client-observa
 import { v2 } from "@datadog/datadog-api-client-observability-pipelines";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "ObservabilityPipelinesApi.v2.listPipelines": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new ObservabilityPipelinesApiV2(configuration);
 const params = {/* parameters */};
 
