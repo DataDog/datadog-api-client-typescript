@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { UpdateRulesetRequestDataAttributesRulesItemsMapping } from "./UpdateRulesetRequestDataAttributesRulesItemsMapping";
+import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRulesetRequestDataAttributesRulesItemsQuery";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
 
@@ -18,9 +18,9 @@ export class UpdateRulesetRequestDataAttributesRulesItems {
    */
   "enabled": boolean;
   /**
-   * The definition of `UpdateRulesetRequestDataAttributesRulesItemsMapping` object.
+   * The definition of `DataAttributesRulesItemsMapping` object.
    */
-  "mapping"?: UpdateRulesetRequestDataAttributesRulesItemsMapping;
+  "mapping"?: DataAttributesRulesItemsMapping;
   /**
    * The `items` `metadata`.
    */
@@ -61,7 +61,7 @@ export class UpdateRulesetRequestDataAttributesRulesItems {
     },
     mapping: {
       baseName: "mapping",
-      type: "UpdateRulesetRequestDataAttributesRulesItemsMapping",
+      type: "DataAttributesRulesItemsMapping",
     },
     metadata: {
       baseName: "metadata",

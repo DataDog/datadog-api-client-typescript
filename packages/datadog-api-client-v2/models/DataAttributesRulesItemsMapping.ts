@@ -3,21 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DataAttributesRulesItemsIfTagExists } from "./DataAttributesRulesItemsIfTagExists";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `UpdateRulesetRequestDataAttributesRulesItemsMapping` object.
+ * The definition of `DataAttributesRulesItemsMapping` object.
  */
-export class UpdateRulesetRequestDataAttributesRulesItemsMapping {
+export class DataAttributesRulesItemsMapping {
   /**
    * The `mapping` `destination_key`.
    */
   "destinationKey": string;
   /**
-   * The `mapping` `if_not_exists`.
+   * Deprecated. Use `if_tag_exists` instead. The `mapping` `if_not_exists`.
    */
-  "ifNotExists": boolean;
+  "ifNotExists"?: boolean;
+  /**
+   * The behavior when the tag already exists.
+   */
+  "ifTagExists"?: DataAttributesRulesItemsIfTagExists;
   /**
    * The `mapping` `source_keys`.
    */
@@ -47,7 +52,10 @@ export class UpdateRulesetRequestDataAttributesRulesItemsMapping {
     ifNotExists: {
       baseName: "if_not_exists",
       type: "boolean",
-      required: true,
+    },
+    ifTagExists: {
+      baseName: "if_tag_exists",
+      type: "DataAttributesRulesItemsIfTagExists",
     },
     sourceKeys: {
       baseName: "source_keys",
@@ -64,7 +72,7 @@ export class UpdateRulesetRequestDataAttributesRulesItemsMapping {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRulesetRequestDataAttributesRulesItemsMapping.attributeTypeMap;
+    return DataAttributesRulesItemsMapping.attributeTypeMap;
   }
 
   public constructor() {}
