@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DataAttributesRulesItemsIfTagExists } from "./DataAttributesRulesItemsIfTagExists";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
 
 /**
@@ -15,9 +16,13 @@ export class UpdateRulesetRequestDataAttributesRulesItemsReferenceTable {
    */
   "fieldPairs": Array<UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems>;
   /**
-   * The `reference_table` `if_not_exists`.
+   * Deprecated. Use `if_tag_exists` instead. The `reference_table` `if_not_exists`.
    */
   "ifNotExists"?: boolean;
+  /**
+   * The behavior when the tag already exists.
+   */
+  "ifTagExists"?: DataAttributesRulesItemsIfTagExists;
   /**
    * The `reference_table` `source_keys`.
    */
@@ -53,6 +58,10 @@ export class UpdateRulesetRequestDataAttributesRulesItemsReferenceTable {
     ifNotExists: {
       baseName: "if_not_exists",
       type: "boolean",
+    },
+    ifTagExists: {
+      baseName: "if_tag_exists",
+      type: "DataAttributesRulesItemsIfTagExists",
     },
     sourceKeys: {
       baseName: "source_keys",

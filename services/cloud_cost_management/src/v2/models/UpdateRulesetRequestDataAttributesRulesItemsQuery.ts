@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DataAttributesRulesItemsIfTagExists } from "./DataAttributesRulesItemsIfTagExists";
 import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
 
 /**
@@ -15,9 +16,13 @@ export class UpdateRulesetRequestDataAttributesRulesItemsQuery {
    */
   "caseInsensitivity"?: boolean;
   /**
-   * The `query` `if_not_exists`.
+   * Deprecated. Use `if_tag_exists` instead. The `query` `if_not_exists`.
    */
-  "ifNotExists": boolean;
+  "ifNotExists"?: boolean;
+  /**
+   * The behavior when the tag already exists.
+   */
+  "ifTagExists"?: DataAttributesRulesItemsIfTagExists;
   /**
    * The `query` `query`.
    */
@@ -49,7 +54,10 @@ export class UpdateRulesetRequestDataAttributesRulesItemsQuery {
     ifNotExists: {
       baseName: "if_not_exists",
       type: "boolean",
-      required: true,
+    },
+    ifTagExists: {
+      baseName: "if_tag_exists",
+      type: "DataAttributesRulesItemsIfTagExists",
     },
     query: {
       baseName: "query",

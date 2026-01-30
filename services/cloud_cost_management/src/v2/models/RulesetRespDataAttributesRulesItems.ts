@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { RulesetRespDataAttributesRulesItemsMapping } from "./RulesetRespDataAttributesRulesItemsMapping";
+import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttributesRulesItemsQuery";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
 
@@ -13,9 +13,9 @@ export class RulesetRespDataAttributesRulesItems {
    */
   "enabled": boolean;
   /**
-   * The definition of `RulesetRespDataAttributesRulesItemsMapping` object.
+   * The definition of `DataAttributesRulesItemsMapping` object.
    */
-  "mapping"?: RulesetRespDataAttributesRulesItemsMapping;
+  "mapping"?: DataAttributesRulesItemsMapping;
   /**
    * The `items` `metadata`.
    */
@@ -54,7 +54,7 @@ export class RulesetRespDataAttributesRulesItems {
     },
     mapping: {
       baseName: "mapping",
-      type: "RulesetRespDataAttributesRulesItemsMapping",
+      type: "DataAttributesRulesItemsMapping",
     },
     metadata: {
       baseName: "metadata",
