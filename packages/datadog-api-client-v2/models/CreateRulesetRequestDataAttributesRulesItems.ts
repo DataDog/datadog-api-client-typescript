@@ -3,9 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CreateRulesetRequestDataAttributesRulesItemsMapping } from "./CreateRulesetRequestDataAttributesRulesItemsMapping";
 import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRulesetRequestDataAttributesRulesItemsQuery";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
+import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -18,9 +18,9 @@ export class CreateRulesetRequestDataAttributesRulesItems {
    */
   "enabled": boolean;
   /**
-   * The definition of `CreateRulesetRequestDataAttributesRulesItemsMapping` object.
+   * The definition of `DataAttributesRulesItemsMapping` object.
    */
-  "mapping"?: CreateRulesetRequestDataAttributesRulesItemsMapping;
+  "mapping"?: DataAttributesRulesItemsMapping;
   /**
    * The `items` `metadata`.
    */
@@ -61,7 +61,7 @@ export class CreateRulesetRequestDataAttributesRulesItems {
     },
     mapping: {
       baseName: "mapping",
-      type: "CreateRulesetRequestDataAttributesRulesItemsMapping",
+      type: "DataAttributesRulesItemsMapping",
     },
     metadata: {
       baseName: "metadata",

@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DataAttributesRulesItemsIfTagExists } from "./DataAttributesRulesItemsIfTagExists";
 import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,9 +21,13 @@ export class RulesetRespDataAttributesRulesItemsReferenceTable {
    */
   "fieldPairs": Array<RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems>;
   /**
-   * The `reference_table` `if_not_exists`.
+   * Deprecated. Use `if_tag_exists` instead. The `reference_table` `if_not_exists`.
    */
   "ifNotExists"?: boolean;
+  /**
+   * The behavior when the tag already exists.
+   */
+  "ifTagExists"?: DataAttributesRulesItemsIfTagExists;
   /**
    * The `reference_table` `source_keys`.
    */
@@ -60,6 +65,10 @@ export class RulesetRespDataAttributesRulesItemsReferenceTable {
     ifNotExists: {
       baseName: "if_not_exists",
       type: "boolean",
+    },
+    ifTagExists: {
+      baseName: "if_tag_exists",
+      type: "DataAttributesRulesItemsIfTagExists",
     },
     sourceKeys: {
       baseName: "source_keys",

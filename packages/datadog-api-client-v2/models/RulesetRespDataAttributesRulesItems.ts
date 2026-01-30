@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RulesetRespDataAttributesRulesItemsMapping } from "./RulesetRespDataAttributesRulesItemsMapping";
+import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttributesRulesItemsQuery";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
 
@@ -18,9 +18,9 @@ export class RulesetRespDataAttributesRulesItems {
    */
   "enabled": boolean;
   /**
-   * The definition of `RulesetRespDataAttributesRulesItemsMapping` object.
+   * The definition of `DataAttributesRulesItemsMapping` object.
    */
-  "mapping"?: RulesetRespDataAttributesRulesItemsMapping;
+  "mapping"?: DataAttributesRulesItemsMapping;
   /**
    * The `items` `metadata`.
    */
@@ -61,7 +61,7 @@ export class RulesetRespDataAttributesRulesItems {
     },
     mapping: {
       baseName: "mapping",
-      type: "RulesetRespDataAttributesRulesItemsMapping",
+      type: "DataAttributesRulesItemsMapping",
     },
     metadata: {
       baseName: "metadata",
