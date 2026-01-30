@@ -3664,6 +3664,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UpsertCatalogEntityResponse",
   },
+  "SoftwareCatalogApi.V2.ConvertCatalogEntities": {
+    targetVersion: {
+      type: "EntitySchemaVersion",
+      format: "",
+    },
+    body: {
+      type: "UpsertCatalogEntityRequest",
+      format: "",
+    },
+    operationResponseType: "string",
+  },
   "SoftwareCatalogApi.V2.PreviewCatalogEntities": {
     operationResponseType: "EntityResponseArray",
   },
@@ -3707,6 +3718,27 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "SoftwareCatalogApi.V2.AcceptRecommendedEntities": {
+    body: {
+      type: "Array<RecommendedEntityWithSchema>",
+      format: "",
+    },
+    operationResponseType: "AcceptRecommendedEntitiesResponse",
+  },
+  "SoftwareCatalogApi.V2.DeclineRecommendedEntities": {
+    body: {
+      type: "Array<RecommendedEntityID>",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SoftwareCatalogApi.V2.TriggerRecommendedEntities": {
+    body: {
+      type: "any",
+      format: "",
+    },
+    operationResponseType: "any",
+  },
   "SoftwareCatalogApi.V2.ListCatalogRelation": {
     pageOffset: {
       type: "number",
@@ -3737,6 +3769,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ListRelationCatalogResponse",
+  },
+  "SoftwareCatalogApi.V2.GetIDPConfigValue": {
+    configName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IDPConfigResponse",
+  },
+  "SoftwareCatalogApi.V2.UpsertIDPConfigValue": {
+    configName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IDPConfigRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "CIVisibilityPipelinesApi.V2.CreateCIAppPipelineEvent": {
     body: {
