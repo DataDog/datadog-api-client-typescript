@@ -4593,6 +4593,7 @@ const enumsMap: { [key: string]: any[] } = {
     "api_security",
     "application_security",
     "log_detection",
+    "workload_activity",
     "workload_security",
   ],
   SecurityMonitoringRuleTypeRead: [
@@ -4602,6 +4603,7 @@ const enumsMap: { [key: string]: any[] } = {
     "cloud_configuration",
     "application_security",
     "api_security",
+    "workload_activity",
   ],
   SecurityMonitoringRuleTypeTest: ["log_detection"],
   SecurityMonitoringSignalArchiveReason: [
