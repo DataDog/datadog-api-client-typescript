@@ -5705,6 +5705,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DORADeploymentFetchResponse",
     },
+    "v2.PatchDORADeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DORADeploymentPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateDORAFailure": {
         "body": {
             "type": "DORAFailureRequest",
