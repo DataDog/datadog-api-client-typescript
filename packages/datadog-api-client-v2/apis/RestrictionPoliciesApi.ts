@@ -453,6 +453,7 @@ export class RestrictionPoliciesApi {
    * - On-Call Escalation Policies: `on-call-escalation-policy`
    * - On-Call Team Routing Rules: `on-call-team-routing-rules`
    * - Logs Pipelines: `logs-pipeline`
+   * - Case Management Projects: `case-management-project`
    *
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
@@ -480,6 +481,7 @@ export class RestrictionPoliciesApi {
    * On-Call Escalation Policies | `viewer`, `editor`
    * On-Call Team Routing Rules  | `viewer`, `editor`
    * Logs Pipelines              | `viewer`, `processors_editor`, `editor`
+   * Case Management Projects    | `viewer`, `contributor`, `manager`
    * @param param The request object
    */
   public updateRestrictionPolicy(
