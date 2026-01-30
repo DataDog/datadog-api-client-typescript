@@ -29,11 +29,6 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createPipeline'");
-    if (!_config.unstableOperations["v2.createPipeline"]) {
-      throw new Error("Unstable operation 'createPipeline' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createPipeline");
@@ -75,11 +70,6 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deletePipeline'");
-    if (!_config.unstableOperations["v2.deletePipeline"]) {
-      throw new Error("Unstable operation 'deletePipeline' is disabled");
-    }
-
     // verify required parameter 'pipelineId' is not null or undefined
     if (pipelineId === null || pipelineId === undefined) {
       throw new RequiredError("pipelineId", "deletePipeline");
@@ -113,11 +103,6 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getPipeline'");
-    if (!_config.unstableOperations["v2.getPipeline"]) {
-      throw new Error("Unstable operation 'getPipeline' is disabled");
-    }
 
     // verify required parameter 'pipelineId' is not null or undefined
     if (pipelineId === null || pipelineId === undefined) {
@@ -153,11 +138,6 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listPipelines'");
-    if (!_config.unstableOperations["v2.listPipelines"]) {
-      throw new Error("Unstable operation 'listPipelines' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/obs-pipelines/pipelines";
@@ -200,11 +180,6 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'updatePipeline'");
-    if (!_config.unstableOperations["v2.updatePipeline"]) {
-      throw new Error("Unstable operation 'updatePipeline' is disabled");
-    }
 
     // verify required parameter 'pipelineId' is not null or undefined
     if (pipelineId === null || pipelineId === undefined) {
@@ -255,11 +230,6 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'validatePipeline'");
-    if (!_config.unstableOperations["v2.validatePipeline"]) {
-      throw new Error("Unstable operation 'validatePipeline' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
