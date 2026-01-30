@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.getPipeline"] = true;
 const apiInstance = new v2.ObservabilityPipelinesApi(configuration);
 
 // there is a valid "pipeline" in the system
