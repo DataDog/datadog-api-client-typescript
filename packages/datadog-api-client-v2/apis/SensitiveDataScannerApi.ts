@@ -450,7 +450,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateGroupResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -514,7 +514,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateRuleResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
