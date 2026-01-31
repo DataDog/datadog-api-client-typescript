@@ -1,0 +1,43 @@
+{
+  "name": "@datadog/datadog-api-client-cloud-authentication",
+  "description": "",
+  "author": "",
+  "keywords": [
+    "api",
+    "fetch",
+    "typescript"
+  ],
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DataDog/datadog-api-client-typescript.git",
+    "directory": "services/cloud-authentication"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "prepack": "yarn workspace @datadog/datadog-api-client build && yarn build",
+    "build": "yarn generate-version-files && tsc",
+    "generate-version-files": "node -p \"'export const version = ' + JSON.stringify(require('./package.json').version)\" > src/version.ts"
+  },
+  "dependencies": {
+    "@datadog/datadog-api-client": "^2.0.0-beta.2"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "version": "0.0.1",
+  "packageManager": "yarn@4.9.1"
+}
