@@ -3,23 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SLODataSourceQueryDefinition } from "./SLODataSourceQueryDefinition";
+import { SLOFormula } from "./SLOFormula";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A count-based (metric) SLO query. This field has been superseded by `sli_specification` but is retained for backwards compatibility. Note that Datadog only allows the sum by aggregator
- * to be used because this will sum up all request counts instead of averaging them, or taking the max or
- * min of all of those requests. Usage is not permitted when request payload contains `sli_specification` field.
+ * A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
+ * and the underlying queries. Usage is not permitted when request payload contains `query` field.
  */
-export class ServiceLevelObjectiveQuery {
+export class SLOCountDefinition {
   /**
-   * A Datadog metric query for total (valid) events.
+   * A formula that specifies how to combine the results of multiple queries.
    */
-  "denominator": string;
+  "goodEventsFormula": SLOFormula;
+  "queries": Array<SLODataSourceQueryDefinition>;
   /**
-   * A Datadog metric query for good events.
+   * A formula that specifies how to combine the results of multiple queries.
    */
-  "numerator": string;
+  "totalEventsFormula": SLOFormula;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +39,19 @@ export class ServiceLevelObjectiveQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    denominator: {
-      baseName: "denominator",
-      type: "string",
+    goodEventsFormula: {
+      baseName: "good_events_formula",
+      type: "SLOFormula",
       required: true,
     },
-    numerator: {
-      baseName: "numerator",
-      type: "string",
+    queries: {
+      baseName: "queries",
+      type: "Array<SLODataSourceQueryDefinition>",
+      required: true,
+    },
+    totalEventsFormula: {
+      baseName: "total_events_formula",
+      type: "SLOFormula",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +64,7 @@ export class ServiceLevelObjectiveQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceLevelObjectiveQuery.attributeTypeMap;
+    return SLOCountDefinition.attributeTypeMap;
   }
 
   public constructor() {}
