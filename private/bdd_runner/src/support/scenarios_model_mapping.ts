@@ -4604,6 +4604,82 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GetSuppressionVersionHistoryResponse",
   },
+  "SecurityMonitoringApi.V2.ListSecurityMonitoringDatasets": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetsListResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityMonitoringDataset": {
+    body: {
+      type: "SecurityMonitoringDatasetCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetCreateResponse",
+  },
+  "SecurityMonitoringApi.V2.BatchGetSecurityMonitoringDatasetDependencies": {
+    body: {
+      type: "SecurityMonitoringDatasetDependenciesRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetDependenciesResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringDataset": {
+    datasetId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "SecurityMonitoringDatasetResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityMonitoringDataset": {
+    datasetId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityMonitoringDataset": {
+    datasetId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "SecurityMonitoringDatasetUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringDatasetHistory": {
+    datasetId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "SecurityMonitoringDatasetsHistoryResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringDatasetByVersion": {
+    datasetId: {
+      type: "string",
+      format: "uuid",
+    },
+    version: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetResponse",
+  },
   "SecurityMonitoringApi.V2.ListSecurityMonitoringRules": {
     pageSize: {
       type: "number",
