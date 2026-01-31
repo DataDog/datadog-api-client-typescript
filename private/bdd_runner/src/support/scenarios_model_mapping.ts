@@ -9441,6 +9441,25 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SLOReportStatusGetResponse",
   },
+  "ServiceLevelObjectivesApi.V2.GetSloStatus": {
+    sloId: {
+      type: "string",
+      format: "",
+    },
+    fromTs: {
+      type: "number",
+      format: "int64",
+    },
+    toTs: {
+      type: "number",
+      format: "int64",
+    },
+    disableCorrections: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "SloStatusResponse",
+  },
   "SpaApi.V2.GetSPARecommendations": {
     bypassCache: {
       type: "string",
