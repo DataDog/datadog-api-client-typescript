@@ -3817,6 +3817,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CIAppTestEventsResponse",
     },
+    "v2.ListAWSCloudAuthPersonaMappings": {
+        "operationResponseType": "AWSCloudAuthPersonaMappingsResponse",
+    },
     "v2.CreateCustomFramework": {
         "body": {
             "type": "CreateCustomFrameworkRequest",
