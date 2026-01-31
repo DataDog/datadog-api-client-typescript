@@ -892,6 +892,7 @@ export {
   ServiceLevelObjectivesApiCreateSLOReportJobRequest,
   ServiceLevelObjectivesApiGetSLOReportRequest,
   ServiceLevelObjectivesApiGetSLOReportJobStatusRequest,
+  ServiceLevelObjectivesApiGetSloStatusRequest,
   ServiceLevelObjectivesApi,
 } from "./apis/ServiceLevelObjectivesApi";
 
@@ -3931,6 +3932,7 @@ export { QueryUsersRequestData } from "./models/QueryUsersRequestData";
 export { QueryUsersRequestDataAttributes } from "./models/QueryUsersRequestDataAttributes";
 export { QueryUsersRequestDataAttributesSort } from "./models/QueryUsersRequestDataAttributesSort";
 export { QueryUsersRequestDataType } from "./models/QueryUsersRequestDataType";
+export { RawErrorBudgetRemaining } from "./models/RawErrorBudgetRemaining";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
 export { RecommendationAttributes } from "./models/RecommendationAttributes";
@@ -4676,6 +4678,10 @@ export { SLOReportStatus } from "./models/SLOReportStatus";
 export { SLOReportStatusGetResponse } from "./models/SLOReportStatusGetResponse";
 export { SLOReportStatusGetResponseAttributes } from "./models/SLOReportStatusGetResponseAttributes";
 export { SLOReportStatusGetResponseData } from "./models/SLOReportStatusGetResponseData";
+export { SloStatusData } from "./models/SloStatusData";
+export { SloStatusDataAttributes } from "./models/SloStatusDataAttributes";
+export { SloStatusResponse } from "./models/SloStatusResponse";
+export { SloStatusType } from "./models/SloStatusType";
 export { SoftwareCatalogTriggerWrapper } from "./models/SoftwareCatalogTriggerWrapper";
 export { SortDirection } from "./models/SortDirection";
 export { Span } from "./models/Span";

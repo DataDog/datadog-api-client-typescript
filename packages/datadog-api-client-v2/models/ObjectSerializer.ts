@@ -2174,6 +2174,7 @@ import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
+import { RawErrorBudgetRemaining } from "./RawErrorBudgetRemaining";
 import { ReadinessGate } from "./ReadinessGate";
 import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
@@ -2712,6 +2713,9 @@ import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
 import { SloReportCreateRequest } from "./SloReportCreateRequest";
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
 import { SloReportCreateRequestData } from "./SloReportCreateRequestData";
+import { SloStatusData } from "./SloStatusData";
+import { SloStatusDataAttributes } from "./SloStatusDataAttributes";
+import { SloStatusResponse } from "./SloStatusResponse";
 import { SoftwareCatalogTriggerWrapper } from "./SoftwareCatalogTriggerWrapper";
 import { Span } from "./Span";
 import { SpansAggregateBucket } from "./SpansAggregateBucket";
@@ -4715,6 +4719,7 @@ const enumsMap: { [key: string]: any[] } = {
   ShiftDataType: ["shifts"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
+  SloStatusType: ["slo_status"],
   SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
@@ -7574,6 +7579,7 @@ const typeMap: { [index: string]: any } = {
   RUMResponsePage: RUMResponsePage,
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
+  RawErrorBudgetRemaining: RawErrorBudgetRemaining,
   ReadinessGate: ReadinessGate,
   RecommendationAttributes: RecommendationAttributes,
   RecommendationData: RecommendationData,
@@ -8232,6 +8238,9 @@ const typeMap: { [index: string]: any } = {
   SloReportCreateRequest: SloReportCreateRequest,
   SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
   SloReportCreateRequestData: SloReportCreateRequestData,
+  SloStatusData: SloStatusData,
+  SloStatusDataAttributes: SloStatusDataAttributes,
+  SloStatusResponse: SloStatusResponse,
   SoftwareCatalogTriggerWrapper: SoftwareCatalogTriggerWrapper,
   Span: Span,
   SpansAggregateBucket: SpansAggregateBucket,
