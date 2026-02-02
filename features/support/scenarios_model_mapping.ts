@@ -8337,6 +8337,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsersResponse",
     },
+    "v2.EvaluatePolicyResult": {
+        "policyType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PolicyResultResponse",
+    },
     "v2.ListPowerpacks": {
         "pageLimit": {
             "type": "number",
@@ -9953,6 +9960,52 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GlobalVariableResponse",
+    },
+    "v2.ListTagPolicies": {
+        "filterSource": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagPoliciesResponse",
+    },
+    "v2.CreateTagPolicy": {
+        "body": {
+            "type": "TagPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.GetTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.DeleteTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TagPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.GetTagPolicyScore": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyScoreResponse",
     },
     "v2.ListTeams": {
         "pageNumber": {

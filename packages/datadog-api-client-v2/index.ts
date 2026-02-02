@@ -681,6 +681,11 @@ export {
 } from "./apis/OrganizationsApi";
 
 export {
+  PolicyManagementApiEvaluatePolicyResultRequest,
+  PolicyManagementApi,
+} from "./apis/PolicyManagementApi";
+
+export {
   PowerpackApiCreatePowerpackRequest,
   PowerpackApiDeletePowerpackRequest,
   PowerpackApiGetPowerpackRequest,
@@ -995,6 +1000,16 @@ export {
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
   SyntheticsApi,
 } from "./apis/SyntheticsApi";
+
+export {
+  TagPoliciesApiCreateTagPolicyRequest,
+  TagPoliciesApiDeleteTagPolicyRequest,
+  TagPoliciesApiGetTagPolicyRequest,
+  TagPoliciesApiGetTagPolicyScoreRequest,
+  TagPoliciesApiListTagPoliciesRequest,
+  TagPoliciesApiUpdateTagPolicyRequest,
+  TagPoliciesApi,
+} from "./apis/TagPoliciesApi";
 
 export {
   TeamsApiAddMemberTeamRequest,
@@ -3845,6 +3860,10 @@ export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
 export { PermissionsType } from "./models/PermissionsType";
+export { PolicyResultAttributesResponse } from "./models/PolicyResultAttributesResponse";
+export { PolicyResultDataResponse } from "./models/PolicyResultDataResponse";
+export { PolicyResultResponse } from "./models/PolicyResultResponse";
+export { PolicyResultType } from "./models/PolicyResultType";
 export { PostmortemAttachmentRequest } from "./models/PostmortemAttachmentRequest";
 export { PostmortemAttachmentRequestAttributes } from "./models/PostmortemAttachmentRequestAttributes";
 export { PostmortemAttachmentRequestData } from "./models/PostmortemAttachmentRequestData";
@@ -4871,6 +4890,21 @@ export { TableRowResourceArray } from "./models/TableRowResourceArray";
 export { TableRowResourceData } from "./models/TableRowResourceData";
 export { TableRowResourceDataAttributes } from "./models/TableRowResourceDataAttributes";
 export { TableRowResourceDataType } from "./models/TableRowResourceDataType";
+export { TagPoliciesResponse } from "./models/TagPoliciesResponse";
+export { TagPolicyAttributesRequest } from "./models/TagPolicyAttributesRequest";
+export { TagPolicyAttributesResponse } from "./models/TagPolicyAttributesResponse";
+export { TagPolicyAttributesUpdateRequest } from "./models/TagPolicyAttributesUpdateRequest";
+export { TagPolicyCreateRequest } from "./models/TagPolicyCreateRequest";
+export { TagPolicyDataRequest } from "./models/TagPolicyDataRequest";
+export { TagPolicyDataResponse } from "./models/TagPolicyDataResponse";
+export { TagPolicyDataUpdateRequest } from "./models/TagPolicyDataUpdateRequest";
+export { TagPolicyResponse } from "./models/TagPolicyResponse";
+export { TagPolicyScoreAttributesResponse } from "./models/TagPolicyScoreAttributesResponse";
+export { TagPolicyScoreDataResponse } from "./models/TagPolicyScoreDataResponse";
+export { TagPolicyScoreResponse } from "./models/TagPolicyScoreResponse";
+export { TagPolicyScoreType } from "./models/TagPolicyScoreType";
+export { TagPolicyType } from "./models/TagPolicyType";
+export { TagPolicyUpdateRequest } from "./models/TagPolicyUpdateRequest";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
 export { TeamConnection } from "./models/TeamConnection";

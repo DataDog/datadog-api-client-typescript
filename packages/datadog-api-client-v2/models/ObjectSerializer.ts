@@ -2063,6 +2063,9 @@ import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRe
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { PolicyResultAttributesResponse } from "./PolicyResultAttributesResponse";
+import { PolicyResultDataResponse } from "./PolicyResultDataResponse";
+import { PolicyResultResponse } from "./PolicyResultResponse";
 import { PostmortemAttachmentRequest } from "./PostmortemAttachmentRequest";
 import { PostmortemAttachmentRequestAttributes } from "./PostmortemAttachmentRequestAttributes";
 import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestData";
@@ -2860,6 +2863,19 @@ import { TableResultV2DataAttributesSchemaFieldsItems } from "./TableResultV2Dat
 import { TableRowResourceArray } from "./TableRowResourceArray";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
+import { TagPoliciesResponse } from "./TagPoliciesResponse";
+import { TagPolicyAttributesRequest } from "./TagPolicyAttributesRequest";
+import { TagPolicyAttributesResponse } from "./TagPolicyAttributesResponse";
+import { TagPolicyAttributesUpdateRequest } from "./TagPolicyAttributesUpdateRequest";
+import { TagPolicyCreateRequest } from "./TagPolicyCreateRequest";
+import { TagPolicyDataRequest } from "./TagPolicyDataRequest";
+import { TagPolicyDataResponse } from "./TagPolicyDataResponse";
+import { TagPolicyDataUpdateRequest } from "./TagPolicyDataUpdateRequest";
+import { TagPolicyResponse } from "./TagPolicyResponse";
+import { TagPolicyScoreAttributesResponse } from "./TagPolicyScoreAttributesResponse";
+import { TagPolicyScoreDataResponse } from "./TagPolicyScoreDataResponse";
+import { TagPolicyScoreResponse } from "./TagPolicyScoreResponse";
+import { TagPolicyUpdateRequest } from "./TagPolicyUpdateRequest";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamConnection } from "./TeamConnection";
@@ -4304,6 +4320,7 @@ const enumsMap: { [key: string]: any[] } = {
   PatchDegradationRequestDataType: ["degradations"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
+  PolicyResultType: ["policy_result"],
   PostmortemCellType: ["markdown"],
   ProcessSummaryType: ["process"],
   ProductAnalyticsServerSideEventItemType: ["server"],
@@ -4794,6 +4811,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
+  TagPolicyScoreType: ["tag_policy_score"],
+  TagPolicyType: ["tag_policy"],
   TeamConnectionType: ["team_connection"],
   TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
@@ -7459,6 +7478,9 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  PolicyResultAttributesResponse: PolicyResultAttributesResponse,
+  PolicyResultDataResponse: PolicyResultDataResponse,
+  PolicyResultResponse: PolicyResultResponse,
   PostmortemAttachmentRequest: PostmortemAttachmentRequest,
   PostmortemAttachmentRequestAttributes: PostmortemAttachmentRequestAttributes,
   PostmortemAttachmentRequestData: PostmortemAttachmentRequestData,
@@ -8426,6 +8448,19 @@ const typeMap: { [index: string]: any } = {
   TableRowResourceArray: TableRowResourceArray,
   TableRowResourceData: TableRowResourceData,
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
+  TagPoliciesResponse: TagPoliciesResponse,
+  TagPolicyAttributesRequest: TagPolicyAttributesRequest,
+  TagPolicyAttributesResponse: TagPolicyAttributesResponse,
+  TagPolicyAttributesUpdateRequest: TagPolicyAttributesUpdateRequest,
+  TagPolicyCreateRequest: TagPolicyCreateRequest,
+  TagPolicyDataRequest: TagPolicyDataRequest,
+  TagPolicyDataResponse: TagPolicyDataResponse,
+  TagPolicyDataUpdateRequest: TagPolicyDataUpdateRequest,
+  TagPolicyResponse: TagPolicyResponse,
+  TagPolicyScoreAttributesResponse: TagPolicyScoreAttributesResponse,
+  TagPolicyScoreDataResponse: TagPolicyScoreDataResponse,
+  TagPolicyScoreResponse: TagPolicyScoreResponse,
+  TagPolicyUpdateRequest: TagPolicyUpdateRequest,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamConnection: TeamConnection,
