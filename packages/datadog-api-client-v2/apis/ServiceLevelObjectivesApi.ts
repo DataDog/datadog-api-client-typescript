@@ -17,9 +17,11 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { SloReportCreateRequest } from "../models/SloReportCreateRequest";
 import { SLOReportPostResponse } from "../models/SLOReportPostResponse";
 import { SLOReportStatusGetResponse } from "../models/SLOReportStatusGetResponse";
+import { SloStatusResponse } from "../models/SloStatusResponse";
 
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
   public async createSLOReportJob(
@@ -136,6 +138,81 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSloStatus(
+    sloId: string,
+    fromTs: number,
+    toTs: number,
+    disableCorrections?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSloStatus'");
+    if (!_config.unstableOperations["v2.getSloStatus"]) {
+      throw new Error("Unstable operation 'getSloStatus' is disabled");
+    }
+
+    // verify required parameter 'sloId' is not null or undefined
+    if (sloId === null || sloId === undefined) {
+      throw new RequiredError("sloId", "getSloStatus");
+    }
+
+    // verify required parameter 'fromTs' is not null or undefined
+    if (fromTs === null || fromTs === undefined) {
+      throw new RequiredError("fromTs", "getSloStatus");
+    }
+
+    // verify required parameter 'toTs' is not null or undefined
+    if (toTs === null || toTs === undefined) {
+      throw new RequiredError("toTs", "getSloStatus");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/slo/{slo_id}/status".replace(
+      "{slo_id}",
+      encodeURIComponent(String(sloId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ServiceLevelObjectivesApi.getSloStatus")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (fromTs !== undefined) {
+      requestContext.setQueryParam(
+        "from_ts",
+        ObjectSerializer.serialize(fromTs, "number", "int64"),
+        ""
+      );
+    }
+    if (toTs !== undefined) {
+      requestContext.setQueryParam(
+        "to_ts",
+        ObjectSerializer.serialize(toTs, "number", "int64"),
+        ""
+      );
+    }
+    if (disableCorrections !== undefined) {
+      requestContext.setQueryParam(
+        "disable_corrections",
+        ObjectSerializer.serialize(disableCorrections, "boolean", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -334,6 +411,91 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSloStatus
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSloStatus(
+    response: ResponseContext
+  ): Promise<SloStatusResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SloStatusResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SloStatusResponse"
+      ) as SloStatusResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SloStatusResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SloStatusResponse",
+        ""
+      ) as SloStatusResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface ServiceLevelObjectivesApiCreateSLOReportJobRequest {
@@ -358,6 +520,29 @@ export interface ServiceLevelObjectivesApiGetSLOReportJobStatusRequest {
    * @type string
    */
   reportId: string;
+}
+
+export interface ServiceLevelObjectivesApiGetSloStatusRequest {
+  /**
+   * The ID of the SLO.
+   * @type string
+   */
+  sloId: string;
+  /**
+   * The starting timestamp for the SLO status query in epoch seconds.
+   * @type number
+   */
+  fromTs: number;
+  /**
+   * The ending timestamp for the SLO status query in epoch seconds.
+   * @type number
+   */
+  toTs: number;
+  /**
+   * Whether to exclude correction windows from the SLO status calculation. Defaults to false.
+   * @type boolean
+   */
+  disableCorrections?: boolean;
 }
 
 export class ServiceLevelObjectivesApi {
@@ -441,6 +626,32 @@ export class ServiceLevelObjectivesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSLOReportJobStatus(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the status of a Service Level Objective (SLO) for a given time period.
+   *
+   * This endpoint returns the current SLI value, error budget remaining, and other status information for the specified SLO.
+   * @param param The request object
+   */
+  public getSloStatus(
+    param: ServiceLevelObjectivesApiGetSloStatusRequest,
+    options?: Configuration
+  ): Promise<SloStatusResponse> {
+    const requestContextPromise = this.requestFactory.getSloStatus(
+      param.sloId,
+      param.fromTs,
+      param.toTs,
+      param.disableCorrections,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSloStatus(responseContext);
         });
     });
   }

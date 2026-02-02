@@ -382,6 +382,7 @@ export function createConfiguration(
       "v2.createSLOReportJob": false,
       "v2.getSLOReport": false,
       "v2.getSLOReportJobStatus": false,
+      "v2.getSloStatus": false,
       "v2.getSPARecommendations": false,
       "v2.getSPARecommendationsWithShard": false,
       "v2.createCustomRule": false,
