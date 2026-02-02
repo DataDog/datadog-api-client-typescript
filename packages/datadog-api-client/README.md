@@ -417,6 +417,7 @@ apiInstance
 | Org Connections | @datadog/datadog-api-client-org-connections | [README.md](../../services/org-connections/README.md) |
 | Organizations | @datadog/datadog-api-client-organizations | [README.md](../../services/organizations/README.md) |
 | PagerDuty Integration | @datadog/datadog-api-client-pager-duty-integration | [README.md](../../services/pager-duty-integration/README.md) |
+| Policy Management | @datadog/datadog-api-client-policy-management | [README.md](../../services/policy-management/README.md) |
 | Powerpack | @datadog/datadog-api-client-powerpack | [README.md](../../services/powerpack/README.md) |
 | Processes | @datadog/datadog-api-client-processes | [README.md](../../services/processes/README.md) |
 | Product Analytics | @datadog/datadog-api-client-product-analytics | [README.md](../../services/product-analytics/README.md) |
@@ -445,6 +446,7 @@ apiInstance
 | Static Analysis | @datadog/datadog-api-client-static-analysis | [README.md](../../services/static-analysis/README.md) |
 | Status Pages | @datadog/datadog-api-client-status-pages | [README.md](../../services/status-pages/README.md) |
 | Synthetics | @datadog/datadog-api-client-synthetics | [README.md](../../services/synthetics/README.md) |
+| Tag Policies | @datadog/datadog-api-client-tag-policies | [README.md](../../services/tag-policies/README.md) |
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
