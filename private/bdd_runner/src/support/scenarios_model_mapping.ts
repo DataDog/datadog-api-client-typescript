@@ -8347,6 +8347,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UsersResponse",
   },
+  "PolicyManagementApi.V2.EvaluatePolicyResult": {
+    policyType: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "PolicyResultResponse",
+  },
   "PowerpackApi.V2.ListPowerpacks": {
     pageLimit: {
       type: "number",
@@ -9963,6 +9970,52 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "GlobalVariableResponse",
+  },
+  "TagPoliciesApi.V2.ListTagPolicies": {
+    filterSource: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TagPoliciesResponse",
+  },
+  "TagPoliciesApi.V2.CreateTagPolicy": {
+    body: {
+      type: "TagPolicyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TagPolicyResponse",
+  },
+  "TagPoliciesApi.V2.GetTagPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TagPolicyResponse",
+  },
+  "TagPoliciesApi.V2.DeleteTagPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "TagPoliciesApi.V2.UpdateTagPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TagPolicyUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "TagPolicyResponse",
+  },
+  "TagPoliciesApi.V2.GetTagPolicyScore": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TagPolicyScoreResponse",
   },
   "TeamsApi.V2.ListTeams": {
     pageNumber: {

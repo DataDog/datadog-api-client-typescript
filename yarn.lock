@@ -892,6 +892,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-policy-management@workspace:services/policy_management":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-policy-management@workspace:services/policy_management"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-powerpack@workspace:services/powerpack":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-powerpack@workspace:services/powerpack"
@@ -1138,6 +1147,15 @@ __metadata:
 "@datadog/datadog-api-client-synthetics@workspace:services/synthetics":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-synthetics@workspace:services/synthetics"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-tag-policies@workspace:services/tag_policies":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-tag-policies@workspace:services/tag_policies"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
