@@ -4729,6 +4729,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
+    "v2.CreateSignalInvestigation": {
+        "body": {
+            "type": "SecurityMonitoringSignalInvestigationRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalInvestigationResponse",
+    },
+    "v2.UpdateInvestigationFeedback": {
+        "body": {
+            "type": "SecurityMonitoringSignalInvestigationFeedbackRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetInvestigationFeedback": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalInvestigationFeedbackResponse",
+    },
     "v2.SearchSecurityMonitoringSignals": {
         "body": {
             "type": "SecurityMonitoringSignalListRequest",

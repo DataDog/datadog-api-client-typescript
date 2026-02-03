@@ -2541,6 +2541,22 @@ import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAt
 import { SecurityMonitoringSignalIncidentsUpdateAttributes } from "./SecurityMonitoringSignalIncidentsUpdateAttributes";
 import { SecurityMonitoringSignalIncidentsUpdateData } from "./SecurityMonitoringSignalIncidentsUpdateData";
 import { SecurityMonitoringSignalIncidentsUpdateRequest } from "./SecurityMonitoringSignalIncidentsUpdateRequest";
+import { SecurityMonitoringSignalInvestigationFeedbackMetric } from "./SecurityMonitoringSignalInvestigationFeedbackMetric";
+import { SecurityMonitoringSignalInvestigationFeedbackRequest } from "./SecurityMonitoringSignalInvestigationFeedbackRequest";
+import { SecurityMonitoringSignalInvestigationFeedbackRequestAttributes } from "./SecurityMonitoringSignalInvestigationFeedbackRequestAttributes";
+import { SecurityMonitoringSignalInvestigationFeedbackRequestData } from "./SecurityMonitoringSignalInvestigationFeedbackRequestData";
+import { SecurityMonitoringSignalInvestigationFeedbackResponse } from "./SecurityMonitoringSignalInvestigationFeedbackResponse";
+import { SecurityMonitoringSignalInvestigationFeedbackResponseAttributes } from "./SecurityMonitoringSignalInvestigationFeedbackResponseAttributes";
+import { SecurityMonitoringSignalInvestigationFeedbackResponseData } from "./SecurityMonitoringSignalInvestigationFeedbackResponseData";
+import { SecurityMonitoringSignalInvestigationFeedbackSection } from "./SecurityMonitoringSignalInvestigationFeedbackSection";
+import { SecurityMonitoringSignalInvestigationRequest } from "./SecurityMonitoringSignalInvestigationRequest";
+import { SecurityMonitoringSignalInvestigationRequestAttributes } from "./SecurityMonitoringSignalInvestigationRequestAttributes";
+import { SecurityMonitoringSignalInvestigationRequestData } from "./SecurityMonitoringSignalInvestigationRequestData";
+import { SecurityMonitoringSignalInvestigationResponse } from "./SecurityMonitoringSignalInvestigationResponse";
+import { SecurityMonitoringSignalInvestigationResponseAttributes } from "./SecurityMonitoringSignalInvestigationResponseAttributes";
+import { SecurityMonitoringSignalInvestigationResponseData } from "./SecurityMonitoringSignalInvestigationResponseData";
+import { SecurityMonitoringSignalInvestigationStep } from "./SecurityMonitoringSignalInvestigationStep";
+import { SecurityMonitoringSignalInvestigationStepOutput } from "./SecurityMonitoringSignalInvestigationStepOutput";
 import { SecurityMonitoringSignalListRequest } from "./SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
@@ -4675,6 +4691,15 @@ const enumsMap: { [key: string]: any[] } = {
     "true_positive_malicious",
     "other",
   ],
+  SecurityMonitoringSignalInvestigationFeedbackType: ["investigation_feedback"],
+  SecurityMonitoringSignalInvestigationState: ["investigating", "completed"],
+  SecurityMonitoringSignalInvestigationStepOutputVerdict: [
+    "unspecified",
+    "benign",
+    "suspicious",
+    "inconclusive",
+  ],
+  SecurityMonitoringSignalInvestigationType: ["investigation_signal"],
   SecurityMonitoringSignalMetadataType: ["signal_metadata"],
   SecurityMonitoringSignalRuleType: ["signal_correlation"],
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
@@ -8079,6 +8104,38 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalIncidentsUpdateData,
   SecurityMonitoringSignalIncidentsUpdateRequest:
     SecurityMonitoringSignalIncidentsUpdateRequest,
+  SecurityMonitoringSignalInvestigationFeedbackMetric:
+    SecurityMonitoringSignalInvestigationFeedbackMetric,
+  SecurityMonitoringSignalInvestigationFeedbackRequest:
+    SecurityMonitoringSignalInvestigationFeedbackRequest,
+  SecurityMonitoringSignalInvestigationFeedbackRequestAttributes:
+    SecurityMonitoringSignalInvestigationFeedbackRequestAttributes,
+  SecurityMonitoringSignalInvestigationFeedbackRequestData:
+    SecurityMonitoringSignalInvestigationFeedbackRequestData,
+  SecurityMonitoringSignalInvestigationFeedbackResponse:
+    SecurityMonitoringSignalInvestigationFeedbackResponse,
+  SecurityMonitoringSignalInvestigationFeedbackResponseAttributes:
+    SecurityMonitoringSignalInvestigationFeedbackResponseAttributes,
+  SecurityMonitoringSignalInvestigationFeedbackResponseData:
+    SecurityMonitoringSignalInvestigationFeedbackResponseData,
+  SecurityMonitoringSignalInvestigationFeedbackSection:
+    SecurityMonitoringSignalInvestigationFeedbackSection,
+  SecurityMonitoringSignalInvestigationRequest:
+    SecurityMonitoringSignalInvestigationRequest,
+  SecurityMonitoringSignalInvestigationRequestAttributes:
+    SecurityMonitoringSignalInvestigationRequestAttributes,
+  SecurityMonitoringSignalInvestigationRequestData:
+    SecurityMonitoringSignalInvestigationRequestData,
+  SecurityMonitoringSignalInvestigationResponse:
+    SecurityMonitoringSignalInvestigationResponse,
+  SecurityMonitoringSignalInvestigationResponseAttributes:
+    SecurityMonitoringSignalInvestigationResponseAttributes,
+  SecurityMonitoringSignalInvestigationResponseData:
+    SecurityMonitoringSignalInvestigationResponseData,
+  SecurityMonitoringSignalInvestigationStep:
+    SecurityMonitoringSignalInvestigationStep,
+  SecurityMonitoringSignalInvestigationStepOutput:
+    SecurityMonitoringSignalInvestigationStepOutput,
   SecurityMonitoringSignalListRequest: SecurityMonitoringSignalListRequest,
   SecurityMonitoringSignalListRequestFilter:
     SecurityMonitoringSignalListRequestFilter,
