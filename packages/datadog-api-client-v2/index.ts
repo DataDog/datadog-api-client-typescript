@@ -827,6 +827,7 @@ export {
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiCreateSignalInvestigationRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
@@ -844,6 +845,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetInvestigationFeedbackRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
@@ -883,6 +885,7 @@ export {
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
+  SecurityMonitoringApiUpdateInvestigationFeedbackRequest,
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
@@ -4474,6 +4477,26 @@ export { SecurityMonitoringSignalAttributes } from "./models/SecurityMonitoringS
 export { SecurityMonitoringSignalIncidentsUpdateAttributes } from "./models/SecurityMonitoringSignalIncidentsUpdateAttributes";
 export { SecurityMonitoringSignalIncidentsUpdateData } from "./models/SecurityMonitoringSignalIncidentsUpdateData";
 export { SecurityMonitoringSignalIncidentsUpdateRequest } from "./models/SecurityMonitoringSignalIncidentsUpdateRequest";
+export { SecurityMonitoringSignalInvestigationFeedbackMetric } from "./models/SecurityMonitoringSignalInvestigationFeedbackMetric";
+export { SecurityMonitoringSignalInvestigationFeedbackRequest } from "./models/SecurityMonitoringSignalInvestigationFeedbackRequest";
+export { SecurityMonitoringSignalInvestigationFeedbackRequestAttributes } from "./models/SecurityMonitoringSignalInvestigationFeedbackRequestAttributes";
+export { SecurityMonitoringSignalInvestigationFeedbackRequestData } from "./models/SecurityMonitoringSignalInvestigationFeedbackRequestData";
+export { SecurityMonitoringSignalInvestigationFeedbackResponse } from "./models/SecurityMonitoringSignalInvestigationFeedbackResponse";
+export { SecurityMonitoringSignalInvestigationFeedbackResponseAttributes } from "./models/SecurityMonitoringSignalInvestigationFeedbackResponseAttributes";
+export { SecurityMonitoringSignalInvestigationFeedbackResponseData } from "./models/SecurityMonitoringSignalInvestigationFeedbackResponseData";
+export { SecurityMonitoringSignalInvestigationFeedbackSection } from "./models/SecurityMonitoringSignalInvestigationFeedbackSection";
+export { SecurityMonitoringSignalInvestigationFeedbackType } from "./models/SecurityMonitoringSignalInvestigationFeedbackType";
+export { SecurityMonitoringSignalInvestigationRequest } from "./models/SecurityMonitoringSignalInvestigationRequest";
+export { SecurityMonitoringSignalInvestigationRequestAttributes } from "./models/SecurityMonitoringSignalInvestigationRequestAttributes";
+export { SecurityMonitoringSignalInvestigationRequestData } from "./models/SecurityMonitoringSignalInvestigationRequestData";
+export { SecurityMonitoringSignalInvestigationResponse } from "./models/SecurityMonitoringSignalInvestigationResponse";
+export { SecurityMonitoringSignalInvestigationResponseAttributes } from "./models/SecurityMonitoringSignalInvestigationResponseAttributes";
+export { SecurityMonitoringSignalInvestigationResponseData } from "./models/SecurityMonitoringSignalInvestigationResponseData";
+export { SecurityMonitoringSignalInvestigationState } from "./models/SecurityMonitoringSignalInvestigationState";
+export { SecurityMonitoringSignalInvestigationStep } from "./models/SecurityMonitoringSignalInvestigationStep";
+export { SecurityMonitoringSignalInvestigationStepOutput } from "./models/SecurityMonitoringSignalInvestigationStepOutput";
+export { SecurityMonitoringSignalInvestigationStepOutputVerdict } from "./models/SecurityMonitoringSignalInvestigationStepOutputVerdict";
+export { SecurityMonitoringSignalInvestigationType } from "./models/SecurityMonitoringSignalInvestigationType";
 export { SecurityMonitoringSignalListRequest } from "./models/SecurityMonitoringSignalListRequest";
 export { SecurityMonitoringSignalListRequestFilter } from "./models/SecurityMonitoringSignalListRequestFilter";
 export { SecurityMonitoringSignalListRequestPage } from "./models/SecurityMonitoringSignalListRequestPage";
