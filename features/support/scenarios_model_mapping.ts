@@ -8792,6 +8792,50 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
+    "v2.ListReplayHeatmapSnapshots": {
+        "filterDeviceType": {
+            "type": "string",
+            "format": "",
+            },
+        "filterViewName": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "",
+            },
+        "filterApplicationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SnapshotArray",
+    },
+    "v2.CreateReplayHeatmapSnapshot": {
+        "body": {
+            "type": "SnapshotCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "Snapshot",
+    },
+    "v2.DeleteReplayHeatmapSnapshot": {
+        "snapshotId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateReplayHeatmapSnapshot": {
+        "snapshotId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SnapshotUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "Snapshot",
+    },
     "v2.GetRestrictionPolicy": {
         "resourceId": {
             "type": "string",
@@ -8997,6 +9041,204 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "RumMetricResponse",
+    },
+    "v2.ListRumReplayPlaylists": {
+        "filterCreatedByUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "PlaylistArray",
+    },
+    "v2.CreateRumReplayPlaylist": {
+        "body": {
+            "type": "Playlist",
+            "format": "",
+            },
+        "operationResponseType": "Playlist",
+    },
+    "v2.GetRumReplayPlaylist": {
+        "playlistId": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "Playlist",
+    },
+    "v2.UpdateRumReplayPlaylist": {
+        "playlistId": {
+            "type": "number",
+            "format": "",
+            },
+        "body": {
+            "type": "Playlist",
+            "format": "",
+            },
+        "operationResponseType": "Playlist",
+    },
+    "v2.DeleteRumReplayPlaylist": {
+        "playlistId": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListRumReplayPlaylistSessions": {
+        "playlistId": {
+            "type": "number",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "PlaylistsSessionArray",
+    },
+    "v2.BulkRemoveRumReplayPlaylistSessions": {
+        "playlistId": {
+            "type": "number",
+            "format": "",
+            },
+        "body": {
+            "type": "SessionIdArray",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.AddRumReplaySessionToPlaylist": {
+        "dataSource": {
+            "type": "string",
+            "format": "",
+            },
+        "ts": {
+            "type": "number",
+            "format": "int64",
+            },
+        "playlistId": {
+            "type": "number",
+            "format": "",
+            },
+        "sessionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PlaylistsSession",
+    },
+    "v2.RemoveRumReplaySessionFromPlaylist": {
+        "playlistId": {
+            "type": "number",
+            "format": "",
+            },
+        "sessionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetSegments": {
+        "viewId": {
+            "type": "string",
+            "format": "",
+            },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "sessionId": {
+            "type": "string",
+            "format": "",
+            },
+        "ts": {
+            "type": "number",
+            "format": "int64",
+            },
+        "maxListSize": {
+            "type": "number",
+            "format": "",
+            },
+        "paging": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListRumReplaySessionWatchers": {
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "sessionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "WatcherArray",
+    },
+    "v2.CreateRumReplaySessionWatch": {
+        "sessionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Watch",
+            "format": "",
+            },
+        "operationResponseType": "Watch",
+    },
+    "v2.DeleteRumReplaySessionWatch": {
+        "sessionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListRumReplayViewershipHistorySessions": {
+        "filterWatchedAtStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "filterCreatedBy": {
+            "type": "string",
+            "format": "",
+            },
+        "filterWatchedAtEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterSessionIds": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "filterApplicationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ViewershipHistorySessionArray",
     },
     "v2.ListScorecardOutcomes": {
         "pageSize": {
