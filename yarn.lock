@@ -964,6 +964,42 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-rum-replay-heatmaps@workspace:services/rum_replay_heatmaps":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-replay-heatmaps@workspace:services/rum_replay_heatmaps"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-rum-replay-playlists@workspace:services/rum_replay_playlists":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-replay-playlists@workspace:services/rum_replay_playlists"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-rum-replay-sessions@workspace:services/rum_replay_sessions":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-replay-sessions@workspace:services/rum_replay_sessions"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-rum-replay-viewership@workspace:services/rum_replay_viewership":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-replay-viewership@workspace:services/rum_replay_viewership"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-rum-retention-filters@workspace:services/rum_retention_filters":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-retention-filters@workspace:services/rum_retention_filters"
