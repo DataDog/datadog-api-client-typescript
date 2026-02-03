@@ -607,6 +607,15 @@ export {
 } from "./apis/NetworkDeviceMonitoringApi";
 
 export {
+  OCIIntegrationApiCreateTenancyConfigRequest,
+  OCIIntegrationApiDeleteTenancyConfigRequest,
+  OCIIntegrationApiGetTenancyConfigRequest,
+  OCIIntegrationApiListTenancyProductsRequest,
+  OCIIntegrationApiUpdateTenancyConfigRequest,
+  OCIIntegrationApi,
+} from "./apis/OCIIntegrationApi";
+
+export {
   ObservabilityPipelinesApiCreatePipelineRequest,
   ObservabilityPipelinesApiDeletePipelineRequest,
   ObservabilityPipelinesApiGetPipelineRequest,
@@ -1976,6 +1985,13 @@ export { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail
 export { CreateTableRequestDataAttributesSchema } from "./models/CreateTableRequestDataAttributesSchema";
 export { CreateTableRequestDataAttributesSchemaFieldsItems } from "./models/CreateTableRequestDataAttributesSchemaFieldsItems";
 export { CreateTableRequestDataType } from "./models/CreateTableRequestDataType";
+export { CreateTenancyConfigData } from "./models/CreateTenancyConfigData";
+export { CreateTenancyConfigDataAttributes } from "./models/CreateTenancyConfigDataAttributes";
+export { CreateTenancyConfigDataAttributesAuthCredentials } from "./models/CreateTenancyConfigDataAttributesAuthCredentials";
+export { CreateTenancyConfigDataAttributesLogsConfig } from "./models/CreateTenancyConfigDataAttributesLogsConfig";
+export { CreateTenancyConfigDataAttributesMetricsConfig } from "./models/CreateTenancyConfigDataAttributesMetricsConfig";
+export { CreateTenancyConfigDataAttributesRegionsConfig } from "./models/CreateTenancyConfigDataAttributesRegionsConfig";
+export { CreateTenancyConfigRequest } from "./models/CreateTenancyConfigRequest";
 export { CreateUploadRequest } from "./models/CreateUploadRequest";
 export { CreateUploadRequestData } from "./models/CreateUploadRequestData";
 export { CreateUploadRequestDataAttributes } from "./models/CreateUploadRequestDataAttributes";
@@ -5043,6 +5059,18 @@ export { TeamUpdate } from "./models/TeamUpdate";
 export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
 export { TeamUpdateRelationships } from "./models/TeamUpdateRelationships";
 export { TeamUpdateRequest } from "./models/TeamUpdateRequest";
+export { TenancyConfig } from "./models/TenancyConfig";
+export { TenancyConfigData } from "./models/TenancyConfigData";
+export { TenancyConfigDataAttributes } from "./models/TenancyConfigDataAttributes";
+export { TenancyConfigDataAttributesLogsConfig } from "./models/TenancyConfigDataAttributesLogsConfig";
+export { TenancyConfigDataAttributesMetricsConfig } from "./models/TenancyConfigDataAttributesMetricsConfig";
+export { TenancyConfigDataAttributesRegionsConfig } from "./models/TenancyConfigDataAttributesRegionsConfig";
+export { TenancyConfigList } from "./models/TenancyConfigList";
+export { TenancyProductsData } from "./models/TenancyProductsData";
+export { TenancyProductsDataAttributes } from "./models/TenancyProductsDataAttributes";
+export { TenancyProductsDataAttributesProductsItems } from "./models/TenancyProductsDataAttributesProductsItems";
+export { TenancyProductsDataType } from "./models/TenancyProductsDataType";
+export { TenancyProductsList } from "./models/TenancyProductsList";
 export { ThreatHuntingJobDataType } from "./models/ThreatHuntingJobDataType";
 export { ThreatHuntingJobListMeta } from "./models/ThreatHuntingJobListMeta";
 export { ThreatHuntingJobOptions } from "./models/ThreatHuntingJobOptions";
@@ -5153,6 +5181,14 @@ export { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./mod
 export { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./models/UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
 export { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./models/UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
 export { UpdateRulesetRequestDataType } from "./models/UpdateRulesetRequestDataType";
+export { UpdateTenancyConfigData } from "./models/UpdateTenancyConfigData";
+export { UpdateTenancyConfigDataAttributes } from "./models/UpdateTenancyConfigDataAttributes";
+export { UpdateTenancyConfigDataAttributesAuthCredentials } from "./models/UpdateTenancyConfigDataAttributesAuthCredentials";
+export { UpdateTenancyConfigDataAttributesLogsConfig } from "./models/UpdateTenancyConfigDataAttributesLogsConfig";
+export { UpdateTenancyConfigDataAttributesMetricsConfig } from "./models/UpdateTenancyConfigDataAttributesMetricsConfig";
+export { UpdateTenancyConfigDataAttributesRegionsConfig } from "./models/UpdateTenancyConfigDataAttributesRegionsConfig";
+export { UpdateTenancyConfigDataType } from "./models/UpdateTenancyConfigDataType";
+export { UpdateTenancyConfigRequest } from "./models/UpdateTenancyConfigRequest";
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
