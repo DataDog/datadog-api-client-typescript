@@ -769,6 +769,40 @@ export {
 } from "./apis/RumMetricsApi";
 
 export {
+  RumReplayHeatmapsApiCreateReplayHeatmapSnapshotRequest,
+  RumReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest,
+  RumReplayHeatmapsApiListReplayHeatmapSnapshotsRequest,
+  RumReplayHeatmapsApiUpdateReplayHeatmapSnapshotRequest,
+  RumReplayHeatmapsApi,
+} from "./apis/RumReplayHeatmapsApi";
+
+export {
+  RumReplayPlaylistsApiAddRumReplaySessionToPlaylistRequest,
+  RumReplayPlaylistsApiBulkRemoveRumReplayPlaylistSessionsRequest,
+  RumReplayPlaylistsApiCreateRumReplayPlaylistRequest,
+  RumReplayPlaylistsApiDeleteRumReplayPlaylistRequest,
+  RumReplayPlaylistsApiGetRumReplayPlaylistRequest,
+  RumReplayPlaylistsApiListRumReplayPlaylistSessionsRequest,
+  RumReplayPlaylistsApiListRumReplayPlaylistsRequest,
+  RumReplayPlaylistsApiRemoveRumReplaySessionFromPlaylistRequest,
+  RumReplayPlaylistsApiUpdateRumReplayPlaylistRequest,
+  RumReplayPlaylistsApi,
+} from "./apis/RumReplayPlaylistsApi";
+
+export {
+  RumReplaySessionsApiGetSegmentsRequest,
+  RumReplaySessionsApi,
+} from "./apis/RumReplaySessionsApi";
+
+export {
+  RumReplayViewershipApiCreateRumReplaySessionWatchRequest,
+  RumReplayViewershipApiDeleteRumReplaySessionWatchRequest,
+  RumReplayViewershipApiListRumReplaySessionWatchersRequest,
+  RumReplayViewershipApiListRumReplayViewershipHistorySessionsRequest,
+  RumReplayViewershipApi,
+} from "./apis/RumReplayViewershipApi";
+
+export {
   RumRetentionFiltersApiCreateRetentionFilterRequest,
   RumRetentionFiltersApiDeleteRetentionFilterRequest,
   RumRetentionFiltersApiGetRetentionFilterRequest,
@@ -3845,6 +3879,16 @@ export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
 export { PermissionsType } from "./models/PermissionsType";
+export { Playlist } from "./models/Playlist";
+export { PlaylistArray } from "./models/PlaylistArray";
+export { PlaylistData } from "./models/PlaylistData";
+export { PlaylistDataAttributes } from "./models/PlaylistDataAttributes";
+export { PlaylistDataAttributesCreatedBy } from "./models/PlaylistDataAttributesCreatedBy";
+export { PlaylistDataType } from "./models/PlaylistDataType";
+export { PlaylistsSession } from "./models/PlaylistsSession";
+export { PlaylistsSessionArray } from "./models/PlaylistsSessionArray";
+export { PlaylistsSessionData } from "./models/PlaylistsSessionData";
+export { PlaylistsSessionDataAttributes } from "./models/PlaylistsSessionDataAttributes";
 export { PostmortemAttachmentRequest } from "./models/PostmortemAttachmentRequest";
 export { PostmortemAttachmentRequestAttributes } from "./models/PostmortemAttachmentRequestAttributes";
 export { PostmortemAttachmentRequestData } from "./models/PostmortemAttachmentRequestData";
@@ -4645,6 +4689,8 @@ export { ServiceNowUserAttributes } from "./models/ServiceNowUserAttributes";
 export { ServiceNowUserData } from "./models/ServiceNowUserData";
 export { ServiceNowUsersResponse } from "./models/ServiceNowUsersResponse";
 export { ServiceNowUserType } from "./models/ServiceNowUserType";
+export { SessionIdArray } from "./models/SessionIdArray";
+export { SessionIdData } from "./models/SessionIdData";
 export { Shift } from "./models/Shift";
 export { ShiftData } from "./models/ShiftData";
 export { ShiftDataAttributes } from "./models/ShiftDataAttributes";
@@ -4682,6 +4728,17 @@ export { SloStatusData } from "./models/SloStatusData";
 export { SloStatusDataAttributes } from "./models/SloStatusDataAttributes";
 export { SloStatusResponse } from "./models/SloStatusResponse";
 export { SloStatusType } from "./models/SloStatusType";
+export { Snapshot } from "./models/Snapshot";
+export { SnapshotArray } from "./models/SnapshotArray";
+export { SnapshotCreateRequest } from "./models/SnapshotCreateRequest";
+export { SnapshotCreateRequestData } from "./models/SnapshotCreateRequestData";
+export { SnapshotCreateRequestDataAttributes } from "./models/SnapshotCreateRequestDataAttributes";
+export { SnapshotData } from "./models/SnapshotData";
+export { SnapshotDataAttributes } from "./models/SnapshotDataAttributes";
+export { SnapshotUpdateRequest } from "./models/SnapshotUpdateRequest";
+export { SnapshotUpdateRequestData } from "./models/SnapshotUpdateRequestData";
+export { SnapshotUpdateRequestDataAttributes } from "./models/SnapshotUpdateRequestDataAttributes";
+export { SnapshotUpdateRequestDataType } from "./models/SnapshotUpdateRequestDataType";
 export { SoftwareCatalogTriggerWrapper } from "./models/SoftwareCatalogTriggerWrapper";
 export { SortDirection } from "./models/SortDirection";
 export { Span } from "./models/Span";
@@ -5167,6 +5224,10 @@ export { ValidationErrorMeta } from "./models/ValidationErrorMeta";
 export { ValidationResponse } from "./models/ValidationResponse";
 export { VersionHistoryUpdate } from "./models/VersionHistoryUpdate";
 export { VersionHistoryUpdateType } from "./models/VersionHistoryUpdateType";
+export { ViewershipHistorySessionArray } from "./models/ViewershipHistorySessionArray";
+export { ViewershipHistorySessionData } from "./models/ViewershipHistorySessionData";
+export { ViewershipHistorySessionDataAttributes } from "./models/ViewershipHistorySessionDataAttributes";
+export { ViewershipHistorySessionDataType } from "./models/ViewershipHistorySessionDataType";
 export { VirusTotalAPIKey } from "./models/VirusTotalAPIKey";
 export { VirusTotalAPIKeyType } from "./models/VirusTotalAPIKeyType";
 export { VirusTotalAPIKeyUpdate } from "./models/VirusTotalAPIKeyUpdate";
@@ -5190,6 +5251,14 @@ export { VulnerabilitySeverity } from "./models/VulnerabilitySeverity";
 export { VulnerabilityStatus } from "./models/VulnerabilityStatus";
 export { VulnerabilityTool } from "./models/VulnerabilityTool";
 export { VulnerabilityType } from "./models/VulnerabilityType";
+export { Watch } from "./models/Watch";
+export { WatchData } from "./models/WatchData";
+export { WatchDataAttributes } from "./models/WatchDataAttributes";
+export { WatchDataType } from "./models/WatchDataType";
+export { WatcherArray } from "./models/WatcherArray";
+export { WatcherData } from "./models/WatcherData";
+export { WatcherDataAttributes } from "./models/WatcherDataAttributes";
+export { WatcherDataType } from "./models/WatcherDataType";
 export { Weekday } from "./models/Weekday";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
 export { WorkflowData } from "./models/WorkflowData";

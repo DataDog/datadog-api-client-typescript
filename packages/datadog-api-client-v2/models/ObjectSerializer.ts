@@ -2063,6 +2063,15 @@ import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRe
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { Playlist } from "./Playlist";
+import { PlaylistArray } from "./PlaylistArray";
+import { PlaylistData } from "./PlaylistData";
+import { PlaylistDataAttributes } from "./PlaylistDataAttributes";
+import { PlaylistDataAttributesCreatedBy } from "./PlaylistDataAttributesCreatedBy";
+import { PlaylistsSession } from "./PlaylistsSession";
+import { PlaylistsSessionArray } from "./PlaylistsSessionArray";
+import { PlaylistsSessionData } from "./PlaylistsSessionData";
+import { PlaylistsSessionDataAttributes } from "./PlaylistsSessionDataAttributes";
 import { PostmortemAttachmentRequest } from "./PostmortemAttachmentRequest";
 import { PostmortemAttachmentRequestAttributes } from "./PostmortemAttachmentRequestAttributes";
 import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestData";
@@ -2692,6 +2701,8 @@ import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { ServiceNowUserAttributes } from "./ServiceNowUserAttributes";
 import { ServiceNowUserData } from "./ServiceNowUserData";
 import { ServiceNowUsersResponse } from "./ServiceNowUsersResponse";
+import { SessionIdArray } from "./SessionIdArray";
+import { SessionIdData } from "./SessionIdData";
 import { Shift } from "./Shift";
 import { ShiftData } from "./ShiftData";
 import { ShiftDataAttributes } from "./ShiftDataAttributes";
@@ -2716,6 +2727,16 @@ import { SloReportCreateRequestData } from "./SloReportCreateRequestData";
 import { SloStatusData } from "./SloStatusData";
 import { SloStatusDataAttributes } from "./SloStatusDataAttributes";
 import { SloStatusResponse } from "./SloStatusResponse";
+import { Snapshot } from "./Snapshot";
+import { SnapshotArray } from "./SnapshotArray";
+import { SnapshotCreateRequest } from "./SnapshotCreateRequest";
+import { SnapshotCreateRequestData } from "./SnapshotCreateRequestData";
+import { SnapshotCreateRequestDataAttributes } from "./SnapshotCreateRequestDataAttributes";
+import { SnapshotData } from "./SnapshotData";
+import { SnapshotDataAttributes } from "./SnapshotDataAttributes";
+import { SnapshotUpdateRequest } from "./SnapshotUpdateRequest";
+import { SnapshotUpdateRequestData } from "./SnapshotUpdateRequestData";
+import { SnapshotUpdateRequestDataAttributes } from "./SnapshotUpdateRequestDataAttributes";
 import { SoftwareCatalogTriggerWrapper } from "./SoftwareCatalogTriggerWrapper";
 import { Span } from "./Span";
 import { SpansAggregateBucket } from "./SpansAggregateBucket";
@@ -3092,6 +3113,9 @@ import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
 import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
+import { ViewershipHistorySessionArray } from "./ViewershipHistorySessionArray";
+import { ViewershipHistorySessionData } from "./ViewershipHistorySessionData";
+import { ViewershipHistorySessionDataAttributes } from "./ViewershipHistorySessionDataAttributes";
 import { VirusTotalAPIKey } from "./VirusTotalAPIKey";
 import { VirusTotalAPIKeyUpdate } from "./VirusTotalAPIKeyUpdate";
 import { VirusTotalIntegration } from "./VirusTotalIntegration";
@@ -3105,6 +3129,12 @@ import { VulnerabilityRelationships } from "./VulnerabilityRelationships";
 import { VulnerabilityRelationshipsAffects } from "./VulnerabilityRelationshipsAffects";
 import { VulnerabilityRelationshipsAffectsData } from "./VulnerabilityRelationshipsAffectsData";
 import { VulnerabilityRisks } from "./VulnerabilityRisks";
+import { Watch } from "./Watch";
+import { WatchData } from "./WatchData";
+import { WatchDataAttributes } from "./WatchDataAttributes";
+import { WatcherArray } from "./WatcherArray";
+import { WatcherData } from "./WatcherData";
+import { WatcherDataAttributes } from "./WatcherDataAttributes";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -4304,6 +4334,7 @@ const enumsMap: { [key: string]: any[] } = {
   PatchDegradationRequestDataType: ["degradations"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
+  PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
   ProcessSummaryType: ["process"],
   ProductAnalyticsServerSideEventItemType: ["server"],
@@ -4720,6 +4751,7 @@ const enumsMap: { [key: string]: any[] } = {
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
   SloStatusType: ["slo_status"],
+  SnapshotUpdateRequestDataType: ["snapshots"],
   SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
@@ -4874,6 +4906,7 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamUserType: ["users"],
   UsersType: ["users"],
   VersionHistoryUpdateType: ["create", "update", "delete"],
+  ViewershipHistorySessionDataType: ["rum_replay_session"],
   VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
   VirusTotalIntegrationType: ["VirusTotal"],
   VulnerabilitiesType: ["vulnerabilities"],
@@ -4955,6 +4988,8 @@ const enumsMap: { [key: string]: any[] } = {
     "XPathInjection",
     "Xss",
   ],
+  WatchDataType: ["rum_replay_watch"],
+  WatcherDataType: ["rum_replay_watcher"],
   Weekday: [
     "monday",
     "tuesday",
@@ -7459,6 +7494,15 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  Playlist: Playlist,
+  PlaylistArray: PlaylistArray,
+  PlaylistData: PlaylistData,
+  PlaylistDataAttributes: PlaylistDataAttributes,
+  PlaylistDataAttributesCreatedBy: PlaylistDataAttributesCreatedBy,
+  PlaylistsSession: PlaylistsSession,
+  PlaylistsSessionArray: PlaylistsSessionArray,
+  PlaylistsSessionData: PlaylistsSessionData,
+  PlaylistsSessionDataAttributes: PlaylistsSessionDataAttributes,
   PostmortemAttachmentRequest: PostmortemAttachmentRequest,
   PostmortemAttachmentRequestAttributes: PostmortemAttachmentRequestAttributes,
   PostmortemAttachmentRequestData: PostmortemAttachmentRequestData,
@@ -8211,6 +8255,8 @@ const typeMap: { [index: string]: any } = {
   ServiceNowUserAttributes: ServiceNowUserAttributes,
   ServiceNowUserData: ServiceNowUserData,
   ServiceNowUsersResponse: ServiceNowUsersResponse,
+  SessionIdArray: SessionIdArray,
+  SessionIdData: SessionIdData,
   Shift: Shift,
   ShiftData: ShiftData,
   ShiftDataAttributes: ShiftDataAttributes,
@@ -8241,6 +8287,16 @@ const typeMap: { [index: string]: any } = {
   SloStatusData: SloStatusData,
   SloStatusDataAttributes: SloStatusDataAttributes,
   SloStatusResponse: SloStatusResponse,
+  Snapshot: Snapshot,
+  SnapshotArray: SnapshotArray,
+  SnapshotCreateRequest: SnapshotCreateRequest,
+  SnapshotCreateRequestData: SnapshotCreateRequestData,
+  SnapshotCreateRequestDataAttributes: SnapshotCreateRequestDataAttributes,
+  SnapshotData: SnapshotData,
+  SnapshotDataAttributes: SnapshotDataAttributes,
+  SnapshotUpdateRequest: SnapshotUpdateRequest,
+  SnapshotUpdateRequestData: SnapshotUpdateRequestData,
+  SnapshotUpdateRequestDataAttributes: SnapshotUpdateRequestDataAttributes,
   SoftwareCatalogTriggerWrapper: SoftwareCatalogTriggerWrapper,
   Span: Span,
   SpansAggregateBucket: SpansAggregateBucket,
@@ -8686,6 +8742,10 @@ const typeMap: { [index: string]: any } = {
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,
   VersionHistoryUpdate: VersionHistoryUpdate,
+  ViewershipHistorySessionArray: ViewershipHistorySessionArray,
+  ViewershipHistorySessionData: ViewershipHistorySessionData,
+  ViewershipHistorySessionDataAttributes:
+    ViewershipHistorySessionDataAttributes,
   VirusTotalAPIKey: VirusTotalAPIKey,
   VirusTotalAPIKeyUpdate: VirusTotalAPIKeyUpdate,
   VirusTotalIntegration: VirusTotalIntegration,
@@ -8699,6 +8759,12 @@ const typeMap: { [index: string]: any } = {
   VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
   VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,
   VulnerabilityRisks: VulnerabilityRisks,
+  Watch: Watch,
+  WatchData: WatchData,
+  WatchDataAttributes: WatchDataAttributes,
+  WatcherArray: WatcherArray,
+  WatcherData: WatcherData,
+  WatcherDataAttributes: WatcherDataAttributes,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,
