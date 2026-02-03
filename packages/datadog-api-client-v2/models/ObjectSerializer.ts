@@ -659,6 +659,13 @@ import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDeta
 import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail } from "./CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail";
 import { CreateTableRequestDataAttributesSchema } from "./CreateTableRequestDataAttributesSchema";
 import { CreateTableRequestDataAttributesSchemaFieldsItems } from "./CreateTableRequestDataAttributesSchemaFieldsItems";
+import { CreateTenancyConfigData } from "./CreateTenancyConfigData";
+import { CreateTenancyConfigDataAttributes } from "./CreateTenancyConfigDataAttributes";
+import { CreateTenancyConfigDataAttributesAuthCredentials } from "./CreateTenancyConfigDataAttributesAuthCredentials";
+import { CreateTenancyConfigDataAttributesLogsConfig } from "./CreateTenancyConfigDataAttributesLogsConfig";
+import { CreateTenancyConfigDataAttributesMetricsConfig } from "./CreateTenancyConfigDataAttributesMetricsConfig";
+import { CreateTenancyConfigDataAttributesRegionsConfig } from "./CreateTenancyConfigDataAttributesRegionsConfig";
+import { CreateTenancyConfigRequest } from "./CreateTenancyConfigRequest";
 import { CreateUploadRequest } from "./CreateUploadRequest";
 import { CreateUploadRequestData } from "./CreateUploadRequestData";
 import { CreateUploadRequestDataAttributes } from "./CreateUploadRequestDataAttributes";
@@ -2971,6 +2978,17 @@ import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
+import { TenancyConfig } from "./TenancyConfig";
+import { TenancyConfigData } from "./TenancyConfigData";
+import { TenancyConfigDataAttributes } from "./TenancyConfigDataAttributes";
+import { TenancyConfigDataAttributesLogsConfig } from "./TenancyConfigDataAttributesLogsConfig";
+import { TenancyConfigDataAttributesMetricsConfig } from "./TenancyConfigDataAttributesMetricsConfig";
+import { TenancyConfigDataAttributesRegionsConfig } from "./TenancyConfigDataAttributesRegionsConfig";
+import { TenancyConfigList } from "./TenancyConfigList";
+import { TenancyProductsData } from "./TenancyProductsData";
+import { TenancyProductsDataAttributes } from "./TenancyProductsDataAttributes";
+import { TenancyProductsDataAttributesProductsItems } from "./TenancyProductsDataAttributesProductsItems";
+import { TenancyProductsList } from "./TenancyProductsList";
 import { ThreatHuntingJobListMeta } from "./ThreatHuntingJobListMeta";
 import { ThreatHuntingJobOptions } from "./ThreatHuntingJobOptions";
 import { ThreatHuntingJobQuery } from "./ThreatHuntingJobQuery";
@@ -3061,6 +3079,13 @@ import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRules
 import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { UpdateTenancyConfigData } from "./UpdateTenancyConfigData";
+import { UpdateTenancyConfigDataAttributes } from "./UpdateTenancyConfigDataAttributes";
+import { UpdateTenancyConfigDataAttributesAuthCredentials } from "./UpdateTenancyConfigDataAttributesAuthCredentials";
+import { UpdateTenancyConfigDataAttributesLogsConfig } from "./UpdateTenancyConfigDataAttributesLogsConfig";
+import { UpdateTenancyConfigDataAttributesMetricsConfig } from "./UpdateTenancyConfigDataAttributesMetricsConfig";
+import { UpdateTenancyConfigDataAttributesRegionsConfig } from "./UpdateTenancyConfigDataAttributesRegionsConfig";
+import { UpdateTenancyConfigRequest } from "./UpdateTenancyConfigRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
@@ -4872,6 +4897,7 @@ const enumsMap: { [key: string]: any[] } = {
     "team_links",
     "user_team_permissions",
   ],
+  TenancyProductsDataType: ["oci_tenancy_product"],
   ThreatHuntingJobDataType: ["historicalDetectionsJob"],
   TimelineCellAuthorUserType: ["USER"],
   TimelineCellResourceType: ["timeline_cell"],
@@ -4893,6 +4919,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpdateFlakyTestsResponseDataType: ["update_flaky_test_state_response"],
   UpdateOutcomesAsyncType: ["batched-outcome"],
   UpdateRulesetRequestDataType: ["update_ruleset"],
+  UpdateTenancyConfigDataType: ["oci_tenancy"],
   Urgency: ["low", "high", "dynamic"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
@@ -5815,6 +5842,17 @@ const typeMap: { [index: string]: any } = {
     CreateTableRequestDataAttributesSchema,
   CreateTableRequestDataAttributesSchemaFieldsItems:
     CreateTableRequestDataAttributesSchemaFieldsItems,
+  CreateTenancyConfigData: CreateTenancyConfigData,
+  CreateTenancyConfigDataAttributes: CreateTenancyConfigDataAttributes,
+  CreateTenancyConfigDataAttributesAuthCredentials:
+    CreateTenancyConfigDataAttributesAuthCredentials,
+  CreateTenancyConfigDataAttributesLogsConfig:
+    CreateTenancyConfigDataAttributesLogsConfig,
+  CreateTenancyConfigDataAttributesMetricsConfig:
+    CreateTenancyConfigDataAttributesMetricsConfig,
+  CreateTenancyConfigDataAttributesRegionsConfig:
+    CreateTenancyConfigDataAttributesRegionsConfig,
+  CreateTenancyConfigRequest: CreateTenancyConfigRequest,
   CreateUploadRequest: CreateUploadRequest,
   CreateUploadRequestData: CreateUploadRequestData,
   CreateUploadRequestDataAttributes: CreateUploadRequestDataAttributes,
@@ -8580,6 +8618,20 @@ const typeMap: { [index: string]: any } = {
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
   TeamsResponseMetaPagination: TeamsResponseMetaPagination,
+  TenancyConfig: TenancyConfig,
+  TenancyConfigData: TenancyConfigData,
+  TenancyConfigDataAttributes: TenancyConfigDataAttributes,
+  TenancyConfigDataAttributesLogsConfig: TenancyConfigDataAttributesLogsConfig,
+  TenancyConfigDataAttributesMetricsConfig:
+    TenancyConfigDataAttributesMetricsConfig,
+  TenancyConfigDataAttributesRegionsConfig:
+    TenancyConfigDataAttributesRegionsConfig,
+  TenancyConfigList: TenancyConfigList,
+  TenancyProductsData: TenancyProductsData,
+  TenancyProductsDataAttributes: TenancyProductsDataAttributes,
+  TenancyProductsDataAttributesProductsItems:
+    TenancyProductsDataAttributesProductsItems,
+  TenancyProductsList: TenancyProductsList,
   ThreatHuntingJobListMeta: ThreatHuntingJobListMeta,
   ThreatHuntingJobOptions: ThreatHuntingJobOptions,
   ThreatHuntingJobQuery: ThreatHuntingJobQuery,
@@ -8689,6 +8741,17 @@ const typeMap: { [index: string]: any } = {
     UpdateRulesetRequestDataAttributesRulesItemsReferenceTable,
   UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
     UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+  UpdateTenancyConfigData: UpdateTenancyConfigData,
+  UpdateTenancyConfigDataAttributes: UpdateTenancyConfigDataAttributes,
+  UpdateTenancyConfigDataAttributesAuthCredentials:
+    UpdateTenancyConfigDataAttributesAuthCredentials,
+  UpdateTenancyConfigDataAttributesLogsConfig:
+    UpdateTenancyConfigDataAttributesLogsConfig,
+  UpdateTenancyConfigDataAttributesMetricsConfig:
+    UpdateTenancyConfigDataAttributesMetricsConfig,
+  UpdateTenancyConfigDataAttributesRegionsConfig:
+    UpdateTenancyConfigDataAttributesRegionsConfig,
+  UpdateTenancyConfigRequest: UpdateTenancyConfigRequest,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
