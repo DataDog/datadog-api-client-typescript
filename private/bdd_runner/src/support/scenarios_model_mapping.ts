@@ -8802,6 +8802,50 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
   },
+  "RumReplayHeatmapsApi.V2.ListReplayHeatmapSnapshots": {
+    filterDeviceType: {
+      type: "string",
+      format: "",
+    },
+    filterViewName: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    filterApplicationId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SnapshotArray",
+  },
+  "RumReplayHeatmapsApi.V2.CreateReplayHeatmapSnapshot": {
+    body: {
+      type: "SnapshotCreateRequest",
+      format: "",
+    },
+    operationResponseType: "Snapshot",
+  },
+  "RumReplayHeatmapsApi.V2.DeleteReplayHeatmapSnapshot": {
+    snapshotId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumReplayHeatmapsApi.V2.UpdateReplayHeatmapSnapshot": {
+    snapshotId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SnapshotUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "Snapshot",
+  },
   "RestrictionPoliciesApi.V2.GetRestrictionPolicy": {
     resourceId: {
       type: "string",
@@ -9007,6 +9051,204 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "RumMetricResponse",
+  },
+  "RumReplayPlaylistsApi.V2.ListRumReplayPlaylists": {
+    filterCreatedByUuid: {
+      type: "string",
+      format: "",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "PlaylistArray",
+  },
+  "RumReplayPlaylistsApi.V2.CreateRumReplayPlaylist": {
+    body: {
+      type: "Playlist",
+      format: "",
+    },
+    operationResponseType: "Playlist",
+  },
+  "RumReplayPlaylistsApi.V2.GetRumReplayPlaylist": {
+    playlistId: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "Playlist",
+  },
+  "RumReplayPlaylistsApi.V2.UpdateRumReplayPlaylist": {
+    playlistId: {
+      type: "number",
+      format: "",
+    },
+    body: {
+      type: "Playlist",
+      format: "",
+    },
+    operationResponseType: "Playlist",
+  },
+  "RumReplayPlaylistsApi.V2.DeleteRumReplayPlaylist": {
+    playlistId: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumReplayPlaylistsApi.V2.ListRumReplayPlaylistSessions": {
+    playlistId: {
+      type: "number",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "PlaylistsSessionArray",
+  },
+  "RumReplayPlaylistsApi.V2.BulkRemoveRumReplayPlaylistSessions": {
+    playlistId: {
+      type: "number",
+      format: "",
+    },
+    body: {
+      type: "SessionIdArray",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumReplayPlaylistsApi.V2.AddRumReplaySessionToPlaylist": {
+    dataSource: {
+      type: "string",
+      format: "",
+    },
+    ts: {
+      type: "number",
+      format: "int64",
+    },
+    playlistId: {
+      type: "number",
+      format: "",
+    },
+    sessionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "PlaylistsSession",
+  },
+  "RumReplayPlaylistsApi.V2.RemoveRumReplaySessionFromPlaylist": {
+    playlistId: {
+      type: "number",
+      format: "",
+    },
+    sessionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumReplaySessionsApi.V2.GetSegments": {
+    viewId: {
+      type: "string",
+      format: "",
+    },
+    source: {
+      type: "string",
+      format: "",
+    },
+    sessionId: {
+      type: "string",
+      format: "",
+    },
+    ts: {
+      type: "number",
+      format: "int64",
+    },
+    maxListSize: {
+      type: "number",
+      format: "",
+    },
+    paging: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumReplayViewershipApi.V2.ListRumReplaySessionWatchers": {
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    sessionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WatcherArray",
+  },
+  "RumReplayViewershipApi.V2.CreateRumReplaySessionWatch": {
+    sessionId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "Watch",
+      format: "",
+    },
+    operationResponseType: "Watch",
+  },
+  "RumReplayViewershipApi.V2.DeleteRumReplaySessionWatch": {
+    sessionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumReplayViewershipApi.V2.ListRumReplayViewershipHistorySessions": {
+    filterWatchedAtStart: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    filterCreatedBy: {
+      type: "string",
+      format: "",
+    },
+    filterWatchedAtEnd: {
+      type: "number",
+      format: "int64",
+    },
+    filterSessionIds: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    filterApplicationId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ViewershipHistorySessionArray",
   },
   "ServiceScorecardsApi.V2.ListScorecardOutcomes": {
     pageSize: {

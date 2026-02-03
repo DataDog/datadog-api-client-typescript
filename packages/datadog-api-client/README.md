@@ -426,6 +426,10 @@ apiInstance
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
 | Rum Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
 | Rum Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
+| Rum Replay Heatmaps | @datadog/datadog-api-client-rum-replay-heatmaps | [README.md](../../services/rum-replay-heatmaps/README.md) |
+| Rum Replay Playlists | @datadog/datadog-api-client-rum-replay-playlists | [README.md](../../services/rum-replay-playlists/README.md) |
+| Rum Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |
+| Rum Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
 | Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
 | Security Monitoring | @datadog/datadog-api-client-security-monitoring | [README.md](../../services/security-monitoring/README.md) |
 | Sensitive Data Scanner | @datadog/datadog-api-client-sensitive-data-scanner | [README.md](../../services/sensitive-data-scanner/README.md) |

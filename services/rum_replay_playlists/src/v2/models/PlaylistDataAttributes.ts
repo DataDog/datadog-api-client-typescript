@@ -1,0 +1,69 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { PlaylistDataAttributesCreatedBy } from "./PlaylistDataAttributesCreatedBy";
+
+export class PlaylistDataAttributes {
+  "createdAt"?: Date;
+  "createdBy"?: PlaylistDataAttributesCreatedBy;
+  "description"?: string;
+  "name": string;
+  "sessionCount"?: number;
+  "updatedAt"?: Date;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    createdBy: {
+      baseName: "created_by",
+      type: "PlaylistDataAttributesCreatedBy",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    sessionCount: {
+      baseName: "session_count",
+      type: "number",
+      format: "int64",
+    },
+    updatedAt: {
+      baseName: "updated_at",
+      type: "Date",
+      format: "date-time",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return PlaylistDataAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
