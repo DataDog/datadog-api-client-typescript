@@ -410,6 +410,7 @@ apiInstance
 | Network Device Monitoring | @datadog/datadog-api-client-network-device-monitoring | [README.md](../../services/network-device-monitoring/README.md) |
 | Notebooks | @datadog/datadog-api-client-notebooks | [README.md](../../services/notebooks/README.md) |
 | Observability Pipelines | @datadog/datadog-api-client-observability-pipelines | [README.md](../../services/observability-pipelines/README.md) |
+| OCI Integration | @datadog/datadog-api-client-oci-integration | [README.md](../../services/oci-integration/README.md) |
 | Okta Integration | @datadog/datadog-api-client-okta-integration | [README.md](../../services/okta-integration/README.md) |
 | On-Call | @datadog/datadog-api-client-on-call | [README.md](../../services/on-call/README.md) |
 | On-Call Paging | @datadog/datadog-api-client-on-call-paging | [README.md](../../services/on-call-paging/README.md) |
