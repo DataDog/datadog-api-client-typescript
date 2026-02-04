@@ -5947,6 +5947,104 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "V2EventResponse",
   },
+  "FormsApi.V2.ListForms": {
+    name: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FormsListResponse",
+  },
+  "FormsApi.V2.CreateForm": {
+    body: {
+      type: "FormCreateRequest",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
+  "FormsApi.V2.CreateAndPublishForm": {
+    body: {
+      type: "FormCreateRequest",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
+  "FormsApi.V2.GetForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    version: {
+      type: "number",
+      format: "",
+    },
+    publishedVersion: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
+  "FormsApi.V2.DeleteForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "FormsApi.V2.UpdateForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "FormUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
+  "FormsApi.V2.PublishForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "FormPublicationRequest",
+      format: "",
+    },
+    operationResponseType: "FormPublicationResponse",
+  },
+  "FormsApi.V2.SubmitForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "FormSubmissionRequest",
+      format: "",
+    },
+    operationResponseType: "FormSubmissionResponse",
+  },
+  "FormsApi.V2.UpsertFormVersion": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "FormVersionRequest",
+      format: "",
+    },
+    operationResponseType: "FormVersionResponse",
+  },
+  "FormsApi.V2.UpsertAndPublishFormVersion": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "FormVersionRequest",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
   "HighAvailabilityMultiRegionApi.V2.GetHamrOrgConnection": {
     operationResponseType: "HamrOrgConnectionResponse",
   },

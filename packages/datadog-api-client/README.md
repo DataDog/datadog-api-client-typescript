@@ -387,6 +387,7 @@ apiInstance
 | Events | @datadog/datadog-api-client-events | [README.md](../../services/events/README.md) |
 | Fastly Integration | @datadog/datadog-api-client-fastly-integration | [README.md](../../services/fastly-integration/README.md) |
 | Fleet Automation | @datadog/datadog-api-client-fleet-automation | [README.md](../../services/fleet-automation/README.md) |
+| Forms | @datadog/datadog-api-client-forms | [README.md](../../services/forms/README.md) |
 | GCP Integration | @datadog/datadog-api-client-gcp-integration | [README.md](../../services/gcp-integration/README.md) |
 | High Availability MultiRegion | @datadog/datadog-api-client-high-availability-multi-region | [README.md](../../services/high-availability-multi-region/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
