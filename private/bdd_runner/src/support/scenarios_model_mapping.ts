@@ -4604,6 +4604,23 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GetSuppressionVersionHistoryResponse",
   },
+  "SecurityMonitoringApi.V2.GetContentPacksStates": {
+    operationResponseType: "SecurityMonitoringContentPackStatesResponse",
+  },
+  "SecurityMonitoringApi.V2.ActivateContentPack": {
+    contentPackId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.DeactivateContentPack": {
+    contentPackId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "SecurityMonitoringApi.V2.ListSecurityMonitoringRules": {
     pageSize: {
       type: "number",
