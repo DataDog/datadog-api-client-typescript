@@ -865,6 +865,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-on-prem-management-service@workspace:services/on_prem_management_service":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-on-prem-management-service@workspace:services/on_prem_management_service"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-opsgenie-integration@workspace:services/opsgenie_integration":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-opsgenie-integration@workspace:services/opsgenie_integration"
