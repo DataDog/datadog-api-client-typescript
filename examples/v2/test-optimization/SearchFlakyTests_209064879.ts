@@ -1,5 +1,5 @@
 /**
- * Search flaky tests returns "OK" response
+ * Search flaky tests returns "OK" response with history
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -15,13 +15,11 @@ const params: v2.TestOptimizationApiSearchFlakyTestsRequest = {
         filter: {
           query: `flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"`,
         },
-        includeHistory: true,
         page: {
-          cursor:
-            "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-          limit: 25,
+          limit: 10,
         },
-        sort: "failure_rate",
+        sort: "fqn",
+        includeHistory: true,
       },
       type: "search_flaky_tests_request",
     },

@@ -18,6 +18,12 @@ export class FlakyTestsSearchRequestAttributes {
    */
   "filter"?: FlakyTestsSearchFilter;
   /**
+   * Whether to include the status change history for each flaky test in the response.
+   * When set to true, each test will include a `history` array with chronological status changes.
+   * Defaults to false.
+   */
+  "includeHistory"?: boolean;
+  /**
    * Pagination attributes for listing flaky tests.
    */
   "page"?: FlakyTestsSearchPageOptions;
@@ -45,6 +51,10 @@ export class FlakyTestsSearchRequestAttributes {
     filter: {
       baseName: "filter",
       type: "FlakyTestsSearchFilter",
+    },
+    includeHistory: {
+      baseName: "include_history",
+      type: "boolean",
     },
     page: {
       baseName: "page",

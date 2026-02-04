@@ -2553,6 +2553,7 @@ export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
 export { FlakyTest } from "./models/FlakyTest";
 export { FlakyTestAttributes } from "./models/FlakyTestAttributes";
 export { FlakyTestAttributesFlakyState } from "./models/FlakyTestAttributesFlakyState";
+export { FlakyTestHistory } from "./models/FlakyTestHistory";
 export { FlakyTestPipelineStats } from "./models/FlakyTestPipelineStats";
 export { FlakyTestRunMetadata } from "./models/FlakyTestRunMetadata";
 export { FlakyTestsPagination } from "./models/FlakyTestsPagination";

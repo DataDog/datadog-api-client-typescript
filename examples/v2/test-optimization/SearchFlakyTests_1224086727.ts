@@ -15,6 +15,7 @@ const params: v2.TestOptimizationApiSearchFlakyTestsRequest = {
         filter: {
           query: `flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"`,
         },
+        includeHistory: true,
         page: {
           cursor:
             "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",

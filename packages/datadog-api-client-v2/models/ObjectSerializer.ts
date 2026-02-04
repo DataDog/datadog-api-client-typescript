@@ -1096,6 +1096,7 @@ import { FindingRule } from "./FindingRule";
 import { Findings } from "./Findings";
 import { FlakyTest } from "./FlakyTest";
 import { FlakyTestAttributes } from "./FlakyTestAttributes";
+import { FlakyTestHistory } from "./FlakyTestHistory";
 import { FlakyTestPipelineStats } from "./FlakyTestPipelineStats";
 import { FlakyTestRunMetadata } from "./FlakyTestRunMetadata";
 import { FlakyTestStats } from "./FlakyTestStats";
@@ -6396,6 +6397,7 @@ const typeMap: { [index: string]: any } = {
   Findings: Findings,
   FlakyTest: FlakyTest,
   FlakyTestAttributes: FlakyTestAttributes,
+  FlakyTestHistory: FlakyTestHistory,
   FlakyTestPipelineStats: FlakyTestPipelineStats,
   FlakyTestRunMetadata: FlakyTestRunMetadata,
   FlakyTestStats: FlakyTestStats,
