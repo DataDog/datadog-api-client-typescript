@@ -289,6 +289,11 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  DashboardsApiSearchDashboardsRequest,
+  DashboardsApi,
+} from "./apis/DashboardsApi";
+
+export {
   DataDeletionApiCancelDataDeletionRequestRequest,
   DataDeletionApiCreateDataDeletionRequestRequest,
   DataDeletionApiGetDataDeletionRequestsRequest,
@@ -605,6 +610,11 @@ export {
   NetworkDeviceMonitoringApiUpdateDeviceUserTagsRequest,
   NetworkDeviceMonitoringApi,
 } from "./apis/NetworkDeviceMonitoringApi";
+
+export {
+  NotebooksApiSearchNotebooksRequest,
+  NotebooksApi,
+} from "./apis/NotebooksApi";
 
 export {
   OCIIntegrationApiCreateTenancyConfigRequest,
@@ -2134,6 +2144,15 @@ export { DashboardListItemResponse } from "./models/DashboardListItemResponse";
 export { DashboardListItems } from "./models/DashboardListItems";
 export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateItemsRequest";
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
+export { DashboardSearchAggregationBucketKey } from "./models/DashboardSearchAggregationBucketKey";
+export { DashboardSearchAggregationBucketMultiKey } from "./models/DashboardSearchAggregationBucketMultiKey";
+export { DashboardSearchAggregations } from "./models/DashboardSearchAggregations";
+export { DashboardSearchAttributes } from "./models/DashboardSearchAttributes";
+export { DashboardSearchMetadata } from "./models/DashboardSearchMetadata";
+export { DashboardSearchResponse } from "./models/DashboardSearchResponse";
+export { DashboardSearchResponseMeta } from "./models/DashboardSearchResponseMeta";
+export { DashboardSearchResultData } from "./models/DashboardSearchResultData";
+export { DashboardSearchUser } from "./models/DashboardSearchUser";
 export { DashboardTriggerWrapper } from "./models/DashboardTriggerWrapper";
 export { DashboardType } from "./models/DashboardType";
 export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTriggerWrapper";
@@ -3457,6 +3476,16 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
+export { NotebookSearchAggregationBucketKey } from "./models/NotebookSearchAggregationBucketKey";
+export { NotebookSearchAggregationBucketMultiKey } from "./models/NotebookSearchAggregationBucketMultiKey";
+export { NotebookSearchAggregations } from "./models/NotebookSearchAggregations";
+export { NotebookSearchAttributes } from "./models/NotebookSearchAttributes";
+export { NotebookSearchHighlight } from "./models/NotebookSearchHighlight";
+export { NotebookSearchMetadata } from "./models/NotebookSearchMetadata";
+export { NotebookSearchResponse } from "./models/NotebookSearchResponse";
+export { NotebookSearchResponseMeta } from "./models/NotebookSearchResponseMeta";
+export { NotebookSearchResultData } from "./models/NotebookSearchResultData";
+export { NotebookSearchUser } from "./models/NotebookSearchUser";
 export { NotebookTriggerWrapper } from "./models/NotebookTriggerWrapper";
 export { NotificationChannel } from "./models/NotificationChannel";
 export { NotificationChannelAttributes } from "./models/NotificationChannelAttributes";

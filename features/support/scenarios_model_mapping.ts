@@ -5521,6 +5521,29 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListDeleteItemsResponse",
     },
+    "v2.SearchDashboards": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "page": {
+            "type": "number",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "DashboardSearchResponse",
+    },
     "v2.GetAllDatasets": {
         "operationResponseType": "DatasetResponseMulti",
     },
@@ -7852,6 +7875,29 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int32",
             },
         "operationResponseType": "SingleAggregatedDnsResponseArray",
+    },
+    "v2.SearchNotebooks": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "page": {
+            "type": "number",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "NotebookSearchResponse",
     },
     "v2.ListPipelines": {
         "pageSize": {
