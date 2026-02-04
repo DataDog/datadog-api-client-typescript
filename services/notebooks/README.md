@@ -2,9 +2,7 @@
 
 ## Description
 
-Interact with your notebooks through the API to make it easier to organize, find, and
-share all of your notebooks with your team and organization. For more information, see the
-[Notebooks documentation](https://docs.datadoghq.com/notebooks/).
+Interact with your notebooks through the API to search and retrieve notebooks.
 
 ## Navigation
 
@@ -23,14 +21,22 @@ yarn add @datadog/datadog-api-client-notebooks
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { NotebooksApiV1 } from "@datadog/datadog-api-client-notebooks";
-import { v1 } from "@datadog/datadog-api-client-notebooks";
+import { NotebooksApiV2 } from "@datadog/datadog-api-client-notebooks";
+import { v2 } from "@datadog/datadog-api-client-notebooks";
 
 const configuration = createConfiguration();
-const apiInstance = new NotebooksApiV1(configuration);
+// Enable unstable operations
+const configurationOpts = {
+    unstableOperations: {
+        "NotebooksApi.v2.searchNotebooks": true
+    }
+}
+
+const configuration = createConfiguration(configurationOpts);
+const apiInstance = new NotebooksApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listNotebooks(params).then((data) => {
+apiInstance.searchNotebooks(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
