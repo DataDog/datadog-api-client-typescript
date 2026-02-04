@@ -1,4 +1,5 @@
 export {
+  SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
@@ -15,6 +16,7 @@ export {
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiDeactivateContentPackRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
@@ -301,6 +303,15 @@ export { SecurityFindingsSearchRequestDataAttributes } from "./models/SecurityFi
 export { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSearchRequestPage";
 export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
 export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
+export { SecurityMonitoringContentPackActivation } from "./models/SecurityMonitoringContentPackActivation";
+export { SecurityMonitoringContentPackIntegrationStatus } from "./models/SecurityMonitoringContentPackIntegrationStatus";
+export { SecurityMonitoringContentPackStateAttributes } from "./models/SecurityMonitoringContentPackStateAttributes";
+export { SecurityMonitoringContentPackStateData } from "./models/SecurityMonitoringContentPackStateData";
+export { SecurityMonitoringContentPackStateMeta } from "./models/SecurityMonitoringContentPackStateMeta";
+export { SecurityMonitoringContentPackStatesResponse } from "./models/SecurityMonitoringContentPackStatesResponse";
+export { SecurityMonitoringContentPackStateType } from "./models/SecurityMonitoringContentPackStateType";
+export { SecurityMonitoringContentPackStatus } from "./models/SecurityMonitoringContentPackStatus";
+export { SecurityMonitoringContentPackTimestampBucket } from "./models/SecurityMonitoringContentPackTimestampBucket";
 export { SecurityMonitoringCriticalAsset } from "./models/SecurityMonitoringCriticalAsset";
 export { SecurityMonitoringCriticalAssetAttributes } from "./models/SecurityMonitoringCriticalAssetAttributes";
 export { SecurityMonitoringCriticalAssetCreateAttributes } from "./models/SecurityMonitoringCriticalAssetCreateAttributes";
@@ -399,6 +410,7 @@ export { SecurityMonitoringSignalTriageAttributes } from "./models/SecurityMonit
 export { SecurityMonitoringSignalTriageUpdateData } from "./models/SecurityMonitoringSignalTriageUpdateData";
 export { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalType";
+export { SecurityMonitoringSKU } from "./models/SecurityMonitoringSKU";
 export { SecurityMonitoringStandardDataSource } from "./models/SecurityMonitoringStandardDataSource";
 export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
 export { SecurityMonitoringStandardRulePayload } from "./models/SecurityMonitoringStandardRulePayload";
