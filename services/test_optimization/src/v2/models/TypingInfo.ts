@@ -3,6 +3,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { FlakyTest } from "./FlakyTest";
 import { FlakyTestAttributes } from "./FlakyTestAttributes";
+import { FlakyTestHistory } from "./FlakyTestHistory";
 import { FlakyTestPipelineStats } from "./FlakyTestPipelineStats";
 import { FlakyTestRunMetadata } from "./FlakyTestRunMetadata";
 import { FlakyTestStats } from "./FlakyTestStats";
@@ -61,6 +62,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     FlakyTest: FlakyTest,
     FlakyTestAttributes: FlakyTestAttributes,
+    FlakyTestHistory: FlakyTestHistory,
     FlakyTestPipelineStats: FlakyTestPipelineStats,
     FlakyTestRunMetadata: FlakyTestRunMetadata,
     FlakyTestStats: FlakyTestStats,
