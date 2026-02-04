@@ -2497,6 +2497,10 @@ import { SecurityFindingsSearchRequest } from "./SecurityFindingsSearchRequest";
 import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchRequestData";
 import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
+import { SecurityMonitoringContentPackStateAttributes } from "./SecurityMonitoringContentPackStateAttributes";
+import { SecurityMonitoringContentPackStateData } from "./SecurityMonitoringContentPackStateData";
+import { SecurityMonitoringContentPackStateMeta } from "./SecurityMonitoringContentPackStateMeta";
+import { SecurityMonitoringContentPackStatesResponse } from "./SecurityMonitoringContentPackStatesResponse";
 import { SecurityMonitoringCriticalAsset } from "./SecurityMonitoringCriticalAsset";
 import { SecurityMonitoringCriticalAssetAttributes } from "./SecurityMonitoringCriticalAssetAttributes";
 import { SecurityMonitoringCriticalAssetCreateAttributes } from "./SecurityMonitoringCriticalAssetCreateAttributes";
@@ -4578,6 +4582,34 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFindingsDataType: ["finding"],
   SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
   SecurityFindingsStatus: ["done", "timeout"],
+  SecurityMonitoringContentPackActivation: [
+    "never_activated",
+    "activated",
+    "deactivated",
+  ],
+  SecurityMonitoringContentPackIntegrationStatus: [
+    "installed",
+    "available",
+    "partially_installed",
+    "detected",
+    "error",
+  ],
+  SecurityMonitoringContentPackStateType: ["content_pack_state"],
+  SecurityMonitoringContentPackStatus: [
+    "install",
+    "activate",
+    "initializing",
+    "active",
+    "warning",
+    "broken",
+  ],
+  SecurityMonitoringContentPackTimestampBucket: [
+    "not_seen",
+    "within_24_hours",
+    "within_24_to_72_hours",
+    "over_72h_to_30d",
+    "over_30d",
+  ],
   SecurityMonitoringCriticalAssetSeverity: [
     "info",
     "low",
@@ -4666,6 +4698,11 @@ const enumsMap: { [key: string]: any[] } = {
     "workload_activity",
   ],
   SecurityMonitoringRuleTypeTest: ["log_detection"],
+  SecurityMonitoringSKU: [
+    "per_gb_analyzed",
+    "per_event_in_siem_index_2023",
+    "add_on_2024",
+  ],
   SecurityMonitoringSignalArchiveReason: [
     "none",
     "false_positive",
@@ -8009,6 +8046,14 @@ const typeMap: { [index: string]: any } = {
   SecurityFindingsSearchRequestDataAttributes:
     SecurityFindingsSearchRequestDataAttributes,
   SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
+  SecurityMonitoringContentPackStateAttributes:
+    SecurityMonitoringContentPackStateAttributes,
+  SecurityMonitoringContentPackStateData:
+    SecurityMonitoringContentPackStateData,
+  SecurityMonitoringContentPackStateMeta:
+    SecurityMonitoringContentPackStateMeta,
+  SecurityMonitoringContentPackStatesResponse:
+    SecurityMonitoringContentPackStatesResponse,
   SecurityMonitoringCriticalAsset: SecurityMonitoringCriticalAsset,
   SecurityMonitoringCriticalAssetAttributes:
     SecurityMonitoringCriticalAssetAttributes,

@@ -72,6 +72,7 @@ import { SecurityFindingsSearchRequestData } from "../models/SecurityFindingsSea
 import { SecurityFindingsSearchRequestDataAttributes } from "../models/SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "../models/SecurityFindingsSearchRequestPage";
 import { SecurityFindingsSort } from "../models/SecurityFindingsSort";
+import { SecurityMonitoringContentPackStatesResponse } from "../models/SecurityMonitoringContentPackStatesResponse";
 import { SecurityMonitoringCriticalAssetCreateRequest } from "../models/SecurityMonitoringCriticalAssetCreateRequest";
 import { SecurityMonitoringCriticalAssetResponse } from "../models/SecurityMonitoringCriticalAssetResponse";
 import { SecurityMonitoringCriticalAssetsResponse } from "../models/SecurityMonitoringCriticalAssetsResponse";
@@ -114,6 +115,45 @@ import { VulnerabilityTool } from "../models/VulnerabilityTool";
 import { VulnerabilityType } from "../models/VulnerabilityType";
 
 export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
+  public async activateContentPack(
+    contentPackId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'activateContentPack'");
+    if (!_config.unstableOperations["v2.activateContentPack"]) {
+      throw new Error("Unstable operation 'activateContentPack' is disabled");
+    }
+
+    // verify required parameter 'contentPackId' is not null or undefined
+    if (contentPackId === null || contentPackId === undefined) {
+      throw new RequiredError("contentPackId", "activateContentPack");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/content_packs/{content_pack_id}/activate".replace(
+        "{content_pack_id}",
+        encodeURIComponent(String(contentPackId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.activateContentPack")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async attachCase(
     caseId: string,
     body: AttachCaseRequest,
@@ -830,6 +870,45 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deactivateContentPack(
+    contentPackId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deactivateContentPack'");
+    if (!_config.unstableOperations["v2.deactivateContentPack"]) {
+      throw new Error("Unstable operation 'deactivateContentPack' is disabled");
+    }
+
+    // verify required parameter 'contentPackId' is not null or undefined
+    if (contentPackId === null || contentPackId === undefined) {
+      throw new RequiredError("contentPackId", "deactivateContentPack");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/content_packs/{content_pack_id}/deactivate".replace(
+        "{content_pack_id}",
+        encodeURIComponent(String(contentPackId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deactivateContentPack")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteCustomFramework(
     handle: string,
     version: string,
@@ -1333,6 +1412,35 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getContentPacksStates(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getContentPacksStates'");
+    if (!_config.unstableOperations["v2.getContentPacksStates"]) {
+      throw new Error("Unstable operation 'getContentPacksStates' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/content_packs/states";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getContentPacksStates")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -4579,6 +4687,76 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to activateContentPack
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async activateContentPack(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to attachCase
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5568,6 +5746,76 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deactivateContentPack
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deactivateContentPack(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteCustomFramework
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6234,6 +6482,89 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringSignalTriageUpdateResponse",
           ""
         ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getContentPacksStates
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getContentPacksStates(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringContentPackStatesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringContentPackStatesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringContentPackStatesResponse"
+        ) as SecurityMonitoringContentPackStatesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringContentPackStatesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringContentPackStatesResponse",
+          ""
+        ) as SecurityMonitoringContentPackStatesResponse;
       return body;
     }
 
@@ -9713,6 +10044,14 @@ export class SecurityMonitoringApiResponseProcessor {
   }
 }
 
+export interface SecurityMonitoringApiActivateContentPackRequest {
+  /**
+   * The ID of the content pack to activate.
+   * @type string
+   */
+  contentPackId: string;
+}
+
 export interface SecurityMonitoringApiAttachCaseRequest {
   /**
    * Unique identifier of the case to attach security findings to
@@ -9837,6 +10176,14 @@ export interface SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest
    * @type CreateNotificationRuleParameters
    */
   body: CreateNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiDeactivateContentPackRequest {
+  /**
+   * The ID of the content pack to deactivate.
+   * @type string
+   */
+  contentPackId: string;
 }
 
 export interface SecurityMonitoringApiDeleteCustomFrameworkRequest {
@@ -11013,6 +11360,29 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Activate a security monitoring content pack. This operation configures the necessary
+   * log filters or security filters depending on the pricing model and updates the content
+   * pack activation state.
+   * @param param The request object
+   */
+  public activateContentPack(
+    param: SecurityMonitoringApiActivateContentPackRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.activateContentPack(
+      param.contentPackId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.activateContentPack(responseContext);
+        });
+    });
+  }
+
+  /**
    * Attach security findings to a case.
    * You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
    * @param param The request object
@@ -11391,6 +11761,28 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Deactivate a security monitoring content pack. This operation removes the content pack's
+   * configuration from log filters or security filters and updates the content pack activation state.
+   * @param param The request object
+   */
+  public deactivateContentPack(
+    param: SecurityMonitoringApiDeactivateContentPackRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deactivateContentPack(
+      param.contentPackId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deactivateContentPack(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete a custom framework.
    * @param param The request object
    */
@@ -11661,6 +12053,26 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.editSecurityMonitoringSignalState(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get the activation and configuration states for all security monitoring content packs.
+   * This endpoint returns status information about each content pack including activation state,
+   * integration status, and log collection status.
+   * @param param The request object
+   */
+  public getContentPacksStates(
+    options?: Configuration
+  ): Promise<SecurityMonitoringContentPackStatesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getContentPacksStates(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getContentPacksStates(responseContext);
         });
     });
   }
