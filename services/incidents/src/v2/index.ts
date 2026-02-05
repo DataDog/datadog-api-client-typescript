@@ -7,6 +7,7 @@ export {
   IncidentsApiCreateIncidentNotificationRuleRequest,
   IncidentsApiCreateIncidentNotificationTemplateRequest,
   IncidentsApiCreateIncidentPostmortemAttachmentRequest,
+  IncidentsApiCreateIncidentPostmortemTemplateRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
@@ -15,12 +16,14 @@ export {
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentNotificationRuleRequest,
   IncidentsApiDeleteIncidentNotificationTemplateRequest,
+  IncidentsApiDeleteIncidentPostmortemTemplateRequest,
   IncidentsApiDeleteIncidentTodoRequest,
   IncidentsApiDeleteIncidentTypeRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiGetIncidentNotificationRuleRequest,
   IncidentsApiGetIncidentNotificationTemplateRequest,
+  IncidentsApiGetIncidentPostmortemTemplateRequest,
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
   IncidentsApiListGlobalIncidentHandlesRequest,
@@ -40,6 +43,7 @@ export {
   IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApiUpdateIncidentNotificationRuleRequest,
   IncidentsApiUpdateIncidentNotificationTemplateRequest,
+  IncidentsApiUpdateIncidentPostmortemTemplateRequest,
   IncidentsApiUpdateIncidentTodoRequest,
   IncidentsApiUpdateIncidentTypeRequest,
   IncidentsApi,
@@ -235,6 +239,14 @@ export { PostmortemCell } from "./models/PostmortemCell";
 export { PostmortemCellAttributes } from "./models/PostmortemCellAttributes";
 export { PostmortemCellDefinition } from "./models/PostmortemCellDefinition";
 export { PostmortemCellType } from "./models/PostmortemCellType";
+export { PostmortemTemplateAttributesRequest } from "./models/PostmortemTemplateAttributesRequest";
+export { PostmortemTemplateAttributesResponse } from "./models/PostmortemTemplateAttributesResponse";
+export { PostmortemTemplateDataRequest } from "./models/PostmortemTemplateDataRequest";
+export { PostmortemTemplateDataResponse } from "./models/PostmortemTemplateDataResponse";
+export { PostmortemTemplateRequest } from "./models/PostmortemTemplateRequest";
+export { PostmortemTemplateResponse } from "./models/PostmortemTemplateResponse";
+export { PostmortemTemplatesResponse } from "./models/PostmortemTemplatesResponse";
+export { PostmortemTemplateType } from "./models/PostmortemTemplateType";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 export { RelationshipToIncident } from "./models/RelationshipToIncident";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";

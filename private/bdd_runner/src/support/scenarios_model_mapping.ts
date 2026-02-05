@@ -6127,6 +6127,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentNotificationTemplate",
   },
+  "IncidentsApi.V2.ListIncidentPostmortemTemplates": {
+    operationResponseType: "PostmortemTemplatesResponse",
+  },
+  "IncidentsApi.V2.CreateIncidentPostmortemTemplate": {
+    body: {
+      type: "PostmortemTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "PostmortemTemplateResponse",
+  },
+  "IncidentsApi.V2.GetIncidentPostmortemTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "PostmortemTemplateResponse",
+  },
+  "IncidentsApi.V2.DeleteIncidentPostmortemTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentPostmortemTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PostmortemTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "PostmortemTemplateResponse",
+  },
   "IncidentsApi.V2.ListIncidentTypes": {
     includeDeleted: {
       type: "boolean",
