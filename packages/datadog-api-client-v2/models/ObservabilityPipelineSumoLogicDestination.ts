@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineSumoLogicDestinationEncoding } from "./ObservabilityPipelineSumoLogicDestinationEncoding";
 import { ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem } from "./ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem";
 import { ObservabilityPipelineSumoLogicDestinationType } from "./ObservabilityPipelineSumoLogicDestinationType";
@@ -15,6 +16,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSumoLogicDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The output encoding format.
    */
@@ -64,6 +69,10 @@ export class ObservabilityPipelineSumoLogicDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     encoding: {
       baseName: "encoding",
       type: "ObservabilityPipelineSumoLogicDestinationEncoding",

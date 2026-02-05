@@ -6,6 +6,7 @@
 import { ObservabilityPipelineAmazonS3DestinationStorageClass } from "./ObservabilityPipelineAmazonS3DestinationStorageClass";
 import { ObservabilityPipelineAmazonS3DestinationType } from "./ObservabilityPipelineAmazonS3DestinationType";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -25,6 +26,10 @@ export class ObservabilityPipelineAmazonS3Destination {
    * S3 bucket name.
    */
   "bucket": string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Unique identifier for the destination component.
    */
@@ -78,6 +83,10 @@ export class ObservabilityPipelineAmazonS3Destination {
       baseName: "bucket",
       type: "string",
       required: true,
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     id: {
       baseName: "id",

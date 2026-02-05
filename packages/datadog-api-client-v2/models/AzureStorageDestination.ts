@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AzureStorageDestinationType } from "./AzureStorageDestinationType";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,6 +18,10 @@ export class AzureStorageDestination {
    * Optional prefix for blobs written to the container.
    */
   "blobPrefix"?: string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The name of the Azure Blob Storage container to store logs in.
    */
@@ -53,6 +58,10 @@ export class AzureStorageDestination {
     blobPrefix: {
       baseName: "blob_prefix",
       type: "string",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     containerName: {
       baseName: "container_name",

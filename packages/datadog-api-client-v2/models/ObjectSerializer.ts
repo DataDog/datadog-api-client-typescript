@@ -1850,6 +1850,7 @@ import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./Observabilit
 import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
+import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
@@ -1881,6 +1882,8 @@ import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipel
 import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineMemoryBufferOptions } from "./ObservabilityPipelineMemoryBufferOptions";
+import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPipelineMemoryBufferSizeOptions";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
@@ -4091,6 +4094,9 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAmazonSecurityLakeDestinationType: [
     "amazon_security_lake",
   ],
+  ObservabilityPipelineBufferOptionsDiskType: ["disk"],
+  ObservabilityPipelineBufferOptionsMemoryType: ["memory"],
+  ObservabilityPipelineBufferOptionsWhenFull: ["block", "drop_newest"],
   ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
   ObservabilityPipelineConfigPipelineType: ["logs", "metrics"],
   ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm: [
@@ -7269,6 +7275,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineDatadogTagsProcessor:
     ObservabilityPipelineDatadogTagsProcessor,
   ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
+  ObservabilityPipelineDiskBufferOptions:
+    ObservabilityPipelineDiskBufferOptions,
   ObservabilityPipelineElasticsearchDestination:
     ObservabilityPipelineElasticsearchDestination,
   ObservabilityPipelineElasticsearchDestinationDataStream:
@@ -7319,6 +7327,10 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineKafkaSasl: ObservabilityPipelineKafkaSasl,
   ObservabilityPipelineKafkaSource: ObservabilityPipelineKafkaSource,
   ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
+  ObservabilityPipelineMemoryBufferOptions:
+    ObservabilityPipelineMemoryBufferOptions,
+  ObservabilityPipelineMemoryBufferSizeOptions:
+    ObservabilityPipelineMemoryBufferSizeOptions,
   ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
   ObservabilityPipelineMetricTagsProcessor:
     ObservabilityPipelineMetricTagsProcessor,
@@ -9231,6 +9243,11 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
+  ObservabilityPipelineBufferOptions: [
+    "ObservabilityPipelineDiskBufferOptions",
+    "ObservabilityPipelineMemoryBufferOptions",
+    "ObservabilityPipelineMemoryBufferSizeOptions",
+  ],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineHttpClientDestination",
     "ObservabilityPipelineAmazonOpenSearchDestination",
