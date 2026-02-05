@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityPipelineOpenSearchDestinationType";
 
@@ -9,6 +10,10 @@ import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityP
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOpenSearchDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The index to write logs to.
    */
@@ -44,6 +49,10 @@ export class ObservabilityPipelineOpenSearchDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     bulkIndex: {
       baseName: "bulk_index",
       type: "string",

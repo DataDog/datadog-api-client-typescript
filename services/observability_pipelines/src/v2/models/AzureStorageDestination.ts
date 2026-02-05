@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AzureStorageDestinationType } from "./AzureStorageDestinationType";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
 /**
  * The `azure_storage` destination forwards logs to an Azure Blob Storage container.
@@ -12,6 +13,10 @@ export class AzureStorageDestination {
    * Optional prefix for blobs written to the container.
    */
   "blobPrefix"?: string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The name of the Azure Blob Storage container to store logs in.
    */
@@ -46,6 +51,10 @@ export class AzureStorageDestination {
     blobPrefix: {
       baseName: "blob_prefix",
       type: "string",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     containerName: {
       baseName: "container_name",

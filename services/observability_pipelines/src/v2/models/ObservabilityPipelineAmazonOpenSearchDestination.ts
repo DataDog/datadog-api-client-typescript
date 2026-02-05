@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
 import { ObservabilityPipelineAmazonOpenSearchDestinationType } from "./ObservabilityPipelineAmazonOpenSearchDestinationType";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
 /**
  * The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
@@ -14,6 +15,10 @@ export class ObservabilityPipelineAmazonOpenSearchDestination {
    * The `strategy` field determines whether basic or AWS-based authentication is used.
    */
   "auth": ObservabilityPipelineAmazonOpenSearchDestinationAuth;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The index to write logs to.
    */
@@ -49,6 +54,10 @@ export class ObservabilityPipelineAmazonOpenSearchDestination {
       baseName: "auth",
       type: "ObservabilityPipelineAmazonOpenSearchDestinationAuth",
       required: true,
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     bulkIndex: {
       baseName: "bulk_index",

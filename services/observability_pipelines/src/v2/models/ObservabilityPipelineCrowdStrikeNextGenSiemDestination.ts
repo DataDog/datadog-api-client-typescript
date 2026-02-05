@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType";
@@ -11,6 +12,10 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression configuration for log events.
    */
@@ -50,6 +55,10 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     compression: {
       baseName: "compression",
       type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression",

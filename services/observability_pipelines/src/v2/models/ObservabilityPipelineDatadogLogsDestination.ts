@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./ObservabilityPipelineDatadogLogsDestinationRoute";
 import { ObservabilityPipelineDatadogLogsDestinationType } from "./ObservabilityPipelineDatadogLogsDestinationType";
 
@@ -9,6 +10,10 @@ import { ObservabilityPipelineDatadogLogsDestinationType } from "./Observability
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDatadogLogsDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The unique identifier for this component.
    */
@@ -40,6 +45,10 @@ export class ObservabilityPipelineDatadogLogsDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     id: {
       baseName: "id",
       type: "string",
