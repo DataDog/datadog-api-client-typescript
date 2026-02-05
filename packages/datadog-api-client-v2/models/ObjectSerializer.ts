@@ -2085,6 +2085,13 @@ import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestDa
 import { PostmortemCell } from "./PostmortemCell";
 import { PostmortemCellAttributes } from "./PostmortemCellAttributes";
 import { PostmortemCellDefinition } from "./PostmortemCellDefinition";
+import { PostmortemTemplateAttributesRequest } from "./PostmortemTemplateAttributesRequest";
+import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
+import { PostmortemTemplateDataRequest } from "./PostmortemTemplateDataRequest";
+import { PostmortemTemplateDataResponse } from "./PostmortemTemplateDataResponse";
+import { PostmortemTemplateRequest } from "./PostmortemTemplateRequest";
+import { PostmortemTemplateResponse } from "./PostmortemTemplateResponse";
+import { PostmortemTemplatesResponse } from "./PostmortemTemplatesResponse";
 import { Powerpack } from "./Powerpack";
 import { PowerpackAttributes } from "./PowerpackAttributes";
 import { PowerpackData } from "./PowerpackData";
@@ -4365,6 +4372,7 @@ const enumsMap: { [key: string]: any[] } = {
   PermissionsType: ["permissions"],
   PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
+  PostmortemTemplateType: ["postmortem_template"],
   ProcessSummaryType: ["process"],
   ProductAnalyticsServerSideEventItemType: ["server"],
   ProjectResourceType: ["project"],
@@ -7584,6 +7592,13 @@ const typeMap: { [index: string]: any } = {
   PostmortemCell: PostmortemCell,
   PostmortemCellAttributes: PostmortemCellAttributes,
   PostmortemCellDefinition: PostmortemCellDefinition,
+  PostmortemTemplateAttributesRequest: PostmortemTemplateAttributesRequest,
+  PostmortemTemplateAttributesResponse: PostmortemTemplateAttributesResponse,
+  PostmortemTemplateDataRequest: PostmortemTemplateDataRequest,
+  PostmortemTemplateDataResponse: PostmortemTemplateDataResponse,
+  PostmortemTemplateRequest: PostmortemTemplateRequest,
+  PostmortemTemplateResponse: PostmortemTemplateResponse,
+  PostmortemTemplatesResponse: PostmortemTemplatesResponse,
   Powerpack: Powerpack,
   PowerpackAttributes: PowerpackAttributes,
   PowerpackData: PowerpackData,
