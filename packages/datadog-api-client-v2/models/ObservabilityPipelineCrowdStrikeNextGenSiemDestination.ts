@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType";
@@ -16,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression configuration for log events.
    */
@@ -57,6 +62,10 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     compression: {
       baseName: "compression",
       type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression",

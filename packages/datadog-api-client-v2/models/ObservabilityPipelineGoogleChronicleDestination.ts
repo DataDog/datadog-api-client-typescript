@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGoogleChronicleDestinationEncoding } from "./ObservabilityPipelineGoogleChronicleDestinationEncoding";
 import { ObservabilityPipelineGoogleChronicleDestinationType } from "./ObservabilityPipelineGoogleChronicleDestinationType";
@@ -19,6 +20,10 @@ export class ObservabilityPipelineGoogleChronicleDestination {
    * GCP credentials used to authenticate with Google Cloud Storage.
    */
   "auth"?: ObservabilityPipelineGcpAuth;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The Google Chronicle customer ID.
    */
@@ -63,6 +68,10 @@ export class ObservabilityPipelineGoogleChronicleDestination {
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineGcpAuth",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     customerId: {
       baseName: "customer_id",

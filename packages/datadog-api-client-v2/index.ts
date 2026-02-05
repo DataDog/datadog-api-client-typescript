@@ -3509,6 +3509,10 @@ export { ObservabilityPipelineAmazonS3SourceType } from "./models/ObservabilityP
 export { ObservabilityPipelineAmazonSecurityLakeDestination } from "./models/ObservabilityPipelineAmazonSecurityLakeDestination";
 export { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./models/ObservabilityPipelineAmazonSecurityLakeDestinationType";
 export { ObservabilityPipelineAwsAuth } from "./models/ObservabilityPipelineAwsAuth";
+export { ObservabilityPipelineBufferOptions } from "./models/ObservabilityPipelineBufferOptions";
+export { ObservabilityPipelineBufferOptionsDiskType } from "./models/ObservabilityPipelineBufferOptionsDiskType";
+export { ObservabilityPipelineBufferOptionsMemoryType } from "./models/ObservabilityPipelineBufferOptionsMemoryType";
+export { ObservabilityPipelineBufferOptionsWhenFull } from "./models/ObservabilityPipelineBufferOptionsWhenFull";
 export { ObservabilityPipelineCloudPremDestination } from "./models/ObservabilityPipelineCloudPremDestination";
 export { ObservabilityPipelineCloudPremDestinationType } from "./models/ObservabilityPipelineCloudPremDestinationType";
 export { ObservabilityPipelineConfig } from "./models/ObservabilityPipelineConfig";
@@ -3542,6 +3546,7 @@ export { ObservabilityPipelineDecoding } from "./models/ObservabilityPipelineDec
 export { ObservabilityPipelineDedupeProcessor } from "./models/ObservabilityPipelineDedupeProcessor";
 export { ObservabilityPipelineDedupeProcessorMode } from "./models/ObservabilityPipelineDedupeProcessorMode";
 export { ObservabilityPipelineDedupeProcessorType } from "./models/ObservabilityPipelineDedupeProcessorType";
+export { ObservabilityPipelineDiskBufferOptions } from "./models/ObservabilityPipelineDiskBufferOptions";
 export { ObservabilityPipelineElasticsearchDestination } from "./models/ObservabilityPipelineElasticsearchDestination";
 export { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./models/ObservabilityPipelineElasticsearchDestinationApiVersion";
 export { ObservabilityPipelineElasticsearchDestinationDataStream } from "./models/ObservabilityPipelineElasticsearchDestinationDataStream";
@@ -3608,6 +3613,8 @@ export { ObservabilityPipelineKafkaSource } from "./models/ObservabilityPipeline
 export { ObservabilityPipelineKafkaSourceType } from "./models/ObservabilityPipelineKafkaSourceType";
 export { ObservabilityPipelineLogstashSource } from "./models/ObservabilityPipelineLogstashSource";
 export { ObservabilityPipelineLogstashSourceType } from "./models/ObservabilityPipelineLogstashSourceType";
+export { ObservabilityPipelineMemoryBufferOptions } from "./models/ObservabilityPipelineMemoryBufferOptions";
+export { ObservabilityPipelineMemoryBufferSizeOptions } from "./models/ObservabilityPipelineMemoryBufferSizeOptions";
 export { ObservabilityPipelineMetadataEntry } from "./models/ObservabilityPipelineMetadataEntry";
 export { ObservabilityPipelineMetricTagsProcessor } from "./models/ObservabilityPipelineMetricTagsProcessor";
 export { ObservabilityPipelineMetricTagsProcessorRule } from "./models/ObservabilityPipelineMetricTagsProcessorRule";

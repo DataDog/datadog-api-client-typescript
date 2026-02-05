@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineNewRelicDestinationRegion } from "./ObservabilityPipelineNewRelicDestinationRegion";
 import { ObservabilityPipelineNewRelicDestinationType } from "./ObservabilityPipelineNewRelicDestinationType";
 
@@ -14,6 +15,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineNewRelicDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The unique identifier for this component.
    */
@@ -47,6 +52,10 @@ export class ObservabilityPipelineNewRelicDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     id: {
       baseName: "id",
       type: "string",
