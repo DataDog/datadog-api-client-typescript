@@ -66,6 +66,9 @@ import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { PatchAttachmentRequest } from "./models/PatchAttachmentRequest";
 import { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
 import { PostmortemAttachmentRequest } from "./models/PostmortemAttachmentRequest";
+import { PostmortemTemplateRequest } from "./models/PostmortemTemplateRequest";
+import { PostmortemTemplateResponse } from "./models/PostmortemTemplateResponse";
+import { PostmortemTemplatesResponse } from "./models/PostmortemTemplatesResponse";
 import { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 import { version } from "../version";
 
@@ -630,6 +633,66 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createIncidentPostmortemTemplate(
+    body: PostmortemTemplateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createIncidentPostmortemTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentPostmortemTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentPostmortemTemplate");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/postmortem-templates";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentPostmortemTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PostmortemTemplateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createIncidentTodo(
     incidentId: string,
     body: IncidentTodoCreateRequest,
@@ -1154,6 +1217,61 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentPostmortemTemplate(
+    templateId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.deleteIncidentPostmortemTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentPostmortemTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new RequiredError("templateId", "deleteIncidentPostmortemTemplate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
+        "{template_id}",
+        encodeURIComponent(String(templateId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteIncidentPostmortemTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteIncidentTodo(
     incidentId: string,
     todoId: string,
@@ -1555,6 +1673,61 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIncidentPostmortemTemplate(
+    templateId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.getIncidentPostmortemTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentPostmortemTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new RequiredError("templateId", "getIncidentPostmortemTemplate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
+        "{template_id}",
+        encodeURIComponent(String(templateId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.getIncidentPostmortemTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -2021,6 +2194,51 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentPostmortemTemplates(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.listIncidentPostmortemTemplates"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listIncidentPostmortemTemplates' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentPostmortemTemplates'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/postmortem-templates";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listIncidentPostmortemTemplates",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -2827,6 +3045,76 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateIncidentPostmortemTemplate(
+    templateId: string,
+    body: PostmortemTemplateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.updateIncidentPostmortemTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentPostmortemTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new RequiredError("templateId", "updateIncidentPostmortemTemplate");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentPostmortemTemplate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
+        "{template_id}",
+        encodeURIComponent(String(templateId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentPostmortemTemplate",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PostmortemTemplateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateIncidentTodo(
     incidentId: string,
     todoId: string,
@@ -3496,6 +3784,83 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentPostmortemTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentPostmortemTemplate(
+    response: ResponseContext,
+  ): Promise<PostmortemTemplateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: PostmortemTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplateResponse",
+      ) as PostmortemTemplateResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PostmortemTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplateResponse",
+        "",
+      ) as PostmortemTemplateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3986,6 +4351,72 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteIncidentPostmortemTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentPostmortemTemplate(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4395,6 +4826,83 @@ export class IncidentsApiResponseProcessor {
         "IncidentNotificationTemplate",
         "",
       ) as IncidentNotificationTemplate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getIncidentPostmortemTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentPostmortemTemplate(
+    response: ResponseContext,
+  ): Promise<PostmortemTemplateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PostmortemTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplateResponse",
+      ) as PostmortemTemplateResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PostmortemTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplateResponse",
+        "",
+      ) as PostmortemTemplateResponse;
       return body;
     }
 
@@ -4900,6 +5408,83 @@ export class IncidentsApiResponseProcessor {
         "IncidentNotificationTemplateArray",
         "",
       ) as IncidentNotificationTemplateArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentPostmortemTemplates
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentPostmortemTemplates(
+    response: ResponseContext,
+  ): Promise<PostmortemTemplatesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PostmortemTemplatesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplatesResponse",
+      ) as PostmortemTemplatesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PostmortemTemplatesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplatesResponse",
+        "",
+      ) as PostmortemTemplatesResponse;
       return body;
     }
 
@@ -5624,6 +6209,83 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateIncidentPostmortemTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentPostmortemTemplate(
+    response: ResponseContext,
+  ): Promise<PostmortemTemplateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PostmortemTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplateResponse",
+      ) as PostmortemTemplateResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PostmortemTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PostmortemTemplateResponse",
+        "",
+      ) as PostmortemTemplateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5839,6 +6501,13 @@ export interface IncidentsApiCreateIncidentPostmortemAttachmentRequest {
   body: PostmortemAttachmentRequest;
 }
 
+export interface IncidentsApiCreateIncidentPostmortemTemplateRequest {
+  /**
+   * @type PostmortemTemplateRequest
+   */
+  body: PostmortemTemplateRequest;
+}
+
 export interface IncidentsApiCreateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -5933,6 +6602,14 @@ export interface IncidentsApiDeleteIncidentNotificationTemplateRequest {
   include?: string;
 }
 
+export interface IncidentsApiDeleteIncidentPostmortemTemplateRequest {
+  /**
+   * The ID of the postmortem template
+   * @type string
+   */
+  templateId: string;
+}
+
 export interface IncidentsApiDeleteIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -6004,6 +6681,14 @@ export interface IncidentsApiGetIncidentNotificationTemplateRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface IncidentsApiGetIncidentPostmortemTemplateRequest {
+  /**
+   * The ID of the postmortem template
+   * @type string
+   */
+  templateId: string;
 }
 
 export interface IncidentsApiGetIncidentTodoRequest {
@@ -6270,6 +6955,18 @@ export interface IncidentsApiUpdateIncidentNotificationTemplateRequest {
   include?: string;
 }
 
+export interface IncidentsApiUpdateIncidentPostmortemTemplateRequest {
+  /**
+   * The ID of the postmortem template
+   * @type string
+   */
+  templateId: string;
+  /**
+   * @type PostmortemTemplateRequest
+   */
+  body: PostmortemTemplateRequest;
+}
+
 export interface IncidentsApiUpdateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -6513,6 +7210,27 @@ export class IncidentsApi {
   }
 
   /**
+   * Create a new postmortem template for incidents.
+   * @param param The request object
+   */
+  public createIncidentPostmortemTemplate(
+    param: IncidentsApiCreateIncidentPostmortemTemplateRequest,
+    options?: Configuration,
+  ): Promise<PostmortemTemplateResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentPostmortemTemplate(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentPostmortemTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create an incident todo.
    * @param param The request object
    */
@@ -6714,6 +7432,30 @@ export class IncidentsApi {
   }
 
   /**
+   * Delete a postmortem template.
+   * @param param The request object
+   */
+  public deleteIncidentPostmortemTemplate(
+    param: IncidentsApiDeleteIncidentPostmortemTemplateRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteIncidentPostmortemTemplate(
+        param.templateId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentPostmortemTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an incident todo.
    * @param param The request object
    */
@@ -6864,6 +7606,30 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentNotificationTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve details of a specific postmortem template.
+   * @param param The request object
+   */
+  public getIncidentPostmortemTemplate(
+    param: IncidentsApiGetIncidentPostmortemTemplateRequest,
+    options?: Configuration,
+  ): Promise<PostmortemTemplateResponse> {
+    const requestContextPromise =
+      this.requestFactory.getIncidentPostmortemTemplate(
+        param.templateId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentPostmortemTemplate(
             responseContext,
           );
         });
@@ -7046,6 +7812,26 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentNotificationTemplates(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve a list of all postmortem templates for incidents.
+   * @param param The request object
+   */
+  public listIncidentPostmortemTemplates(
+    options?: Configuration,
+  ): Promise<PostmortemTemplatesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentPostmortemTemplates(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentPostmortemTemplates(
             responseContext,
           );
         });
@@ -7403,6 +8189,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentNotificationTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing postmortem template.
+   * @param param The request object
+   */
+  public updateIncidentPostmortemTemplate(
+    param: IncidentsApiUpdateIncidentPostmortemTemplateRequest,
+    options?: Configuration,
+  ): Promise<PostmortemTemplateResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentPostmortemTemplate(
+        param.templateId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentPostmortemTemplate(
             responseContext,
           );
         });

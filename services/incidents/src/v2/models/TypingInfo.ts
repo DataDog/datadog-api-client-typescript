@@ -151,6 +151,13 @@ import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestDa
 import { PostmortemCell } from "./PostmortemCell";
 import { PostmortemCellAttributes } from "./PostmortemCellAttributes";
 import { PostmortemCellDefinition } from "./PostmortemCellDefinition";
+import { PostmortemTemplateAttributesRequest } from "./PostmortemTemplateAttributesRequest";
+import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
+import { PostmortemTemplateDataRequest } from "./PostmortemTemplateDataRequest";
+import { PostmortemTemplateDataResponse } from "./PostmortemTemplateDataResponse";
+import { PostmortemTemplateRequest } from "./PostmortemTemplateRequest";
+import { PostmortemTemplateResponse } from "./PostmortemTemplateResponse";
+import { PostmortemTemplatesResponse } from "./PostmortemTemplatesResponse";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { RelationshipToIncident } from "./RelationshipToIncident";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
@@ -241,6 +248,7 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentUserDefinedFieldType: ["user_defined_field"],
     OrganizationsType: ["orgs"],
     PostmortemCellType: ["markdown"],
+    PostmortemTemplateType: ["postmortem_template"],
     RolesType: ["roles"],
     UsersType: ["users"],
   },
@@ -461,6 +469,13 @@ export const TypingInfo: ModelTypingInfo = {
     PostmortemCell: PostmortemCell,
     PostmortemCellAttributes: PostmortemCellAttributes,
     PostmortemCellDefinition: PostmortemCellDefinition,
+    PostmortemTemplateAttributesRequest: PostmortemTemplateAttributesRequest,
+    PostmortemTemplateAttributesResponse: PostmortemTemplateAttributesResponse,
+    PostmortemTemplateDataRequest: PostmortemTemplateDataRequest,
+    PostmortemTemplateDataResponse: PostmortemTemplateDataResponse,
+    PostmortemTemplateRequest: PostmortemTemplateRequest,
+    PostmortemTemplateResponse: PostmortemTemplateResponse,
+    PostmortemTemplatesResponse: PostmortemTemplatesResponse,
     PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
     RelationshipToIncident: RelationshipToIncident,
     RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
