@@ -638,7 +638,6 @@ import { CreateRulesetRequest } from "./CreateRulesetRequest";
 import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
 import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
 import { CreateRulesetRequestDataAttributesRulesItems } from "./CreateRulesetRequestDataAttributesRulesItems";
-import { CreateRulesetRequestDataAttributesRulesItemsMapping } from "./CreateRulesetRequestDataAttributesRulesItemsMapping";
 import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRulesetRequestDataAttributesRulesItemsQuery";
 import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
@@ -803,6 +802,7 @@ import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
 import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
+import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
@@ -2362,7 +2362,6 @@ import { RulesetRespDataAttributes } from "./RulesetRespDataAttributes";
 import { RulesetRespDataAttributesCreated } from "./RulesetRespDataAttributesCreated";
 import { RulesetRespDataAttributesModified } from "./RulesetRespDataAttributesModified";
 import { RulesetRespDataAttributesRulesItems } from "./RulesetRespDataAttributesRulesItems";
-import { RulesetRespDataAttributesRulesItemsMapping } from "./RulesetRespDataAttributesRulesItemsMapping";
 import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttributesRulesItemsQuery";
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
@@ -3089,7 +3088,6 @@ import { UpdateRulesetRequest } from "./UpdateRulesetRequest";
 import { UpdateRulesetRequestData } from "./UpdateRulesetRequestData";
 import { UpdateRulesetRequestDataAttributes } from "./UpdateRulesetRequestDataAttributes";
 import { UpdateRulesetRequestDataAttributesRulesItems } from "./UpdateRulesetRequestDataAttributesRulesItems";
-import { UpdateRulesetRequestDataAttributesRulesItemsMapping } from "./UpdateRulesetRequestDataAttributesRulesItemsMapping";
 import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRulesetRequestDataAttributesRulesItemsQuery";
 import { UpdateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./UpdateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
@@ -3625,6 +3623,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
@@ -5858,8 +5857,6 @@ const typeMap: { [index: string]: any } = {
   CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
   CreateRulesetRequestDataAttributesRulesItems:
     CreateRulesetRequestDataAttributesRulesItems,
-  CreateRulesetRequestDataAttributesRulesItemsMapping:
-    CreateRulesetRequestDataAttributesRulesItemsMapping,
   CreateRulesetRequestDataAttributesRulesItemsQuery:
     CreateRulesetRequestDataAttributesRulesItemsQuery,
   CreateRulesetRequestDataAttributesRulesItemsQueryAddition:
@@ -6068,6 +6065,7 @@ const typeMap: { [index: string]: any } = {
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
   DashboardTriggerWrapper: DashboardTriggerWrapper,
+  DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
@@ -7905,8 +7903,6 @@ const typeMap: { [index: string]: any } = {
   RulesetRespDataAttributesCreated: RulesetRespDataAttributesCreated,
   RulesetRespDataAttributesModified: RulesetRespDataAttributesModified,
   RulesetRespDataAttributesRulesItems: RulesetRespDataAttributesRulesItems,
-  RulesetRespDataAttributesRulesItemsMapping:
-    RulesetRespDataAttributesRulesItemsMapping,
   RulesetRespDataAttributesRulesItemsQuery:
     RulesetRespDataAttributesRulesItemsQuery,
   RulesetRespDataAttributesRulesItemsQueryAddition:
@@ -8805,8 +8801,6 @@ const typeMap: { [index: string]: any } = {
   UpdateRulesetRequestDataAttributes: UpdateRulesetRequestDataAttributes,
   UpdateRulesetRequestDataAttributesRulesItems:
     UpdateRulesetRequestDataAttributesRulesItems,
-  UpdateRulesetRequestDataAttributesRulesItemsMapping:
-    UpdateRulesetRequestDataAttributesRulesItemsMapping,
   UpdateRulesetRequestDataAttributesRulesItemsQuery:
     UpdateRulesetRequestDataAttributesRulesItemsQuery,
   UpdateRulesetRequestDataAttributesRulesItemsQueryAddition:
