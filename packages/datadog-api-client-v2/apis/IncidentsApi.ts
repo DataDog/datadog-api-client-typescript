@@ -47,6 +47,10 @@ import { IncidentSearchResponse } from "../models/IncidentSearchResponse";
 import { IncidentSearchResponseIncidentsData } from "../models/IncidentSearchResponseIncidentsData";
 import { IncidentSearchSortOrder } from "../models/IncidentSearchSortOrder";
 import { IncidentsResponse } from "../models/IncidentsResponse";
+import { IncidentTimestampOverrideCreateRequest } from "../models/IncidentTimestampOverrideCreateRequest";
+import { IncidentTimestampOverridePatchRequest } from "../models/IncidentTimestampOverridePatchRequest";
+import { IncidentTimestampOverrideResponse } from "../models/IncidentTimestampOverrideResponse";
+import { IncidentTimestampOverridesResponse } from "../models/IncidentTimestampOverridesResponse";
 import { IncidentTodoCreateRequest } from "../models/IncidentTodoCreateRequest";
 import { IncidentTodoListResponse } from "../models/IncidentTodoListResponse";
 import { IncidentTodoPatchRequest } from "../models/IncidentTodoPatchRequest";
@@ -586,6 +590,79 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createIncidentTimestampOverride(
+    incidentId: string,
+    body: IncidentTimestampOverrideCreateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentTimestampOverride'");
+    if (!_config.unstableOperations["v2.createIncidentTimestampOverride"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentTimestampOverride' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentTimestampOverride");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentTimestampOverride");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentTimestampOverride")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "IncidentTimestampOverrideCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createIncidentTodo(
     incidentId: string,
     body: IncidentTodoCreateRequest,
@@ -1041,6 +1118,59 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteIncidentTimestampOverride(
+    incidentId: string,
+    timestampOverrideId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteIncidentTimestampOverride'");
+    if (!_config.unstableOperations["v2.deleteIncidentTimestampOverride"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentTimestampOverride' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "deleteIncidentTimestampOverride");
+    }
+
+    // verify required parameter 'timestampOverrideId' is not null or undefined
+    if (timestampOverrideId === null || timestampOverrideId === undefined) {
+      throw new RequiredError(
+        "timestampOverrideId",
+        "deleteIncidentTimestampOverride"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides/{timestamp_override_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace(
+          "{timestamp_override_id}",
+          encodeURIComponent(String(timestampOverrideId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentTimestampOverride")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1862,6 +1992,66 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listIncidentTimestampOverrides(
+    incidentId: string,
+    include?: string,
+    includeDeleted?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIncidentTimestampOverrides'");
+    if (!_config.unstableOperations["v2.listIncidentTimestampOverrides"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentTimestampOverrides' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "listIncidentTimestampOverrides");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentTimestampOverrides")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+    if (includeDeleted !== undefined) {
+      requestContext.setQueryParam(
+        "include-deleted",
+        ObjectSerializer.serialize(includeDeleted, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listIncidentTodos(
     incidentId: string,
     _options?: Configuration
@@ -2540,6 +2730,90 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateIncidentTimestampOverride(
+    incidentId: string,
+    timestampOverrideId: string,
+    body: IncidentTimestampOverridePatchRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncidentTimestampOverride'");
+    if (!_config.unstableOperations["v2.updateIncidentTimestampOverride"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentTimestampOverride' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "updateIncidentTimestampOverride");
+    }
+
+    // verify required parameter 'timestampOverrideId' is not null or undefined
+    if (timestampOverrideId === null || timestampOverrideId === undefined) {
+      throw new RequiredError(
+        "timestampOverrideId",
+        "updateIncidentTimestampOverride"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentTimestampOverride");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides/{timestamp_override_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace(
+          "{timestamp_override_id}",
+          encodeURIComponent(String(timestampOverrideId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentTimestampOverride")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "IncidentTimestampOverridePatchRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3297,6 +3571,93 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentTimestampOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentTimestampOverride(
+    response: ResponseContext
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentTimestampOverrideResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentTimestampOverrideResponse"
+        ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentTimestampOverrideResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentTimestampOverrideResponse",
+          ""
+        ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3834,6 +4195,78 @@ export class IncidentsApiResponseProcessor {
       return;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentTimestampOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentTimestampOverride(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5091,6 +5524,89 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listIncidentTimestampOverrides
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentTimestampOverrides(
+    response: ResponseContext
+  ): Promise<IncidentTimestampOverridesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentTimestampOverridesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentTimestampOverridesResponse"
+        ) as IncidentTimestampOverridesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentTimestampOverridesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentTimestampOverridesResponse",
+          ""
+        ) as IncidentTimestampOverridesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listIncidentTodos
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5846,6 +6362,93 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateIncidentTimestampOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentTimestampOverride(
+    response: ResponseContext
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentTimestampOverrideResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentTimestampOverrideResponse"
+        ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentTimestampOverrideResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentTimestampOverrideResponse",
+          ""
+        ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6072,6 +6675,23 @@ export interface IncidentsApiCreateIncidentPostmortemTemplateRequest {
   body: PostmortemTemplateRequest;
 }
 
+export interface IncidentsApiCreateIncidentTimestampOverrideRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * @type IncidentTimestampOverrideCreateRequest
+   */
+  body: IncidentTimestampOverrideCreateRequest;
+  /**
+   * Specifies which types of related objects are included in the response.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiCreateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -6172,6 +6792,19 @@ export interface IncidentsApiDeleteIncidentPostmortemTemplateRequest {
    * @type string
    */
   templateId: string;
+}
+
+export interface IncidentsApiDeleteIncidentTimestampOverrideRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the timestamp override.
+   * @type string
+   */
+  timestampOverrideId: string;
 }
 
 export interface IncidentsApiDeleteIncidentTodoRequest {
@@ -6362,6 +6995,24 @@ export interface IncidentsApiListIncidentsRequest {
   pageOffset?: number;
 }
 
+export interface IncidentsApiListIncidentTimestampOverridesRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Specifies which types of related objects are included in the response.
+   * @type string
+   */
+  include?: string;
+  /**
+   * Specifies whether to include deleted timestamp overrides in the response.
+   * @type boolean
+   */
+  includeDeleted?: boolean;
+}
+
 export interface IncidentsApiListIncidentTodosRequest {
   /**
    * The UUID of the incident.
@@ -6529,6 +7180,28 @@ export interface IncidentsApiUpdateIncidentPostmortemTemplateRequest {
    * @type PostmortemTemplateRequest
    */
   body: PostmortemTemplateRequest;
+}
+
+export interface IncidentsApiUpdateIncidentTimestampOverrideRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the timestamp override.
+   * @type string
+   */
+  timestampOverrideId: string;
+  /**
+   * @type IncidentTimestampOverridePatchRequest
+   */
+  body: IncidentTimestampOverridePatchRequest;
+  /**
+   * Specifies which types of related objects are included in the response.
+   * @type string
+   */
+  include?: string;
 }
 
 export interface IncidentsApiUpdateIncidentTodoRequest {
@@ -6793,6 +7466,32 @@ export class IncidentsApi {
   }
 
   /**
+   * Create a new timestamp override for a specific incident.
+   * @param param The request object
+   */
+  public createIncidentTimestampOverride(
+    param: IncidentsApiCreateIncidentTimestampOverrideRequest,
+    options?: Configuration
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentTimestampOverride(
+        param.incidentId,
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentTimestampOverride(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create an incident todo.
    * @param param The request object
    */
@@ -7011,6 +7710,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentPostmortemTemplate(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an existing timestamp override for a specific incident.
+   * @param param The request object
+   */
+  public deleteIncidentTimestampOverride(
+    param: IncidentsApiDeleteIncidentTimestampOverrideRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteIncidentTimestampOverride(
+        param.incidentId,
+        param.timestampOverrideId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentTimestampOverride(
             responseContext
           );
         });
@@ -7469,6 +8193,32 @@ export class IncidentsApi {
   }
 
   /**
+   * Get all timestamp overrides for a specific incident.
+   * @param param The request object
+   */
+  public listIncidentTimestampOverrides(
+    param: IncidentsApiListIncidentTimestampOverridesRequest,
+    options?: Configuration
+  ): Promise<IncidentTimestampOverridesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentTimestampOverrides(
+        param.incidentId,
+        param.include,
+        param.includeDeleted,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentTimestampOverrides(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get all todos for an incident.
    * @param param The request object
    */
@@ -7780,6 +8530,33 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentPostmortemTemplate(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing timestamp override for a specific incident.
+   * @param param The request object
+   */
+  public updateIncidentTimestampOverride(
+    param: IncidentsApiUpdateIncidentTimestampOverrideRequest,
+    options?: Configuration
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentTimestampOverride(
+        param.incidentId,
+        param.timestampOverrideId,
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentTimestampOverride(
             responseContext
           );
         });

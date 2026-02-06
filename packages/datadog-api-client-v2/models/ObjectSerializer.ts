@@ -1409,6 +1409,17 @@ import { IncidentTeamUpdateRequest } from "./IncidentTeamUpdateRequest";
 import { IncidentTeamsResponse } from "./IncidentTeamsResponse";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
+import { IncidentTimestampOverrideAttributes } from "./IncidentTimestampOverrideAttributes";
+import { IncidentTimestampOverrideCreateAttributes } from "./IncidentTimestampOverrideCreateAttributes";
+import { IncidentTimestampOverrideCreateData } from "./IncidentTimestampOverrideCreateData";
+import { IncidentTimestampOverrideCreateRequest } from "./IncidentTimestampOverrideCreateRequest";
+import { IncidentTimestampOverrideData } from "./IncidentTimestampOverrideData";
+import { IncidentTimestampOverridePatchAttributes } from "./IncidentTimestampOverridePatchAttributes";
+import { IncidentTimestampOverridePatchData } from "./IncidentTimestampOverridePatchData";
+import { IncidentTimestampOverridePatchRequest } from "./IncidentTimestampOverridePatchRequest";
+import { IncidentTimestampOverrideRelationships } from "./IncidentTimestampOverrideRelationships";
+import { IncidentTimestampOverrideResponse } from "./IncidentTimestampOverrideResponse";
+import { IncidentTimestampOverridesResponse } from "./IncidentTimestampOverridesResponse";
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
 import { IncidentTodoAttributes } from "./IncidentTodoAttributes";
 import { IncidentTodoCreateData } from "./IncidentTodoCreateData";
@@ -3026,6 +3037,8 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { TimestampOverrideUserRelationship } from "./TimestampOverrideUserRelationship";
+import { TimestampOverrideUserRelationshipData } from "./TimestampOverrideUserRelationshipData";
 import { TriggerRateLimit } from "./TriggerRateLimit";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
@@ -3119,6 +3132,8 @@ import { UserAttributes } from "./UserAttributes";
 import { UserCreateAttributes } from "./UserCreateAttributes";
 import { UserCreateData } from "./UserCreateData";
 import { UserCreateRequest } from "./UserCreateRequest";
+import { UserIncluded } from "./UserIncluded";
+import { UserIncludedAttributes } from "./UserIncludedAttributes";
 import { UserInvitationData } from "./UserInvitationData";
 import { UserInvitationDataAttributes } from "./UserInvitationDataAttributes";
 import { UserInvitationRelationships } from "./UserInvitationRelationships";
@@ -3879,6 +3894,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentType: ["incidents"],
   IncidentTypeType: ["incident_types"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
+  IncidentsTimestampOverridesType: ["incidents_timestamp_overrides"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
   InputSchemaParametersType: [
     "STRING",
@@ -4957,6 +4973,7 @@ const enumsMap: { [key: string]: any[] } = {
   TimelineCellType: ["COMMENT"],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
+  TimestampType: ["created", "detected", "resolved", "declared"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
   UCConfigPairDataType: ["azure_uc_configs"],
@@ -6764,6 +6781,21 @@ const typeMap: { [index: string]: any } = {
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
     IncidentTimelineCellMarkdownCreateAttributesContent,
+  IncidentTimestampOverrideAttributes: IncidentTimestampOverrideAttributes,
+  IncidentTimestampOverrideCreateAttributes:
+    IncidentTimestampOverrideCreateAttributes,
+  IncidentTimestampOverrideCreateData: IncidentTimestampOverrideCreateData,
+  IncidentTimestampOverrideCreateRequest:
+    IncidentTimestampOverrideCreateRequest,
+  IncidentTimestampOverrideData: IncidentTimestampOverrideData,
+  IncidentTimestampOverridePatchAttributes:
+    IncidentTimestampOverridePatchAttributes,
+  IncidentTimestampOverridePatchData: IncidentTimestampOverridePatchData,
+  IncidentTimestampOverridePatchRequest: IncidentTimestampOverridePatchRequest,
+  IncidentTimestampOverrideRelationships:
+    IncidentTimestampOverrideRelationships,
+  IncidentTimestampOverrideResponse: IncidentTimestampOverrideResponse,
+  IncidentTimestampOverridesResponse: IncidentTimestampOverridesResponse,
   IncidentTodoAnonymousAssignee: IncidentTodoAnonymousAssignee,
   IncidentTodoAttributes: IncidentTodoAttributes,
   IncidentTodoCreateData: IncidentTodoCreateData,
@@ -8729,6 +8761,8 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
+  TimestampOverrideUserRelationship: TimestampOverrideUserRelationship,
+  TimestampOverrideUserRelationshipData: TimestampOverrideUserRelationshipData,
   TriggerRateLimit: TriggerRateLimit,
   UCConfigPair: UCConfigPair,
   UCConfigPairData: UCConfigPairData,
@@ -8846,6 +8880,8 @@ const typeMap: { [index: string]: any } = {
   UserCreateAttributes: UserCreateAttributes,
   UserCreateData: UserCreateData,
   UserCreateRequest: UserCreateRequest,
+  UserIncluded: UserIncluded,
+  UserIncludedAttributes: UserIncludedAttributes,
   UserInvitationData: UserInvitationData,
   UserInvitationDataAttributes: UserInvitationDataAttributes,
   UserInvitationRelationships: UserInvitationRelationships,
