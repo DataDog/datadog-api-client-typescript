@@ -802,6 +802,15 @@ import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
+import { DashboardSearchAggregationBucketKey } from "./DashboardSearchAggregationBucketKey";
+import { DashboardSearchAggregationBucketMultiKey } from "./DashboardSearchAggregationBucketMultiKey";
+import { DashboardSearchAggregations } from "./DashboardSearchAggregations";
+import { DashboardSearchAttributes } from "./DashboardSearchAttributes";
+import { DashboardSearchMetadata } from "./DashboardSearchMetadata";
+import { DashboardSearchResponse } from "./DashboardSearchResponse";
+import { DashboardSearchResponseMeta } from "./DashboardSearchResponseMeta";
+import { DashboardSearchResultData } from "./DashboardSearchResultData";
+import { DashboardSearchUser } from "./DashboardSearchUser";
 import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
@@ -1805,6 +1814,16 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
+import { NotebookSearchAggregationBucketKey } from "./NotebookSearchAggregationBucketKey";
+import { NotebookSearchAggregationBucketMultiKey } from "./NotebookSearchAggregationBucketMultiKey";
+import { NotebookSearchAggregations } from "./NotebookSearchAggregations";
+import { NotebookSearchAttributes } from "./NotebookSearchAttributes";
+import { NotebookSearchHighlight } from "./NotebookSearchHighlight";
+import { NotebookSearchMetadata } from "./NotebookSearchMetadata";
+import { NotebookSearchResponse } from "./NotebookSearchResponse";
+import { NotebookSearchResponseMeta } from "./NotebookSearchResponseMeta";
+import { NotebookSearchResultData } from "./NotebookSearchResultData";
+import { NotebookSearchUser } from "./NotebookSearchUser";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
 import { NotificationChannel } from "./NotificationChannel";
 import { NotificationChannelAttributes } from "./NotificationChannelAttributes";
@@ -6068,6 +6087,16 @@ const typeMap: { [index: string]: any } = {
   DashboardListItems: DashboardListItems,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
+  DashboardSearchAggregationBucketKey: DashboardSearchAggregationBucketKey,
+  DashboardSearchAggregationBucketMultiKey:
+    DashboardSearchAggregationBucketMultiKey,
+  DashboardSearchAggregations: DashboardSearchAggregations,
+  DashboardSearchAttributes: DashboardSearchAttributes,
+  DashboardSearchMetadata: DashboardSearchMetadata,
+  DashboardSearchResponse: DashboardSearchResponse,
+  DashboardSearchResponseMeta: DashboardSearchResponseMeta,
+  DashboardSearchResultData: DashboardSearchResultData,
+  DashboardSearchUser: DashboardSearchUser,
   DashboardTriggerWrapper: DashboardTriggerWrapper,
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
@@ -7213,6 +7242,17 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
+  NotebookSearchAggregationBucketKey: NotebookSearchAggregationBucketKey,
+  NotebookSearchAggregationBucketMultiKey:
+    NotebookSearchAggregationBucketMultiKey,
+  NotebookSearchAggregations: NotebookSearchAggregations,
+  NotebookSearchAttributes: NotebookSearchAttributes,
+  NotebookSearchHighlight: NotebookSearchHighlight,
+  NotebookSearchMetadata: NotebookSearchMetadata,
+  NotebookSearchResponse: NotebookSearchResponse,
+  NotebookSearchResponseMeta: NotebookSearchResponseMeta,
+  NotebookSearchResultData: NotebookSearchResultData,
+  NotebookSearchUser: NotebookSearchUser,
   NotebookTriggerWrapper: NotebookTriggerWrapper,
   NotificationChannel: NotificationChannel,
   NotificationChannelAttributes: NotificationChannelAttributes,
