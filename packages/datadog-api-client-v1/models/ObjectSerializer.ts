@@ -48,6 +48,10 @@ import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorRespon
 import { CheckCanDeleteSLOResponse } from "./CheckCanDeleteSLOResponse";
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { ClientToken } from "./ClientToken";
+import { ClientTokenCreateRequest } from "./ClientTokenCreateRequest";
+import { ClientTokenRevokeRequest } from "./ClientTokenRevokeRequest";
+import { ClientTokenUpdateRequest } from "./ClientTokenUpdateRequest";
 import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
@@ -1823,6 +1827,10 @@ const typeMap: { [index: string]: any } = {
   CheckCanDeleteSLOResponse: CheckCanDeleteSLOResponse,
   CheckCanDeleteSLOResponseData: CheckCanDeleteSLOResponseData,
   CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
+  ClientToken: ClientToken,
+  ClientTokenCreateRequest: ClientTokenCreateRequest,
+  ClientTokenRevokeRequest: ClientTokenRevokeRequest,
+  ClientTokenUpdateRequest: ClientTokenUpdateRequest,
   Creator: Creator,
   Dashboard: Dashboard,
   DashboardBulkActionData: DashboardBulkActionData,
