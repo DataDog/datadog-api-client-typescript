@@ -1,7 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FlakyTestAttributesFlakyState } from "./FlakyTestAttributesFlakyState";
-import { FlakyTestHistory } from "./FlakyTestHistory";
 import { FlakyTestPipelineStats } from "./FlakyTestPipelineStats";
 import { FlakyTestRunMetadata } from "./FlakyTestRunMetadata";
 import { FlakyTestStats } from "./FlakyTestStats";
@@ -45,11 +44,6 @@ export class FlakyTestAttributes {
    * The current state of the flaky test.
    */
   "flakyState"?: FlakyTestAttributesFlakyState;
-  /**
-   * Chronological history of status changes for this flaky test, ordered from most recent to oldest.
-   * Includes state transitions like new -> quarantined -> fixed, along with the associated commit SHA when available.
-   */
-  "history"?: Array<FlakyTestHistory>;
   /**
    * The branch name where the test exhibited flakiness for the last time.
    */
@@ -145,10 +139,6 @@ export class FlakyTestAttributes {
     flakyState: {
       baseName: "flaky_state",
       type: "FlakyTestAttributesFlakyState",
-    },
-    history: {
-      baseName: "history",
-      type: "Array<FlakyTestHistory>",
     },
     lastFlakedBranch: {
       baseName: "last_flaked_branch",
