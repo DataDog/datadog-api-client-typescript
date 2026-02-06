@@ -1,18 +1,23 @@
 export {
   KeyManagementApiCreateAPIKeyRequest,
   KeyManagementApiCreateCurrentUserApplicationKeyRequest,
+  KeyManagementApiCreatePersonalAccessTokenRequest,
   KeyManagementApiDeleteAPIKeyRequest,
   KeyManagementApiDeleteApplicationKeyRequest,
   KeyManagementApiDeleteCurrentUserApplicationKeyRequest,
   KeyManagementApiGetAPIKeyRequest,
   KeyManagementApiGetApplicationKeyRequest,
   KeyManagementApiGetCurrentUserApplicationKeyRequest,
+  KeyManagementApiGetPersonalAccessTokenRequest,
   KeyManagementApiListAPIKeysRequest,
   KeyManagementApiListApplicationKeysRequest,
   KeyManagementApiListCurrentUserApplicationKeysRequest,
+  KeyManagementApiListPersonalAccessTokensRequest,
+  KeyManagementApiRevokePersonalAccessTokenRequest,
   KeyManagementApiUpdateAPIKeyRequest,
   KeyManagementApiUpdateApplicationKeyRequest,
   KeyManagementApiUpdateCurrentUserApplicationKeyRequest,
+  KeyManagementApiUpdatePersonalAccessTokenRequest,
   KeyManagementApi,
 } from "./KeyManagementApi";
 
@@ -48,6 +53,11 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { FullPersonalAccessToken } from "./models/FullPersonalAccessToken";
+export { FullPersonalAccessTokenAttributes } from "./models/FullPersonalAccessTokenAttributes";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
@@ -60,6 +70,22 @@ export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
 export { PartialApplicationKeyAttributes } from "./models/PartialApplicationKeyAttributes";
 export { PermissionsType } from "./models/PermissionsType";
+export { PersonalAccessToken } from "./models/PersonalAccessToken";
+export { PersonalAccessTokenAttributes } from "./models/PersonalAccessTokenAttributes";
+export { PersonalAccessTokenCreateAttributes } from "./models/PersonalAccessTokenCreateAttributes";
+export { PersonalAccessTokenCreateData } from "./models/PersonalAccessTokenCreateData";
+export { PersonalAccessTokenCreateRequest } from "./models/PersonalAccessTokenCreateRequest";
+export { PersonalAccessTokenGetResponse } from "./models/PersonalAccessTokenGetResponse";
+export { PersonalAccessTokenRelationships } from "./models/PersonalAccessTokenRelationships";
+export { PersonalAccessTokenResponse } from "./models/PersonalAccessTokenResponse";
+export { PersonalAccessTokensListResponse } from "./models/PersonalAccessTokensListResponse";
+export { PersonalAccessTokensResponseMeta } from "./models/PersonalAccessTokensResponseMeta";
+export { PersonalAccessTokensResponseMetaPage } from "./models/PersonalAccessTokensResponseMetaPage";
+export { PersonalAccessTokensSort } from "./models/PersonalAccessTokensSort";
+export { PersonalAccessTokenType } from "./models/PersonalAccessTokenType";
+export { PersonalAccessTokenUpdateAttributes } from "./models/PersonalAccessTokenUpdateAttributes";
+export { PersonalAccessTokenUpdateData } from "./models/PersonalAccessTokenUpdateData";
+export { PersonalAccessTokenUpdateRequest } from "./models/PersonalAccessTokenUpdateRequest";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
 export { RelationshipToOrganizations } from "./models/RelationshipToOrganizations";

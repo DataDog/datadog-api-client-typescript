@@ -29,6 +29,10 @@ import { ApiKeyResponse } from "./models/ApiKeyResponse";
 import { ApplicationKey } from "./models/ApplicationKey";
 import { ApplicationKeyListResponse } from "./models/ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "./models/ApplicationKeyResponse";
+import { ClientToken } from "./models/ClientToken";
+import { ClientTokenCreateRequest } from "./models/ClientTokenCreateRequest";
+import { ClientTokenRevokeRequest } from "./models/ClientTokenRevokeRequest";
+import { ClientTokenUpdateRequest } from "./models/ClientTokenUpdateRequest";
 import { version } from "../version";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -135,6 +139,63 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createClientToken(
+    body: ClientTokenCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["KeyManagementApi.v1.createClientToken"]) {
+      throw new Error(
+        "Unstable operation 'createClientToken' is disabled. Enable it by setting `configuration.unstableOperations['KeyManagementApi.v1.createClientToken'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createClientToken");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/public_api_key";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v1.createClientToken",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ClientTokenCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -384,6 +445,63 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async revokeClientToken(
+    body: ClientTokenRevokeRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["KeyManagementApi.v1.revokeClientToken"]) {
+      throw new Error(
+        "Unstable operation 'revokeClientToken' is disabled. Enable it by setting `configuration.unstableOperations['KeyManagementApi.v1.revokeClientToken'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "revokeClientToken");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/public_api_key";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v1.revokeClientToken",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ClientTokenRevokeRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateAPIKey(
     key: string,
     body: ApiKey,
@@ -497,6 +615,63 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateClientToken(
+    body: ClientTokenUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["KeyManagementApi.v1.updateClientToken"]) {
+      throw new Error(
+        "Unstable operation 'updateClientToken' is disabled. Enable it by setting `configuration.unstableOperations['KeyManagementApi.v1.updateClientToken'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateClientToken");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/public_api_key";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v1.updateClientToken",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ClientTokenUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -615,6 +790,66 @@ export class KeyManagementApiResponseProcessor {
         "ApplicationKeyResponse",
         "",
       ) as ApplicationKeyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createClientToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createClientToken(
+    response: ResponseContext,
+  ): Promise<ClientToken> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ClientToken = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ClientToken",
+      ) as ClientToken;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ClientToken = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ClientToken",
+        "",
+      ) as ClientToken;
       return body;
     }
 
@@ -980,6 +1215,53 @@ export class KeyManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to revokeClientToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async revokeClientToken(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1098,6 +1380,66 @@ export class KeyManagementApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateClientToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateClientToken(
+    response: ResponseContext,
+  ): Promise<ClientToken> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ClientToken = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ClientToken",
+      ) as ClientToken;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ClientToken = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ClientToken",
+        "",
+      ) as ClientToken;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface KeyManagementApiCreateAPIKeyRequest {
@@ -1112,6 +1454,13 @@ export interface KeyManagementApiCreateApplicationKeyRequest {
    * @type ApplicationKey
    */
   body: ApplicationKey;
+}
+
+export interface KeyManagementApiCreateClientTokenRequest {
+  /**
+   * @type ClientTokenCreateRequest
+   */
+  body: ClientTokenCreateRequest;
 }
 
 export interface KeyManagementApiDeleteAPIKeyRequest {
@@ -1146,6 +1495,13 @@ export interface KeyManagementApiGetApplicationKeyRequest {
   key: string;
 }
 
+export interface KeyManagementApiRevokeClientTokenRequest {
+  /**
+   * @type ClientTokenRevokeRequest
+   */
+  body: ClientTokenRevokeRequest;
+}
+
 export interface KeyManagementApiUpdateAPIKeyRequest {
   /**
    * The specific API key you are working with.
@@ -1168,6 +1524,13 @@ export interface KeyManagementApiUpdateApplicationKeyRequest {
    * @type ApplicationKey
    */
   body: ApplicationKey;
+}
+
+export interface KeyManagementApiUpdateClientTokenRequest {
+  /**
+   * @type ClientTokenUpdateRequest
+   */
+  body: ClientTokenUpdateRequest;
 }
 
 export class KeyManagementApi {
@@ -1228,6 +1591,28 @@ export class KeyManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new client token (public API key) to submit data from your browser or mobile
+   * applications to Datadog.
+   * @param param The request object
+   */
+  public createClientToken(
+    param: KeyManagementApiCreateClientTokenRequest,
+    options?: Configuration,
+  ): Promise<ClientToken> {
+    const requestContextPromise = this.requestFactory.createClientToken(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createClientToken(responseContext);
         });
     });
   }
@@ -1353,6 +1738,28 @@ export class KeyManagementApi {
   }
 
   /**
+   * Revoke a client token (public API key). Once revoked, the token can no longer be used
+   * to submit data to Datadog.
+   * @param param The request object
+   */
+  public revokeClientToken(
+    param: KeyManagementApiRevokeClientTokenRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.revokeClientToken(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.revokeClientToken(responseContext);
+        });
+    });
+  }
+
+  /**
    * Edit an API key name.
    * @param param The request object
    */
@@ -1393,6 +1800,27 @@ export class KeyManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the name and/or origin URLs of an existing client token (public API key).
+   * @param param The request object
+   */
+  public updateClientToken(
+    param: KeyManagementApiUpdateClientTokenRequest,
+    options?: Configuration,
+  ): Promise<ClientToken> {
+    const requestContextPromise = this.requestFactory.updateClientToken(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateClientToken(responseContext);
         });
     });
   }
