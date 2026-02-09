@@ -3517,6 +3517,79 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CaseResponse",
   },
+  "CaseManagementApi.V2.LinkIncident": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RelationshipToIncidentRequest",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
+  "CaseManagementApi.V2.CreateCaseJiraIssue": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "JiraIssueCreateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementApi.V2.UnlinkJiraIssue": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementApi.V2.LinkJiraIssueToCase": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "JiraIssueLinkRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementApi.V2.CreateCaseNotebook": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "NotebookCreateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CaseManagementApi.V2.MoveCaseToProject": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ProjectRelationship",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
+  "CaseManagementApi.V2.CreateCaseServiceNowTicket": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ServiceNowTicketCreateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "CaseManagementApi.V2.UpdateStatus": {
     caseId: {
       type: "string",

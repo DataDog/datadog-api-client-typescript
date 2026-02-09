@@ -41,10 +41,17 @@ import { CaseUpdateDescriptionRequest } from "./models/CaseUpdateDescriptionRequ
 import { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 import { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
 import { CaseUpdateTitleRequest } from "./models/CaseUpdateTitleRequest";
+import { JiraIssueCreateRequest } from "./models/JiraIssueCreateRequest";
+import { JiraIssueLinkRequest } from "./models/JiraIssueLinkRequest";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { NotebookCreateRequest } from "./models/NotebookCreateRequest";
 import { ProjectCreateRequest } from "./models/ProjectCreateRequest";
+import { ProjectRelationship } from "./models/ProjectRelationship";
 import { ProjectResponse } from "./models/ProjectResponse";
 import { ProjectsResponse } from "./models/ProjectsResponse";
 import { ProjectUpdateRequest } from "./models/ProjectUpdateRequest";
+import { RelationshipToIncidentRequest } from "./models/RelationshipToIncidentRequest";
+import { ServiceNowTicketCreateRequest } from "./models/ServiceNowTicketCreateRequest";
 import { TimelineResponse } from "./models/TimelineResponse";
 import { version } from "../version";
 
@@ -273,6 +280,215 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCaseJiraIssue(
+    caseId: string,
+    body: JiraIssueCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["CaseManagementApi.v2.createCaseJiraIssue"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createCaseJiraIssue' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseJiraIssue'] = true`",
+      );
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "createCaseJiraIssue");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCaseJiraIssue");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
+        "{case_id}",
+        encodeURIComponent(String(caseId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.createCaseJiraIssue",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "JiraIssueCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCaseNotebook(
+    caseId: string,
+    body: NotebookCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["CaseManagementApi.v2.createCaseNotebook"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createCaseNotebook' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseNotebook'] = true`",
+      );
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "createCaseNotebook");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCaseNotebook");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/{case_id}/relationships/notebook".replace(
+        "{case_id}",
+        encodeURIComponent(String(caseId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.createCaseNotebook",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "NotebookCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCaseServiceNowTicket(
+    caseId: string,
+    body: ServiceNowTicketCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CaseManagementApi.v2.createCaseServiceNowTicket"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createCaseServiceNowTicket' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseServiceNowTicket'] = true`",
+      );
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "createCaseServiceNowTicket");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCaseServiceNowTicket");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/{case_id}/relationships/servicenow_tickets".replace(
+        "{case_id}",
+        encodeURIComponent(String(caseId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.createCaseServiceNowTicket",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ServiceNowTicketCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -777,6 +993,209 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async linkIncident(
+    caseId: string,
+    body: RelationshipToIncidentRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["CaseManagementApi.v2.linkIncident"]) {
+      throw new Error(
+        "Unstable operation 'linkIncident' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.linkIncident'] = true`",
+      );
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "linkIncident");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "linkIncident");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/{case_id}/relationships/incidents".replace(
+        "{case_id}",
+        encodeURIComponent(String(caseId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.linkIncident",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToIncidentRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async linkJiraIssueToCase(
+    caseId: string,
+    body: JiraIssueLinkRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["CaseManagementApi.v2.linkJiraIssueToCase"]
+    ) {
+      throw new Error(
+        "Unstable operation 'linkJiraIssueToCase' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.linkJiraIssueToCase'] = true`",
+      );
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "linkJiraIssueToCase");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "linkJiraIssueToCase");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
+        "{case_id}",
+        encodeURIComponent(String(caseId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.linkJiraIssueToCase",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "JiraIssueLinkRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async moveCaseToProject(
+    caseId: string,
+    body: ProjectRelationship,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["CaseManagementApi.v2.moveCaseToProject"]) {
+      throw new Error(
+        "Unstable operation 'moveCaseToProject' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.moveCaseToProject'] = true`",
+      );
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "moveCaseToProject");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "moveCaseToProject");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/{case_id}/relationships/project".replace(
+        "{case_id}",
+        encodeURIComponent(String(caseId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.moveCaseToProject",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProjectRelationship", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async searchCases(
     pageSize?: number,
     pageNumber?: number,
@@ -964,6 +1383,58 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async unlinkJiraIssue(
+    caseId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["CaseManagementApi.v2.unlinkJiraIssue"]) {
+      throw new Error(
+        "Unstable operation 'unlinkJiraIssue' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.unlinkJiraIssue'] = true`",
+      );
+    }
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "unlinkJiraIssue");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
+        "{case_id}",
+        encodeURIComponent(String(caseId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.unlinkJiraIssue",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1727,6 +2198,215 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createCaseJiraIssue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCaseJiraIssue(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createCaseNotebook
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCaseNotebook(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createCaseServiceNowTicket
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCaseServiceNowTicket(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createProject
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2301,6 +2981,238 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to linkIncident
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async linkIncident(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseResponse",
+      ) as CaseResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseResponse",
+        "",
+      ) as CaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to linkJiraIssueToCase
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async linkJiraIssueToCase(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to moveCaseToProject
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async moveCaseToProject(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseResponse",
+      ) as CaseResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CaseResponse",
+        "",
+      ) as CaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchCases
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2468,6 +3380,75 @@ export class CaseManagementApiResponseProcessor {
         "",
       ) as CaseResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to unlinkJiraIssue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async unlinkJiraIssue(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -3008,6 +3989,45 @@ export interface CaseManagementApiCreateCaseRequest {
   body: CaseCreateRequest;
 }
 
+export interface CaseManagementApiCreateCaseJiraIssueRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * Jira issue creation request
+   * @type JiraIssueCreateRequest
+   */
+  body: JiraIssueCreateRequest;
+}
+
+export interface CaseManagementApiCreateCaseNotebookRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * Notebook creation request
+   * @type NotebookCreateRequest
+   */
+  body: NotebookCreateRequest;
+}
+
+export interface CaseManagementApiCreateCaseServiceNowTicketRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * ServiceNow ticket creation request
+   * @type ServiceNowTicketCreateRequest
+   */
+  body: ServiceNowTicketCreateRequest;
+}
+
 export interface CaseManagementApiCreateProjectRequest {
   /**
    * Project payload
@@ -3100,6 +4120,45 @@ export interface CaseManagementApiGetProjectNotificationRulesRequest {
   projectId: string;
 }
 
+export interface CaseManagementApiLinkIncidentRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * Incident link request
+   * @type RelationshipToIncidentRequest
+   */
+  body: RelationshipToIncidentRequest;
+}
+
+export interface CaseManagementApiLinkJiraIssueToCaseRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * Jira issue link request
+   * @type JiraIssueLinkRequest
+   */
+  body: JiraIssueLinkRequest;
+}
+
+export interface CaseManagementApiMoveCaseToProjectRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * Project update request
+   * @type ProjectRelationship
+   */
+  body: ProjectRelationship;
+}
+
 export interface CaseManagementApiSearchCasesRequest {
   /**
    * Size for a given page. The maximum allowed value is 100.
@@ -3152,6 +4211,14 @@ export interface CaseManagementApiUnassignCaseRequest {
    * @type CaseEmptyRequest
    */
   body: CaseEmptyRequest;
+}
+
+export interface CaseManagementApiUnlinkJiraIssueRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
 }
 
 export interface CaseManagementApiUpdateAttributesRequest {
@@ -3375,6 +4442,75 @@ export class CaseManagementApi {
   }
 
   /**
+   * Create a new Jira issue and link it to a case
+   * @param param The request object
+   */
+  public createCaseJiraIssue(
+    param: CaseManagementApiCreateCaseJiraIssueRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.createCaseJiraIssue(
+      param.caseId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCaseJiraIssue(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new investigation notebook and link it to a case
+   * @param param The request object
+   */
+  public createCaseNotebook(
+    param: CaseManagementApiCreateCaseNotebookRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.createCaseNotebook(
+      param.caseId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCaseNotebook(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new ServiceNow incident ticket and link it to a case
+   * @param param The request object
+   */
+  public createCaseServiceNowTicket(
+    param: CaseManagementApiCreateCaseServiceNowTicketRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.createCaseServiceNowTicket(
+        param.caseId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCaseServiceNowTicket(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create a project.
    * @param param The request object
    */
@@ -3591,6 +4727,72 @@ export class CaseManagementApi {
   }
 
   /**
+   * Link an incident to a case
+   * @param param The request object
+   */
+  public linkIncident(
+    param: CaseManagementApiLinkIncidentRequest,
+    options?: Configuration,
+  ): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.linkIncident(
+      param.caseId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.linkIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Link an existing Jira issue to a case
+   * @param param The request object
+   */
+  public linkJiraIssueToCase(
+    param: CaseManagementApiLinkJiraIssueToCaseRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.linkJiraIssueToCase(
+      param.caseId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.linkJiraIssueToCase(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the project associated with a case
+   * @param param The request object
+   */
+  public moveCaseToProject(
+    param: CaseManagementApiMoveCaseToProjectRequest,
+    options?: Configuration,
+  ): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.moveCaseToProject(
+      param.caseId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.moveCaseToProject(responseContext);
+        });
+    });
+  }
+
+  /**
    * Search cases.
    * @param param The request object
    */
@@ -3697,6 +4899,27 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.unassignCase(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove the link between a Jira issue and a case
+   * @param param The request object
+   */
+  public unlinkJiraIssue(
+    param: CaseManagementApiUnlinkJiraIssueRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.unlinkJiraIssue(
+      param.caseId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.unlinkJiraIssue(responseContext);
         });
     });
   }
