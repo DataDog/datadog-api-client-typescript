@@ -3,6 +3,9 @@ export {
   CaseManagementApiAssignCaseRequest,
   CaseManagementApiCommentCaseRequest,
   CaseManagementApiCreateCaseRequest,
+  CaseManagementApiCreateCaseJiraIssueRequest,
+  CaseManagementApiCreateCaseNotebookRequest,
+  CaseManagementApiCreateCaseServiceNowTicketRequest,
   CaseManagementApiCreateProjectRequest,
   CaseManagementApiCreateProjectNotificationRuleRequest,
   CaseManagementApiDeleteCaseCommentRequest,
@@ -12,9 +15,13 @@ export {
   CaseManagementApiGetCaseRequest,
   CaseManagementApiGetProjectRequest,
   CaseManagementApiGetProjectNotificationRulesRequest,
+  CaseManagementApiLinkIncidentRequest,
+  CaseManagementApiLinkJiraIssueToCaseRequest,
+  CaseManagementApiMoveCaseToProjectRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUnlinkJiraIssueRequest,
   CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdateCaseCustomAttributeRequest,
   CaseManagementApiUpdateCaseDescriptionRequest,
@@ -91,6 +98,8 @@ export { CaseUpdateTitleRequest } from "./models/CaseUpdateTitleRequest";
 export { CustomAttributeType } from "./models/CustomAttributeType";
 export { CustomAttributeValue } from "./models/CustomAttributeValue";
 export { CustomAttributeValuesUnion } from "./models/CustomAttributeValuesUnion";
+export { IncidentRelationshipData } from "./models/IncidentRelationshipData";
+export { IncidentResourceType } from "./models/IncidentResourceType";
 export { IntegrationIncident } from "./models/IntegrationIncident";
 export { IntegrationIncidentFieldMappingsItems } from "./models/IntegrationIncidentFieldMappingsItems";
 export { IntegrationIncidentSeverityConfig } from "./models/IntegrationIncidentSeverityConfig";
@@ -111,7 +120,20 @@ export { IntegrationServiceNowSyncConfig } from "./models/IntegrationServiceNowS
 export { IntegrationServiceNowSyncConfig139772721534496 } from "./models/IntegrationServiceNowSyncConfig139772721534496";
 export { IntegrationServiceNowSyncConfigPriority } from "./models/IntegrationServiceNowSyncConfigPriority";
 export { JiraIssue } from "./models/JiraIssue";
+export { JiraIssueCreateAttributes } from "./models/JiraIssueCreateAttributes";
+export { JiraIssueCreateData } from "./models/JiraIssueCreateData";
+export { JiraIssueCreateRequest } from "./models/JiraIssueCreateRequest";
+export { JiraIssueLinkAttributes } from "./models/JiraIssueLinkAttributes";
+export { JiraIssueLinkData } from "./models/JiraIssueLinkData";
+export { JiraIssueLinkRequest } from "./models/JiraIssueLinkRequest";
+export { JiraIssueResourceType } from "./models/JiraIssueResourceType";
 export { JiraIssueResult } from "./models/JiraIssueResult";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { NotebookCreateData } from "./models/NotebookCreateData";
+export { NotebookCreateRequest } from "./models/NotebookCreateRequest";
+export { NotebookResourceType } from "./models/NotebookResourceType";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
 export { Project } from "./models/Project";
@@ -133,9 +155,14 @@ export { ProjectsResponse } from "./models/ProjectsResponse";
 export { ProjectUpdate } from "./models/ProjectUpdate";
 export { ProjectUpdateAttributes } from "./models/ProjectUpdateAttributes";
 export { ProjectUpdateRequest } from "./models/ProjectUpdateRequest";
+export { RelationshipToIncidentRequest } from "./models/RelationshipToIncidentRequest";
 export { RelationshipToTeamLinkData } from "./models/RelationshipToTeamLinkData";
 export { RelationshipToTeamLinks } from "./models/RelationshipToTeamLinks";
 export { ServiceNowTicket } from "./models/ServiceNowTicket";
+export { ServiceNowTicketCreateAttributes } from "./models/ServiceNowTicketCreateAttributes";
+export { ServiceNowTicketCreateData } from "./models/ServiceNowTicketCreateData";
+export { ServiceNowTicketCreateRequest } from "./models/ServiceNowTicketCreateRequest";
+export { ServiceNowTicketResourceType } from "./models/ServiceNowTicketResourceType";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
 export { SyncProperty } from "./models/SyncProperty";
 export { SyncPropertyWithMapping } from "./models/SyncPropertyWithMapping";
