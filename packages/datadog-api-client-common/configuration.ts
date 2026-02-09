@@ -273,7 +273,6 @@ export function createConfiguration(
       "v2.createDataset": false,
       "v2.deleteDataset": false,
       "v2.getAllDatasets": false,
-      "v2.getDataset": false,
       "v2.updateDataset": false,
       "v2.cancelDataDeletionRequest": false,
       "v2.createDataDeletionRequest": false,
