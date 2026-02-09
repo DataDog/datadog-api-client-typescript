@@ -1,15 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ServiceNowTicketCreateData } from "./ServiceNowTicketCreateData";
-
 /**
- * ServiceNow ticket creation request
+ * API error response.
  */
-export class ServiceNowTicketCreateRequest {
+export class APIErrorResponse {
   /**
-   * ServiceNow ticket creation data
+   * A list of errors.
    */
-  "data": ServiceNowTicketCreateData;
+  "errors": Array<string>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +23,9 @@ export class ServiceNowTicketCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ServiceNowTicketCreateData",
+    errors: {
+      baseName: "errors",
+      type: "Array<string>",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +38,7 @@ export class ServiceNowTicketCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceNowTicketCreateRequest.attributeTypeMap;
+    return APIErrorResponse.attributeTypeMap;
   }
 
   public constructor() {}

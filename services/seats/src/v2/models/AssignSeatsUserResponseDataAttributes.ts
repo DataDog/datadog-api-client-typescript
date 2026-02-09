@@ -1,20 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { JiraIssueCreateAttributes } from "./JiraIssueCreateAttributes";
-import { JiraIssueResourceType } from "./JiraIssueResourceType";
-
-/**
- * Jira issue creation data
- */
-export class JiraIssueCreateData {
+export class AssignSeatsUserResponseDataAttributes {
   /**
-   * Jira issue creation attributes
+   * The list of user IDs to which the seats were assigned.
    */
-  "attributes": JiraIssueCreateAttributes;
+  "assignedIds"?: Array<string>;
   /**
-   * Jira issue resource type
+   * The product code for which the seats were assigned.
    */
-  "type": JiraIssueResourceType;
+  "productCode"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,15 +24,13 @@ export class JiraIssueCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "JiraIssueCreateAttributes",
-      required: true,
+    assignedIds: {
+      baseName: "assigned_ids",
+      type: "Array<string>",
     },
-    type: {
-      baseName: "type",
-      type: "JiraIssueResourceType",
-      required: true,
+    productCode: {
+      baseName: "product_code",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -50,7 +42,7 @@ export class JiraIssueCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIssueCreateData.attributeTypeMap;
+    return AssignSeatsUserResponseDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

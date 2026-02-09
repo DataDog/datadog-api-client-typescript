@@ -1,15 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { SeatUserData } from "./SeatUserData";
+import { SeatUserMeta } from "./SeatUserMeta";
 
-/**
- * API error response.
- */
-export class JSONAPIErrorResponse {
+export class SeatUserDataArray {
   /**
-   * A list of errors.
+   * The list of seat users.
    */
-  "errors": Array<JSONAPIErrorItem>;
+  "data": Array<SeatUserData>;
+  "meta"?: SeatUserMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,10 +24,14 @@ export class JSONAPIErrorResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<JSONAPIErrorItem>",
+    data: {
+      baseName: "data",
+      type: "Array<SeatUserData>",
       required: true,
+    },
+    meta: {
+      baseName: "meta",
+      type: "SeatUserMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +43,7 @@ export class JSONAPIErrorResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JSONAPIErrorResponse.attributeTypeMap;
+    return SeatUserDataArray.attributeTypeMap;
   }
 
   public constructor() {}
