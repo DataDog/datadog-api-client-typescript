@@ -1121,10 +1121,13 @@ export {
   WorkflowAutomationApiCreateWorkflowRequest,
   WorkflowAutomationApiCreateWorkflowInstanceRequest,
   WorkflowAutomationApiDeleteWorkflowRequest,
+  WorkflowAutomationApiExecuteWorkflowFromTemplateRequest,
+  WorkflowAutomationApiExecuteWorkflowFromWebhookRequest,
   WorkflowAutomationApiGetWorkflowRequest,
   WorkflowAutomationApiGetWorkflowInstanceRequest,
   WorkflowAutomationApiListWorkflowInstancesRequest,
   WorkflowAutomationApiUpdateWorkflowRequest,
+  WorkflowAutomationApiUpdateWorkflowFavoriteRequest,
   WorkflowAutomationApi,
 } from "./apis/WorkflowAutomationApi";
 
@@ -5336,6 +5339,20 @@ export { WorkflowDataRelationships } from "./models/WorkflowDataRelationships";
 export { WorkflowDataType } from "./models/WorkflowDataType";
 export { WorkflowDataUpdate } from "./models/WorkflowDataUpdate";
 export { WorkflowDataUpdateAttributes } from "./models/WorkflowDataUpdateAttributes";
+export { WorkflowFavoriteRequest } from "./models/WorkflowFavoriteRequest";
+export { WorkflowFavoriteRequestAttributes } from "./models/WorkflowFavoriteRequestAttributes";
+export { WorkflowFavoriteRequestData } from "./models/WorkflowFavoriteRequestData";
+export { WorkflowFavoriteRequestType } from "./models/WorkflowFavoriteRequestType";
+export { WorkflowHeadlessExecutionConfig } from "./models/WorkflowHeadlessExecutionConfig";
+export { WorkflowHeadlessExecutionConnection } from "./models/WorkflowHeadlessExecutionConnection";
+export { WorkflowHeadlessExecutionRequest } from "./models/WorkflowHeadlessExecutionRequest";
+export { WorkflowHeadlessExecutionRequestAttributes } from "./models/WorkflowHeadlessExecutionRequestAttributes";
+export { WorkflowHeadlessExecutionRequestData } from "./models/WorkflowHeadlessExecutionRequestData";
+export { WorkflowHeadlessExecutionRequestType } from "./models/WorkflowHeadlessExecutionRequestType";
+export { WorkflowHeadlessExecutionResponse } from "./models/WorkflowHeadlessExecutionResponse";
+export { WorkflowHeadlessExecutionResponseAttributes } from "./models/WorkflowHeadlessExecutionResponseAttributes";
+export { WorkflowHeadlessExecutionResponseData } from "./models/WorkflowHeadlessExecutionResponseData";
+export { WorkflowHeadlessExecutionResponseType } from "./models/WorkflowHeadlessExecutionResponseType";
 export { WorkflowInstanceCreateMeta } from "./models/WorkflowInstanceCreateMeta";
 export { WorkflowInstanceCreateRequest } from "./models/WorkflowInstanceCreateRequest";
 export { WorkflowInstanceCreateResponse } from "./models/WorkflowInstanceCreateResponse";
@@ -5348,6 +5365,10 @@ export { WorkflowTriggerWrapper } from "./models/WorkflowTriggerWrapper";
 export { WorkflowUserRelationship } from "./models/WorkflowUserRelationship";
 export { WorkflowUserRelationshipData } from "./models/WorkflowUserRelationshipData";
 export { WorkflowUserRelationshipType } from "./models/WorkflowUserRelationshipType";
+export { WorkflowWebhookExecutionResponse } from "./models/WorkflowWebhookExecutionResponse";
+export { WorkflowWebhookExecutionResponseAttributes } from "./models/WorkflowWebhookExecutionResponseAttributes";
+export { WorkflowWebhookExecutionResponseData } from "./models/WorkflowWebhookExecutionResponseData";
+export { WorkflowWebhookExecutionResponseType } from "./models/WorkflowWebhookExecutionResponseType";
 export { WorklflowCancelInstanceResponse } from "./models/WorklflowCancelInstanceResponse";
 export { WorklflowCancelInstanceResponseData } from "./models/WorklflowCancelInstanceResponseData";
 export { WorklflowGetInstanceResponse } from "./models/WorklflowGetInstanceResponse";

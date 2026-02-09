@@ -10844,6 +10844,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PermissionsResponse",
     },
+    "v2.ExecuteWorkflowFromTemplate": {
+        "parentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "WorkflowHeadlessExecutionRequest",
+            "format": "",
+            },
+        "operationResponseType": "WorkflowHeadlessExecutionResponse",
+    },
     "v2.CreateWorkflow": {
         "body": {
             "type": "CreateWorkflowRequest",
@@ -10875,6 +10886,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UpdateWorkflowResponse",
+    },
+    "v2.UpdateWorkflowFavorite": {
+        "workflowId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "WorkflowFavoriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListWorkflowInstances": {
         "workflowId": {
@@ -10923,5 +10945,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "WorklflowCancelInstanceResponse",
+    },
+    "v2.ExecuteWorkflowFromWebhook": {
+        "workflowId": {
+            "type": "string",
+            "format": "",
+            },
+        "orgId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "xHubSignature256": {
+            "type": "string",
+            "format": "",
+            },
+        "userAgent": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "{ [key: string]: any; }",
+            "format": "",
+            },
+        "operationResponseType": "WorkflowWebhookExecutionResponse",
     },
 }

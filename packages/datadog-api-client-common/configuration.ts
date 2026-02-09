@@ -417,6 +417,9 @@ export function createConfiguration(
       "v2.updateIncidentTeam": false,
       "v2.searchFlakyTests": false,
       "v2.updateFlakyTests": false,
+      "v2.executeWorkflowFromTemplate": false,
+      "v2.executeWorkflowFromWebhook": false,
+      "v2.updateWorkflowFavorite": false,
     }
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
