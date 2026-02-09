@@ -3507,6 +3507,79 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.LinkIncident": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.CreateCaseJiraIssue": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "JiraIssueCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnlinkJiraIssue": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.LinkJiraIssueToCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "JiraIssueLinkRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateCaseNotebook": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "NotebookCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.MoveCaseToProject": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ProjectRelationship",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.CreateCaseServiceNowTicket": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ServiceNowTicketCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.UpdateStatus": {
         "caseId": {
             "type": "string",
