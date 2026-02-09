@@ -3,18 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { NotebookResourceType } from "./NotebookResourceType";
+import { AssignSeatsUserRequestDataAttributes } from "./AssignSeatsUserRequestDataAttributes";
+import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Notebook creation data
- */
-export class NotebookCreateData {
+export class AssignSeatsUserRequestData {
+  "attributes"?: AssignSeatsUserRequestDataAttributes;
   /**
-   * Notebook resource type
+   * The ID of the assign seats user request.
    */
-  "type": NotebookResourceType;
+  "id"?: string;
+  /**
+   * Seat assignments resource type.
+   */
+  "type": SeatAssignmentsDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +35,17 @@ export class NotebookCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "AssignSeatsUserRequestDataAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
     type: {
       baseName: "type",
-      type: "NotebookResourceType",
+      type: "SeatAssignmentsDataType",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +58,7 @@ export class NotebookCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateData.attributeTypeMap;
+    return AssignSeatsUserRequestData.attributeTypeMap;
   }
 
   public constructor() {}

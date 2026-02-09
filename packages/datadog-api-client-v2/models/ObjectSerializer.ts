@@ -176,6 +176,12 @@ import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
 import { AssetRisks } from "./AssetRisks";
 import { AssetVersion } from "./AssetVersion";
+import { AssignSeatsUserRequest } from "./AssignSeatsUserRequest";
+import { AssignSeatsUserRequestData } from "./AssignSeatsUserRequestData";
+import { AssignSeatsUserRequestDataAttributes } from "./AssignSeatsUserRequestDataAttributes";
+import { AssignSeatsUserResponse } from "./AssignSeatsUserResponse";
+import { AssignSeatsUserResponseData } from "./AssignSeatsUserResponseData";
+import { AssignSeatsUserResponseDataAttributes } from "./AssignSeatsUserResponseDataAttributes";
 import { AttachCaseRequest } from "./AttachCaseRequest";
 import { AttachCaseRequestData } from "./AttachCaseRequestData";
 import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
@@ -1368,7 +1374,6 @@ import { IncidentNotificationTemplateRelationships } from "./IncidentNotificatio
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
 import { IncidentNotificationTemplateUpdateData } from "./IncidentNotificationTemplateUpdateData";
-import { IncidentRelationshipData } from "./IncidentRelationshipData";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
@@ -1515,12 +1520,6 @@ import { JiraAccountsResponse } from "./JiraAccountsResponse";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { JiraIssue } from "./JiraIssue";
-import { JiraIssueCreateAttributes } from "./JiraIssueCreateAttributes";
-import { JiraIssueCreateData } from "./JiraIssueCreateData";
-import { JiraIssueCreateRequest } from "./JiraIssueCreateRequest";
-import { JiraIssueLinkAttributes } from "./JiraIssueLinkAttributes";
-import { JiraIssueLinkData } from "./JiraIssueLinkData";
-import { JiraIssueLinkRequest } from "./JiraIssueLinkRequest";
 import { JiraIssueResult } from "./JiraIssueResult";
 import { JiraIssueTemplateCreateRequest } from "./JiraIssueTemplateCreateRequest";
 import { JiraIssueTemplateCreateRequestAttributes } from "./JiraIssueTemplateCreateRequestAttributes";
@@ -1812,8 +1811,6 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
-import { NotebookCreateData } from "./NotebookCreateData";
-import { NotebookCreateRequest } from "./NotebookCreateRequest";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
 import { NotificationChannel } from "./NotificationChannel";
 import { NotificationChannelAttributes } from "./NotificationChannelAttributes";
@@ -2236,7 +2233,6 @@ import { RelationshipToIncidentNotificationTemplate } from "./RelationshipToInci
 import { RelationshipToIncidentNotificationTemplateData } from "./RelationshipToIncidentNotificationTemplateData";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
-import { RelationshipToIncidentRequest } from "./RelationshipToIncidentRequest";
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
 import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
@@ -2484,6 +2480,10 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { SeatUserData } from "./SeatUserData";
+import { SeatUserDataArray } from "./SeatUserDataArray";
+import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
+import { SeatUserMeta } from "./SeatUserMeta";
 import { SecretRuleArray } from "./SecretRuleArray";
 import { SecretRuleData } from "./SecretRuleData";
 import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
@@ -2730,9 +2730,6 @@ import { ServiceNowTemplateUpdateRequestAttributes } from "./ServiceNowTemplateU
 import { ServiceNowTemplateUpdateRequestData } from "./ServiceNowTemplateUpdateRequestData";
 import { ServiceNowTemplatesResponse } from "./ServiceNowTemplatesResponse";
 import { ServiceNowTicket } from "./ServiceNowTicket";
-import { ServiceNowTicketCreateAttributes } from "./ServiceNowTicketCreateAttributes";
-import { ServiceNowTicketCreateData } from "./ServiceNowTicketCreateData";
-import { ServiceNowTicketCreateRequest } from "./ServiceNowTicketCreateRequest";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { ServiceNowUserAttributes } from "./ServiceNowUserAttributes";
 import { ServiceNowUserData } from "./ServiceNowUserData";
@@ -3044,6 +3041,9 @@ import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
 import { UCConfigPairDataAttributesConfigsItems } from "./UCConfigPairDataAttributesConfigsItems";
+import { UnassignSeatsUserRequest } from "./UnassignSeatsUserRequest";
+import { UnassignSeatsUserRequestData } from "./UnassignSeatsUserRequestData";
+import { UnassignSeatsUserRequestDataAttributes } from "./UnassignSeatsUserRequestDataAttributes";
 import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
@@ -3872,7 +3872,6 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentNotificationTemplateType: ["notification_templates"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
-  IncidentResourceType: ["incidents"],
   IncidentRespondersType: ["incident_responders"],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
@@ -3967,7 +3966,6 @@ const enumsMap: { [key: string]: any[] } = {
   IssuesSearchRequestDataType: ["search_request"],
   IssuesSearchResultType: ["error_tracking_search_result"],
   JiraAccountType: ["jira-account"],
-  JiraIssueResourceType: ["issues"],
   JiraIssueTemplateType: ["jira-issue-template"],
   JiraIssuesDataType: ["jira_issues"],
   JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
@@ -4078,7 +4076,6 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   MonitorUserTemplateResourceType: ["monitor-user-template"],
-  NotebookResourceType: ["notebook"],
   NotificationChannelEmailConfigType: ["email"],
   NotificationChannelEmailFormatType: ["html", "text"],
   NotificationChannelPhoneConfigType: ["phone"],
@@ -4600,6 +4597,8 @@ const enumsMap: { [key: string]: any[] } = {
     "issue.case",
     "issue.team_owners",
   ],
+  SeatAssignmentsDataType: ["seat-assignments"],
+  SeatUserDataType: ["seat-users"],
   SecretRuleDataType: ["secret_rule"],
   SecurityEntityRiskScoreAttributesSeverity: [
     "critical",
@@ -4839,7 +4838,6 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceNowInstanceType: ["instance"],
   ServiceNowIntegrationType: ["ServiceNow"],
   ServiceNowTemplateType: ["servicenow_templates"],
-  ServiceNowTicketResourceType: ["tickets"],
   ServiceNowUserType: ["users"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
@@ -5346,6 +5344,12 @@ const typeMap: { [index: string]: any } = {
   AssetOperatingSystem: AssetOperatingSystem,
   AssetRisks: AssetRisks,
   AssetVersion: AssetVersion,
+  AssignSeatsUserRequest: AssignSeatsUserRequest,
+  AssignSeatsUserRequestData: AssignSeatsUserRequestData,
+  AssignSeatsUserRequestDataAttributes: AssignSeatsUserRequestDataAttributes,
+  AssignSeatsUserResponse: AssignSeatsUserResponse,
+  AssignSeatsUserResponseData: AssignSeatsUserResponseData,
+  AssignSeatsUserResponseDataAttributes: AssignSeatsUserResponseDataAttributes,
   AttachCaseRequest: AttachCaseRequest,
   AttachCaseRequestData: AttachCaseRequestData,
   AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
@@ -6735,7 +6739,6 @@ const typeMap: { [index: string]: any } = {
     IncidentNotificationTemplateUpdateAttributes,
   IncidentNotificationTemplateUpdateData:
     IncidentNotificationTemplateUpdateData,
-  IncidentRelationshipData: IncidentRelationshipData,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
   IncidentResponseData: IncidentResponseData,
@@ -6892,12 +6895,6 @@ const typeMap: { [index: string]: any } = {
   JiraIntegrationMetadata: JiraIntegrationMetadata,
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   JiraIssue: JiraIssue,
-  JiraIssueCreateAttributes: JiraIssueCreateAttributes,
-  JiraIssueCreateData: JiraIssueCreateData,
-  JiraIssueCreateRequest: JiraIssueCreateRequest,
-  JiraIssueLinkAttributes: JiraIssueLinkAttributes,
-  JiraIssueLinkData: JiraIssueLinkData,
-  JiraIssueLinkRequest: JiraIssueLinkRequest,
   JiraIssueResult: JiraIssueResult,
   JiraIssueTemplateCreateRequest: JiraIssueTemplateCreateRequest,
   JiraIssueTemplateCreateRequestAttributes:
@@ -7237,8 +7234,6 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
-  NotebookCreateData: NotebookCreateData,
-  NotebookCreateRequest: NotebookCreateRequest,
   NotebookTriggerWrapper: NotebookTriggerWrapper,
   NotificationChannel: NotificationChannel,
   NotificationChannelAttributes: NotificationChannelAttributes,
@@ -7784,7 +7779,6 @@ const typeMap: { [index: string]: any } = {
     RelationshipToIncidentNotificationTemplateData,
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
-  RelationshipToIncidentRequest: RelationshipToIncidentRequest,
   RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
   RelationshipToIncidentResponders: RelationshipToIncidentResponders,
   RelationshipToIncidentType: RelationshipToIncidentType,
@@ -8065,6 +8059,10 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataRelationships,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
+  SeatUserData: SeatUserData,
+  SeatUserDataArray: SeatUserDataArray,
+  SeatUserDataAttributes: SeatUserDataAttributes,
+  SeatUserMeta: SeatUserMeta,
   SecretRuleArray: SecretRuleArray,
   SecretRuleData: SecretRuleData,
   SecretRuleDataAttributes: SecretRuleDataAttributes,
@@ -8392,9 +8390,6 @@ const typeMap: { [index: string]: any } = {
   ServiceNowTemplateUpdateRequestData: ServiceNowTemplateUpdateRequestData,
   ServiceNowTemplatesResponse: ServiceNowTemplatesResponse,
   ServiceNowTicket: ServiceNowTicket,
-  ServiceNowTicketCreateAttributes: ServiceNowTicketCreateAttributes,
-  ServiceNowTicketCreateData: ServiceNowTicketCreateData,
-  ServiceNowTicketCreateRequest: ServiceNowTicketCreateRequest,
   ServiceNowTicketResult: ServiceNowTicketResult,
   ServiceNowUserAttributes: ServiceNowUserAttributes,
   ServiceNowUserData: ServiceNowUserData,
@@ -8765,6 +8760,10 @@ const typeMap: { [index: string]: any } = {
   UCConfigPairDataAttributes: UCConfigPairDataAttributes,
   UCConfigPairDataAttributesConfigsItems:
     UCConfigPairDataAttributesConfigsItems,
+  UnassignSeatsUserRequest: UnassignSeatsUserRequest,
+  UnassignSeatsUserRequestData: UnassignSeatsUserRequestData,
+  UnassignSeatsUserRequestDataAttributes:
+    UnassignSeatsUserRequestDataAttributes,
   Unit: Unit,
   UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,

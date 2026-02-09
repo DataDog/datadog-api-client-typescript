@@ -1,24 +1,26 @@
 /**
- * Create investigation notebook for case returns "No Content" response
+ * Unassign seats from users returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.createCaseNotebook"] = true;
-const apiInstance = new v2.CaseManagementApi(configuration);
+const apiInstance = new v2.SeatsApi(configuration);
 
-const params: v2.CaseManagementApiCreateCaseNotebookRequest = {
+const params: v2.SeatsApiUnassignSeatsUserV2Request = {
   body: {
     data: {
-      type: "notebook",
+      attributes: {
+        productCode: "",
+        userUuids: [""],
+      },
+      type: "seat-assignments",
     },
   },
-  caseId: "case_id",
 };
 
 apiInstance
-  .createCaseNotebook(params)
+  .unassignSeatsUserV2(params)
   .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

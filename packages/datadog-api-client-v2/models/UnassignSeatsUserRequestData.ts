@@ -3,22 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentResourceType } from "./IncidentResourceType";
+import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
+import { UnassignSeatsUserRequestDataAttributes } from "./UnassignSeatsUserRequestDataAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Incident relationship data
- */
-export class IncidentRelationshipData {
+export class UnassignSeatsUserRequestData {
+  "attributes"?: UnassignSeatsUserRequestDataAttributes;
   /**
-   * Incident identifier
+   * The ID of the unassign seats user request.
    */
-  "id": string;
+  "id"?: string;
   /**
-   * Incident resource type
+   * Seat assignments resource type.
    */
-  "type": IncidentResourceType;
+  "type": SeatAssignmentsDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +35,17 @@ export class IncidentRelationshipData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "UnassignSeatsUserRequestDataAttributes",
+    },
     id: {
       baseName: "id",
       type: "string",
-      required: true,
     },
     type: {
       baseName: "type",
-      type: "IncidentResourceType",
+      type: "SeatAssignmentsDataType",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +58,7 @@ export class IncidentRelationshipData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentRelationshipData.attributeTypeMap;
+    return UnassignSeatsUserRequestData.attributeTypeMap;
   }
 
   public constructor() {}
