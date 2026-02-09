@@ -25,10 +25,18 @@ import { WorkflowAutomationApiV2 } from "@datadog/datadog-api-client-workflow-au
 import { v2 } from "@datadog/datadog-api-client-workflow-automation";
 
 const configuration = createConfiguration();
+// Enable unstable operations
+const configurationOpts = {
+    unstableOperations: {
+        "WorkflowAutomationApi.v2.executeWorkflowFromTemplate": true
+    }
+}
+
+const configuration = createConfiguration(configurationOpts);
 const apiInstance = new WorkflowAutomationApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createWorkflow(params).then((data) => {
+apiInstance.executeWorkflowFromTemplate(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

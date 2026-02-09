@@ -64,6 +64,17 @@ import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
 import { WorkflowDataUpdate } from "./WorkflowDataUpdate";
 import { WorkflowDataUpdateAttributes } from "./WorkflowDataUpdateAttributes";
+import { WorkflowFavoriteRequest } from "./WorkflowFavoriteRequest";
+import { WorkflowFavoriteRequestAttributes } from "./WorkflowFavoriteRequestAttributes";
+import { WorkflowFavoriteRequestData } from "./WorkflowFavoriteRequestData";
+import { WorkflowHeadlessExecutionConfig } from "./WorkflowHeadlessExecutionConfig";
+import { WorkflowHeadlessExecutionConnection } from "./WorkflowHeadlessExecutionConnection";
+import { WorkflowHeadlessExecutionRequest } from "./WorkflowHeadlessExecutionRequest";
+import { WorkflowHeadlessExecutionRequestAttributes } from "./WorkflowHeadlessExecutionRequestAttributes";
+import { WorkflowHeadlessExecutionRequestData } from "./WorkflowHeadlessExecutionRequestData";
+import { WorkflowHeadlessExecutionResponse } from "./WorkflowHeadlessExecutionResponse";
+import { WorkflowHeadlessExecutionResponseAttributes } from "./WorkflowHeadlessExecutionResponseAttributes";
+import { WorkflowHeadlessExecutionResponseData } from "./WorkflowHeadlessExecutionResponseData";
 import { WorkflowInstanceCreateMeta } from "./WorkflowInstanceCreateMeta";
 import { WorkflowInstanceCreateRequest } from "./WorkflowInstanceCreateRequest";
 import { WorkflowInstanceCreateResponse } from "./WorkflowInstanceCreateResponse";
@@ -75,6 +86,9 @@ import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesRe
 import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
 import { WorkflowUserRelationship } from "./WorkflowUserRelationship";
 import { WorkflowUserRelationshipData } from "./WorkflowUserRelationshipData";
+import { WorkflowWebhookExecutionResponse } from "./WorkflowWebhookExecutionResponse";
+import { WorkflowWebhookExecutionResponseAttributes } from "./WorkflowWebhookExecutionResponseAttributes";
+import { WorkflowWebhookExecutionResponseData } from "./WorkflowWebhookExecutionResponseData";
 import { WorklflowCancelInstanceResponse } from "./WorklflowCancelInstanceResponse";
 import { WorklflowCancelInstanceResponseData } from "./WorklflowCancelInstanceResponseData";
 import { WorklflowGetInstanceResponse } from "./WorklflowGetInstanceResponse";
@@ -121,7 +135,13 @@ export const TypingInfo: ModelTypingInfo = {
     ReadinessGateThresholdType: ["ANY", "ALL"],
     RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
     WorkflowDataType: ["workflows"],
+    WorkflowFavoriteRequestType: ["workflow_favorite_request"],
+    WorkflowHeadlessExecutionRequestType: [
+      "workflow_headless_execution_request",
+    ],
+    WorkflowHeadlessExecutionResponseType: ["workflow_headless_execution"],
     WorkflowUserRelationshipType: ["users"],
+    WorkflowWebhookExecutionResponseType: ["workflow_webhook_execution"],
   },
   oneOfMap: {
     Trigger: [
@@ -210,6 +230,20 @@ export const TypingInfo: ModelTypingInfo = {
     WorkflowDataRelationships: WorkflowDataRelationships,
     WorkflowDataUpdate: WorkflowDataUpdate,
     WorkflowDataUpdateAttributes: WorkflowDataUpdateAttributes,
+    WorkflowFavoriteRequest: WorkflowFavoriteRequest,
+    WorkflowFavoriteRequestAttributes: WorkflowFavoriteRequestAttributes,
+    WorkflowFavoriteRequestData: WorkflowFavoriteRequestData,
+    WorkflowHeadlessExecutionConfig: WorkflowHeadlessExecutionConfig,
+    WorkflowHeadlessExecutionConnection: WorkflowHeadlessExecutionConnection,
+    WorkflowHeadlessExecutionRequest: WorkflowHeadlessExecutionRequest,
+    WorkflowHeadlessExecutionRequestAttributes:
+      WorkflowHeadlessExecutionRequestAttributes,
+    WorkflowHeadlessExecutionRequestData: WorkflowHeadlessExecutionRequestData,
+    WorkflowHeadlessExecutionResponse: WorkflowHeadlessExecutionResponse,
+    WorkflowHeadlessExecutionResponseAttributes:
+      WorkflowHeadlessExecutionResponseAttributes,
+    WorkflowHeadlessExecutionResponseData:
+      WorkflowHeadlessExecutionResponseData,
     WorkflowInstanceCreateMeta: WorkflowInstanceCreateMeta,
     WorkflowInstanceCreateRequest: WorkflowInstanceCreateRequest,
     WorkflowInstanceCreateResponse: WorkflowInstanceCreateResponse,
@@ -222,6 +256,10 @@ export const TypingInfo: ModelTypingInfo = {
     WorkflowTriggerWrapper: WorkflowTriggerWrapper,
     WorkflowUserRelationship: WorkflowUserRelationship,
     WorkflowUserRelationshipData: WorkflowUserRelationshipData,
+    WorkflowWebhookExecutionResponse: WorkflowWebhookExecutionResponse,
+    WorkflowWebhookExecutionResponseAttributes:
+      WorkflowWebhookExecutionResponseAttributes,
+    WorkflowWebhookExecutionResponseData: WorkflowWebhookExecutionResponseData,
     WorklflowCancelInstanceResponse: WorklflowCancelInstanceResponse,
     WorklflowCancelInstanceResponseData: WorklflowCancelInstanceResponseData,
     WorklflowGetInstanceResponse: WorklflowGetInstanceResponse,
