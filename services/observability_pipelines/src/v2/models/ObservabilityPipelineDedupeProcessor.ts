@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineDedupeProcessorCache } from "./ObservabilityPipelineDedupeProcessorCache";
 import { ObservabilityPipelineDedupeProcessorMode } from "./ObservabilityPipelineDedupeProcessorMode";
 import { ObservabilityPipelineDedupeProcessorType } from "./ObservabilityPipelineDedupeProcessorType";
 
@@ -9,6 +10,10 @@ import { ObservabilityPipelineDedupeProcessorType } from "./ObservabilityPipelin
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDedupeProcessor {
+  /**
+   * Configuration for the cache used to detect duplicates.
+   */
+  "cache"?: ObservabilityPipelineDedupeProcessorCache;
   /**
    * The display name for a component.
    */
@@ -52,6 +57,10 @@ export class ObservabilityPipelineDedupeProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    cache: {
+      baseName: "cache",
+      type: "ObservabilityPipelineDedupeProcessorCache",
+    },
     displayName: {
       baseName: "display_name",
       type: "string",
