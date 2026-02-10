@@ -1,7 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptionsMemoryType } from "./ObservabilityPipelineBufferOptionsMemoryType";
-import { ObservabilityPipelineBufferOptionsWhenFull } from "./ObservabilityPipelineBufferOptionsWhenFull";
 
 /**
  * Options for configuring a memory buffer by byte size.
@@ -15,10 +14,6 @@ export class ObservabilityPipelineMemoryBufferOptions {
    * The type of the buffer that will be configured, a memory buffer.
    */
   "type"?: ObservabilityPipelineBufferOptionsMemoryType;
-  /**
-   * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
-   */
-  "whenFull"?: ObservabilityPipelineBufferOptionsWhenFull;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -42,10 +37,6 @@ export class ObservabilityPipelineMemoryBufferOptions {
     type: {
       baseName: "type",
       type: "ObservabilityPipelineBufferOptionsMemoryType",
-    },
-    whenFull: {
-      baseName: "when_full",
-      type: "ObservabilityPipelineBufferOptionsWhenFull",
     },
     additionalProperties: {
       baseName: "additionalProperties",
