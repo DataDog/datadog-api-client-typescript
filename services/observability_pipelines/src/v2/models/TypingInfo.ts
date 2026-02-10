@@ -32,6 +32,7 @@ import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./Observabilit
 import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
+import { ObservabilityPipelineDedupeProcessorCache } from "./ObservabilityPipelineDedupeProcessorCache";
 import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
@@ -570,6 +571,8 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineDatadogTagsProcessor:
       ObservabilityPipelineDatadogTagsProcessor,
     ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
+    ObservabilityPipelineDedupeProcessorCache:
+      ObservabilityPipelineDedupeProcessorCache,
     ObservabilityPipelineDiskBufferOptions:
       ObservabilityPipelineDiskBufferOptions,
     ObservabilityPipelineElasticsearchDestination:
