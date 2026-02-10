@@ -3568,6 +3568,7 @@ export { ObservabilityPipelineDatadogTagsProcessorMode } from "./models/Observab
 export { ObservabilityPipelineDatadogTagsProcessorType } from "./models/ObservabilityPipelineDatadogTagsProcessorType";
 export { ObservabilityPipelineDecoding } from "./models/ObservabilityPipelineDecoding";
 export { ObservabilityPipelineDedupeProcessor } from "./models/ObservabilityPipelineDedupeProcessor";
+export { ObservabilityPipelineDedupeProcessorCache } from "./models/ObservabilityPipelineDedupeProcessorCache";
 export { ObservabilityPipelineDedupeProcessorMode } from "./models/ObservabilityPipelineDedupeProcessorMode";
 export { ObservabilityPipelineDedupeProcessorType } from "./models/ObservabilityPipelineDedupeProcessorType";
 export { ObservabilityPipelineDiskBufferOptions } from "./models/ObservabilityPipelineDiskBufferOptions";
