@@ -577,17 +577,17 @@ export interface NetworkDeviceMonitoringApiGetInterfacesRequest {
 
 export interface NetworkDeviceMonitoringApiListDevicesRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 500. Defaults to 50.
    * @type number
    */
   pageSize?: number;
   /**
-   * Specific page number to return.
+   * Specific page number to return. Defaults to 0.
    * @type number
    */
   pageNumber?: number;
   /**
-   * The field to sort the devices by.
+   * The field to sort the devices by. Defaults to `name`.
    * @type string
    */
   sort?: string;
@@ -710,7 +710,7 @@ export class NetworkDeviceMonitoringApi {
     param: NetworkDeviceMonitoringApiListDevicesRequest = {},
     options?: Configuration
   ): AsyncGenerator<DevicesListData> {
-    let pageSize = 10;
+    let pageSize = 50;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
