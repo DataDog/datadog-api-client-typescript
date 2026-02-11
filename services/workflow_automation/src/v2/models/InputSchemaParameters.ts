@@ -7,6 +7,14 @@ import { InputSchemaParametersType } from "./InputSchemaParametersType";
  */
 export class InputSchemaParameters {
   /**
+   * The `InputSchemaParameters` `allowExtraValues`.
+   */
+  "allowExtraValues"?: boolean;
+  /**
+   * The `InputSchemaParameters` `allowedValues`.
+   */
+  "allowedValues"?: any;
+  /**
    * The `InputSchemaParameters` `defaultValue`.
    */
   "defaultValue"?: any;
@@ -41,6 +49,14 @@ export class InputSchemaParameters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    allowExtraValues: {
+      baseName: "allowExtraValues",
+      type: "boolean",
+    },
+    allowedValues: {
+      baseName: "allowedValues",
+      type: "any",
+    },
     defaultValue: {
       baseName: "defaultValue",
       type: "any",
