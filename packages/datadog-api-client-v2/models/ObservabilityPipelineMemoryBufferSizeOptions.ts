@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineBufferOptionsMemoryType } from "./ObservabilityPipelineBufferOptionsMemoryType";
-import { ObservabilityPipelineBufferOptionsWhenFull } from "./ObservabilityPipelineBufferOptionsWhenFull";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -20,10 +19,6 @@ export class ObservabilityPipelineMemoryBufferSizeOptions {
    * The type of the buffer that will be configured, a memory buffer.
    */
   "type"?: ObservabilityPipelineBufferOptionsMemoryType;
-  /**
-   * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
-   */
-  "whenFull"?: ObservabilityPipelineBufferOptionsWhenFull;
 
   /**
    * A container for additional, undeclared properties.
@@ -49,10 +44,6 @@ export class ObservabilityPipelineMemoryBufferSizeOptions {
     type: {
       baseName: "type",
       type: "ObservabilityPipelineBufferOptionsMemoryType",
-    },
-    whenFull: {
-      baseName: "when_full",
-      type: "ObservabilityPipelineBufferOptionsWhenFull",
     },
     additionalProperties: {
       baseName: "additionalProperties",
