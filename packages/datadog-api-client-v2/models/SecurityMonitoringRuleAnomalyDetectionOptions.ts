@@ -24,6 +24,10 @@ export class SecurityMonitoringRuleAnomalyDetectionOptions {
    */
   "detectionTolerance"?: SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance;
   /**
+   * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
+   */
+  "instantaneousBaseline"?: boolean;
+  /**
    * Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating.
    */
   "learningDuration"?: SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration;
@@ -55,6 +59,10 @@ export class SecurityMonitoringRuleAnomalyDetectionOptions {
     detectionTolerance: {
       baseName: "detectionTolerance",
       type: "SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance",
+    },
+    instantaneousBaseline: {
+      baseName: "instantaneousBaseline",
+      type: "boolean",
     },
     learningDuration: {
       baseName: "learningDuration",
