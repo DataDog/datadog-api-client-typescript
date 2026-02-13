@@ -49,6 +49,8 @@ export { SLOCorrectionListResponse } from "./models/SLOCorrectionListResponse";
 export { SLOCorrectionResponseAttributes } from "./models/SLOCorrectionResponseAttributes";
 export { SLOCorrectionResponseAttributesModifier } from "./models/SLOCorrectionResponseAttributesModifier";
 export { SLOCorrectionType } from "./models/SLOCorrectionType";
+export { SLOCountDefinition } from "./models/SLOCountDefinition";
+export { SLOCountSpec } from "./models/SLOCountSpec";
 export { SLOCreator } from "./models/SLOCreator";
 export { SLODataSourceQueryDefinition } from "./models/SLODataSourceQueryDefinition";
 export { SLODeleteResponse } from "./models/SLODeleteResponse";
