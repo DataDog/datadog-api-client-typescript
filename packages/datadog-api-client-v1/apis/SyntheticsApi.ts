@@ -4493,9 +4493,8 @@ export class SyntheticsApi {
         param.pageNumber,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listTests(responseContext);
       const responseTests = response.tests;

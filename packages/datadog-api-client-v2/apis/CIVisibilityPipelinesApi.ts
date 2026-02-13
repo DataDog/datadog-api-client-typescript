@@ -652,13 +652,11 @@ export class CIVisibilityPipelinesApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCIAppPipelineEvents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listCIAppPipelineEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -737,13 +735,11 @@ export class CIVisibilityPipelinesApi {
           param.body,
           options
         );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchCIAppPipelineEvents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchCIAppPipelineEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -7442,13 +7442,11 @@ export class IncidentsApi {
         param.pageOffset,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listIncidents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listIncidents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -7556,13 +7554,11 @@ export class IncidentsApi {
         param.pageOffset,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchIncidents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchIncidents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
