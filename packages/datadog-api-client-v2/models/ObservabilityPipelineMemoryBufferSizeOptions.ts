@@ -15,7 +15,7 @@ export class ObservabilityPipelineMemoryBufferSizeOptions {
   /**
    * Maximum events for the memory buffer.
    */
-  "maxEvents"?: number;
+  "maxEvents": number;
   /**
    * The type of the buffer that will be configured, a memory buffer.
    */
@@ -44,6 +44,7 @@ export class ObservabilityPipelineMemoryBufferSizeOptions {
     maxEvents: {
       baseName: "max_events",
       type: "number",
+      required: true,
       format: "int64",
     },
     type: {

@@ -15,7 +15,7 @@ export class ObservabilityPipelineDiskBufferOptions {
   /**
    * Maximum size of the disk buffer.
    */
-  "maxSize"?: number;
+  "maxSize": number;
   /**
    * The type of the buffer that will be configured, a disk buffer.
    */
@@ -44,6 +44,7 @@ export class ObservabilityPipelineDiskBufferOptions {
     maxSize: {
       baseName: "max_size",
       type: "number",
+      required: true,
       format: "int64",
     },
     type: {
