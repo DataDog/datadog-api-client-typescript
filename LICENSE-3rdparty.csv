@@ -18,7 +18,6 @@ cross-fetch,MIT,Copyright (c) 2017 Leonardo Quixadá
 jest,MIT,Copyright (c) Facebook, Inc. and its affiliates.
 ts-jest,MIT,Copyright (c) 2016-2018
 dd-trace,BSD-3-Clause,Copyright 2016-Present Datadog Inc.
-es6-promise,MIT,Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
 eslint-plugin-import,MIT,Copyright (c) 2015 Ben Mosher
 eslint-plugin-node,MIT,Copyright (c) 2015 Toru Nagashima
 eslint-plugin-unused-imports,MIT,Copyright (c) 2021 Mikkel Holmer
