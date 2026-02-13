@@ -10,7 +10,7 @@ export class ObservabilityPipelineMemoryBufferOptions {
   /**
    * Maximum size of the memory buffer.
    */
-  "maxSize"?: number;
+  "maxSize": number;
   /**
    * The type of the buffer that will be configured, a memory buffer.
    */
@@ -37,6 +37,7 @@ export class ObservabilityPipelineMemoryBufferOptions {
     maxSize: {
       baseName: "max_size",
       type: "number",
+      required: true,
       format: "int64",
     },
     type: {
