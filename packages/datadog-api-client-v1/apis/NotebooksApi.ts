@@ -820,13 +820,11 @@ export class NotebooksApi {
         param.type,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listNotebooks(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listNotebooks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

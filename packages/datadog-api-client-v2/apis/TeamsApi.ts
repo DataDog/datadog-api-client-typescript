@@ -4539,13 +4539,11 @@ export class TeamsApi {
         param.filterKeyword,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.getTeamMemberships(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.getTeamMemberships(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -4720,13 +4718,11 @@ export class TeamsApi {
         param.fieldsTeam,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listMemberTeams(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listMemberTeams(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -4791,13 +4787,11 @@ export class TeamsApi {
         param.filterConnectionIds,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listTeamConnections(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listTeamConnections(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -4858,13 +4852,11 @@ export class TeamsApi {
         param.filterSubTeam,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listTeamHierarchyLinks(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listTeamHierarchyLinks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -4932,9 +4924,8 @@ export class TeamsApi {
         param.fieldsTeam,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listTeams(responseContext);
       const responseData = response.data;
