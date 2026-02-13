@@ -3,13 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SLOCountSpec } from "./SLOCountSpec";
-import { SLOTimeSliceSpec } from "./SLOTimeSliceSpec";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * A generic SLI specification. This is used for time-slice and count-based (metric) SLOs only.
+ * The behavior when the tag already exists.
  */
 
-export type SLOSliSpec = SLOTimeSliceSpec | SLOCountSpec | UnparsedObject;
+export type DataAttributesRulesItemsIfTagExists =
+  | typeof APPEND
+  | typeof DO_NOT_APPLY
+  | typeof REPLACE
+  | UnparsedObject;
+export const APPEND = "append";
+export const DO_NOT_APPLY = "do_not_apply";
+export const REPLACE = "replace";

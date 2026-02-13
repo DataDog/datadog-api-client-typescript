@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DataAttributesRulesItemsIfTagExists } from "./DataAttributesRulesItemsIfTagExists";
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,9 +21,13 @@ export class RulesetRespDataAttributesRulesItemsQuery {
    */
   "caseInsensitivity"?: boolean;
   /**
-   * The `query` `if_not_exists`.
+   * Deprecated. Use `if_tag_exists` instead. The `query` `if_not_exists`.
    */
-  "ifNotExists": boolean;
+  "ifNotExists"?: boolean;
+  /**
+   * The behavior when the tag already exists.
+   */
+  "ifTagExists"?: DataAttributesRulesItemsIfTagExists;
   /**
    * The `query` `query`.
    */
@@ -56,7 +61,10 @@ export class RulesetRespDataAttributesRulesItemsQuery {
     ifNotExists: {
       baseName: "if_not_exists",
       type: "boolean",
-      required: true,
+    },
+    ifTagExists: {
+      baseName: "if_tag_exists",
+      type: "DataAttributesRulesItemsIfTagExists",
     },
     query: {
       baseName: "query",

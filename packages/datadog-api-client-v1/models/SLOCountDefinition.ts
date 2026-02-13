@@ -3,25 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SLODataSourceQueryDefinition } from "./SLODataSourceQueryDefinition";
+import { SLOFormula } from "./SLOFormula";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `UpdateRulesetRequestDataAttributesRulesItemsMapping` object.
+ * A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
+ * and the underlying queries.
  */
-export class UpdateRulesetRequestDataAttributesRulesItemsMapping {
+export class SLOCountDefinition {
   /**
-   * The `mapping` `destination_key`.
+   * A formula that specifies how to combine the results of multiple queries.
    */
-  "destinationKey": string;
+  "goodEventsFormula": SLOFormula;
+  "queries": Array<SLODataSourceQueryDefinition>;
   /**
-   * The `mapping` `if_not_exists`.
+   * A formula that specifies how to combine the results of multiple queries.
    */
-  "ifNotExists": boolean;
-  /**
-   * The `mapping` `source_keys`.
-   */
-  "sourceKeys": Array<string>;
+  "totalEventsFormula": SLOFormula;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,19 +39,19 @@ export class UpdateRulesetRequestDataAttributesRulesItemsMapping {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    destinationKey: {
-      baseName: "destination_key",
-      type: "string",
+    goodEventsFormula: {
+      baseName: "good_events_formula",
+      type: "SLOFormula",
       required: true,
     },
-    ifNotExists: {
-      baseName: "if_not_exists",
-      type: "boolean",
+    queries: {
+      baseName: "queries",
+      type: "Array<SLODataSourceQueryDefinition>",
       required: true,
     },
-    sourceKeys: {
-      baseName: "source_keys",
-      type: "Array<string>",
+    totalEventsFormula: {
+      baseName: "total_events_formula",
+      type: "SLOFormula",
       required: true,
     },
     additionalProperties: {
@@ -64,7 +64,7 @@ export class UpdateRulesetRequestDataAttributesRulesItemsMapping {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRulesetRequestDataAttributesRulesItemsMapping.attributeTypeMap;
+    return SLOCountDefinition.attributeTypeMap;
   }
 
   public constructor() {}
