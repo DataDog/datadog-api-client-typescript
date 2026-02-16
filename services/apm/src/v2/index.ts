@@ -1,4 +1,4 @@
-export { APMApi } from "./APMApi";
+export { APMApiGetServiceListRequest, APMApi } from "./APMApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { ServiceList } from "./models/ServiceList";

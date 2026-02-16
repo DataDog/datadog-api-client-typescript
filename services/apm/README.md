@@ -26,8 +26,9 @@ import { v2 } from "@datadog/datadog-api-client-apm";
 
 const configuration = createConfiguration();
 const apiInstance = new APMApiV2(configuration);
+const params = {/* parameters */};
 
-apiInstance.getServiceList().then((data) => {
+apiInstance.getServiceList(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
