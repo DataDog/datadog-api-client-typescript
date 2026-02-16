@@ -1442,6 +1442,10 @@ import { IncidentsResponse } from "./IncidentsResponse";
 import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { IntegrationAssignmentDataAttributesRequest } from "./IntegrationAssignmentDataAttributesRequest";
+import { IntegrationAssignmentDataAttributesRequestAssignment } from "./IntegrationAssignmentDataAttributesRequestAssignment";
+import { IntegrationAssignmentDataRequest } from "./IntegrationAssignmentDataRequest";
+import { IntegrationAssignmentRequest } from "./IntegrationAssignmentRequest";
 import { IntegrationIncident } from "./IntegrationIncident";
 import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
 import { IntegrationIncidentSeverityConfig } from "./IntegrationIncidentSeverityConfig";
@@ -1518,9 +1522,15 @@ import { JiraIssue } from "./JiraIssue";
 import { JiraIssueCreateAttributes } from "./JiraIssueCreateAttributes";
 import { JiraIssueCreateData } from "./JiraIssueCreateData";
 import { JiraIssueCreateRequest } from "./JiraIssueCreateRequest";
+import { JiraIssueDataAttributesRequest } from "./JiraIssueDataAttributesRequest";
+import { JiraIssueDataMeta } from "./JiraIssueDataMeta";
+import { JiraIssueDataRequest } from "./JiraIssueDataRequest";
+import { JiraIssueFinding } from "./JiraIssueFinding";
+import { JiraIssueFindingId } from "./JiraIssueFindingId";
 import { JiraIssueLinkAttributes } from "./JiraIssueLinkAttributes";
 import { JiraIssueLinkData } from "./JiraIssueLinkData";
 import { JiraIssueLinkRequest } from "./JiraIssueLinkRequest";
+import { JiraIssueRequest } from "./JiraIssueRequest";
 import { JiraIssueResult } from "./JiraIssueResult";
 import { JiraIssueTemplateCreateRequest } from "./JiraIssueTemplateCreateRequest";
 import { JiraIssueTemplateCreateRequestAttributes } from "./JiraIssueTemplateCreateRequestAttributes";
@@ -1534,6 +1544,9 @@ import { JiraIssueTemplateUpdateRequest } from "./JiraIssueTemplateUpdateRequest
 import { JiraIssueTemplateUpdateRequestAttributes } from "./JiraIssueTemplateUpdateRequestAttributes";
 import { JiraIssueTemplateUpdateRequestData } from "./JiraIssueTemplateUpdateRequestData";
 import { JiraIssueTemplatesResponse } from "./JiraIssueTemplatesResponse";
+import { JiraIssuesMetadataDataAttributesResponse } from "./JiraIssuesMetadataDataAttributesResponse";
+import { JiraIssuesMetadataDataResponse } from "./JiraIssuesMetadataDataResponse";
+import { JiraIssuesMetadataResponse } from "./JiraIssuesMetadataResponse";
 import { JobCreateResponse } from "./JobCreateResponse";
 import { JobCreateResponseData } from "./JobCreateResponseData";
 import { JobDefinition } from "./JobDefinition";
@@ -3904,6 +3917,12 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  IntegrationAssignmentDataAttributesRequestAction: ["assign", "un_assign"],
+  IntegrationAssignmentDataAttributesRequestType: [
+    "findings",
+    "vulnerabilities",
+  ],
+  IntegrationAssignmentType: ["issue_assignment"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   IssueCaseResourceType: ["case"],
   IssueLanguage: [
@@ -3967,9 +3986,12 @@ const enumsMap: { [key: string]: any[] } = {
   IssuesSearchRequestDataType: ["search_request"],
   IssuesSearchResultType: ["error_tracking_search_result"],
   JiraAccountType: ["jira-account"],
+  JiraIssueDataAttributesRequestMode: ["single", "multiple"],
   JiraIssueResourceType: ["issues"],
   JiraIssueTemplateType: ["jira-issue-template"],
+  JiraIssueType: ["jira_issue"],
   JiraIssuesDataType: ["jira_issues"],
+  JiraIssuesMetadataType: ["jira_issues"],
   JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
   Language: [
     "PYTHON",
@@ -6813,6 +6835,12 @@ const typeMap: { [index: string]: any } = {
   InputSchema: InputSchema,
   InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  IntegrationAssignmentDataAttributesRequest:
+    IntegrationAssignmentDataAttributesRequest,
+  IntegrationAssignmentDataAttributesRequestAssignment:
+    IntegrationAssignmentDataAttributesRequestAssignment,
+  IntegrationAssignmentDataRequest: IntegrationAssignmentDataRequest,
+  IntegrationAssignmentRequest: IntegrationAssignmentRequest,
   IntegrationIncident: IntegrationIncident,
   IntegrationIncidentFieldMappingsItems: IntegrationIncidentFieldMappingsItems,
   IntegrationIncidentSeverityConfig: IntegrationIncidentSeverityConfig,
@@ -6894,9 +6922,15 @@ const typeMap: { [index: string]: any } = {
   JiraIssueCreateAttributes: JiraIssueCreateAttributes,
   JiraIssueCreateData: JiraIssueCreateData,
   JiraIssueCreateRequest: JiraIssueCreateRequest,
+  JiraIssueDataAttributesRequest: JiraIssueDataAttributesRequest,
+  JiraIssueDataMeta: JiraIssueDataMeta,
+  JiraIssueDataRequest: JiraIssueDataRequest,
+  JiraIssueFinding: JiraIssueFinding,
+  JiraIssueFindingId: JiraIssueFindingId,
   JiraIssueLinkAttributes: JiraIssueLinkAttributes,
   JiraIssueLinkData: JiraIssueLinkData,
   JiraIssueLinkRequest: JiraIssueLinkRequest,
+  JiraIssueRequest: JiraIssueRequest,
   JiraIssueResult: JiraIssueResult,
   JiraIssueTemplateCreateRequest: JiraIssueTemplateCreateRequest,
   JiraIssueTemplateCreateRequestAttributes:
@@ -6913,6 +6947,10 @@ const typeMap: { [index: string]: any } = {
     JiraIssueTemplateUpdateRequestAttributes,
   JiraIssueTemplateUpdateRequestData: JiraIssueTemplateUpdateRequestData,
   JiraIssueTemplatesResponse: JiraIssueTemplatesResponse,
+  JiraIssuesMetadataDataAttributesResponse:
+    JiraIssuesMetadataDataAttributesResponse,
+  JiraIssuesMetadataDataResponse: JiraIssuesMetadataDataResponse,
+  JiraIssuesMetadataResponse: JiraIssuesMetadataResponse,
   JobCreateResponse: JobCreateResponse,
   JobCreateResponseData: JobCreateResponseData,
   JobDefinition: JobDefinition,

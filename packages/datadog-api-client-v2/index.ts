@@ -834,6 +834,7 @@ export {
 
 export {
   SecurityMonitoringApiActivateContentPackRequest,
+  SecurityMonitoringApiAssignIntegrationIssuesRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
@@ -843,6 +844,7 @@ export {
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
   SecurityMonitoringApiCreateCasesRequest,
   SecurityMonitoringApiCreateCustomFrameworkRequest,
+  SecurityMonitoringApiCreateJiraIssueRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
@@ -866,6 +868,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetJiraIssueMetadataRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
@@ -3002,6 +3005,13 @@ export { InputSchema } from "./models/InputSchema";
 export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
+export { IntegrationAssignmentDataAttributesRequest } from "./models/IntegrationAssignmentDataAttributesRequest";
+export { IntegrationAssignmentDataAttributesRequestAction } from "./models/IntegrationAssignmentDataAttributesRequestAction";
+export { IntegrationAssignmentDataAttributesRequestAssignment } from "./models/IntegrationAssignmentDataAttributesRequestAssignment";
+export { IntegrationAssignmentDataAttributesRequestType } from "./models/IntegrationAssignmentDataAttributesRequestType";
+export { IntegrationAssignmentDataRequest } from "./models/IntegrationAssignmentDataRequest";
+export { IntegrationAssignmentRequest } from "./models/IntegrationAssignmentRequest";
+export { IntegrationAssignmentType } from "./models/IntegrationAssignmentType";
 export { IntegrationIncident } from "./models/IntegrationIncident";
 export { IntegrationIncidentFieldMappingsItems } from "./models/IntegrationIncidentFieldMappingsItems";
 export { IntegrationIncidentSeverityConfig } from "./models/IntegrationIncidentSeverityConfig";
@@ -3102,12 +3112,23 @@ export { JiraIssue } from "./models/JiraIssue";
 export { JiraIssueCreateAttributes } from "./models/JiraIssueCreateAttributes";
 export { JiraIssueCreateData } from "./models/JiraIssueCreateData";
 export { JiraIssueCreateRequest } from "./models/JiraIssueCreateRequest";
+export { JiraIssueDataAttributesRequest } from "./models/JiraIssueDataAttributesRequest";
+export { JiraIssueDataAttributesRequestMode } from "./models/JiraIssueDataAttributesRequestMode";
+export { JiraIssueDataMeta } from "./models/JiraIssueDataMeta";
+export { JiraIssueDataRequest } from "./models/JiraIssueDataRequest";
+export { JiraIssueFinding } from "./models/JiraIssueFinding";
+export { JiraIssueFindingId } from "./models/JiraIssueFindingId";
 export { JiraIssueLinkAttributes } from "./models/JiraIssueLinkAttributes";
 export { JiraIssueLinkData } from "./models/JiraIssueLinkData";
 export { JiraIssueLinkRequest } from "./models/JiraIssueLinkRequest";
+export { JiraIssueRequest } from "./models/JiraIssueRequest";
 export { JiraIssueResourceType } from "./models/JiraIssueResourceType";
 export { JiraIssueResult } from "./models/JiraIssueResult";
 export { JiraIssuesDataType } from "./models/JiraIssuesDataType";
+export { JiraIssuesMetadataDataAttributesResponse } from "./models/JiraIssuesMetadataDataAttributesResponse";
+export { JiraIssuesMetadataDataResponse } from "./models/JiraIssuesMetadataDataResponse";
+export { JiraIssuesMetadataResponse } from "./models/JiraIssuesMetadataResponse";
+export { JiraIssuesMetadataType } from "./models/JiraIssuesMetadataType";
 export { JiraIssueTemplateCreateRequest } from "./models/JiraIssueTemplateCreateRequest";
 export { JiraIssueTemplateCreateRequestAttributes } from "./models/JiraIssueTemplateCreateRequestAttributes";
 export { JiraIssueTemplateCreateRequestAttributesJiraAccount } from "./models/JiraIssueTemplateCreateRequestAttributesJiraAccount";
@@ -3121,6 +3142,7 @@ export { JiraIssueTemplateType } from "./models/JiraIssueTemplateType";
 export { JiraIssueTemplateUpdateRequest } from "./models/JiraIssueTemplateUpdateRequest";
 export { JiraIssueTemplateUpdateRequestAttributes } from "./models/JiraIssueTemplateUpdateRequestAttributes";
 export { JiraIssueTemplateUpdateRequestData } from "./models/JiraIssueTemplateUpdateRequestData";
+export { JiraIssueType } from "./models/JiraIssueType";
 export { JobCreateResponse } from "./models/JobCreateResponse";
 export { JobCreateResponseData } from "./models/JobCreateResponseData";
 export { JobDefinition } from "./models/JobDefinition";
