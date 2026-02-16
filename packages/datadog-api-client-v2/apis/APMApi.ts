@@ -1,4 +1,7 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   applySecurityAuthentication,
@@ -18,9 +21,15 @@ import { ServiceList } from "../models/ServiceList";
 
 export class APMApiRequestFactory extends BaseAPIRequestFactory {
   public async getServiceList(
+    filterEnv: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    // verify required parameter 'filterEnv' is not null or undefined
+    if (filterEnv === null || filterEnv === undefined) {
+      throw new RequiredError("filterEnv", "getServiceList");
+    }
 
     // Path Params
     const localVarPath = "/api/v2/apm/services";
@@ -31,6 +40,15 @@ export class APMApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterEnv !== undefined) {
+      requestContext.setQueryParam(
+        "filter[env]",
+        ObjectSerializer.serialize(filterEnv, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -101,6 +119,14 @@ export class APMApiResponseProcessor {
   }
 }
 
+export interface APMApiGetServiceListRequest {
+  /**
+   * Filter services by environment. Can be set to `*` to return all services across all environments.
+   * @type string
+   */
+  filterEnv: string;
+}
+
 export class APMApi {
   private requestFactory: APMApiRequestFactory;
   private responseProcessor: APMApiResponseProcessor;
@@ -120,8 +146,14 @@ export class APMApi {
   /**
    * @param param The request object
    */
-  public getServiceList(options?: Configuration): Promise<ServiceList> {
-    const requestContextPromise = this.requestFactory.getServiceList(options);
+  public getServiceList(
+    param: APMApiGetServiceListRequest,
+    options?: Configuration
+  ): Promise<ServiceList> {
+    const requestContextPromise = this.requestFactory.getServiceList(
+      param.filterEnv,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
