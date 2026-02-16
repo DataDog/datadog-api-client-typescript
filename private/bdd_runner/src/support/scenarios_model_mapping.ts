@@ -7198,6 +7198,48 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IPAllowlistResponse",
   },
+  "OrganizationsApi.V2.UpdateLoginOrgConfigMaxSessionDuration": {
+    body: {
+      type: "MaxSessionDurationUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "OrganizationsApi.V2.UpdateOrgSamlConfigurations": {
+    body: {
+      type: "SamlConfigurationsUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "OrganizationsApi.V2.ListOrgConfigs": {
+    operationResponseType: "OrgConfigListResponse",
+  },
+  "OrganizationsApi.V2.GetOrgConfig": {
+    orgConfigName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "OrgConfigGetResponse",
+  },
+  "OrganizationsApi.V2.UpdateOrgConfig": {
+    orgConfigName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "OrgConfigWriteRequest",
+      format: "",
+    },
+    operationResponseType: "OrgConfigGetResponse",
+  },
+  "OrganizationsApi.V2.UploadIdPMetadata": {
+    idpFile: {
+      type: "HttpFile",
+      format: "binary",
+    },
+    operationResponseType: "{}",
+  },
   "LogsApi.V2.SubmitLog": {
     contentEncoding: {
       type: "ContentEncoding",
@@ -8293,34 +8335,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     pageId: {
       type: "string",
       format: "uuid",
-    },
-    operationResponseType: "{}",
-  },
-  "OrganizationsApi.V2.ListOrgConfigs": {
-    operationResponseType: "OrgConfigListResponse",
-  },
-  "OrganizationsApi.V2.GetOrgConfig": {
-    orgConfigName: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "OrgConfigGetResponse",
-  },
-  "OrganizationsApi.V2.UpdateOrgConfig": {
-    orgConfigName: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "OrgConfigWriteRequest",
-      format: "",
-    },
-    operationResponseType: "OrgConfigGetResponse",
-  },
-  "OrganizationsApi.V2.UploadIdPMetadata": {
-    idpFile: {
-      type: "HttpFile",
-      format: "binary",
     },
     operationResponseType: "{}",
   },
