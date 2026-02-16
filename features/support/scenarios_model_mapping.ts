@@ -3093,6 +3093,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "{}",
     },
     "v2.GetServiceList": {
+        "filterEnv": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "ServiceList",
     },
     "v2.ListApps": {

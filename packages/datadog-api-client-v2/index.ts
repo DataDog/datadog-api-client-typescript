@@ -7,7 +7,7 @@ export {
   APIManagementApi,
 } from "./apis/APIManagementApi";
 
-export { APMApi } from "./apis/APMApi";
+export { APMApiGetServiceListRequest, APMApi } from "./apis/APMApi";
 
 export {
   APMRetentionFiltersApiCreateApmRetentionFilterRequest,
