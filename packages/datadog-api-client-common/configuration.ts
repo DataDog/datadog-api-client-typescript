@@ -270,6 +270,8 @@ export function createConfiguration(
       "v2.muteFindings": false,
       "v2.runThreatHuntingJob": false,
       "v2.searchSecurityMonitoringHistsignals": false,
+      "v2.getCodeCoverageBranchSummary": false,
+      "v2.getCodeCoverageCommitSummary": false,
       "v2.createDataset": false,
       "v2.deleteDataset": false,
       "v2.getAllDatasets": false,
