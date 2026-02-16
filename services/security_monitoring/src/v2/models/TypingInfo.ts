@@ -103,9 +103,22 @@ import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
 import { GetSuppressionVersionHistoryResponse } from "./GetSuppressionVersionHistoryResponse";
+import { IntegrationAssignmentDataAttributesRequest } from "./IntegrationAssignmentDataAttributesRequest";
+import { IntegrationAssignmentDataAttributesRequestAssignment } from "./IntegrationAssignmentDataAttributesRequestAssignment";
+import { IntegrationAssignmentDataRequest } from "./IntegrationAssignmentDataRequest";
+import { IntegrationAssignmentRequest } from "./IntegrationAssignmentRequest";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { JiraIssueDataAttributesRequest } from "./JiraIssueDataAttributesRequest";
+import { JiraIssueDataMeta } from "./JiraIssueDataMeta";
+import { JiraIssueDataRequest } from "./JiraIssueDataRequest";
+import { JiraIssueFinding } from "./JiraIssueFinding";
+import { JiraIssueFindingId } from "./JiraIssueFindingId";
+import { JiraIssueRequest } from "./JiraIssueRequest";
+import { JiraIssuesMetadataDataAttributesResponse } from "./JiraIssuesMetadataDataAttributesResponse";
+import { JiraIssuesMetadataDataResponse } from "./JiraIssuesMetadataDataResponse";
+import { JiraIssuesMetadataResponse } from "./JiraIssuesMetadataResponse";
 import { JobCreateResponse } from "./JobCreateResponse";
 import { JobCreateResponseData } from "./JobCreateResponseData";
 import { JobDefinition } from "./JobDefinition";
@@ -342,7 +355,16 @@ export const TypingInfo: ModelTypingInfo = {
     GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
     GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
+    IntegrationAssignmentDataAttributesRequestAction: ["assign", "un_assign"],
+    IntegrationAssignmentDataAttributesRequestType: [
+      "findings",
+      "vulnerabilities",
+    ],
+    IntegrationAssignmentType: ["issue_assignment"],
+    JiraIssueDataAttributesRequestMode: ["single", "multiple"],
+    JiraIssueType: ["jira_issue"],
     JiraIssuesDataType: ["jira_issues"],
+    JiraIssuesMetadataType: ["jira_issues"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -790,9 +812,25 @@ export const TypingInfo: ModelTypingInfo = {
     GetSBOMResponse: GetSBOMResponse,
     GetSuppressionVersionHistoryData: GetSuppressionVersionHistoryData,
     GetSuppressionVersionHistoryResponse: GetSuppressionVersionHistoryResponse,
+    IntegrationAssignmentDataAttributesRequest:
+      IntegrationAssignmentDataAttributesRequest,
+    IntegrationAssignmentDataAttributesRequestAssignment:
+      IntegrationAssignmentDataAttributesRequestAssignment,
+    IntegrationAssignmentDataRequest: IntegrationAssignmentDataRequest,
+    IntegrationAssignmentRequest: IntegrationAssignmentRequest,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    JiraIssueDataAttributesRequest: JiraIssueDataAttributesRequest,
+    JiraIssueDataMeta: JiraIssueDataMeta,
+    JiraIssueDataRequest: JiraIssueDataRequest,
+    JiraIssueFinding: JiraIssueFinding,
+    JiraIssueFindingId: JiraIssueFindingId,
+    JiraIssueRequest: JiraIssueRequest,
+    JiraIssuesMetadataDataAttributesResponse:
+      JiraIssuesMetadataDataAttributesResponse,
+    JiraIssuesMetadataDataResponse: JiraIssuesMetadataDataResponse,
+    JiraIssuesMetadataResponse: JiraIssuesMetadataResponse,
     JobCreateResponse: JobCreateResponse,
     JobCreateResponseData: JobCreateResponseData,
     JobDefinition: JobDefinition,

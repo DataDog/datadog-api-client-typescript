@@ -52,6 +52,9 @@ import { GetResourceEvaluationFiltersResponse } from "./models/GetResourceEvalua
 import { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./models/GetSBOMResponse";
 import { GetSuppressionVersionHistoryResponse } from "./models/GetSuppressionVersionHistoryResponse";
+import { IntegrationAssignmentRequest } from "./models/IntegrationAssignmentRequest";
+import { JiraIssueRequest } from "./models/JiraIssueRequest";
+import { JiraIssuesMetadataResponse } from "./models/JiraIssuesMetadataResponse";
 import { JobCreateResponse } from "./models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
@@ -180,6 +183,68 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async assignIntegrationIssues(
+    body: IntegrationAssignmentRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.assignIntegrationIssues"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'assignIntegrationIssues' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.assignIntegrationIssues'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "assignIntegrationIssues");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cloud_security_management/integrations/assign";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.assignIntegrationIssues",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IntegrationAssignmentRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -662,6 +727,65 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateCustomFrameworkRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createJiraIssue(
+    body: JiraIssueRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.createJiraIssue"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createJiraIssue' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.createJiraIssue'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createJiraIssue");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cloud_security_management/jira_issues";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createJiraIssue",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "JiraIssueRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1926,6 +2050,67 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "snapshot_timestamp",
         serialize(snapshotTimestamp, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getJiraIssueMetadata(
+    url: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.getJiraIssueMetadata"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getJiraIssueMetadata' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getJiraIssueMetadata'] = true`",
+      );
+    }
+
+    // verify required parameter 'url' is not null or undefined
+    if (url === null || url === undefined) {
+      throw new RequiredError("url", "getJiraIssueMetadata");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/jira_issues/metadata";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getJiraIssueMetadata",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (url !== undefined) {
+      requestContext.setQueryParam(
+        "url",
+        serialize(url, TypingInfo, "string", ""),
         "",
       );
     }
@@ -5625,6 +5810,76 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to assignIntegrationIssues
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async assignIntegrationIssues(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to attachCase
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6132,6 +6387,70 @@ export class SecurityMonitoringApiResponseProcessor {
         "",
       ) as CreateCustomFrameworkResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createJiraIssue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createJiraIssue(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -7513,6 +7832,83 @@ export class SecurityMonitoringApiResponseProcessor {
         "GetFindingResponse",
         "",
       ) as GetFindingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getJiraIssueMetadata
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getJiraIssueMetadata(
+    response: ResponseContext,
+  ): Promise<JiraIssuesMetadataResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: JiraIssuesMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "JiraIssuesMetadataResponse",
+      ) as JiraIssuesMetadataResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: JiraIssuesMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "JiraIssuesMetadataResponse",
+        "",
+      ) as JiraIssuesMetadataResponse;
       return body;
     }
 
@@ -10648,6 +11044,13 @@ export interface SecurityMonitoringApiActivateContentPackRequest {
   contentPackId: string;
 }
 
+export interface SecurityMonitoringApiAssignIntegrationIssuesRequest {
+  /**
+   * @type IntegrationAssignmentRequest
+   */
+  body: IntegrationAssignmentRequest;
+}
+
 export interface SecurityMonitoringApiAttachCaseRequest {
   /**
    * Unique identifier of the case to attach security findings to
@@ -10716,6 +11119,13 @@ export interface SecurityMonitoringApiCreateCustomFrameworkRequest {
    * @type CreateCustomFrameworkRequest
    */
   body: CreateCustomFrameworkRequest;
+}
+
+export interface SecurityMonitoringApiCreateJiraIssueRequest {
+  /**
+   * @type JiraIssueRequest
+   */
+  body: JiraIssueRequest;
 }
 
 export interface SecurityMonitoringApiCreateJiraIssuesRequest {
@@ -10929,6 +11339,14 @@ export interface SecurityMonitoringApiGetFindingRequest {
    * @type number
    */
   snapshotTimestamp?: number;
+}
+
+export interface SecurityMonitoringApiGetJiraIssueMetadataRequest {
+  /**
+   * The Jira issue URL.
+   * @type string
+   */
+  url: string;
 }
 
 export interface SecurityMonitoringApiGetResourceEvaluationFiltersRequest {
@@ -11982,6 +12400,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Assign or un-assign Jira issues to security findings or vulnerabilities.
+   * This endpoint allows you to associate existing Jira issues with security findings or vulnerabilities, or remove such associations.
+   * @param param The request object
+   */
+  public assignIntegrationIssues(
+    param: SecurityMonitoringApiAssignIntegrationIssuesRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.assignIntegrationIssues(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.assignIntegrationIssues(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Attach security findings to a case.
    * You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
    * @param param The request object
@@ -12195,6 +12637,28 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createCustomFramework(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create Jira issues for security findings or vulnerabilities.
+   * This endpoint creates new Jira issues based on the provided security findings or vulnerability information. The operation is asynchronous and returns immediately with a 202 Accepted status.
+   * @param param The request object
+   */
+  public createJiraIssue(
+    param: SecurityMonitoringApiCreateJiraIssueRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.createJiraIssue(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createJiraIssue(responseContext);
         });
     });
   }
@@ -12737,6 +13201,28 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getFinding(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve metadata for a Jira issue.
+   * This endpoint returns metadata about a Jira issue, including account ID, issue type ID, and project ID, based on the provided Jira issue URL.
+   * @param param The request object
+   */
+  public getJiraIssueMetadata(
+    param: SecurityMonitoringApiGetJiraIssueMetadataRequest,
+    options?: Configuration,
+  ): Promise<JiraIssuesMetadataResponse> {
+    const requestContextPromise = this.requestFactory.getJiraIssueMetadata(
+      param.url,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getJiraIssueMetadata(responseContext);
         });
     });
   }

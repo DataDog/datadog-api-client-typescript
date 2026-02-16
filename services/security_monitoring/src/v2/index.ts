@@ -1,5 +1,6 @@
 export {
   SecurityMonitoringApiActivateContentPackRequest,
+  SecurityMonitoringApiAssignIntegrationIssuesRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
@@ -9,6 +10,7 @@ export {
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
   SecurityMonitoringApiCreateCasesRequest,
   SecurityMonitoringApiCreateCustomFrameworkRequest,
+  SecurityMonitoringApiCreateJiraIssueRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
@@ -32,6 +34,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetJiraIssueMetadataRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
@@ -206,7 +209,26 @@ export { GetSBOMResponse } from "./models/GetSBOMResponse";
 export { GetSuppressionVersionHistoryData } from "./models/GetSuppressionVersionHistoryData";
 export { GetSuppressionVersionHistoryDataType } from "./models/GetSuppressionVersionHistoryDataType";
 export { GetSuppressionVersionHistoryResponse } from "./models/GetSuppressionVersionHistoryResponse";
+export { IntegrationAssignmentDataAttributesRequest } from "./models/IntegrationAssignmentDataAttributesRequest";
+export { IntegrationAssignmentDataAttributesRequestAction } from "./models/IntegrationAssignmentDataAttributesRequestAction";
+export { IntegrationAssignmentDataAttributesRequestAssignment } from "./models/IntegrationAssignmentDataAttributesRequestAssignment";
+export { IntegrationAssignmentDataAttributesRequestType } from "./models/IntegrationAssignmentDataAttributesRequestType";
+export { IntegrationAssignmentDataRequest } from "./models/IntegrationAssignmentDataRequest";
+export { IntegrationAssignmentRequest } from "./models/IntegrationAssignmentRequest";
+export { IntegrationAssignmentType } from "./models/IntegrationAssignmentType";
+export { JiraIssueDataAttributesRequest } from "./models/JiraIssueDataAttributesRequest";
+export { JiraIssueDataAttributesRequestMode } from "./models/JiraIssueDataAttributesRequestMode";
+export { JiraIssueDataMeta } from "./models/JiraIssueDataMeta";
+export { JiraIssueDataRequest } from "./models/JiraIssueDataRequest";
+export { JiraIssueFinding } from "./models/JiraIssueFinding";
+export { JiraIssueFindingId } from "./models/JiraIssueFindingId";
+export { JiraIssueRequest } from "./models/JiraIssueRequest";
 export { JiraIssuesDataType } from "./models/JiraIssuesDataType";
+export { JiraIssuesMetadataDataAttributesResponse } from "./models/JiraIssuesMetadataDataAttributesResponse";
+export { JiraIssuesMetadataDataResponse } from "./models/JiraIssuesMetadataDataResponse";
+export { JiraIssuesMetadataResponse } from "./models/JiraIssuesMetadataResponse";
+export { JiraIssuesMetadataType } from "./models/JiraIssuesMetadataType";
+export { JiraIssueType } from "./models/JiraIssueType";
 export { JobCreateResponse } from "./models/JobCreateResponse";
 export { JobCreateResponseData } from "./models/JobCreateResponseData";
 export { JobDefinition } from "./models/JobDefinition";

@@ -3944,6 +3944,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DeleteCustomFrameworkResponse",
   },
+  "SecurityMonitoringApi.V2.AssignIntegrationIssues": {
+    body: {
+      type: "IntegrationAssignmentRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.CreateJiraIssue": {
+    body: {
+      type: "JiraIssueRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "SecurityMonitoringApi.V2.GetResourceEvaluationFilters": {
     cloudProvider: {
       type: "string",
@@ -4104,6 +4118,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "FindingCaseResponse",
+  },
+  "SecurityMonitoringApi.V2.GetJiraIssueMetadata": {
+    url: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "JiraIssuesMetadataResponse",
   },
   "SecurityMonitoringApi.V2.SearchSecurityFindings": {
     body: {
