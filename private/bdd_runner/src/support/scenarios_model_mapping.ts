@@ -10135,6 +10135,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DegradationArray",
   },
+  "StatusPagesApi.V2.CreateInternalEmailSubscription": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "StatusPageEmailSubscriptionRequest",
+      format: "",
+    },
+    operationResponseType: "StatusPageEmailSubscriptionResponse",
+  },
   "StatusPagesApi.V2.GetStatusPage": {
     pageId: {
       type: "string",
@@ -10310,6 +10321,40 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "Degradation",
+  },
+  "StatusPagesApi.V2.ListEmailSubscriptions": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterStatus: {
+      type: "StatusPageEmailSubscriptionStatus",
+      format: "",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "StatusPageEmailSubscriptionsResponse",
+  },
+  "StatusPagesApi.V2.ImportEmailSubscriptions": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "StatusPageEmailSubscriptionsRequest",
+      format: "",
+    },
+    operationResponseType: "StatusPageEmailSubscriptionsResponse",
   },
   "SyntheticsApi.V2.GetOnDemandConcurrencyCap": {
     operationResponseType: "OnDemandConcurrencyCapResponse",
