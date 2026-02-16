@@ -4056,6 +4056,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListSecurityFindingsResponse",
     },
+    "v2.CreateSecurityFinding": {
+        "vendor": {
+            "type": "string",
+            "format": "",
+            },
+        "findingType": {
+            "type": "SecurityFindingType",
+            "format": "",
+            },
+        "body": {
+            "type": "{ [key: string]: any; }",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateCases": {
         "body": {
             "type": "CreateCaseRequestArray",
@@ -4217,6 +4232,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.ImportThreatIntel": {
+        "tiVendor": {
+            "type": "string",
+            "format": "",
+            },
+        "tiIndicator": {
+            "type": "ThreatIntelIndicatorType",
+            "format": "",
+            },
+        "tiIntegrationAccount": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "any",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListVulnerabilities": {
         "pageToken": {
@@ -4392,6 +4426,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ListVulnerabilitiesResponse",
+    },
+    "v2.ImportSecurityVulnerabilities": {
+        "body": {
+            "type": "CycloneDXBOM",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.GetVulnerabilityNotificationRules": {
         "operationResponseType": "NotificationRulesList",
