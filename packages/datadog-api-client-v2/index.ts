@@ -251,6 +251,12 @@ export {
 } from "./apis/CloudflareIntegrationApi";
 
 export {
+  CodeCoverageApiGetCodeCoverageBranchSummaryRequest,
+  CodeCoverageApiGetCodeCoverageCommitSummaryRequest,
+  CodeCoverageApi,
+} from "./apis/CodeCoverageApi";
+
+export {
   ConfluentCloudApiCreateConfluentAccountRequest,
   ConfluentCloudApiCreateConfluentResourceRequest,
   ConfluentCloudApiDeleteConfluentAccountRequest,
@@ -1517,6 +1523,10 @@ export { BillingDimensionsMappingBodyItemAttributes } from "./models/BillingDime
 export { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 export { BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus";
 export { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMappingResponse";
+export { BranchCoverageSummaryRequest } from "./models/BranchCoverageSummaryRequest";
+export { BranchCoverageSummaryRequestAttributes } from "./models/BranchCoverageSummaryRequestAttributes";
+export { BranchCoverageSummaryRequestData } from "./models/BranchCoverageSummaryRequestData";
+export { BranchCoverageSummaryRequestType } from "./models/BranchCoverageSummaryRequestType";
 export { Budget } from "./models/Budget";
 export { BudgetArray } from "./models/BudgetArray";
 export { BudgetAttributes } from "./models/BudgetAttributes";
@@ -1787,6 +1797,10 @@ export { CloudWorkloadSecurityAgentRuleUpdateData } from "./models/CloudWorkload
 export { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./models/CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 export { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 export { CodeLocation } from "./models/CodeLocation";
+export { CommitCoverageSummaryRequest } from "./models/CommitCoverageSummaryRequest";
+export { CommitCoverageSummaryRequestAttributes } from "./models/CommitCoverageSummaryRequestAttributes";
+export { CommitCoverageSummaryRequestData } from "./models/CommitCoverageSummaryRequestData";
+export { CommitCoverageSummaryRequestType } from "./models/CommitCoverageSummaryRequestType";
 export { CompletionCondition } from "./models/CompletionCondition";
 export { CompletionConditionOperator } from "./models/CompletionConditionOperator";
 export { CompletionGate } from "./models/CompletionGate";
@@ -1885,6 +1899,12 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CoverageSummaryAttributes } from "./models/CoverageSummaryAttributes";
+export { CoverageSummaryCodeownerStats } from "./models/CoverageSummaryCodeownerStats";
+export { CoverageSummaryData } from "./models/CoverageSummaryData";
+export { CoverageSummaryResponse } from "./models/CoverageSummaryResponse";
+export { CoverageSummaryServiceStats } from "./models/CoverageSummaryServiceStats";
+export { CoverageSummaryType } from "./models/CoverageSummaryType";
 export { Cpu } from "./models/Cpu";
 export { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
 export { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";

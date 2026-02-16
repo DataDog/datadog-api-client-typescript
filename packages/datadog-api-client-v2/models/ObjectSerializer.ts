@@ -280,6 +280,9 @@ import { BillingDimensionsMappingBodyItem } from "./BillingDimensionsMappingBody
 import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
 import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 import { BillingDimensionsMappingResponse } from "./BillingDimensionsMappingResponse";
+import { BranchCoverageSummaryRequest } from "./BranchCoverageSummaryRequest";
+import { BranchCoverageSummaryRequestAttributes } from "./BranchCoverageSummaryRequestAttributes";
+import { BranchCoverageSummaryRequestData } from "./BranchCoverageSummaryRequestData";
 import { Budget } from "./Budget";
 import { BudgetArray } from "./BudgetArray";
 import { BudgetAttributes } from "./BudgetAttributes";
@@ -486,6 +489,9 @@ import { CloudflareGlobalAPITokenUpdate } from "./CloudflareGlobalAPITokenUpdate
 import { CloudflareIntegration } from "./CloudflareIntegration";
 import { CloudflareIntegrationUpdate } from "./CloudflareIntegrationUpdate";
 import { CodeLocation } from "./CodeLocation";
+import { CommitCoverageSummaryRequest } from "./CommitCoverageSummaryRequest";
+import { CommitCoverageSummaryRequestAttributes } from "./CommitCoverageSummaryRequestAttributes";
+import { CommitCoverageSummaryRequestData } from "./CommitCoverageSummaryRequestData";
 import { CompletionCondition } from "./CompletionCondition";
 import { CompletionGate } from "./CompletionGate";
 import { Component } from "./Component";
@@ -558,6 +564,11 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
+import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
+import { CoverageSummaryData } from "./CoverageSummaryData";
+import { CoverageSummaryResponse } from "./CoverageSummaryResponse";
+import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
 import { Cpu } from "./Cpu";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
@@ -3419,6 +3430,7 @@ const enumsMap: { [key: string]: any[] } = {
     "OK",
     "NOT_FOUND",
   ],
+  BranchCoverageSummaryRequestType: ["ci_app_coverage_branch_summary_request"],
   BudgetValidationResponseDataType: ["budget_validation"],
   BudgetWithEntriesDataType: ["budget"],
   BulkDeleteAppsDatastoreItemsRequestDataType: ["items"],
@@ -3504,6 +3516,7 @@ const enumsMap: { [key: string]: any[] } = {
   CloudflareAccountType: ["cloudflare-accounts"],
   CloudflareGlobalAPITokenType: ["CloudflareGlobalAPIToken"],
   CloudflareIntegrationType: ["Cloudflare"],
+  CommitCoverageSummaryRequestType: ["ci_app_coverage_commit_summary_request"],
   CompletionConditionOperator: [
     "OPERATOR_EQUAL",
     "OPERATOR_NOT_EQUAL",
@@ -3560,6 +3573,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
     "contributor",
     "viewer",
@@ -5455,6 +5469,10 @@ const typeMap: { [index: string]: any } = {
   BillingDimensionsMappingBodyItemAttributesEndpointsItems:
     BillingDimensionsMappingBodyItemAttributesEndpointsItems,
   BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
+  BranchCoverageSummaryRequest: BranchCoverageSummaryRequest,
+  BranchCoverageSummaryRequestAttributes:
+    BranchCoverageSummaryRequestAttributes,
+  BranchCoverageSummaryRequestData: BranchCoverageSummaryRequestData,
   Budget: Budget,
   BudgetArray: BudgetArray,
   BudgetAttributes: BudgetAttributes,
@@ -5703,6 +5721,10 @@ const typeMap: { [index: string]: any } = {
   CloudflareIntegration: CloudflareIntegration,
   CloudflareIntegrationUpdate: CloudflareIntegrationUpdate,
   CodeLocation: CodeLocation,
+  CommitCoverageSummaryRequest: CommitCoverageSummaryRequest,
+  CommitCoverageSummaryRequestAttributes:
+    CommitCoverageSummaryRequestAttributes,
+  CommitCoverageSummaryRequestData: CommitCoverageSummaryRequestData,
   CompletionCondition: CompletionCondition,
   CompletionGate: CompletionGate,
   Component: Component,
@@ -5779,6 +5801,11 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CoverageSummaryAttributes: CoverageSummaryAttributes,
+  CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,
+  CoverageSummaryData: CoverageSummaryData,
+  CoverageSummaryResponse: CoverageSummaryResponse,
+  CoverageSummaryServiceStats: CoverageSummaryServiceStats,
   Cpu: Cpu,
   CreateActionConnectionRequest: CreateActionConnectionRequest,
   CreateActionConnectionResponse: CreateActionConnectionResponse,

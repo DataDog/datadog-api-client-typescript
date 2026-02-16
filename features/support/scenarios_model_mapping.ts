@@ -5002,6 +5002,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetSecretsRules": {
         "operationResponseType": "SecretRuleArray",
     },
+    "v2.GetCodeCoverageBranchSummary": {
+        "body": {
+            "type": "BranchCoverageSummaryRequest",
+            "format": "",
+            },
+        "operationResponseType": "CoverageSummaryResponse",
+    },
+    "v2.GetCodeCoverageCommitSummary": {
+        "body": {
+            "type": "CommitCoverageSummaryRequest",
+            "format": "",
+            },
+        "operationResponseType": "CoverageSummaryResponse",
+    },
     "v2.ListContainerImages": {
         "filterTags": {
             "type": "string",
