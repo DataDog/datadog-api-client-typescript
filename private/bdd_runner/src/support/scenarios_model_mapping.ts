@@ -2618,12 +2618,101 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "ActionConnectionApi.V2.ListActionConnections": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterIntegration: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterTags: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterEnvironment: {
+      type: "string",
+      format: "",
+    },
+    filterConnectionIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterCreatorIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterSearch: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "ListActionConnectionsResponse",
+  },
   "ActionConnectionApi.V2.CreateActionConnection": {
     body: {
       type: "CreateActionConnectionRequest",
       format: "",
     },
     operationResponseType: "CreateActionConnectionResponse",
+  },
+  "ActionConnectionApi.V2.ListConnectionGroups": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterIntegration: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterEnvironment: {
+      type: "string",
+      format: "",
+    },
+    filterConnectionGroupIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterCreatorId: {
+      type: "string",
+      format: "",
+    },
+    filterCreatorIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterSearch: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "ListConnectionGroupsResponse",
+  },
+  "ActionConnectionApi.V2.UpdateConnectionGroup": {
+    connectionGroupId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateConnectionGroupRequest",
+      format: "",
+    },
+    operationResponseType: "UpdateConnectionGroupResponse",
   },
   "ActionConnectionApi.V2.GetActionConnection": {
     connectionId: {
