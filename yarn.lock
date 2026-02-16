@@ -451,6 +451,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-code-coverage@workspace:services/code_coverage":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-code-coverage@workspace:services/code_coverage"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-confluent-cloud@workspace:services/confluent_cloud":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-confluent-cloud@workspace:services/confluent_cloud"
