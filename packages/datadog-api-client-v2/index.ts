@@ -36,10 +36,13 @@ export {
   ActionConnectionApiDeleteActionConnectionRequest,
   ActionConnectionApiGetActionConnectionRequest,
   ActionConnectionApiGetAppKeyRegistrationRequest,
+  ActionConnectionApiListActionConnectionsRequest,
   ActionConnectionApiListAppKeyRegistrationsRequest,
+  ActionConnectionApiListConnectionGroupsRequest,
   ActionConnectionApiRegisterAppKeyRequest,
   ActionConnectionApiUnregisterAppKeyRequest,
   ActionConnectionApiUpdateActionConnectionRequest,
+  ActionConnectionApiUpdateConnectionGroupRequest,
   ActionConnectionApi,
 } from "./apis/ActionConnectionApi";
 
@@ -1477,6 +1480,7 @@ export { AwsScanOptionsType } from "./models/AwsScanOptionsType";
 export { AwsScanOptionsUpdateAttributes } from "./models/AwsScanOptionsUpdateAttributes";
 export { AwsScanOptionsUpdateData } from "./models/AwsScanOptionsUpdateData";
 export { AwsScanOptionsUpdateRequest } from "./models/AwsScanOptionsUpdateRequest";
+export { AWSSecretManager } from "./models/AWSSecretManager";
 export { AWSTracesConfig } from "./models/AWSTracesConfig";
 export { AzureCredentials } from "./models/AzureCredentials";
 export { AzureCredentialsUpdate } from "./models/AzureCredentialsUpdate";
@@ -1851,9 +1855,17 @@ export { ConnectedTeamRef } from "./models/ConnectedTeamRef";
 export { ConnectedTeamRefData } from "./models/ConnectedTeamRefData";
 export { ConnectedTeamRefDataType } from "./models/ConnectedTeamRefDataType";
 export { Connection } from "./models/Connection";
+export { ConnectionDataAttributesResponse } from "./models/ConnectionDataAttributesResponse";
+export { ConnectionDataResponse } from "./models/ConnectionDataResponse";
 export { ConnectionEnv } from "./models/ConnectionEnv";
 export { ConnectionEnvEnv } from "./models/ConnectionEnvEnv";
 export { ConnectionGroup } from "./models/ConnectionGroup";
+export { ConnectionGroupDataAttributesRequest } from "./models/ConnectionGroupDataAttributesRequest";
+export { ConnectionGroupDataAttributesResponse } from "./models/ConnectionGroupDataAttributesResponse";
+export { ConnectionGroupDataRequest } from "./models/ConnectionGroupDataRequest";
+export { ConnectionGroupDataResponse } from "./models/ConnectionGroupDataResponse";
+export { ConnectionGroupRelationships } from "./models/ConnectionGroupRelationships";
+export { ConnectionGroupType } from "./models/ConnectionGroupType";
 export { ConnectionsPagePagination } from "./models/ConnectionsPagePagination";
 export { ConnectionsResponseMeta } from "./models/ConnectionsResponseMeta";
 export { Container } from "./models/Container";
@@ -1946,6 +1958,9 @@ export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDele
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
 export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
+export { CreatedBy } from "./models/CreatedBy";
+export { CreatedByRelationship } from "./models/CreatedByRelationship";
+export { CreatedByRelationshipData } from "./models/CreatedByRelationshipData";
 export { CreateDegradationRequest } from "./models/CreateDegradationRequest";
 export { CreateDegradationRequestData } from "./models/CreateDegradationRequestData";
 export { CreateDegradationRequestDataAttributes } from "./models/CreateDegradationRequestDataAttributes";
@@ -2523,6 +2538,8 @@ export { EventSystemAttributes } from "./models/EventSystemAttributes";
 export { EventSystemAttributesCategory } from "./models/EventSystemAttributesCategory";
 export { EventSystemAttributesIntegrationId } from "./models/EventSystemAttributesIntegrationId";
 export { EventType } from "./models/EventType";
+export { ExternalSecretsManager } from "./models/ExternalSecretsManager";
+export { ExternalSecretsManagerOneOf } from "./models/ExternalSecretsManagerOneOf";
 export { FacetInfoRequest } from "./models/FacetInfoRequest";
 export { FacetInfoRequestData } from "./models/FacetInfoRequestData";
 export { FacetInfoRequestDataAttributes } from "./models/FacetInfoRequestDataAttributes";
@@ -3022,6 +3039,7 @@ export { InputSchema } from "./models/InputSchema";
 export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
+export { IntegrationCounts } from "./models/IntegrationCounts";
 export { IntegrationIncident } from "./models/IntegrationIncident";
 export { IntegrationIncidentFieldMappingsItems } from "./models/IntegrationIncidentFieldMappingsItems";
 export { IntegrationIncidentSeverityConfig } from "./models/IntegrationIncidentSeverityConfig";
@@ -3177,6 +3195,8 @@ export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
 export { Library } from "./models/Library";
 export { Links } from "./models/Links";
+export { ListActionConnectionsResponse } from "./models/ListActionConnectionsResponse";
+export { ListActionConnectionsResponseMeta } from "./models/ListActionConnectionsResponseMeta";
 export { ListAPIsResponse } from "./models/ListAPIsResponse";
 export { ListAPIsResponseData } from "./models/ListAPIsResponseData";
 export { ListAPIsResponseDataAttributes } from "./models/ListAPIsResponseDataAttributes";
@@ -3192,6 +3212,8 @@ export { ListAppsResponseDataItemsRelationships } from "./models/ListAppsRespons
 export { ListAppsResponseMeta } from "./models/ListAppsResponseMeta";
 export { ListAppsResponseMetaPage } from "./models/ListAppsResponseMetaPage";
 export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
+export { ListConnectionGroupsResponse } from "./models/ListConnectionGroupsResponse";
+export { ListConnectionGroupsResponseMeta } from "./models/ListConnectionGroupsResponseMeta";
 export { ListConnectionsResponse } from "./models/ListConnectionsResponse";
 export { ListConnectionsResponseData } from "./models/ListConnectionsResponseData";
 export { ListConnectionsResponseDataAttributes } from "./models/ListConnectionsResponseDataAttributes";
@@ -3990,6 +4012,7 @@ export { PowerpacksResponseMeta } from "./models/PowerpacksResponseMeta";
 export { PowerpacksResponseMetaPagination } from "./models/PowerpacksResponseMetaPagination";
 export { PowerpackTemplateVariable } from "./models/PowerpackTemplateVariable";
 export { PreviewEntityResponseData } from "./models/PreviewEntityResponseData";
+export { PrivateActionsRunner } from "./models/PrivateActionsRunner";
 export { ProcessSummariesMeta } from "./models/ProcessSummariesMeta";
 export { ProcessSummariesMetaPage } from "./models/ProcessSummariesMetaPage";
 export { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";
@@ -5206,6 +5229,8 @@ export { UpdateAppsDatastoreItemRequestDataType } from "./models/UpdateAppsDatas
 export { UpdateAppsDatastoreRequest } from "./models/UpdateAppsDatastoreRequest";
 export { UpdateAppsDatastoreRequestData } from "./models/UpdateAppsDatastoreRequestData";
 export { UpdateAppsDatastoreRequestDataAttributes } from "./models/UpdateAppsDatastoreRequestDataAttributes";
+export { UpdateConnectionGroupRequest } from "./models/UpdateConnectionGroupRequest";
+export { UpdateConnectionGroupResponse } from "./models/UpdateConnectionGroupResponse";
 export { UpdateConnectionRequest } from "./models/UpdateConnectionRequest";
 export { UpdateConnectionRequestData } from "./models/UpdateConnectionRequestData";
 export { UpdateConnectionRequestDataAttributes } from "./models/UpdateConnectionRequestDataAttributes";

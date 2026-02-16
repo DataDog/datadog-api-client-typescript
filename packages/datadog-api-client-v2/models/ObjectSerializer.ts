@@ -68,6 +68,7 @@ import { AWSNewExternalIDResponseData } from "./AWSNewExternalIDResponseData";
 import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
+import { AWSSecretManager } from "./AWSSecretManager";
 import { AWSTracesConfig } from "./AWSTracesConfig";
 import { AccountFilteringConfig } from "./AccountFilteringConfig";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
@@ -529,8 +530,15 @@ import { ConfluentResourcesResponse } from "./ConfluentResourcesResponse";
 import { ConnectedTeamRef } from "./ConnectedTeamRef";
 import { ConnectedTeamRefData } from "./ConnectedTeamRefData";
 import { Connection } from "./Connection";
+import { ConnectionDataAttributesResponse } from "./ConnectionDataAttributesResponse";
+import { ConnectionDataResponse } from "./ConnectionDataResponse";
 import { ConnectionEnv } from "./ConnectionEnv";
 import { ConnectionGroup } from "./ConnectionGroup";
+import { ConnectionGroupDataAttributesRequest } from "./ConnectionGroupDataAttributesRequest";
+import { ConnectionGroupDataAttributesResponse } from "./ConnectionGroupDataAttributesResponse";
+import { ConnectionGroupDataRequest } from "./ConnectionGroupDataRequest";
+import { ConnectionGroupDataResponse } from "./ConnectionGroupDataResponse";
+import { ConnectionGroupRelationships } from "./ConnectionGroupRelationships";
 import { ConnectionsPagePagination } from "./ConnectionsPagePagination";
 import { ConnectionsResponseMeta } from "./ConnectionsResponseMeta";
 import { Container } from "./Container";
@@ -685,6 +693,9 @@ import { CreateUploadResponseDataAttributes } from "./CreateUploadResponseDataAt
 import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationChannelRequest";
 import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
+import { CreatedBy } from "./CreatedBy";
+import { CreatedByRelationship } from "./CreatedByRelationship";
+import { CreatedByRelationshipData } from "./CreatedByRelationshipData";
 import { Creator } from "./Creator";
 import { CsmAgentData } from "./CsmAgentData";
 import { CsmAgentsAttributes } from "./CsmAgentsAttributes";
@@ -1060,6 +1071,7 @@ import { EventsScalarQuery } from "./EventsScalarQuery";
 import { EventsSearch } from "./EventsSearch";
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { EventsWarning } from "./EventsWarning";
+import { ExternalSecretsManagerOneOf } from "./ExternalSecretsManagerOneOf";
 import { FacetInfoRequest } from "./FacetInfoRequest";
 import { FacetInfoRequestData } from "./FacetInfoRequestData";
 import { FacetInfoRequestDataAttributes } from "./FacetInfoRequestDataAttributes";
@@ -1453,6 +1465,7 @@ import { IncidentsResponse } from "./IncidentsResponse";
 import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { IntegrationCounts } from "./IntegrationCounts";
 import { IntegrationIncident } from "./IntegrationIncident";
 import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
 import { IntegrationIncidentSeverityConfig } from "./IntegrationIncidentSeverityConfig";
@@ -1574,6 +1587,8 @@ import { ListAPIsResponseData } from "./ListAPIsResponseData";
 import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
 import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
 import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
+import { ListActionConnectionsResponse } from "./ListActionConnectionsResponse";
+import { ListActionConnectionsResponseMeta } from "./ListActionConnectionsResponseMeta";
 import { ListAppKeyRegistrationsResponse } from "./ListAppKeyRegistrationsResponse";
 import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
@@ -1584,6 +1599,8 @@ import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataIt
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
 import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
+import { ListConnectionGroupsResponse } from "./ListConnectionGroupsResponse";
+import { ListConnectionGroupsResponseMeta } from "./ListConnectionGroupsResponseMeta";
 import { ListConnectionsResponse } from "./ListConnectionsResponse";
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
@@ -2132,6 +2149,7 @@ import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
 import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
 import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
 import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
+import { PrivateActionsRunner } from "./PrivateActionsRunner";
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
@@ -3072,6 +3090,8 @@ import { UpdateAppsDatastoreItemRequestDataAttributesItemChanges } from "./Updat
 import { UpdateAppsDatastoreRequest } from "./UpdateAppsDatastoreRequest";
 import { UpdateAppsDatastoreRequestData } from "./UpdateAppsDatastoreRequestData";
 import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreRequestDataAttributes";
+import { UpdateConnectionGroupRequest } from "./UpdateConnectionGroupRequest";
+import { UpdateConnectionGroupResponse } from "./UpdateConnectionGroupResponse";
 import { UpdateConnectionRequest } from "./UpdateConnectionRequest";
 import { UpdateConnectionRequestData } from "./UpdateConnectionRequestData";
 import { UpdateConnectionRequestDataAttributes } from "./UpdateConnectionRequestDataAttributes";
@@ -3561,6 +3581,7 @@ const enumsMap: { [key: string]: any[] } = {
   ConfluentResourceType: ["confluent-cloud-resources"],
   ConnectedTeamRefDataType: ["github_team"],
   ConnectionEnvEnv: ["default"],
+  ConnectionGroupType: ["connection_group"],
   ContainerGroupType: ["container_group"],
   ContainerImageGroupType: ["container_image_group"],
   ContainerImageMetaPageType: ["cursor_limit"],
@@ -5207,6 +5228,7 @@ const typeMap: { [index: string]: any } = {
   AWSRegionsIncludeAll: AWSRegionsIncludeAll,
   AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
   AWSResourcesConfig: AWSResourcesConfig,
+  AWSSecretManager: AWSSecretManager,
   AWSTracesConfig: AWSTracesConfig,
   AccountFilteringConfig: AccountFilteringConfig,
   ActionConnectionAttributes: ActionConnectionAttributes,
@@ -5765,8 +5787,15 @@ const typeMap: { [index: string]: any } = {
   ConnectedTeamRef: ConnectedTeamRef,
   ConnectedTeamRefData: ConnectedTeamRefData,
   Connection: Connection,
+  ConnectionDataAttributesResponse: ConnectionDataAttributesResponse,
+  ConnectionDataResponse: ConnectionDataResponse,
   ConnectionEnv: ConnectionEnv,
   ConnectionGroup: ConnectionGroup,
+  ConnectionGroupDataAttributesRequest: ConnectionGroupDataAttributesRequest,
+  ConnectionGroupDataAttributesResponse: ConnectionGroupDataAttributesResponse,
+  ConnectionGroupDataRequest: ConnectionGroupDataRequest,
+  ConnectionGroupDataResponse: ConnectionGroupDataResponse,
+  ConnectionGroupRelationships: ConnectionGroupRelationships,
   ConnectionsPagePagination: ConnectionsPagePagination,
   ConnectionsResponseMeta: ConnectionsResponseMeta,
   Container: Container,
@@ -5957,6 +5986,9 @@ const typeMap: { [index: string]: any } = {
   CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
   CreateWorkflowRequest: CreateWorkflowRequest,
   CreateWorkflowResponse: CreateWorkflowResponse,
+  CreatedBy: CreatedBy,
+  CreatedByRelationship: CreatedByRelationship,
+  CreatedByRelationshipData: CreatedByRelationshipData,
   Creator: Creator,
   CsmAgentData: CsmAgentData,
   CsmAgentsAttributes: CsmAgentsAttributes,
@@ -6405,6 +6437,7 @@ const typeMap: { [index: string]: any } = {
   EventsSearch: EventsSearch,
   EventsTimeseriesQuery: EventsTimeseriesQuery,
   EventsWarning: EventsWarning,
+  ExternalSecretsManagerOneOf: ExternalSecretsManagerOneOf,
   FacetInfoRequest: FacetInfoRequest,
   FacetInfoRequestData: FacetInfoRequestData,
   FacetInfoRequestDataAttributes: FacetInfoRequestDataAttributes,
@@ -6840,6 +6873,7 @@ const typeMap: { [index: string]: any } = {
   InputSchema: InputSchema,
   InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  IntegrationCounts: IntegrationCounts,
   IntegrationIncident: IntegrationIncident,
   IntegrationIncidentFieldMappingsItems: IntegrationIncidentFieldMappingsItems,
   IntegrationIncidentSeverityConfig: IntegrationIncidentSeverityConfig,
@@ -6969,6 +7003,8 @@ const typeMap: { [index: string]: any } = {
   ListAPIsResponseDataAttributes: ListAPIsResponseDataAttributes,
   ListAPIsResponseMeta: ListAPIsResponseMeta,
   ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
+  ListActionConnectionsResponse: ListActionConnectionsResponse,
+  ListActionConnectionsResponseMeta: ListActionConnectionsResponseMeta,
   ListAppKeyRegistrationsResponse: ListAppKeyRegistrationsResponse,
   ListAppKeyRegistrationsResponseMeta: ListAppKeyRegistrationsResponseMeta,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
@@ -6980,6 +7016,8 @@ const typeMap: { [index: string]: any } = {
   ListAppsResponseMeta: ListAppsResponseMeta,
   ListAppsResponseMetaPage: ListAppsResponseMetaPage,
   ListAssetsSBOMsResponse: ListAssetsSBOMsResponse,
+  ListConnectionGroupsResponse: ListConnectionGroupsResponse,
+  ListConnectionGroupsResponseMeta: ListConnectionGroupsResponseMeta,
   ListConnectionsResponse: ListConnectionsResponse,
   ListConnectionsResponseData: ListConnectionsResponseData,
   ListConnectionsResponseDataAttributes: ListConnectionsResponseDataAttributes,
@@ -7683,6 +7721,7 @@ const typeMap: { [index: string]: any } = {
   PowerpacksResponseMeta: PowerpacksResponseMeta,
   PowerpacksResponseMetaPagination: PowerpacksResponseMetaPagination,
   PreviewEntityResponseData: PreviewEntityResponseData,
+  PrivateActionsRunner: PrivateActionsRunner,
   ProcessSummariesMeta: ProcessSummariesMeta,
   ProcessSummariesMetaPage: ProcessSummariesMetaPage,
   ProcessSummariesResponse: ProcessSummariesResponse,
@@ -8811,6 +8850,8 @@ const typeMap: { [index: string]: any } = {
   UpdateAppsDatastoreRequestData: UpdateAppsDatastoreRequestData,
   UpdateAppsDatastoreRequestDataAttributes:
     UpdateAppsDatastoreRequestDataAttributes,
+  UpdateConnectionGroupRequest: UpdateConnectionGroupRequest,
+  UpdateConnectionGroupResponse: UpdateConnectionGroupResponse,
   UpdateConnectionRequest: UpdateConnectionRequest,
   UpdateConnectionRequestData: UpdateConnectionRequestData,
   UpdateConnectionRequestDataAttributes: UpdateConnectionRequestDataAttributes,
@@ -9207,6 +9248,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ChangeEventCustomAttributes",
     "AlertEventCustomAttributes",
   ],
+  ExternalSecretsManager: ["ExternalSecretsManagerOneOf"],
   FastlyCredentials: ["FastlyAPIKey"],
   FastlyCredentialsUpdate: ["FastlyAPIKeyUpdate"],
   FreshserviceCredentials: ["FreshserviceAPIKey"],
