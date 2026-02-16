@@ -1664,6 +1664,9 @@ import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
+import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
+import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
+import { MaxSessionDurationUpdateRequestData } from "./MaxSessionDurationUpdateRequestData";
 import { MemberTeam } from "./MemberTeam";
 import { Metadata } from "./Metadata";
 import { Metric } from "./Metric";
@@ -2431,6 +2434,9 @@ import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
 import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
 import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
+import { SamlConfigurationsUpdateAttributes } from "./SamlConfigurationsUpdateAttributes";
+import { SamlConfigurationsUpdateRequest } from "./SamlConfigurationsUpdateRequest";
+import { SamlConfigurationsUpdateRequestData } from "./SamlConfigurationsUpdateRequestData";
 import { ScaRequest } from "./ScaRequest";
 import { ScaRequestData } from "./ScaRequestData";
 import { ScaRequestDataAttributes } from "./ScaRequestDataAttributes";
@@ -4031,6 +4037,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
+  MaxSessionDurationUpdateRequestDataType: ["max_session_duration"],
   MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
@@ -4579,6 +4586,7 @@ const enumsMap: { [key: string]: any[] } = {
     "completed_with_errors",
     "failed",
   ],
+  SamlConfigurationsUpdateRequestDataType: ["saml_preferences"],
   ScaRequestDataType: ["scarequests"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
@@ -7048,6 +7056,9 @@ const typeMap: { [index: string]: any } = {
   LogsWarning: LogsWarning,
   MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
   MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
+  MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
+  MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
+  MaxSessionDurationUpdateRequestData: MaxSessionDurationUpdateRequestData,
   MemberTeam: MemberTeam,
   Metadata: Metadata,
   Metric: Metric,
@@ -7996,6 +8007,9 @@ const typeMap: { [index: string]: any } = {
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
   SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
   SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
+  SamlConfigurationsUpdateAttributes: SamlConfigurationsUpdateAttributes,
+  SamlConfigurationsUpdateRequest: SamlConfigurationsUpdateRequest,
+  SamlConfigurationsUpdateRequestData: SamlConfigurationsUpdateRequestData,
   ScaRequest: ScaRequest,
   ScaRequestData: ScaRequestData,
   ScaRequestDataAttributes: ScaRequestDataAttributes,

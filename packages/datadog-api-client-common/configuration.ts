@@ -354,6 +354,8 @@ export function createConfiguration(
       "v2.listServiceNowTemplates": false,
       "v2.listServiceNowUsers": false,
       "v2.updateServiceNowTemplate": false,
+      "v2.updateLoginOrgConfigMaxSessionDuration": false,
+      "v2.updateOrgSamlConfigurations": false,
       "v2.addRoleToRestrictionQuery": false,
       "v2.createRestrictionQuery": false,
       "v2.deleteRestrictionQuery": false,

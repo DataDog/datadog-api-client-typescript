@@ -358,83 +358,83 @@ export class MonthlyUsageAttributionValues {
   /**
    * The percentage of Indexed Logs (15-day Retention) usage by tag(s).
    */
-  "logsIndexed15DayPercentage"?: number;
+  "logsIndexed15dayPercentage"?: number;
   /**
    * The total Indexed Logs (15-day Retention) usage by tag(s).
    */
-  "logsIndexed15DayUsage"?: number;
+  "logsIndexed15dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (180-day Retention) usage by tag(s).
    */
-  "logsIndexed180DayPercentage"?: number;
+  "logsIndexed180dayPercentage"?: number;
   /**
    * The total Indexed Logs (180-day Retention) usage by tag(s).
    */
-  "logsIndexed180DayUsage"?: number;
+  "logsIndexed180dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (1-day Retention) usage by tag(s).
    */
-  "logsIndexed1DayPercentage"?: number;
+  "logsIndexed1dayPercentage"?: number;
   /**
    * The total Indexed Logs (1-day Retention) usage by tag(s).
    */
-  "logsIndexed1DayUsage"?: number;
+  "logsIndexed1dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (30-day Retention) usage by tag(s).
    */
-  "logsIndexed30DayPercentage"?: number;
+  "logsIndexed30dayPercentage"?: number;
   /**
    * The total Indexed Logs (30-day Retention) usage by tag(s).
    */
-  "logsIndexed30DayUsage"?: number;
+  "logsIndexed30dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (360-day Retention) usage by tag(s).
    */
-  "logsIndexed360DayPercentage"?: number;
+  "logsIndexed360dayPercentage"?: number;
   /**
    * The total Indexed Logs (360-day Retention) usage by tag(s).
    */
-  "logsIndexed360DayUsage"?: number;
+  "logsIndexed360dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (3-day Retention) usage by tag(s).
    */
-  "logsIndexed3DayPercentage"?: number;
+  "logsIndexed3dayPercentage"?: number;
   /**
    * The total Indexed Logs (3-day Retention) usage by tag(s).
    */
-  "logsIndexed3DayUsage"?: number;
+  "logsIndexed3dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (45-day Retention) usage by tag(s).
    */
-  "logsIndexed45DayPercentage"?: number;
+  "logsIndexed45dayPercentage"?: number;
   /**
    * The total Indexed Logs (45-day Retention) usage by tag(s).
    */
-  "logsIndexed45DayUsage"?: number;
+  "logsIndexed45dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (60-day Retention) usage by tag(s).
    */
-  "logsIndexed60DayPercentage"?: number;
+  "logsIndexed60dayPercentage"?: number;
   /**
    * The total Indexed Logs (60-day Retention) usage by tag(s).
    */
-  "logsIndexed60DayUsage"?: number;
+  "logsIndexed60dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (7-day Retention) usage by tag(s).
    */
-  "logsIndexed7DayPercentage"?: number;
+  "logsIndexed7dayPercentage"?: number;
   /**
    * The total Indexed Logs (7-day Retention) usage by tag(s).
    */
-  "logsIndexed7DayUsage"?: number;
+  "logsIndexed7dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (90-day Retention) usage by tag(s).
    */
-  "logsIndexed90DayPercentage"?: number;
+  "logsIndexed90dayPercentage"?: number;
   /**
    * The total Indexed Logs (90-day Retention) usage by tag(s).
    */
-  "logsIndexed90DayUsage"?: number;
+  "logsIndexed90dayUsage"?: number;
   /**
    * The percentage of Indexed Logs (Custom Retention) usage by tag(s).
    */
@@ -1098,102 +1098,102 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
-    logsIndexed15DayPercentage: {
+    logsIndexed15dayPercentage: {
       baseName: "logs_indexed_15day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed15DayUsage: {
+    logsIndexed15dayUsage: {
       baseName: "logs_indexed_15day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed180DayPercentage: {
+    logsIndexed180dayPercentage: {
       baseName: "logs_indexed_180day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed180DayUsage: {
+    logsIndexed180dayUsage: {
       baseName: "logs_indexed_180day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed1DayPercentage: {
+    logsIndexed1dayPercentage: {
       baseName: "logs_indexed_1day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed1DayUsage: {
+    logsIndexed1dayUsage: {
       baseName: "logs_indexed_1day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed30DayPercentage: {
+    logsIndexed30dayPercentage: {
       baseName: "logs_indexed_30day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed30DayUsage: {
+    logsIndexed30dayUsage: {
       baseName: "logs_indexed_30day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed360DayPercentage: {
+    logsIndexed360dayPercentage: {
       baseName: "logs_indexed_360day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed360DayUsage: {
+    logsIndexed360dayUsage: {
       baseName: "logs_indexed_360day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed3DayPercentage: {
+    logsIndexed3dayPercentage: {
       baseName: "logs_indexed_3day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed3DayUsage: {
+    logsIndexed3dayUsage: {
       baseName: "logs_indexed_3day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed45DayPercentage: {
+    logsIndexed45dayPercentage: {
       baseName: "logs_indexed_45day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed45DayUsage: {
+    logsIndexed45dayUsage: {
       baseName: "logs_indexed_45day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed60DayPercentage: {
+    logsIndexed60dayPercentage: {
       baseName: "logs_indexed_60day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed60DayUsage: {
+    logsIndexed60dayUsage: {
       baseName: "logs_indexed_60day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed7DayPercentage: {
+    logsIndexed7dayPercentage: {
       baseName: "logs_indexed_7day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed7DayUsage: {
+    logsIndexed7dayUsage: {
       baseName: "logs_indexed_7day_usage",
       type: "number",
       format: "double",
     },
-    logsIndexed90DayPercentage: {
+    logsIndexed90dayPercentage: {
       baseName: "logs_indexed_90day_percentage",
       type: "number",
       format: "double",
     },
-    logsIndexed90DayUsage: {
+    logsIndexed90dayUsage: {
       baseName: "logs_indexed_90day_usage",
       type: "number",
       format: "double",
