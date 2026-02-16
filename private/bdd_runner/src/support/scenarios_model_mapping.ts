@@ -5012,6 +5012,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "SecurityMonitoringApi.V2.GetSecretsRules": {
     operationResponseType: "SecretRuleArray",
   },
+  "CodeCoverageApi.V2.GetCodeCoverageBranchSummary": {
+    body: {
+      type: "BranchCoverageSummaryRequest",
+      format: "",
+    },
+    operationResponseType: "CoverageSummaryResponse",
+  },
+  "CodeCoverageApi.V2.GetCodeCoverageCommitSummary": {
+    body: {
+      type: "CommitCoverageSummaryRequest",
+      format: "",
+    },
+    operationResponseType: "CoverageSummaryResponse",
+  },
   "ContainerImagesApi.V2.ListContainerImages": {
     filterTags: {
       type: "string",
