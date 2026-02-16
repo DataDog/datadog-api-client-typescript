@@ -3727,6 +3727,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UpsertCatalogEntityResponse",
     },
+    "v2.ConvertCatalogEntities": {
+        "targetVersion": {
+            "type": "EntitySchemaVersion",
+            "format": "",
+            },
+        "body": {
+            "type": "UpsertCatalogEntityRequest",
+            "format": "",
+            },
+        "operationResponseType": "string",
+    },
     "v2.PreviewCatalogEntities": {
         "operationResponseType": "EntityResponseArray",
     },
@@ -3770,6 +3781,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.AcceptRecommendedEntities": {
+        "body": {
+            "type": "Array<RecommendedEntityWithSchema>",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeclineRecommendedEntities": {
+        "body": {
+            "type": "Array<RecommendedEntityID>",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.TriggerRecommendedEntities": {
+        "body": {
+            "type": "any",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
     "v2.ListCatalogRelation": {
         "pageOffset": {
             "type": "number",
@@ -3800,6 +3832,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ListRelationCatalogResponse",
+    },
+    "v2.GetIDPConfigValue": {
+        "configName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IDPConfigResponse",
+    },
+    "v2.UpsertIDPConfigValue": {
+        "configName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IDPConfigRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.CreateCIAppPipelineEvent": {
         "body": {
