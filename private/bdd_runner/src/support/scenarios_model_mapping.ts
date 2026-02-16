@@ -2586,6 +2586,139 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DeleteAppsDatastoreItemResponseArray",
   },
+  "WorkflowAutomationApi.V2.CreateCustomAgentConversation": {
+    customAgentId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CustomAgentConversationRequest",
+      format: "",
+    },
+    operationResponseType: "CustomAgentConversationStreamResponse",
+  },
+  "WorkflowAutomationApi.V2.CreateDataTransformation": {
+    body: {
+      type: "DataTransformationRequest",
+      format: "",
+    },
+    operationResponseType: "DataTransformationStreamResponse",
+  },
+  "WorkflowAutomationApi.V2.CreateDataTransformationDescription": {
+    body: {
+      type: "DataTransformationDescriptionRequest",
+      format: "",
+    },
+    operationResponseType: "DataTransformationDescriptionResponse",
+  },
+  "WorkflowAutomationApi.V2.CreateWorkflowDescription": {
+    body: {
+      type: "WorkflowDescriptionRequest",
+      format: "",
+    },
+    operationResponseType: "WorkflowDescriptionResponse",
+  },
+  "WorkflowAutomationApi.V2.CreatePickAction": {
+    body: {
+      type: "PickActionRequest",
+      format: "",
+    },
+    operationResponseType: "PickActionResponse",
+  },
+  "WorkflowAutomationApi.V2.CreatePickRemediationFromInvestigation": {
+    body: {
+      type: "PickRemediationFromInvestigationRequest",
+      format: "",
+    },
+    operationResponseType: "PickRemediationFromInvestigationResponse",
+  },
+  "WorkflowAutomationApi.V2.CreateWorkflowScaffoldAgenticStream": {
+    body: {
+      type: "WorkflowScaffoldAgenticStreamRequest",
+      format: "",
+    },
+    operationResponseType: "WorkflowScaffoldAgenticStreamResponse",
+  },
+  "WorkflowAutomationApi.V2.CreateWorkflow": {
+    body: {
+      type: "CreateWorkflowRequest",
+      format: "",
+    },
+    operationResponseType: "CreateWorkflowResponse",
+  },
+  "WorkflowAutomationApi.V2.GetWorkflow": {
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GetWorkflowResponse",
+  },
+  "WorkflowAutomationApi.V2.DeleteWorkflow": {
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "WorkflowAutomationApi.V2.UpdateWorkflow": {
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateWorkflowRequest",
+      format: "",
+    },
+    operationResponseType: "UpdateWorkflowResponse",
+  },
+  "WorkflowAutomationApi.V2.ListWorkflowInstances": {
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "WorkflowListInstancesResponse",
+  },
+  "WorkflowAutomationApi.V2.CreateWorkflowInstance": {
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "WorkflowInstanceCreateRequest",
+      format: "",
+    },
+    operationResponseType: "WorkflowInstanceCreateResponse",
+  },
+  "WorkflowAutomationApi.V2.GetWorkflowInstance": {
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    instanceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WorklflowGetInstanceResponse",
+  },
+  "WorkflowAutomationApi.V2.CancelWorkflowInstance": {
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    instanceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WorklflowCancelInstanceResponse",
+  },
   "ActionConnectionApi.V2.ListAppKeyRegistrations": {
     pageSize: {
       type: "number",
@@ -10940,85 +11073,5 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "PermissionsResponse",
-  },
-  "WorkflowAutomationApi.V2.CreateWorkflow": {
-    body: {
-      type: "CreateWorkflowRequest",
-      format: "",
-    },
-    operationResponseType: "CreateWorkflowResponse",
-  },
-  "WorkflowAutomationApi.V2.GetWorkflow": {
-    workflowId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "GetWorkflowResponse",
-  },
-  "WorkflowAutomationApi.V2.DeleteWorkflow": {
-    workflowId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "WorkflowAutomationApi.V2.UpdateWorkflow": {
-    workflowId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "UpdateWorkflowRequest",
-      format: "",
-    },
-    operationResponseType: "UpdateWorkflowResponse",
-  },
-  "WorkflowAutomationApi.V2.ListWorkflowInstances": {
-    workflowId: {
-      type: "string",
-      format: "",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "WorkflowListInstancesResponse",
-  },
-  "WorkflowAutomationApi.V2.CreateWorkflowInstance": {
-    workflowId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "WorkflowInstanceCreateRequest",
-      format: "",
-    },
-    operationResponseType: "WorkflowInstanceCreateResponse",
-  },
-  "WorkflowAutomationApi.V2.GetWorkflowInstance": {
-    workflowId: {
-      type: "string",
-      format: "",
-    },
-    instanceId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "WorklflowGetInstanceResponse",
-  },
-  "WorkflowAutomationApi.V2.CancelWorkflowInstance": {
-    workflowId: {
-      type: "string",
-      format: "",
-    },
-    instanceId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "WorklflowCancelInstanceResponse",
   },
 };

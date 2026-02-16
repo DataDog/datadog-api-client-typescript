@@ -1,7 +1,14 @@
 export {
   WorkflowAutomationApiCancelWorkflowInstanceRequest,
+  WorkflowAutomationApiCreateCustomAgentConversationRequest,
+  WorkflowAutomationApiCreateDataTransformationRequest,
+  WorkflowAutomationApiCreateDataTransformationDescriptionRequest,
+  WorkflowAutomationApiCreatePickActionRequest,
+  WorkflowAutomationApiCreatePickRemediationFromInvestigationRequest,
   WorkflowAutomationApiCreateWorkflowRequest,
+  WorkflowAutomationApiCreateWorkflowDescriptionRequest,
   WorkflowAutomationApiCreateWorkflowInstanceRequest,
+  WorkflowAutomationApiCreateWorkflowScaffoldAgenticStreamRequest,
   WorkflowAutomationApiDeleteWorkflowRequest,
   WorkflowAutomationApiGetWorkflowRequest,
   WorkflowAutomationApiGetWorkflowInstanceRequest,
@@ -10,6 +17,8 @@ export {
   WorkflowAutomationApi,
 } from "./WorkflowAutomationApi";
 
+export { ActionMatch } from "./models/ActionMatch";
+export { AgenticEvent } from "./models/AgenticEvent";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
@@ -21,6 +30,11 @@ export { AppTriggerWrapper } from "./models/AppTriggerWrapper";
 export { CaseTrigger } from "./models/CaseTrigger";
 export { CaseTriggerWrapper } from "./models/CaseTriggerWrapper";
 export { ChangeEventTriggerWrapper } from "./models/ChangeEventTriggerWrapper";
+export { ChatHistoryItem } from "./models/ChatHistoryItem";
+export { ChatHistoryItemRole } from "./models/ChatHistoryItemRole";
+export { ChatMessage } from "./models/ChatMessage";
+export { ChatMessageRole } from "./models/ChatMessageRole";
+export { ClientType } from "./models/ClientType";
 export { CompletionCondition } from "./models/CompletionCondition";
 export { CompletionConditionOperator } from "./models/CompletionConditionOperator";
 export { CompletionGate } from "./models/CompletionGate";
@@ -30,10 +44,18 @@ export { ConnectionEnvEnv } from "./models/ConnectionEnvEnv";
 export { ConnectionGroup } from "./models/ConnectionGroup";
 export { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 export { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
+export { CustomAgentConversationRequest } from "./models/CustomAgentConversationRequest";
+export { CustomAgentConversationStreamResponse } from "./models/CustomAgentConversationStreamResponse";
 export { DashboardTriggerWrapper } from "./models/DashboardTriggerWrapper";
 export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTriggerWrapper";
 export { DatastoreTrigger } from "./models/DatastoreTrigger";
 export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
+export { DataTransformationContext } from "./models/DataTransformationContext";
+export { DataTransformationDescriptionRequest } from "./models/DataTransformationDescriptionRequest";
+export { DataTransformationDescriptionResponse } from "./models/DataTransformationDescriptionResponse";
+export { DataTransformationLanguage } from "./models/DataTransformationLanguage";
+export { DataTransformationRequest } from "./models/DataTransformationRequest";
+export { DataTransformationStreamResponse } from "./models/DataTransformationStreamResponse";
 export { ErrorHandler } from "./models/ErrorHandler";
 export { GetWorkflowResponse } from "./models/GetWorkflowResponse";
 export { GithubWebhookTrigger } from "./models/GithubWebhookTrigger";
@@ -56,6 +78,10 @@ export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { Parameter } from "./models/Parameter";
+export { PickActionRequest } from "./models/PickActionRequest";
+export { PickActionResponse } from "./models/PickActionResponse";
+export { PickRemediationFromInvestigationRequest } from "./models/PickRemediationFromInvestigationRequest";
+export { PickRemediationFromInvestigationResponse } from "./models/PickRemediationFromInvestigationResponse";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
 export { RetryStrategy } from "./models/RetryStrategy";
@@ -69,19 +95,25 @@ export { SelfServiceTriggerWrapper } from "./models/SelfServiceTriggerWrapper";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";
 export { SoftwareCatalogTriggerWrapper } from "./models/SoftwareCatalogTriggerWrapper";
 export { Spec } from "./models/Spec";
+export { StabilityLevel } from "./models/StabilityLevel";
 export { Step } from "./models/Step";
 export { StepDisplay } from "./models/StepDisplay";
 export { StepDisplayBounds } from "./models/StepDisplayBounds";
+export { StreamEventV1 } from "./models/StreamEventV1";
 export { Trigger } from "./models/Trigger";
 export { TriggerRateLimit } from "./models/TriggerRateLimit";
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
+export { UserContext } from "./models/UserContext";
+export { UserInfo } from "./models/UserInfo";
 export { WorkflowData } from "./models/WorkflowData";
 export { WorkflowDataAttributes } from "./models/WorkflowDataAttributes";
 export { WorkflowDataRelationships } from "./models/WorkflowDataRelationships";
 export { WorkflowDataType } from "./models/WorkflowDataType";
 export { WorkflowDataUpdate } from "./models/WorkflowDataUpdate";
 export { WorkflowDataUpdateAttributes } from "./models/WorkflowDataUpdateAttributes";
+export { WorkflowDescriptionRequest } from "./models/WorkflowDescriptionRequest";
+export { WorkflowDescriptionResponse } from "./models/WorkflowDescriptionResponse";
 export { WorkflowInstanceCreateMeta } from "./models/WorkflowInstanceCreateMeta";
 export { WorkflowInstanceCreateRequest } from "./models/WorkflowInstanceCreateRequest";
 export { WorkflowInstanceCreateResponse } from "./models/WorkflowInstanceCreateResponse";
@@ -90,6 +122,8 @@ export { WorkflowInstanceListItem } from "./models/WorkflowInstanceListItem";
 export { WorkflowListInstancesResponse } from "./models/WorkflowListInstancesResponse";
 export { WorkflowListInstancesResponseMeta } from "./models/WorkflowListInstancesResponseMeta";
 export { WorkflowListInstancesResponseMetaPage } from "./models/WorkflowListInstancesResponseMetaPage";
+export { WorkflowScaffoldAgenticStreamRequest } from "./models/WorkflowScaffoldAgenticStreamRequest";
+export { WorkflowScaffoldAgenticStreamResponse } from "./models/WorkflowScaffoldAgenticStreamResponse";
 export { WorkflowTriggerWrapper } from "./models/WorkflowTriggerWrapper";
 export { WorkflowUserRelationship } from "./models/WorkflowUserRelationship";
 export { WorkflowUserRelationshipData } from "./models/WorkflowUserRelationshipData";

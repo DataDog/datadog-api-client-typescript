@@ -25,13 +25,27 @@ import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
+import { CustomAgentConversationRequest } from "./models/CustomAgentConversationRequest";
+import { CustomAgentConversationStreamResponse } from "./models/CustomAgentConversationStreamResponse";
+import { DataTransformationDescriptionRequest } from "./models/DataTransformationDescriptionRequest";
+import { DataTransformationDescriptionResponse } from "./models/DataTransformationDescriptionResponse";
+import { DataTransformationRequest } from "./models/DataTransformationRequest";
+import { DataTransformationStreamResponse } from "./models/DataTransformationStreamResponse";
 import { GetWorkflowResponse } from "./models/GetWorkflowResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { PickActionRequest } from "./models/PickActionRequest";
+import { PickActionResponse } from "./models/PickActionResponse";
+import { PickRemediationFromInvestigationRequest } from "./models/PickRemediationFromInvestigationRequest";
+import { PickRemediationFromInvestigationResponse } from "./models/PickRemediationFromInvestigationResponse";
 import { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
+import { WorkflowDescriptionRequest } from "./models/WorkflowDescriptionRequest";
+import { WorkflowDescriptionResponse } from "./models/WorkflowDescriptionResponse";
 import { WorkflowInstanceCreateRequest } from "./models/WorkflowInstanceCreateRequest";
 import { WorkflowInstanceCreateResponse } from "./models/WorkflowInstanceCreateResponse";
 import { WorkflowListInstancesResponse } from "./models/WorkflowListInstancesResponse";
+import { WorkflowScaffoldAgenticStreamRequest } from "./models/WorkflowScaffoldAgenticStreamRequest";
+import { WorkflowScaffoldAgenticStreamResponse } from "./models/WorkflowScaffoldAgenticStreamResponse";
 import { WorklflowCancelInstanceResponse } from "./models/WorklflowCancelInstanceResponse";
 import { WorklflowGetInstanceResponse } from "./models/WorklflowGetInstanceResponse";
 import { version } from "../version";
@@ -95,6 +109,327 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createCustomAgentConversation(
+    customAgentId: string,
+    body: CustomAgentConversationRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "WorkflowAutomationApi.v2.createCustomAgentConversation"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createCustomAgentConversation' is disabled. Enable it by setting `configuration.unstableOperations['WorkflowAutomationApi.v2.createCustomAgentConversation'] = true`",
+      );
+    }
+
+    // verify required parameter 'customAgentId' is not null or undefined
+    if (customAgentId === null || customAgentId === undefined) {
+      throw new RequiredError("customAgentId", "createCustomAgentConversation");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCustomAgentConversation");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/actions/agents/{custom_agent_id}/conversation".replace(
+        "{custom_agent_id}",
+        encodeURIComponent(String(customAgentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createCustomAgentConversation",
+      WorkflowAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam(
+      "Accept",
+      "text/event-stream, application/json",
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CustomAgentConversationRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createDataTransformation(
+    body: DataTransformationRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "WorkflowAutomationApi.v2.createDataTransformation"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createDataTransformation' is disabled. Enable it by setting `configuration.unstableOperations['WorkflowAutomationApi.v2.createDataTransformation'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createDataTransformation");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflow_generation/data_transformation";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createDataTransformation",
+      WorkflowAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam(
+      "Accept",
+      "text/event-stream, application/json",
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "DataTransformationRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createDataTransformationDescription(
+    body: DataTransformationDescriptionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "WorkflowAutomationApi.v2.createDataTransformationDescription"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createDataTransformationDescription' is disabled. Enable it by setting `configuration.unstableOperations['WorkflowAutomationApi.v2.createDataTransformationDescription'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createDataTransformationDescription");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/workflow_generation/data_transformation/description";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createDataTransformationDescription",
+      WorkflowAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "DataTransformationDescriptionRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createPickAction(
+    body: PickActionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["WorkflowAutomationApi.v2.createPickAction"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createPickAction' is disabled. Enable it by setting `configuration.unstableOperations['WorkflowAutomationApi.v2.createPickAction'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPickAction");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflow_generation/pick_action";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createPickAction",
+      WorkflowAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PickActionRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createPickRemediationFromInvestigation(
+    body: PickRemediationFromInvestigationRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "WorkflowAutomationApi.v2.createPickRemediationFromInvestigation"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createPickRemediationFromInvestigation' is disabled. Enable it by setting `configuration.unstableOperations['WorkflowAutomationApi.v2.createPickRemediationFromInvestigation'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPickRemediationFromInvestigation");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/workflow_generation/pick_remediation_from_investigation";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createPickRemediationFromInvestigation",
+      WorkflowAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "PickRemediationFromInvestigationRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createWorkflow(
     body: CreateWorkflowRequest,
     _options?: Configuration,
@@ -132,6 +467,66 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateWorkflowRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createWorkflowDescription(
+    body: WorkflowDescriptionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "WorkflowAutomationApi.v2.createWorkflowDescription"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createWorkflowDescription' is disabled. Enable it by setting `configuration.unstableOperations['WorkflowAutomationApi.v2.createWorkflowDescription'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createWorkflowDescription");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflow_generation/description";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createWorkflowDescription",
+      WorkflowAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "WorkflowDescriptionRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -200,6 +595,69 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createWorkflowScaffoldAgenticStream(
+    body: WorkflowScaffoldAgenticStreamRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "WorkflowAutomationApi.v2.createWorkflowScaffoldAgenticStream"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createWorkflowScaffoldAgenticStream' is disabled. Enable it by setting `configuration.unstableOperations['WorkflowAutomationApi.v2.createWorkflowScaffoldAgenticStream'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createWorkflowScaffoldAgenticStream");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflow_generation/scaffold_agentic_stream";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createWorkflowScaffoldAgenticStream",
+      WorkflowAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam(
+      "Accept",
+      "text/event-stream, application/json",
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "WorkflowScaffoldAgenticStreamRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -533,6 +991,397 @@ export class WorkflowAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createCustomAgentConversation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCustomAgentConversation(
+    response: ResponseContext,
+  ): Promise<CustomAgentConversationStreamResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CustomAgentConversationStreamResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomAgentConversationStreamResponse",
+      ) as CustomAgentConversationStreamResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomAgentConversationStreamResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomAgentConversationStreamResponse",
+        "",
+      ) as CustomAgentConversationStreamResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createDataTransformation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createDataTransformation(
+    response: ResponseContext,
+  ): Promise<DataTransformationStreamResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: DataTransformationStreamResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "DataTransformationStreamResponse",
+      ) as DataTransformationStreamResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DataTransformationStreamResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "DataTransformationStreamResponse",
+        "",
+      ) as DataTransformationStreamResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createDataTransformationDescription
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createDataTransformationDescription(
+    response: ResponseContext,
+  ): Promise<DataTransformationDescriptionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: DataTransformationDescriptionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "DataTransformationDescriptionResponse",
+      ) as DataTransformationDescriptionResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DataTransformationDescriptionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "DataTransformationDescriptionResponse",
+        "",
+      ) as DataTransformationDescriptionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createPickAction
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPickAction(
+    response: ResponseContext,
+  ): Promise<PickActionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PickActionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PickActionResponse",
+      ) as PickActionResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PickActionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PickActionResponse",
+        "",
+      ) as PickActionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createPickRemediationFromInvestigation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPickRemediationFromInvestigation(
+    response: ResponseContext,
+  ): Promise<PickRemediationFromInvestigationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PickRemediationFromInvestigationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PickRemediationFromInvestigationResponse",
+      ) as PickRemediationFromInvestigationResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PickRemediationFromInvestigationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PickRemediationFromInvestigationResponse",
+        "",
+      ) as PickRemediationFromInvestigationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createWorkflow
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -596,6 +1445,83 @@ export class WorkflowAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createWorkflowDescription
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createWorkflowDescription(
+    response: ResponseContext,
+  ): Promise<WorkflowDescriptionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: WorkflowDescriptionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "WorkflowDescriptionResponse",
+      ) as WorkflowDescriptionResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: WorkflowDescriptionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "WorkflowDescriptionResponse",
+        "",
+      ) as WorkflowDescriptionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createWorkflowInstance
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -642,6 +1568,83 @@ export class WorkflowAutomationApiResponseProcessor {
         "WorkflowInstanceCreateResponse",
         "",
       ) as WorkflowInstanceCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createWorkflowScaffoldAgenticStream
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createWorkflowScaffoldAgenticStream(
+    response: ResponseContext,
+  ): Promise<WorkflowScaffoldAgenticStreamResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: WorkflowScaffoldAgenticStreamResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "WorkflowScaffoldAgenticStreamResponse",
+      ) as WorkflowScaffoldAgenticStreamResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: WorkflowScaffoldAgenticStreamResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "WorkflowScaffoldAgenticStreamResponse",
+        "",
+      ) as WorkflowScaffoldAgenticStreamResponse;
       return body;
     }
 
@@ -965,11 +1968,58 @@ export interface WorkflowAutomationApiCancelWorkflowInstanceRequest {
   instanceId: string;
 }
 
+export interface WorkflowAutomationApiCreateCustomAgentConversationRequest {
+  /**
+   * The ID of the custom agent.
+   * @type string
+   */
+  customAgentId: string;
+  /**
+   * @type CustomAgentConversationRequest
+   */
+  body: CustomAgentConversationRequest;
+}
+
+export interface WorkflowAutomationApiCreateDataTransformationRequest {
+  /**
+   * @type DataTransformationRequest
+   */
+  body: DataTransformationRequest;
+}
+
+export interface WorkflowAutomationApiCreateDataTransformationDescriptionRequest {
+  /**
+   * @type DataTransformationDescriptionRequest
+   */
+  body: DataTransformationDescriptionRequest;
+}
+
+export interface WorkflowAutomationApiCreatePickActionRequest {
+  /**
+   * @type PickActionRequest
+   */
+  body: PickActionRequest;
+}
+
+export interface WorkflowAutomationApiCreatePickRemediationFromInvestigationRequest {
+  /**
+   * @type PickRemediationFromInvestigationRequest
+   */
+  body: PickRemediationFromInvestigationRequest;
+}
+
 export interface WorkflowAutomationApiCreateWorkflowRequest {
   /**
    * @type CreateWorkflowRequest
    */
   body: CreateWorkflowRequest;
+}
+
+export interface WorkflowAutomationApiCreateWorkflowDescriptionRequest {
+  /**
+   * @type WorkflowDescriptionRequest
+   */
+  body: WorkflowDescriptionRequest;
 }
 
 export interface WorkflowAutomationApiCreateWorkflowInstanceRequest {
@@ -982,6 +2032,13 @@ export interface WorkflowAutomationApiCreateWorkflowInstanceRequest {
    * @type WorkflowInstanceCreateRequest
    */
   body: WorkflowInstanceCreateRequest;
+}
+
+export interface WorkflowAutomationApiCreateWorkflowScaffoldAgenticStreamRequest {
+  /**
+   * @type WorkflowScaffoldAgenticStreamRequest
+   */
+  body: WorkflowScaffoldAgenticStreamRequest;
 }
 
 export interface WorkflowAutomationApiDeleteWorkflowRequest {
@@ -1086,6 +2143,123 @@ export class WorkflowAutomationApi {
   }
 
   /**
+   * Initiates or continues a conversation with a custom agent. Supports streaming responses.
+   * @param param The request object
+   */
+  public createCustomAgentConversation(
+    param: WorkflowAutomationApiCreateCustomAgentConversationRequest,
+    options?: Configuration,
+  ): Promise<CustomAgentConversationStreamResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCustomAgentConversation(
+        param.customAgentId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCustomAgentConversation(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Generates data transformation code (JavaScript or Python) based on user prompt and context.
+   * @param param The request object
+   */
+  public createDataTransformation(
+    param: WorkflowAutomationApiCreateDataTransformationRequest,
+    options?: Configuration,
+  ): Promise<DataTransformationStreamResponse> {
+    const requestContextPromise = this.requestFactory.createDataTransformation(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDataTransformation(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Generates a summary and detailed description for data transformation code.
+   * @param param The request object
+   */
+  public createDataTransformationDescription(
+    param: WorkflowAutomationApiCreateDataTransformationDescriptionRequest,
+    options?: Configuration,
+  ): Promise<DataTransformationDescriptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.createDataTransformationDescription(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDataTransformationDescription(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Finds similar actions based on a user prompt using vector search.
+   * @param param The request object
+   */
+  public createPickAction(
+    param: WorkflowAutomationApiCreatePickActionRequest,
+    options?: Configuration,
+  ): Promise<PickActionResponse> {
+    const requestContextPromise = this.requestFactory.createPickAction(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPickAction(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Generates keywords from an investigation and finds relevant remediation actions.
+   * @param param The request object
+   */
+  public createPickRemediationFromInvestigation(
+    param: WorkflowAutomationApiCreatePickRemediationFromInvestigationRequest,
+    options?: Configuration,
+  ): Promise<PickRemediationFromInvestigationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createPickRemediationFromInvestigation(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPickRemediationFromInvestigation(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new workflow, returning the workflow ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
    * @param param The request object
    */
@@ -1102,6 +2276,29 @@ export class WorkflowAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createWorkflow(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Generates a description and summary for a workflow based on its specification.
+   * @param param The request object
+   */
+  public createWorkflowDescription(
+    param: WorkflowAutomationApiCreateWorkflowDescriptionRequest,
+    options?: Configuration,
+  ): Promise<WorkflowDescriptionResponse> {
+    const requestContextPromise = this.requestFactory.createWorkflowDescription(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createWorkflowDescription(
+            responseContext,
+          );
         });
     });
   }
@@ -1124,6 +2321,30 @@ export class WorkflowAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createWorkflowInstance(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Generates or updates a workflow scaffold using agentic streaming based on user prompts.
+   * @param param The request object
+   */
+  public createWorkflowScaffoldAgenticStream(
+    param: WorkflowAutomationApiCreateWorkflowScaffoldAgenticStreamRequest,
+    options?: Configuration,
+  ): Promise<WorkflowScaffoldAgenticStreamResponse> {
+    const requestContextPromise =
+      this.requestFactory.createWorkflowScaffoldAgenticStream(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createWorkflowScaffoldAgenticStream(
+            responseContext,
+          );
         });
     });
   }
