@@ -3,7 +3,6 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DeploymentRuleResponseDataAttributesCreatedBy } from "./DeploymentRuleResponseDataAttributesCreatedBy";
 import { DeploymentRuleResponseDataAttributesType } from "./DeploymentRuleResponseDataAttributesType";
 import { DeploymentRuleResponseDataAttributesUpdatedBy } from "./DeploymentRuleResponseDataAttributesUpdatedBy";
-import { DeploymentRulesOptions } from "./DeploymentRulesOptions";
 
 /**
  * Basic information about a deployment rule.
@@ -30,9 +29,9 @@ export class DeploymentRuleResponseDataAttributes {
    */
   "name": string;
   /**
-   * Options for deployment rule response representing either faulty deployment detection or monitor options.
+   * Options for deployment rule response representing either faulty deployment detection or monitor options. The actual type is determined by the parent's 'type' field.
    */
-  "options": DeploymentRulesOptions;
+  "options": any;
   /**
    * The type of the deployment rule.
    */
@@ -88,7 +87,7 @@ export class DeploymentRuleResponseDataAttributes {
     },
     options: {
       baseName: "options",
-      type: "DeploymentRulesOptions",
+      type: "any",
       required: true,
     },
     type: {
