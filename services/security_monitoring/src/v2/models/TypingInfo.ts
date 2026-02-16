@@ -58,6 +58,18 @@ import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandle
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
+import { CycloneDXAdvisory } from "./CycloneDXAdvisory";
+import { CycloneDXAffect } from "./CycloneDXAffect";
+import { CycloneDXAssetComponent } from "./CycloneDXAssetComponent";
+import { CycloneDXBOM } from "./CycloneDXBOM";
+import { CycloneDXComponent } from "./CycloneDXComponent";
+import { CycloneDXMetadata } from "./CycloneDXMetadata";
+import { CycloneDXRating } from "./CycloneDXRating";
+import { CycloneDXReference } from "./CycloneDXReference";
+import { CycloneDXReferenceSource } from "./CycloneDXReferenceSource";
+import { CycloneDXToolComponent } from "./CycloneDXToolComponent";
+import { CycloneDXTools } from "./CycloneDXTools";
+import { CycloneDXVulnerability } from "./CycloneDXVulnerability";
 import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { DetachCaseRequest } from "./DetachCaseRequest";
@@ -312,6 +324,7 @@ export const TypingInfo: ModelTypingInfo = {
       "historicalDetectionsJobResultSignalConversion",
     ],
     CustomFrameworkType: ["custom_framework"],
+    CycloneDXComponentType: ["library", "application", "operating-system"],
     DetailedFindingType: ["detailed_finding"],
     FindingDataType: ["findings"],
     FindingEvaluation: ["pass", "fail"],
@@ -393,6 +406,7 @@ export const TypingInfo: ModelTypingInfo = {
     SecretRuleDataType: ["secret_rule"],
     SecurityFilterFilteredDataType: ["logs"],
     SecurityFilterType: ["security_filters"],
+    SecurityFindingType: ["vulnerability", "configuration_finding"],
     SecurityFindingsDataType: ["finding"],
     SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
     SecurityFindingsStatus: ["done", "timeout"],
@@ -561,6 +575,7 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringSuppressionType: ["suppressions"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
     ThreatHuntingJobDataType: ["historicalDetectionsJob"],
+    ThreatIntelIndicatorType: ["ip_address", "domain", "sha256"],
     TriggerSource: ["security_findings", "security_signals"],
     UsersType: ["users"],
     VersionHistoryUpdateType: ["create", "update", "delete"],
@@ -735,6 +750,18 @@ export const TypingInfo: ModelTypingInfo = {
     CustomFrameworkMetadata: CustomFrameworkMetadata,
     CustomFrameworkRequirement: CustomFrameworkRequirement,
     CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
+    CycloneDXAdvisory: CycloneDXAdvisory,
+    CycloneDXAffect: CycloneDXAffect,
+    CycloneDXAssetComponent: CycloneDXAssetComponent,
+    CycloneDXBOM: CycloneDXBOM,
+    CycloneDXComponent: CycloneDXComponent,
+    CycloneDXMetadata: CycloneDXMetadata,
+    CycloneDXRating: CycloneDXRating,
+    CycloneDXReference: CycloneDXReference,
+    CycloneDXReferenceSource: CycloneDXReferenceSource,
+    CycloneDXToolComponent: CycloneDXToolComponent,
+    CycloneDXTools: CycloneDXTools,
+    CycloneDXVulnerability: CycloneDXVulnerability,
     DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
     DependencyLocation: DependencyLocation,
     DetachCaseRequest: DetachCaseRequest,
