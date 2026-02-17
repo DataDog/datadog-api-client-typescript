@@ -3290,6 +3290,7 @@ const enumsMap: { [key: string]: any[] } = {
     "runbook",
     "documentation",
     "dashboard",
+    "resource",
   ],
   AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
   AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
