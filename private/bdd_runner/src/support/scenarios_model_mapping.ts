@@ -7943,6 +7943,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListTagsResponse",
   },
+  "NetworkDeviceMonitoringApi.V2.ListInterfaceUserTags": {
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListInterfaceTagsResponse",
+  },
+  "NetworkDeviceMonitoringApi.V2.UpdateInterfaceUserTags": {
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ListInterfaceTagsResponse",
+      format: "",
+    },
+    operationResponseType: "ListInterfaceTagsResponse",
+  },
   "CloudNetworkMonitoringApi.V2.GetAggregatedConnections": {
     from: {
       type: "number",
