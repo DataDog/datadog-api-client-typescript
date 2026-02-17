@@ -3,7 +3,9 @@ export {
   NetworkDeviceMonitoringApiGetInterfacesRequest,
   NetworkDeviceMonitoringApiListDeviceUserTagsRequest,
   NetworkDeviceMonitoringApiListDevicesRequest,
+  NetworkDeviceMonitoringApiListInterfaceUserTagsRequest,
   NetworkDeviceMonitoringApiUpdateDeviceUserTagsRequest,
+  NetworkDeviceMonitoringApiUpdateInterfaceUserTagsRequest,
   NetworkDeviceMonitoringApi,
 } from "./NetworkDeviceMonitoringApi";
 
@@ -21,6 +23,8 @@ export { InterfaceAttributesStatus } from "./models/InterfaceAttributesStatus";
 export { ListDevicesResponse } from "./models/ListDevicesResponse";
 export { ListDevicesResponseMetadata } from "./models/ListDevicesResponseMetadata";
 export { ListDevicesResponseMetadataPage } from "./models/ListDevicesResponseMetadataPage";
+export { ListInterfaceTagsResponse } from "./models/ListInterfaceTagsResponse";
+export { ListInterfaceTagsResponseData } from "./models/ListInterfaceTagsResponseData";
 export { ListTagsResponse } from "./models/ListTagsResponse";
 export { ListTagsResponseData } from "./models/ListTagsResponseData";
 export { ListTagsResponseDataAttributes } from "./models/ListTagsResponseDataAttributes";

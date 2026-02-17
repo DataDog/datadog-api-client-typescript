@@ -13,6 +13,8 @@ import { InterfaceAttributes } from "./InterfaceAttributes";
 import { ListDevicesResponse } from "./ListDevicesResponse";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
+import { ListInterfaceTagsResponse } from "./ListInterfaceTagsResponse";
+import { ListInterfaceTagsResponseData } from "./ListInterfaceTagsResponseData";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
@@ -36,6 +38,8 @@ export const TypingInfo: ModelTypingInfo = {
     ListDevicesResponse: ListDevicesResponse,
     ListDevicesResponseMetadata: ListDevicesResponseMetadata,
     ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
+    ListInterfaceTagsResponse: ListInterfaceTagsResponse,
+    ListInterfaceTagsResponseData: ListInterfaceTagsResponseData,
     ListTagsResponse: ListTagsResponse,
     ListTagsResponseData: ListTagsResponseData,
     ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
