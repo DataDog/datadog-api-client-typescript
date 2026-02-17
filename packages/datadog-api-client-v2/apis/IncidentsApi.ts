@@ -32,6 +32,9 @@ import { IncidentImpactCreateRequest } from "../models/IncidentImpactCreateReque
 import { IncidentImpactRelatedObject } from "../models/IncidentImpactRelatedObject";
 import { IncidentImpactResponse } from "../models/IncidentImpactResponse";
 import { IncidentImpactsResponse } from "../models/IncidentImpactsResponse";
+import { IncidentImportRelatedObject } from "../models/IncidentImportRelatedObject";
+import { IncidentImportRequest } from "../models/IncidentImportRequest";
+import { IncidentImportResponse } from "../models/IncidentImportResponse";
 import { IncidentIntegrationMetadataCreateRequest } from "../models/IncidentIntegrationMetadataCreateRequest";
 import { IncidentIntegrationMetadataListResponse } from "../models/IncidentIntegrationMetadataListResponse";
 import { IncidentIntegrationMetadataPatchRequest } from "../models/IncidentIntegrationMetadataPatchRequest";
@@ -1483,6 +1486,67 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async importIncident(
+    body: IncidentImportRequest,
+    include?: Array<IncidentImportRelatedObject>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'importIncident'");
+    if (!_config.unstableOperations["v2.importIncident"]) {
+      throw new Error("Unstable operation 'importIncident' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "importIncident");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/import";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.importIncident")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentImportRelatedObject>",
+          ""
+        ),
+        "csv"
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentImportRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -4547,6 +4611,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to importIncident
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async importIncident(
+    response: ResponseContext
+  ): Promise<IncidentImportResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentImportResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentImportResponse"
+      ) as IncidentImportResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImportResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentImportResponse",
+        ""
+      ) as IncidentImportResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listGlobalIncidentHandles
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6276,6 +6404,19 @@ export interface IncidentsApiGetIncidentTypeRequest {
   incidentTypeId: string;
 }
 
+export interface IncidentsApiImportIncidentRequest {
+  /**
+   * Incident import payload.
+   * @type IncidentImportRequest
+   */
+  body: IncidentImportRequest;
+  /**
+   * Specifies which related object types to include in the response when importing an incident.
+   * @type Array<IncidentImportRelatedObject>
+   */
+  include?: Array<IncidentImportRelatedObject>;
+}
+
 export interface IncidentsApiListGlobalIncidentHandlesRequest {
   /**
    * Comma-separated list of related resources to include in the response
@@ -7237,6 +7378,30 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Import an incident from an external system. This endpoint allows you to create incidents with
+   * historical data such as custom timestamps for detection, declaration, and resolution.
+   * Imported incidents do not execute integrations or notification rules.
+   * @param param The request object
+   */
+  public importIncident(
+    param: IncidentsApiImportIncidentRequest,
+    options?: Configuration
+  ): Promise<IncidentImportResponse> {
+    const requestContextPromise = this.requestFactory.importIncident(
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.importIncident(responseContext);
         });
     });
   }
