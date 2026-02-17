@@ -4547,6 +4547,7 @@ export { SecurityMonitoringRuleSequenceDetectionOptions } from "./models/Securit
 export { SecurityMonitoringRuleSequenceDetectionStep } from "./models/SecurityMonitoringRuleSequenceDetectionStep";
 export { SecurityMonitoringRuleSequenceDetectionStepTransition } from "./models/SecurityMonitoringRuleSequenceDetectionStepTransition";
 export { SecurityMonitoringRuleSeverity } from "./models/SecurityMonitoringRuleSeverity";
+export { SecurityMonitoringRuleSort } from "./models/SecurityMonitoringRuleSort";
 export { SecurityMonitoringRuleTestPayload } from "./models/SecurityMonitoringRuleTestPayload";
 export { SecurityMonitoringRuleTestRequest } from "./models/SecurityMonitoringRuleTestRequest";
 export { SecurityMonitoringRuleTestResponse } from "./models/SecurityMonitoringRuleTestResponse";
