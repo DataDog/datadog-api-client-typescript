@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-02-17
+
+### Added
+* Add public patch DORA deployment endpoint [#3356](https://github.com/DataDog/datadog-api-client-typescript/pull/3356)
+
 ## 0.0.1-beta.3/2026-01-08
 
 ### Added

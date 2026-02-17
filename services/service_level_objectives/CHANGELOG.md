@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-02-17
+
+### Added
+* Create OpenAPI for SLO status endpoint [#3299](https://github.com/DataDog/datadog-api-client-typescript/pull/3299)
+
+### Changed
+* Changed Metric SLO to support SLI specification [#3034](https://github.com/DataDog/datadog-api-client-typescript/pull/3034)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

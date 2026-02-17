@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-02-17
+
+### Added
+* Update api spec with additional monitor notification presets [#3362](https://github.com/DataDog/datadog-api-client-typescript/pull/3362)
+* Update api spec with additional monitor notification presets [#3344](https://github.com/DataDog/datadog-api-client-typescript/pull/3344)
+* Add support for routes in datadog logs destination [#3323](https://github.com/DataDog/datadog-api-client-typescript/pull/3323)
+* Add Synthetics suites CRUD endpoints [#3316](https://github.com/DataDog/datadog-api-client-typescript/pull/3316)
+* Add OpenAPI for entity risk score api  [#3302](https://github.com/DataDog/datadog-api-client-typescript/pull/3302)
+* Add Synthetics suites CRUD endpoints [#3222](https://github.com/DataDog/datadog-api-client-typescript/pull/3222)
+
+### Deprecated
+* Mark restricted_roles as deprecated [#3296](https://github.com/DataDog/datadog-api-client-typescript/pull/3296)
+
 ## 0.0.1-beta.4/2026-01-15
 
 ### Added
