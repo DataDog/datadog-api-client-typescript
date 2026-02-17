@@ -4784,6 +4784,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-start_date",
     "-expiration_date",
     "-update_date",
+    "-creation_date",
     "-enabled",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
