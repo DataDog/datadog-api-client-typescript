@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DashboardLayoutType } from "./DashboardLayoutType";
 import { DashboardReflowType } from "./DashboardReflowType";
+import { DashboardTab } from "./DashboardTab";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { Widget } from "./Widget";
@@ -59,6 +60,10 @@ export class Dashboard {
    * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
    */
   "restrictedRoles"?: Array<string>;
+  /**
+   * List of tabs for organizing dashboard widgets into groups.
+   */
+  "tabs"?: Array<DashboardTab>;
   /**
    * List of team names representing ownership of a dashboard.
    */
@@ -144,6 +149,10 @@ export class Dashboard {
     restrictedRoles: {
       baseName: "restricted_roles",
       type: "Array<string>",
+    },
+    tabs: {
+      baseName: "tabs",
+      type: "Array<DashboardTab>",
     },
     tags: {
       baseName: "tags",

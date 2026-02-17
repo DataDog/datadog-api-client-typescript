@@ -54,6 +54,7 @@ export { DashboardRestoreRequest } from "./models/DashboardRestoreRequest";
 export { DashboardShareType } from "./models/DashboardShareType";
 export { DashboardSummary } from "./models/DashboardSummary";
 export { DashboardSummaryDefinition } from "./models/DashboardSummaryDefinition";
+export { DashboardTab } from "./models/DashboardTab";
 export { DashboardTemplateVariable } from "./models/DashboardTemplateVariable";
 export { DashboardTemplateVariablePreset } from "./models/DashboardTemplateVariablePreset";
 export { DashboardTemplateVariablePresetValue } from "./models/DashboardTemplateVariablePresetValue";
