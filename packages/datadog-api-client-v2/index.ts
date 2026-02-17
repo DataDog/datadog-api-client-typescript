@@ -619,7 +619,9 @@ export {
   NetworkDeviceMonitoringApiGetInterfacesRequest,
   NetworkDeviceMonitoringApiListDeviceUserTagsRequest,
   NetworkDeviceMonitoringApiListDevicesRequest,
+  NetworkDeviceMonitoringApiListInterfaceUserTagsRequest,
   NetworkDeviceMonitoringApiUpdateDeviceUserTagsRequest,
+  NetworkDeviceMonitoringApiUpdateInterfaceUserTagsRequest,
   NetworkDeviceMonitoringApi,
 } from "./apis/NetworkDeviceMonitoringApi";
 
@@ -3211,6 +3213,8 @@ export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogRespon
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
+export { ListInterfaceTagsResponse } from "./models/ListInterfaceTagsResponse";
+export { ListInterfaceTagsResponseData } from "./models/ListInterfaceTagsResponseData";
 export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 export { ListNotificationChannelsResponse } from "./models/ListNotificationChannelsResponse";
 export { ListOnCallNotificationRulesResponse } from "./models/ListOnCallNotificationRulesResponse";

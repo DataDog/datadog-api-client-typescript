@@ -7933,6 +7933,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListTagsResponse",
     },
+    "v2.ListInterfaceUserTags": {
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListInterfaceTagsResponse",
+    },
+    "v2.UpdateInterfaceUserTags": {
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ListInterfaceTagsResponse",
+            "format": "",
+            },
+        "operationResponseType": "ListInterfaceTagsResponse",
+    },
     "v2.GetAggregatedConnections": {
         "from": {
             "type": "number",

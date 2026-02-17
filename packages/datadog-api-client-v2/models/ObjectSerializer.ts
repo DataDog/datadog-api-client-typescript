@@ -1600,6 +1600,8 @@ import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
+import { ListInterfaceTagsResponse } from "./ListInterfaceTagsResponse";
+import { ListInterfaceTagsResponseData } from "./ListInterfaceTagsResponseData";
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListNotificationChannelsResponse } from "./ListNotificationChannelsResponse";
 import { ListOnCallNotificationRulesResponse } from "./ListOnCallNotificationRulesResponse";
@@ -6999,6 +7001,8 @@ const typeMap: { [index: string]: any } = {
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
+  ListInterfaceTagsResponse: ListInterfaceTagsResponse,
+  ListInterfaceTagsResponseData: ListInterfaceTagsResponseData,
   ListKindCatalogResponse: ListKindCatalogResponse,
   ListNotificationChannelsResponse: ListNotificationChannelsResponse,
   ListOnCallNotificationRulesResponse: ListOnCallNotificationRulesResponse,
