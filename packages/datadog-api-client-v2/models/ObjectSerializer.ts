@@ -2389,6 +2389,9 @@ import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttri
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
 import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { RumCrossProductSampling } from "./RumCrossProductSampling";
+import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
+import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -7970,6 +7973,9 @@ const typeMap: { [index: string]: any } = {
     RulesetRespDataAttributesRulesItemsReferenceTable,
   RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
     RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
+  RumCrossProductSampling: RumCrossProductSampling,
+  RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
+  RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,

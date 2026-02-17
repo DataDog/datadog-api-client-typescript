@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumRetentionFilterEventType } from "./RumRetentionFilterEventType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,12 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The object describing attributes of a RUM retention filter.
  */
 export class RumRetentionFilterAttributes {
+  /**
+   * Configuration for additional APM trace data retention for sessions that match this retention filter.
+   * When a session matches the filter and is retained (based on `sample_rate`), you can configure
+   * the percentage of retained sessions with ingested traces whose traces are indexed.
+   */
+  "crossProductSampling"?: RumCrossProductSampling;
   /**
    * Whether the retention filter is enabled.
    */
@@ -48,6 +55,10 @@ export class RumRetentionFilterAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    crossProductSampling: {
+      baseName: "cross_product_sampling",
+      type: "RumCrossProductSampling",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
