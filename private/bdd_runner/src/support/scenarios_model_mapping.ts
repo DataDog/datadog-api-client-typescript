@@ -6292,6 +6292,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentTypeResponse",
   },
+  "IncidentsApi.V2.ImportIncident": {
+    include: {
+      type: "Array<IncidentImportRelatedObject>",
+      format: "",
+    },
+    body: {
+      type: "IncidentImportRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentImportResponse",
+  },
   "IncidentsApi.V2.SearchIncidents": {
     include: {
       type: "IncidentRelatedObject",
