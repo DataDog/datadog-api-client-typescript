@@ -7,7 +7,7 @@ import { ChangeEventCustomAttributesChangedResourceType } from "./ChangeEventCus
  */
 export class ChangeEventCustomAttributesChangedResource {
   /**
-   * The name of the resource that was changed. Limited to 128 characters.
+   * The name of the resource that was changed. Limited to 128 characters. Must contain at least one non-whitespace character.
    */
   "name": string;
   /**
