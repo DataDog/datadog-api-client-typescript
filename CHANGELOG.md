@@ -1,5 +1,73 @@
 # CHANGELOG
 
+## 1.52.0/2026-02-17
+
+### Fixed
+* Add mandatory filter env parameter to APM services endpoint [#3477](https://github.com/DataDog/datadog-api-client-typescript/pull/3477)
+* Resolve issue where the go client cannot resolve between memoryBuffer and memoryBufferSize options [#3469](https://github.com/DataDog/datadog-api-client-typescript/pull/3469)
+* [CWS-5817] Add workload_activity rule type to OpenAPI spec [#3387](https://github.com/DataDog/datadog-api-client-typescript/pull/3387)
+* Modify api spec description of create postmortem attachment [#3385](https://github.com/DataDog/datadog-api-client-typescript/pull/3385)
+* Update some SDS status codes [#3293](https://github.com/DataDog/datadog-api-client-typescript/pull/3293)
+* Update api/v2/incidents/id/attachment endpoints documentation [#3231](https://github.com/DataDog/datadog-api-client-typescript/pull/3231)
+* chore: unused dep es6-promise [#2942](https://github.com/DataDog/datadog-api-client-typescript/pull/2942)
+
+### Added
+* Add new endpoints for Code Coverage summary information [#3463](https://github.com/DataDog/datadog-api-client-typescript/pull/3463)
+* [Workflow Automation] Add allowedValues to InputSchemaParameters [#3460](https://github.com/DataDog/datadog-api-client-typescript/pull/3460)
+* Cloud SIEM - Add instantaneousBaseline to anomaly detection options [#3458](https://github.com/DataDog/datadog-api-client-typescript/pull/3458)
+* Adding when full option to the Memory Buffer options as well [#3454](https://github.com/DataDog/datadog-api-client-typescript/pull/3454)
+* Add OpenAPI documentation for cache property in dedupe processor in observability pipelines  [#3452](https://github.com/DataDog/datadog-api-client-typescript/pull/3452)
+* Adding Buffer options to Observability Pipeline Destinations [#3429](https://github.com/DataDog/datadog-api-client-typescript/pull/3429)
+* Add Descriptions for OCI Integrations Endpoint OpenAPI Spec [#3414](https://github.com/DataDog/datadog-api-client-typescript/pull/3414)
+* Sync rum-replay endpoints with backend for public documentation [#3413](https://github.com/DataDog/datadog-api-client-typescript/pull/3413)
+* Add OpenAPI documentation for security monitoring content packs endpoints [#3403](https://github.com/DataDog/datadog-api-client-typescript/pull/3403)
+* Create OpenAPI for incidents config postmortem templates [#3398](https://github.com/DataDog/datadog-api-client-typescript/pull/3398)
+* Add case-management-project resource type for restriction policies [#3389](https://github.com/DataDog/datadog-api-client-typescript/pull/3389)
+* Add Project and NotificationRule API specs for Case Management [#3381](https://github.com/DataDog/datadog-api-client-typescript/pull/3381)
+* Add OpenAPI documentation for case-rapid-api relationship endpoints [#3379](https://github.com/DataDog/datadog-api-client-typescript/pull/3379)
+* Add new products to usage API docs for ccm_spend_monitored_pro and ccm_spend_monitored_ent [#3373](https://github.com/DataDog/datadog-api-client-typescript/pull/3373)
+* Expose use_legacy_search_syntax flag in the Observability Pipelines API [#3367](https://github.com/DataDog/datadog-api-client-typescript/pull/3367)
+* Added spec for flex_logs_starter [#3365](https://github.com/DataDog/datadog-api-client-typescript/pull/3365)
+* Update api spec with additional monitor notification presets [#3363](https://github.com/DataDog/datadog-api-client-typescript/pull/3363)
+* Add public patch DORA deployment endpoint [#3357](https://github.com/DataDog/datadog-api-client-typescript/pull/3357)
+* Add On-Call Trigger to Workflow Automation Public API [#3353](https://github.com/DataDog/datadog-api-client-typescript/pull/3353)
+* Add UpdateFlakyTestState endpoint to Flaky Test Management API [#3349](https://github.com/DataDog/datadog-api-client-typescript/pull/3349)
+* Update api spec with additional monitor notification presets [#3345](https://github.com/DataDog/datadog-api-client-typescript/pull/3345)
+* Add order_by field to timeseries widget request schema [#3339](https://github.com/DataDog/datadog-api-client-typescript/pull/3339)
+* Add budget validation endpoints [#3337](https://github.com/DataDog/datadog-api-client-typescript/pull/3337)
+* Remove x-unstable property from security findings Jira issues endpoints [#3335](https://github.com/DataDog/datadog-api-client-typescript/pull/3335)
+* Add tags support to Logs Indexes API [#3332](https://github.com/DataDog/datadog-api-client-typescript/pull/3332)
+* Add OpenAPI specification for ServiceNow integration [#3330](https://github.com/DataDog/datadog-api-client-typescript/pull/3330)
+* Add support for routes in datadog logs destination [#3324](https://github.com/DataDog/datadog-api-client-typescript/pull/3324)
+* Create OpenAPI for HAMR endpoints [#3321](https://github.com/DataDog/datadog-api-client-typescript/pull/3321)
+* Create OpenAPI for incidents config global endpoints [#3319](https://github.com/DataDog/datadog-api-client-typescript/pull/3319)
+* Add Synthetics suites CRUD endpoints [#3317](https://github.com/DataDog/datadog-api-client-typescript/pull/3317)
+* security_monitoring - Document rules bulk export [#3307](https://github.com/DataDog/datadog-api-client-typescript/pull/3307)
+* Adding datastream to Open Search destination and adding Auth Strategy for Observability Pipeline API [#3305](https://github.com/DataDog/datadog-api-client-typescript/pull/3305)
+* Add OpenAPI for entity risk score api  [#3303](https://github.com/DataDog/datadog-api-client-typescript/pull/3303)
+* Add OpenAPI specification for collab-general service [#3301](https://github.com/DataDog/datadog-api-client-typescript/pull/3301)
+* Create OpenAPI for SLO status endpoint [#3300](https://github.com/DataDog/datadog-api-client-typescript/pull/3300)
+* Add missing incident attachments documentation [#3290](https://github.com/DataDog/datadog-api-client-typescript/pull/3290)
+* Add Network Path Monitors to API Docs [#3288](https://github.com/DataDog/datadog-api-client-typescript/pull/3288)
+* Update metrics all-tags endpoint documentation [#3282](https://github.com/DataDog/datadog-api-client-typescript/pull/3282)
+* Add Status Pages API specs [#3260](https://github.com/DataDog/datadog-api-client-typescript/pull/3260)
+* Add `custom/rulesets` endpoints [#3248](https://github.com/DataDog/datadog-api-client-typescript/pull/3248)
+* Add Synthetics suites CRUD endpoints [#3223](https://github.com/DataDog/datadog-api-client-typescript/pull/3223)
+* Add suppressions to SensitiveDataScannerRule resource [#3213](https://github.com/DataDog/datadog-api-client-typescript/pull/3213)
+* Support decimal sample_rate for RUM retention filters [#3111](https://github.com/DataDog/datadog-api-client-typescript/pull/3111)
+
+### Changed
+* [SDTEST-3293] Add history field to flaky test management API [#3430](https://github.com/DataDog/datadog-api-client-typescript/pull/3430)
+* Make id required in patch status pages request schemas, id and attributes required in post/patch status pages request schemas [#3369](https://github.com/DataDog/datadog-api-client-typescript/pull/3369)
+* Fix GetBudget endpoint to return BudgetWithEntries instead of BudgetValidationRequest [#3351](https://github.com/DataDog/datadog-api-client-typescript/pull/3351)
+* Update permissions in docs api for apm retention filters [#3341](https://github.com/DataDog/datadog-api-client-typescript/pull/3341)
+* Vulnerabilities-SBOM endpoints GA - Remove `x-unstable` [#3309](https://github.com/DataDog/datadog-api-client-typescript/pull/3309)
+* Add pagination and sorting parameters on suppression list [#3275](https://github.com/DataDog/datadog-api-client-typescript/pull/3275)
+* Changed Metric SLO to support SLI specification [#3035](https://github.com/DataDog/datadog-api-client-typescript/pull/3035)
+
+### Deprecated
+* Mark restricted_roles as deprecated [#3297](https://github.com/DataDog/datadog-api-client-typescript/pull/3297)
+
 ## 1.51.0/2026-01-15
 
 ### Added
