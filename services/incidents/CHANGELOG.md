@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-02-17
+
+### Added
+* Create OpenAPI for incidents config postmortem templates [#3397](https://github.com/DataDog/datadog-api-client-typescript/pull/3397)
+* Create OpenAPI for incidents config global endpoints [#3318](https://github.com/DataDog/datadog-api-client-typescript/pull/3318)
+* Add missing incident attachments documentation [#3280](https://github.com/DataDog/datadog-api-client-typescript/pull/3280)
+
+### Fixed
+* Modify api spec description of create postmortem attachment [#3384](https://github.com/DataDog/datadog-api-client-typescript/pull/3384)
+
 ## 0.0.1-beta.3/2026-01-08
 
 ### Changed

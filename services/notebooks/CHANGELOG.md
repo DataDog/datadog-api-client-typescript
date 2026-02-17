@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-02-17
+
+### Added
+* Add order_by field to timeseries widget request schema [#3338](https://github.com/DataDog/datadog-api-client-typescript/pull/3338)
+
 ## 0.0.1-beta.3/2026-01-15
 
 ### Added

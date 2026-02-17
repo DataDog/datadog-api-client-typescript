@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-02-17
+
+### Changed
+* Fix GetBudget endpoint to return BudgetWithEntries instead of BudgetValidationRequest [#3350](https://github.com/DataDog/datadog-api-client-typescript/pull/3350)
+* Changed Metric SLO to support SLI specification [#3034](https://github.com/DataDog/datadog-api-client-typescript/pull/3034)
+
+### Added
+* Add budget validation endpoints [#3336](https://github.com/DataDog/datadog-api-client-typescript/pull/3336)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

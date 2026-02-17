@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-02-17
+
+### Fixed
+* Update some SDS status codes [#3292](https://github.com/DataDog/datadog-api-client-typescript/pull/3292)
+
+### Added
+* Add suppressions to SensitiveDataScannerRule resource [#3212](https://github.com/DataDog/datadog-api-client-typescript/pull/3212)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

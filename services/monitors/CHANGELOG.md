@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-02-17
+
+### Added
+* Update api spec with additional monitor notification presets [#3362](https://github.com/DataDog/datadog-api-client-typescript/pull/3362)
+* Update api spec with additional monitor notification presets [#3344](https://github.com/DataDog/datadog-api-client-typescript/pull/3344)
+* Add Network Path Monitors to API Docs [#3287](https://github.com/DataDog/datadog-api-client-typescript/pull/3287)
+
 ## 0.0.1-beta.4/2026-01-15
 
 ### Added

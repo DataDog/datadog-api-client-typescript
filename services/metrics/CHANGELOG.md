@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-02-17
+
+### Added
+* Update metrics all-tags endpoint documentation [#3281](https://github.com/DataDog/datadog-api-client-typescript/pull/3281)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

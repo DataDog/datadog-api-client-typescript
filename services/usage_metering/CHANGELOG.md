@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-02-17
+
+### Added
+* Add new endpoints for Code Coverage summary information [#3462](https://github.com/DataDog/datadog-api-client-typescript/pull/3462)
+* Add new products to usage API docs for ccm_spend_monitored_pro and ccm_spend_monitored_ent [#3372](https://github.com/DataDog/datadog-api-client-typescript/pull/3372)
+* Added spec for flex_logs_starter [#3364](https://github.com/DataDog/datadog-api-client-typescript/pull/3364)
+
 ## 0.0.1-beta.4/2026-01-08
 
 ### Added

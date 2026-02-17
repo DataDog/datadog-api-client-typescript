@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-02-17
+
+### Added
+* Cloud SIEM - Add instantaneousBaseline to anomaly detection options [#3457](https://github.com/DataDog/datadog-api-client-typescript/pull/3457)
+* Add OpenAPI documentation for security monitoring content packs endpoints [#3402](https://github.com/DataDog/datadog-api-client-typescript/pull/3402)
+* Remove x-unstable property from security findings Jira issues endpoints [#3334](https://github.com/DataDog/datadog-api-client-typescript/pull/3334)
+* Add support for routes in datadog logs destination [#3323](https://github.com/DataDog/datadog-api-client-typescript/pull/3323)
+* security_monitoring - Document rules bulk export [#3306](https://github.com/DataDog/datadog-api-client-typescript/pull/3306)
+* Add OpenAPI for entity risk score api  [#3302](https://github.com/DataDog/datadog-api-client-typescript/pull/3302)
+* Add Synthetics suites CRUD endpoints [#3222](https://github.com/DataDog/datadog-api-client-typescript/pull/3222)
+
+### Fixed
+* [CWS-5817] Add workload_activity rule type to OpenAPI spec [#3386](https://github.com/DataDog/datadog-api-client-typescript/pull/3386)
+
+### Changed
+* Vulnerabilities-SBOM endpoints GA - Remove `x-unstable` [#3308](https://github.com/DataDog/datadog-api-client-typescript/pull/3308)
+* Add pagination and sorting parameters on suppression list [#3274](https://github.com/DataDog/datadog-api-client-typescript/pull/3274)
+
 ## 0.0.1-beta.5/2026-01-15
 
 ### Deprecated

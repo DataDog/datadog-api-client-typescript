@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-02-17
+
+### Added
+* Sync rum-replay endpoints with backend for public documentation [#3404](https://github.com/DataDog/datadog-api-client-typescript/pull/3404)
+* Support decimal sample_rate for RUM retention filters [#3110](https://github.com/DataDog/datadog-api-client-typescript/pull/3110)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security
