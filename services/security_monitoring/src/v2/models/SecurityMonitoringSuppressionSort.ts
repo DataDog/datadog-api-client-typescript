@@ -13,6 +13,7 @@ export type SecurityMonitoringSuppressionSort =
   | typeof START_DATE_DESCENDING
   | typeof EXPIRATION_DATE_DESCENDING
   | typeof UPDATE_DATE_DESCENDING
+  | typeof CREATION_DATE_DESCENDING
   | typeof ENABLED_DESCENDING
   | UnparsedObject;
 export const NAME = "name";
@@ -24,4 +25,5 @@ export const NAME_DESCENDING = "-name";
 export const START_DATE_DESCENDING = "-start_date";
 export const EXPIRATION_DATE_DESCENDING = "-expiration_date";
 export const UPDATE_DATE_DESCENDING = "-update_date";
+export const CREATION_DATE_DESCENDING = "-creation_date";
 export const ENABLED_DESCENDING = "-enabled";

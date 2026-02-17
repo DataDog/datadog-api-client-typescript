@@ -556,6 +556,7 @@ export const TypingInfo: ModelTypingInfo = {
       "-start_date",
       "-expiration_date",
       "-update_date",
+      "-creation_date",
       "-enabled",
     ],
     SecurityMonitoringSuppressionType: ["suppressions"],
