@@ -9582,6 +9582,35 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "SeatsApi.V2.GetSeatsUsers": {
+    productCode: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SeatUserDataArray",
+  },
+  "SeatsApi.V2.AssignSeatsUser": {
+    body: {
+      type: "AssignSeatsUserRequest",
+      format: "",
+    },
+    operationResponseType: "AssignSeatsUserResponse",
+  },
+  "SeatsApi.V2.UnassignSeatsUser": {
+    body: {
+      type: "UnassignSeatsUserRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "EntityRiskScoresApi.V2.ListEntityRiskScores": {
     from: {
       type: "number",
