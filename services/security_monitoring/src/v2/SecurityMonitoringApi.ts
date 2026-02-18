@@ -36,6 +36,7 @@ import { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequ
 import { CreateCustomFrameworkResponse } from "./models/CreateCustomFrameworkResponse";
 import { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
 import { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
+import { CycloneDXBOM } from "./models/CycloneDXBOM";
 import { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
 import { DetachCaseRequest } from "./models/DetachCaseRequest";
 import { Finding } from "./models/Finding";
@@ -78,6 +79,7 @@ import { SecurityFindingsSearchRequestData } from "./models/SecurityFindingsSear
 import { SecurityFindingsSearchRequestDataAttributes } from "./models/SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSearchRequestPage";
 import { SecurityFindingsSort } from "./models/SecurityFindingsSort";
+import { SecurityFindingType } from "./models/SecurityFindingType";
 import { SecurityMonitoringContentPackStatesResponse } from "./models/SecurityMonitoringContentPackStatesResponse";
 import { SecurityMonitoringCriticalAssetCreateRequest } from "./models/SecurityMonitoringCriticalAssetCreateRequest";
 import { SecurityMonitoringCriticalAssetResponse } from "./models/SecurityMonitoringCriticalAssetResponse";
@@ -110,6 +112,7 @@ import { SecurityMonitoringSuppressionSort } from "./models/SecurityMonitoringSu
 import { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./models/SecurityMonitoringSuppressionUpdateRequest";
 import { ThreatHuntingJobResponse } from "./models/ThreatHuntingJobResponse";
+import { ThreatIntelIndicatorType } from "./models/ThreatIntelIndicatorType";
 import { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
 import { UpdateResourceEvaluationFiltersRequest } from "./models/UpdateResourceEvaluationFiltersRequest";
@@ -774,6 +777,92 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityFinding(
+    vendor: string,
+    findingType: SecurityFindingType,
+    body: { [key: string]: any },
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.createSecurityFinding"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityFinding' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.createSecurityFinding'] = true`",
+      );
+    }
+
+    // verify required parameter 'vendor' is not null or undefined
+    if (vendor === null || vendor === undefined) {
+      throw new RequiredError("vendor", "createSecurityFinding");
+    }
+
+    // verify required parameter 'findingType' is not null or undefined
+    if (findingType === null || findingType === undefined) {
+      throw new RequiredError("findingType", "createSecurityFinding");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSecurityFinding");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSecurityFinding",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Header Params
+    if (vendor !== undefined) {
+      requestContext.setHeaderParam(
+        "vendor",
+        serialize(vendor, TypingInfo, "string", ""),
+      );
+    }
+    if (findingType !== undefined) {
+      requestContext.setHeaderParam(
+        "finding_type",
+        serialize(findingType, TypingInfo, "SecurityFindingType", ""),
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "{ [key: string]: any; }", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -2964,6 +3053,160 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async importSecurityVulnerabilities(
+    body: CycloneDXBOM,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.importSecurityVulnerabilities"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'importSecurityVulnerabilities' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.importSecurityVulnerabilities'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "importSecurityVulnerabilities");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/vulnerabilities";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.importSecurityVulnerabilities",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CycloneDXBOM", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async importThreatIntel(
+    tiVendor: string,
+    tiIndicator: ThreatIntelIndicatorType,
+    body: any,
+    tiIntegrationAccount?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.importThreatIntel"]
+    ) {
+      throw new Error(
+        "Unstable operation 'importThreatIntel' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.importThreatIntel'] = true`",
+      );
+    }
+
+    // verify required parameter 'tiVendor' is not null or undefined
+    if (tiVendor === null || tiVendor === undefined) {
+      throw new RequiredError("tiVendor", "importThreatIntel");
+    }
+
+    // verify required parameter 'tiIndicator' is not null or undefined
+    if (tiIndicator === null || tiIndicator === undefined) {
+      throw new RequiredError("tiIndicator", "importThreatIntel");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "importThreatIntel");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/threat-intel-feed";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.importThreatIntel",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Header Params
+    if (tiVendor !== undefined) {
+      requestContext.setHeaderParam(
+        "ti_vendor",
+        serialize(tiVendor, TypingInfo, "string", ""),
+      );
+    }
+    if (tiIndicator !== undefined) {
+      requestContext.setHeaderParam(
+        "ti_indicator",
+        serialize(tiIndicator, TypingInfo, "ThreatIntelIndicatorType", ""),
+      );
+    }
+    if (tiIntegrationAccount !== undefined) {
+      requestContext.setHeaderParam(
+        "ti_integration_account",
+        serialize(tiIntegrationAccount, TypingInfo, "string", ""),
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType([
+      "application/json",
+      "application/octet-stream",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "any", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -6266,6 +6509,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityFinding
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityFinding(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityMonitoringCriticalAsset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8672,6 +8979,145 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to importSecurityVulnerabilities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async importSecurityVulnerabilities(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to importThreatIntel
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async importThreatIntel(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 500 ||
+      response.httpStatusCode === 503
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAssetsSBOMs
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -10733,6 +11179,23 @@ export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   body: SecurityFilterCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSecurityFindingRequest {
+  /**
+   * The vendor providing the security finding. Must be lowercase.
+   * @type string
+   */
+  vendor: string;
+  /**
+   * The type of security finding.
+   * @type SecurityFindingType
+   */
+  findingType: SecurityFindingType;
+  /**
+   * @type { [key: string]: any; }
+   */
+  body: { [key: string]: any };
+}
+
 export interface SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest {
   /**
    * The definition of the new critical asset.
@@ -11131,6 +11594,35 @@ export interface SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest {
    * @type string
    */
   id: string;
+}
+
+export interface SecurityMonitoringApiImportSecurityVulnerabilitiesRequest {
+  /**
+   * @type CycloneDXBOM
+   */
+  body: CycloneDXBOM;
+}
+
+export interface SecurityMonitoringApiImportThreatIntelRequest {
+  /**
+   * The vendor providing the threat intelligence feed.
+   * @type string
+   */
+  tiVendor: string;
+  /**
+   * The type of threat indicator. Valid values are ip_address, domain, or sha256.
+   * @type ThreatIntelIndicatorType
+   */
+  tiIndicator: ThreatIntelIndicatorType;
+  /**
+   * @type any
+   */
+  body: any;
+  /**
+   * Optional integration account identifier.
+   * @type string
+   */
+  tiIntegrationAccount?: string;
 }
 
 export interface SecurityMonitoringApiListAssetsSBOMsRequest {
@@ -12246,6 +12738,32 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Allows external integrations to send security findings to Datadog. This endpoint accepts finding data in a custom format and returns an empty response on success.
+   *
+   * **Note**: This endpoint is in preview and is subject to change.
+   * If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * @param param The request object
+   */
+  public createSecurityFinding(
+    param: SecurityMonitoringApiCreateSecurityFindingRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.createSecurityFinding(
+      param.vendor,
+      param.findingType,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityFinding(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create a new critical asset.
    * @param param The request object
    */
@@ -13171,6 +13689,57 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.getVulnerabilityNotificationRules(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Import vulnerabilities in CycloneDX 1.5 format. This endpoint validates the payload against the CycloneDX 1.5 schema and additional mandatory field requirements.
+   *
+   * **Note**: This endpoint is in preview and is subject to change.
+   * If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * @param param The request object
+   */
+  public importSecurityVulnerabilities(
+    param: SecurityMonitoringApiImportSecurityVulnerabilitiesRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.importSecurityVulnerabilities(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.importSecurityVulnerabilities(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Import threat intelligence feeds with support for IP addresses, domains, and SHA256 hashes. This endpoint requires specific headers to identify the vendor and indicator type.
+   *
+   * **Note**: This endpoint is in preview and is subject to change.
+   * If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   * @param param The request object
+   */
+  public importThreatIntel(
+    param: SecurityMonitoringApiImportThreatIntelRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.importThreatIntel(
+      param.tiVendor,
+      param.tiIndicator,
+      param.body,
+      param.tiIntegrationAccount,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.importThreatIntel(responseContext);
         });
     });
   }
