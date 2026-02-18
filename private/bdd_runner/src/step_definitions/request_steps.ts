@@ -71,9 +71,12 @@ Given(
 Given(
   /request contains "([^"]+)" parameter with value (.*)/,
   function (this: World, parameterName: string, value: string) {
-    this.opts[parameterName.toAttributeName().toOperationName()] = JSON.parse(
-      value.templated(this.fixtures),
-    );
+    const parsedValue = JSON.parse(value.templated(this.fixtures));
+    this.opts[parameterName.toAttributeName().toOperationName()] = parsedValue;
+
+    // Store in pathParameters for undo operations with naming variants
+    this.pathParameters[parameterName] = parsedValue;
+    this.pathParameters[parameterName.toAttributeName()] = parsedValue;
   },
 );
 
