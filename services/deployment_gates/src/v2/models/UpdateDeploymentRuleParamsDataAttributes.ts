@@ -1,7 +1,5 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DeploymentRulesOptions } from "./DeploymentRulesOptions";
-
 /**
  * Parameters for updating a deployment rule.
  */
@@ -15,9 +13,9 @@ export class UpdateDeploymentRuleParamsDataAttributes {
    */
   "name": string;
   /**
-   * Options for deployment rule response representing either faulty deployment detection or monitor options.
+   * Options for deployment rule response representing either faulty deployment detection or monitor options. The actual type is determined by the parent's 'type' field.
    */
-  "options": DeploymentRulesOptions;
+  "options": any;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -45,7 +43,7 @@ export class UpdateDeploymentRuleParamsDataAttributes {
     },
     options: {
       baseName: "options",
-      type: "DeploymentRulesOptions",
+      type: "any",
       required: true,
     },
     additionalProperties: {

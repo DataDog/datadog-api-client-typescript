@@ -1,7 +1,5 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DeploymentRulesOptions } from "./DeploymentRulesOptions";
-
 /**
  * Parameters for creating a deployment rule.
  */
@@ -15,9 +13,9 @@ export class CreateDeploymentRuleParamsDataAttributes {
    */
   "name": string;
   /**
-   * Options for deployment rule response representing either faulty deployment detection or monitor options.
+   * Options for deployment rule response representing either faulty deployment detection or monitor options. The actual type is determined by the parent's 'type' field.
    */
-  "options": DeploymentRulesOptions;
+  "options": any;
   /**
    * The type of the deployment rule (faulty_deployment_detection or monitor).
    */
@@ -48,7 +46,7 @@ export class CreateDeploymentRuleParamsDataAttributes {
     },
     options: {
       baseName: "options",
-      type: "DeploymentRulesOptions",
+      type: "any",
       required: true,
     },
     type: {
