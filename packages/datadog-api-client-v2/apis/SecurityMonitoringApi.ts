@@ -84,6 +84,7 @@ import { SecurityMonitoringRuleConvertPayload } from "../models/SecurityMonitori
 import { SecurityMonitoringRuleConvertResponse } from "../models/SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleCreatePayload } from "../models/SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRuleResponse";
+import { SecurityMonitoringRuleSort } from "../models/SecurityMonitoringRuleSort";
 import { SecurityMonitoringRuleTestRequest } from "../models/SecurityMonitoringRuleTestRequest";
 import { SecurityMonitoringRuleTestResponse } from "../models/SecurityMonitoringRuleTestResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitoringRuleUpdatePayload";
@@ -2981,6 +2982,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     pageSize?: number,
     pageNumber?: number,
     query?: string,
+    sort?: SecurityMonitoringRuleSort,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3014,6 +3016,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "query",
         ObjectSerializer.serialize(query, "string", ""),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "SecurityMonitoringRuleSort", ""),
         ""
       );
     }
@@ -10778,6 +10787,11 @@ export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
    * @type string
    */
   query?: string;
+  /**
+   * Attribute used to sort rules. Prefix with `-` to sort in descending order.
+   * @type SecurityMonitoringRuleSort
+   */
+  sort?: SecurityMonitoringRuleSort;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
@@ -13021,6 +13035,7 @@ export class SecurityMonitoringApi {
         param.pageSize,
         param.pageNumber,
         param.query,
+        param.sort,
         options
       );
     return requestContextPromise.then((requestContext) => {
