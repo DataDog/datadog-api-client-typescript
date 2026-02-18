@@ -3,10 +3,13 @@ export {
   ActionConnectionApiDeleteActionConnectionRequest,
   ActionConnectionApiGetActionConnectionRequest,
   ActionConnectionApiGetAppKeyRegistrationRequest,
+  ActionConnectionApiListActionConnectionsRequest,
   ActionConnectionApiListAppKeyRegistrationsRequest,
+  ActionConnectionApiListConnectionGroupsRequest,
   ActionConnectionApiRegisterAppKeyRequest,
   ActionConnectionApiUnregisterAppKeyRequest,
   ActionConnectionApiUpdateActionConnectionRequest,
+  ActionConnectionApiUpdateConnectionGroupRequest,
   ActionConnectionApi,
 } from "./ActionConnectionApi";
 
@@ -25,6 +28,7 @@ export { AnthropicCredentialsUpdate } from "./models/AnthropicCredentialsUpdate"
 export { AnthropicIntegration } from "./models/AnthropicIntegration";
 export { AnthropicIntegrationType } from "./models/AnthropicIntegrationType";
 export { AnthropicIntegrationUpdate } from "./models/AnthropicIntegrationUpdate";
+export { APIErrorResponse } from "./models/APIErrorResponse";
 export { AppKeyRegistrationData } from "./models/AppKeyRegistrationData";
 export { AppKeyRegistrationDataType } from "./models/AppKeyRegistrationDataType";
 export { AsanaAccessToken } from "./models/AsanaAccessToken";
@@ -43,6 +47,7 @@ export { AWSCredentialsUpdate } from "./models/AWSCredentialsUpdate";
 export { AWSIntegration } from "./models/AWSIntegration";
 export { AWSIntegrationType } from "./models/AWSIntegrationType";
 export { AWSIntegrationUpdate } from "./models/AWSIntegrationUpdate";
+export { AWSSecretManager } from "./models/AWSSecretManager";
 export { AzureCredentials } from "./models/AzureCredentials";
 export { AzureCredentialsUpdate } from "./models/AzureCredentialsUpdate";
 export { AzureIntegration } from "./models/AzureIntegration";
@@ -86,8 +91,19 @@ export { ConfigCatIntegrationUpdate } from "./models/ConfigCatIntegrationUpdate"
 export { ConfigCatSDKKey } from "./models/ConfigCatSDKKey";
 export { ConfigCatSDKKeyType } from "./models/ConfigCatSDKKeyType";
 export { ConfigCatSDKKeyUpdate } from "./models/ConfigCatSDKKeyUpdate";
+export { ConnectionDataAttributesResponse } from "./models/ConnectionDataAttributesResponse";
+export { ConnectionDataResponse } from "./models/ConnectionDataResponse";
+export { ConnectionGroupDataAttributesRequest } from "./models/ConnectionGroupDataAttributesRequest";
+export { ConnectionGroupDataAttributesResponse } from "./models/ConnectionGroupDataAttributesResponse";
+export { ConnectionGroupDataRequest } from "./models/ConnectionGroupDataRequest";
+export { ConnectionGroupDataResponse } from "./models/ConnectionGroupDataResponse";
+export { ConnectionGroupRelationships } from "./models/ConnectionGroupRelationships";
+export { ConnectionGroupType } from "./models/ConnectionGroupType";
 export { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
 export { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";
+export { CreatedBy } from "./models/CreatedBy";
+export { CreatedByRelationship } from "./models/CreatedByRelationship";
+export { CreatedByRelationshipData } from "./models/CreatedByRelationshipData";
 export { DatadogAPIKey } from "./models/DatadogAPIKey";
 export { DatadogAPIKeyType } from "./models/DatadogAPIKeyType";
 export { DatadogAPIKeyUpdate } from "./models/DatadogAPIKeyUpdate";
@@ -96,6 +112,8 @@ export { DatadogCredentialsUpdate } from "./models/DatadogCredentialsUpdate";
 export { DatadogIntegration } from "./models/DatadogIntegration";
 export { DatadogIntegrationType } from "./models/DatadogIntegrationType";
 export { DatadogIntegrationUpdate } from "./models/DatadogIntegrationUpdate";
+export { ExternalSecretsManager } from "./models/ExternalSecretsManager";
+export { ExternalSecretsManagerOneOf } from "./models/ExternalSecretsManagerOneOf";
 export { FastlyAPIKey } from "./models/FastlyAPIKey";
 export { FastlyAPIKeyType } from "./models/FastlyAPIKeyType";
 export { FastlyAPIKeyUpdate } from "./models/FastlyAPIKeyUpdate";
@@ -159,6 +177,7 @@ export { HTTPTokenAuth } from "./models/HTTPTokenAuth";
 export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
 export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
 export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
+export { IntegrationCounts } from "./models/IntegrationCounts";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
@@ -170,8 +189,12 @@ export { LaunchDarklyCredentialsUpdate } from "./models/LaunchDarklyCredentialsU
 export { LaunchDarklyIntegration } from "./models/LaunchDarklyIntegration";
 export { LaunchDarklyIntegrationType } from "./models/LaunchDarklyIntegrationType";
 export { LaunchDarklyIntegrationUpdate } from "./models/LaunchDarklyIntegrationUpdate";
+export { ListActionConnectionsResponse } from "./models/ListActionConnectionsResponse";
+export { ListActionConnectionsResponseMeta } from "./models/ListActionConnectionsResponseMeta";
 export { ListAppKeyRegistrationsResponse } from "./models/ListAppKeyRegistrationsResponse";
 export { ListAppKeyRegistrationsResponseMeta } from "./models/ListAppKeyRegistrationsResponseMeta";
+export { ListConnectionGroupsResponse } from "./models/ListConnectionGroupsResponse";
+export { ListConnectionGroupsResponseMeta } from "./models/ListConnectionGroupsResponseMeta";
 export { NotionAPIKey } from "./models/NotionAPIKey";
 export { NotionAPIKeyType } from "./models/NotionAPIKeyType";
 export { NotionAPIKeyUpdate } from "./models/NotionAPIKeyUpdate";
@@ -196,6 +219,7 @@ export { OpenAICredentialsUpdate } from "./models/OpenAICredentialsUpdate";
 export { OpenAIIntegration } from "./models/OpenAIIntegration";
 export { OpenAIIntegrationType } from "./models/OpenAIIntegrationType";
 export { OpenAIIntegrationUpdate } from "./models/OpenAIIntegrationUpdate";
+export { PrivateActionsRunner } from "./models/PrivateActionsRunner";
 export { RegisterAppKeyResponse } from "./models/RegisterAppKeyResponse";
 export { ServiceNowBasicAuth } from "./models/ServiceNowBasicAuth";
 export { ServiceNowBasicAuthType } from "./models/ServiceNowBasicAuthType";
@@ -224,6 +248,8 @@ export { StatsigIntegrationUpdate } from "./models/StatsigIntegrationUpdate";
 export { TokenType } from "./models/TokenType";
 export { UpdateActionConnectionRequest } from "./models/UpdateActionConnectionRequest";
 export { UpdateActionConnectionResponse } from "./models/UpdateActionConnectionResponse";
+export { UpdateConnectionGroupRequest } from "./models/UpdateConnectionGroupRequest";
+export { UpdateConnectionGroupResponse } from "./models/UpdateConnectionGroupResponse";
 export { UrlParam } from "./models/UrlParam";
 export { UrlParamUpdate } from "./models/UrlParamUpdate";
 export { VirusTotalAPIKey } from "./models/VirusTotalAPIKey";

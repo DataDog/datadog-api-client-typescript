@@ -1,9 +1,11 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
+import { APIErrorResponse } from "./APIErrorResponse";
 import { AWSAssumeRole } from "./AWSAssumeRole";
 import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSIntegration } from "./AWSIntegration";
 import { AWSIntegrationUpdate } from "./AWSIntegrationUpdate";
+import { AWSSecretManager } from "./AWSSecretManager";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
@@ -39,12 +41,23 @@ import { ConfigCatIntegration } from "./ConfigCatIntegration";
 import { ConfigCatIntegrationUpdate } from "./ConfigCatIntegrationUpdate";
 import { ConfigCatSDKKey } from "./ConfigCatSDKKey";
 import { ConfigCatSDKKeyUpdate } from "./ConfigCatSDKKeyUpdate";
+import { ConnectionDataAttributesResponse } from "./ConnectionDataAttributesResponse";
+import { ConnectionDataResponse } from "./ConnectionDataResponse";
+import { ConnectionGroupDataAttributesRequest } from "./ConnectionGroupDataAttributesRequest";
+import { ConnectionGroupDataAttributesResponse } from "./ConnectionGroupDataAttributesResponse";
+import { ConnectionGroupDataRequest } from "./ConnectionGroupDataRequest";
+import { ConnectionGroupDataResponse } from "./ConnectionGroupDataResponse";
+import { ConnectionGroupRelationships } from "./ConnectionGroupRelationships";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
+import { CreatedBy } from "./CreatedBy";
+import { CreatedByRelationship } from "./CreatedByRelationship";
+import { CreatedByRelationshipData } from "./CreatedByRelationshipData";
 import { DatadogAPIKey } from "./DatadogAPIKey";
 import { DatadogAPIKeyUpdate } from "./DatadogAPIKeyUpdate";
 import { DatadogIntegration } from "./DatadogIntegration";
 import { DatadogIntegrationUpdate } from "./DatadogIntegrationUpdate";
+import { ExternalSecretsManagerOneOf } from "./ExternalSecretsManagerOneOf";
 import { FastlyAPIKey } from "./FastlyAPIKey";
 import { FastlyAPIKeyUpdate } from "./FastlyAPIKeyUpdate";
 import { FastlyIntegration } from "./FastlyIntegration";
@@ -80,6 +93,7 @@ import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
 import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
+import { IntegrationCounts } from "./IntegrationCounts";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -87,8 +101,12 @@ import { LaunchDarklyAPIKey } from "./LaunchDarklyAPIKey";
 import { LaunchDarklyAPIKeyUpdate } from "./LaunchDarklyAPIKeyUpdate";
 import { LaunchDarklyIntegration } from "./LaunchDarklyIntegration";
 import { LaunchDarklyIntegrationUpdate } from "./LaunchDarklyIntegrationUpdate";
+import { ListActionConnectionsResponse } from "./ListActionConnectionsResponse";
+import { ListActionConnectionsResponseMeta } from "./ListActionConnectionsResponseMeta";
 import { ListAppKeyRegistrationsResponse } from "./ListAppKeyRegistrationsResponse";
 import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
+import { ListConnectionGroupsResponse } from "./ListConnectionGroupsResponse";
+import { ListConnectionGroupsResponseMeta } from "./ListConnectionGroupsResponseMeta";
 import { NotionAPIKey } from "./NotionAPIKey";
 import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
 import { NotionIntegration } from "./NotionIntegration";
@@ -101,6 +119,7 @@ import { OpenAIAPIKey } from "./OpenAIAPIKey";
 import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
+import { PrivateActionsRunner } from "./PrivateActionsRunner";
 import { RegisterAppKeyResponse } from "./RegisterAppKeyResponse";
 import { ServiceNowBasicAuth } from "./ServiceNowBasicAuth";
 import { ServiceNowBasicAuthUpdate } from "./ServiceNowBasicAuthUpdate";
@@ -116,6 +135,8 @@ import { StatsigIntegration } from "./StatsigIntegration";
 import { StatsigIntegrationUpdate } from "./StatsigIntegrationUpdate";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
 import { UpdateActionConnectionResponse } from "./UpdateActionConnectionResponse";
+import { UpdateConnectionGroupRequest } from "./UpdateConnectionGroupRequest";
+import { UpdateConnectionGroupResponse } from "./UpdateConnectionGroupResponse";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 import { VirusTotalAPIKey } from "./VirusTotalAPIKey";
@@ -144,6 +165,7 @@ export const TypingInfo: ModelTypingInfo = {
     CloudflareIntegrationType: ["Cloudflare"],
     ConfigCatIntegrationType: ["ConfigCat"],
     ConfigCatSDKKeyType: ["ConfigCatSDKKey"],
+    ConnectionGroupType: ["connection_group"],
     DatadogAPIKeyType: ["DatadogAPIKey"],
     DatadogIntegrationType: ["Datadog"],
     FastlyAPIKeyType: ["FastlyAPIKey"],
@@ -252,6 +274,7 @@ export const TypingInfo: ModelTypingInfo = {
     ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
     DatadogCredentials: ["DatadogAPIKey"],
     DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
+    ExternalSecretsManager: ["ExternalSecretsManagerOneOf"],
     FastlyCredentials: ["FastlyAPIKey"],
     FastlyCredentialsUpdate: ["FastlyAPIKeyUpdate"],
     FreshserviceCredentials: ["FreshserviceAPIKey"],
@@ -284,10 +307,12 @@ export const TypingInfo: ModelTypingInfo = {
     VirusTotalCredentialsUpdate: ["VirusTotalAPIKeyUpdate"],
   },
   typeMap: {
+    APIErrorResponse: APIErrorResponse,
     AWSAssumeRole: AWSAssumeRole,
     AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
     AWSIntegration: AWSIntegration,
     AWSIntegrationUpdate: AWSIntegrationUpdate,
+    AWSSecretManager: AWSSecretManager,
     ActionConnectionAttributes: ActionConnectionAttributes,
     ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
     ActionConnectionData: ActionConnectionData,
@@ -323,12 +348,24 @@ export const TypingInfo: ModelTypingInfo = {
     ConfigCatIntegrationUpdate: ConfigCatIntegrationUpdate,
     ConfigCatSDKKey: ConfigCatSDKKey,
     ConfigCatSDKKeyUpdate: ConfigCatSDKKeyUpdate,
+    ConnectionDataAttributesResponse: ConnectionDataAttributesResponse,
+    ConnectionDataResponse: ConnectionDataResponse,
+    ConnectionGroupDataAttributesRequest: ConnectionGroupDataAttributesRequest,
+    ConnectionGroupDataAttributesResponse:
+      ConnectionGroupDataAttributesResponse,
+    ConnectionGroupDataRequest: ConnectionGroupDataRequest,
+    ConnectionGroupDataResponse: ConnectionGroupDataResponse,
+    ConnectionGroupRelationships: ConnectionGroupRelationships,
     CreateActionConnectionRequest: CreateActionConnectionRequest,
     CreateActionConnectionResponse: CreateActionConnectionResponse,
+    CreatedBy: CreatedBy,
+    CreatedByRelationship: CreatedByRelationship,
+    CreatedByRelationshipData: CreatedByRelationshipData,
     DatadogAPIKey: DatadogAPIKey,
     DatadogAPIKeyUpdate: DatadogAPIKeyUpdate,
     DatadogIntegration: DatadogIntegration,
     DatadogIntegrationUpdate: DatadogIntegrationUpdate,
+    ExternalSecretsManagerOneOf: ExternalSecretsManagerOneOf,
     FastlyAPIKey: FastlyAPIKey,
     FastlyAPIKeyUpdate: FastlyAPIKeyUpdate,
     FastlyIntegration: FastlyIntegration,
@@ -364,6 +401,7 @@ export const TypingInfo: ModelTypingInfo = {
     HTTPTokenAuth: HTTPTokenAuth,
     HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
     HTTPTokenUpdate: HTTPTokenUpdate,
+    IntegrationCounts: IntegrationCounts,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -371,8 +409,12 @@ export const TypingInfo: ModelTypingInfo = {
     LaunchDarklyAPIKeyUpdate: LaunchDarklyAPIKeyUpdate,
     LaunchDarklyIntegration: LaunchDarklyIntegration,
     LaunchDarklyIntegrationUpdate: LaunchDarklyIntegrationUpdate,
+    ListActionConnectionsResponse: ListActionConnectionsResponse,
+    ListActionConnectionsResponseMeta: ListActionConnectionsResponseMeta,
     ListAppKeyRegistrationsResponse: ListAppKeyRegistrationsResponse,
     ListAppKeyRegistrationsResponseMeta: ListAppKeyRegistrationsResponseMeta,
+    ListConnectionGroupsResponse: ListConnectionGroupsResponse,
+    ListConnectionGroupsResponseMeta: ListConnectionGroupsResponseMeta,
     NotionAPIKey: NotionAPIKey,
     NotionAPIKeyUpdate: NotionAPIKeyUpdate,
     NotionIntegration: NotionIntegration,
@@ -385,6 +427,7 @@ export const TypingInfo: ModelTypingInfo = {
     OpenAIAPIKeyUpdate: OpenAIAPIKeyUpdate,
     OpenAIIntegration: OpenAIIntegration,
     OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
+    PrivateActionsRunner: PrivateActionsRunner,
     RegisterAppKeyResponse: RegisterAppKeyResponse,
     ServiceNowBasicAuth: ServiceNowBasicAuth,
     ServiceNowBasicAuthUpdate: ServiceNowBasicAuthUpdate,
@@ -400,6 +443,8 @@ export const TypingInfo: ModelTypingInfo = {
     StatsigIntegrationUpdate: StatsigIntegrationUpdate,
     UpdateActionConnectionRequest: UpdateActionConnectionRequest,
     UpdateActionConnectionResponse: UpdateActionConnectionResponse,
+    UpdateConnectionGroupRequest: UpdateConnectionGroupRequest,
+    UpdateConnectionGroupResponse: UpdateConnectionGroupResponse,
     UrlParam: UrlParam,
     UrlParamUpdate: UrlParamUpdate,
     VirusTotalAPIKey: VirusTotalAPIKey,
