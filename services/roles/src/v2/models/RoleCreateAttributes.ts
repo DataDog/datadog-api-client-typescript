@@ -17,6 +17,12 @@ export class RoleCreateAttributes {
    */
   "name": string;
   /**
+   * The managed role from which this role automatically inherits new permissions.
+   * Specify one of the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role".
+   * If empty or not specified, the role does not automatically inherit permissions from any managed role.
+   */
+  "receivesPermissionsFrom"?: Array<string>;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -45,6 +51,10 @@ export class RoleCreateAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    receivesPermissionsFrom: {
+      baseName: "receives_permissions_from",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
