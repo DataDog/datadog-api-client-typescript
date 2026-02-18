@@ -11,6 +11,10 @@ export class IncidentTrigger {
    */
   "rateLimit"?: TriggerRateLimit;
   /**
+   * Version of the incident trigger.
+   */
+  "version"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -28,6 +32,10 @@ export class IncidentTrigger {
     rateLimit: {
       baseName: "rateLimit",
       type: "TriggerRateLimit",
+    },
+    version: {
+      baseName: "version",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
