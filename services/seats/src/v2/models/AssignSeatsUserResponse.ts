@@ -1,15 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { NotebookResourceType } from "./NotebookResourceType";
+import { AssignSeatsUserResponseData } from "./AssignSeatsUserResponseData";
 
-/**
- * Notebook creation data
- */
-export class NotebookCreateData {
-  /**
-   * Notebook resource type
-   */
-  "type": NotebookResourceType;
+export class AssignSeatsUserResponse {
+  "data"?: AssignSeatsUserResponseData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,10 +19,9 @@ export class NotebookCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "NotebookResourceType",
-      required: true,
+    data: {
+      baseName: "data",
+      type: "AssignSeatsUserResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +33,7 @@ export class NotebookCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateData.attributeTypeMap;
+    return AssignSeatsUserResponse.attributeTypeMap;
   }
 
   public constructor() {}

@@ -1,20 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ServiceNowTicketCreateAttributes } from "./ServiceNowTicketCreateAttributes";
-import { ServiceNowTicketResourceType } from "./ServiceNowTicketResourceType";
+import { AssignSeatsUserResponseDataAttributes } from "./AssignSeatsUserResponseDataAttributes";
+import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
 
-/**
- * ServiceNow ticket creation data
- */
-export class ServiceNowTicketCreateData {
+export class AssignSeatsUserResponseData {
+  "attributes"?: AssignSeatsUserResponseDataAttributes;
   /**
-   * ServiceNow ticket creation attributes
+   * The ID of the assign seats user response.
    */
-  "attributes": ServiceNowTicketCreateAttributes;
+  "id"?: string;
   /**
-   * ServiceNow ticket resource type
+   * Seat assignments resource type.
    */
-  "type": ServiceNowTicketResourceType;
+  "type": SeatAssignmentsDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,12 +30,15 @@ export class ServiceNowTicketCreateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "ServiceNowTicketCreateAttributes",
-      required: true,
+      type: "AssignSeatsUserResponseDataAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
-      type: "ServiceNowTicketResourceType",
+      type: "SeatAssignmentsDataType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +51,7 @@ export class ServiceNowTicketCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceNowTicketCreateData.attributeTypeMap;
+    return AssignSeatsUserResponseData.attributeTypeMap;
   }
 
   public constructor() {}

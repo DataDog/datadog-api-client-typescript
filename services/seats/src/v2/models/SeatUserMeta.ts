@@ -1,15 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { IncidentRelationshipData } from "./IncidentRelationshipData";
-
-/**
- * Relationship to incident request
- */
-export class RelationshipToIncidentRequest {
+export class SeatUserMeta {
   /**
-   * Incident relationship data
+   * The cursor for the seat users.
    */
-  "data": IncidentRelationshipData;
+  "cursor"?: string;
+  /**
+   * The limit for the seat users.
+   */
+  "limit"?: number;
+  /**
+   * The next cursor for the seat users.
+   */
+  "nextCursor"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,10 +28,18 @@ export class RelationshipToIncidentRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentRelationshipData",
-      required: true,
+    cursor: {
+      baseName: "cursor",
+      type: "string",
+    },
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
+    },
+    nextCursor: {
+      baseName: "next_cursor",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +51,7 @@ export class RelationshipToIncidentRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentRequest.attributeTypeMap;
+    return SeatUserMeta.attributeTypeMap;
   }
 
   public constructor() {}

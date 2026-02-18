@@ -1,25 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-/**
- * Jira issue creation attributes
- */
-export class JiraIssueCreateAttributes {
+import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
+import { SeatUserDataType } from "./SeatUserDataType";
+
+export class SeatUserData {
+  "attributes"?: SeatUserDataAttributes;
   /**
-   * Additional Jira fields
+   * The ID of the seat user.
    */
-  "fields"?: { [key: string]: any };
+  "id"?: string;
   /**
-   * Jira issue type ID
+   * Seat users resource type.
    */
-  "issueTypeId": string;
-  /**
-   * Jira account ID
-   */
-  "jiraAccountId": string;
-  /**
-   * Jira project ID
-   */
-  "projectId": string;
+  "type": SeatUserDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,23 +28,17 @@ export class JiraIssueCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "{ [key: string]: any; }",
+    attributes: {
+      baseName: "attributes",
+      type: "SeatUserDataAttributes",
     },
-    issueTypeId: {
-      baseName: "issue_type_id",
+    id: {
+      baseName: "id",
       type: "string",
-      required: true,
     },
-    jiraAccountId: {
-      baseName: "jira_account_id",
-      type: "string",
-      required: true,
-    },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "SeatUserDataType",
       required: true,
     },
     additionalProperties: {
@@ -64,7 +51,7 @@ export class JiraIssueCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIssueCreateAttributes.attributeTypeMap;
+    return SeatUserData.attributeTypeMap;
   }
 
   public constructor() {}

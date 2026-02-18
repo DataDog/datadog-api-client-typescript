@@ -1,20 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { JiraIssueLinkAttributes } from "./JiraIssueLinkAttributes";
-import { JiraIssueResourceType } from "./JiraIssueResourceType";
-
-/**
- * Jira issue link data
- */
-export class JiraIssueLinkData {
+export class SeatUserDataAttributes {
   /**
-   * Jira issue link attributes
+   * The date and time the seat was assigned.
    */
-  "attributes": JiraIssueLinkAttributes;
+  "assignedAt"?: Date;
   /**
-   * Jira issue resource type
+   * The email of the user.
    */
-  "type": JiraIssueResourceType;
+  "email"?: string;
+  /**
+   * The name of the user.
+   */
+  "name"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,15 +28,18 @@ export class JiraIssueLinkData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "JiraIssueLinkAttributes",
-      required: true,
+    assignedAt: {
+      baseName: "assigned_at",
+      type: "Date",
+      format: "date-time",
     },
-    type: {
-      baseName: "type",
-      type: "JiraIssueResourceType",
-      required: true,
+    email: {
+      baseName: "email",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -50,7 +51,7 @@ export class JiraIssueLinkData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIssueLinkData.attributeTypeMap;
+    return SeatUserDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

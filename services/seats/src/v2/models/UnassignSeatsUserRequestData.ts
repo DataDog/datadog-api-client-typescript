@@ -1,17 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-/**
- * ServiceNow ticket creation attributes
- */
-export class ServiceNowTicketCreateAttributes {
+import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
+import { UnassignSeatsUserRequestDataAttributes } from "./UnassignSeatsUserRequestDataAttributes";
+
+export class UnassignSeatsUserRequestData {
+  "attributes"?: UnassignSeatsUserRequestDataAttributes;
   /**
-   * ServiceNow assignment group
+   * The ID of the unassign seats user request.
    */
-  "assignmentGroup"?: string;
+  "id"?: string;
   /**
-   * ServiceNow instance name
+   * Seat assignments resource type.
    */
-  "instanceName": string;
+  "type": SeatAssignmentsDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,13 +28,17 @@ export class ServiceNowTicketCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignmentGroup: {
-      baseName: "assignment_group",
+    attributes: {
+      baseName: "attributes",
+      type: "UnassignSeatsUserRequestDataAttributes",
+    },
+    id: {
+      baseName: "id",
       type: "string",
     },
-    instanceName: {
-      baseName: "instance_name",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "SeatAssignmentsDataType",
       required: true,
     },
     additionalProperties: {
@@ -46,7 +51,7 @@ export class ServiceNowTicketCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceNowTicketCreateAttributes.attributeTypeMap;
+    return UnassignSeatsUserRequestData.attributeTypeMap;
   }
 
   public constructor() {}
