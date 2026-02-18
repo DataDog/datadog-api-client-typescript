@@ -176,6 +176,12 @@ import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
 import { AssetRisks } from "./AssetRisks";
 import { AssetVersion } from "./AssetVersion";
+import { AssignSeatsUserRequest } from "./AssignSeatsUserRequest";
+import { AssignSeatsUserRequestData } from "./AssignSeatsUserRequestData";
+import { AssignSeatsUserRequestDataAttributes } from "./AssignSeatsUserRequestDataAttributes";
+import { AssignSeatsUserResponse } from "./AssignSeatsUserResponse";
+import { AssignSeatsUserResponseData } from "./AssignSeatsUserResponseData";
+import { AssignSeatsUserResponseDataAttributes } from "./AssignSeatsUserResponseDataAttributes";
 import { AttachCaseRequest } from "./AttachCaseRequest";
 import { AttachCaseRequestData } from "./AttachCaseRequestData";
 import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
@@ -2502,6 +2508,10 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { SeatUserData } from "./SeatUserData";
+import { SeatUserDataArray } from "./SeatUserDataArray";
+import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
+import { SeatUserMeta } from "./SeatUserMeta";
 import { SecretRuleArray } from "./SecretRuleArray";
 import { SecretRuleData } from "./SecretRuleData";
 import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
@@ -3062,6 +3072,9 @@ import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
 import { UCConfigPairDataAttributesConfigsItems } from "./UCConfigPairDataAttributesConfigsItems";
+import { UnassignSeatsUserRequest } from "./UnassignSeatsUserRequest";
+import { UnassignSeatsUserRequestData } from "./UnassignSeatsUserRequestData";
+import { UnassignSeatsUserRequestDataAttributes } from "./UnassignSeatsUserRequestDataAttributes";
 import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
@@ -4622,6 +4635,8 @@ const enumsMap: { [key: string]: any[] } = {
     "issue.case",
     "issue.team_owners",
   ],
+  SeatAssignmentsDataType: ["seat-assignments"],
+  SeatUserDataType: ["seat-users"],
   SecretRuleDataType: ["secret_rule"],
   SecurityEntityRiskScoreAttributesSeverity: [
     "critical",
@@ -5385,6 +5400,12 @@ const typeMap: { [index: string]: any } = {
   AssetOperatingSystem: AssetOperatingSystem,
   AssetRisks: AssetRisks,
   AssetVersion: AssetVersion,
+  AssignSeatsUserRequest: AssignSeatsUserRequest,
+  AssignSeatsUserRequestData: AssignSeatsUserRequestData,
+  AssignSeatsUserRequestDataAttributes: AssignSeatsUserRequestDataAttributes,
+  AssignSeatsUserResponse: AssignSeatsUserResponse,
+  AssignSeatsUserResponseData: AssignSeatsUserResponseData,
+  AssignSeatsUserResponseDataAttributes: AssignSeatsUserResponseDataAttributes,
   AttachCaseRequest: AttachCaseRequest,
   AttachCaseRequestData: AttachCaseRequestData,
   AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
@@ -8128,6 +8149,10 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataRelationships,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
+  SeatUserData: SeatUserData,
+  SeatUserDataArray: SeatUserDataArray,
+  SeatUserDataAttributes: SeatUserDataAttributes,
+  SeatUserMeta: SeatUserMeta,
   SecretRuleArray: SecretRuleArray,
   SecretRuleData: SecretRuleData,
   SecretRuleDataAttributes: SecretRuleDataAttributes,
@@ -8828,6 +8853,10 @@ const typeMap: { [index: string]: any } = {
   UCConfigPairDataAttributes: UCConfigPairDataAttributes,
   UCConfigPairDataAttributesConfigsItems:
     UCConfigPairDataAttributesConfigsItems,
+  UnassignSeatsUserRequest: UnassignSeatsUserRequest,
+  UnassignSeatsUserRequestData: UnassignSeatsUserRequestData,
+  UnassignSeatsUserRequestDataAttributes:
+    UnassignSeatsUserRequestDataAttributes,
   Unit: Unit,
   UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,

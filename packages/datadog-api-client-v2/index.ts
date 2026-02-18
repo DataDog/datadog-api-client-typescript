@@ -841,6 +841,13 @@ export {
 } from "./apis/RumRetentionFiltersApi";
 
 export {
+  SeatsApiAssignSeatsUserRequest,
+  SeatsApiGetSeatsUsersRequest,
+  SeatsApiUnassignSeatsUserRequest,
+  SeatsApi,
+} from "./apis/SeatsApi";
+
+export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
@@ -1319,6 +1326,12 @@ export { AssetOperatingSystem } from "./models/AssetOperatingSystem";
 export { AssetRisks } from "./models/AssetRisks";
 export { AssetType } from "./models/AssetType";
 export { AssetVersion } from "./models/AssetVersion";
+export { AssignSeatsUserRequest } from "./models/AssignSeatsUserRequest";
+export { AssignSeatsUserRequestData } from "./models/AssignSeatsUserRequestData";
+export { AssignSeatsUserRequestDataAttributes } from "./models/AssignSeatsUserRequestDataAttributes";
+export { AssignSeatsUserResponse } from "./models/AssignSeatsUserResponse";
+export { AssignSeatsUserResponseData } from "./models/AssignSeatsUserResponseData";
+export { AssignSeatsUserResponseDataAttributes } from "./models/AssignSeatsUserResponseDataAttributes";
 export { AttachCaseRequest } from "./models/AttachCaseRequest";
 export { AttachCaseRequestData } from "./models/AttachCaseRequestData";
 export { AttachCaseRequestDataRelationships } from "./models/AttachCaseRequestDataRelationships";
@@ -4446,6 +4459,12 @@ export { ScheduleUserAttributes } from "./models/ScheduleUserAttributes";
 export { ScheduleUserType } from "./models/ScheduleUserType";
 export { ScorecardType } from "./models/ScorecardType";
 export { SearchIssuesIncludeQueryParameterItem } from "./models/SearchIssuesIncludeQueryParameterItem";
+export { SeatAssignmentsDataType } from "./models/SeatAssignmentsDataType";
+export { SeatUserData } from "./models/SeatUserData";
+export { SeatUserDataArray } from "./models/SeatUserDataArray";
+export { SeatUserDataAttributes } from "./models/SeatUserDataAttributes";
+export { SeatUserDataType } from "./models/SeatUserDataType";
+export { SeatUserMeta } from "./models/SeatUserMeta";
 export { SecretRuleArray } from "./models/SecretRuleArray";
 export { SecretRuleData } from "./models/SecretRuleData";
 export { SecretRuleDataAttributes } from "./models/SecretRuleDataAttributes";
@@ -5198,6 +5217,9 @@ export { UCConfigPairData } from "./models/UCConfigPairData";
 export { UCConfigPairDataAttributes } from "./models/UCConfigPairDataAttributes";
 export { UCConfigPairDataAttributesConfigsItems } from "./models/UCConfigPairDataAttributesConfigsItems";
 export { UCConfigPairDataType } from "./models/UCConfigPairDataType";
+export { UnassignSeatsUserRequest } from "./models/UnassignSeatsUserRequest";
+export { UnassignSeatsUserRequestData } from "./models/UnassignSeatsUserRequestData";
+export { UnassignSeatsUserRequestDataAttributes } from "./models/UnassignSeatsUserRequestDataAttributes";
 export { Unit } from "./models/Unit";
 export { UnpublishAppResponse } from "./models/UnpublishAppResponse";
 export { UpdateActionConnectionRequest } from "./models/UpdateActionConnectionRequest";
