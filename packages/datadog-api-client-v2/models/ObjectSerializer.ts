@@ -1914,6 +1914,11 @@ import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPip
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
+import { ObservabilityPipelineOcsfMappingCustom } from "./ObservabilityPipelineOcsfMappingCustom";
+import { ObservabilityPipelineOcsfMappingCustomFieldMapping } from "./ObservabilityPipelineOcsfMappingCustomFieldMapping";
+import { ObservabilityPipelineOcsfMappingCustomLookup } from "./ObservabilityPipelineOcsfMappingCustomLookup";
+import { ObservabilityPipelineOcsfMappingCustomLookupTableEntry } from "./ObservabilityPipelineOcsfMappingCustomLookupTableEntry";
+import { ObservabilityPipelineOcsfMappingCustomMetadata } from "./ObservabilityPipelineOcsfMappingCustomMetadata";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
@@ -7404,6 +7409,16 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineOcsfMapperProcessor,
   ObservabilityPipelineOcsfMapperProcessorMapping:
     ObservabilityPipelineOcsfMapperProcessorMapping,
+  ObservabilityPipelineOcsfMappingCustom:
+    ObservabilityPipelineOcsfMappingCustom,
+  ObservabilityPipelineOcsfMappingCustomFieldMapping:
+    ObservabilityPipelineOcsfMappingCustomFieldMapping,
+  ObservabilityPipelineOcsfMappingCustomLookup:
+    ObservabilityPipelineOcsfMappingCustomLookup,
+  ObservabilityPipelineOcsfMappingCustomLookupTableEntry:
+    ObservabilityPipelineOcsfMappingCustomLookupTableEntry,
+  ObservabilityPipelineOcsfMappingCustomMetadata:
+    ObservabilityPipelineOcsfMappingCustomMetadata,
   ObservabilityPipelineOpenSearchDestination:
     ObservabilityPipelineOpenSearchDestination,
   ObservabilityPipelineOpenSearchDestinationDataStream:
@@ -9385,6 +9400,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   ObservabilityPipelineOcsfMapperProcessorMappingMapping: [
     "ObservabilityPipelineOcsfMappingLibrary",
+    "ObservabilityPipelineOcsfMappingCustom",
   ],
   ObservabilityPipelineSensitiveDataScannerProcessorAction: [
     "ObservabilityPipelineSensitiveDataScannerProcessorActionRedact",
