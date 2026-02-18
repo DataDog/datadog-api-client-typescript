@@ -235,6 +235,7 @@ export { TableWidgetTextFormatReplaceSubstringType } from "./models/TableWidgetT
 export { TableWidgetTextFormatRule } from "./models/TableWidgetTextFormatRule";
 export { TimeseriesBackground } from "./models/TimeseriesBackground";
 export { TimeseriesBackgroundType } from "./models/TimeseriesBackgroundType";
+export { TimeseriesRequestStyle } from "./models/TimeseriesRequestStyle";
 export { TimeseriesWidgetDefinition } from "./models/TimeseriesWidgetDefinition";
 export { TimeseriesWidgetDefinitionType } from "./models/TimeseriesWidgetDefinitionType";
 export { TimeseriesWidgetExpressionAlias } from "./models/TimeseriesWidgetExpressionAlias";

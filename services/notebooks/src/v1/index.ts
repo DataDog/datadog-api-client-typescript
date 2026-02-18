@@ -109,6 +109,7 @@ export { NumberFormatUnitScaleType } from "./models/NumberFormatUnitScaleType";
 export { ProcessQueryDefinition } from "./models/ProcessQueryDefinition";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { TableWidgetCellDisplayMode } from "./models/TableWidgetCellDisplayMode";
+export { TimeseriesRequestStyle } from "./models/TimeseriesRequestStyle";
 export { TimeseriesWidgetDefinition } from "./models/TimeseriesWidgetDefinition";
 export { TimeseriesWidgetDefinitionType } from "./models/TimeseriesWidgetDefinitionType";
 export { TimeseriesWidgetExpressionAlias } from "./models/TimeseriesWidgetExpressionAlias";
