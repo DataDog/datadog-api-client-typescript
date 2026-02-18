@@ -158,6 +158,11 @@ export { ObservabilityPipelineOcsfMapperProcessor } from "./models/Observability
 export { ObservabilityPipelineOcsfMapperProcessorMapping } from "./models/ObservabilityPipelineOcsfMapperProcessorMapping";
 export { ObservabilityPipelineOcsfMapperProcessorMappingMapping } from "./models/ObservabilityPipelineOcsfMapperProcessorMappingMapping";
 export { ObservabilityPipelineOcsfMapperProcessorType } from "./models/ObservabilityPipelineOcsfMapperProcessorType";
+export { ObservabilityPipelineOcsfMappingCustom } from "./models/ObservabilityPipelineOcsfMappingCustom";
+export { ObservabilityPipelineOcsfMappingCustomFieldMapping } from "./models/ObservabilityPipelineOcsfMappingCustomFieldMapping";
+export { ObservabilityPipelineOcsfMappingCustomLookup } from "./models/ObservabilityPipelineOcsfMappingCustomLookup";
+export { ObservabilityPipelineOcsfMappingCustomLookupTableEntry } from "./models/ObservabilityPipelineOcsfMappingCustomLookupTableEntry";
+export { ObservabilityPipelineOcsfMappingCustomMetadata } from "./models/ObservabilityPipelineOcsfMappingCustomMetadata";
 export { ObservabilityPipelineOcsfMappingLibrary } from "./models/ObservabilityPipelineOcsfMappingLibrary";
 export { ObservabilityPipelineOpenSearchDestination } from "./models/ObservabilityPipelineOpenSearchDestination";
 export { ObservabilityPipelineOpenSearchDestinationDataStream } from "./models/ObservabilityPipelineOpenSearchDestinationDataStream";

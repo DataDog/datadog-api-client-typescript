@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineOcsfMappingCustom } from "./ObservabilityPipelineOcsfMappingCustom";
 import { ObservabilityPipelineOcsfMappingLibrary } from "./ObservabilityPipelineOcsfMappingLibrary";
 
 /**
@@ -7,4 +8,5 @@ import { ObservabilityPipelineOcsfMappingLibrary } from "./ObservabilityPipeline
  */
 export type ObservabilityPipelineOcsfMapperProcessorMappingMapping =
   | ObservabilityPipelineOcsfMappingLibrary
+  | ObservabilityPipelineOcsfMappingCustom
   | UnparsedObject;
