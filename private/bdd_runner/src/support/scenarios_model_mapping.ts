@@ -82,6 +82,27 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ApplicationKeyResponse",
   },
+  "KeyManagementApi.V1.UpdateClientToken": {
+    body: {
+      type: "ClientTokenUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ClientToken",
+  },
+  "KeyManagementApi.V1.CreateClientToken": {
+    body: {
+      type: "ClientTokenCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ClientToken",
+  },
+  "KeyManagementApi.V1.RevokeClientToken": {
+    body: {
+      type: "ClientTokenRevokeRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "ServiceChecksApi.V1.SubmitServiceCheck": {
     body: {
       type: "Array<ServiceCheck>",
@@ -2977,6 +2998,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ApplicationKeyResponse",
+  },
+  "KeyManagementApi.V2.ListPersonalAccessTokens": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "PersonalAccessTokensSort",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    filterOwnerUuid: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokensListResponse",
+  },
+  "KeyManagementApi.V2.CreatePersonalAccessToken": {
+    body: {
+      type: "PersonalAccessTokenCreateRequest",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenResponse",
+  },
+  "KeyManagementApi.V2.GetPersonalAccessToken": {
+    patUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "PersonalAccessTokenGetResponse",
+  },
+  "KeyManagementApi.V2.RevokePersonalAccessToken": {
+    patUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "KeyManagementApi.V2.UpdatePersonalAccessToken": {
+    patUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "PersonalAccessTokenUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenGetResponse",
   },
   "APIManagementApi.V2.ListAPIs": {
     query: {

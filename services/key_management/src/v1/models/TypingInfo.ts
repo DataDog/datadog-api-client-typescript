@@ -7,6 +7,10 @@ import { ApiKeyResponse } from "./ApiKeyResponse";
 import { ApplicationKey } from "./ApplicationKey";
 import { ApplicationKeyListResponse } from "./ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
+import { ClientToken } from "./ClientToken";
+import { ClientTokenCreateRequest } from "./ClientTokenCreateRequest";
+import { ClientTokenRevokeRequest } from "./ClientTokenRevokeRequest";
+import { ClientTokenUpdateRequest } from "./ClientTokenUpdateRequest";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {},
@@ -19,5 +23,9 @@ export const TypingInfo: ModelTypingInfo = {
     ApplicationKey: ApplicationKey,
     ApplicationKeyListResponse: ApplicationKeyListResponse,
     ApplicationKeyResponse: ApplicationKeyResponse,
+    ClientToken: ClientToken,
+    ClientTokenCreateRequest: ClientTokenCreateRequest,
+    ClientTokenRevokeRequest: ClientTokenRevokeRequest,
+    ClientTokenUpdateRequest: ClientTokenUpdateRequest,
   },
 };
