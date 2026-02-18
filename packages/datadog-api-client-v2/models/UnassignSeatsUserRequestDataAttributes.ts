@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { JiraIssueLinkData } from "./JiraIssueLinkData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Jira issue link request
- */
-export class JiraIssueLinkRequest {
+export class UnassignSeatsUserRequestDataAttributes {
   /**
-   * Jira issue link data
+   * The product code for which to unassign seats.
    */
-  "data": JiraIssueLinkData;
+  "productCode": string;
+  /**
+   * The list of user IDs to unassign seats from.
+   */
+  "userUuids": Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +32,14 @@ export class JiraIssueLinkRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "JiraIssueLinkData",
+    productCode: {
+      baseName: "product_code",
+      type: "string",
+      required: true,
+    },
+    userUuids: {
+      baseName: "user_uuids",
+      type: "Array<string>",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +52,7 @@ export class JiraIssueLinkRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIssueLinkRequest.attributeTypeMap;
+    return UnassignSeatsUserRequestDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

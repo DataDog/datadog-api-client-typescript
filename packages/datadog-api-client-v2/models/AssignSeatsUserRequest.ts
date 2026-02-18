@@ -3,18 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentRelationshipData } from "./IncidentRelationshipData";
+import { AssignSeatsUserRequestData } from "./AssignSeatsUserRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Relationship to incident request
- */
-export class RelationshipToIncidentRequest {
-  /**
-   * Incident relationship data
-   */
-  "data": IncidentRelationshipData;
+export class AssignSeatsUserRequest {
+  "data"?: AssignSeatsUserRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,8 +28,7 @@ export class RelationshipToIncidentRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "IncidentRelationshipData",
-      required: true,
+      type: "AssignSeatsUserRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +40,7 @@ export class RelationshipToIncidentRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentRequest.attributeTypeMap;
+    return AssignSeatsUserRequest.attributeTypeMap;
   }
 
   public constructor() {}

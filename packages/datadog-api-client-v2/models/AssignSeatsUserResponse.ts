@@ -3,29 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AssignSeatsUserResponseData } from "./AssignSeatsUserResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Jira issue creation attributes
- */
-export class JiraIssueCreateAttributes {
-  /**
-   * Additional Jira fields
-   */
-  "fields"?: { [key: string]: any };
-  /**
-   * Jira issue type ID
-   */
-  "issueTypeId": string;
-  /**
-   * Jira account ID
-   */
-  "jiraAccountId": string;
-  /**
-   * Jira project ID
-   */
-  "projectId": string;
+export class AssignSeatsUserResponse {
+  "data"?: AssignSeatsUserResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,24 +26,9 @@ export class JiraIssueCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "{ [key: string]: any; }",
-    },
-    issueTypeId: {
-      baseName: "issue_type_id",
-      type: "string",
-      required: true,
-    },
-    jiraAccountId: {
-      baseName: "jira_account_id",
-      type: "string",
-      required: true,
-    },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
-      required: true,
+    data: {
+      baseName: "data",
+      type: "AssignSeatsUserResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,7 +40,7 @@ export class JiraIssueCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIssueCreateAttributes.attributeTypeMap;
+    return AssignSeatsUserResponse.attributeTypeMap;
   }
 
   public constructor() {}

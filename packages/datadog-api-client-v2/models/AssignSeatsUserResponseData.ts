@@ -3,17 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AssignSeatsUserResponseDataAttributes } from "./AssignSeatsUserResponseDataAttributes";
+import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Jira issue link attributes
- */
-export class JiraIssueLinkAttributes {
+export class AssignSeatsUserResponseData {
+  "attributes"?: AssignSeatsUserResponseDataAttributes;
   /**
-   * URL of the Jira issue
+   * The ID of the assign seats user response.
    */
-  "jiraIssueUrl": string;
+  "id"?: string;
+  /**
+   * Seat assignments resource type.
+   */
+  "type": SeatAssignmentsDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,9 +35,17 @@ export class JiraIssueLinkAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    jiraIssueUrl: {
-      baseName: "jira_issue_url",
+    attributes: {
+      baseName: "attributes",
+      type: "AssignSeatsUserResponseDataAttributes",
+    },
+    id: {
+      baseName: "id",
       type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "SeatAssignmentsDataType",
       required: true,
     },
     additionalProperties: {
@@ -46,7 +58,7 @@ export class JiraIssueLinkAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIssueLinkAttributes.attributeTypeMap;
+    return AssignSeatsUserResponseData.attributeTypeMap;
   }
 
   public constructor() {}

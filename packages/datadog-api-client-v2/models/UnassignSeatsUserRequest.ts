@@ -3,18 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { NotebookCreateData } from "./NotebookCreateData";
+import { UnassignSeatsUserRequestData } from "./UnassignSeatsUserRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Notebook creation request
- */
-export class NotebookCreateRequest {
-  /**
-   * Notebook creation data
-   */
-  "data": NotebookCreateData;
+export class UnassignSeatsUserRequest {
+  "data"?: UnassignSeatsUserRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,8 +28,7 @@ export class NotebookCreateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "NotebookCreateData",
-      required: true,
+      type: "UnassignSeatsUserRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +40,7 @@ export class NotebookCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateRequest.attributeTypeMap;
+    return UnassignSeatsUserRequest.attributeTypeMap;
   }
 
   public constructor() {}

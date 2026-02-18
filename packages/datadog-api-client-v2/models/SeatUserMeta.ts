@@ -3,23 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ServiceNowTicketCreateAttributes } from "./ServiceNowTicketCreateAttributes";
-import { ServiceNowTicketResourceType } from "./ServiceNowTicketResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * ServiceNow ticket creation data
- */
-export class ServiceNowTicketCreateData {
+export class SeatUserMeta {
   /**
-   * ServiceNow ticket creation attributes
+   * The cursor for the seat users.
    */
-  "attributes": ServiceNowTicketCreateAttributes;
+  "cursor"?: string;
   /**
-   * ServiceNow ticket resource type
+   * The limit for the seat users.
    */
-  "type": ServiceNowTicketResourceType;
+  "limit"?: number;
+  /**
+   * The next cursor for the seat users.
+   */
+  "nextCursor"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,15 +36,18 @@ export class ServiceNowTicketCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceNowTicketCreateAttributes",
-      required: true,
+    cursor: {
+      baseName: "cursor",
+      type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceNowTicketResourceType",
-      required: true,
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
+    },
+    nextCursor: {
+      baseName: "next_cursor",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,7 +59,7 @@ export class ServiceNowTicketCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceNowTicketCreateData.attributeTypeMap;
+    return SeatUserMeta.attributeTypeMap;
   }
 
   public constructor() {}

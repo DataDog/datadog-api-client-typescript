@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Incident resource type
+ * Seat users resource type.
  */
 
-export type IncidentResourceType = typeof INCIDENTS | UnparsedObject;
-export const INCIDENTS = "incidents";
+export type SeatUserDataType = typeof SEAT_USERS | UnparsedObject;
+export const SEAT_USERS = "seat-users";

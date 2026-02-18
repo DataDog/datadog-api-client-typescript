@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ServiceNowTicketCreateData } from "./ServiceNowTicketCreateData";
+import { SeatUserData } from "./SeatUserData";
+import { SeatUserMeta } from "./SeatUserMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * ServiceNow ticket creation request
- */
-export class ServiceNowTicketCreateRequest {
+export class SeatUserDataArray {
   /**
-   * ServiceNow ticket creation data
+   * The list of seat users.
    */
-  "data": ServiceNowTicketCreateData;
+  "data": Array<SeatUserData>;
+  "meta"?: SeatUserMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,8 +33,12 @@ export class ServiceNowTicketCreateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "ServiceNowTicketCreateData",
+      type: "Array<SeatUserData>",
       required: true,
+    },
+    meta: {
+      baseName: "meta",
+      type: "SeatUserMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +50,7 @@ export class ServiceNowTicketCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceNowTicketCreateRequest.attributeTypeMap;
+    return SeatUserDataArray.attributeTypeMap;
   }
 
   public constructor() {}

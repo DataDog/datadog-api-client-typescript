@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * ServiceNow ticket resource type
+ * Seat assignments resource type.
  */
 
-export type ServiceNowTicketResourceType = typeof TICKETS | UnparsedObject;
-export const TICKETS = "tickets";
+export type SeatAssignmentsDataType = typeof SEAT_ASSIGNMENTS | UnparsedObject;
+export const SEAT_ASSIGNMENTS = "seat-assignments";

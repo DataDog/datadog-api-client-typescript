@@ -3,23 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { JiraIssueCreateAttributes } from "./JiraIssueCreateAttributes";
-import { JiraIssueResourceType } from "./JiraIssueResourceType";
+import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
+import { SeatUserDataType } from "./SeatUserDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Jira issue creation data
- */
-export class JiraIssueCreateData {
+export class SeatUserData {
+  "attributes"?: SeatUserDataAttributes;
   /**
-   * Jira issue creation attributes
+   * The ID of the seat user.
    */
-  "attributes": JiraIssueCreateAttributes;
+  "id"?: string;
   /**
-   * Jira issue resource type
+   * Seat users resource type.
    */
-  "type": JiraIssueResourceType;
+  "type": SeatUserDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,12 +37,15 @@ export class JiraIssueCreateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "JiraIssueCreateAttributes",
-      required: true,
+      type: "SeatUserDataAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
-      type: "JiraIssueResourceType",
+      type: "SeatUserDataType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +58,7 @@ export class JiraIssueCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIssueCreateData.attributeTypeMap;
+    return SeatUserData.attributeTypeMap;
   }
 
   public constructor() {}
