@@ -10,6 +10,7 @@ import { ChangeEventTriggerWrapper } from "./ChangeEventTriggerWrapper";
 import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
 import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
+import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
@@ -36,6 +37,7 @@ export type Trigger =
   | DatabaseMonitoringTriggerWrapper
   | DatastoreTriggerWrapper
   | DashboardTriggerWrapper
+  | FormTriggerWrapper
   | GithubWebhookTriggerWrapper
   | IncidentTriggerWrapper
   | MonitorTriggerWrapper

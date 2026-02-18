@@ -1166,6 +1166,8 @@ import { FleetSchedulePatchRequest } from "./FleetSchedulePatchRequest";
 import { FleetScheduleRecurrenceRule } from "./FleetScheduleRecurrenceRule";
 import { FleetScheduleResponse } from "./FleetScheduleResponse";
 import { FleetSchedulesResponse } from "./FleetSchedulesResponse";
+import { FormTrigger } from "./FormTrigger";
+import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { FormulaLimit } from "./FormulaLimit";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FreshserviceAPIKey } from "./FreshserviceAPIKey";
@@ -6541,6 +6543,8 @@ const typeMap: { [index: string]: any } = {
   FleetScheduleRecurrenceRule: FleetScheduleRecurrenceRule,
   FleetScheduleResponse: FleetScheduleResponse,
   FleetSchedulesResponse: FleetSchedulesResponse,
+  FormTrigger: FormTrigger,
+  FormTriggerWrapper: FormTriggerWrapper,
   FormulaLimit: FormulaLimit,
   FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
   FreshserviceAPIKey: FreshserviceAPIKey,
@@ -9560,6 +9564,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "DatabaseMonitoringTriggerWrapper",
     "DatastoreTriggerWrapper",
     "DashboardTriggerWrapper",
+    "FormTriggerWrapper",
     "GithubWebhookTriggerWrapper",
     "IncidentTriggerWrapper",
     "MonitorTriggerWrapper",
