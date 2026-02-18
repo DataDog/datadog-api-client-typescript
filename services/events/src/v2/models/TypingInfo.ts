@@ -57,6 +57,7 @@ export const TypingInfo: ModelTypingInfo = {
       "runbook",
       "documentation",
       "dashboard",
+      "resource",
     ],
     AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
     AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
