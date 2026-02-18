@@ -95,12 +95,15 @@ export { IPRangesApi } from "./apis/IPRangesApi";
 export {
   KeyManagementApiCreateAPIKeyRequest,
   KeyManagementApiCreateApplicationKeyRequest,
+  KeyManagementApiCreateClientTokenRequest,
   KeyManagementApiDeleteAPIKeyRequest,
   KeyManagementApiDeleteApplicationKeyRequest,
   KeyManagementApiGetAPIKeyRequest,
   KeyManagementApiGetApplicationKeyRequest,
+  KeyManagementApiRevokeClientTokenRequest,
   KeyManagementApiUpdateAPIKeyRequest,
   KeyManagementApiUpdateApplicationKeyRequest,
+  KeyManagementApiUpdateClientTokenRequest,
   KeyManagementApi,
 } from "./apis/KeyManagementApi";
 
@@ -398,6 +401,10 @@ export { CheckCanDeleteSLOResponse } from "./models/CheckCanDeleteSLOResponse";
 export { CheckCanDeleteSLOResponseData } from "./models/CheckCanDeleteSLOResponseData";
 export { CheckStatusWidgetDefinition } from "./models/CheckStatusWidgetDefinition";
 export { CheckStatusWidgetDefinitionType } from "./models/CheckStatusWidgetDefinitionType";
+export { ClientToken } from "./models/ClientToken";
+export { ClientTokenCreateRequest } from "./models/ClientTokenCreateRequest";
+export { ClientTokenRevokeRequest } from "./models/ClientTokenRevokeRequest";
+export { ClientTokenUpdateRequest } from "./models/ClientTokenUpdateRequest";
 export { ContentEncoding } from "./models/ContentEncoding";
 export { Creator } from "./models/Creator";
 export { Dashboard } from "./models/Dashboard";
