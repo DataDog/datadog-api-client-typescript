@@ -5213,6 +5213,14 @@
       "type": "safe"
     }
   },
+  "CreateInternalEmailSubscription": {
+    "tag": "Status Pages",
+    "undo": {
+      "operationId": "TODO",
+      "parameters": [],
+      "type": "unsafe"
+    }
+  },
   "DeleteStatusPage": {
     "tag": "Status Pages",
     "undo": {
@@ -5305,6 +5313,20 @@
     "tag": "Status Pages",
     "undo": {
       "type": "idempotent"
+    }
+  },
+  "ListEmailSubscriptions": {
+    "tag": "Status Pages",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ImportEmailSubscriptions": {
+    "tag": "Status Pages",
+    "undo": {
+      "operationId": "TODO",
+      "parameters": [],
+      "type": "unsafe"
     }
   },
   "GetOnDemandConcurrencyCap": {
