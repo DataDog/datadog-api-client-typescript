@@ -433,7 +433,7 @@ export class UsageSummaryResponse {
    */
   "herokuHostTop99pSum"?: number;
   /**
-   * Shows sum of the high-water marks of incident management monthly active users in the current month for all organizations.
+   * Shows sum of the high-water marks of Incident Management monthly active users in the current month for all organizations.
    */
   "incidentManagementMonthlyActiveUsersHwmSum"?: number;
   /**
