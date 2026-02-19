@@ -396,6 +396,7 @@ apiInstance
 | Incident Services | @datadog/datadog-api-client-incident-services | [README.md](../../services/incident-services/README.md) |
 | Incident Teams | @datadog/datadog-api-client-incident-teams | [README.md](../../services/incident-teams/README.md) |
 | Incidents | @datadog/datadog-api-client-incidents | [README.md](../../services/incidents/README.md) |
+| Integrations | @datadog/datadog-api-client-integrations | [README.md](../../services/integrations/README.md) |
 | IP Allowlist | @datadog/datadog-api-client-ip-allowlist | [README.md](../../services/ip-allowlist/README.md) |
 | IP Ranges | @datadog/datadog-api-client-ip-ranges | [README.md](../../services/ip-ranges/README.md) |
 | Jira Integration | @datadog/datadog-api-client-jira-integration | [README.md](../../services/jira-integration/README.md) |
