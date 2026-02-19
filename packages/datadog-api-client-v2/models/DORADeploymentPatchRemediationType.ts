@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of remediation action taken.
+ * The type of remediation action taken. Required when the failed deployment must be linked to a remediation deployment.
  */
 
 export type DORADeploymentPatchRemediationType =
