@@ -7,16 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the Synthetic test.
+ * Type of response, `network_test`.
  */
 
-export type SyntheticsTestDetailsType =
-  | typeof API
-  | typeof BROWSER
-  | typeof MOBILE
-  | typeof NETWORK
+export type SyntheticsNetworkTestResponseType =
+  | typeof NETWORK_TEST
   | UnparsedObject;
-export const API = "api";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
-export const NETWORK = "network";
+export const NETWORK_TEST = "network_test";

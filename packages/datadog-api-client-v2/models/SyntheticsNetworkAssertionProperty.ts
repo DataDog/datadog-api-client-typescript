@@ -7,16 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the Synthetic test.
+ * The associated assertion property.
  */
 
-export type SyntheticsTestDetailsType =
-  | typeof API
-  | typeof BROWSER
-  | typeof MOBILE
-  | typeof NETWORK
+export type SyntheticsNetworkAssertionProperty =
+  | typeof AVG
+  | typeof MAX
+  | typeof MIN
   | UnparsedObject;
-export const API = "api";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
-export const NETWORK = "network";
+export const AVG = "avg";
+export const MAX = "max";
+export const MIN = "min";

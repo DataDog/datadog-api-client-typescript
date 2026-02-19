@@ -7,16 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the Synthetic test.
+ * Subtype of the Synthetic Network Path test: `tcp`, `udp`, or `icmp`.
  */
 
-export type SyntheticsTestDetailsType =
-  | typeof API
-  | typeof BROWSER
-  | typeof MOBILE
-  | typeof NETWORK
+export type SyntheticsNetworkTestSubType =
+  | typeof TCP
+  | typeof UDP
+  | typeof ICMP
   | UnparsedObject;
-export const API = "api";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
-export const NETWORK = "network";
+export const TCP = "tcp";
+export const UDP = "udp";
+export const ICMP = "icmp";

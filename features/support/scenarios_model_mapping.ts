@@ -10424,6 +10424,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsSuiteResponse",
     },
+    "v2.DeleteSyntheticsTests": {
+        "body": {
+            "type": "DeletedTestsRequestDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "DeletedTestsResponse",
+    },
+    "v2.CreateSyntheticsNetworkTest": {
+        "body": {
+            "type": "SyntheticsNetworkTestEditRequest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsNetworkTestResponse",
+    },
+    "v2.GetSyntheticsNetworkTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsNetworkTestResponse",
+    },
+    "v2.UpdateSyntheticsNetworkTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsNetworkTestEditRequest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsNetworkTestResponse",
+    },
     "v2.PatchGlobalVariable": {
         "variableId": {
             "type": "string",
