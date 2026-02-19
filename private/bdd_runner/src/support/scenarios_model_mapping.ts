@@ -10434,6 +10434,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsSuiteResponse",
   },
+  "SyntheticsApi.V2.DeleteSyntheticsTests": {
+    body: {
+      type: "DeletedTestsRequestDeleteRequest",
+      format: "",
+    },
+    operationResponseType: "DeletedTestsResponse",
+  },
+  "SyntheticsApi.V2.CreateSyntheticsNetworkTest": {
+    body: {
+      type: "SyntheticsNetworkTestEditRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsNetworkTestResponse",
+  },
+  "SyntheticsApi.V2.GetSyntheticsNetworkTest": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsNetworkTestResponse",
+  },
+  "SyntheticsApi.V2.UpdateSyntheticsNetworkTest": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsNetworkTestEditRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsNetworkTestResponse",
+  },
   "SyntheticsApi.V2.PatchGlobalVariable": {
     variableId: {
       type: "string",

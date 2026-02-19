@@ -23,6 +23,8 @@ export type SyntheticsAssertionType =
   | typeof GRPC_METADATA
   | typeof GRPC_PROTO
   | typeof CONNECTION
+  | typeof MULTI_NETWORK_HOP
+  | typeof JITTER
   | UnparsedObject;
 export const BODY = "body";
 export const HEADER = "header";
@@ -43,3 +45,5 @@ export const GRPC_HEALTHCHECK_STATUS = "grpcHealthcheckStatus";
 export const GRPC_METADATA = "grpcMetadata";
 export const GRPC_PROTO = "grpcProto";
 export const CONNECTION = "connection";
+export const MULTI_NETWORK_HOP = "multiNetworkHop";
+export const JITTER = "jitter";

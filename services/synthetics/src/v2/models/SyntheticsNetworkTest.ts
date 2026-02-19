@@ -1,33 +1,28 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { Creator } from "./Creator";
-import { SyntheticsStep } from "./SyntheticsStep";
-import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
-import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
-import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
+import { SyntheticsNetworkTestConfig } from "./SyntheticsNetworkTestConfig";
+import { SyntheticsNetworkTestSubType } from "./SyntheticsNetworkTestSubType";
+import { SyntheticsNetworkTestType } from "./SyntheticsNetworkTestType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 
 /**
- * Object containing details about your Synthetic test.
+ * Object containing details about a Network Path test.
  */
-export class SyntheticsTestDetails {
+export class SyntheticsNetworkTest {
   /**
-   * Configuration object for a Synthetic test.
+   * Configuration object for a Network Path test.
    */
-  "config"?: SyntheticsTestConfig;
+  "config": SyntheticsNetworkTestConfig;
   /**
-   * Object describing the creator of the shared element.
+   * Array of locations used to run the test. Network Path tests can be run from managed locations to test public endpoints,
+   * or from a [Datadog Agent](https://docs.datadoghq.com/synthetics/network_path_tests/#agent-configuration) to test private environments.
    */
-  "creator"?: Creator;
-  /**
-   * Array of locations used to run the test.
-   */
-  "locations"?: Array<string>;
+  "locations": Array<string>;
   /**
    * Notification message associated with the test.
    */
-  "message"?: string;
+  "message": string;
   /**
    * The associated monitor ID.
    */
@@ -35,13 +30,13 @@ export class SyntheticsTestDetails {
   /**
    * Name of the test.
    */
-  "name"?: string;
+  "name": string;
   /**
    * Object describing the extra options for a Synthetic test.
    */
-  "options"?: SyntheticsTestOptions;
+  "options": SyntheticsTestOptions;
   /**
-   * The test public ID.
+   * The public ID for the test.
    */
   "publicId"?: string;
   /**
@@ -50,22 +45,17 @@ export class SyntheticsTestDetails {
    */
   "status"?: SyntheticsTestPauseStatus;
   /**
-   * The steps of the test if they exist.
+   * Subtype of the Synthetic Network Path test: `tcp`, `udp`, or `icmp`.
    */
-  "steps"?: Array<SyntheticsStep>;
-  /**
-   * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
-   * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
-   */
-  "subtype"?: SyntheticsTestDetailsSubType;
+  "subtype"?: SyntheticsNetworkTestSubType;
   /**
    * Array of tags attached to the test.
    */
   "tags"?: Array<string>;
   /**
-   * Type of the Synthetic test.
+   * Type of the Synthetic test, `network`.
    */
-  "type"?: SyntheticsTestDetailsType;
+  "type": SyntheticsNetworkTestType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -83,19 +73,18 @@ export class SyntheticsTestDetails {
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
-      type: "SyntheticsTestConfig",
-    },
-    creator: {
-      baseName: "creator",
-      type: "Creator",
+      type: "SyntheticsNetworkTestConfig",
+      required: true,
     },
     locations: {
       baseName: "locations",
       type: "Array<string>",
+      required: true,
     },
     message: {
       baseName: "message",
       type: "string",
+      required: true,
     },
     monitorId: {
       baseName: "monitor_id",
@@ -105,10 +94,12 @@ export class SyntheticsTestDetails {
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     options: {
       baseName: "options",
       type: "SyntheticsTestOptions",
+      required: true,
     },
     publicId: {
       baseName: "public_id",
@@ -118,13 +109,9 @@ export class SyntheticsTestDetails {
       baseName: "status",
       type: "SyntheticsTestPauseStatus",
     },
-    steps: {
-      baseName: "steps",
-      type: "Array<SyntheticsStep>",
-    },
     subtype: {
       baseName: "subtype",
-      type: "SyntheticsTestDetailsSubType",
+      type: "SyntheticsNetworkTestSubType",
     },
     tags: {
       baseName: "tags",
@@ -132,7 +119,8 @@ export class SyntheticsTestDetails {
     },
     type: {
       baseName: "type",
-      type: "SyntheticsTestDetailsType",
+      type: "SyntheticsNetworkTestType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -144,7 +132,7 @@ export class SyntheticsTestDetails {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestDetails.attributeTypeMap;
+    return SyntheticsNetworkTest.attributeTypeMap;
   }
 
   public constructor() {}

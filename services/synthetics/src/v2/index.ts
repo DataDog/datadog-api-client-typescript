@@ -1,11 +1,15 @@
 export {
+  SyntheticsApiCreateSyntheticsNetworkTestRequest,
   SyntheticsApiCreateSyntheticsSuiteRequest,
   SyntheticsApiDeleteSyntheticsSuitesRequest,
+  SyntheticsApiDeleteSyntheticsTestsRequest,
   SyntheticsApiEditSyntheticsSuiteRequest,
+  SyntheticsApiGetSyntheticsNetworkTestRequest,
   SyntheticsApiGetSyntheticsSuiteRequest,
   SyntheticsApiPatchGlobalVariableRequest,
   SyntheticsApiSearchSuitesRequest,
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
+  SyntheticsApiUpdateSyntheticsNetworkTestRequest,
   SyntheticsApi,
 } from "./SyntheticsApi";
 
@@ -17,6 +21,14 @@ export { DeletedSuitesRequestDeleteAttributes } from "./models/DeletedSuitesRequ
 export { DeletedSuitesRequestDeleteRequest } from "./models/DeletedSuitesRequestDeleteRequest";
 export { DeletedSuitesRequestType } from "./models/DeletedSuitesRequestType";
 export { DeletedSuitesResponse } from "./models/DeletedSuitesResponse";
+export { DeletedTestResponseData } from "./models/DeletedTestResponseData";
+export { DeletedTestResponseDataAttributes } from "./models/DeletedTestResponseDataAttributes";
+export { DeletedTestsRequestDelete } from "./models/DeletedTestsRequestDelete";
+export { DeletedTestsRequestDeleteAttributes } from "./models/DeletedTestsRequestDeleteAttributes";
+export { DeletedTestsRequestDeleteRequest } from "./models/DeletedTestsRequestDeleteRequest";
+export { DeletedTestsRequestType } from "./models/DeletedTestsRequestType";
+export { DeletedTestsResponse } from "./models/DeletedTestsResponse";
+export { DeletedTestsResponseType } from "./models/DeletedTestsResponseType";
 export { GlobalVariableData } from "./models/GlobalVariableData";
 export { GlobalVariableJsonPatchRequest } from "./models/GlobalVariableJsonPatchRequest";
 export { GlobalVariableJsonPatchRequestData } from "./models/GlobalVariableJsonPatchRequestData";
@@ -41,6 +53,28 @@ export { SyntheticsGlobalVariableParseTestOptions } from "./models/SyntheticsGlo
 export { SyntheticsGlobalVariableParseTestOptionsType } from "./models/SyntheticsGlobalVariableParseTestOptionsType";
 export { SyntheticsGlobalVariableTOTPParameters } from "./models/SyntheticsGlobalVariableTOTPParameters";
 export { SyntheticsGlobalVariableValue } from "./models/SyntheticsGlobalVariableValue";
+export { SyntheticsNetworkAssertion } from "./models/SyntheticsNetworkAssertion";
+export { SyntheticsNetworkAssertionJitter } from "./models/SyntheticsNetworkAssertionJitter";
+export { SyntheticsNetworkAssertionJitterType } from "./models/SyntheticsNetworkAssertionJitterType";
+export { SyntheticsNetworkAssertionLatency } from "./models/SyntheticsNetworkAssertionLatency";
+export { SyntheticsNetworkAssertionLatencyType } from "./models/SyntheticsNetworkAssertionLatencyType";
+export { SyntheticsNetworkAssertionMultiNetworkHop } from "./models/SyntheticsNetworkAssertionMultiNetworkHop";
+export { SyntheticsNetworkAssertionMultiNetworkHopType } from "./models/SyntheticsNetworkAssertionMultiNetworkHopType";
+export { SyntheticsNetworkAssertionOperator } from "./models/SyntheticsNetworkAssertionOperator";
+export { SyntheticsNetworkAssertionPacketLossPercentage } from "./models/SyntheticsNetworkAssertionPacketLossPercentage";
+export { SyntheticsNetworkAssertionPacketLossPercentageType } from "./models/SyntheticsNetworkAssertionPacketLossPercentageType";
+export { SyntheticsNetworkAssertionProperty } from "./models/SyntheticsNetworkAssertionProperty";
+export { SyntheticsNetworkTest } from "./models/SyntheticsNetworkTest";
+export { SyntheticsNetworkTestConfig } from "./models/SyntheticsNetworkTestConfig";
+export { SyntheticsNetworkTestEdit } from "./models/SyntheticsNetworkTestEdit";
+export { SyntheticsNetworkTestEditRequest } from "./models/SyntheticsNetworkTestEditRequest";
+export { SyntheticsNetworkTestRequest } from "./models/SyntheticsNetworkTestRequest";
+export { SyntheticsNetworkTestRequestTCPMethod } from "./models/SyntheticsNetworkTestRequestTCPMethod";
+export { SyntheticsNetworkTestResponse } from "./models/SyntheticsNetworkTestResponse";
+export { SyntheticsNetworkTestResponseData } from "./models/SyntheticsNetworkTestResponseData";
+export { SyntheticsNetworkTestResponseType } from "./models/SyntheticsNetworkTestResponseType";
+export { SyntheticsNetworkTestSubType } from "./models/SyntheticsNetworkTestSubType";
+export { SyntheticsNetworkTestType } from "./models/SyntheticsNetworkTestType";
 export { SyntheticsSuite } from "./models/SyntheticsSuite";
 export { SyntheticsSuiteOptions } from "./models/SyntheticsSuiteOptions";
 export { SyntheticsSuiteResponse } from "./models/SyntheticsSuiteResponse";
@@ -52,4 +86,11 @@ export { SyntheticsSuiteTest } from "./models/SyntheticsSuiteTest";
 export { SyntheticsSuiteTestAlertingCriticality } from "./models/SyntheticsSuiteTestAlertingCriticality";
 export { SyntheticsSuiteType } from "./models/SyntheticsSuiteType";
 export { SyntheticsSuiteTypes } from "./models/SyntheticsSuiteTypes";
+export { SyntheticsTestOptions } from "./models/SyntheticsTestOptions";
+export { SyntheticsTestOptionsMonitorOptions } from "./models/SyntheticsTestOptionsMonitorOptions";
+export { SyntheticsTestOptionsMonitorOptionsNotificationPresetName } from "./models/SyntheticsTestOptionsMonitorOptionsNotificationPresetName";
+export { SyntheticsTestOptionsRetry } from "./models/SyntheticsTestOptionsRetry";
+export { SyntheticsTestOptionsScheduling } from "./models/SyntheticsTestOptionsScheduling";
+export { SyntheticsTestOptionsSchedulingTimeframe } from "./models/SyntheticsTestOptionsSchedulingTimeframe";
+export { SyntheticsTestPauseStatus } from "./models/SyntheticsTestPauseStatus";
 export { SyntheticsVariableParser } from "./models/SyntheticsVariableParser";
