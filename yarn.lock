@@ -1036,6 +1036,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-rum-user-segments@workspace:services/rum_user_segments":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-user-segments@workspace:services/rum_user_segments"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-rum@workspace:services/rum":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum@workspace:services/rum"

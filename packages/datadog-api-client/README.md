@@ -434,6 +434,7 @@ apiInstance
 | Rum Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |
 | Rum Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
 | Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
+| RUM User Segments | @datadog/datadog-api-client-rum-user-segments | [README.md](../../services/rum-user-segments/README.md) |
 | Seats | @datadog/datadog-api-client-seats | [README.md](../../services/seats/README.md) |
 | Security Monitoring | @datadog/datadog-api-client-security-monitoring | [README.md](../../services/security-monitoring/README.md) |
 | Sensitive Data Scanner | @datadog/datadog-api-client-sensitive-data-scanner | [README.md](../../services/sensitive-data-scanner/README.md) |
