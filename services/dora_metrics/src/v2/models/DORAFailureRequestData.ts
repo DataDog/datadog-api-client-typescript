@@ -7,7 +7,7 @@ import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
  */
 export class DORAFailureRequestData {
   /**
-   * Attributes to create a DORA failure event.
+   * Attributes to create a DORA incident event.
    */
   "attributes": DORAFailureRequestAttributes;
   /**

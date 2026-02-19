@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DORAFailureRequestData } from "./DORAFailureRequestData";
 
 /**
- * Request to create a DORA failure event.
+ * Request to create a DORA incident event.
  */
 export class DORAFailureRequest {
   /**
