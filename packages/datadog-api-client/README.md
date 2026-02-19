@@ -363,6 +363,7 @@ apiInstance
 | Case Management | @datadog/datadog-api-client-case-management | [README.md](../../services/case-management/README.md) |
 | Case Management Attribute | @datadog/datadog-api-client-case-management-attribute | [README.md](../../services/case-management-attribute/README.md) |
 | Case Management Type | @datadog/datadog-api-client-case-management-type | [README.md](../../services/case-management-type/README.md) |
+| Change Management | @datadog/datadog-api-client-change-management | [README.md](../../services/change-management/README.md) |
 | CI Visibility Pipelines | @datadog/datadog-api-client-ci-visibility-pipelines | [README.md](../../services/ci-visibility-pipelines/README.md) |
 | CI Visibility Tests | @datadog/datadog-api-client-ci-visibility-tests | [README.md](../../services/ci-visibility-tests/README.md) |
 | Cloud Authentication | @datadog/datadog-api-client-cloud-authentication | [README.md](../../services/cloud-authentication/README.md) |

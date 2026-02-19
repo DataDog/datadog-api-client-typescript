@@ -406,6 +406,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-change-management@workspace:services/change_management":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-change-management@workspace:services/change_management"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-ci-visibility-pipelines@workspace:services/ci_visibility_pipelines":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-ci-visibility-pipelines@workspace:services/ci_visibility_pipelines"
