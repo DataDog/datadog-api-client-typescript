@@ -45,7 +45,7 @@ export class SyntheticsBatchResult {
    */
   "testPublicId"?: string;
   /**
-   * Type of the Synthetic test, either `api` or `browser`.
+   * Type of the Synthetic test.
    */
   "testType"?: SyntheticsTestDetailsType;
   /**
