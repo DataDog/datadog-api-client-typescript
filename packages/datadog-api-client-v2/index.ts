@@ -201,6 +201,8 @@ export {
   CaseManagementTypeApi,
 } from "./apis/CaseManagementTypeApi";
 
+export { CloudAuthenticationApi } from "./apis/CloudAuthenticationApi";
+
 export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
   CloudCostManagementApiCreateCostAzureUCConfigsRequest,
@@ -1402,6 +1404,10 @@ export { AWSAssumeRoleUpdate } from "./models/AWSAssumeRoleUpdate";
 export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
 export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
+export { AWSCloudAuthPersonaMappingAttributesResponse } from "./models/AWSCloudAuthPersonaMappingAttributesResponse";
+export { AWSCloudAuthPersonaMappingDataResponse } from "./models/AWSCloudAuthPersonaMappingDataResponse";
+export { AWSCloudAuthPersonaMappingsResponse } from "./models/AWSCloudAuthPersonaMappingsResponse";
+export { AWSCloudAuthPersonaMappingType } from "./models/AWSCloudAuthPersonaMappingType";
 export { AWSCredentials } from "./models/AWSCredentials";
 export { AWSCredentialsUpdate } from "./models/AWSCredentialsUpdate";
 export { AwsCURConfig } from "./models/AwsCURConfig";
