@@ -26,6 +26,9 @@ import { AWSAssumeRole } from "./AWSAssumeRole";
 import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSCloudAuthPersonaMappingAttributesResponse } from "./AWSCloudAuthPersonaMappingAttributesResponse";
+import { AWSCloudAuthPersonaMappingDataResponse } from "./AWSCloudAuthPersonaMappingDataResponse";
+import { AWSCloudAuthPersonaMappingsResponse } from "./AWSCloudAuthPersonaMappingsResponse";
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
 import { AWSEventBridgeCreateRequestAttributes } from "./AWSEventBridgeCreateRequestAttributes";
@@ -3286,6 +3289,7 @@ const enumsMap: { [key: string]: any[] } = {
   AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
   AWSAccountType: ["account"],
   AWSAssumeRoleType: ["AWSAssumeRole"],
+  AWSCloudAuthPersonaMappingType: ["aws_cloud_auth_config"],
   AWSEventBridgeCreateStatus: ["created"],
   AWSEventBridgeDeleteStatus: ["empty"],
   AWSEventBridgeType: ["event_bridge"],
@@ -5200,6 +5204,11 @@ const typeMap: { [index: string]: any } = {
   AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
   AWSAuthConfigKeys: AWSAuthConfigKeys,
   AWSAuthConfigRole: AWSAuthConfigRole,
+  AWSCloudAuthPersonaMappingAttributesResponse:
+    AWSCloudAuthPersonaMappingAttributesResponse,
+  AWSCloudAuthPersonaMappingDataResponse:
+    AWSCloudAuthPersonaMappingDataResponse,
+  AWSCloudAuthPersonaMappingsResponse: AWSCloudAuthPersonaMappingsResponse,
   AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
   AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
   AWSEventBridgeCreateRequestAttributes: AWSEventBridgeCreateRequestAttributes,

@@ -248,6 +248,7 @@ export function createConfiguration(
       "v2.linkJiraIssueToCase": false,
       "v2.moveCaseToProject": false,
       "v2.unlinkJiraIssue": false,
+      "v2.listAWSCloudAuthPersonaMappings": false,
       "v2.activateContentPack": false,
       "v2.cancelThreatHuntingJob": false,
       "v2.convertJobResultToSignal": false,
