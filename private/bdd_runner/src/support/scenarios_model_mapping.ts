@@ -9460,6 +9460,62 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ViewershipHistorySessionArray",
   },
+  "RUMUserSegmentsApi.V2.ListRumSegments": {
+    sort: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "RumSegmentListResponse",
+  },
+  "RUMUserSegmentsApi.V2.CreateRumSegment": {
+    body: {
+      type: "RumSegmentCreateRequest",
+      format: "",
+    },
+    operationResponseType: "RumSegmentResponse",
+  },
+  "RUMUserSegmentsApi.V2.InitializeRumSegments": {
+    operationResponseType: "{}",
+  },
+  "RUMUserSegmentsApi.V2.CreateRumStaticSegment": {
+    body: {
+      type: "RumStaticSegmentCreateRequest",
+      format: "",
+    },
+    operationResponseType: "RumSegmentResponse",
+  },
+  "RUMUserSegmentsApi.V2.ListRumSegmentTemplates": {
+    operationResponseType: "RumSegmentTemplateListResponse",
+  },
+  "RUMUserSegmentsApi.V2.GetRumSegment": {
+    segmentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumSegmentResponse",
+  },
+  "RUMUserSegmentsApi.V2.UpdateRumSegment": {
+    segmentId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RumSegmentUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RUMUserSegmentsApi.V2.DeleteRumSegment": {
+    segmentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumSegmentDeleteResponse",
+  },
   "ServiceScorecardsApi.V2.ListScorecardOutcomes": {
     pageSize: {
       type: "number",
