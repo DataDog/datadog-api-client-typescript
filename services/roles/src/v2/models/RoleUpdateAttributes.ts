@@ -17,6 +17,12 @@ export class RoleUpdateAttributes {
    */
   "name"?: string;
   /**
+   * The managed role from which this role automatically inherits new permissions.
+   * Specify one of the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role".
+   * If empty or not specified, the role does not automatically inherit permissions from any managed role.
+   */
+  "receivesPermissionsFrom"?: Array<string>;
+  /**
    * The user count.
    */
   "userCount"?: number;
@@ -48,6 +54,10 @@ export class RoleUpdateAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    receivesPermissionsFrom: {
+      baseName: "receives_permissions_from",
+      type: "Array<string>",
     },
     userCount: {
       baseName: "user_count",
