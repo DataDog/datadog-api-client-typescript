@@ -1,5 +1,5 @@
 /**
- * Get a list of incident events returns "OK" response
+ * Get a list of failure events returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -11,11 +11,9 @@ const params: v2.DORAMetricsApiListDORAFailuresRequest = {
   body: {
     data: {
       attributes: {
-        from: new Date(2025, 1, 1, 0, 0, 0, 0),
-        limit: 100,
-        query: "severity:(SEV-1 OR SEV-2) env:production team:backend",
-        sort: "-started_at",
-        to: new Date(2025, 1, 31, 23, 59, 59, 0),
+        from: new Date(2025, 3, 23, 0, 0, 0, 0),
+        limit: 1,
+        to: new Date(2025, 3, 24, 0, 0, 0, 0),
       },
       type: "dora_failures_list_request",
     },

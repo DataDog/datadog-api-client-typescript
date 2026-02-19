@@ -1,5 +1,5 @@
 /**
- * Delete an incident event returns "Accepted" response
+ * Delete a failure event returns "Accepted" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.DORAMetricsApi(configuration);
 
 const params: v2.DORAMetricsApiDeleteDORAFailureRequest = {
-  failureId: "failure_id",
+  failureId: "NO_VALUE",
 };
 
 apiInstance

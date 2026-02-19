@@ -8,15 +8,15 @@ import { DORAFailureType } from "./DORAFailureType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response after receiving a DORA failure event.
+ * Response after receiving a DORA incident event.
  */
 export class DORAFailureResponseData {
   /**
-   * The ID of the received DORA failure event.
+   * The ID of the received DORA incident event.
    */
   "id": string;
   /**
-   * JSON:API type for DORA failure events.
+   * JSON:API type for DORA incident events.
    */
   "type"?: DORAFailureType;
 
