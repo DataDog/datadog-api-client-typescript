@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
 
 /**
- * Request to get a list of failures.
+ * Request to get a list of incidents.
  */
 export class DORAListFailuresRequest {
   /**
