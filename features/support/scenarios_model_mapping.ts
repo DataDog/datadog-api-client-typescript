@@ -3805,6 +3805,68 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListRelationCatalogResponse",
     },
+    "v2.CreateChangeRequest": {
+        "body": {
+            "type": "ChangeRequestCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ChangeRequestResponse",
+    },
+    "v2.GetChangeRequest": {
+        "changeRequestId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ChangeRequestResponse",
+    },
+    "v2.UpdateChangeRequest": {
+        "changeRequestId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ChangeRequestUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ChangeRequestResponse",
+    },
+    "v2.CreateChangeRequestBranch": {
+        "changeRequestId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ChangeRequestBranchCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ChangeRequestResponse",
+    },
+    "v2.DeleteChangeRequestDecision": {
+        "changeRequestId": {
+            "type": "string",
+            "format": "",
+            },
+        "decisionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ChangeRequestResponse",
+    },
+    "v2.UpdateChangeRequestDecision": {
+        "changeRequestId": {
+            "type": "string",
+            "format": "",
+            },
+        "decisionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ChangeRequestDecisionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ChangeRequestResponse",
+    },
     "v2.CreateCIAppPipelineEvent": {
         "body": {
             "type": "CIAppCreatePipelineEventRequest",
