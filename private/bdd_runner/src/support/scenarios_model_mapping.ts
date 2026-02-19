@@ -3815,6 +3815,68 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListRelationCatalogResponse",
   },
+  "ChangeManagementApi.V2.CreateChangeRequest": {
+    body: {
+      type: "ChangeRequestCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ChangeRequestResponse",
+  },
+  "ChangeManagementApi.V2.GetChangeRequest": {
+    changeRequestId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ChangeRequestResponse",
+  },
+  "ChangeManagementApi.V2.UpdateChangeRequest": {
+    changeRequestId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ChangeRequestUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ChangeRequestResponse",
+  },
+  "ChangeManagementApi.V2.CreateChangeRequestBranch": {
+    changeRequestId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ChangeRequestBranchCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ChangeRequestResponse",
+  },
+  "ChangeManagementApi.V2.DeleteChangeRequestDecision": {
+    changeRequestId: {
+      type: "string",
+      format: "",
+    },
+    decisionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ChangeRequestResponse",
+  },
+  "ChangeManagementApi.V2.UpdateChangeRequestDecision": {
+    changeRequestId: {
+      type: "string",
+      format: "",
+    },
+    decisionId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ChangeRequestDecisionUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ChangeRequestResponse",
+  },
   "CIVisibilityPipelinesApi.V2.CreateCIAppPipelineEvent": {
     body: {
       type: "CIAppCreatePipelineEventRequest",
