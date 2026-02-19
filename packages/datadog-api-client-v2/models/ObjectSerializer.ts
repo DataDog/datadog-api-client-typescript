@@ -2437,6 +2437,38 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
+import { RumSegmentCreateAttributes } from "./RumSegmentCreateAttributes";
+import { RumSegmentCreateData } from "./RumSegmentCreateData";
+import { RumSegmentCreateRequest } from "./RumSegmentCreateRequest";
+import { RumSegmentDataQuery } from "./RumSegmentDataQuery";
+import { RumSegmentDeleteAttributes } from "./RumSegmentDeleteAttributes";
+import { RumSegmentDeleteData } from "./RumSegmentDeleteData";
+import { RumSegmentDeleteResponse } from "./RumSegmentDeleteResponse";
+import { RumSegmentEventPlatform } from "./RumSegmentEventPlatform";
+import { RumSegmentJourney } from "./RumSegmentJourney";
+import { RumSegmentListResponse } from "./RumSegmentListResponse";
+import { RumSegmentReferenceTable } from "./RumSegmentReferenceTable";
+import { RumSegmentReferenceTableColumn } from "./RumSegmentReferenceTableColumn";
+import { RumSegmentReferenceTableJoinCondition } from "./RumSegmentReferenceTableJoinCondition";
+import { RumSegmentResponse } from "./RumSegmentResponse";
+import { RumSegmentResponseAttributes } from "./RumSegmentResponseAttributes";
+import { RumSegmentResponseData } from "./RumSegmentResponseData";
+import { RumSegmentStaticEntry } from "./RumSegmentStaticEntry";
+import { RumSegmentTemplateInstance } from "./RumSegmentTemplateInstance";
+import { RumSegmentTemplateListResponse } from "./RumSegmentTemplateListResponse";
+import { RumSegmentTemplateParameterDef } from "./RumSegmentTemplateParameterDef";
+import { RumSegmentTemplateResponseAttributes } from "./RumSegmentTemplateResponseAttributes";
+import { RumSegmentTemplateResponseData } from "./RumSegmentTemplateResponseData";
+import { RumSegmentUpdateAttributes } from "./RumSegmentUpdateAttributes";
+import { RumSegmentUpdateData } from "./RumSegmentUpdateData";
+import { RumSegmentUpdateRequest } from "./RumSegmentUpdateRequest";
+import { RumSegmentUser } from "./RumSegmentUser";
+import { RumStaticSegmentCreateAttributes } from "./RumStaticSegmentCreateAttributes";
+import { RumStaticSegmentCreateData } from "./RumStaticSegmentCreateData";
+import { RumStaticSegmentCreateRequest } from "./RumStaticSegmentCreateRequest";
+import { RumStaticSegmentJourneyFilter } from "./RumStaticSegmentJourneyFilter";
+import { RumStaticSegmentJourneyNode } from "./RumStaticSegmentJourneyNode";
+import { RumStaticSegmentJourneyQueryObject } from "./RumStaticSegmentJourneyQueryObject";
 import { RunThreatHuntingJobRequest } from "./RunThreatHuntingJobRequest";
 import { RunThreatHuntingJobRequestAttributes } from "./RunThreatHuntingJobRequestAttributes";
 import { RunThreatHuntingJobRequestData } from "./RunThreatHuntingJobRequestData";
@@ -4583,6 +4615,20 @@ const enumsMap: { [key: string]: any[] } = {
     "vital",
   ],
   RumRetentionFilterType: ["retention_filters"],
+  RumSegmentDeleteType: ["deleted_segment"],
+  RumSegmentResourceType: ["segment"],
+  RumSegmentSegmentType: [
+    "static",
+    "event_platform",
+    "combination",
+    "journeys",
+    "reference_table",
+    "templates",
+  ],
+  RumSegmentSource: ["user_created", "initial"],
+  RumSegmentTemplateResourceType: ["template_metadata"],
+  RumSegmentTemplateStatus: ["active", "deprecated", "archived"],
+  RumStaticSegmentRequestType: ["create_static_segment_request"],
   RunThreatHuntingJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SBOMComponentLicenseType: [
@@ -8069,6 +8115,38 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
+  RumSegmentCreateAttributes: RumSegmentCreateAttributes,
+  RumSegmentCreateData: RumSegmentCreateData,
+  RumSegmentCreateRequest: RumSegmentCreateRequest,
+  RumSegmentDataQuery: RumSegmentDataQuery,
+  RumSegmentDeleteAttributes: RumSegmentDeleteAttributes,
+  RumSegmentDeleteData: RumSegmentDeleteData,
+  RumSegmentDeleteResponse: RumSegmentDeleteResponse,
+  RumSegmentEventPlatform: RumSegmentEventPlatform,
+  RumSegmentJourney: RumSegmentJourney,
+  RumSegmentListResponse: RumSegmentListResponse,
+  RumSegmentReferenceTable: RumSegmentReferenceTable,
+  RumSegmentReferenceTableColumn: RumSegmentReferenceTableColumn,
+  RumSegmentReferenceTableJoinCondition: RumSegmentReferenceTableJoinCondition,
+  RumSegmentResponse: RumSegmentResponse,
+  RumSegmentResponseAttributes: RumSegmentResponseAttributes,
+  RumSegmentResponseData: RumSegmentResponseData,
+  RumSegmentStaticEntry: RumSegmentStaticEntry,
+  RumSegmentTemplateInstance: RumSegmentTemplateInstance,
+  RumSegmentTemplateListResponse: RumSegmentTemplateListResponse,
+  RumSegmentTemplateParameterDef: RumSegmentTemplateParameterDef,
+  RumSegmentTemplateResponseAttributes: RumSegmentTemplateResponseAttributes,
+  RumSegmentTemplateResponseData: RumSegmentTemplateResponseData,
+  RumSegmentUpdateAttributes: RumSegmentUpdateAttributes,
+  RumSegmentUpdateData: RumSegmentUpdateData,
+  RumSegmentUpdateRequest: RumSegmentUpdateRequest,
+  RumSegmentUser: RumSegmentUser,
+  RumStaticSegmentCreateAttributes: RumStaticSegmentCreateAttributes,
+  RumStaticSegmentCreateData: RumStaticSegmentCreateData,
+  RumStaticSegmentCreateRequest: RumStaticSegmentCreateRequest,
+  RumStaticSegmentJourneyFilter: RumStaticSegmentJourneyFilter,
+  RumStaticSegmentJourneyNode: RumStaticSegmentJourneyNode,
+  RumStaticSegmentJourneyQueryObject: RumStaticSegmentJourneyQueryObject,
   RunThreatHuntingJobRequest: RunThreatHuntingJobRequest,
   RunThreatHuntingJobRequestAttributes: RunThreatHuntingJobRequestAttributes,
   RunThreatHuntingJobRequestData: RunThreatHuntingJobRequestData,
