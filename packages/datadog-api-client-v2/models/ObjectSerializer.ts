@@ -1498,6 +1498,8 @@ import { IncidentsResponse } from "./IncidentsResponse";
 import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { Integration } from "./Integration";
+import { IntegrationAttributes } from "./IntegrationAttributes";
 import { IntegrationIncident } from "./IntegrationIncident";
 import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
 import { IntegrationIncidentSeverityConfig } from "./IntegrationIncidentSeverityConfig";
@@ -1508,6 +1510,7 @@ import { IntegrationJiraSync } from "./IntegrationJiraSync";
 import { IntegrationJiraSyncDueDate } from "./IntegrationJiraSyncDueDate";
 import { IntegrationJiraSyncProperties } from "./IntegrationJiraSyncProperties";
 import { IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties } from "./IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties";
+import { IntegrationLinks } from "./IntegrationLinks";
 import { IntegrationMonitor } from "./IntegrationMonitor";
 import { IntegrationOnCall } from "./IntegrationOnCall";
 import { IntegrationOnCallEscalationQueriesItems } from "./IntegrationOnCallEscalationQueriesItems";
@@ -1645,6 +1648,7 @@ import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
+import { ListIntegrationsResponse } from "./ListIntegrationsResponse";
 import { ListInterfaceTagsResponse } from "./ListInterfaceTagsResponse";
 import { ListInterfaceTagsResponseData } from "./ListInterfaceTagsResponseData";
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
@@ -4003,6 +4007,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  IntegrationType: ["integration"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   IssueCaseResourceType: ["case"],
   IssueLanguage: [
@@ -7022,6 +7027,8 @@ const typeMap: { [index: string]: any } = {
   InputSchema: InputSchema,
   InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  Integration: Integration,
+  IntegrationAttributes: IntegrationAttributes,
   IntegrationIncident: IntegrationIncident,
   IntegrationIncidentFieldMappingsItems: IntegrationIncidentFieldMappingsItems,
   IntegrationIncidentSeverityConfig: IntegrationIncidentSeverityConfig,
@@ -7033,6 +7040,7 @@ const typeMap: { [index: string]: any } = {
   IntegrationJiraSyncProperties: IntegrationJiraSyncProperties,
   IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties:
     IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties,
+  IntegrationLinks: IntegrationLinks,
   IntegrationMonitor: IntegrationMonitor,
   IntegrationOnCall: IntegrationOnCall,
   IntegrationOnCallEscalationQueriesItems:
@@ -7181,6 +7189,7 @@ const typeMap: { [index: string]: any } = {
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
+  ListIntegrationsResponse: ListIntegrationsResponse,
   ListInterfaceTagsResponse: ListInterfaceTagsResponse,
   ListInterfaceTagsResponseData: ListInterfaceTagsResponseData,
   ListKindCatalogResponse: ListKindCatalogResponse,
