@@ -12,6 +12,7 @@ const params: v2.RolesApiCreateRoleRequest = {
     data: {
       attributes: {
         name: "developers",
+        receivesPermissionsFrom: [],
       },
       relationships: {
         permissions: {
