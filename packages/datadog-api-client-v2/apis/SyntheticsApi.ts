@@ -19,15 +19,61 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DeletedSuitesRequestDeleteRequest } from "../models/DeletedSuitesRequestDeleteRequest";
 import { DeletedSuitesResponse } from "../models/DeletedSuitesResponse";
+import { DeletedTestsRequestDeleteRequest } from "../models/DeletedTestsRequestDeleteRequest";
+import { DeletedTestsResponse } from "../models/DeletedTestsResponse";
 import { GlobalVariableJsonPatchRequest } from "../models/GlobalVariableJsonPatchRequest";
 import { GlobalVariableResponse } from "../models/GlobalVariableResponse";
 import { OnDemandConcurrencyCapAttributes } from "../models/OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "../models/OnDemandConcurrencyCapResponse";
 import { SuiteCreateEditRequest } from "../models/SuiteCreateEditRequest";
+import { SyntheticsNetworkTestEditRequest } from "../models/SyntheticsNetworkTestEditRequest";
+import { SyntheticsNetworkTestResponse } from "../models/SyntheticsNetworkTestResponse";
 import { SyntheticsSuiteResponse } from "../models/SyntheticsSuiteResponse";
 import { SyntheticsSuiteSearchResponse } from "../models/SyntheticsSuiteSearchResponse";
 
 export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
+  public async createSyntheticsNetworkTest(
+    body: SyntheticsNetworkTestEditRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSyntheticsNetworkTest");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/tests/network";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.createSyntheticsNetworkTest")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SyntheticsNetworkTestEditRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSyntheticsSuite(
     body: SuiteCreateEditRequest,
     _options?: Configuration
@@ -98,6 +144,48 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DeletedSuitesRequestDeleteRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSyntheticsTests(
+    body: DeletedTestsRequestDeleteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "deleteSyntheticsTests");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/tests/bulk-delete";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.deleteSyntheticsTests")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DeletedTestsRequestDeleteRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -183,6 +271,40 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSyntheticsNetworkTest(
+    publicId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "getSyntheticsNetworkTest");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/tests/network/{public_id}".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getSyntheticsNetworkTest")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -381,9 +503,118 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateSyntheticsNetworkTest(
+    publicId: string,
+    body: SyntheticsNetworkTestEditRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "updateSyntheticsNetworkTest");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSyntheticsNetworkTest");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/tests/network/{public_id}".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.updateSyntheticsNetworkTest")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SyntheticsNetworkTestEditRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class SyntheticsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createSyntheticsNetworkTest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSyntheticsNetworkTest(
+    response: ResponseContext
+  ): Promise<SyntheticsNetworkTestResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsNetworkTestResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsNetworkTestResponse"
+      ) as SyntheticsNetworkTestResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsNetworkTestResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsNetworkTestResponse",
+        ""
+      ) as SyntheticsNetworkTestResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -504,6 +735,68 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteSyntheticsTests
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSyntheticsTests(
+    response: ResponseContext
+  ): Promise<DeletedTestsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DeletedTestsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeletedTestsResponse"
+      ) as DeletedTestsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DeletedTestsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeletedTestsResponse",
+        ""
+      ) as DeletedTestsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to editSyntheticsSuite
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -606,6 +899,68 @@ export class SyntheticsApiResponseProcessor {
         "OnDemandConcurrencyCapResponse",
         ""
       ) as OnDemandConcurrencyCapResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSyntheticsNetworkTest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSyntheticsNetworkTest(
+    response: ResponseContext
+  ): Promise<SyntheticsNetworkTestResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsNetworkTestResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsNetworkTestResponse"
+      ) as SyntheticsNetworkTestResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsNetworkTestResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsNetworkTestResponse",
+        ""
+      ) as SyntheticsNetworkTestResponse;
       return body;
     }
 
@@ -851,6 +1206,75 @@ export class SyntheticsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateSyntheticsNetworkTest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSyntheticsNetworkTest(
+    response: ResponseContext
+  ): Promise<SyntheticsNetworkTestResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsNetworkTestResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsNetworkTestResponse"
+      ) as SyntheticsNetworkTestResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsNetworkTestResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsNetworkTestResponse",
+        ""
+      ) as SyntheticsNetworkTestResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+}
+
+export interface SyntheticsApiCreateSyntheticsNetworkTestRequest {
+  /**
+   * @type SyntheticsNetworkTestEditRequest
+   */
+  body: SyntheticsNetworkTestEditRequest;
 }
 
 export interface SyntheticsApiCreateSyntheticsSuiteRequest {
@@ -867,6 +1291,13 @@ export interface SyntheticsApiDeleteSyntheticsSuitesRequest {
   body: DeletedSuitesRequestDeleteRequest;
 }
 
+export interface SyntheticsApiDeleteSyntheticsTestsRequest {
+  /**
+   * @type DeletedTestsRequestDeleteRequest
+   */
+  body: DeletedTestsRequestDeleteRequest;
+}
+
 export interface SyntheticsApiEditSyntheticsSuiteRequest {
   /**
    * The public ID of the suite to edit.
@@ -878,6 +1309,14 @@ export interface SyntheticsApiEditSyntheticsSuiteRequest {
    * @type SuiteCreateEditRequest
    */
   body: SuiteCreateEditRequest;
+}
+
+export interface SyntheticsApiGetSyntheticsNetworkTestRequest {
+  /**
+   * The public ID of the Network Path test to get details from.
+   * @type string
+   */
+  publicId: string;
 }
 
 export interface SyntheticsApiGetSyntheticsSuiteRequest {
@@ -937,6 +1376,19 @@ export interface SyntheticsApiSetOnDemandConcurrencyCapRequest {
   body: OnDemandConcurrencyCapAttributes;
 }
 
+export interface SyntheticsApiUpdateSyntheticsNetworkTestRequest {
+  /**
+   * The public ID of the Network Path test to edit.
+   * @type string
+   */
+  publicId: string;
+  /**
+   * New Network Path test details to be saved.
+   * @type SyntheticsNetworkTestEditRequest
+   */
+  body: SyntheticsNetworkTestEditRequest;
+}
+
 export class SyntheticsApi {
   private requestFactory: SyntheticsApiRequestFactory;
   private responseProcessor: SyntheticsApiResponseProcessor;
@@ -952,6 +1404,26 @@ export class SyntheticsApi {
       requestFactory || new SyntheticsApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new SyntheticsApiResponseProcessor();
+  }
+
+  /**
+   * @param param The request object
+   */
+  public createSyntheticsNetworkTest(
+    param: SyntheticsApiCreateSyntheticsNetworkTestRequest,
+    options?: Configuration
+  ): Promise<SyntheticsNetworkTestResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSyntheticsNetworkTest(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSyntheticsNetworkTest(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -997,6 +1469,26 @@ export class SyntheticsApi {
   /**
    * @param param The request object
    */
+  public deleteSyntheticsTests(
+    param: SyntheticsApiDeleteSyntheticsTestsRequest,
+    options?: Configuration
+  ): Promise<DeletedTestsResponse> {
+    const requestContextPromise = this.requestFactory.deleteSyntheticsTests(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSyntheticsTests(responseContext);
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
   public editSyntheticsSuite(
     param: SyntheticsApiEditSyntheticsSuiteRequest,
     options?: Configuration
@@ -1029,6 +1521,28 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOnDemandConcurrencyCap(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public getSyntheticsNetworkTest(
+    param: SyntheticsApiGetSyntheticsNetworkTestRequest,
+    options?: Configuration
+  ): Promise<SyntheticsNetworkTestResponse> {
+    const requestContextPromise = this.requestFactory.getSyntheticsNetworkTest(
+      param.publicId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSyntheticsNetworkTest(
             responseContext
           );
         });
@@ -1126,6 +1640,30 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.setOnDemandConcurrencyCap(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public updateSyntheticsNetworkTest(
+    param: SyntheticsApiUpdateSyntheticsNetworkTestRequest,
+    options?: Configuration
+  ): Promise<SyntheticsNetworkTestResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSyntheticsNetworkTest(
+        param.publicId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSyntheticsNetworkTest(
             responseContext
           );
         });

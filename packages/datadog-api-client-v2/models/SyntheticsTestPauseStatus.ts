@@ -7,16 +7,13 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the Synthetic test.
+ * Define whether you want to start (`live`) or pause (`paused`) a
+ * Synthetic test.
  */
 
-export type SyntheticsTestDetailsType =
-  | typeof API
-  | typeof BROWSER
-  | typeof MOBILE
-  | typeof NETWORK
+export type SyntheticsTestPauseStatus =
+  | typeof LIVE
+  | typeof PAUSED
   | UnparsedObject;
-export const API = "api";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
-export const NETWORK = "network";
+export const LIVE = "live";
+export const PAUSED = "paused";

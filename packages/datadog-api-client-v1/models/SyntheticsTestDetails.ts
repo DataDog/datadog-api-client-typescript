@@ -68,7 +68,7 @@ export class SyntheticsTestDetails {
    */
   "tags"?: Array<string>;
   /**
-   * Type of the Synthetic test, either `api` or `browser`.
+   * Type of the Synthetic test.
    */
   "type"?: SyntheticsTestDetailsType;
 

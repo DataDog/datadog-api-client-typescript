@@ -7,16 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the Synthetic test.
+ * For TCP tests, the TCP traceroute strategy.
  */
 
-export type SyntheticsTestDetailsType =
-  | typeof API
-  | typeof BROWSER
-  | typeof MOBILE
-  | typeof NETWORK
+export type SyntheticsNetworkTestRequestTCPMethod =
+  | typeof PREFER_SACK
+  | typeof SYN
+  | typeof SACK
   | UnparsedObject;
-export const API = "api";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
-export const NETWORK = "network";
+export const PREFER_SACK = "prefer_sack";
+export const SYN = "syn";
+export const SACK = "sack";

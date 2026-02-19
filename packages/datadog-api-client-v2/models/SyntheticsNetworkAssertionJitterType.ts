@@ -7,16 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the Synthetic test.
+ * Type of the jitter assertion.
  */
 
-export type SyntheticsTestDetailsType =
-  | typeof API
-  | typeof BROWSER
-  | typeof MOBILE
-  | typeof NETWORK
+export type SyntheticsNetworkAssertionJitterType =
+  | typeof JITTER
   | UnparsedObject;
-export const API = "api";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
-export const NETWORK = "network";
+export const JITTER = "jitter";
