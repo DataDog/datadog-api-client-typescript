@@ -1,5 +1,5 @@
 /**
- * Synthetics: Bulk delete tests returns "OK" response
+ * Bulk delete tests returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

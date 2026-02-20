@@ -1,5 +1,5 @@
 /**
- * Synthetics: Create a test suite returns "OK" response
+ * Create a test suite returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

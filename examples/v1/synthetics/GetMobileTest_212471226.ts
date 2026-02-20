@@ -1,5 +1,5 @@
 /**
- * Get a mobile test returns "OK" response
+ * Get a Mobile test returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -7,8 +7,12 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
+// there is a valid "synthetics_mobile_test" in the system
+const SYNTHETICS_MOBILE_TEST_PUBLIC_ID = process.env
+  .SYNTHETICS_MOBILE_TEST_PUBLIC_ID as string;
+
 const params: v1.SyntheticsApiGetMobileTestRequest = {
-  publicId: "public_id",
+  publicId: SYNTHETICS_MOBILE_TEST_PUBLIC_ID,
 };
 
 apiInstance

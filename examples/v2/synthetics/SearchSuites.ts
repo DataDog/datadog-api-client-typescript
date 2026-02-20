@@ -1,5 +1,5 @@
 /**
- * Search Synthetics suites returns "OK" response
+ * Search test suites returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

@@ -494,8 +494,6 @@ export {
   IncidentsApi,
 } from "./apis/IncidentsApi";
 
-export { IntegrationsApi } from "./apis/IntegrationsApi";
-
 export {
   JiraIntegrationApiCreateJiraIssueTemplateRequest,
   JiraIntegrationApiDeleteJiraAccountRequest,
@@ -3104,8 +3102,6 @@ export { InputSchema } from "./models/InputSchema";
 export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
-export { Integration } from "./models/Integration";
-export { IntegrationAttributes } from "./models/IntegrationAttributes";
 export { IntegrationIncident } from "./models/IntegrationIncident";
 export { IntegrationIncidentFieldMappingsItems } from "./models/IntegrationIncidentFieldMappingsItems";
 export { IntegrationIncidentSeverityConfig } from "./models/IntegrationIncidentSeverityConfig";
@@ -3116,7 +3112,6 @@ export { IntegrationJiraSync } from "./models/IntegrationJiraSync";
 export { IntegrationJiraSyncDueDate } from "./models/IntegrationJiraSyncDueDate";
 export { IntegrationJiraSyncProperties } from "./models/IntegrationJiraSyncProperties";
 export { IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties } from "./models/IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties";
-export { IntegrationLinks } from "./models/IntegrationLinks";
 export { IntegrationMonitor } from "./models/IntegrationMonitor";
 export { IntegrationOnCall } from "./models/IntegrationOnCall";
 export { IntegrationOnCallEscalationQueriesItems } from "./models/IntegrationOnCallEscalationQueriesItems";
@@ -3126,7 +3121,6 @@ export { IntegrationServiceNowAutoCreation } from "./models/IntegrationServiceNo
 export { IntegrationServiceNowSyncConfig } from "./models/IntegrationServiceNowSyncConfig";
 export { IntegrationServiceNowSyncConfig139772721534496 } from "./models/IntegrationServiceNowSyncConfig139772721534496";
 export { IntegrationServiceNowSyncConfigPriority } from "./models/IntegrationServiceNowSyncConfigPriority";
-export { IntegrationType } from "./models/IntegrationType";
 export { InterfaceAttributes } from "./models/InterfaceAttributes";
 export { InterfaceAttributesStatus } from "./models/InterfaceAttributesStatus";
 export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
@@ -3297,7 +3291,6 @@ export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogRespon
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
-export { ListIntegrationsResponse } from "./models/ListIntegrationsResponse";
 export { ListInterfaceTagsResponse } from "./models/ListInterfaceTagsResponse";
 export { ListInterfaceTagsResponseData } from "./models/ListInterfaceTagsResponseData";
 export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";

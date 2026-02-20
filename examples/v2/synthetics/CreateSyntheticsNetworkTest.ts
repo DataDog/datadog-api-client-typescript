@@ -1,5 +1,5 @@
 /**
- * Synthetics: Create a Network Path test returns "OK" response
+ * Create a Network Path test returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
