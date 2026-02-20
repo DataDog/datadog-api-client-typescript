@@ -7025,6 +7025,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ServiceNowUsersResponse",
   },
+  "IntegrationsApi.V2.ListIntegrations": {
+    operationResponseType: "ListIntegrationsResponse",
+  },
   "CloudflareIntegrationApi.V2.ListCloudflareAccounts": {
     operationResponseType: "CloudflareAccountsResponse",
   },
