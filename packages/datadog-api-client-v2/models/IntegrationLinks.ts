@@ -3,30 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { WidgetNewFixedSpanType } from "./WidgetNewFixedSpanType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Used for fixed span times, such as 'March 1 to March 7'.
+ * Links for the integration resource.
  */
-export class WidgetNewFixedSpan {
+export class IntegrationLinks {
   /**
-   * Start time in milliseconds since epoch.
+   * Link to the integration resource.
    */
-  "from": number;
-  /**
-   * Whether to hide incomplete cost data in the widget.
-   */
-  "hideIncompleteCostData"?: boolean;
-  /**
-   * End time in milliseconds since epoch.
-   */
-  "to": number;
-  /**
-   * Type "fixed" denotes a fixed span.
-   */
-  "type": WidgetNewFixedSpanType;
+  "self"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,26 +31,9 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    hideIncompleteCostData: {
-      baseName: "hide_incomplete_cost_data",
-      type: "boolean",
-    },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    type: {
-      baseName: "type",
-      type: "WidgetNewFixedSpanType",
-      required: true,
+    self: {
+      baseName: "self",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,7 +45,7 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetNewFixedSpan.attributeTypeMap;
+    return IntegrationLinks.attributeTypeMap;
   }
 
   public constructor() {}
