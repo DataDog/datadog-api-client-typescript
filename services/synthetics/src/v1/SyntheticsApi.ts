@@ -4582,7 +4582,7 @@ export class SyntheticsApi {
 
   /**
    * Get the detailed configuration associated with
-   * a Synthetic Mobile test.
+   * a Synthetic mobile test.
    * @param param The request object
    */
   public getMobileTest(
@@ -4914,7 +4914,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Edit the configuration of a Synthetic Mobile test.
+   * Edit the configuration of a Synthetic mobile test.
    * @param param The request object
    */
   public updateMobileTest(
