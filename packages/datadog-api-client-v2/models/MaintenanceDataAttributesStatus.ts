@@ -1,0 +1,22 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The status of the maintenance.
+ */
+
+export type MaintenanceDataAttributesStatus =
+  | typeof SCHEDULED
+  | typeof IN_PROGRESS
+  | typeof COMPLETED
+  | typeof CANCELED
+  | UnparsedObject;
+export const SCHEDULED = "scheduled";
+export const IN_PROGRESS = "in_progress";
+export const COMPLETED = "completed";
+export const CANCELED = "canceled";

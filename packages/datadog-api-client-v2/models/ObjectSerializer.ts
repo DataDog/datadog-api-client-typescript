@@ -663,6 +663,10 @@ import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
 import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
+import { CreateMaintenanceRequest } from "./CreateMaintenanceRequest";
+import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
+import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
+import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
 import { CreateNotificationChannelAttributes } from "./CreateNotificationChannelAttributes";
 import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
@@ -1722,6 +1726,20 @@ import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
+import { Maintenance } from "./Maintenance";
+import { MaintenanceArray } from "./MaintenanceArray";
+import { MaintenanceData } from "./MaintenanceData";
+import { MaintenanceDataAttributes } from "./MaintenanceDataAttributes";
+import { MaintenanceDataAttributesComponentsAffectedItems } from "./MaintenanceDataAttributesComponentsAffectedItems";
+import { MaintenanceDataAttributesUpdatesItems } from "./MaintenanceDataAttributesUpdatesItems";
+import { MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems } from "./MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems";
+import { MaintenanceDataRelationships } from "./MaintenanceDataRelationships";
+import { MaintenanceDataRelationshipsCreatedByUser } from "./MaintenanceDataRelationshipsCreatedByUser";
+import { MaintenanceDataRelationshipsCreatedByUserData } from "./MaintenanceDataRelationshipsCreatedByUserData";
+import { MaintenanceDataRelationshipsLastModifiedByUser } from "./MaintenanceDataRelationshipsLastModifiedByUser";
+import { MaintenanceDataRelationshipsLastModifiedByUserData } from "./MaintenanceDataRelationshipsLastModifiedByUserData";
+import { MaintenanceDataRelationshipsStatusPage } from "./MaintenanceDataRelationshipsStatusPage";
+import { MaintenanceDataRelationshipsStatusPageData } from "./MaintenanceDataRelationshipsStatusPageData";
 import { MemberTeam } from "./MemberTeam";
 import { Metadata } from "./Metadata";
 import { Metric } from "./Metric";
@@ -2109,6 +2127,8 @@ import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { Pagination } from "./Pagination";
+import { PaginationMeta } from "./PaginationMeta";
+import { PaginationMetaPage } from "./PaginationMetaPage";
 import { Parameter } from "./Parameter";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
@@ -2127,6 +2147,10 @@ import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
 import { PatchDegradationRequestDataAttributes } from "./PatchDegradationRequestDataAttributes";
 import { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./PatchDegradationRequestDataAttributesComponentsAffectedItems";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
+import { PatchMaintenanceRequest } from "./PatchMaintenanceRequest";
+import { PatchMaintenanceRequestData } from "./PatchMaintenanceRequestData";
+import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
+import { PatchMaintenanceRequestDataAttributesComponentsAffectedItems } from "./PatchMaintenanceRequestDataAttributesComponentsAffectedItems";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
@@ -4130,6 +4154,12 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
+  MaintenanceDataAttributesStatus: [
+    "scheduled",
+    "in_progress",
+    "completed",
+    "canceled",
+  ],
   MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
@@ -4491,6 +4521,11 @@ const enumsMap: { [key: string]: any[] } = {
     "resolved",
   ],
   PatchDegradationRequestDataType: ["degradations"],
+  PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus: [
+    "operational",
+    "maintenance",
+  ],
+  PatchMaintenanceRequestDataType: ["maintenances"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
   PlaylistDataType: ["rum_replay_playlist"],
@@ -6051,6 +6086,12 @@ const typeMap: { [index: string]: any } = {
   CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
   CreateJiraIssueRequestDataRelationships:
     CreateJiraIssueRequestDataRelationships,
+  CreateMaintenanceRequest: CreateMaintenanceRequest,
+  CreateMaintenanceRequestData: CreateMaintenanceRequestData,
+  CreateMaintenanceRequestDataAttributes:
+    CreateMaintenanceRequestDataAttributes,
+  CreateMaintenanceRequestDataAttributesComponentsAffectedItems:
+    CreateMaintenanceRequestDataAttributesComponentsAffectedItems,
   CreateNotificationChannelAttributes: CreateNotificationChannelAttributes,
   CreateNotificationChannelData: CreateNotificationChannelData,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
@@ -7259,6 +7300,28 @@ const typeMap: { [index: string]: any } = {
   LogsWarning: LogsWarning,
   MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
   MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
+  Maintenance: Maintenance,
+  MaintenanceArray: MaintenanceArray,
+  MaintenanceData: MaintenanceData,
+  MaintenanceDataAttributes: MaintenanceDataAttributes,
+  MaintenanceDataAttributesComponentsAffectedItems:
+    MaintenanceDataAttributesComponentsAffectedItems,
+  MaintenanceDataAttributesUpdatesItems: MaintenanceDataAttributesUpdatesItems,
+  MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems:
+    MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems,
+  MaintenanceDataRelationships: MaintenanceDataRelationships,
+  MaintenanceDataRelationshipsCreatedByUser:
+    MaintenanceDataRelationshipsCreatedByUser,
+  MaintenanceDataRelationshipsCreatedByUserData:
+    MaintenanceDataRelationshipsCreatedByUserData,
+  MaintenanceDataRelationshipsLastModifiedByUser:
+    MaintenanceDataRelationshipsLastModifiedByUser,
+  MaintenanceDataRelationshipsLastModifiedByUserData:
+    MaintenanceDataRelationshipsLastModifiedByUserData,
+  MaintenanceDataRelationshipsStatusPage:
+    MaintenanceDataRelationshipsStatusPage,
+  MaintenanceDataRelationshipsStatusPageData:
+    MaintenanceDataRelationshipsStatusPageData,
   MemberTeam: MemberTeam,
   Metadata: Metadata,
   Metric: Metric,
@@ -7791,6 +7854,8 @@ const typeMap: { [index: string]: any } = {
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
   Pagination: Pagination,
+  PaginationMeta: PaginationMeta,
+  PaginationMetaPage: PaginationMetaPage,
   Parameter: Parameter,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
@@ -7812,6 +7877,11 @@ const typeMap: { [index: string]: any } = {
     PatchDegradationRequestDataAttributesComponentsAffectedItems,
   PatchIncidentNotificationTemplateRequest:
     PatchIncidentNotificationTemplateRequest,
+  PatchMaintenanceRequest: PatchMaintenanceRequest,
+  PatchMaintenanceRequestData: PatchMaintenanceRequestData,
+  PatchMaintenanceRequestDataAttributes: PatchMaintenanceRequestDataAttributes,
+  PatchMaintenanceRequestDataAttributesComponentsAffectedItems:
+    PatchMaintenanceRequestDataAttributesComponentsAffectedItems,
   PatchNotificationRuleParameters: PatchNotificationRuleParameters,
   PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
   PatchNotificationRuleParametersDataAttributes:
@@ -9382,7 +9452,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
-  DegradationArrayIncluded: ["StatusPagesUser", "StatusPageAsIncluded"],
+  DegradationIncluded: ["StatusPagesUser", "StatusPageAsIncluded"],
   DeploymentRulesOptions: [
     "DeploymentRuleOptionsFaultyDeploymentDetection",
     "DeploymentRuleOptionsMonitor",
