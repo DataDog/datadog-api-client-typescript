@@ -1,14 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DegradationArrayIncluded } from "./DegradationArrayIncluded";
 import { DegradationData } from "./DegradationData";
+import { DegradationIncluded } from "./DegradationIncluded";
 
 export class Degradation {
   "data"?: DegradationData;
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.
    */
-  "included"?: Array<DegradationArrayIncluded>;
+  "included"?: Array<DegradationIncluded>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,7 +30,7 @@ export class Degradation {
     },
     included: {
       baseName: "included",
-      type: "Array<DegradationArrayIncluded>",
+      type: "Array<DegradationIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
