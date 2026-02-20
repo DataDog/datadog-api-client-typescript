@@ -1,5 +1,5 @@
 /**
- * Edit a Mobile test returns "OK" response
+ * Edit a mobile test returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -7,31 +7,90 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-// there is a valid "synthetics_mobile_test" in the system
-const SYNTHETICS_MOBILE_TEST_PUBLIC_ID = process.env
-  .SYNTHETICS_MOBILE_TEST_PUBLIC_ID as string;
-
 const params: v1.SyntheticsApiUpdateMobileTestRequest = {
   body: {
-    name: "Example-Synthetic-updated",
-    status: "paused",
-    type: "mobile",
     config: {
-      variables: [],
+      variables: [
+        {
+          name: "VARIABLE_NAME",
+          secure: false,
+          type: "text",
+        },
+      ],
     },
-    message: "",
+    deviceIds: ["chrome.laptop_large"],
+    message: "Notification message",
+    name: "Example test name",
     options: {
-      deviceIds: ["synthetics:mobile:device:iphone_15_ios_17"],
-      mobileApplication: {
-        applicationId: "ab0e0aed-536d-411a-9a99-5428c27d8f8e",
-        referenceId: "6115922a-5f5d-455e-bc7e-7955a57f3815",
-        referenceType: "version",
+      bindings: [
+        {
+          principals: [],
+          relation: "editor",
+        },
+      ],
+      ci: {
+        executionRule: "blocking",
       },
-      tickEvery: 3600,
+      deviceIds: ["synthetics:mobile:device:apple_ipad_10th_gen_2022_ios_16"],
+      mobileApplication: {
+        applicationId: "00000000-0000-0000-0000-aaaaaaaaaaaa",
+        referenceId: "00000000-0000-0000-0000-aaaaaaaaaaab",
+        referenceType: "latest",
+      },
+      monitorOptions: {
+        notificationPresetName: "show_all",
+      },
+      restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
+      retry: {},
+      scheduling: {
+        timeframes: [
+          {
+            day: 1,
+            from: "07:00",
+            to: "16:00",
+          },
+          {
+            day: 3,
+            from: "07:00",
+            to: "16:00",
+          },
+        ],
+        timezone: "America/New_York",
+      },
+      tickEvery: 300,
     },
-    steps: [],
+    status: "live",
+    steps: [
+      {
+        name: "",
+        params: {
+          check: "equals",
+          direction: "up",
+          element: {
+            contextType: "native",
+            relativePosition: {},
+            userLocator: {
+              values: [
+                {
+                  type: "accessibility-id",
+                },
+              ],
+            },
+          },
+          positions: [{}],
+          variable: {
+            example: "",
+            name: "VAR_NAME",
+          },
+        },
+        publicId: "pub-lic-id0",
+        type: "assertElementContent",
+      },
+    ],
+    tags: ["env:production"],
+    type: "mobile",
   },
-  publicId: SYNTHETICS_MOBILE_TEST_PUBLIC_ID,
+  publicId: "public_id",
 };
 
 apiInstance

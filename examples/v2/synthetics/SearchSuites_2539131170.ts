@@ -1,15 +1,15 @@
 /**
- * List Integrations returns "Successful Response." response
+ * Search Synthetics suites returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-const apiInstance = new v2.IntegrationsApi(configuration);
+const apiInstance = new v2.SyntheticsApi(configuration);
 
 apiInstance
-  .listIntegrations()
-  .then((data: v2.ListIntegrationsResponse) => {
+  .searchSuites()
+  .then((data: v2.SyntheticsSuiteSearchResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
