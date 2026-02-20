@@ -276,6 +276,7 @@ import { NotebookResponse } from "./NotebookResponse";
 import { NotebookResponseData } from "./NotebookResponseData";
 import { NotebookResponseDataAttributes } from "./NotebookResponseDataAttributes";
 import { NotebookSplitBy } from "./NotebookSplitBy";
+import { NotebookTemplateVariable } from "./NotebookTemplateVariable";
 import { NotebookTimeseriesCellAttributes } from "./NotebookTimeseriesCellAttributes";
 import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
 import { NotebookUpdateData } from "./NotebookUpdateData";
@@ -2074,6 +2075,7 @@ const typeMap: { [index: string]: any } = {
   NotebookResponseData: NotebookResponseData,
   NotebookResponseDataAttributes: NotebookResponseDataAttributes,
   NotebookSplitBy: NotebookSplitBy,
+  NotebookTemplateVariable: NotebookTemplateVariable,
   NotebookTimeseriesCellAttributes: NotebookTimeseriesCellAttributes,
   NotebookToplistCellAttributes: NotebookToplistCellAttributes,
   NotebookUpdateData: NotebookUpdateData,

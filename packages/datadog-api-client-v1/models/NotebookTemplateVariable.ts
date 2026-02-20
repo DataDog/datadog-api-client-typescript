@@ -7,13 +7,25 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Links for the integration resource.
+ * Template variable for a notebook.
  */
-export class IntegrationLinks {
+export class NotebookTemplateVariable {
   /**
-   * Link to the integration resource.
+   * The list of values that the template variable drop-down is limited to.
    */
-  "self"?: string;
+  "availableValues"?: Array<string>;
+  /**
+   * The default value for the template variable.
+   */
+  "_default"?: string;
+  /**
+   * The name of the variable.
+   */
+  "name": string;
+  /**
+   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+   */
+  "prefix"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,8 +43,21 @@ export class IntegrationLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    self: {
-      baseName: "self",
+    availableValues: {
+      baseName: "available_values",
+      type: "Array<string>",
+    },
+    _default: {
+      baseName: "default",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    prefix: {
+      baseName: "prefix",
       type: "string",
     },
     additionalProperties: {
@@ -45,7 +70,7 @@ export class IntegrationLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IntegrationLinks.attributeTypeMap;
+    return NotebookTemplateVariable.attributeTypeMap;
   }
 
   public constructor() {}
