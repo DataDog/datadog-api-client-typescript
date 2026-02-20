@@ -3,30 +3,32 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { WidgetNewFixedSpanType } from "./WidgetNewFixedSpanType";
+import { IntegrationAttributes } from "./IntegrationAttributes";
+import { IntegrationLinks } from "./IntegrationLinks";
+import { IntegrationType } from "./IntegrationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Used for fixed span times, such as 'March 1 to March 7'.
+ * Integration resource object.
  */
-export class WidgetNewFixedSpan {
+export class Integration {
   /**
-   * Start time in milliseconds since epoch.
+   * Attributes for an integration.
    */
-  "from": number;
+  "attributes": IntegrationAttributes;
   /**
-   * Whether to hide incomplete cost data in the widget.
+   * The unique identifier of the integration.
    */
-  "hideIncompleteCostData"?: boolean;
+  "id": string;
   /**
-   * End time in milliseconds since epoch.
+   * Links for the integration resource.
    */
-  "to": number;
+  "links"?: IntegrationLinks;
   /**
-   * Type "fixed" denotes a fixed span.
+   * Integration resource type.
    */
-  "type": WidgetNewFixedSpanType;
+  "type": IntegrationType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,25 +46,23 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "number",
+    attributes: {
+      baseName: "attributes",
+      type: "IntegrationAttributes",
       required: true,
-      format: "int64",
     },
-    hideIncompleteCostData: {
-      baseName: "hide_incomplete_cost_data",
-      type: "boolean",
-    },
-    to: {
-      baseName: "to",
-      type: "number",
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
-      format: "int64",
+    },
+    links: {
+      baseName: "links",
+      type: "IntegrationLinks",
     },
     type: {
       baseName: "type",
-      type: "WidgetNewFixedSpanType",
+      type: "IntegrationType",
       required: true,
     },
     additionalProperties: {
@@ -75,7 +75,7 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetNewFixedSpan.attributeTypeMap;
+    return Integration.attributeTypeMap;
   }
 
   public constructor() {}

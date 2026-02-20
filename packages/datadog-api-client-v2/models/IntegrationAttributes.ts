@@ -3,30 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { WidgetNewFixedSpanType } from "./WidgetNewFixedSpanType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Used for fixed span times, such as 'March 1 to March 7'.
+ * Attributes for an integration.
  */
-export class WidgetNewFixedSpan {
+export class IntegrationAttributes {
   /**
-   * Start time in milliseconds since epoch.
+   * List of categories associated with the integration.
    */
-  "from": number;
+  "categories": Array<string>;
   /**
-   * Whether to hide incomplete cost data in the widget.
+   * A description of the integration.
    */
-  "hideIncompleteCostData"?: boolean;
+  "description": string;
   /**
-   * End time in milliseconds since epoch.
+   * Whether the integration is installed.
    */
-  "to": number;
+  "installed": boolean;
   /**
-   * Type "fixed" denotes a fixed span.
+   * The name of the integration.
    */
-  "type": WidgetNewFixedSpanType;
+  "title": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,25 +43,24 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "number",
+    categories: {
+      baseName: "categories",
+      type: "Array<string>",
       required: true,
-      format: "int64",
     },
-    hideIncompleteCostData: {
-      baseName: "hide_incomplete_cost_data",
+    description: {
+      baseName: "description",
+      type: "string",
+      required: true,
+    },
+    installed: {
+      baseName: "installed",
       type: "boolean",
-    },
-    to: {
-      baseName: "to",
-      type: "number",
       required: true,
-      format: "int64",
     },
-    type: {
-      baseName: "type",
-      type: "WidgetNewFixedSpanType",
+    title: {
+      baseName: "title",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -75,7 +73,7 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetNewFixedSpan.attributeTypeMap;
+    return IntegrationAttributes.attributeTypeMap;
   }
 
   public constructor() {}

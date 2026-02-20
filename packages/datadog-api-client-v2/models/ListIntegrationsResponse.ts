@@ -3,30 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { WidgetNewFixedSpanType } from "./WidgetNewFixedSpanType";
+import { Integration } from "./Integration";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Used for fixed span times, such as 'March 1 to March 7'.
+ * Response containing information about multiple integrations.
  */
-export class WidgetNewFixedSpan {
+export class ListIntegrationsResponse {
   /**
-   * Start time in milliseconds since epoch.
+   * Array of integration objects.
    */
-  "from": number;
-  /**
-   * Whether to hide incomplete cost data in the widget.
-   */
-  "hideIncompleteCostData"?: boolean;
-  /**
-   * End time in milliseconds since epoch.
-   */
-  "to": number;
-  /**
-   * Type "fixed" denotes a fixed span.
-   */
-  "type": WidgetNewFixedSpanType;
+  "data": Array<Integration>;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,25 +32,9 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    hideIncompleteCostData: {
-      baseName: "hide_incomplete_cost_data",
-      type: "boolean",
-    },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    type: {
-      baseName: "type",
-      type: "WidgetNewFixedSpanType",
+    data: {
+      baseName: "data",
+      type: "Array<Integration>",
       required: true,
     },
     additionalProperties: {
@@ -75,7 +47,7 @@ export class WidgetNewFixedSpan {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetNewFixedSpan.attributeTypeMap;
+    return ListIntegrationsResponse.attributeTypeMap;
   }
 
   public constructor() {}
