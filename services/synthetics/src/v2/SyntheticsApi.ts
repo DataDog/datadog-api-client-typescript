@@ -1708,7 +1708,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Search for Synthetics suites.
+   * Search for test suites.
    * @param param The request object
    */
   public searchSuites(
