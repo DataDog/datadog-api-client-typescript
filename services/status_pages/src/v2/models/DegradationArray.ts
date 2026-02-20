@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DegradationArrayIncluded } from "./DegradationArrayIncluded";
 import { DegradationData } from "./DegradationData";
+import { DegradationIncluded } from "./DegradationIncluded";
 import { StatusPagesResponseMeta } from "./StatusPagesResponseMeta";
 
 export class DegradationArray {
@@ -9,7 +9,7 @@ export class DegradationArray {
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.
    */
-  "included"?: Array<DegradationArrayIncluded>;
+  "included"?: Array<DegradationIncluded>;
   /**
    * Response metadata.
    */
@@ -36,7 +36,7 @@ export class DegradationArray {
     },
     included: {
       baseName: "included",
-      type: "Array<DegradationArrayIncluded>",
+      type: "Array<DegradationIncluded>",
     },
     meta: {
       baseName: "meta",

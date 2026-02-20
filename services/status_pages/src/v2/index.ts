@@ -1,18 +1,22 @@
 export {
   StatusPagesApiCreateComponentRequest,
   StatusPagesApiCreateDegradationRequest,
+  StatusPagesApiCreateMaintenanceRequest,
   StatusPagesApiCreateStatusPageRequest,
   StatusPagesApiDeleteComponentRequest,
   StatusPagesApiDeleteDegradationRequest,
   StatusPagesApiDeleteStatusPageRequest,
   StatusPagesApiGetComponentRequest,
   StatusPagesApiGetDegradationRequest,
+  StatusPagesApiGetMaintenanceRequest,
   StatusPagesApiGetStatusPageRequest,
   StatusPagesApiListComponentsRequest,
   StatusPagesApiListDegradationsRequest,
+  StatusPagesApiListMaintenancesRequest,
   StatusPagesApiListStatusPagesRequest,
   StatusPagesApiUpdateComponentRequest,
   StatusPagesApiUpdateDegradationRequest,
+  StatusPagesApiUpdateMaintenanceRequest,
   StatusPagesApiUpdateStatusPageRequest,
   StatusPagesApi,
 } from "./StatusPagesApi";
@@ -31,6 +35,10 @@ export { CreateDegradationRequestData } from "./models/CreateDegradationRequestD
 export { CreateDegradationRequestDataAttributes } from "./models/CreateDegradationRequestDataAttributes";
 export { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./models/CreateDegradationRequestDataAttributesComponentsAffectedItems";
 export { CreateDegradationRequestDataAttributesStatus } from "./models/CreateDegradationRequestDataAttributesStatus";
+export { CreateMaintenanceRequest } from "./models/CreateMaintenanceRequest";
+export { CreateMaintenanceRequestData } from "./models/CreateMaintenanceRequestData";
+export { CreateMaintenanceRequestDataAttributes } from "./models/CreateMaintenanceRequestDataAttributes";
+export { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./models/CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
 export { CreateStatusPageRequest } from "./models/CreateStatusPageRequest";
 export { CreateStatusPageRequestData } from "./models/CreateStatusPageRequestData";
 export { CreateStatusPageRequestDataAttributes } from "./models/CreateStatusPageRequestDataAttributes";
@@ -40,7 +48,6 @@ export { CreateStatusPageRequestDataAttributesType } from "./models/CreateStatus
 export { CreateStatusPageRequestDataAttributesVisualizationType } from "./models/CreateStatusPageRequestDataAttributesVisualizationType";
 export { Degradation } from "./models/Degradation";
 export { DegradationArray } from "./models/DegradationArray";
-export { DegradationArrayIncluded } from "./models/DegradationArrayIncluded";
 export { DegradationData } from "./models/DegradationData";
 export { DegradationDataAttributes } from "./models/DegradationDataAttributes";
 export { DegradationDataAttributesComponentsAffectedItems } from "./models/DegradationDataAttributesComponentsAffectedItems";
@@ -53,6 +60,24 @@ export { DegradationDataRelationshipsLastModifiedByUser } from "./models/Degrada
 export { DegradationDataRelationshipsLastModifiedByUserData } from "./models/DegradationDataRelationshipsLastModifiedByUserData";
 export { DegradationDataRelationshipsStatusPage } from "./models/DegradationDataRelationshipsStatusPage";
 export { DegradationDataRelationshipsStatusPageData } from "./models/DegradationDataRelationshipsStatusPageData";
+export { DegradationIncluded } from "./models/DegradationIncluded";
+export { Maintenance } from "./models/Maintenance";
+export { MaintenanceArray } from "./models/MaintenanceArray";
+export { MaintenanceData } from "./models/MaintenanceData";
+export { MaintenanceDataAttributes } from "./models/MaintenanceDataAttributes";
+export { MaintenanceDataAttributesComponentsAffectedItems } from "./models/MaintenanceDataAttributesComponentsAffectedItems";
+export { MaintenanceDataAttributesStatus } from "./models/MaintenanceDataAttributesStatus";
+export { MaintenanceDataAttributesUpdatesItems } from "./models/MaintenanceDataAttributesUpdatesItems";
+export { MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems } from "./models/MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems";
+export { MaintenanceDataRelationships } from "./models/MaintenanceDataRelationships";
+export { MaintenanceDataRelationshipsCreatedByUser } from "./models/MaintenanceDataRelationshipsCreatedByUser";
+export { MaintenanceDataRelationshipsCreatedByUserData } from "./models/MaintenanceDataRelationshipsCreatedByUserData";
+export { MaintenanceDataRelationshipsLastModifiedByUser } from "./models/MaintenanceDataRelationshipsLastModifiedByUser";
+export { MaintenanceDataRelationshipsLastModifiedByUserData } from "./models/MaintenanceDataRelationshipsLastModifiedByUserData";
+export { MaintenanceDataRelationshipsStatusPage } from "./models/MaintenanceDataRelationshipsStatusPage";
+export { MaintenanceDataRelationshipsStatusPageData } from "./models/MaintenanceDataRelationshipsStatusPageData";
+export { PaginationMeta } from "./models/PaginationMeta";
+export { PaginationMetaPage } from "./models/PaginationMetaPage";
 export { PatchComponentRequest } from "./models/PatchComponentRequest";
 export { PatchComponentRequestData } from "./models/PatchComponentRequestData";
 export { PatchComponentRequestDataAttributes } from "./models/PatchComponentRequestDataAttributes";
@@ -62,6 +87,12 @@ export { PatchDegradationRequestDataAttributes } from "./models/PatchDegradation
 export { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./models/PatchDegradationRequestDataAttributesComponentsAffectedItems";
 export { PatchDegradationRequestDataAttributesStatus } from "./models/PatchDegradationRequestDataAttributesStatus";
 export { PatchDegradationRequestDataType } from "./models/PatchDegradationRequestDataType";
+export { PatchMaintenanceRequest } from "./models/PatchMaintenanceRequest";
+export { PatchMaintenanceRequestData } from "./models/PatchMaintenanceRequestData";
+export { PatchMaintenanceRequestDataAttributes } from "./models/PatchMaintenanceRequestDataAttributes";
+export { PatchMaintenanceRequestDataAttributesComponentsAffectedItems } from "./models/PatchMaintenanceRequestDataAttributesComponentsAffectedItems";
+export { PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus } from "./models/PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus";
+export { PatchMaintenanceRequestDataType } from "./models/PatchMaintenanceRequestDataType";
 export { PatchStatusPageRequest } from "./models/PatchStatusPageRequest";
 export { PatchStatusPageRequestData } from "./models/PatchStatusPageRequestData";
 export { PatchStatusPageRequestDataAttributes } from "./models/PatchStatusPageRequestDataAttributes";
