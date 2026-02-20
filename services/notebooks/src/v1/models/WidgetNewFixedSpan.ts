@@ -7,7 +7,7 @@ import { WidgetNewFixedSpanType } from "./WidgetNewFixedSpanType";
  */
 export class WidgetNewFixedSpan {
   /**
-   * Start time in seconds since epoch.
+   * Start time in milliseconds since epoch.
    */
   "from": number;
   /**
@@ -15,7 +15,7 @@ export class WidgetNewFixedSpan {
    */
   "hideIncompleteCostData"?: boolean;
   /**
-   * End time in seconds since epoch.
+   * End time in milliseconds since epoch.
    */
   "to": number;
   /**
