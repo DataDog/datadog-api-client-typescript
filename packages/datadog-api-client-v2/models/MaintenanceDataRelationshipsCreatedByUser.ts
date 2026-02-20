@@ -3,32 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IntegrationAttributes } from "./IntegrationAttributes";
-import { IntegrationLinks } from "./IntegrationLinks";
-import { IntegrationType } from "./IntegrationType";
+import { MaintenanceDataRelationshipsCreatedByUserData } from "./MaintenanceDataRelationshipsCreatedByUserData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Integration resource object.
- */
-export class Integration {
-  /**
-   * Attributes for an integration.
-   */
-  "attributes": IntegrationAttributes;
-  /**
-   * The unique identifier of the integration.
-   */
-  "id": string;
-  /**
-   * Links for the integration resource.
-   */
-  "links"?: IntegrationLinks;
-  /**
-   * Integration resource type.
-   */
-  "type": IntegrationType;
+export class MaintenanceDataRelationshipsCreatedByUser {
+  "data": MaintenanceDataRelationshipsCreatedByUserData;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,23 +26,9 @@ export class Integration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IntegrationAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    links: {
-      baseName: "links",
-      type: "IntegrationLinks",
-    },
-    type: {
-      baseName: "type",
-      type: "IntegrationType",
+    data: {
+      baseName: "data",
+      type: "MaintenanceDataRelationshipsCreatedByUserData",
       required: true,
     },
     additionalProperties: {
@@ -75,7 +41,7 @@ export class Integration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Integration.attributeTypeMap;
+    return MaintenanceDataRelationshipsCreatedByUser.attributeTypeMap;
   }
 
   public constructor() {}

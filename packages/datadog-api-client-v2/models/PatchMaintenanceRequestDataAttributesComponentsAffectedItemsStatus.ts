@@ -3,12 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { StatusPageAsIncluded } from "./StatusPageAsIncluded";
-import { StatusPagesUser } from "./StatusPagesUser";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-export type DegradationArrayIncluded =
-  | StatusPagesUser
-  | StatusPageAsIncluded
-  | UnparsedObject;
+/**
+ * The status of the component.
+ */
+
+export type PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus =
+  typeof OPERATIONAL | typeof MAINTENANCE | UnparsedObject;
+export const OPERATIONAL = "operational";
+export const MAINTENANCE = "maintenance";

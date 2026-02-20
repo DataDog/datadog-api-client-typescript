@@ -1,15 +1,15 @@
 /**
- * List Integrations returns "Successful Response." response
+ * List maintenances returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-const apiInstance = new v2.IntegrationsApi(configuration);
+const apiInstance = new v2.StatusPagesApi(configuration);
 
 apiInstance
-  .listIntegrations()
-  .then((data: v2.ListIntegrationsResponse) => {
+  .listMaintenances()
+  .then((data: v2.MaintenanceArray) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

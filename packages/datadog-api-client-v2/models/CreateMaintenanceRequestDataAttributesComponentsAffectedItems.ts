@@ -3,18 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Integration } from "./Integration";
+import { PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus } from "./PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Response containing information about multiple integrations.
- */
-export class ListIntegrationsResponse {
+export class CreateMaintenanceRequestDataAttributesComponentsAffectedItems {
   /**
-   * Array of integration objects.
+   * The ID of the component. Must be a component of type `component`.
    */
-  "data": Array<Integration>;
+  "id": string;
+  /**
+   * The name of the component.
+   */
+  "name"?: string;
+  /**
+   * The status of the component.
+   */
+  "status": PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +37,19 @@ export class ListIntegrationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Integration>",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +62,7 @@ export class ListIntegrationsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListIntegrationsResponse.attributeTypeMap;
+    return CreateMaintenanceRequestDataAttributesComponentsAffectedItems.attributeTypeMap;
   }
 
   public constructor() {}

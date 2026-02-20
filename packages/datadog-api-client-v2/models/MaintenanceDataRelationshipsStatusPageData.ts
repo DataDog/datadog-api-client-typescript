@@ -3,29 +3,16 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { StatusPageDataType } from "./StatusPageDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Attributes for an integration.
- */
-export class IntegrationAttributes {
+export class MaintenanceDataRelationshipsStatusPageData {
+  "id": string;
   /**
-   * List of categories associated with the integration.
+   * Status pages resource type.
    */
-  "categories": Array<string>;
-  /**
-   * A description of the integration.
-   */
-  "description": string;
-  /**
-   * Whether the integration is installed.
-   */
-  "installed": boolean;
-  /**
-   * The name of the integration.
-   */
-  "title": string;
+  "type": StatusPageDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,24 +30,15 @@ export class IntegrationAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    categories: {
-      baseName: "categories",
-      type: "Array<string>",
-      required: true,
-    },
-    description: {
-      baseName: "description",
+    id: {
+      baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
-    installed: {
-      baseName: "installed",
-      type: "boolean",
-      required: true,
-    },
-    title: {
-      baseName: "title",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "StatusPageDataType",
       required: true,
     },
     additionalProperties: {
@@ -73,7 +51,7 @@ export class IntegrationAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IntegrationAttributes.attributeTypeMap;
+    return MaintenanceDataRelationshipsStatusPageData.attributeTypeMap;
   }
 
   public constructor() {}

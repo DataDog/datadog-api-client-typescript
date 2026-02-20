@@ -3,12 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { StatusPageAsIncluded } from "./StatusPageAsIncluded";
+import { StatusPagesUser } from "./StatusPagesUser";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-/**
- * Integration resource type.
- */
-
-export type IntegrationType = typeof INTEGRATION | UnparsedObject;
-export const INTEGRATION = "integration";
+export type DegradationIncluded =
+  | StatusPagesUser
+  | StatusPageAsIncluded
+  | UnparsedObject;

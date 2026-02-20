@@ -3,17 +3,24 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
+import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Links for the integration resource.
- */
-export class IntegrationLinks {
+export class PatchMaintenanceRequestData {
   /**
-   * Link to the integration resource.
+   * The supported attributes for updating a maintenance.
    */
-  "self"?: string;
+  "attributes": PatchMaintenanceRequestDataAttributes;
+  /**
+   * The ID of the maintenance.
+   */
+  "id": string;
+  /**
+   * Maintenances resource type.
+   */
+  "type": PatchMaintenanceRequestDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,9 +38,21 @@ export class IntegrationLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    self: {
-      baseName: "self",
+    attributes: {
+      baseName: "attributes",
+      type: "PatchMaintenanceRequestDataAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
       type: "string",
+      required: true,
+      format: "uuid",
+    },
+    type: {
+      baseName: "type",
+      type: "PatchMaintenanceRequestDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,7 +64,7 @@ export class IntegrationLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IntegrationLinks.attributeTypeMap;
+    return PatchMaintenanceRequestData.attributeTypeMap;
   }
 
   public constructor() {}
