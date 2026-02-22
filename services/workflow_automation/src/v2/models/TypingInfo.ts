@@ -23,6 +23,8 @@ import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWra
 import { DatastoreTrigger } from "./DatastoreTrigger";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
 import { ErrorHandler } from "./ErrorHandler";
+import { FormTrigger } from "./FormTrigger";
+import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
@@ -132,6 +134,7 @@ export const TypingInfo: ModelTypingInfo = {
       "DatabaseMonitoringTriggerWrapper",
       "DatastoreTriggerWrapper",
       "DashboardTriggerWrapper",
+      "FormTriggerWrapper",
       "GithubWebhookTriggerWrapper",
       "IncidentTriggerWrapper",
       "MonitorTriggerWrapper",
@@ -169,6 +172,8 @@ export const TypingInfo: ModelTypingInfo = {
     DatastoreTrigger: DatastoreTrigger,
     DatastoreTriggerWrapper: DatastoreTriggerWrapper,
     ErrorHandler: ErrorHandler,
+    FormTrigger: FormTrigger,
+    FormTriggerWrapper: FormTriggerWrapper,
     GetWorkflowResponse: GetWorkflowResponse,
     GithubWebhookTrigger: GithubWebhookTrigger,
     GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,

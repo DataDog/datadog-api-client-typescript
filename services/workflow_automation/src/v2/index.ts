@@ -35,6 +35,8 @@ export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTri
 export { DatastoreTrigger } from "./models/DatastoreTrigger";
 export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
 export { ErrorHandler } from "./models/ErrorHandler";
+export { FormTrigger } from "./models/FormTrigger";
+export { FormTriggerWrapper } from "./models/FormTriggerWrapper";
 export { GetWorkflowResponse } from "./models/GetWorkflowResponse";
 export { GithubWebhookTrigger } from "./models/GithubWebhookTrigger";
 export { GithubWebhookTriggerWrapper } from "./models/GithubWebhookTriggerWrapper";
