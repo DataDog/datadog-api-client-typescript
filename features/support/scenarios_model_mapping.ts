@@ -6625,6 +6625,66 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTodoResponse",
     },
+    "v2.ListIncidentTimestampOverrides": {
+        "incidentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimestampOverridesResponse",
+    },
+    "v2.CreateIncidentTimestampOverride": {
+        "incidentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTimestampOverrideCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimestampOverrideResponse",
+    },
+    "v2.DeleteIncidentTimestampOverride": {
+        "incidentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "timestampOverrideId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentTimestampOverride": {
+        "incidentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "timestampOverrideId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTimestampOverridePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimestampOverrideResponse",
+    },
     "v2.ListAWSAccounts": {
         "awsAccountId": {
             "type": "string",
