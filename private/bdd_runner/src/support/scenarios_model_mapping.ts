@@ -6635,6 +6635,66 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentTodoResponse",
   },
+  "IncidentsApi.V2.ListIncidentTimestampOverrides": {
+    incidentId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    includeDeleted: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "IncidentTimestampOverridesResponse",
+  },
+  "IncidentsApi.V2.CreateIncidentTimestampOverride": {
+    incidentId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentTimestampOverrideCreateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentTimestampOverrideResponse",
+  },
+  "IncidentsApi.V2.DeleteIncidentTimestampOverride": {
+    incidentId: {
+      type: "string",
+      format: "uuid",
+    },
+    timestampOverrideId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentTimestampOverride": {
+    incidentId: {
+      type: "string",
+      format: "uuid",
+    },
+    timestampOverrideId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentTimestampOverridePatchRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentTimestampOverrideResponse",
+  },
   "AWSIntegrationApi.V2.ListAWSAccounts": {
     awsAccountId: {
       type: "string",

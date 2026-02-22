@@ -102,6 +102,17 @@ import { IncidentSearchResponsePropertyFieldFacetData } from "./IncidentSearchRe
 import { IncidentSearchResponseUserFacetData } from "./IncidentSearchResponseUserFacetData";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
+import { IncidentTimestampOverrideAttributes } from "./IncidentTimestampOverrideAttributes";
+import { IncidentTimestampOverrideCreateAttributes } from "./IncidentTimestampOverrideCreateAttributes";
+import { IncidentTimestampOverrideCreateData } from "./IncidentTimestampOverrideCreateData";
+import { IncidentTimestampOverrideCreateRequest } from "./IncidentTimestampOverrideCreateRequest";
+import { IncidentTimestampOverrideData } from "./IncidentTimestampOverrideData";
+import { IncidentTimestampOverridePatchAttributes } from "./IncidentTimestampOverridePatchAttributes";
+import { IncidentTimestampOverridePatchData } from "./IncidentTimestampOverridePatchData";
+import { IncidentTimestampOverridePatchRequest } from "./IncidentTimestampOverridePatchRequest";
+import { IncidentTimestampOverrideRelationships } from "./IncidentTimestampOverrideRelationships";
+import { IncidentTimestampOverrideResponse } from "./IncidentTimestampOverrideResponse";
+import { IncidentTimestampOverridesResponse } from "./IncidentTimestampOverridesResponse";
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
 import { IncidentTodoAttributes } from "./IncidentTodoAttributes";
 import { IncidentTodoCreateData } from "./IncidentTodoCreateData";
@@ -187,8 +198,12 @@ import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { TimestampOverrideUserRelationship } from "./TimestampOverrideUserRelationship";
+import { TimestampOverrideUserRelationshipData } from "./TimestampOverrideUserRelationshipData";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
+import { UserIncluded } from "./UserIncluded";
+import { UserIncludedAttributes } from "./UserIncludedAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
 import { ZoomConfigurationReference } from "./ZoomConfigurationReference";
 import { ZoomConfigurationReferenceData } from "./ZoomConfigurationReferenceData";
@@ -246,10 +261,12 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentType: ["incidents"],
     IncidentTypeType: ["incident_types"],
     IncidentUserDefinedFieldType: ["user_defined_field"],
+    IncidentsTimestampOverridesType: ["incidents_timestamp_overrides"],
     OrganizationsType: ["orgs"],
     PostmortemCellType: ["markdown"],
     PostmortemTemplateType: ["postmortem_template"],
     RolesType: ["roles"],
+    TimestampType: ["created", "detected", "resolved", "declared"],
     UsersType: ["users"],
   },
   oneOfMap: {
@@ -416,6 +433,22 @@ export const TypingInfo: ModelTypingInfo = {
       IncidentTimelineCellMarkdownCreateAttributes,
     IncidentTimelineCellMarkdownCreateAttributesContent:
       IncidentTimelineCellMarkdownCreateAttributesContent,
+    IncidentTimestampOverrideAttributes: IncidentTimestampOverrideAttributes,
+    IncidentTimestampOverrideCreateAttributes:
+      IncidentTimestampOverrideCreateAttributes,
+    IncidentTimestampOverrideCreateData: IncidentTimestampOverrideCreateData,
+    IncidentTimestampOverrideCreateRequest:
+      IncidentTimestampOverrideCreateRequest,
+    IncidentTimestampOverrideData: IncidentTimestampOverrideData,
+    IncidentTimestampOverridePatchAttributes:
+      IncidentTimestampOverridePatchAttributes,
+    IncidentTimestampOverridePatchData: IncidentTimestampOverridePatchData,
+    IncidentTimestampOverridePatchRequest:
+      IncidentTimestampOverridePatchRequest,
+    IncidentTimestampOverrideRelationships:
+      IncidentTimestampOverrideRelationships,
+    IncidentTimestampOverrideResponse: IncidentTimestampOverrideResponse,
+    IncidentTimestampOverridesResponse: IncidentTimestampOverridesResponse,
     IncidentTodoAnonymousAssignee: IncidentTodoAnonymousAssignee,
     IncidentTodoAttributes: IncidentTodoAttributes,
     IncidentTodoCreateData: IncidentTodoCreateData,
@@ -511,8 +544,13 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToUsers: RelationshipToUsers,
     SlackIntegrationMetadata: SlackIntegrationMetadata,
     SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+    TimestampOverrideUserRelationship: TimestampOverrideUserRelationship,
+    TimestampOverrideUserRelationshipData:
+      TimestampOverrideUserRelationshipData,
     User: User,
     UserAttributes: UserAttributes,
+    UserIncluded: UserIncluded,
+    UserIncludedAttributes: UserIncludedAttributes,
     UserResponseRelationships: UserResponseRelationships,
     ZoomConfigurationReference: ZoomConfigurationReference,
     ZoomConfigurationReferenceData: ZoomConfigurationReferenceData,
