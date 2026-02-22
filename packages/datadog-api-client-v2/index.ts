@@ -2735,6 +2735,8 @@ export { FleetScheduleResourceType } from "./models/FleetScheduleResourceType";
 export { FleetScheduleResponse } from "./models/FleetScheduleResponse";
 export { FleetSchedulesResponse } from "./models/FleetSchedulesResponse";
 export { FleetScheduleStatus } from "./models/FleetScheduleStatus";
+export { FormTrigger } from "./models/FormTrigger";
+export { FormTriggerWrapper } from "./models/FormTriggerWrapper";
 export { FormulaLimit } from "./models/FormulaLimit";
 export { FrameworkHandleAndVersionResponseData } from "./models/FrameworkHandleAndVersionResponseData";
 export { FreshserviceAPIKey } from "./models/FreshserviceAPIKey";
