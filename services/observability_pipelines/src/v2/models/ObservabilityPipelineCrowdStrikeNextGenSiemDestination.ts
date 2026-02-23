@@ -25,6 +25,10 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    */
   "encoding": ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding;
   /**
+   * Name of the environment variable or secret that holds the CrowdStrike endpoint URL.
+   */
+  "endpointUrlKey"?: string;
+  /**
    * The unique identifier for this component.
    */
   "id": string;
@@ -36,6 +40,10 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
   "tls"?: ObservabilityPipelineTls;
+  /**
+   * Name of the environment variable or secret that holds the CrowdStrike API token.
+   */
+  "tokenKey"?: string;
   /**
    * The destination type. The value should always be `crowdstrike_next_gen_siem`.
    */
@@ -68,6 +76,10 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
       type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding",
       required: true,
     },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -81,6 +93,10 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     tls: {
       baseName: "tls",
       type: "ObservabilityPipelineTls",
+    },
+    tokenKey: {
+      baseName: "token_key",
+      type: "string",
     },
     type: {
       baseName: "type",

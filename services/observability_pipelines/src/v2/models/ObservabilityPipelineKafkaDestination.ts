@@ -14,6 +14,10 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
  */
 export class ObservabilityPipelineKafkaDestination {
   /**
+   * Name of the environment variable or secret that holds the Kafka bootstrap servers list.
+   */
+  "bootstrapServersKey"?: string;
+  /**
    * Compression codec for Kafka messages.
    */
   "compression"?: ObservabilityPipelineKafkaDestinationCompression;
@@ -88,6 +92,10 @@ export class ObservabilityPipelineKafkaDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    bootstrapServersKey: {
+      baseName: "bootstrap_servers_key",
+      type: "string",
+    },
     compression: {
       baseName: "compression",
       type: "ObservabilityPipelineKafkaDestinationCompression",

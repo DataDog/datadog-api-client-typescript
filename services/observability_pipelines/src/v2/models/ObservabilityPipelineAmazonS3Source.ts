@@ -33,6 +33,10 @@ export class ObservabilityPipelineAmazonS3Source {
    */
   "type": ObservabilityPipelineAmazonS3SourceType;
   /**
+   * Name of the environment variable or secret that holds the S3 bucket URL.
+   */
+  "urlKey"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -69,6 +73,10 @@ export class ObservabilityPipelineAmazonS3Source {
       baseName: "type",
       type: "ObservabilityPipelineAmazonS3SourceType",
       required: true,
+    },
+    urlKey: {
+      baseName: "url_key",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -17,6 +17,10 @@ export class ObservabilityPipelineTls {
    */
   "keyFile"?: string;
   /**
+   * Name of the environment variable or secret that holds the passphrase for the private key file.
+   */
+  "keyPassKey"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -42,6 +46,10 @@ export class ObservabilityPipelineTls {
     },
     keyFile: {
       baseName: "key_file",
+      type: "string",
+    },
+    keyPassKey: {
+      baseName: "key_pass_key",
       type: "string",
     },
     additionalProperties: {

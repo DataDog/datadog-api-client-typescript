@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
+import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityPipelineOpenSearchDestinationType";
 
@@ -10,6 +11,11 @@ import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityP
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOpenSearchDestination {
+  /**
+   * Authentication settings for the Elasticsearch destination.
+   * When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
+   */
+  "auth"?: ObservabilityPipelineElasticsearchDestinationAuth;
   /**
    * Configuration for buffer settings on destination components.
    */
@@ -22,6 +28,10 @@ export class ObservabilityPipelineOpenSearchDestination {
    * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
    */
   "dataStream"?: ObservabilityPipelineOpenSearchDestinationDataStream;
+  /**
+   * Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+   */
+  "endpointUrlKey"?: string;
   /**
    * The unique identifier for this component.
    */
@@ -49,6 +59,10 @@ export class ObservabilityPipelineOpenSearchDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    auth: {
+      baseName: "auth",
+      type: "ObservabilityPipelineElasticsearchDestinationAuth",
+    },
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
@@ -60,6 +74,10 @@ export class ObservabilityPipelineOpenSearchDestination {
     dataStream: {
       baseName: "data_stream",
       type: "ObservabilityPipelineOpenSearchDestinationDataStream",
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
     },
     id: {
       baseName: "id",

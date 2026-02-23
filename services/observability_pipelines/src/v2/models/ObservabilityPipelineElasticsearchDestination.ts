@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./ObservabilityPipelineElasticsearchDestinationApiVersion";
+import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
 import { ObservabilityPipelineElasticsearchDestinationType } from "./ObservabilityPipelineElasticsearchDestinationType";
 
@@ -16,6 +17,11 @@ export class ObservabilityPipelineElasticsearchDestination {
    */
   "apiVersion"?: ObservabilityPipelineElasticsearchDestinationApiVersion;
   /**
+   * Authentication settings for the Elasticsearch destination.
+   * When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
+   */
+  "auth"?: ObservabilityPipelineElasticsearchDestinationAuth;
+  /**
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
@@ -27,6 +33,10 @@ export class ObservabilityPipelineElasticsearchDestination {
    * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
    */
   "dataStream"?: ObservabilityPipelineElasticsearchDestinationDataStream;
+  /**
+   * Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+   */
+  "endpointUrlKey"?: string;
   /**
    * The unique identifier for this component.
    */
@@ -58,6 +68,10 @@ export class ObservabilityPipelineElasticsearchDestination {
       baseName: "api_version",
       type: "ObservabilityPipelineElasticsearchDestinationApiVersion",
     },
+    auth: {
+      baseName: "auth",
+      type: "ObservabilityPipelineElasticsearchDestinationAuth",
+    },
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
@@ -69,6 +83,10 @@ export class ObservabilityPipelineElasticsearchDestination {
     dataStream: {
       baseName: "data_stream",
       type: "ObservabilityPipelineElasticsearchDestinationDataStream",
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
     },
     id: {
       baseName: "id",

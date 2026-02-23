@@ -35,6 +35,7 @@ import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDed
 import { ObservabilityPipelineDedupeProcessorCache } from "./ObservabilityPipelineDedupeProcessorCache";
 import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
+import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
@@ -583,6 +584,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineDiskBufferOptions,
     ObservabilityPipelineElasticsearchDestination:
       ObservabilityPipelineElasticsearchDestination,
+    ObservabilityPipelineElasticsearchDestinationAuth:
+      ObservabilityPipelineElasticsearchDestinationAuth,
     ObservabilityPipelineElasticsearchDestinationDataStream:
       ObservabilityPipelineElasticsearchDestinationDataStream,
     ObservabilityPipelineEnrichmentTableFile:
