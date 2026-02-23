@@ -1321,6 +1321,19 @@ import { GlobalVariableJsonPatchRequest } from "./GlobalVariableJsonPatchRequest
 import { GlobalVariableJsonPatchRequestData } from "./GlobalVariableJsonPatchRequestData";
 import { GlobalVariableJsonPatchRequestDataAttributes } from "./GlobalVariableJsonPatchRequestDataAttributes";
 import { GlobalVariableResponse } from "./GlobalVariableResponse";
+import { GoogleChatAppNamedSpaceResponse } from "./GoogleChatAppNamedSpaceResponse";
+import { GoogleChatAppNamedSpaceResponseAttributes } from "./GoogleChatAppNamedSpaceResponseAttributes";
+import { GoogleChatAppNamedSpaceResponseData } from "./GoogleChatAppNamedSpaceResponseData";
+import { GoogleChatCreateOrganizationHandleRequest } from "./GoogleChatCreateOrganizationHandleRequest";
+import { GoogleChatCreateOrganizationHandleRequestAttributes } from "./GoogleChatCreateOrganizationHandleRequestAttributes";
+import { GoogleChatCreateOrganizationHandleRequestData } from "./GoogleChatCreateOrganizationHandleRequestData";
+import { GoogleChatOrganizationHandleResponse } from "./GoogleChatOrganizationHandleResponse";
+import { GoogleChatOrganizationHandleResponseAttributes } from "./GoogleChatOrganizationHandleResponseAttributes";
+import { GoogleChatOrganizationHandleResponseData } from "./GoogleChatOrganizationHandleResponseData";
+import { GoogleChatOrganizationHandlesResponse } from "./GoogleChatOrganizationHandlesResponse";
+import { GoogleChatUpdateOrganizationHandleRequest } from "./GoogleChatUpdateOrganizationHandleRequest";
+import { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./GoogleChatUpdateOrganizationHandleRequestAttributes";
+import { GoogleChatUpdateOrganizationHandleRequestData } from "./GoogleChatUpdateOrganizationHandleRequestData";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
 import { GreyNoiseAPIKey } from "./GreyNoiseAPIKey";
@@ -3933,6 +3946,8 @@ const enumsMap: { [key: string]: any[] } = {
   GlobalIncidentSettingsType: ["incidents_global_settings"],
   GlobalVariableJsonPatchType: ["global_variables_json_patch"],
   GlobalVariableType: ["global_variables"],
+  GoogleChatAppNamedSpaceType: ["google-chat-app-named-space"],
+  GoogleChatOrganizationHandleType: ["google-chat-organization-handle"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
   HTTPIntegrationType: ["HTTP"],
@@ -6831,6 +6846,28 @@ const typeMap: { [index: string]: any } = {
   GlobalVariableJsonPatchRequestDataAttributes:
     GlobalVariableJsonPatchRequestDataAttributes,
   GlobalVariableResponse: GlobalVariableResponse,
+  GoogleChatAppNamedSpaceResponse: GoogleChatAppNamedSpaceResponse,
+  GoogleChatAppNamedSpaceResponseAttributes:
+    GoogleChatAppNamedSpaceResponseAttributes,
+  GoogleChatAppNamedSpaceResponseData: GoogleChatAppNamedSpaceResponseData,
+  GoogleChatCreateOrganizationHandleRequest:
+    GoogleChatCreateOrganizationHandleRequest,
+  GoogleChatCreateOrganizationHandleRequestAttributes:
+    GoogleChatCreateOrganizationHandleRequestAttributes,
+  GoogleChatCreateOrganizationHandleRequestData:
+    GoogleChatCreateOrganizationHandleRequestData,
+  GoogleChatOrganizationHandleResponse: GoogleChatOrganizationHandleResponse,
+  GoogleChatOrganizationHandleResponseAttributes:
+    GoogleChatOrganizationHandleResponseAttributes,
+  GoogleChatOrganizationHandleResponseData:
+    GoogleChatOrganizationHandleResponseData,
+  GoogleChatOrganizationHandlesResponse: GoogleChatOrganizationHandlesResponse,
+  GoogleChatUpdateOrganizationHandleRequest:
+    GoogleChatUpdateOrganizationHandleRequest,
+  GoogleChatUpdateOrganizationHandleRequestAttributes:
+    GoogleChatUpdateOrganizationHandleRequestAttributes,
+  GoogleChatUpdateOrganizationHandleRequestData:
+    GoogleChatUpdateOrganizationHandleRequestData,
   GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
   GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
   GreyNoiseAPIKey: GreyNoiseAPIKey,
