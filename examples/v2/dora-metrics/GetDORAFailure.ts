@@ -1,5 +1,5 @@
 /**
- * Get a failure event returns "OK" response
+ * Get an incident event returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

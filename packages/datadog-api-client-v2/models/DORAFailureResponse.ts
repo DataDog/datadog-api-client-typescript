@@ -8,11 +8,11 @@ import { DORAFailureResponseData } from "./DORAFailureResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response after receiving a DORA failure event.
+ * Response after receiving a DORA incident event.
  */
 export class DORAFailureResponse {
   /**
-   * Response after receiving a DORA failure event.
+   * Response after receiving a DORA incident event.
    */
   "data": DORAFailureResponseData;
 
