@@ -8,7 +8,7 @@ import { DORAIncidentObject } from "./DORAIncidentObject";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for the list failures endpoint.
+ * Response for the list incidents endpoint.
  */
 export class DORAFailuresListResponse {
   /**
