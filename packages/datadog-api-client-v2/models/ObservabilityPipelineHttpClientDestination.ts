@@ -26,6 +26,10 @@ export class ObservabilityPipelineHttpClientDestination {
    */
   "compression"?: ObservabilityPipelineHttpClientDestinationCompression;
   /**
+   * Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+   */
+  "customKey"?: string;
+  /**
    * Encoding format for log events.
    */
   "encoding": ObservabilityPipelineHttpClientDestinationEncoding;
@@ -38,13 +42,29 @@ export class ObservabilityPipelineHttpClientDestination {
    */
   "inputs": Array<string>;
   /**
+   * Name of the environment variable or secret that holds the password (used when `auth_strategy` is `basic`).
+   */
+  "passwordKey"?: string;
+  /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
   "tls"?: ObservabilityPipelineTls;
   /**
+   * Name of the environment variable or secret that holds the bearer token (used when `auth_strategy` is `bearer`).
+   */
+  "tokenKey"?: string;
+  /**
    * The destination type. The value should always be `http_client`.
    */
   "type": ObservabilityPipelineHttpClientDestinationType;
+  /**
+   * Name of the environment variable or secret that holds the HTTP endpoint URI.
+   */
+  "uriKey"?: string;
+  /**
+   * Name of the environment variable or secret that holds the username (used when `auth_strategy` is `basic`).
+   */
+  "usernameKey"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -70,6 +90,10 @@ export class ObservabilityPipelineHttpClientDestination {
       baseName: "compression",
       type: "ObservabilityPipelineHttpClientDestinationCompression",
     },
+    customKey: {
+      baseName: "custom_key",
+      type: "string",
+    },
     encoding: {
       baseName: "encoding",
       type: "ObservabilityPipelineHttpClientDestinationEncoding",
@@ -85,14 +109,30 @@ export class ObservabilityPipelineHttpClientDestination {
       type: "Array<string>",
       required: true,
     },
+    passwordKey: {
+      baseName: "password_key",
+      type: "string",
+    },
     tls: {
       baseName: "tls",
       type: "ObservabilityPipelineTls",
+    },
+    tokenKey: {
+      baseName: "token_key",
+      type: "string",
     },
     type: {
       baseName: "type",
       type: "ObservabilityPipelineHttpClientDestinationType",
       required: true,
+    },
+    uriKey: {
+      baseName: "uri_key",
+      type: "string",
+    },
+    usernameKey: {
+      baseName: "username_key",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

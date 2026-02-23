@@ -17,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineKafkaSource {
   /**
+   * Name of the environment variable or secret that holds the Kafka bootstrap servers list.
+   */
+  "bootstrapServersKey"?: string;
+  /**
    * Consumer group ID used by the Kafka client.
    */
   "groupId": string;
@@ -61,6 +65,10 @@ export class ObservabilityPipelineKafkaSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    bootstrapServersKey: {
+      baseName: "bootstrap_servers_key",
+      type: "string",
+    },
     groupId: {
       baseName: "group_id",
       type: "string",

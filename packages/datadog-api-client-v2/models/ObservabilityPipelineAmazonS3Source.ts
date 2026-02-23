@@ -37,6 +37,10 @@ export class ObservabilityPipelineAmazonS3Source {
    * The source type. Always `amazon_s3`.
    */
   "type": ObservabilityPipelineAmazonS3SourceType;
+  /**
+   * Name of the environment variable or secret that holds the S3 bucket URL.
+   */
+  "urlKey"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -76,6 +80,10 @@ export class ObservabilityPipelineAmazonS3Source {
       baseName: "type",
       type: "ObservabilityPipelineAmazonS3SourceType",
       required: true,
+    },
+    urlKey: {
+      baseName: "url_key",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

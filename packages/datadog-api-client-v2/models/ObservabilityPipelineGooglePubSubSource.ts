@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineGooglePubSubSource {
   /**
-   * GCP credentials used to authenticate with Google Cloud Storage.
+   * Google Cloud credentials used to authenticate with Google Cloud Storage.
    */
   "auth"?: ObservabilityPipelineGcpAuth;
   /**
@@ -29,7 +29,7 @@ export class ObservabilityPipelineGooglePubSubSource {
    */
   "id": string;
   /**
-   * The GCP project ID that owns the Pub/Sub subscription.
+   * The Google Cloud project ID that owns the Pub/Sub subscription.
    */
   "project": string;
   /**

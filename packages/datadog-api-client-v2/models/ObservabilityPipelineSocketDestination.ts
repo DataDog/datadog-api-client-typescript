@@ -19,6 +19,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineSocketDestination {
   /**
+   * Name of the environment variable or secret that holds the socket address (host:port).
+   */
+  "addressKey"?: string;
+  /**
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
@@ -67,6 +71,10 @@ export class ObservabilityPipelineSocketDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    addressKey: {
+      baseName: "address_key",
+      type: "string",
+    },
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",

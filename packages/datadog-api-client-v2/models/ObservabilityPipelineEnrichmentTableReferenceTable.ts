@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineEnrichmentTableReferenceTable {
   /**
+   * Name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+   */
+  "appKeyKey"?: string;
+  /**
    * List of column names to include from the reference table. If not provided, all columns are included.
    */
   "columns"?: Array<string>;
@@ -39,6 +43,10 @@ export class ObservabilityPipelineEnrichmentTableReferenceTable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    appKeyKey: {
+      baseName: "app_key_key",
+      type: "string",
+    },
     columns: {
       baseName: "columns",
       type: "Array<string>",

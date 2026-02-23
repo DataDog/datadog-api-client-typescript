@@ -17,9 +17,17 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineHttpServerSource {
   /**
+   * Name of the environment variable or secret that holds the listen address for the HTTP server.
+   */
+  "addressKey"?: string;
+  /**
    * HTTP authentication method.
    */
   "authStrategy": ObservabilityPipelineHttpServerSourceAuthStrategy;
+  /**
+   * Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+   */
+  "customKey"?: string;
   /**
    * The decoding format used to interpret incoming logs.
    */
@@ -29,6 +37,10 @@ export class ObservabilityPipelineHttpServerSource {
    */
   "id": string;
   /**
+   * Name of the environment variable or secret that holds the password (used when `auth_strategy` is `plain`).
+   */
+  "passwordKey"?: string;
+  /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
   "tls"?: ObservabilityPipelineTls;
@@ -36,6 +48,10 @@ export class ObservabilityPipelineHttpServerSource {
    * The source type. The value should always be `http_server`.
    */
   "type": ObservabilityPipelineHttpServerSourceType;
+  /**
+   * Name of the environment variable or secret that holds the username (used when `auth_strategy` is `plain`).
+   */
+  "usernameKey"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,10 +69,18 @@ export class ObservabilityPipelineHttpServerSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    addressKey: {
+      baseName: "address_key",
+      type: "string",
+    },
     authStrategy: {
       baseName: "auth_strategy",
       type: "ObservabilityPipelineHttpServerSourceAuthStrategy",
       required: true,
+    },
+    customKey: {
+      baseName: "custom_key",
+      type: "string",
     },
     decoding: {
       baseName: "decoding",
@@ -68,6 +92,10 @@ export class ObservabilityPipelineHttpServerSource {
       type: "string",
       required: true,
     },
+    passwordKey: {
+      baseName: "password_key",
+      type: "string",
+    },
     tls: {
       baseName: "tls",
       type: "ObservabilityPipelineTls",
@@ -76,6 +104,10 @@ export class ObservabilityPipelineHttpServerSource {
       baseName: "type",
       type: "ObservabilityPipelineHttpServerSourceType",
       required: true,
+    },
+    usernameKey: {
+      baseName: "username_key",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

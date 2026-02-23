@@ -1925,6 +1925,7 @@ import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDed
 import { ObservabilityPipelineDedupeProcessorCache } from "./ObservabilityPipelineDedupeProcessorCache";
 import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
+import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
@@ -7529,6 +7530,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineDiskBufferOptions,
   ObservabilityPipelineElasticsearchDestination:
     ObservabilityPipelineElasticsearchDestination,
+  ObservabilityPipelineElasticsearchDestinationAuth:
+    ObservabilityPipelineElasticsearchDestinationAuth,
   ObservabilityPipelineElasticsearchDestinationDataStream:
     ObservabilityPipelineElasticsearchDestinationDataStream,
   ObservabilityPipelineEnrichmentTableFile:

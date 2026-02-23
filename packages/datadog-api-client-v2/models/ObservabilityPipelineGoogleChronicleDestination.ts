@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineGoogleChronicleDestination {
   /**
-   * GCP credentials used to authenticate with Google Cloud Storage.
+   * Google Cloud credentials used to authenticate with Google Cloud Storage.
    */
   "auth"?: ObservabilityPipelineGcpAuth;
   /**
@@ -32,6 +32,10 @@ export class ObservabilityPipelineGoogleChronicleDestination {
    * The encoding format for the logs sent to Chronicle.
    */
   "encoding"?: ObservabilityPipelineGoogleChronicleDestinationEncoding;
+  /**
+   * Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+   */
+  "endpointUrlKey"?: string;
   /**
    * The unique identifier for this component.
    */
@@ -81,6 +85,10 @@ export class ObservabilityPipelineGoogleChronicleDestination {
     encoding: {
       baseName: "encoding",
       type: "ObservabilityPipelineGoogleChronicleDestinationEncoding",
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
     },
     id: {
       baseName: "id",

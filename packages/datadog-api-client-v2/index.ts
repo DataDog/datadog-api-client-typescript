@@ -3684,6 +3684,7 @@ export { ObservabilityPipelineDedupeProcessorType } from "./models/Observability
 export { ObservabilityPipelineDiskBufferOptions } from "./models/ObservabilityPipelineDiskBufferOptions";
 export { ObservabilityPipelineElasticsearchDestination } from "./models/ObservabilityPipelineElasticsearchDestination";
 export { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./models/ObservabilityPipelineElasticsearchDestinationApiVersion";
+export { ObservabilityPipelineElasticsearchDestinationAuth } from "./models/ObservabilityPipelineElasticsearchDestinationAuth";
 export { ObservabilityPipelineElasticsearchDestinationDataStream } from "./models/ObservabilityPipelineElasticsearchDestinationDataStream";
 export { ObservabilityPipelineElasticsearchDestinationType } from "./models/ObservabilityPipelineElasticsearchDestinationType";
 export { ObservabilityPipelineEnrichmentTableFile } from "./models/ObservabilityPipelineEnrichmentTableFile";

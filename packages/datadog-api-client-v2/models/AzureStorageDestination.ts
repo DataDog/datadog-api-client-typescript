@@ -23,6 +23,10 @@ export class AzureStorageDestination {
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
+   * Name of the environment variable or secret that holds the Azure Storage connection string.
+   */
+  "connectionStringKey"?: string;
+  /**
    * The name of the Azure Blob Storage container to store logs in.
    */
   "containerName": string;
@@ -62,6 +66,10 @@ export class AzureStorageDestination {
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
+    },
+    connectionStringKey: {
+      baseName: "connection_string_key",
+      type: "string",
     },
     containerName: {
       baseName: "container_name",

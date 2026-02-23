@@ -20,6 +20,10 @@ export class ObservabilityPipelineSyslogNgDestination {
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
+   * Name of the environment variable or secret that holds the syslog-ng server endpoint URL.
+   */
+  "endpointUrlKey"?: string;
+  /**
    * The unique identifier for this component.
    */
   "id": string;
@@ -59,6 +63,10 @@ export class ObservabilityPipelineSyslogNgDestination {
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
     },
     id: {
       baseName: "id",

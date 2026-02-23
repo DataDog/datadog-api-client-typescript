@@ -22,6 +22,10 @@ export class ObservabilityPipelineTls {
    * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
    */
   "keyFile"?: string;
+  /**
+   * Name of the environment variable or secret that holds the passphrase for the private key file.
+   */
+  "keyPassKey"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,6 +54,10 @@ export class ObservabilityPipelineTls {
     },
     keyFile: {
       baseName: "key_file",
+      type: "string",
+    },
+    keyPassKey: {
+      baseName: "key_pass_key",
       type: "string",
     },
     additionalProperties: {

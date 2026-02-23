@@ -18,7 +18,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineGooglePubSubDestination {
   /**
-   * GCP credentials used to authenticate with Google Cloud Storage.
+   * Google Cloud credentials used to authenticate with Google Cloud Storage.
    */
   "auth"?: ObservabilityPipelineGcpAuth;
   /**
@@ -30,6 +30,10 @@ export class ObservabilityPipelineGooglePubSubDestination {
    */
   "encoding": ObservabilityPipelineGooglePubSubDestinationEncoding;
   /**
+   * Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+   */
+  "endpointUrlKey"?: string;
+  /**
    * The unique identifier for this component.
    */
   "id": string;
@@ -38,7 +42,7 @@ export class ObservabilityPipelineGooglePubSubDestination {
    */
   "inputs": Array<string>;
   /**
-   * The GCP project ID that owns the Pub/Sub topic.
+   * The Google Cloud project ID that owns the Pub/Sub topic.
    */
   "project": string;
   /**
@@ -82,6 +86,10 @@ export class ObservabilityPipelineGooglePubSubDestination {
       baseName: "encoding",
       type: "ObservabilityPipelineGooglePubSubDestinationEncoding",
       required: true,
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
     },
     id: {
       baseName: "id",

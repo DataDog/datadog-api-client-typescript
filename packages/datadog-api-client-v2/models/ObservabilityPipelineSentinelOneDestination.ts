@@ -32,6 +32,10 @@ export class ObservabilityPipelineSentinelOneDestination {
    */
   "region": ObservabilityPipelineSentinelOneDestinationRegion;
   /**
+   * Name of the environment variable or secret that holds the SentinelOne API token.
+   */
+  "tokenKey"?: string;
+  /**
    * The destination type. The value should always be `sentinel_one`.
    */
   "type": ObservabilityPipelineSentinelOneDestinationType;
@@ -70,6 +74,10 @@ export class ObservabilityPipelineSentinelOneDestination {
       baseName: "region",
       type: "ObservabilityPipelineSentinelOneDestinationRegion",
       required: true,
+    },
+    tokenKey: {
+      baseName: "token_key",
+      type: "string",
     },
     type: {
       baseName: "type",
