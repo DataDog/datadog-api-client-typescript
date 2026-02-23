@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DORAGitInfo } from "./DORAGitInfo";
 
 /**
- * Attributes to create a DORA failure event.
+ * Attributes to create a DORA incident event.
  */
 export class DORAFailureRequestAttributes {
   /**
@@ -11,11 +11,11 @@ export class DORAFailureRequestAttributes {
    */
   "customTags"?: Array<string>;
   /**
-   * Environment name that was impacted by the failure.
+   * Environment name that was impacted by the incident.
    */
   "env"?: string;
   /**
-   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds.
+   * Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds.
    */
   "finishedAt"?: number;
   /**
@@ -23,23 +23,23 @@ export class DORAFailureRequestAttributes {
    */
   "git"?: DORAGitInfo;
   /**
-   * Failure ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
+   * Incident ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
    */
   "id"?: string;
   /**
-   * Failure name.
+   * Incident name.
    */
   "name"?: string;
   /**
-   * Service names impacted by the failure. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
+   * Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
    */
   "services"?: Array<string>;
   /**
-   * Failure severity.
+   * Incident severity.
    */
   "severity"?: string;
   /**
-   * Unix timestamp when the failure started. It must be in nanoseconds, milliseconds, or seconds.
+   * Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
    */
   "startedAt": number;
   /**

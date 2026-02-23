@@ -3,17 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DORADeploymentPatchRemediationType } from "./DORADeploymentPatchRemediationType";
 
 /**
- * Remediation details for the deployment.
+ * Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time.
  */
 export class DORADeploymentPatchRemediation {
   /**
-   * The ID of the remediation action.
+   * The ID of the remediation deployment. Required when the failed deployment must be linked to a remediation deployment.
    */
-  "id": string;
+  "id"?: string;
   /**
-   * The type of remediation action taken.
+   * The type of remediation action taken. Required when the failed deployment must be linked to a remediation deployment.
    */
-  "type": DORADeploymentPatchRemediationType;
+  "type"?: DORADeploymentPatchRemediationType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,12 +32,10 @@ export class DORADeploymentPatchRemediation {
     id: {
       baseName: "id",
       type: "string",
-      required: true,
     },
     type: {
       baseName: "type",
       type: "DORADeploymentPatchRemediationType",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

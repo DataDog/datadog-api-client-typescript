@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes to get a list of failures.
+ * Attributes to get a list of incidents.
  */
 export class DORAListFailuresRequestAttributes {
   /**
