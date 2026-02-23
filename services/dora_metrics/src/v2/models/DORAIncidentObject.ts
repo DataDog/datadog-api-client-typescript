@@ -16,7 +16,7 @@ export class DORAIncidentObject {
    */
   "id"?: string;
   /**
-   * JSON:API type for DORA failure events.
+   * JSON:API type for DORA incident events.
    */
   "type"?: DORAFailureType;
   /**
