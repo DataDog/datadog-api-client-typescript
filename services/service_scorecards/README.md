@@ -30,7 +30,7 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "ServiceScorecardsApi.v2.listScorecardOutcomes": true
+        "ServiceScorecardsApi.v2.listScorecardCampaigns": true
     }
 }
 
@@ -38,7 +38,7 @@ const configuration = createConfiguration(configurationOpts);
 const apiInstance = new ServiceScorecardsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listScorecardOutcomes(params).then((data) => {
+apiInstance.listScorecardCampaigns(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
