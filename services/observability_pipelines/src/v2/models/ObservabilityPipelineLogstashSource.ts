@@ -10,6 +10,10 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
  */
 export class ObservabilityPipelineLogstashSource {
   /**
+   * Name of the environment variable or secret that holds the listen address for the Logstash receiver.
+   */
+  "addressKey"?: string;
+  /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -36,6 +40,10 @@ export class ObservabilityPipelineLogstashSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    addressKey: {
+      baseName: "address_key",
+      type: "string",
+    },
     id: {
       baseName: "id",
       type: "string",

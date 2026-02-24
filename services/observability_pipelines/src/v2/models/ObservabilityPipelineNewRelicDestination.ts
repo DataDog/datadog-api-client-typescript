@@ -11,6 +11,10 @@ import { ObservabilityPipelineNewRelicDestinationType } from "./ObservabilityPip
  */
 export class ObservabilityPipelineNewRelicDestination {
   /**
+   * Name of the environment variable or secret that holds the New Relic account ID.
+   */
+  "accountIdKey"?: string;
+  /**
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
@@ -22,6 +26,10 @@ export class ObservabilityPipelineNewRelicDestination {
    * A list of component IDs whose output is used as the `input` for this component.
    */
   "inputs": Array<string>;
+  /**
+   * Name of the environment variable or secret that holds the New Relic license key.
+   */
+  "licenseKeyKey"?: string;
   /**
    * The New Relic region.
    */
@@ -45,6 +53,10 @@ export class ObservabilityPipelineNewRelicDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountIdKey: {
+      baseName: "account_id_key",
+      type: "string",
+    },
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
@@ -58,6 +70,10 @@ export class ObservabilityPipelineNewRelicDestination {
       baseName: "inputs",
       type: "Array<string>",
       required: true,
+    },
+    licenseKeyKey: {
+      baseName: "license_key_key",
+      type: "string",
     },
     region: {
       baseName: "region",

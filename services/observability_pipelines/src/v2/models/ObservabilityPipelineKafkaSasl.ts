@@ -11,6 +11,14 @@ export class ObservabilityPipelineKafkaSasl {
    */
   "mechanism"?: ObservabilityPipelineKafkaSaslMechanism;
   /**
+   * Name of the environment variable or secret that holds the SASL password.
+   */
+  "passwordKey"?: string;
+  /**
+   * Name of the environment variable or secret that holds the SASL username.
+   */
+  "usernameKey"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -28,6 +36,14 @@ export class ObservabilityPipelineKafkaSasl {
     mechanism: {
       baseName: "mechanism",
       type: "ObservabilityPipelineKafkaSaslMechanism",
+    },
+    passwordKey: {
+      baseName: "password_key",
+      type: "string",
+    },
+    usernameKey: {
+      baseName: "username_key",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

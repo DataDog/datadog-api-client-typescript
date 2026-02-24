@@ -18,6 +18,14 @@ export class MicrosoftSentinelDestination {
    */
   "clientId": string;
   /**
+   * Name of the environment variable or secret that holds the Azure AD client secret.
+   */
+  "clientSecretKey"?: string;
+  /**
+   * Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+   */
+  "dceUriKey"?: string;
+  /**
    * The immutable ID of the Data Collection Rule (DCR).
    */
   "dcrImmutableId": string;
@@ -64,6 +72,14 @@ export class MicrosoftSentinelDestination {
       baseName: "client_id",
       type: "string",
       required: true,
+    },
+    clientSecretKey: {
+      baseName: "client_secret_key",
+      type: "string",
+    },
+    dceUriKey: {
+      baseName: "dce_uri_key",
+      type: "string",
     },
     dcrImmutableId: {
       baseName: "dcr_immutable_id",

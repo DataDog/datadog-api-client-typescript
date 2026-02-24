@@ -9,6 +9,10 @@ import { ObservabilityPipelineCloudPremDestinationType } from "./ObservabilityPi
  */
 export class ObservabilityPipelineCloudPremDestination {
   /**
+   * Name of the environment variable or secret that holds the CloudPrem endpoint URL.
+   */
+  "endpointUrlKey"?: string;
+  /**
    * The unique identifier for this component.
    */
   "id": string;
@@ -35,6 +39,10 @@ export class ObservabilityPipelineCloudPremDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
+    },
     id: {
       baseName: "id",
       type: "string",

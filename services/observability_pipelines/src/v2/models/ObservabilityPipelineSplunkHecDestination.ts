@@ -24,6 +24,10 @@ export class ObservabilityPipelineSplunkHecDestination {
    */
   "encoding"?: ObservabilityPipelineSplunkHecDestinationEncoding;
   /**
+   * Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+   */
+  "endpointUrlKey"?: string;
+  /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -39,6 +43,10 @@ export class ObservabilityPipelineSplunkHecDestination {
    * The Splunk sourcetype to assign to log events.
    */
   "sourcetype"?: string;
+  /**
+   * Name of the environment variable or secret that holds the Splunk HEC token.
+   */
+  "tokenKey"?: string;
   /**
    * The destination type. Always `splunk_hec`.
    */
@@ -70,6 +78,10 @@ export class ObservabilityPipelineSplunkHecDestination {
       baseName: "encoding",
       type: "ObservabilityPipelineSplunkHecDestinationEncoding",
     },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -86,6 +98,10 @@ export class ObservabilityPipelineSplunkHecDestination {
     },
     sourcetype: {
       baseName: "sourcetype",
+      type: "string",
+    },
+    tokenKey: {
+      baseName: "token_key",
       type: "string",
     },
     type: {
