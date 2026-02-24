@@ -2956,6 +2956,7 @@ export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
 export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
 export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
 export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
+export { IncidentCondition } from "./models/IncidentCondition";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
@@ -3061,6 +3062,8 @@ export { IncidentResponseIncludedItem } from "./models/IncidentResponseIncludedI
 export { IncidentResponseMeta } from "./models/IncidentResponseMeta";
 export { IncidentResponseMetaPagination } from "./models/IncidentResponseMetaPagination";
 export { IncidentResponseRelationships } from "./models/IncidentResponseRelationships";
+export { IncidentScheduleTrigger } from "./models/IncidentScheduleTrigger";
+export { IncidentScheduleTriggerWrapper } from "./models/IncidentScheduleTriggerWrapper";
 export { IncidentSearchResponse } from "./models/IncidentSearchResponse";
 export { IncidentSearchResponseAttributes } from "./models/IncidentSearchResponseAttributes";
 export { IncidentSearchResponseData } from "./models/IncidentSearchResponseData";
