@@ -1225,6 +1225,8 @@ import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
+import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
+import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
 import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
@@ -2166,6 +2168,20 @@ import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRe
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { PersonalAccessToken } from "./PersonalAccessToken";
+import { PersonalAccessTokenAttributes } from "./PersonalAccessTokenAttributes";
+import { PersonalAccessTokenCreateAttributes } from "./PersonalAccessTokenCreateAttributes";
+import { PersonalAccessTokenCreateData } from "./PersonalAccessTokenCreateData";
+import { PersonalAccessTokenCreateRequest } from "./PersonalAccessTokenCreateRequest";
+import { PersonalAccessTokenGetResponse } from "./PersonalAccessTokenGetResponse";
+import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelationships";
+import { PersonalAccessTokenResponse } from "./PersonalAccessTokenResponse";
+import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
+import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
+import { PersonalAccessTokenUpdateRequest } from "./PersonalAccessTokenUpdateRequest";
+import { PersonalAccessTokensListResponse } from "./PersonalAccessTokensListResponse";
+import { PersonalAccessTokensResponseMeta } from "./PersonalAccessTokensResponseMeta";
+import { PersonalAccessTokensResponseMetaPage } from "./PersonalAccessTokensResponseMetaPage";
 import { Playlist } from "./Playlist";
 import { PlaylistArray } from "./PlaylistArray";
 import { PlaylistData } from "./PlaylistData";
@@ -4515,6 +4531,15 @@ const enumsMap: { [key: string]: any[] } = {
   PatchDegradationRequestDataType: ["degradations"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
+  PersonalAccessTokenType: ["personal_access_tokens"],
+  PersonalAccessTokensSort: [
+    "name",
+    "-name",
+    "created_at",
+    "-created_at",
+    "expires_at",
+    "-expires_at",
+  ],
   PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
   PostmortemTemplateType: ["postmortem_template"],
@@ -6734,6 +6759,8 @@ const typeMap: { [index: string]: any } = {
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
   FullCustomFrameworkData: FullCustomFrameworkData,
   FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
+  FullPersonalAccessToken: FullPersonalAccessToken,
+  FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
   GCPIntegration: GCPIntegration,
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
@@ -7890,6 +7917,20 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  PersonalAccessToken: PersonalAccessToken,
+  PersonalAccessTokenAttributes: PersonalAccessTokenAttributes,
+  PersonalAccessTokenCreateAttributes: PersonalAccessTokenCreateAttributes,
+  PersonalAccessTokenCreateData: PersonalAccessTokenCreateData,
+  PersonalAccessTokenCreateRequest: PersonalAccessTokenCreateRequest,
+  PersonalAccessTokenGetResponse: PersonalAccessTokenGetResponse,
+  PersonalAccessTokenRelationships: PersonalAccessTokenRelationships,
+  PersonalAccessTokenResponse: PersonalAccessTokenResponse,
+  PersonalAccessTokenUpdateAttributes: PersonalAccessTokenUpdateAttributes,
+  PersonalAccessTokenUpdateData: PersonalAccessTokenUpdateData,
+  PersonalAccessTokenUpdateRequest: PersonalAccessTokenUpdateRequest,
+  PersonalAccessTokensListResponse: PersonalAccessTokensListResponse,
+  PersonalAccessTokensResponseMeta: PersonalAccessTokensResponseMeta,
+  PersonalAccessTokensResponseMetaPage: PersonalAccessTokensResponseMetaPage,
   Playlist: Playlist,
   PlaylistArray: PlaylistArray,
   PlaylistData: PlaylistData,

@@ -236,6 +236,11 @@ export function createConfiguration(
       "v2.listFleetSchedules": false,
       "v2.triggerFleetSchedule": false,
       "v2.updateFleetSchedule": false,
+      "v2.createPersonalAccessToken": false,
+      "v2.getPersonalAccessToken": false,
+      "v2.listPersonalAccessTokens": false,
+      "v2.revokePersonalAccessToken": false,
+      "v2.updatePersonalAccessToken": false,
       "v2.createOpenAPI": false,
       "v2.deleteOpenAPI": false,
       "v2.getOpenAPI": false,
@@ -433,6 +438,9 @@ export function createConfiguration(
       "v2.updateIncidentTeam": false,
       "v2.searchFlakyTests": false,
       "v2.updateFlakyTests": false,
+      "v1.createClientToken": false,
+      "v1.revokeClientToken": false,
+      "v1.updateClientToken": false,
     }
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;

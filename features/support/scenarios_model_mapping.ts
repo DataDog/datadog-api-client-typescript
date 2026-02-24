@@ -72,6 +72,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
+    "v1.UpdateClientToken": {
+        "body": {
+            "type": "ClientTokenUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ClientToken",
+    },
+    "v1.CreateClientToken": {
+        "body": {
+            "type": "ClientTokenCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ClientToken",
+    },
+    "v1.RevokeClientToken": {
+        "body": {
+            "type": "ClientTokenRevokeRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.SubmitServiceCheck": {
         "body": {
             "type": "Array<ServiceCheck>",
@@ -2967,6 +2988,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
+    },
+    "v2.ListPersonalAccessTokens": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "PersonalAccessTokensSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOwnerUuid": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokensListResponse",
+    },
+    "v2.CreatePersonalAccessToken": {
+        "body": {
+            "type": "PersonalAccessTokenCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenResponse",
+    },
+    "v2.GetPersonalAccessToken": {
+        "patUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "PersonalAccessTokenGetResponse",
+    },
+    "v2.RevokePersonalAccessToken": {
+        "patUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdatePersonalAccessToken": {
+        "patUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PersonalAccessTokenUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenGetResponse",
     },
     "v2.ListAPIs": {
         "query": {
