@@ -1403,6 +1403,16 @@ import { IncidentImpactRelationships } from "./IncidentImpactRelationships";
 import { IncidentImpactResponse } from "./IncidentImpactResponse";
 import { IncidentImpactResponseData } from "./IncidentImpactResponseData";
 import { IncidentImpactsResponse } from "./IncidentImpactsResponse";
+import { IncidentImportFieldAttributesMultipleValue } from "./IncidentImportFieldAttributesMultipleValue";
+import { IncidentImportFieldAttributesSingleValue } from "./IncidentImportFieldAttributesSingleValue";
+import { IncidentImportRelationships } from "./IncidentImportRelationships";
+import { IncidentImportRequest } from "./IncidentImportRequest";
+import { IncidentImportRequestAttributes } from "./IncidentImportRequestAttributes";
+import { IncidentImportRequestData } from "./IncidentImportRequestData";
+import { IncidentImportResponse } from "./IncidentImportResponse";
+import { IncidentImportResponseAttributes } from "./IncidentImportResponseAttributes";
+import { IncidentImportResponseData } from "./IncidentImportResponseData";
+import { IncidentImportResponseRelationships } from "./IncidentImportResponseRelationships";
 import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
 import { IncidentIntegrationMetadataCreateData } from "./IncidentIntegrationMetadataCreateData";
 import { IncidentIntegrationMetadataCreateRequest } from "./IncidentIntegrationMetadataCreateRequest";
@@ -3978,6 +3988,14 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentImpactType: ["incident_impacts"],
   IncidentImpactsType: ["incident_impacts"],
+  IncidentImportRelatedObject: [
+    "last_modified_by_user",
+    "created_by_user",
+    "commander_user",
+    "declared_by_user",
+    "incident_type",
+  ],
+  IncidentImportVisibility: ["organization", "private"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
   IncidentNotificationRuleAttributesVisibility: [
     "all",
@@ -6938,6 +6956,18 @@ const typeMap: { [index: string]: any } = {
   IncidentImpactResponse: IncidentImpactResponse,
   IncidentImpactResponseData: IncidentImpactResponseData,
   IncidentImpactsResponse: IncidentImpactsResponse,
+  IncidentImportFieldAttributesMultipleValue:
+    IncidentImportFieldAttributesMultipleValue,
+  IncidentImportFieldAttributesSingleValue:
+    IncidentImportFieldAttributesSingleValue,
+  IncidentImportRelationships: IncidentImportRelationships,
+  IncidentImportRequest: IncidentImportRequest,
+  IncidentImportRequestAttributes: IncidentImportRequestAttributes,
+  IncidentImportRequestData: IncidentImportRequestData,
+  IncidentImportResponse: IncidentImportResponse,
+  IncidentImportResponseAttributes: IncidentImportResponseAttributes,
+  IncidentImportResponseData: IncidentImportResponseData,
+  IncidentImportResponseRelationships: IncidentImportResponseRelationships,
   IncidentIntegrationMetadataAttributes: IncidentIntegrationMetadataAttributes,
   IncidentIntegrationMetadataCreateData: IncidentIntegrationMetadataCreateData,
   IncidentIntegrationMetadataCreateRequest:
@@ -9504,6 +9534,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentFieldAttributesMultipleValue",
   ],
   IncidentHandleIncludedItemResponse: [
+    "IncidentUserData",
+    "IncidentTypeObject",
+  ],
+  IncidentImportFieldAttributes: [
+    "IncidentImportFieldAttributesSingleValue",
+    "IncidentImportFieldAttributesMultipleValue",
+  ],
+  IncidentImportResponseIncludedItem: [
     "IncidentUserData",
     "IncidentTypeObject",
   ],

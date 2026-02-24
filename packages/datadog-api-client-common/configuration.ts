@@ -325,6 +325,7 @@ export function createConfiguration(
       "v2.getIncidentPostmortemTemplate": false,
       "v2.getIncidentTodo": false,
       "v2.getIncidentType": false,
+      "v2.importIncident": false,
       "v2.listGlobalIncidentHandles": false,
       "v2.listIncidentAttachments": false,
       "v2.listIncidentIntegrations": false,
