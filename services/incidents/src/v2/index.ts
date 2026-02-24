@@ -26,6 +26,7 @@ export {
   IncidentsApiGetIncidentPostmortemTemplateRequest,
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
+  IncidentsApiImportIncidentRequest,
   IncidentsApiListGlobalIncidentHandlesRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentImpactsRequest,
@@ -108,6 +109,20 @@ export { IncidentImpactResponseData } from "./models/IncidentImpactResponseData"
 export { IncidentImpactsResponse } from "./models/IncidentImpactsResponse";
 export { IncidentImpactsType } from "./models/IncidentImpactsType";
 export { IncidentImpactType } from "./models/IncidentImpactType";
+export { IncidentImportFieldAttributes } from "./models/IncidentImportFieldAttributes";
+export { IncidentImportFieldAttributesMultipleValue } from "./models/IncidentImportFieldAttributesMultipleValue";
+export { IncidentImportFieldAttributesSingleValue } from "./models/IncidentImportFieldAttributesSingleValue";
+export { IncidentImportRelatedObject } from "./models/IncidentImportRelatedObject";
+export { IncidentImportRelationships } from "./models/IncidentImportRelationships";
+export { IncidentImportRequest } from "./models/IncidentImportRequest";
+export { IncidentImportRequestAttributes } from "./models/IncidentImportRequestAttributes";
+export { IncidentImportRequestData } from "./models/IncidentImportRequestData";
+export { IncidentImportResponse } from "./models/IncidentImportResponse";
+export { IncidentImportResponseAttributes } from "./models/IncidentImportResponseAttributes";
+export { IncidentImportResponseData } from "./models/IncidentImportResponseData";
+export { IncidentImportResponseIncludedItem } from "./models/IncidentImportResponseIncludedItem";
+export { IncidentImportResponseRelationships } from "./models/IncidentImportResponseRelationships";
+export { IncidentImportVisibility } from "./models/IncidentImportVisibility";
 export { IncidentIntegrationMetadataAttributes } from "./models/IncidentIntegrationMetadataAttributes";
 export { IncidentIntegrationMetadataCreateData } from "./models/IncidentIntegrationMetadataCreateData";
 export { IncidentIntegrationMetadataCreateRequest } from "./models/IncidentIntegrationMetadataCreateRequest";
