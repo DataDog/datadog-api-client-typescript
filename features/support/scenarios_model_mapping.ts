@@ -9581,6 +9581,101 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ViewershipHistorySessionArray",
     },
+    "v2.ListScorecardCampaigns": {
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterCampaignName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCampaignStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCampaignOwner": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListCampaignsResponse",
+    },
+    "v2.CreateScorecardCampaign": {
+        "body": {
+            "type": "CreateCampaignRequest",
+            "format": "",
+            },
+        "operationResponseType": "CampaignResponse",
+    },
+    "v2.GetScorecardCampaign": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "includeMeta": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "CampaignResponse",
+    },
+    "v2.UpdateScorecardCampaign": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateCampaignRequest",
+            "format": "",
+            },
+        "operationResponseType": "CampaignResponse",
+    },
+    "v2.DeleteScorecardCampaign": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GenerateScorecardCampaignTeamReports": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GenerateCampaignTeamReportsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GenerateScorecardCampaignReport": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GenerateCampaignReportRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListScorecardDefaultRules": {
+        "operationResponseType": "ListDefaultRulesResponse",
+    },
+    "v2.ListScorecardFacets": {
+        "filterEntityQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListFacetsResponse",
+    },
     "v2.ListScorecardOutcomes": {
         "pageSize": {
             "type": "number",
@@ -9702,6 +9797,89 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.DeleteScorecardRule": {
         "ruleId": {
             "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteScorecardRuleWorkflow": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateScorecardRuleWorkflow": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "workflowId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListScorecards": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterScorecardId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterScorecardName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterScorecardDescription": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListScorecardsResponse",
+    },
+    "v2.ListScorecardScores": {
+        "aggregation": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterEntityQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleCustom": {
+            "type": "boolean",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListScoresResponse",
+    },
+    "v2.SetupScorecardRules": {
+        "body": {
+            "type": "SetupRulesRequest",
             "format": "",
             },
         "operationResponseType": "{}",

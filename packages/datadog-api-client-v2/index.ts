@@ -992,13 +992,26 @@ export {
 } from "./apis/ServiceLevelObjectivesApi";
 
 export {
+  ServiceScorecardsApiCreateScorecardCampaignRequest,
   ServiceScorecardsApiCreateScorecardOutcomesBatchRequest,
   ServiceScorecardsApiCreateScorecardRuleRequest,
+  ServiceScorecardsApiDeleteScorecardCampaignRequest,
   ServiceScorecardsApiDeleteScorecardRuleRequest,
+  ServiceScorecardsApiDeleteScorecardRuleWorkflowRequest,
+  ServiceScorecardsApiGenerateScorecardCampaignReportRequest,
+  ServiceScorecardsApiGenerateScorecardCampaignTeamReportsRequest,
+  ServiceScorecardsApiGetScorecardCampaignRequest,
+  ServiceScorecardsApiListScorecardCampaignsRequest,
+  ServiceScorecardsApiListScorecardFacetsRequest,
   ServiceScorecardsApiListScorecardOutcomesRequest,
   ServiceScorecardsApiListScorecardRulesRequest,
+  ServiceScorecardsApiListScorecardScoresRequest,
+  ServiceScorecardsApiListScorecardsRequest,
+  ServiceScorecardsApiSetupScorecardRulesRequest,
+  ServiceScorecardsApiUpdateScorecardCampaignRequest,
   ServiceScorecardsApiUpdateScorecardOutcomesAsyncRequest,
   ServiceScorecardsApiUpdateScorecardRuleRequest,
+  ServiceScorecardsApiUpdateScorecardRuleWorkflowRequest,
   ServiceScorecardsApi,
 } from "./apis/ServiceScorecardsApi";
 
@@ -1605,6 +1618,11 @@ export { BulkPutAppsDatastoreItemsRequest } from "./models/BulkPutAppsDatastoreI
 export { BulkPutAppsDatastoreItemsRequestData } from "./models/BulkPutAppsDatastoreItemsRequestData";
 export { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./models/BulkPutAppsDatastoreItemsRequestDataAttributes";
 export { CalculatedField } from "./models/CalculatedField";
+export { CampaignResponse } from "./models/CampaignResponse";
+export { CampaignResponseAttributes } from "./models/CampaignResponseAttributes";
+export { CampaignResponseData } from "./models/CampaignResponseData";
+export { CampaignStatus } from "./models/CampaignStatus";
+export { CampaignType } from "./models/CampaignType";
 export { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionResponseBody";
 export { Case } from "./models/Case";
 export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
@@ -2007,6 +2025,9 @@ export { CreateAttachmentRequest } from "./models/CreateAttachmentRequest";
 export { CreateAttachmentRequestData } from "./models/CreateAttachmentRequestData";
 export { CreateAttachmentRequestDataAttributes } from "./models/CreateAttachmentRequestDataAttributes";
 export { CreateAttachmentRequestDataAttributesAttachment } from "./models/CreateAttachmentRequestDataAttributesAttachment";
+export { CreateCampaignRequest } from "./models/CreateCampaignRequest";
+export { CreateCampaignRequestAttributes } from "./models/CreateCampaignRequestAttributes";
+export { CreateCampaignRequestData } from "./models/CreateCampaignRequestData";
 export { CreateCaseRequestArray } from "./models/CreateCaseRequestArray";
 export { CreateCaseRequestData } from "./models/CreateCaseRequestData";
 export { CreateCaseRequestDataAttributes } from "./models/CreateCaseRequestDataAttributes";
@@ -2290,6 +2311,9 @@ export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";
+export { DefaultRuleResponseAttributes } from "./models/DefaultRuleResponseAttributes";
+export { DefaultRuleResponseData } from "./models/DefaultRuleResponseData";
+export { DefaultRuleType } from "./models/DefaultRuleType";
 export { Degradation } from "./models/Degradation";
 export { DegradationArray } from "./models/DegradationArray";
 export { DegradationArrayIncluded } from "./models/DegradationArrayIncluded";
@@ -2449,6 +2473,7 @@ export { DowntimeUpdateRequestData } from "./models/DowntimeUpdateRequestData";
 export { EntityAttributes } from "./models/EntityAttributes";
 export { EntityData } from "./models/EntityData";
 export { EntityMeta } from "./models/EntityMeta";
+export { EntityOwnerDestination } from "./models/EntityOwnerDestination";
 export { EntityRelationships } from "./models/EntityRelationships";
 export { EntityResponseArray } from "./models/EntityResponseArray";
 export { EntityResponseDataAttributes } from "./models/EntityResponseDataAttributes";
@@ -2628,6 +2653,10 @@ export { FacetInfoResponseDataAttributesResult } from "./models/FacetInfoRespons
 export { FacetInfoResponseDataAttributesResultRange } from "./models/FacetInfoResponseDataAttributesResultRange";
 export { FacetInfoResponseDataAttributesResultValuesItems } from "./models/FacetInfoResponseDataAttributesResultValuesItems";
 export { FacetInfoResponseDataType } from "./models/FacetInfoResponseDataType";
+export { FacetItem } from "./models/FacetItem";
+export { FacetResponseAttributes } from "./models/FacetResponseAttributes";
+export { FacetResponseData } from "./models/FacetResponseData";
+export { FacetType } from "./models/FacetType";
 export { FastlyAccounResponseAttributes } from "./models/FastlyAccounResponseAttributes";
 export { FastlyAccountCreateRequest } from "./models/FastlyAccountCreateRequest";
 export { FastlyAccountCreateRequestAttributes } from "./models/FastlyAccountCreateRequestAttributes";
@@ -2822,6 +2851,14 @@ export { GeminiCredentialsUpdate } from "./models/GeminiCredentialsUpdate";
 export { GeminiIntegration } from "./models/GeminiIntegration";
 export { GeminiIntegrationType } from "./models/GeminiIntegrationType";
 export { GeminiIntegrationUpdate } from "./models/GeminiIntegrationUpdate";
+export { GenerateCampaignReportRequest } from "./models/GenerateCampaignReportRequest";
+export { GenerateCampaignReportRequestAttributes } from "./models/GenerateCampaignReportRequestAttributes";
+export { GenerateCampaignReportRequestData } from "./models/GenerateCampaignReportRequestData";
+export { GenerateCampaignReportRequestDataType } from "./models/GenerateCampaignReportRequestDataType";
+export { GenerateCampaignTeamReportsRequest } from "./models/GenerateCampaignTeamReportsRequest";
+export { GenerateCampaignTeamReportsRequestAttributes } from "./models/GenerateCampaignTeamReportsRequestAttributes";
+export { GenerateCampaignTeamReportsRequestData } from "./models/GenerateCampaignTeamReportsRequestData";
+export { GenerateCampaignTeamReportsRequestDataType } from "./models/GenerateCampaignTeamReportsRequestDataType";
 export { GetActionConnectionResponse } from "./models/GetActionConnectionResponse";
 export { GetAppKeyRegistrationResponse } from "./models/GetAppKeyRegistrationResponse";
 export { GetAppResponse } from "./models/GetAppResponse";
@@ -3305,12 +3342,14 @@ export { ListAppsResponseDataItemsRelationships } from "./models/ListAppsRespons
 export { ListAppsResponseMeta } from "./models/ListAppsResponseMeta";
 export { ListAppsResponseMetaPage } from "./models/ListAppsResponseMetaPage";
 export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
+export { ListCampaignsResponse } from "./models/ListCampaignsResponse";
 export { ListConnectionsResponse } from "./models/ListConnectionsResponse";
 export { ListConnectionsResponseData } from "./models/ListConnectionsResponseData";
 export { ListConnectionsResponseDataAttributes } from "./models/ListConnectionsResponseDataAttributes";
 export { ListConnectionsResponseDataAttributesConnectionsItems } from "./models/ListConnectionsResponseDataAttributesConnectionsItems";
 export { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./models/ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 export { ListConnectionsResponseDataType } from "./models/ListConnectionsResponseDataType";
+export { ListDefaultRulesResponse } from "./models/ListDefaultRulesResponse";
 export { ListDeploymentRuleResponseData } from "./models/ListDeploymentRuleResponseData";
 export { ListDeploymentRulesDataType } from "./models/ListDeploymentRulesDataType";
 export { ListDeploymentRulesResponseDataAttributes } from "./models/ListDeploymentRulesResponseDataAttributes";
@@ -3321,6 +3360,8 @@ export { ListDowntimesResponse } from "./models/ListDowntimesResponse";
 export { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
 export { ListEntityCatalogResponseIncludedItem } from "./models/ListEntityCatalogResponseIncludedItem";
 export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogResponseLinks";
+export { ListFacetsResponse } from "./models/ListFacetsResponse";
+export { ListFacetsResponseMeta } from "./models/ListFacetsResponseMeta";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
@@ -3338,6 +3379,8 @@ export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogRe
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
+export { ListScorecardsResponse } from "./models/ListScorecardsResponse";
+export { ListScoresResponse } from "./models/ListScoresResponse";
 export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 export { ListTagsResponse } from "./models/ListTagsResponse";
 export { ListTagsResponseData } from "./models/ListTagsResponseData";
@@ -4028,6 +4071,7 @@ export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { PageUrgency } from "./models/PageUrgency";
+export { PaginatedResponseMeta } from "./models/PaginatedResponseMeta";
 export { Pagination } from "./models/Pagination";
 export { Parameter } from "./models/Parameter";
 export { PartialAPIKey } from "./models/PartialAPIKey";
@@ -4557,7 +4601,13 @@ export { ScheduleUpdateRequestDataType } from "./models/ScheduleUpdateRequestDat
 export { ScheduleUser } from "./models/ScheduleUser";
 export { ScheduleUserAttributes } from "./models/ScheduleUserAttributes";
 export { ScheduleUserType } from "./models/ScheduleUserType";
+export { ScorecardListResponseAttributes } from "./models/ScorecardListResponseAttributes";
+export { ScorecardListResponseData } from "./models/ScorecardListResponseData";
+export { ScorecardListType } from "./models/ScorecardListType";
 export { ScorecardType } from "./models/ScorecardType";
+export { ScoreResponseAttributes } from "./models/ScoreResponseAttributes";
+export { ScoreResponseData } from "./models/ScoreResponseData";
+export { ScoreType } from "./models/ScoreType";
 export { SearchIssuesIncludeQueryParameterItem } from "./models/SearchIssuesIncludeQueryParameterItem";
 export { SeatAssignmentsDataType } from "./models/SeatAssignmentsDataType";
 export { SeatUserData } from "./models/SeatUserData";
@@ -4914,6 +4964,10 @@ export { ServiceNowUsersResponse } from "./models/ServiceNowUsersResponse";
 export { ServiceNowUserType } from "./models/ServiceNowUserType";
 export { SessionIdArray } from "./models/SessionIdArray";
 export { SessionIdData } from "./models/SessionIdData";
+export { SetupRulesRequest } from "./models/SetupRulesRequest";
+export { SetupRulesRequestAttributes } from "./models/SetupRulesRequestAttributes";
+export { SetupRulesRequestData } from "./models/SetupRulesRequestData";
+export { SetupRulesRequestDataType } from "./models/SetupRulesRequestDataType";
 export { Shift } from "./models/Shift";
 export { ShiftData } from "./models/ShiftData";
 export { ShiftDataAttributes } from "./models/ShiftDataAttributes";
@@ -4936,6 +4990,7 @@ export { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./models/
 export { SingleAggregatedDnsResponseDataType } from "./models/SingleAggregatedDnsResponseDataType";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
+export { SlackRoutingOptions } from "./models/SlackRoutingOptions";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";
 export { SloReportCreateRequest } from "./models/SloReportCreateRequest";
 export { SloReportCreateRequestAttributes } from "./models/SloReportCreateRequestAttributes";
@@ -5367,6 +5422,9 @@ export { UpdateAppsDatastoreItemRequestDataType } from "./models/UpdateAppsDatas
 export { UpdateAppsDatastoreRequest } from "./models/UpdateAppsDatastoreRequest";
 export { UpdateAppsDatastoreRequestData } from "./models/UpdateAppsDatastoreRequestData";
 export { UpdateAppsDatastoreRequestDataAttributes } from "./models/UpdateAppsDatastoreRequestDataAttributes";
+export { UpdateCampaignRequest } from "./models/UpdateCampaignRequest";
+export { UpdateCampaignRequestAttributes } from "./models/UpdateCampaignRequestAttributes";
+export { UpdateCampaignRequestData } from "./models/UpdateCampaignRequestData";
 export { UpdateConnectionRequest } from "./models/UpdateConnectionRequest";
 export { UpdateConnectionRequestData } from "./models/UpdateConnectionRequestData";
 export { UpdateConnectionRequestDataAttributes } from "./models/UpdateConnectionRequestDataAttributes";
