@@ -3,24 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineKafkaSaslMechanism } from "./ObservabilityPipelineKafkaSaslMechanism";
+import { ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Specifies the SASL mechanism for authenticating with a Kafka cluster.
+ * Authentication settings for the Elasticsearch destination.
+ * When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
  */
-export class ObservabilityPipelineKafkaSasl {
+export class ObservabilityPipelineElasticsearchDestinationAuth {
   /**
-   * SASL mechanism used for Kafka authentication.
-   */
-  "mechanism"?: ObservabilityPipelineKafkaSaslMechanism;
-  /**
-   * Name of the environment variable or secret that holds the SASL password.
+   * Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
    */
   "passwordKey"?: string;
   /**
-   * Name of the environment variable or secret that holds the SASL username.
+   * The authentication strategy to use.
+   */
+  "strategy": ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy;
+  /**
+   * Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
    */
   "usernameKey"?: string;
 
@@ -40,13 +41,14 @@ export class ObservabilityPipelineKafkaSasl {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mechanism: {
-      baseName: "mechanism",
-      type: "ObservabilityPipelineKafkaSaslMechanism",
-    },
     passwordKey: {
       baseName: "password_key",
       type: "string",
+    },
+    strategy: {
+      baseName: "strategy",
+      type: "ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy",
+      required: true,
     },
     usernameKey: {
       baseName: "username_key",
@@ -62,7 +64,7 @@ export class ObservabilityPipelineKafkaSasl {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineKafkaSasl.attributeTypeMap;
+    return ObservabilityPipelineElasticsearchDestinationAuth.attributeTypeMap;
   }
 
   public constructor() {}

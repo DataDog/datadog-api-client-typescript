@@ -17,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineSocketSource {
   /**
+   * Name of the environment variable or secret that holds the listen address for the socket.
+   */
+  "addressKey"?: string;
+  /**
    * Framing method configuration for the socket source.
    */
   "framing": ObservabilityPipelineSocketSourceFraming;
@@ -53,6 +57,10 @@ export class ObservabilityPipelineSocketSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    addressKey: {
+      baseName: "address_key",
+      type: "string",
+    },
     framing: {
       baseName: "framing",
       type: "ObservabilityPipelineSocketSourceFraming",

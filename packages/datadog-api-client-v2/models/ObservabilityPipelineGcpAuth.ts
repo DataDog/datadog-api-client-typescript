@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * GCP credentials used to authenticate with Google Cloud Storage.
+ * Google Cloud credentials used to authenticate with Google Cloud Storage.
  */
 export class ObservabilityPipelineGcpAuth {
   /**
-   * Path to the GCP service account key file.
+   * Path to the Google Cloud service account key file.
    */
   "credentialsFile": string;
 

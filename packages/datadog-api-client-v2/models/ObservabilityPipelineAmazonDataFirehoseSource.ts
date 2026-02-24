@@ -16,6 +16,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineAmazonDataFirehoseSource {
   /**
+   * Name of the environment variable or secret that holds the Firehose delivery stream address.
+   */
+  "addressKey"?: string;
+  /**
    * AWS authentication credentials used for accessing AWS services such as S3.
    * If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
    */
@@ -49,6 +53,10 @@ export class ObservabilityPipelineAmazonDataFirehoseSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    addressKey: {
+      baseName: "address_key",
+      type: "string",
+    },
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineAwsAuth",

@@ -25,6 +25,10 @@ export class ObservabilityPipelineSumoLogicDestination {
    */
   "encoding"?: ObservabilityPipelineSumoLogicDestinationEncoding;
   /**
+   * Name of the environment variable or secret that holds the Sumo Logic HTTP endpoint URL.
+   */
+  "endpointUrlKey"?: string;
+  /**
    * A list of custom headers to include in the request to Sumo Logic.
    */
   "headerCustomFields"?: Array<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem>;
@@ -76,6 +80,10 @@ export class ObservabilityPipelineSumoLogicDestination {
     encoding: {
       baseName: "encoding",
       type: "ObservabilityPipelineSumoLogicDestinationEncoding",
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
+      type: "string",
     },
     headerCustomFields: {
       baseName: "header_custom_fields",
