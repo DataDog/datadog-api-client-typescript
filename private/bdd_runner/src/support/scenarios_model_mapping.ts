@@ -11173,6 +11173,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PermissionsResponse",
   },
+  "WidgetsApi.V2.SearchWidgetsApiV2WidgetsExperienceTypeGet": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    operationResponseType: "WidgetSchemaJSONAPIListDocument",
+  },
+  "WidgetsApi.V2.CreateWidgetApiV2WidgetsExperienceTypePost": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequestJSONAPIRequestDocument",
+      format: "",
+    },
+    operationResponseType: "WidgetSchemaJSONAPIDocument",
+  },
+  "WidgetsApi.V2.GetWidgetApiV2WidgetsExperienceTypeUuidGet": {
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    operationResponseType: "WidgetSchemaJSONAPIDocument",
+  },
+  "WidgetsApi.V2.UpdateWidgetApiV2WidgetsExperienceTypeUuidPut": {
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequestJSONAPIRequestDocument",
+      format: "",
+    },
+    operationResponseType: "WidgetSchemaJSONAPIDocument",
+  },
+  "WidgetsApi.V2.DeleteWidgetApiV2WidgetsExperienceTypeUuidDelete": {
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "WorkflowAutomationApi.V2.CreateWorkflow": {
     body: {
       type: "CreateWorkflowRequest",

@@ -462,4 +462,5 @@ apiInstance
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
 | Users | @datadog/datadog-api-client-users | [README.md](../../services/users/README.md) |
 | Webhooks Integration | @datadog/datadog-api-client-webhooks-integration | [README.md](../../services/webhooks-integration/README.md) |
+| Widgets | @datadog/datadog-api-client-widgets | [README.md](../../services/widgets/README.md) |
 | Workflow Automation | @datadog/datadog-api-client-workflow-automation | [README.md](../../services/workflow-automation/README.md) |
