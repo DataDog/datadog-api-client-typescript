@@ -7,10 +7,10 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { WidgetDisplayType } from "./WidgetDisplayType";
 import { WidgetFormula } from "./WidgetFormula";
-import { WidgetRequestStyle } from "./WidgetRequestStyle";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -83,9 +83,9 @@ export class TimeseriesWidgetRequest {
    */
   "securityQuery"?: LogQueryDefinition;
   /**
-   * Define request widget style.
+   * Define request widget style for timeseries widgets.
    */
-  "style"?: WidgetRequestStyle;
+  "style"?: TimeseriesRequestStyle;
 
   /**
    * A container for additional, undeclared properties.
@@ -169,7 +169,7 @@ export class TimeseriesWidgetRequest {
     },
     style: {
       baseName: "style",
-      type: "WidgetRequestStyle",
+      type: "TimeseriesRequestStyle",
     },
     additionalProperties: {
       baseName: "additionalProperties",
