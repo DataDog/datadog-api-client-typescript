@@ -3969,6 +3969,27 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CloudAuthenticationApi.V2.ListAWSCloudAuthPersonaMappings": {
     operationResponseType: "AWSCloudAuthPersonaMappingsResponse",
   },
+  "CloudAuthenticationApi.V2.CreateAWSCloudAuthPersonaMapping": {
+    body: {
+      type: "AWSCloudAuthPersonaMappingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "AWSCloudAuthPersonaMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.GetAWSCloudAuthPersonaMapping": {
+    personaMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AWSCloudAuthPersonaMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.DeleteAWSCloudAuthPersonaMapping": {
+    personaMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "SecurityMonitoringApi.V2.CreateCustomFramework": {
     body: {
       type: "CreateCustomFrameworkRequest",
