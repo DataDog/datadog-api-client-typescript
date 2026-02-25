@@ -211,7 +211,12 @@ export {
   ChangeManagementApi,
 } from "./apis/ChangeManagementApi";
 
-export { CloudAuthenticationApi } from "./apis/CloudAuthenticationApi";
+export {
+  CloudAuthenticationApiCreateAWSCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiDeleteAWSCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApiGetAWSCloudAuthPersonaMappingRequest,
+  CloudAuthenticationApi,
+} from "./apis/CloudAuthenticationApi";
 
 export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
@@ -1432,7 +1437,11 @@ export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
 export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
 export { AWSCloudAuthPersonaMappingAttributesResponse } from "./models/AWSCloudAuthPersonaMappingAttributesResponse";
+export { AWSCloudAuthPersonaMappingCreateAttributes } from "./models/AWSCloudAuthPersonaMappingCreateAttributes";
+export { AWSCloudAuthPersonaMappingCreateData } from "./models/AWSCloudAuthPersonaMappingCreateData";
+export { AWSCloudAuthPersonaMappingCreateRequest } from "./models/AWSCloudAuthPersonaMappingCreateRequest";
 export { AWSCloudAuthPersonaMappingDataResponse } from "./models/AWSCloudAuthPersonaMappingDataResponse";
+export { AWSCloudAuthPersonaMappingResponse } from "./models/AWSCloudAuthPersonaMappingResponse";
 export { AWSCloudAuthPersonaMappingsResponse } from "./models/AWSCloudAuthPersonaMappingsResponse";
 export { AWSCloudAuthPersonaMappingType } from "./models/AWSCloudAuthPersonaMappingType";
 export { AWSCredentials } from "./models/AWSCredentials";

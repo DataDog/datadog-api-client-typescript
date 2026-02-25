@@ -27,7 +27,11 @@ import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
 import { AWSCloudAuthPersonaMappingAttributesResponse } from "./AWSCloudAuthPersonaMappingAttributesResponse";
+import { AWSCloudAuthPersonaMappingCreateAttributes } from "./AWSCloudAuthPersonaMappingCreateAttributes";
+import { AWSCloudAuthPersonaMappingCreateData } from "./AWSCloudAuthPersonaMappingCreateData";
+import { AWSCloudAuthPersonaMappingCreateRequest } from "./AWSCloudAuthPersonaMappingCreateRequest";
 import { AWSCloudAuthPersonaMappingDataResponse } from "./AWSCloudAuthPersonaMappingDataResponse";
+import { AWSCloudAuthPersonaMappingResponse } from "./AWSCloudAuthPersonaMappingResponse";
 import { AWSCloudAuthPersonaMappingsResponse } from "./AWSCloudAuthPersonaMappingsResponse";
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
@@ -5334,8 +5338,14 @@ const typeMap: { [index: string]: any } = {
   AWSAuthConfigRole: AWSAuthConfigRole,
   AWSCloudAuthPersonaMappingAttributesResponse:
     AWSCloudAuthPersonaMappingAttributesResponse,
+  AWSCloudAuthPersonaMappingCreateAttributes:
+    AWSCloudAuthPersonaMappingCreateAttributes,
+  AWSCloudAuthPersonaMappingCreateData: AWSCloudAuthPersonaMappingCreateData,
+  AWSCloudAuthPersonaMappingCreateRequest:
+    AWSCloudAuthPersonaMappingCreateRequest,
   AWSCloudAuthPersonaMappingDataResponse:
     AWSCloudAuthPersonaMappingDataResponse,
+  AWSCloudAuthPersonaMappingResponse: AWSCloudAuthPersonaMappingResponse,
   AWSCloudAuthPersonaMappingsResponse: AWSCloudAuthPersonaMappingsResponse,
   AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
   AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,

@@ -3959,6 +3959,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListAWSCloudAuthPersonaMappings": {
         "operationResponseType": "AWSCloudAuthPersonaMappingsResponse",
     },
+    "v2.CreateAWSCloudAuthPersonaMapping": {
+        "body": {
+            "type": "AWSCloudAuthPersonaMappingCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSCloudAuthPersonaMappingResponse",
+    },
+    "v2.GetAWSCloudAuthPersonaMapping": {
+        "personaMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSCloudAuthPersonaMappingResponse",
+    },
+    "v2.DeleteAWSCloudAuthPersonaMapping": {
+        "personaMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateCustomFramework": {
         "body": {
             "type": "CreateCustomFrameworkRequest",
