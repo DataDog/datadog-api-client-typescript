@@ -8787,6 +8787,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
+    "v2.QueryProductAnalyticsScalar": {
+        "body": {
+            "type": "ProductAnalyticsAnalyticsRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsScalarResponse",
+    },
+    "v2.QueryProductAnalyticsTimeseries": {
+        "body": {
+            "type": "ProductAnalyticsAnalyticsRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsTimeseriesResponse",
+    },
     "v2.GetAccountFacetInfo": {
         "body": {
             "type": "FacetInfoRequest",
