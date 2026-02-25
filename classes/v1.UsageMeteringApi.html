@@ -1,0 +1,941 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>UsageMeteringApi | datadog-api-client-typescript</title><meta name="description" content="Documentation for datadog-api-client-typescript"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base="..">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">datadog-api-client-typescript</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<ul class="tsd-breadcrumb">
+<li><a href="../modules.html">datadog-api-client-typescript</a></li>
+<li><a href="../modules/v1.html">v1</a></li>
+<li><a href="v1.UsageMeteringApi.html">UsageMeteringApi</a></li></ul>
+<h1>Class UsageMeteringApi</h1></div>
+<section class="tsd-panel tsd-hierarchy">
+<h4>Hierarchy</h4>
+<ul class="tsd-hierarchy">
+<li><span class="target">UsageMeteringApi</span></li></ul></section><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4984">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4984</a></li></ul></aside>
+<section class="tsd-panel-group tsd-index-group">
+<section class="tsd-panel tsd-index-panel">
+<details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
+<h5 class="tsd-index-heading uppercase" role="button" aria-expanded="false" tabIndex=0><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 5.50969L8 11.6609L14.5 5.50969L12.5466 3.66086L8 7.96494L3.45341 3.66086L1.5 5.50969Z" fill="var(--color-text)"></path></svg> Index</h5></summary>
+<div class="tsd-accordion-details">
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Constructors</h3>
+<div class="tsd-index-list"><a href="v1.UsageMeteringApi.html#constructor" class="tsd-index-link tsd-kind-constructor tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#4D7FFF" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-512-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-512-text"></path></svg><span>constructor</span></a>
+</div></section>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Properties</h3>
+<div class="tsd-index-list"><a href="v1.UsageMeteringApi.html#configuration" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-1024-path"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)" id="icon-1024-text"></path></svg><span>configuration</span></a>
+<a href="v1.UsageMeteringApi.html#requestFactory" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>request<wbr/>Factory</span></a>
+<a href="v1.UsageMeteringApi.html#responseProcessor" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>response<wbr/>Processor</span></a>
+</div></section>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Methods</h3>
+<div class="tsd-index-list"><a href="v1.UsageMeteringApi.html#getDailyCustomReports" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-2048-path"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)" id="icon-2048-text"></path></svg><span>get<wbr/>Daily<wbr/>Custom<wbr/>Reports</span></a>
+<a href="v1.UsageMeteringApi.html#getHourlyUsageAttribution" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Hourly<wbr/>Usage<wbr/>Attribution</span></a>
+<a href="v1.UsageMeteringApi.html#getIncidentManagement" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Incident<wbr/>Management</span></a>
+<a href="v1.UsageMeteringApi.html#getIngestedSpans" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Ingested<wbr/>Spans</span></a>
+<a href="v1.UsageMeteringApi.html#getMonthlyCustomReports" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Monthly<wbr/>Custom<wbr/>Reports</span></a>
+<a href="v1.UsageMeteringApi.html#getMonthlyUsageAttribution" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Monthly<wbr/>Usage<wbr/>Attribution</span></a>
+<a href="v1.UsageMeteringApi.html#getSpecifiedDailyCustomReports" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Specified<wbr/>Daily<wbr/>Custom<wbr/>Reports</span></a>
+<a href="v1.UsageMeteringApi.html#getSpecifiedMonthlyCustomReports" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Specified<wbr/>Monthly<wbr/>Custom<wbr/>Reports</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageAnalyzedLogs" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Analyzed<wbr/>Logs</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageAuditLogs" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Audit<wbr/>Logs</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageBillableSummary" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Billable<wbr/>Summary</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageCIApp" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>UsageCIApp</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageCWS" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>UsageCWS</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageCloudSecurityPostureManagement" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Cloud<wbr/>Security<wbr/>Posture<wbr/>Management</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageDBM" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>UsageDBM</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageFargate" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Fargate</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageHosts" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Hosts</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageIndexedSpans" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Indexed<wbr/>Spans</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageInternetOfThings" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Internet<wbr/>Of<wbr/>Things</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageLambda" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Lambda</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageLogs" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Logs</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageLogsByIndex" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Index</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageLogsByRetention" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Retention</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageNetworkFlows" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Network<wbr/>Flows</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageNetworkHosts" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Network<wbr/>Hosts</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageOnlineArchive" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Online<wbr/>Archive</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageProfiling" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Profiling</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageRumSessions" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Rum<wbr/>Sessions</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageRumUnits" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Rum<wbr/>Units</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageSDS" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>UsageSDS</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageSNMP" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>UsageSNMP</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageSummary" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Summary</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageSynthetics" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Synthetics</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageSyntheticsAPI" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>SyntheticsAPI</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageSyntheticsBrowser" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Synthetics<wbr/>Browser</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageTimeseries" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Timeseries</span></a>
+<a href="v1.UsageMeteringApi.html#getUsageTopAvgMetrics" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Usage<wbr/>Top<wbr/>Avg<wbr/>Metrics</span></a>
+</div></section></div></details></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Constructors</h2>
+<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class"><a id="constructor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_UsageMeteringApi">new <wbr/>Usage<wbr/>Metering<wbr/>Api<span class="tsd-signature-symbol">(</span>configuration<span class="tsd-signature-symbol">: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a>, requestFactory<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">UsageMeteringApiRequestFactory</span>, responseProcessor<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">UsageMeteringApiResponseProcessor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/v1.html" class="tsd-signature-type" data-tsd-kind="Namespace">v1</a><span class="tsd-signature-symbol">.</span><a href="v1.UsageMeteringApi.html" class="tsd-signature-type" data-tsd-kind="Class">UsageMeteringApi</a><a href="#constructor.new_UsageMeteringApi" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>configuration: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> requestFactory: <span class="tsd-signature-type">UsageMeteringApiRequestFactory</span></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> responseProcessor: <span class="tsd-signature-type">UsageMeteringApiResponseProcessor</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="../modules/v1.html" class="tsd-signature-type" data-tsd-kind="Namespace">v1</a><span class="tsd-signature-symbol">.</span><a href="v1.UsageMeteringApi.html" class="tsd-signature-type" data-tsd-kind="Class">UsageMeteringApi</a></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4989">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4989</a></li></ul></aside></li></ul></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Properties</h2>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="configuration" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>configuration</span><a href="#configuration" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">configuration<span class="tsd-signature-symbol">:</span> <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4987">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4987</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="requestFactory" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>request<wbr/>Factory</span><a href="#requestFactory" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">request<wbr/>Factory<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">UsageMeteringApiRequestFactory</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4985">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4985</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="responseProcessor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>response<wbr/>Processor</span><a href="#responseProcessor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">response<wbr/>Processor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">UsageMeteringApiResponseProcessor</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4986">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4986</a></li></ul></aside></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Methods</h2>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getDailyCustomReports" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Daily<wbr/>Custom<wbr/>Reports</span><a href="#getDailyCustomReports" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getDailyCustomReports.getDailyCustomReports-1">get<wbr/>Daily<wbr/>Custom<wbr/>Reports<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">?: </span><a href="../interfaces/v1.UsageMeteringApiGetDailyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetDailyCustomReportsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getDailyCustomReports.getDailyCustomReports-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get daily custom reports.
+<strong>Note:</strong> This endpoint will be fully deprecated on December 1, 2022.
+Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetDailyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetDailyCustomReportsRequest</a><span class="tsd-signature-symbol"> = {}</span></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5007">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5007</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getHourlyUsageAttribution" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Hourly<wbr/>Usage<wbr/>Attribution</span><a href="#getHourlyUsageAttribution" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getHourlyUsageAttribution.getHourlyUsageAttribution-1">get<wbr/>Hourly<wbr/>Usage<wbr/>Attribution<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetHourlyUsageAttributionRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetHourlyUsageAttributionRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.HourlyUsageAttributionResponse.html" class="tsd-signature-type" data-tsd-kind="Class">HourlyUsageAttributionResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getHourlyUsageAttribution.getHourlyUsageAttribution-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage attribution. Multi-region data is available starting March 1, 2023.</p>
+<p>This API endpoint is paginated. To make sure you receive all records, check if the value of <code>next_record_id</code> is
+set in the response. If it is, make another request and pass <code>next_record_id</code> as a parameter.
+Pseudo code example:</p>
+<pre><code><span class="hl-10">response</span><span class="hl-1"> := </span><span class="hl-7">GetHourlyUsageAttribution</span><span class="hl-1">(</span><span class="hl-4">start_month</span><span class="hl-1">)</span><br/><span class="hl-10">cursor</span><span class="hl-1"> := </span><span class="hl-4">response</span><span class="hl-1">.</span><span class="hl-4">metadata</span><span class="hl-1">.</span><span class="hl-4">pagination</span><span class="hl-1">.</span><span class="hl-4">next_record_id</span><br/><span class="hl-6">WHILE</span><span class="hl-1"> </span><span class="hl-4">cursor</span><span class="hl-1"> != </span><span class="hl-5">null</span><span class="hl-1"> </span><span class="hl-6">BEGIN</span><br/><span class="hl-1">  </span><span class="hl-7">sleep</span><span class="hl-1">(</span><span class="hl-9">5</span><span class="hl-1"> </span><span class="hl-4">seconds</span><span class="hl-1">)  # </span><span class="hl-4">Avoid</span><span class="hl-1"> </span><span class="hl-4">running</span><span class="hl-1"> </span><span class="hl-4">into</span><span class="hl-1"> </span><span class="hl-4">rate</span><span class="hl-1"> </span><span class="hl-4">limit</span><br/><span class="hl-1">  </span><span class="hl-10">response</span><span class="hl-1"> := </span><span class="hl-7">GetHourlyUsageAttribution</span><span class="hl-1">(</span><span class="hl-4">start_month</span><span class="hl-1">, </span><span class="hl-4">next_record_id</span><span class="hl-1">=</span><span class="hl-4">cursor</span><span class="hl-1">)</span><br/><span class="hl-1">  </span><span class="hl-10">cursor</span><span class="hl-1"> := </span><span class="hl-4">response</span><span class="hl-1">.</span><span class="hl-4">metadata</span><span class="hl-1">.</span><span class="hl-4">pagination</span><span class="hl-1">.</span><span class="hl-4">next_record_id</span><br/><span class="hl-6">END</span>
+</code></pre>
+<p>The following values have been <strong>deprecated</strong>:
+    <code>estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>, <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage</code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetHourlyUsageAttributionRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetHourlyUsageAttributionRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.HourlyUsageAttributionResponse.html" class="tsd-signature-type" data-tsd-kind="Class">HourlyUsageAttributionResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5047">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5047</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getIncidentManagement" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Incident<wbr/>Management</span><a href="#getIncidentManagement" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getIncidentManagement.getIncidentManagement-1">get<wbr/>Incident<wbr/>Management<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetIncidentManagementRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetIncidentManagementRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIncidentManagementResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIncidentManagementResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getIncidentManagement.getIncidentManagement-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for incident management.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetIncidentManagementRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetIncidentManagementRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIncidentManagementResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIncidentManagementResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5076">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5076</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getIngestedSpans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Ingested<wbr/>Spans</span><a href="#getIngestedSpans" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getIngestedSpans.getIngestedSpans-1">get<wbr/>Ingested<wbr/>Spans<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetIngestedSpansRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetIngestedSpansRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIngestedSpansResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIngestedSpansResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getIngestedSpans.getIngestedSpans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for ingested spans.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetIngestedSpansRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetIngestedSpansRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIngestedSpansResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIngestedSpansResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5099">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5099</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getMonthlyCustomReports" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Monthly<wbr/>Custom<wbr/>Reports</span><a href="#getMonthlyCustomReports" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getMonthlyCustomReports.getMonthlyCustomReports-1">get<wbr/>Monthly<wbr/>Custom<wbr/>Reports<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">?: </span><a href="../interfaces/v1.UsageMeteringApiGetMonthlyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetMonthlyCustomReportsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getMonthlyCustomReports.getMonthlyCustomReports-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get monthly custom reports.
+<strong>Note:</strong> This endpoint will be fully deprecated on December 1, 2022.
+Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetMonthlyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetMonthlyCustomReportsRequest</a><span class="tsd-signature-symbol"> = {}</span></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5123">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5123</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getMonthlyUsageAttribution" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Monthly<wbr/>Usage<wbr/>Attribution</span><a href="#getMonthlyUsageAttribution" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getMonthlyUsageAttribution.getMonthlyUsageAttribution-1">get<wbr/>Monthly<wbr/>Usage<wbr/>Attribution<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetMonthlyUsageAttributionRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetMonthlyUsageAttributionRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.MonthlyUsageAttributionResponse.html" class="tsd-signature-type" data-tsd-kind="Class">MonthlyUsageAttributionResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getMonthlyUsageAttribution.getMonthlyUsageAttribution-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get monthly usage attribution. Multi-region data is available starting March 1, 2023.</p>
+<p>This API endpoint is paginated. To make sure you receive all records, check if the value of <code>next_record_id</code> is
+set in the response. If it is, make another request and pass <code>next_record_id</code> as a parameter.
+Pseudo code example:</p>
+<pre><code><span class="hl-10">response</span><span class="hl-1"> := </span><span class="hl-7">GetMonthlyUsageAttribution</span><span class="hl-1">(</span><span class="hl-4">start_month</span><span class="hl-1">)</span><br/><span class="hl-10">cursor</span><span class="hl-1"> := </span><span class="hl-4">response</span><span class="hl-1">.</span><span class="hl-4">metadata</span><span class="hl-1">.</span><span class="hl-4">pagination</span><span class="hl-1">.</span><span class="hl-4">next_record_id</span><br/><span class="hl-6">WHILE</span><span class="hl-1"> </span><span class="hl-4">cursor</span><span class="hl-1"> != </span><span class="hl-5">null</span><span class="hl-1"> </span><span class="hl-6">BEGIN</span><br/><span class="hl-1">  </span><span class="hl-7">sleep</span><span class="hl-1">(</span><span class="hl-9">5</span><span class="hl-1"> </span><span class="hl-4">seconds</span><span class="hl-1">)  # </span><span class="hl-4">Avoid</span><span class="hl-1"> </span><span class="hl-4">running</span><span class="hl-1"> </span><span class="hl-4">into</span><span class="hl-1"> </span><span class="hl-4">rate</span><span class="hl-1"> </span><span class="hl-4">limit</span><br/><span class="hl-1">  </span><span class="hl-10">response</span><span class="hl-1"> := </span><span class="hl-7">GetMonthlyUsageAttribution</span><span class="hl-1">(</span><span class="hl-4">start_month</span><span class="hl-1">, </span><span class="hl-4">next_record_id</span><span class="hl-1">=</span><span class="hl-4">cursor</span><span class="hl-1">)</span><br/><span class="hl-1">  </span><span class="hl-10">cursor</span><span class="hl-1"> := </span><span class="hl-4">response</span><span class="hl-1">.</span><span class="hl-4">metadata</span><span class="hl-1">.</span><span class="hl-4">pagination</span><span class="hl-1">.</span><span class="hl-4">next_record_id</span><br/><span class="hl-6">END</span>
+</code></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetMonthlyUsageAttributionRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetMonthlyUsageAttributionRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.MonthlyUsageAttributionResponse.html" class="tsd-signature-type" data-tsd-kind="Class">MonthlyUsageAttributionResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5163">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5163</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getSpecifiedDailyCustomReports" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Specified<wbr/>Daily<wbr/>Custom<wbr/>Reports</span><a href="#getSpecifiedDailyCustomReports" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getSpecifiedDailyCustomReports.getSpecifiedDailyCustomReports-1">get<wbr/>Specified<wbr/>Daily<wbr/>Custom<wbr/>Reports<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetSpecifiedDailyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetSpecifiedDailyCustomReportsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSpecifiedCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSpecifiedCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getSpecifiedDailyCustomReports.getSpecifiedDailyCustomReports-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get specified daily custom reports.
+<strong>Note:</strong> This endpoint will be fully deprecated on December 1, 2022.
+Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetSpecifiedDailyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetSpecifiedDailyCustomReportsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSpecifiedCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSpecifiedCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5196">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5196</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getSpecifiedMonthlyCustomReports" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Specified<wbr/>Monthly<wbr/>Custom<wbr/>Reports</span><a href="#getSpecifiedMonthlyCustomReports" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getSpecifiedMonthlyCustomReports.getSpecifiedMonthlyCustomReports-1">get<wbr/>Specified<wbr/>Monthly<wbr/>Custom<wbr/>Reports<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSpecifiedCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSpecifiedCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getSpecifiedMonthlyCustomReports.getSpecifiedMonthlyCustomReports-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get specified monthly custom reports.
+<strong>Note:</strong> This endpoint will be fully deprecated on December 1, 2022.
+Refer to <a href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSpecifiedCustomReportsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSpecifiedCustomReportsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5222">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5222</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageAnalyzedLogs" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Analyzed<wbr/>Logs</span><a href="#getUsageAnalyzedLogs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageAnalyzedLogs.getUsageAnalyzedLogs-1">get<wbr/>Usage<wbr/>Analyzed<wbr/>Logs<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageAnalyzedLogsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageAnalyzedLogsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageAnalyzedLogsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageAnalyzedLogsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageAnalyzedLogs.getUsageAnalyzedLogs-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for analyzed logs (Security Monitoring).
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageAnalyzedLogsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageAnalyzedLogsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageAnalyzedLogsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageAnalyzedLogsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5247">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5247</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageAuditLogs" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Audit<wbr/>Logs</span><a href="#getUsageAuditLogs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageAuditLogs.getUsageAuditLogs-1">get<wbr/>Usage<wbr/>Audit<wbr/>Logs<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageAuditLogsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageAuditLogsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageAuditLogsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageAuditLogsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageAuditLogs.getUsageAuditLogs-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for audit logs.
+<strong>Note:</strong> This endpoint has been deprecated.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageAuditLogsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageAuditLogsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageAuditLogsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageAuditLogsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5270">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5270</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageBillableSummary" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Billable<wbr/>Summary</span><a href="#getUsageBillableSummary" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageBillableSummary.getUsageBillableSummary-1">get<wbr/>Usage<wbr/>Billable<wbr/>Summary<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">?: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageBillableSummaryRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageBillableSummaryRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageBillableSummaryResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageBillableSummaryResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageBillableSummary.getUsageBillableSummary-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get billable usage across your account.</p>
+<p>This endpoint is only accessible for <a href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level organizations</a>.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageBillableSummaryRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageBillableSummaryRequest</a><span class="tsd-signature-symbol"> = {}</span></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageBillableSummaryResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageBillableSummaryResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5294">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5294</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageCIApp" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>UsageCIApp</span><a href="#getUsageCIApp" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageCIApp.getUsageCIApp-1">get<wbr/>UsageCIApp<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageCIAppRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageCIAppRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCIVisibilityResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCIVisibilityResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageCIApp.getUsageCIApp-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for CI visibility (tests, pipeline, and spans).
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageCIAppRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageCIAppRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCIVisibilityResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCIVisibilityResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5319">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5319</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageCWS" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>UsageCWS</span><a href="#getUsageCWS" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageCWS.getUsageCWS-1">get<wbr/>UsageCWS<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageCWSRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageCWSRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCWSResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCWSResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageCWS.getUsageCWS-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for cloud workload security.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageCWSRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageCWSRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCWSResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCWSResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5368">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5368</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageCloudSecurityPostureManagement" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Cloud<wbr/>Security<wbr/>Posture<wbr/>Management</span><a href="#getUsageCloudSecurityPostureManagement" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageCloudSecurityPostureManagement.getUsageCloudSecurityPostureManagement-1">get<wbr/>Usage<wbr/>Cloud<wbr/>Security<wbr/>Posture<wbr/>Management<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCloudSecurityPostureManagementResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCloudSecurityPostureManagementResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageCloudSecurityPostureManagement.getUsageCloudSecurityPostureManagement-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for cloud security management (CSM) pro.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageCloudSecurityPostureManagementResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageCloudSecurityPostureManagementResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5342">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5342</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageDBM" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>UsageDBM</span><a href="#getUsageDBM" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageDBM.getUsageDBM-1">get<wbr/>UsageDBM<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageDBMRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageDBMRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageDBMResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageDBMResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageDBM.getUsageDBM-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for database monitoring
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageDBMRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageDBMRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageDBMResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageDBMResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5391">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5391</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageFargate" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Fargate</span><a href="#getUsageFargate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageFargate.getUsageFargate-1">get<wbr/>Usage<wbr/>Fargate<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageFargateRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageFargateRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageFargateResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageFargateResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageFargate.getUsageFargate-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for <a href="https://docs.datadoghq.com/integrations/ecs_fargate/">Fargate</a>.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageFargateRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageFargateRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageFargateResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageFargateResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5414">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5414</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageHosts" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Hosts</span><a href="#getUsageHosts" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageHosts.getUsageHosts-1">get<wbr/>Usage<wbr/>Hosts<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageHostsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageHostsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageHostsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageHostsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageHosts.getUsageHosts-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for hosts and containers.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageHostsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageHostsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageHostsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageHostsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5437">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5437</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageIndexedSpans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Indexed<wbr/>Spans</span><a href="#getUsageIndexedSpans" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageIndexedSpans.getUsageIndexedSpans-1">get<wbr/>Usage<wbr/>Indexed<wbr/>Spans<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageIndexedSpansRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageIndexedSpansRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIndexedSpansResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIndexedSpansResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageIndexedSpans.getUsageIndexedSpans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for indexed spans.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageIndexedSpansRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageIndexedSpansRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIndexedSpansResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIndexedSpansResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5460">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5460</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageInternetOfThings" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Internet<wbr/>Of<wbr/>Things</span><a href="#getUsageInternetOfThings" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageInternetOfThings.getUsageInternetOfThings-1">get<wbr/>Usage<wbr/>Internet<wbr/>Of<wbr/>Things<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageInternetOfThingsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageInternetOfThingsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIoTResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIoTResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageInternetOfThings.getUsageInternetOfThings-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for IoT.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageInternetOfThingsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageInternetOfThingsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageIoTResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageIoTResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5483">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5483</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageLambda" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Lambda</span><a href="#getUsageLambda" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageLambda.getUsageLambda-1">get<wbr/>Usage<wbr/>Lambda<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageLambdaRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLambdaRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLambdaResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLambdaResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageLambda.getUsageLambda-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for Lambda.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageLambdaRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLambdaRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLambdaResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLambdaResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5508">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5508</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageLogs" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Logs</span><a href="#getUsageLogs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageLogs.getUsageLogs-1">get<wbr/>Usage<wbr/>Logs<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageLogsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLogsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLogsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLogsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageLogs.getUsageLogs-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for logs.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageLogsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLogsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLogsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLogsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5531">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5531</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageLogsByIndex" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Index</span><a href="#getUsageLogsByIndex" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageLogsByIndex.getUsageLogsByIndex-1">get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Index<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageLogsByIndexRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLogsByIndexRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLogsByIndexResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLogsByIndexResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageLogsByIndex.getUsageLogsByIndex-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for logs by index.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageLogsByIndexRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLogsByIndexRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLogsByIndexResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLogsByIndexResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5553">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5553</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageLogsByRetention" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Retention</span><a href="#getUsageLogsByRetention" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageLogsByRetention.getUsageLogsByRetention-1">get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Retention<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageLogsByRetentionRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLogsByRetentionRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLogsByRetentionResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLogsByRetentionResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageLogsByRetention.getUsageLogsByRetention-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for indexed logs by retention period.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageLogsByRetentionRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageLogsByRetentionRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageLogsByRetentionResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageLogsByRetentionResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5577">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5577</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageNetworkFlows" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Network<wbr/>Flows</span><a href="#getUsageNetworkFlows" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageNetworkFlows.getUsageNetworkFlows-1">get<wbr/>Usage<wbr/>Network<wbr/>Flows<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageNetworkFlowsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageNetworkFlowsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageNetworkFlowsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageNetworkFlowsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageNetworkFlows.getUsageNetworkFlows-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for network flows.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageNetworkFlowsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageNetworkFlowsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageNetworkFlowsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageNetworkFlowsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5602">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5602</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageNetworkHosts" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Network<wbr/>Hosts</span><a href="#getUsageNetworkHosts" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageNetworkHosts.getUsageNetworkHosts-1">get<wbr/>Usage<wbr/>Network<wbr/>Hosts<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageNetworkHostsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageNetworkHostsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageNetworkHostsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageNetworkHostsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageNetworkHosts.getUsageNetworkHosts-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for network hosts.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageNetworkHostsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageNetworkHostsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageNetworkHostsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageNetworkHostsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5625">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5625</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageOnlineArchive" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Online<wbr/>Archive</span><a href="#getUsageOnlineArchive" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageOnlineArchive.getUsageOnlineArchive-1">get<wbr/>Usage<wbr/>Online<wbr/>Archive<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageOnlineArchiveRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageOnlineArchiveRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageOnlineArchiveResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageOnlineArchiveResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageOnlineArchive.getUsageOnlineArchive-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for online archive.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageOnlineArchiveRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageOnlineArchiveRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageOnlineArchiveResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageOnlineArchiveResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5648">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5648</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageProfiling" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Profiling</span><a href="#getUsageProfiling" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageProfiling.getUsageProfiling-1">get<wbr/>Usage<wbr/>Profiling<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageProfilingRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageProfilingRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageProfilingResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageProfilingResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageProfiling.getUsageProfiling-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for profiled hosts.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageProfilingRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageProfilingRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageProfilingResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageProfilingResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5671">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5671</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageRumSessions" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Rum<wbr/>Sessions</span><a href="#getUsageRumSessions" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageRumSessions.getUsageRumSessions-1">get<wbr/>Usage<wbr/>Rum<wbr/>Sessions<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageRumSessionsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageRumSessionsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageRumSessionsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageRumSessionsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageRumSessions.getUsageRumSessions-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a> Sessions.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageRumSessionsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageRumSessionsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageRumSessionsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageRumSessionsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5694">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5694</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageRumUnits" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Rum<wbr/>Units</span><a href="#getUsageRumUnits" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageRumUnits.getUsageRumUnits-1">get<wbr/>Usage<wbr/>Rum<wbr/>Units<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageRumUnitsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageRumUnitsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageRumUnitsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageRumUnitsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageRumUnits.getUsageRumUnits-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a> Units.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageRumUnitsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageRumUnitsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageRumUnitsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageRumUnitsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5718">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5718</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageSDS" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>UsageSDS</span><a href="#getUsageSDS" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageSDS.getUsageSDS-1">get<wbr/>UsageSDS<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageSDSRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSDSRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSDSResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSDSResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageSDS.getUsageSDS-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for sensitive data scanner.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageSDSRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSDSRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSDSResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSDSResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5741">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5741</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageSNMP" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>UsageSNMP</span><a href="#getUsageSNMP" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageSNMP.getUsageSNMP-1">get<wbr/>UsageSNMP<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageSNMPRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSNMPRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSNMPResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSNMPResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageSNMP.getUsageSNMP-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for SNMP devices.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageSNMPRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSNMPRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSNMPResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSNMPResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5764">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5764</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageSummary" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Summary</span><a href="#getUsageSummary" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageSummary.getUsageSummary-1">get<wbr/>Usage<wbr/>Summary<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageSummaryRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSummaryRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSummaryResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSummaryResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageSummary.getUsageSummary-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get all usage across your account.</p>
+<p>This endpoint is only accessible for <a href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level organizations</a>.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageSummaryRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSummaryRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSummaryResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSummaryResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5788">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5788</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageSynthetics" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Synthetics</span><a href="#getUsageSynthetics" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageSynthetics.getUsageSynthetics-1">get<wbr/>Usage<wbr/>Synthetics<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageSyntheticsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSyntheticsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSyntheticsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSyntheticsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageSynthetics.getUsageSynthetics-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">synthetics checks</a>.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageSyntheticsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSyntheticsRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSyntheticsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSyntheticsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5813">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5813</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageSyntheticsAPI" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>SyntheticsAPI</span><a href="#getUsageSyntheticsAPI" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageSyntheticsAPI.getUsageSyntheticsAPI-1">get<wbr/>Usage<wbr/>SyntheticsAPI<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageSyntheticsAPIRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSyntheticsAPIRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSyntheticsAPIResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSyntheticsAPIResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageSyntheticsAPI.getUsageSyntheticsAPI-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">synthetics API checks</a>.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageSyntheticsAPIRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSyntheticsAPIRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSyntheticsAPIResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSyntheticsAPIResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5836">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5836</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageSyntheticsBrowser" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Synthetics<wbr/>Browser</span><a href="#getUsageSyntheticsBrowser" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageSyntheticsBrowser.getUsageSyntheticsBrowser-1">get<wbr/>Usage<wbr/>Synthetics<wbr/>Browser<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageSyntheticsBrowserRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSyntheticsBrowserRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSyntheticsBrowserResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSyntheticsBrowserResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageSyntheticsBrowser.getUsageSyntheticsBrowser-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for synthetics browser checks.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageSyntheticsBrowserRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageSyntheticsBrowserRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageSyntheticsBrowserResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageSyntheticsBrowserResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5859">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5859</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageTimeseries" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Timeseries</span><a href="#getUsageTimeseries" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageTimeseries.getUsageTimeseries-1">get<wbr/>Usage<wbr/>Timeseries<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageTimeseriesRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageTimeseriesRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageTimeseriesResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageTimeseriesResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageTimeseries.getUsageTimeseries-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get hourly usage for <a href="https://docs.datadoghq.com/developers/metrics/custom_metrics/">custom metrics</a>.
+<strong>Note:</strong> This endpoint has been deprecated. Hourly usage data for all products is now available in the <a href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get hourly usage by product family API</a>. Refer to <a href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageTimeseriesRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageTimeseriesRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageTimeseriesResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageTimeseriesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5884">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5884</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getUsageTopAvgMetrics" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Usage<wbr/>Top<wbr/>Avg<wbr/>Metrics</span><a href="#getUsageTopAvgMetrics" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getUsageTopAvgMetrics.getUsageTopAvgMetrics-1">get<wbr/>Usage<wbr/>Top<wbr/>Avg<wbr/>Metrics<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">?: </span><a href="../interfaces/v1.UsageMeteringApiGetUsageTopAvgMetricsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageTopAvgMetricsRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageTopAvgMetricsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageTopAvgMetricsResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUsageTopAvgMetrics.getUsageTopAvgMetrics-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get all <a href="https://docs.datadoghq.com/developers/metrics/custom_metrics/">custom metrics</a> by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v1.UsageMeteringApiGetUsageTopAvgMetricsRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">UsageMeteringApiGetUsageTopAvgMetricsRequest</a><span class="tsd-signature-symbol"> = {}</span></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v1.UsageTopAvgMetricsResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UsageTopAvgMetricsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/bf4c613/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L5906">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:5906</a></li></ul></aside></li></ul></section></section></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current"><a href="../modules.html">datadog-<wbr/>api-<wbr/>client-<wbr/>typescript</a>
+<ul>
+<li class="tsd-kind-namespace"><a href="../modules/client.html">client</a></li>
+<li class="current tsd-kind-namespace"><a href="../modules/v1.html">v1</a></li>
+<li class="tsd-kind-namespace"><a href="../modules/v2.html">v2</a></li></ul></li></ul></div></details></nav>
+<nav class="tsd-navigation secondary menu-sticky">
+<ul>
+<li class="current tsd-kind-class tsd-parent-kind-namespace"><a href="v1.UsageMeteringApi.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-128-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-128-text"></path></svg><span>Usage<wbr/>Metering<wbr/>Api</span></a>
+<ul>
+<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#constructor" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-512-path"></use><use href="#icon-512-text"></use></svg>constructor</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v1.UsageMeteringApi.html#configuration" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>configuration</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v1.UsageMeteringApi.html#requestFactory" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>request<wbr/>Factory</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v1.UsageMeteringApi.html#responseProcessor" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>response<wbr/>Processor</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getDailyCustomReports" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Daily<wbr/>Custom<wbr/>Reports</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getHourlyUsageAttribution" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Hourly<wbr/>Usage<wbr/>Attribution</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getIncidentManagement" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Incident<wbr/>Management</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getIngestedSpans" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Ingested<wbr/>Spans</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getMonthlyCustomReports" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Monthly<wbr/>Custom<wbr/>Reports</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getMonthlyUsageAttribution" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Monthly<wbr/>Usage<wbr/>Attribution</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getSpecifiedDailyCustomReports" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Specified<wbr/>Daily<wbr/>Custom<wbr/>Reports</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getSpecifiedMonthlyCustomReports" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Specified<wbr/>Monthly<wbr/>Custom<wbr/>Reports</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageAnalyzedLogs" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Analyzed<wbr/>Logs</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageAuditLogs" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Audit<wbr/>Logs</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageBillableSummary" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Billable<wbr/>Summary</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageCIApp" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>UsageCIApp</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageCWS" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>UsageCWS</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageCloudSecurityPostureManagement" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Cloud<wbr/>Security<wbr/>Posture<wbr/>Management</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageDBM" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>UsageDBM</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageFargate" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Fargate</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageHosts" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Hosts</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageIndexedSpans" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Indexed<wbr/>Spans</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageInternetOfThings" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Internet<wbr/>Of<wbr/>Things</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageLambda" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Lambda</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageLogs" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Logs</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageLogsByIndex" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Index</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageLogsByRetention" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Logs<wbr/>By<wbr/>Retention</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageNetworkFlows" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Network<wbr/>Flows</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageNetworkHosts" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Network<wbr/>Hosts</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageOnlineArchive" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Online<wbr/>Archive</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageProfiling" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Profiling</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageRumSessions" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Rum<wbr/>Sessions</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageRumUnits" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Rum<wbr/>Units</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageSDS" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>UsageSDS</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageSNMP" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>UsageSNMP</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageSummary" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Summary</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageSynthetics" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Synthetics</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageSyntheticsAPI" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>SyntheticsAPI</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageSyntheticsBrowser" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Synthetics<wbr/>Browser</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageTimeseries" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Timeseries</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v1.UsageMeteringApi.html#getUsageTopAvgMetrics" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Usage<wbr/>Top<wbr/>Avg<wbr/>Metrics</a></li></ul></li></ul></nav></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="../assets/main.js"></script></body></html>
