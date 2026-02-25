@@ -8797,6 +8797,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "any",
   },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsScalar": {
+    body: {
+      type: "ProductAnalyticsAnalyticsRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsScalarResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsTimeseries": {
+    body: {
+      type: "ProductAnalyticsAnalyticsRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsTimeseriesResponse",
+  },
   "RumAudienceManagementApi.V2.GetAccountFacetInfo": {
     body: {
       type: "FacetInfoRequest",
