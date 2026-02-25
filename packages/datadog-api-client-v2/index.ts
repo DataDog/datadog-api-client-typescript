@@ -753,6 +753,7 @@ export {
 } from "./apis/ProcessesApi";
 
 export {
+  ProductAnalyticsApiQueryProductAnalyticsSankeyRequest,
   ProductAnalyticsApiQueryProductAnalyticsScalarRequest,
   ProductAnalyticsApiQueryProductAnalyticsTimeseriesRequest,
   ProductAnalyticsApiSubmitProductAnalyticsEventRequest,
@@ -4162,12 +4163,30 @@ export { ProductAnalyticsExecutionType } from "./models/ProductAnalyticsExecutio
 export { ProductAnalyticsGroupBy } from "./models/ProductAnalyticsGroupBy";
 export { ProductAnalyticsGroupBySort } from "./models/ProductAnalyticsGroupBySort";
 export { ProductAnalyticsInterval } from "./models/ProductAnalyticsInterval";
+export { ProductAnalyticsJoinKeys } from "./models/ProductAnalyticsJoinKeys";
 export { ProductAnalyticsOccurrenceFilter } from "./models/ProductAnalyticsOccurrenceFilter";
 export { ProductAnalyticsOccurrenceQuery } from "./models/ProductAnalyticsOccurrenceQuery";
 export { ProductAnalyticsOccurrenceQueryDataSource } from "./models/ProductAnalyticsOccurrenceQueryDataSource";
 export { ProductAnalyticsOccurrenceSearch } from "./models/ProductAnalyticsOccurrenceSearch";
 export { ProductAnalyticsResponseMeta } from "./models/ProductAnalyticsResponseMeta";
 export { ProductAnalyticsResponseMetaStatus } from "./models/ProductAnalyticsResponseMetaStatus";
+export { ProductAnalyticsSampling } from "./models/ProductAnalyticsSampling";
+export { ProductAnalyticsSankeyAggregatedNode } from "./models/ProductAnalyticsSankeyAggregatedNode";
+export { ProductAnalyticsSankeyAggregatedNodeType } from "./models/ProductAnalyticsSankeyAggregatedNodeType";
+export { ProductAnalyticsSankeyDefinition } from "./models/ProductAnalyticsSankeyDefinition";
+export { ProductAnalyticsSankeyLink } from "./models/ProductAnalyticsSankeyLink";
+export { ProductAnalyticsSankeyNode } from "./models/ProductAnalyticsSankeyNode";
+export { ProductAnalyticsSankeyNodeType } from "./models/ProductAnalyticsSankeyNodeType";
+export { ProductAnalyticsSankeyRequest } from "./models/ProductAnalyticsSankeyRequest";
+export { ProductAnalyticsSankeyRequestAttributes } from "./models/ProductAnalyticsSankeyRequestAttributes";
+export { ProductAnalyticsSankeyRequestData } from "./models/ProductAnalyticsSankeyRequestData";
+export { ProductAnalyticsSankeyRequestType } from "./models/ProductAnalyticsSankeyRequestType";
+export { ProductAnalyticsSankeyResponse } from "./models/ProductAnalyticsSankeyResponse";
+export { ProductAnalyticsSankeyResponseAttributes } from "./models/ProductAnalyticsSankeyResponseAttributes";
+export { ProductAnalyticsSankeyResponseData } from "./models/ProductAnalyticsSankeyResponseData";
+export { ProductAnalyticsSankeyResponseType } from "./models/ProductAnalyticsSankeyResponseType";
+export { ProductAnalyticsSankeySearch } from "./models/ProductAnalyticsSankeySearch";
+export { ProductAnalyticsSankeyTime } from "./models/ProductAnalyticsSankeyTime";
 export { ProductAnalyticsScalarColumn } from "./models/ProductAnalyticsScalarColumn";
 export { ProductAnalyticsScalarColumnMeta } from "./models/ProductAnalyticsScalarColumnMeta";
 export { ProductAnalyticsScalarColumnType } from "./models/ProductAnalyticsScalarColumnType";
