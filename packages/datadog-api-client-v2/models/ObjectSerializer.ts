@@ -2223,6 +2223,30 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { ProductAnalyticsAnalyticsQuery } from "./ProductAnalyticsAnalyticsQuery";
+import { ProductAnalyticsAnalyticsRequest } from "./ProductAnalyticsAnalyticsRequest";
+import { ProductAnalyticsAnalyticsRequestAttributes } from "./ProductAnalyticsAnalyticsRequestAttributes";
+import { ProductAnalyticsAnalyticsRequestData } from "./ProductAnalyticsAnalyticsRequestData";
+import { ProductAnalyticsAudienceAccountSubquery } from "./ProductAnalyticsAudienceAccountSubquery";
+import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
+import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
+import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
+import { ProductAnalyticsCompute } from "./ProductAnalyticsCompute";
+import { ProductAnalyticsEventQuery } from "./ProductAnalyticsEventQuery";
+import { ProductAnalyticsEventSearch } from "./ProductAnalyticsEventSearch";
+import { ProductAnalyticsGroupBy } from "./ProductAnalyticsGroupBy";
+import { ProductAnalyticsGroupBySort } from "./ProductAnalyticsGroupBySort";
+import { ProductAnalyticsInterval } from "./ProductAnalyticsInterval";
+import { ProductAnalyticsOccurrenceFilter } from "./ProductAnalyticsOccurrenceFilter";
+import { ProductAnalyticsOccurrenceQuery } from "./ProductAnalyticsOccurrenceQuery";
+import { ProductAnalyticsOccurrenceSearch } from "./ProductAnalyticsOccurrenceSearch";
+import { ProductAnalyticsResponseMeta } from "./ProductAnalyticsResponseMeta";
+import { ProductAnalyticsScalarColumn } from "./ProductAnalyticsScalarColumn";
+import { ProductAnalyticsScalarColumnMeta } from "./ProductAnalyticsScalarColumnMeta";
+import { ProductAnalyticsScalarResponse } from "./ProductAnalyticsScalarResponse";
+import { ProductAnalyticsScalarResponseAttributes } from "./ProductAnalyticsScalarResponseAttributes";
+import { ProductAnalyticsScalarResponseData } from "./ProductAnalyticsScalarResponseData";
+import { ProductAnalyticsSerie } from "./ProductAnalyticsSerie";
 import { ProductAnalyticsServerSideEventError } from "./ProductAnalyticsServerSideEventError";
 import { ProductAnalyticsServerSideEventErrors } from "./ProductAnalyticsServerSideEventErrors";
 import { ProductAnalyticsServerSideEventItem } from "./ProductAnalyticsServerSideEventItem";
@@ -2231,6 +2255,10 @@ import { ProductAnalyticsServerSideEventItemApplication } from "./ProductAnalyti
 import { ProductAnalyticsServerSideEventItemEvent } from "./ProductAnalyticsServerSideEventItemEvent";
 import { ProductAnalyticsServerSideEventItemSession } from "./ProductAnalyticsServerSideEventItemSession";
 import { ProductAnalyticsServerSideEventItemUsr } from "./ProductAnalyticsServerSideEventItemUsr";
+import { ProductAnalyticsTimeseriesResponse } from "./ProductAnalyticsTimeseriesResponse";
+import { ProductAnalyticsTimeseriesResponseAttributes } from "./ProductAnalyticsTimeseriesResponseAttributes";
+import { ProductAnalyticsTimeseriesResponseData } from "./ProductAnalyticsTimeseriesResponseData";
+import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
 import { Project } from "./Project";
 import { ProjectAttributes } from "./ProjectAttributes";
 import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
@@ -4542,7 +4570,20 @@ const enumsMap: { [key: string]: any[] } = {
   PostmortemCellType: ["markdown"],
   PostmortemTemplateType: ["postmortem_template"],
   ProcessSummaryType: ["process"],
+  ProductAnalyticsAnalyticsRequestType: ["formula_analytics_extended_request"],
+  ProductAnalyticsEventQueryDataSource: ["product_analytics"],
+  ProductAnalyticsExecutionType: [
+    "simple",
+    "background",
+    "trino-multistep",
+    "materialized-view",
+  ],
+  ProductAnalyticsOccurrenceQueryDataSource: ["product_analytics_occurrence"],
+  ProductAnalyticsResponseMetaStatus: ["done", "running", "timeout"],
+  ProductAnalyticsScalarColumnType: ["number", "group"],
+  ProductAnalyticsScalarResponseType: ["scalar_response"],
   ProductAnalyticsServerSideEventItemType: ["server"],
+  ProductAnalyticsTimeseriesResponseType: ["timeseries_response"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   QueryAccountRequestDataType: ["query_account_request"],
@@ -7975,6 +8016,34 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  ProductAnalyticsAnalyticsQuery: ProductAnalyticsAnalyticsQuery,
+  ProductAnalyticsAnalyticsRequest: ProductAnalyticsAnalyticsRequest,
+  ProductAnalyticsAnalyticsRequestAttributes:
+    ProductAnalyticsAnalyticsRequestAttributes,
+  ProductAnalyticsAnalyticsRequestData: ProductAnalyticsAnalyticsRequestData,
+  ProductAnalyticsAudienceAccountSubquery:
+    ProductAnalyticsAudienceAccountSubquery,
+  ProductAnalyticsAudienceFilters: ProductAnalyticsAudienceFilters,
+  ProductAnalyticsAudienceSegmentSubquery:
+    ProductAnalyticsAudienceSegmentSubquery,
+  ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
+  ProductAnalyticsCompute: ProductAnalyticsCompute,
+  ProductAnalyticsEventQuery: ProductAnalyticsEventQuery,
+  ProductAnalyticsEventSearch: ProductAnalyticsEventSearch,
+  ProductAnalyticsGroupBy: ProductAnalyticsGroupBy,
+  ProductAnalyticsGroupBySort: ProductAnalyticsGroupBySort,
+  ProductAnalyticsInterval: ProductAnalyticsInterval,
+  ProductAnalyticsOccurrenceFilter: ProductAnalyticsOccurrenceFilter,
+  ProductAnalyticsOccurrenceQuery: ProductAnalyticsOccurrenceQuery,
+  ProductAnalyticsOccurrenceSearch: ProductAnalyticsOccurrenceSearch,
+  ProductAnalyticsResponseMeta: ProductAnalyticsResponseMeta,
+  ProductAnalyticsScalarColumn: ProductAnalyticsScalarColumn,
+  ProductAnalyticsScalarColumnMeta: ProductAnalyticsScalarColumnMeta,
+  ProductAnalyticsScalarResponse: ProductAnalyticsScalarResponse,
+  ProductAnalyticsScalarResponseAttributes:
+    ProductAnalyticsScalarResponseAttributes,
+  ProductAnalyticsScalarResponseData: ProductAnalyticsScalarResponseData,
+  ProductAnalyticsSerie: ProductAnalyticsSerie,
   ProductAnalyticsServerSideEventError: ProductAnalyticsServerSideEventError,
   ProductAnalyticsServerSideEventErrors: ProductAnalyticsServerSideEventErrors,
   ProductAnalyticsServerSideEventItem: ProductAnalyticsServerSideEventItem,
@@ -7988,6 +8057,12 @@ const typeMap: { [index: string]: any } = {
     ProductAnalyticsServerSideEventItemSession,
   ProductAnalyticsServerSideEventItemUsr:
     ProductAnalyticsServerSideEventItemUsr,
+  ProductAnalyticsTimeseriesResponse: ProductAnalyticsTimeseriesResponse,
+  ProductAnalyticsTimeseriesResponseAttributes:
+    ProductAnalyticsTimeseriesResponseAttributes,
+  ProductAnalyticsTimeseriesResponseData:
+    ProductAnalyticsTimeseriesResponseData,
+  ProductAnalyticsUnit: ProductAnalyticsUnit,
   Project: Project,
   ProjectAttributes: ProjectAttributes,
   ProjectColumnsConfig: ProjectColumnsConfig,
@@ -9745,6 +9820,10 @@ const oneOfMap: { [index: string]: string[] } = {
   PatchTableRequestDataAttributesFileMetadata: [
     "PatchTableRequestDataAttributesFileMetadataCloudStorage",
     "PatchTableRequestDataAttributesFileMetadataLocalFile",
+  ],
+  ProductAnalyticsBaseQuery: [
+    "ProductAnalyticsEventQuery",
+    "ProductAnalyticsOccurrenceQuery",
   ],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
