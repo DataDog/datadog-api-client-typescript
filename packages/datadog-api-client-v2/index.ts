@@ -1168,6 +1168,15 @@ export {
 } from "./apis/UsersApi";
 
 export {
+  WidgetsApiCreateWidgetApiV2WidgetsExperienceTypePostRequest,
+  WidgetsApiDeleteWidgetApiV2WidgetsExperienceTypeUuidDeleteRequest,
+  WidgetsApiGetWidgetApiV2WidgetsExperienceTypeUuidGetRequest,
+  WidgetsApiSearchWidgetsApiV2WidgetsExperienceTypeGetRequest,
+  WidgetsApiUpdateWidgetApiV2WidgetsExperienceTypeUuidPutRequest,
+  WidgetsApi,
+} from "./apis/WidgetsApi";
+
+export {
   WorkflowAutomationApiCancelWorkflowInstanceRequest,
   WorkflowAutomationApiCreateWorkflowRequest,
   WorkflowAutomationApiCreateWorkflowInstanceRequest,
@@ -2060,6 +2069,9 @@ export { CreateOnCallNotificationRuleRequestData } from "./models/CreateOnCallNo
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
+export { CreateOrUpdateWidgetRequestAttributes } from "./models/CreateOrUpdateWidgetRequestAttributes";
+export { CreateOrUpdateWidgetRequestJSONAPIRequestDocument } from "./models/CreateOrUpdateWidgetRequestJSONAPIRequestDocument";
+export { CreateOrUpdateWidgetRequestResourceObjectRequest } from "./models/CreateOrUpdateWidgetRequestResourceObjectRequest";
 export { CreatePageRequest } from "./models/CreatePageRequest";
 export { CreatePageRequestData } from "./models/CreatePageRequestData";
 export { CreatePageRequestDataAttributes } from "./models/CreatePageRequestDataAttributes";
@@ -2291,6 +2303,7 @@ export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";
+export { Definition } from "./models/Definition";
 export { Degradation } from "./models/Degradation";
 export { DegradationArray } from "./models/DegradationArray";
 export { DegradationArrayIncluded } from "./models/DegradationArrayIncluded";
@@ -2532,6 +2545,9 @@ export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
 export { EPSS } from "./models/EPSS";
 export { ErrorHandler } from "./models/ErrorHandler";
+export { ErrorLinks } from "./models/ErrorLinks";
+export { ErrorLinksAbout } from "./models/ErrorLinksAbout";
+export { ErrorSource } from "./models/ErrorSource";
 export { Escalation } from "./models/Escalation";
 export { EscalationPolicy } from "./models/EscalationPolicy";
 export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
@@ -3304,7 +3320,15 @@ export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
 export { Library } from "./models/Library";
+export { LinkObject } from "./models/LinkObject";
 export { Links } from "./models/Links";
+export { LinksDescribedBy } from "./models/LinksDescribedBy";
+export { LinksFirst } from "./models/LinksFirst";
+export { LinksLast } from "./models/LinksLast";
+export { LinksNext } from "./models/LinksNext";
+export { LinksPrev } from "./models/LinksPrev";
+export { LinksRelated } from "./models/LinksRelated";
+export { LinksSelf } from "./models/LinksSelf";
 export { ListAPIsResponse } from "./models/ListAPIsResponse";
 export { ListAPIsResponseData } from "./models/ListAPIsResponseData";
 export { ListAPIsResponseDataAttributes } from "./models/ListAPIsResponseDataAttributes";
@@ -4213,6 +4237,7 @@ export { RelationResponse } from "./models/RelationResponse";
 export { RelationResponseMeta } from "./models/RelationResponseMeta";
 export { RelationResponseType } from "./models/RelationResponseType";
 export { RelationshipItem } from "./models/RelationshipItem";
+export { RelationshipObjectOutputData } from "./models/RelationshipObjectOutputData";
 export { RelationshipToIncident } from "./models/RelationshipToIncident";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
@@ -4284,6 +4309,9 @@ export { ResolveVulnerableSymbolsResponseResultsVulnerableSymbols } from "./mode
 export { ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols } from "./models/ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols";
 export { ResourceFilterAttributes } from "./models/ResourceFilterAttributes";
 export { ResourceFilterRequestType } from "./models/ResourceFilterRequestType";
+export { ResourceIdentifierObject } from "./models/ResourceIdentifierObject";
+export { ResourceObjectInputAttributes } from "./models/ResourceObjectInputAttributes";
+export { ResourceObjectOutputAttributes } from "./models/ResourceObjectOutputAttributes";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
 export { RestrictionPolicyAttributes } from "./models/RestrictionPolicyAttributes";
@@ -5549,7 +5577,19 @@ export { WatcherData } from "./models/WatcherData";
 export { WatcherDataAttributes } from "./models/WatcherDataAttributes";
 export { WatcherDataType } from "./models/WatcherDataType";
 export { Weekday } from "./models/Weekday";
+export { WidgetErrorInput } from "./models/WidgetErrorInput";
+export { WidgetExperienceType } from "./models/WidgetExperienceType";
+export { WidgetLinks } from "./models/WidgetLinks";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
+export { WidgetRelationshipObjectInput } from "./models/WidgetRelationshipObjectInput";
+export { WidgetRelationshipObjectOutput } from "./models/WidgetRelationshipObjectOutput";
+export { WidgetResourceObjectInput } from "./models/WidgetResourceObjectInput";
+export { WidgetResourceObjectOutput } from "./models/WidgetResourceObjectOutput";
+export { WidgetSchemaAttributes } from "./models/WidgetSchemaAttributes";
+export { WidgetSchemaJSONAPIDocument } from "./models/WidgetSchemaJSONAPIDocument";
+export { WidgetSchemaJSONAPIListDocument } from "./models/WidgetSchemaJSONAPIListDocument";
+export { WidgetSchemaResource } from "./models/WidgetSchemaResource";
+export { WidgetType } from "./models/WidgetType";
 export { WorkflowData } from "./models/WorkflowData";
 export { WorkflowDataAttributes } from "./models/WorkflowDataAttributes";
 export { WorkflowDataRelationships } from "./models/WorkflowDataRelationships";

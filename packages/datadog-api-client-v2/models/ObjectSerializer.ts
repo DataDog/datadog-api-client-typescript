@@ -673,6 +673,9 @@ import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificat
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
+import { CreateOrUpdateWidgetRequestAttributes } from "./CreateOrUpdateWidgetRequestAttributes";
+import { CreateOrUpdateWidgetRequestJSONAPIRequestDocument } from "./CreateOrUpdateWidgetRequestJSONAPIRequestDocument";
+import { CreateOrUpdateWidgetRequestResourceObjectRequest } from "./CreateOrUpdateWidgetRequestResourceObjectRequest";
 import { CreatePageRequest } from "./CreatePageRequest";
 import { CreatePageRequestData } from "./CreatePageRequestData";
 import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttributes";
@@ -880,6 +883,7 @@ import { DatastoreData } from "./DatastoreData";
 import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
 import { DatastoreTrigger } from "./DatastoreTrigger";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
+import { Definition } from "./Definition";
 import { Degradation } from "./Degradation";
 import { DegradationArray } from "./DegradationArray";
 import { DegradationData } from "./DegradationData";
@@ -1046,6 +1050,8 @@ import { EntityV3System } from "./EntityV3System";
 import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { ErrorHandler } from "./ErrorHandler";
+import { ErrorLinks } from "./ErrorLinks";
+import { ErrorSource } from "./ErrorSource";
 import { Escalation } from "./Escalation";
 import { EscalationPolicy } from "./EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
@@ -1641,6 +1647,7 @@ import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersD
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { Library } from "./Library";
+import { LinkObject } from "./LinkObject";
 import { Links } from "./Links";
 import { ListAPIsResponse } from "./ListAPIsResponse";
 import { ListAPIsResponseData } from "./ListAPIsResponseData";
@@ -2382,6 +2389,7 @@ import { ResolveVulnerableSymbolsResponseResults } from "./ResolveVulnerableSymb
 import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbols";
 import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols";
 import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
+import { ResourceIdentifierObject } from "./ResourceIdentifierObject";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
 import { RestrictionPolicyAttributes } from "./RestrictionPolicyAttributes";
@@ -3304,6 +3312,16 @@ import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatcherArray } from "./WatcherArray";
 import { WatcherData } from "./WatcherData";
 import { WatcherDataAttributes } from "./WatcherDataAttributes";
+import { WidgetErrorInput } from "./WidgetErrorInput";
+import { WidgetLinks } from "./WidgetLinks";
+import { WidgetRelationshipObjectInput } from "./WidgetRelationshipObjectInput";
+import { WidgetRelationshipObjectOutput } from "./WidgetRelationshipObjectOutput";
+import { WidgetResourceObjectInput } from "./WidgetResourceObjectInput";
+import { WidgetResourceObjectOutput } from "./WidgetResourceObjectOutput";
+import { WidgetSchemaAttributes } from "./WidgetSchemaAttributes";
+import { WidgetSchemaJSONAPIDocument } from "./WidgetSchemaJSONAPIDocument";
+import { WidgetSchemaJSONAPIListDocument } from "./WidgetSchemaJSONAPIListDocument";
+import { WidgetSchemaResource } from "./WidgetSchemaResource";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -5282,6 +5300,12 @@ const enumsMap: { [key: string]: any[] } = {
     "saturday",
     "sunday",
   ],
+  WidgetExperienceType: [
+    "ccm_reports",
+    "logs_reports",
+    "csv_reports",
+    "product_analytics",
+  ],
   WidgetLiveSpan: [
     "1m",
     "5m",
@@ -5298,6 +5322,23 @@ const enumsMap: { [key: string]: any[] } = {
     "6mo",
     "1y",
     "alert",
+  ],
+  WidgetType: [
+    "bar_chart",
+    "change",
+    "cloud_cost_summary",
+    "cohort",
+    "funnel",
+    "geomap",
+    "list_stream",
+    "query_table",
+    "query_value",
+    "retention_curve",
+    "sankey",
+    "sunburst",
+    "timeseries",
+    "toplist",
+    "treemap",
   ],
   WorkflowDataType: ["workflows"],
   WorkflowUserRelationshipType: ["users"],
@@ -6104,6 +6145,11 @@ const typeMap: { [index: string]: any } = {
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
+  CreateOrUpdateWidgetRequestAttributes: CreateOrUpdateWidgetRequestAttributes,
+  CreateOrUpdateWidgetRequestJSONAPIRequestDocument:
+    CreateOrUpdateWidgetRequestJSONAPIRequestDocument,
+  CreateOrUpdateWidgetRequestResourceObjectRequest:
+    CreateOrUpdateWidgetRequestResourceObjectRequest,
   CreatePageRequest: CreatePageRequest,
   CreatePageRequestData: CreatePageRequestData,
   CreatePageRequestDataAttributes: CreatePageRequestDataAttributes,
@@ -6356,6 +6402,7 @@ const typeMap: { [index: string]: any } = {
   DatastoreDataAttributes: DatastoreDataAttributes,
   DatastoreTrigger: DatastoreTrigger,
   DatastoreTriggerWrapper: DatastoreTriggerWrapper,
+  Definition: Definition,
   Degradation: Degradation,
   DegradationArray: DegradationArray,
   DegradationData: DegradationData,
@@ -6557,6 +6604,8 @@ const typeMap: { [index: string]: any } = {
   EntityV3SystemDatadog: EntityV3SystemDatadog,
   EntityV3SystemSpec: EntityV3SystemSpec,
   ErrorHandler: ErrorHandler,
+  ErrorLinks: ErrorLinks,
+  ErrorSource: ErrorSource,
   Escalation: Escalation,
   EscalationPolicy: EscalationPolicy,
   EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
@@ -7225,6 +7274,7 @@ const typeMap: { [index: string]: any } = {
   LeakedKey: LeakedKey,
   LeakedKeyAttributes: LeakedKeyAttributes,
   Library: Library,
+  LinkObject: LinkObject,
   Links: Links,
   ListAPIsResponse: ListAPIsResponse,
   ListAPIsResponseData: ListAPIsResponseData,
@@ -8149,6 +8199,7 @@ const typeMap: { [index: string]: any } = {
   ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols:
     ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols,
   ResourceFilterAttributes: ResourceFilterAttributes,
+  ResourceIdentifierObject: ResourceIdentifierObject,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
   RestrictionPolicyAttributes: RestrictionPolicyAttributes,
@@ -9262,6 +9313,16 @@ const typeMap: { [index: string]: any } = {
   WatcherArray: WatcherArray,
   WatcherData: WatcherData,
   WatcherDataAttributes: WatcherDataAttributes,
+  WidgetErrorInput: WidgetErrorInput,
+  WidgetLinks: WidgetLinks,
+  WidgetRelationshipObjectInput: WidgetRelationshipObjectInput,
+  WidgetRelationshipObjectOutput: WidgetRelationshipObjectOutput,
+  WidgetResourceObjectInput: WidgetResourceObjectInput,
+  WidgetResourceObjectOutput: WidgetResourceObjectOutput,
+  WidgetSchemaAttributes: WidgetSchemaAttributes,
+  WidgetSchemaJSONAPIDocument: WidgetSchemaJSONAPIDocument,
+  WidgetSchemaJSONAPIListDocument: WidgetSchemaJSONAPIListDocument,
+  WidgetSchemaResource: WidgetSchemaResource,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,
@@ -9498,6 +9559,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "EntityV3APISpecInterfaceFileRef",
     "EntityV3APISpecInterfaceDefinition",
   ],
+  ErrorLinksAbout: ["string", "LinkObject"],
   EscalationPolicyIncluded: [
     "EscalationPolicyStep",
     "EscalationPolicyUser",
@@ -9569,6 +9631,13 @@ const oneOfMap: { [index: string]: string[] } = {
   IssuesSearchResultIncluded: ["Issue", "Case", "IssueUser", "IssueTeam"],
   LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
   LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
+  LinksDescribedBy: ["string", "LinkObject"],
+  LinksFirst: ["string", "LinkObject"],
+  LinksLast: ["string", "LinkObject"],
+  LinksNext: ["string", "LinkObject"],
+  LinksPrev: ["string", "LinkObject"],
+  LinksRelated: ["string", "LinkObject"],
+  LinksSelf: ["string", "LinkObject"],
   ListEntityCatalogResponseIncludedItem: [
     "EntityResponseIncludedSchema",
     "EntityResponseIncludedRawSchema",
@@ -9744,6 +9813,12 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  RelationshipObjectOutputData: [
+    "ResourceIdentifierObject",
+    "Array<ResourceIdentifierObject>",
+  ],
+  ResourceObjectInputAttributes: ["{ [key: string]: any; }", "any"],
+  ResourceObjectOutputAttributes: ["{ [key: string]: any; }", "any"],
   RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
   RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],

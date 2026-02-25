@@ -11163,6 +11163,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PermissionsResponse",
     },
+    "v2.SearchWidgetsApiV2WidgetsExperienceTypeGet": {
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "operationResponseType": "WidgetSchemaJSONAPIListDocument",
+    },
+    "v2.CreateWidgetApiV2WidgetsExperienceTypePost": {
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateOrUpdateWidgetRequestJSONAPIRequestDocument",
+            "format": "",
+            },
+        "operationResponseType": "WidgetSchemaJSONAPIDocument",
+    },
+    "v2.GetWidgetApiV2WidgetsExperienceTypeUuidGet": {
+        "uuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "operationResponseType": "WidgetSchemaJSONAPIDocument",
+    },
+    "v2.UpdateWidgetApiV2WidgetsExperienceTypeUuidPut": {
+        "uuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateOrUpdateWidgetRequestJSONAPIRequestDocument",
+            "format": "",
+            },
+        "operationResponseType": "WidgetSchemaJSONAPIDocument",
+    },
+    "v2.DeleteWidgetApiV2WidgetsExperienceTypeUuidDelete": {
+        "uuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateWorkflow": {
         "body": {
             "type": "CreateWorkflowRequest",
