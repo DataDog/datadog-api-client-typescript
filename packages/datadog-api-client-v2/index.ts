@@ -1022,13 +1022,19 @@ export {
 } from "./apis/ServiceNowIntegrationApi";
 
 export {
+  SoftwareCatalogApiAcceptRecommendedEntitiesRequest,
+  SoftwareCatalogApiConvertCatalogEntitiesRequest,
+  SoftwareCatalogApiDeclineRecommendedEntitiesRequest,
   SoftwareCatalogApiDeleteCatalogEntityRequest,
   SoftwareCatalogApiDeleteCatalogKindRequest,
+  SoftwareCatalogApiGetIDPConfigValueRequest,
   SoftwareCatalogApiListCatalogEntityRequest,
   SoftwareCatalogApiListCatalogKindRequest,
   SoftwareCatalogApiListCatalogRelationRequest,
+  SoftwareCatalogApiTriggerRecommendedEntitiesRequest,
   SoftwareCatalogApiUpsertCatalogEntityRequest,
   SoftwareCatalogApiUpsertCatalogKindRequest,
+  SoftwareCatalogApiUpsertIDPConfigValueRequest,
   SoftwareCatalogApi,
 } from "./apis/SoftwareCatalogApi";
 
@@ -2499,6 +2505,7 @@ export { EntityResponseIncludedSchema } from "./models/EntityResponseIncludedSch
 export { EntityResponseIncludedSchemaAttributes } from "./models/EntityResponseIncludedSchemaAttributes";
 export { EntityResponseIncludedSchemaType } from "./models/EntityResponseIncludedSchemaType";
 export { EntityResponseMeta } from "./models/EntityResponseMeta";
+export { EntitySchemaVersion } from "./models/EntitySchemaVersion";
 export { EntityToIncidents } from "./models/EntityToIncidents";
 export { EntityToOncalls } from "./models/EntityToOncalls";
 export { EntityToRawSchema } from "./models/EntityToRawSchema";
@@ -2966,6 +2973,13 @@ export { HTTPTokenAuth } from "./models/HTTPTokenAuth";
 export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
 export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
 export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
+export { IDPConfigAttributes } from "./models/IDPConfigAttributes";
+export { IDPConfigData } from "./models/IDPConfigData";
+export { IDPConfigRequest } from "./models/IDPConfigRequest";
+export { IDPConfigRequestAttributes } from "./models/IDPConfigRequestAttributes";
+export { IDPConfigRequestData } from "./models/IDPConfigRequestData";
+export { IDPConfigResponse } from "./models/IDPConfigResponse";
+export { IDPConfigType } from "./models/IDPConfigType";
 export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
@@ -4247,6 +4261,8 @@ export { RecommendationAttributes } from "./models/RecommendationAttributes";
 export { RecommendationData } from "./models/RecommendationData";
 export { RecommendationDocument } from "./models/RecommendationDocument";
 export { RecommendationType } from "./models/RecommendationType";
+export { RecommendedEntityID } from "./models/RecommendedEntityID";
+export { RecommendedEntityWithSchema } from "./models/RecommendedEntityWithSchema";
 export { ReferenceTableCreateSourceType } from "./models/ReferenceTableCreateSourceType";
 export { ReferenceTableSchemaFieldType } from "./models/ReferenceTableSchemaFieldType";
 export { ReferenceTableSortType } from "./models/ReferenceTableSortType";
