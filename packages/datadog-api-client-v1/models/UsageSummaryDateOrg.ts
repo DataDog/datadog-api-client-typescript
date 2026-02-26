@@ -215,6 +215,10 @@ export class UsageSummaryDateOrg {
    */
   "csmHostEnterpriseGcpHostCountTop99p"?: number;
   /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise OCI hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseOciHostCountTop99p"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for the given org.
    */
   "csmHostEnterpriseTotalHostCountTop99p"?: number;
@@ -1149,6 +1153,11 @@ export class UsageSummaryDateOrg {
     },
     csmHostEnterpriseGcpHostCountTop99p: {
       baseName: "csm_host_enterprise_gcp_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseOciHostCountTop99p: {
+      baseName: "csm_host_enterprise_oci_host_count_top99p",
       type: "number",
       format: "int64",
     },
