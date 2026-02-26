@@ -1,11 +1,17 @@
 export {
+  SoftwareCatalogApiAcceptRecommendedEntitiesRequest,
+  SoftwareCatalogApiConvertCatalogEntitiesRequest,
+  SoftwareCatalogApiDeclineRecommendedEntitiesRequest,
   SoftwareCatalogApiDeleteCatalogEntityRequest,
   SoftwareCatalogApiDeleteCatalogKindRequest,
+  SoftwareCatalogApiGetIDPConfigValueRequest,
   SoftwareCatalogApiListCatalogEntityRequest,
   SoftwareCatalogApiListCatalogKindRequest,
   SoftwareCatalogApiListCatalogRelationRequest,
+  SoftwareCatalogApiTriggerRecommendedEntitiesRequest,
   SoftwareCatalogApiUpsertCatalogEntityRequest,
   SoftwareCatalogApiUpsertCatalogKindRequest,
+  SoftwareCatalogApiUpsertIDPConfigValueRequest,
   SoftwareCatalogApi,
 } from "./SoftwareCatalogApi";
 
@@ -51,6 +57,7 @@ export { EntityResponseIncludedSchema } from "./models/EntityResponseIncludedSch
 export { EntityResponseIncludedSchemaAttributes } from "./models/EntityResponseIncludedSchemaAttributes";
 export { EntityResponseIncludedSchemaType } from "./models/EntityResponseIncludedSchemaType";
 export { EntityResponseMeta } from "./models/EntityResponseMeta";
+export { EntitySchemaVersion } from "./models/EntitySchemaVersion";
 export { EntityToIncidents } from "./models/EntityToIncidents";
 export { EntityToOncalls } from "./models/EntityToOncalls";
 export { EntityToRawSchema } from "./models/EntityToRawSchema";
@@ -93,7 +100,17 @@ export { EntityV3System } from "./models/EntityV3System";
 export { EntityV3SystemDatadog } from "./models/EntityV3SystemDatadog";
 export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
+export { IDPConfigAttributes } from "./models/IDPConfigAttributes";
+export { IDPConfigData } from "./models/IDPConfigData";
+export { IDPConfigRequest } from "./models/IDPConfigRequest";
+export { IDPConfigRequestAttributes } from "./models/IDPConfigRequestAttributes";
+export { IDPConfigRequestData } from "./models/IDPConfigRequestData";
+export { IDPConfigResponse } from "./models/IDPConfigResponse";
+export { IDPConfigType } from "./models/IDPConfigType";
 export { IncludeType } from "./models/IncludeType";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { KindAttributes } from "./models/KindAttributes";
 export { KindData } from "./models/KindData";
 export { KindMetadata } from "./models/KindMetadata";
@@ -106,6 +123,8 @@ export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 export { ListRelationCatalogResponse } from "./models/ListRelationCatalogResponse";
 export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogResponseLinks";
 export { PreviewEntityResponseData } from "./models/PreviewEntityResponseData";
+export { RecommendedEntityID } from "./models/RecommendedEntityID";
+export { RecommendedEntityWithSchema } from "./models/RecommendedEntityWithSchema";
 export { RelationAttributes } from "./models/RelationAttributes";
 export { RelationEntity } from "./models/RelationEntity";
 export { RelationIncludeType } from "./models/RelationIncludeType";

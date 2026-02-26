@@ -65,6 +65,15 @@ import { EntityV3ServiceSpec } from "./EntityV3ServiceSpec";
 import { EntityV3System } from "./EntityV3System";
 import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
+import { IDPConfigAttributes } from "./IDPConfigAttributes";
+import { IDPConfigData } from "./IDPConfigData";
+import { IDPConfigRequest } from "./IDPConfigRequest";
+import { IDPConfigRequestAttributes } from "./IDPConfigRequestAttributes";
+import { IDPConfigRequestData } from "./IDPConfigRequestData";
+import { IDPConfigResponse } from "./IDPConfigResponse";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { KindAttributes } from "./KindAttributes";
 import { KindData } from "./KindData";
 import { KindMetadata } from "./KindMetadata";
@@ -76,6 +85,8 @@ import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
 import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
 import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
+import { RecommendedEntityID } from "./RecommendedEntityID";
+import { RecommendedEntityWithSchema } from "./RecommendedEntityWithSchema";
 import { RelationAttributes } from "./RelationAttributes";
 import { RelationEntity } from "./RelationEntity";
 import { RelationMeta } from "./RelationMeta";
@@ -102,12 +113,14 @@ export const TypingInfo: ModelTypingInfo = {
     EntityResponseIncludedRawSchemaType: ["rawSchema"],
     EntityResponseIncludedRelatedEntityType: ["relatedEntity"],
     EntityResponseIncludedSchemaType: ["schema"],
+    EntitySchemaVersion: ["v2", "v2.1", "v2.2", "v3"],
     EntityV3APIKind: ["api"],
     EntityV3APIVersion: ["v3", "v2.2", "v2.1", "v2"],
     EntityV3DatastoreKind: ["datastore"],
     EntityV3QueueKind: ["queue"],
     EntityV3ServiceKind: ["service"],
     EntityV3SystemKind: ["system"],
+    IDPConfigType: ["idp_config"],
     IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
     RelationIncludeType: ["entity", "schema"],
     RelationResponseType: ["relation"],
@@ -231,6 +244,15 @@ export const TypingInfo: ModelTypingInfo = {
     EntityV3System: EntityV3System,
     EntityV3SystemDatadog: EntityV3SystemDatadog,
     EntityV3SystemSpec: EntityV3SystemSpec,
+    IDPConfigAttributes: IDPConfigAttributes,
+    IDPConfigData: IDPConfigData,
+    IDPConfigRequest: IDPConfigRequest,
+    IDPConfigRequestAttributes: IDPConfigRequestAttributes,
+    IDPConfigRequestData: IDPConfigRequestData,
+    IDPConfigResponse: IDPConfigResponse,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     KindAttributes: KindAttributes,
     KindData: KindData,
     KindMetadata: KindMetadata,
@@ -242,6 +264,8 @@ export const TypingInfo: ModelTypingInfo = {
     ListRelationCatalogResponse: ListRelationCatalogResponse,
     ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
     PreviewEntityResponseData: PreviewEntityResponseData,
+    RecommendedEntityID: RecommendedEntityID,
+    RecommendedEntityWithSchema: RecommendedEntityWithSchema,
     RelationAttributes: RelationAttributes,
     RelationEntity: RelationEntity,
     RelationMeta: RelationMeta,
