@@ -6,5 +6,11 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-export type StatusPagesPaginationType = typeof OFFSET_LIMIT | UnparsedObject;
-export const OFFSET_LIMIT = "offset_limit";
+/**
+ * The type of the source.
+ */
+
+export type DegradationDataAttributesSourceType =
+  | typeof INCIDENT
+  | UnparsedObject;
+export const INCIDENT = "incident";
