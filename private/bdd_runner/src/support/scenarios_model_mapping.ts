@@ -6706,6 +6706,42 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AWSAccountResponse",
   },
+  "AWSIntegrationApi.V2.GetAWSAccountCCMConfig": {
+    awsAccountConfigId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AWSCcmConfigResponse",
+  },
+  "AWSIntegrationApi.V2.CreateAWSAccountCCMConfig": {
+    awsAccountConfigId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AWSCcmConfigRequest",
+      format: "",
+    },
+    operationResponseType: "AWSCcmConfigResponse",
+  },
+  "AWSIntegrationApi.V2.DeleteAWSAccountCCMConfig": {
+    awsAccountConfigId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AWSIntegrationApi.V2.UpdateAWSAccountCCMConfig": {
+    awsAccountConfigId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AWSCcmConfigRequest",
+      format: "",
+    },
+    operationResponseType: "AWSCcmConfigResponse",
+  },
   "AWSIntegrationApi.V2.ListAWSNamespaces": {
     operationResponseType: "AWSNamespacesResponse",
   },
