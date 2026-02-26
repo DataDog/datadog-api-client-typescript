@@ -408,16 +408,14 @@ export class ProductAnalyticsApi {
     "ProductAnalyticsApi.v2.submitProductAnalyticsEvent": [
       new ServerConfiguration<{
         site:
-          | "datadoghq.com"
-          | "us3.datadoghq.com"
-          | "us5.datadoghq.com"
-          | "ap1.datadoghq.com"
-          | "ap2.datadoghq.com"
-          | "datadoghq.eu";
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "browser-intake",
+          | "browser-intake-datadoghq.com"
+          | "browser-intake-us3-datadoghq.com"
+          | "browser-intake-us5-datadoghq.com"
+          | "browser-intake-ap1-datadoghq.com"
+          | "browser-intake-ap2-datadoghq.com"
+          | "browser-intake-datadoghq.eu";
+      }>("https://{site}", {
+        site: "browser-intake-datadoghq.com",
       }),
       new ServerConfiguration<{
         name: string;
@@ -431,7 +429,7 @@ export class ProductAnalyticsApi {
         subdomain: string;
       }>("https://{subdomain}.{site}", {
         site: "datadoghq.com",
-        subdomain: "browser-intake",
+        subdomain: "api",
       }),
     ],
   };
