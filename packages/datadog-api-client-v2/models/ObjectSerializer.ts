@@ -1374,6 +1374,12 @@ import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
 import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
 import { HourlyUsagePagination } from "./HourlyUsagePagination";
 import { HourlyUsageResponse } from "./HourlyUsageResponse";
+import { IDPConfigAttributes } from "./IDPConfigAttributes";
+import { IDPConfigData } from "./IDPConfigData";
+import { IDPConfigRequest } from "./IDPConfigRequest";
+import { IDPConfigRequestAttributes } from "./IDPConfigRequestAttributes";
+import { IDPConfigRequestData } from "./IDPConfigRequestData";
+import { IDPConfigResponse } from "./IDPConfigResponse";
 import { IPAllowlistAttributes } from "./IPAllowlistAttributes";
 import { IPAllowlistData } from "./IPAllowlistData";
 import { IPAllowlistEntry } from "./IPAllowlistEntry";
@@ -2341,6 +2347,8 @@ import { ReadinessGate } from "./ReadinessGate";
 import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
 import { RecommendationDocument } from "./RecommendationDocument";
+import { RecommendedEntityID } from "./RecommendedEntityID";
+import { RecommendedEntityWithSchema } from "./RecommendedEntityWithSchema";
 import { RegisterAppKeyResponse } from "./RegisterAppKeyResponse";
 import { RelationAttributes } from "./RelationAttributes";
 import { RelationEntity } from "./RelationEntity";
@@ -3848,6 +3856,7 @@ const enumsMap: { [key: string]: any[] } = {
   EntityResponseIncludedRawSchemaType: ["rawSchema"],
   EntityResponseIncludedRelatedEntityType: ["relatedEntity"],
   EntityResponseIncludedSchemaType: ["schema"],
+  EntitySchemaVersion: ["v2", "v2.1", "v2.2", "v3"],
   EntityV3APIKind: ["api"],
   EntityV3APIVersion: ["v3", "v2.2", "v2.1", "v2"],
   EntityV3DatastoreKind: ["datastore"],
@@ -4002,6 +4011,7 @@ const enumsMap: { [key: string]: any[] } = {
     "observability_pipelines_bytes_processed",
     "lambda_traced_invocations_count",
   ],
+  IDPConfigType: ["idp_config"],
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
   IncidentAttachmentType: ["incident_attachments"],
@@ -6974,6 +6984,12 @@ const typeMap: { [index: string]: any } = {
   HourlyUsageMetadata: HourlyUsageMetadata,
   HourlyUsagePagination: HourlyUsagePagination,
   HourlyUsageResponse: HourlyUsageResponse,
+  IDPConfigAttributes: IDPConfigAttributes,
+  IDPConfigData: IDPConfigData,
+  IDPConfigRequest: IDPConfigRequest,
+  IDPConfigRequestAttributes: IDPConfigRequestAttributes,
+  IDPConfigRequestData: IDPConfigRequestData,
+  IDPConfigResponse: IDPConfigResponse,
   IPAllowlistAttributes: IPAllowlistAttributes,
   IPAllowlistData: IPAllowlistData,
   IPAllowlistEntry: IPAllowlistEntry,
@@ -8149,6 +8165,8 @@ const typeMap: { [index: string]: any } = {
   RecommendationAttributes: RecommendationAttributes,
   RecommendationData: RecommendationData,
   RecommendationDocument: RecommendationDocument,
+  RecommendedEntityID: RecommendedEntityID,
+  RecommendedEntityWithSchema: RecommendedEntityWithSchema,
   RegisterAppKeyResponse: RegisterAppKeyResponse,
   RelationAttributes: RelationAttributes,
   RelationEntity: RelationEntity,
