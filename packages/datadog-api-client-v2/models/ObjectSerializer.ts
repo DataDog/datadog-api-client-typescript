@@ -26,6 +26,13 @@ import { AWSAssumeRole } from "./AWSAssumeRole";
 import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSCcmConfig } from "./AWSCcmConfig";
+import { AWSCcmConfigRequest } from "./AWSCcmConfigRequest";
+import { AWSCcmConfigRequestAttributes } from "./AWSCcmConfigRequestAttributes";
+import { AWSCcmConfigRequestData } from "./AWSCcmConfigRequestData";
+import { AWSCcmConfigResponse } from "./AWSCcmConfigResponse";
+import { AWSCcmConfigResponseAttributes } from "./AWSCcmConfigResponseAttributes";
+import { AWSCcmConfigResponseData } from "./AWSCcmConfigResponseData";
 import { AWSCloudAuthPersonaMappingAttributesResponse } from "./AWSCloudAuthPersonaMappingAttributesResponse";
 import { AWSCloudAuthPersonaMappingCreateAttributes } from "./AWSCloudAuthPersonaMappingCreateAttributes";
 import { AWSCloudAuthPersonaMappingCreateData } from "./AWSCloudAuthPersonaMappingCreateData";
@@ -860,6 +867,7 @@ import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMappi
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
+import { DataExportConfig } from "./DataExportConfig";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { DataScalarColumn } from "./DataScalarColumn";
@@ -3403,6 +3411,7 @@ const enumsMap: { [key: string]: any[] } = {
   AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
   AWSAccountType: ["account"],
   AWSAssumeRoleType: ["AWSAssumeRole"],
+  AWSCcmConfigType: ["ccm_config"],
   AWSCloudAuthPersonaMappingType: ["aws_cloud_auth_config"],
   AWSEventBridgeCreateStatus: ["created"],
   AWSEventBridgeDeleteStatus: ["empty"],
@@ -5377,6 +5386,13 @@ const typeMap: { [index: string]: any } = {
   AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
   AWSAuthConfigKeys: AWSAuthConfigKeys,
   AWSAuthConfigRole: AWSAuthConfigRole,
+  AWSCcmConfig: AWSCcmConfig,
+  AWSCcmConfigRequest: AWSCcmConfigRequest,
+  AWSCcmConfigRequestAttributes: AWSCcmConfigRequestAttributes,
+  AWSCcmConfigRequestData: AWSCcmConfigRequestData,
+  AWSCcmConfigResponse: AWSCcmConfigResponse,
+  AWSCcmConfigResponseAttributes: AWSCcmConfigResponseAttributes,
+  AWSCcmConfigResponseData: AWSCcmConfigResponseData,
   AWSCloudAuthPersonaMappingAttributesResponse:
     AWSCloudAuthPersonaMappingAttributesResponse,
   AWSCloudAuthPersonaMappingCreateAttributes:
@@ -6383,6 +6399,7 @@ const typeMap: { [index: string]: any } = {
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
+  DataExportConfig: DataExportConfig,
   DataRelationshipsTeams: DataRelationshipsTeams,
   DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
   DataScalarColumn: DataScalarColumn,
