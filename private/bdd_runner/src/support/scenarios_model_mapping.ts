@@ -10368,7 +10368,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    sort: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "DegradationArray",
+  },
+  "StatusPagesApi.V2.ListMaintenances": {
+    filterPageId: {
+      type: "string",
+      format: "",
+    },
+    pageOffset: {
+      type: "number",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    filterStatus: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MaintenanceArray",
   },
   "StatusPagesApi.V2.GetStatusPage": {
     pageId: {
@@ -10545,6 +10576,63 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "Degradation",
+  },
+  "StatusPagesApi.V2.CreateMaintenance": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    notifySubscribers: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateMaintenanceRequest",
+      format: "",
+    },
+    operationResponseType: "Maintenance",
+  },
+  "StatusPagesApi.V2.GetMaintenance": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    maintenanceId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "Maintenance",
+  },
+  "StatusPagesApi.V2.UpdateMaintenance": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    notifySubscribers: {
+      type: "boolean",
+      format: "",
+    },
+    maintenanceId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PatchMaintenanceRequest",
+      format: "",
+    },
+    operationResponseType: "Maintenance",
   },
   "SyntheticsApi.V2.GetOnDemandConcurrencyCap": {
     operationResponseType: "OnDemandConcurrencyCapResponse",
