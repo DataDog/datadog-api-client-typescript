@@ -415,7 +415,7 @@ export class ProductAnalyticsApi {
           | "ap2.datadoghq.com"
           | "datadoghq.eu";
         subdomain: string;
-      }>("https://{subdomain}.{site}", {
+      }>("https://{subdomain}-{site}", {
         site: "datadoghq.com",
         subdomain: "browser-intake",
       }),
