@@ -3,14 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { StatusPagesPaginationType } from "./StatusPagesPaginationType";
+import { PaginationMetaPageType } from "./PaginationMetaPageType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Offset-based pagination schema.
  */
-export class StatusPagesPagination {
+export class PaginationMetaPage {
   /**
    * Integer representing the offset to fetch the first page of results.
    */
@@ -20,7 +20,7 @@ export class StatusPagesPagination {
    */
   "lastOffset"?: number;
   /**
-   * Integer representing the number of elements to returned in the results.
+   * Integer representing the number of elements to be returned in the results.
    */
   "limit"?: number;
   /**
@@ -39,7 +39,7 @@ export class StatusPagesPagination {
    * Integer representing the total number of elements available.
    */
   "total"?: number;
-  "type"?: StatusPagesPaginationType;
+  "type"?: PaginationMetaPageType;
 
   /**
    * A container for additional, undeclared properties.
@@ -94,7 +94,7 @@ export class StatusPagesPagination {
     },
     type: {
       baseName: "type",
-      type: "StatusPagesPaginationType",
+      type: "PaginationMetaPageType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -106,7 +106,7 @@ export class StatusPagesPagination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return StatusPagesPagination.attributeTypeMap;
+    return PaginationMetaPage.attributeTypeMap;
   }
 
   public constructor() {}

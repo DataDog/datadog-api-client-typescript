@@ -3,18 +3,24 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { StatusPagesPagination } from "./StatusPagesPagination";
+import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
+import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Response metadata.
- */
-export class StatusPagesResponseMeta {
+export class PatchMaintenanceRequestData {
   /**
-   * Offset-based pagination schema.
+   * The supported attributes for updating a maintenance.
    */
-  "page"?: StatusPagesPagination;
+  "attributes": PatchMaintenanceRequestDataAttributes;
+  /**
+   * The ID of the maintenance.
+   */
+  "id": string;
+  /**
+   * Maintenances resource type.
+   */
+  "type": PatchMaintenanceRequestDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +38,21 @@ export class StatusPagesResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "StatusPagesPagination",
+    attributes: {
+      baseName: "attributes",
+      type: "PatchMaintenanceRequestDataAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
+    },
+    type: {
+      baseName: "type",
+      type: "PatchMaintenanceRequestDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +64,7 @@ export class StatusPagesResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return StatusPagesResponseMeta.attributeTypeMap;
+    return PatchMaintenanceRequestData.attributeTypeMap;
   }
 
   public constructor() {}

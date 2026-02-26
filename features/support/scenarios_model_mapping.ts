@@ -10358,7 +10358,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "DegradationArray",
+    },
+    "v2.ListMaintenances": {
+        "filterPageId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceArray",
     },
     "v2.GetStatusPage": {
         "pageId": {
@@ -10535,6 +10566,63 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "Degradation",
+    },
+    "v2.CreateMaintenance": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "notifySubscribers": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateMaintenanceRequest",
+            "format": "",
+            },
+        "operationResponseType": "Maintenance",
+    },
+    "v2.GetMaintenance": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "maintenanceId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Maintenance",
+    },
+    "v2.UpdateMaintenance": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "notifySubscribers": {
+            "type": "boolean",
+            "format": "",
+            },
+        "maintenanceId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchMaintenanceRequest",
+            "format": "",
+            },
+        "operationResponseType": "Maintenance",
     },
     "v2.GetOnDemandConcurrencyCap": {
         "operationResponseType": "OnDemandConcurrencyCapResponse",
