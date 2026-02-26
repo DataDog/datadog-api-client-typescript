@@ -15,6 +15,7 @@ import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEven
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
 import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
+import { FormulaAndFunctionEventQueryGroupByFields } from "./FormulaAndFunctionEventQueryGroupByFields";
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
@@ -264,6 +265,10 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionEventQueryDefinition",
       "FormulaAndFunctionApmResourceStatsQueryDefinition",
     ],
+    FormulaAndFunctionEventQueryGroupByConfig: [
+      "Array<FormulaAndFunctionEventQueryGroupBy>",
+      "FormulaAndFunctionEventQueryGroupByFields",
+    ],
     FormulaAndFunctionQueryDefinition: [
       "FormulaAndFunctionMetricQueryDefinition",
       "FormulaAndFunctionEventQueryDefinition",
@@ -334,6 +339,8 @@ export const TypingInfo: ModelTypingInfo = {
     FormulaAndFunctionEventQueryDefinitionSearch:
       FormulaAndFunctionEventQueryDefinitionSearch,
     FormulaAndFunctionEventQueryGroupBy: FormulaAndFunctionEventQueryGroupBy,
+    FormulaAndFunctionEventQueryGroupByFields:
+      FormulaAndFunctionEventQueryGroupByFields,
     FormulaAndFunctionEventQueryGroupBySort:
       FormulaAndFunctionEventQueryGroupBySort,
     FormulaAndFunctionMetricQueryDefinition:

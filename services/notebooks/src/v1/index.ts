@@ -31,6 +31,8 @@ export { FormulaAndFunctionEventQueryDefinition } from "./models/FormulaAndFunct
 export { FormulaAndFunctionEventQueryDefinitionCompute } from "./models/FormulaAndFunctionEventQueryDefinitionCompute";
 export { FormulaAndFunctionEventQueryDefinitionSearch } from "./models/FormulaAndFunctionEventQueryDefinitionSearch";
 export { FormulaAndFunctionEventQueryGroupBy } from "./models/FormulaAndFunctionEventQueryGroupBy";
+export { FormulaAndFunctionEventQueryGroupByConfig } from "./models/FormulaAndFunctionEventQueryGroupByConfig";
+export { FormulaAndFunctionEventQueryGroupByFields } from "./models/FormulaAndFunctionEventQueryGroupByFields";
 export { FormulaAndFunctionEventQueryGroupBySort } from "./models/FormulaAndFunctionEventQueryGroupBySort";
 export { FormulaAndFunctionEventsDataSource } from "./models/FormulaAndFunctionEventsDataSource";
 export { FormulaAndFunctionMetricAggregation } from "./models/FormulaAndFunctionMetricAggregation";
