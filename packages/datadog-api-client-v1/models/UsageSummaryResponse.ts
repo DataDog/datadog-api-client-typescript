@@ -273,6 +273,10 @@ export class UsageSummaryResponse {
    */
   "dataJobsMonitoringHostHrAggSum"?: number;
   /**
+   * Shows the sum of the average of all Data Observability Quality Monitoring usage over all hours in the current months for all organizations.
+   */
+  "dataObservabilityQualityMonitoringAvgSum"?: number;
+  /**
    * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
    */
   "dbmHostTop99pSum"?: number;
@@ -1243,6 +1247,11 @@ export class UsageSummaryResponse {
     },
     dataJobsMonitoringHostHrAggSum: {
       baseName: "data_jobs_monitoring_host_hr_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    dataObservabilityQualityMonitoringAvgSum: {
+      baseName: "data_observability_quality_monitoring_avg_sum",
       type: "number",
       format: "int64",
     },
