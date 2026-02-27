@@ -9637,6 +9637,101 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ViewershipHistorySessionArray",
   },
+  "ServiceScorecardsApi.V2.ListScorecardCampaigns": {
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    filterCampaignName: {
+      type: "string",
+      format: "",
+    },
+    filterCampaignStatus: {
+      type: "string",
+      format: "",
+    },
+    filterCampaignOwner: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListCampaignsResponse",
+  },
+  "ServiceScorecardsApi.V2.CreateScorecardCampaign": {
+    body: {
+      type: "CreateCampaignRequest",
+      format: "",
+    },
+    operationResponseType: "CampaignResponse",
+  },
+  "ServiceScorecardsApi.V2.GetScorecardCampaign": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    includeMeta: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "CampaignResponse",
+  },
+  "ServiceScorecardsApi.V2.UpdateScorecardCampaign": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateCampaignRequest",
+      format: "",
+    },
+    operationResponseType: "CampaignResponse",
+  },
+  "ServiceScorecardsApi.V2.DeleteScorecardCampaign": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceScorecardsApi.V2.GenerateScorecardCampaignTeamReports": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GenerateCampaignTeamReportsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceScorecardsApi.V2.GenerateScorecardCampaignReport": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GenerateCampaignReportRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceScorecardsApi.V2.ListScorecardDefaultRules": {
+    operationResponseType: "ListDefaultRulesResponse",
+  },
+  "ServiceScorecardsApi.V2.ListScorecardFacets": {
+    filterEntityQuery: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListFacetsResponse",
+  },
   "ServiceScorecardsApi.V2.ListScorecardOutcomes": {
     pageSize: {
       type: "number",
@@ -9758,6 +9853,89 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "ServiceScorecardsApi.V2.DeleteScorecardRule": {
     ruleId: {
       type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceScorecardsApi.V2.DeleteScorecardRuleWorkflow": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceScorecardsApi.V2.UpdateScorecardRuleWorkflow": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    workflowId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceScorecardsApi.V2.ListScorecards": {
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    filterScorecardId: {
+      type: "string",
+      format: "",
+    },
+    filterScorecardName: {
+      type: "string",
+      format: "",
+    },
+    filterScorecardDescription: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListScorecardsResponse",
+  },
+  "ServiceScorecardsApi.V2.ListScorecardScores": {
+    aggregation: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    filterEntityQuery: {
+      type: "string",
+      format: "",
+    },
+    filterRuleId: {
+      type: "string",
+      format: "",
+    },
+    filterRuleEnabled: {
+      type: "boolean",
+      format: "",
+    },
+    filterRuleCustom: {
+      type: "boolean",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListScoresResponse",
+  },
+  "ServiceScorecardsApi.V2.SetupScorecardRules": {
+    body: {
+      type: "SetupRulesRequest",
       format: "",
     },
     operationResponseType: "{}",
