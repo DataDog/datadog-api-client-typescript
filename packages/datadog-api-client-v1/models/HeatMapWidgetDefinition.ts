@@ -24,7 +24,7 @@ export class HeatMapWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
-   * List of widget events.
+   * List of widget events. Deprecated - Use `overlay` request type instead.
    */
   "events"?: Array<WidgetEvent>;
   /**

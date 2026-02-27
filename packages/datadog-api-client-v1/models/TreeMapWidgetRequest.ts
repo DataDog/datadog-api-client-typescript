@@ -18,7 +18,7 @@ export class TreeMapWidgetRequest {
    */
   "formulas"?: Array<WidgetFormula>;
   /**
-   * The widget metrics query.
+   * The widget metrics query. Deprecated - Use `queries` and `formulas` instead.
    */
   "q"?: string;
   /**

@@ -63,7 +63,7 @@ export class TimeseriesWidgetRequest {
    */
   "profileMetricsQuery"?: LogQueryDefinition;
   /**
-   * Widget query.
+   * Widget query. Deprecated - Use `queries` and `formulas` instead.
    */
   "q"?: string;
   /**
