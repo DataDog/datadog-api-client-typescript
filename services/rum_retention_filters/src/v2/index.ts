@@ -9,6 +9,9 @@ export {
 } from "./RumRetentionFiltersApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { RumCrossProductSampling } from "./models/RumCrossProductSampling";
+export { RumCrossProductSamplingCreate } from "./models/RumCrossProductSamplingCreate";
+export { RumCrossProductSamplingUpdate } from "./models/RumCrossProductSamplingUpdate";
 export { RumRetentionFilterAttributes } from "./models/RumRetentionFilterAttributes";
 export { RumRetentionFilterCreateAttributes } from "./models/RumRetentionFilterCreateAttributes";
 export { RumRetentionFilterCreateData } from "./models/RumRetentionFilterCreateData";
