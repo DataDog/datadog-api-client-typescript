@@ -9627,6 +9627,62 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ViewershipHistorySessionArray",
     },
+    "v2.ListRumSegments": {
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "RumSegmentListResponse",
+    },
+    "v2.CreateRumSegment": {
+        "body": {
+            "type": "RumSegmentCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumSegmentResponse",
+    },
+    "v2.InitializeRumSegments": {
+        "operationResponseType": "{}",
+    },
+    "v2.CreateRumStaticSegment": {
+        "body": {
+            "type": "RumStaticSegmentCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumSegmentResponse",
+    },
+    "v2.ListRumSegmentTemplates": {
+        "operationResponseType": "RumSegmentTemplateListResponse",
+    },
+    "v2.GetRumSegment": {
+        "segmentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumSegmentResponse",
+    },
+    "v2.UpdateRumSegment": {
+        "segmentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumSegmentUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteRumSegment": {
+        "segmentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumSegmentDeleteResponse",
+    },
     "v2.ListScorecardOutcomes": {
         "pageSize": {
             "type": "number",

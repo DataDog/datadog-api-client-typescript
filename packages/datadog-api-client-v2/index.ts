@@ -771,6 +771,16 @@ export {
 } from "./apis/RUMApi";
 
 export {
+  RUMUserSegmentsApiCreateRumSegmentRequest,
+  RUMUserSegmentsApiCreateRumStaticSegmentRequest,
+  RUMUserSegmentsApiDeleteRumSegmentRequest,
+  RUMUserSegmentsApiGetRumSegmentRequest,
+  RUMUserSegmentsApiListRumSegmentsRequest,
+  RUMUserSegmentsApiUpdateRumSegmentRequest,
+  RUMUserSegmentsApi,
+} from "./apis/RUMUserSegmentsApi";
+
+export {
   ReferenceTablesApiCreateReferenceTableRequest,
   ReferenceTablesApiCreateReferenceTableUploadRequest,
   ReferenceTablesApiDeleteRowsRequest,
@@ -4525,8 +4535,47 @@ export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterU
 export { RumRetentionFilterUpdateData } from "./models/RumRetentionFilterUpdateData";
 export { RumRetentionFilterUpdateRequest } from "./models/RumRetentionFilterUpdateRequest";
 export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
+export { RumSegmentCreateAttributes } from "./models/RumSegmentCreateAttributes";
+export { RumSegmentCreateData } from "./models/RumSegmentCreateData";
+export { RumSegmentCreateRequest } from "./models/RumSegmentCreateRequest";
+export { RumSegmentDataQuery } from "./models/RumSegmentDataQuery";
+export { RumSegmentDeleteAttributes } from "./models/RumSegmentDeleteAttributes";
+export { RumSegmentDeleteData } from "./models/RumSegmentDeleteData";
+export { RumSegmentDeleteResponse } from "./models/RumSegmentDeleteResponse";
+export { RumSegmentDeleteType } from "./models/RumSegmentDeleteType";
+export { RumSegmentEventPlatform } from "./models/RumSegmentEventPlatform";
+export { RumSegmentJourney } from "./models/RumSegmentJourney";
+export { RumSegmentListResponse } from "./models/RumSegmentListResponse";
+export { RumSegmentReferenceTable } from "./models/RumSegmentReferenceTable";
+export { RumSegmentReferenceTableColumn } from "./models/RumSegmentReferenceTableColumn";
+export { RumSegmentReferenceTableJoinCondition } from "./models/RumSegmentReferenceTableJoinCondition";
+export { RumSegmentResourceType } from "./models/RumSegmentResourceType";
+export { RumSegmentResponse } from "./models/RumSegmentResponse";
+export { RumSegmentResponseAttributes } from "./models/RumSegmentResponseAttributes";
+export { RumSegmentResponseData } from "./models/RumSegmentResponseData";
+export { RumSegmentSegmentType } from "./models/RumSegmentSegmentType";
+export { RumSegmentSource } from "./models/RumSegmentSource";
+export { RumSegmentStaticEntry } from "./models/RumSegmentStaticEntry";
+export { RumSegmentTemplateInstance } from "./models/RumSegmentTemplateInstance";
+export { RumSegmentTemplateListResponse } from "./models/RumSegmentTemplateListResponse";
+export { RumSegmentTemplateParameterDef } from "./models/RumSegmentTemplateParameterDef";
+export { RumSegmentTemplateResourceType } from "./models/RumSegmentTemplateResourceType";
+export { RumSegmentTemplateResponseAttributes } from "./models/RumSegmentTemplateResponseAttributes";
+export { RumSegmentTemplateResponseData } from "./models/RumSegmentTemplateResponseData";
+export { RumSegmentTemplateStatus } from "./models/RumSegmentTemplateStatus";
+export { RumSegmentUpdateAttributes } from "./models/RumSegmentUpdateAttributes";
+export { RumSegmentUpdateData } from "./models/RumSegmentUpdateData";
+export { RumSegmentUpdateRequest } from "./models/RumSegmentUpdateRequest";
+export { RumSegmentUser } from "./models/RumSegmentUser";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
+export { RumStaticSegmentCreateAttributes } from "./models/RumStaticSegmentCreateAttributes";
+export { RumStaticSegmentCreateData } from "./models/RumStaticSegmentCreateData";
+export { RumStaticSegmentCreateRequest } from "./models/RumStaticSegmentCreateRequest";
+export { RumStaticSegmentJourneyFilter } from "./models/RumStaticSegmentJourneyFilter";
+export { RumStaticSegmentJourneyNode } from "./models/RumStaticSegmentJourneyNode";
+export { RumStaticSegmentJourneyQueryObject } from "./models/RumStaticSegmentJourneyQueryObject";
+export { RumStaticSegmentRequestType } from "./models/RumStaticSegmentRequestType";
 export { RUMWarning } from "./models/RUMWarning";
 export { RunThreatHuntingJobRequest } from "./models/RunThreatHuntingJobRequest";
 export { RunThreatHuntingJobRequestAttributes } from "./models/RunThreatHuntingJobRequestAttributes";
