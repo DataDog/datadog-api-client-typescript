@@ -1,6 +1,7 @@
 export {
   StatusPagesApiCreateComponentRequest,
   StatusPagesApiCreateDegradationRequest,
+  StatusPagesApiCreateInternalEmailSubscriptionRequest,
   StatusPagesApiCreateStatusPageRequest,
   StatusPagesApiDeleteComponentRequest,
   StatusPagesApiDeleteDegradationRequest,
@@ -8,8 +9,10 @@ export {
   StatusPagesApiGetComponentRequest,
   StatusPagesApiGetDegradationRequest,
   StatusPagesApiGetStatusPageRequest,
+  StatusPagesApiImportEmailSubscriptionsRequest,
   StatusPagesApiListComponentsRequest,
   StatusPagesApiListDegradationsRequest,
+  StatusPagesApiListEmailSubscriptionsRequest,
   StatusPagesApiListStatusPagesRequest,
   StatusPagesApiUpdateComponentRequest,
   StatusPagesApiUpdateDegradationRequest,
@@ -53,6 +56,9 @@ export { DegradationDataRelationshipsLastModifiedByUser } from "./models/Degrada
 export { DegradationDataRelationshipsLastModifiedByUserData } from "./models/DegradationDataRelationshipsLastModifiedByUserData";
 export { DegradationDataRelationshipsStatusPage } from "./models/DegradationDataRelationshipsStatusPage";
 export { DegradationDataRelationshipsStatusPageData } from "./models/DegradationDataRelationshipsStatusPageData";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { PatchComponentRequest } from "./models/PatchComponentRequest";
 export { PatchComponentRequestData } from "./models/PatchComponentRequestData";
 export { PatchComponentRequestDataAttributes } from "./models/PatchComponentRequestDataAttributes";
@@ -77,6 +83,7 @@ export { StatusPageAsIncludedRelationshipsCreatedByUser } from "./models/StatusP
 export { StatusPageAsIncludedRelationshipsCreatedByUserData } from "./models/StatusPageAsIncludedRelationshipsCreatedByUserData";
 export { StatusPageAsIncludedRelationshipsLastModifiedByUser } from "./models/StatusPageAsIncludedRelationshipsLastModifiedByUser";
 export { StatusPageAsIncludedRelationshipsLastModifiedByUserData } from "./models/StatusPageAsIncludedRelationshipsLastModifiedByUserData";
+export { StatusPageComponentType } from "./models/StatusPageComponentType";
 export { StatusPageData } from "./models/StatusPageData";
 export { StatusPageDataAttributes } from "./models/StatusPageDataAttributes";
 export { StatusPageDataAttributesComponentsItems } from "./models/StatusPageDataAttributesComponentsItems";
@@ -87,6 +94,24 @@ export { StatusPageDataRelationshipsCreatedByUserData } from "./models/StatusPag
 export { StatusPageDataRelationshipsLastModifiedByUser } from "./models/StatusPageDataRelationshipsLastModifiedByUser";
 export { StatusPageDataRelationshipsLastModifiedByUserData } from "./models/StatusPageDataRelationshipsLastModifiedByUserData";
 export { StatusPageDataType } from "./models/StatusPageDataType";
+export { StatusPageEmailSubscriptionRequest } from "./models/StatusPageEmailSubscriptionRequest";
+export { StatusPageEmailSubscriptionRequestAttributes } from "./models/StatusPageEmailSubscriptionRequestAttributes";
+export { StatusPageEmailSubscriptionRequestData } from "./models/StatusPageEmailSubscriptionRequestData";
+export { StatusPageEmailSubscriptionRequestRelationships } from "./models/StatusPageEmailSubscriptionRequestRelationships";
+export { StatusPageEmailSubscriptionResponse } from "./models/StatusPageEmailSubscriptionResponse";
+export { StatusPageEmailSubscriptionResponseAttributes } from "./models/StatusPageEmailSubscriptionResponseAttributes";
+export { StatusPageEmailSubscriptionResponseData } from "./models/StatusPageEmailSubscriptionResponseData";
+export { StatusPageEmailSubscriptionResponseRelationships } from "./models/StatusPageEmailSubscriptionResponseRelationships";
+export { StatusPageEmailSubscriptionsRequest } from "./models/StatusPageEmailSubscriptionsRequest";
+export { StatusPageEmailSubscriptionsResponse } from "./models/StatusPageEmailSubscriptionsResponse";
+export { StatusPageEmailSubscriptionsResponseMeta } from "./models/StatusPageEmailSubscriptionsResponseMeta";
+export { StatusPageEmailSubscriptionsResponseMetaPage } from "./models/StatusPageEmailSubscriptionsResponseMetaPage";
+export { StatusPageEmailSubscriptionStatus } from "./models/StatusPageEmailSubscriptionStatus";
+export { StatusPageEmailSubscriptionType } from "./models/StatusPageEmailSubscriptionType";
+export { StatusPageRelationshipStatusPage } from "./models/StatusPageRelationshipStatusPage";
+export { StatusPageRelationshipStatusPageData } from "./models/StatusPageRelationshipStatusPageData";
+export { StatusPageRelationshipSubscribedComponentData } from "./models/StatusPageRelationshipSubscribedComponentData";
+export { StatusPageRelationshipSubscribedComponents } from "./models/StatusPageRelationshipSubscribedComponents";
 export { StatusPagesComponent } from "./models/StatusPagesComponent";
 export { StatusPagesComponentArray } from "./models/StatusPagesComponentArray";
 export { StatusPagesComponentArrayIncluded } from "./models/StatusPagesComponentArrayIncluded";
