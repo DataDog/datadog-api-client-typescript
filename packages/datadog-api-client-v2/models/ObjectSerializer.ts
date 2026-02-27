@@ -1090,6 +1090,22 @@ import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAt
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
 import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
+import { EventEmailAddressCreateAttributes } from "./EventEmailAddressCreateAttributes";
+import { EventEmailAddressCreateData } from "./EventEmailAddressCreateData";
+import { EventEmailAddressCreateRequest } from "./EventEmailAddressCreateRequest";
+import { EventEmailAddressCreatedByRelationship } from "./EventEmailAddressCreatedByRelationship";
+import { EventEmailAddressData } from "./EventEmailAddressData";
+import { EventEmailAddressIncludedUser } from "./EventEmailAddressIncludedUser";
+import { EventEmailAddressIncludedUserAttributes } from "./EventEmailAddressIncludedUserAttributes";
+import { EventEmailAddressRelationships } from "./EventEmailAddressRelationships";
+import { EventEmailAddressResponseAttributes } from "./EventEmailAddressResponseAttributes";
+import { EventEmailAddressRevokedByRelationship } from "./EventEmailAddressRevokedByRelationship";
+import { EventEmailAddressSingleResponse } from "./EventEmailAddressSingleResponse";
+import { EventEmailAddressUpdateAttributes } from "./EventEmailAddressUpdateAttributes";
+import { EventEmailAddressUpdateData } from "./EventEmailAddressUpdateData";
+import { EventEmailAddressUpdateRequest } from "./EventEmailAddressUpdateRequest";
+import { EventEmailAddressUserData } from "./EventEmailAddressUserData";
+import { EventEmailAddressesResponse } from "./EventEmailAddressesResponse";
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
@@ -2072,6 +2088,9 @@ import { OktaAccountUpdateRequestData } from "./OktaAccountUpdateRequestData";
 import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OktaIntegration } from "./OktaIntegration";
 import { OktaIntegrationUpdate } from "./OktaIntegrationUpdate";
+import { OnCallEventEmailAddressCreateAttributes } from "./OnCallEventEmailAddressCreateAttributes";
+import { OnCallEventEmailAddressCreateData } from "./OnCallEventEmailAddressCreateData";
+import { OnCallEventEmailAddressCreateRequest } from "./OnCallEventEmailAddressCreateRequest";
 import { OnCallNotificationRule } from "./OnCallNotificationRule";
 import { OnCallNotificationRuleAttributes } from "./OnCallNotificationRuleAttributes";
 import { OnCallNotificationRuleChannelRelationship } from "./OnCallNotificationRuleChannelRelationship";
@@ -3866,6 +3885,9 @@ const enumsMap: { [key: string]: any[] } = {
   EscalationType: ["escalation_policy_steps"],
   EventCategory: ["change", "alert"],
   EventCreateRequestType: ["event"],
+  EventEmailAddressAlertType: ["info", "warn", "error", "success"],
+  EventEmailAddressFormat: ["json", "plain-text"],
+  EventEmailAddressResourceType: ["event_emails"],
   EventPayloadIntegrationId: ["custom-events"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
@@ -6660,6 +6682,25 @@ const typeMap: { [index: string]: any } = {
     EventCreateResponseAttributesAttributesEvt,
   EventCreateResponsePayload: EventCreateResponsePayload,
   EventCreateResponsePayloadLinks: EventCreateResponsePayloadLinks,
+  EventEmailAddressCreateAttributes: EventEmailAddressCreateAttributes,
+  EventEmailAddressCreateData: EventEmailAddressCreateData,
+  EventEmailAddressCreateRequest: EventEmailAddressCreateRequest,
+  EventEmailAddressCreatedByRelationship:
+    EventEmailAddressCreatedByRelationship,
+  EventEmailAddressData: EventEmailAddressData,
+  EventEmailAddressIncludedUser: EventEmailAddressIncludedUser,
+  EventEmailAddressIncludedUserAttributes:
+    EventEmailAddressIncludedUserAttributes,
+  EventEmailAddressRelationships: EventEmailAddressRelationships,
+  EventEmailAddressResponseAttributes: EventEmailAddressResponseAttributes,
+  EventEmailAddressRevokedByRelationship:
+    EventEmailAddressRevokedByRelationship,
+  EventEmailAddressSingleResponse: EventEmailAddressSingleResponse,
+  EventEmailAddressUpdateAttributes: EventEmailAddressUpdateAttributes,
+  EventEmailAddressUpdateData: EventEmailAddressUpdateData,
+  EventEmailAddressUpdateRequest: EventEmailAddressUpdateRequest,
+  EventEmailAddressUserData: EventEmailAddressUserData,
+  EventEmailAddressesResponse: EventEmailAddressesResponse,
   EventPayload: EventPayload,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,
@@ -7850,6 +7891,10 @@ const typeMap: { [index: string]: any } = {
   OktaAccountsResponse: OktaAccountsResponse,
   OktaIntegration: OktaIntegration,
   OktaIntegrationUpdate: OktaIntegrationUpdate,
+  OnCallEventEmailAddressCreateAttributes:
+    OnCallEventEmailAddressCreateAttributes,
+  OnCallEventEmailAddressCreateData: OnCallEventEmailAddressCreateData,
+  OnCallEventEmailAddressCreateRequest: OnCallEventEmailAddressCreateRequest,
   OnCallNotificationRule: OnCallNotificationRule,
   OnCallNotificationRuleAttributes: OnCallNotificationRuleAttributes,
   OnCallNotificationRuleChannelRelationship:

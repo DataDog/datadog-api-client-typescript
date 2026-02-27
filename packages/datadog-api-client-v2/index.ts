@@ -377,9 +377,17 @@ export {
 
 export {
   EventsApiCreateEventRequest,
+  EventsApiCreateEventEmailAddressRequest,
+  EventsApiCreateOnCallEventEmailAddressRequest,
+  EventsApiDeleteEventEmailAddressRequest,
+  EventsApiDeleteOnCallEventEmailAddressRequest,
   EventsApiGetEventRequest,
+  EventsApiGetEventEmailAddressRequest,
+  EventsApiGetOnCallEventEmailAddressesRequest,
+  EventsApiListEventEmailAddressesRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
+  EventsApiUpdateEventEmailAddressRequest,
   EventsApi,
 } from "./apis/EventsApi";
 
@@ -2597,6 +2605,25 @@ export { EventCreateResponseAttributesAttributes } from "./models/EventCreateRes
 export { EventCreateResponseAttributesAttributesEvt } from "./models/EventCreateResponseAttributesAttributesEvt";
 export { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
 export { EventCreateResponsePayloadLinks } from "./models/EventCreateResponsePayloadLinks";
+export { EventEmailAddressAlertType } from "./models/EventEmailAddressAlertType";
+export { EventEmailAddressCreateAttributes } from "./models/EventEmailAddressCreateAttributes";
+export { EventEmailAddressCreateData } from "./models/EventEmailAddressCreateData";
+export { EventEmailAddressCreatedByRelationship } from "./models/EventEmailAddressCreatedByRelationship";
+export { EventEmailAddressCreateRequest } from "./models/EventEmailAddressCreateRequest";
+export { EventEmailAddressData } from "./models/EventEmailAddressData";
+export { EventEmailAddressesResponse } from "./models/EventEmailAddressesResponse";
+export { EventEmailAddressFormat } from "./models/EventEmailAddressFormat";
+export { EventEmailAddressIncludedUser } from "./models/EventEmailAddressIncludedUser";
+export { EventEmailAddressIncludedUserAttributes } from "./models/EventEmailAddressIncludedUserAttributes";
+export { EventEmailAddressRelationships } from "./models/EventEmailAddressRelationships";
+export { EventEmailAddressResourceType } from "./models/EventEmailAddressResourceType";
+export { EventEmailAddressResponseAttributes } from "./models/EventEmailAddressResponseAttributes";
+export { EventEmailAddressRevokedByRelationship } from "./models/EventEmailAddressRevokedByRelationship";
+export { EventEmailAddressSingleResponse } from "./models/EventEmailAddressSingleResponse";
+export { EventEmailAddressUpdateAttributes } from "./models/EventEmailAddressUpdateAttributes";
+export { EventEmailAddressUpdateData } from "./models/EventEmailAddressUpdateData";
+export { EventEmailAddressUpdateRequest } from "./models/EventEmailAddressUpdateRequest";
+export { EventEmailAddressUserData } from "./models/EventEmailAddressUserData";
 export { EventPayload } from "./models/EventPayload";
 export { EventPayloadAttributes } from "./models/EventPayloadAttributes";
 export { EventPayloadIntegrationId } from "./models/EventPayloadIntegrationId";
@@ -3960,6 +3987,9 @@ export { OktaCredentialsUpdate } from "./models/OktaCredentialsUpdate";
 export { OktaIntegration } from "./models/OktaIntegration";
 export { OktaIntegrationType } from "./models/OktaIntegrationType";
 export { OktaIntegrationUpdate } from "./models/OktaIntegrationUpdate";
+export { OnCallEventEmailAddressCreateAttributes } from "./models/OnCallEventEmailAddressCreateAttributes";
+export { OnCallEventEmailAddressCreateData } from "./models/OnCallEventEmailAddressCreateData";
+export { OnCallEventEmailAddressCreateRequest } from "./models/OnCallEventEmailAddressCreateRequest";
 export { OnCallNotificationRule } from "./models/OnCallNotificationRule";
 export { OnCallNotificationRuleAttributes } from "./models/OnCallNotificationRuleAttributes";
 export { OnCallNotificationRuleCategory } from "./models/OnCallNotificationRuleCategory";
