@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumRetentionFilterEventType } from "./RumRetentionFilterEventType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The object describing attributes of a RUM retention filter to create.
  */
 export class RumRetentionFilterCreateAttributes {
+  /**
+   * Configuration for cross-product sampling when creating a retention filter.
+   */
+  "crossProductSampling"?: RumCrossProductSamplingCreate;
   /**
    * Whether the retention filter is enabled.
    */
@@ -48,6 +53,10 @@ export class RumRetentionFilterCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    crossProductSampling: {
+      baseName: "cross_product_sampling",
+      type: "RumCrossProductSamplingCreate",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
