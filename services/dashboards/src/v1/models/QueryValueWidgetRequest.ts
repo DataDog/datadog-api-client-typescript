@@ -53,7 +53,7 @@ export class QueryValueWidgetRequest {
    */
   "profileMetricsQuery"?: LogQueryDefinition;
   /**
-   * TODO.
+   * Widget query. Deprecated - Use `queries` and `formulas` instead.
    */
   "q"?: string;
   /**
