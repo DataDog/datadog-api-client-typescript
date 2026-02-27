@@ -28,6 +28,9 @@ import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
+import { IncidentCondition } from "./IncidentCondition";
+import { IncidentScheduleTrigger } from "./IncidentScheduleTrigger";
+import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper";
 import { IncidentTrigger } from "./IncidentTrigger";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { InputSchema } from "./InputSchema";
@@ -137,6 +140,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FormTriggerWrapper",
       "GithubWebhookTriggerWrapper",
       "IncidentTriggerWrapper",
+      "IncidentScheduleTriggerWrapper",
       "MonitorTriggerWrapper",
       "NotebookTriggerWrapper",
       "OnCallTriggerWrapper",
@@ -177,6 +181,9 @@ export const TypingInfo: ModelTypingInfo = {
     GetWorkflowResponse: GetWorkflowResponse,
     GithubWebhookTrigger: GithubWebhookTrigger,
     GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,
+    IncidentCondition: IncidentCondition,
+    IncidentScheduleTrigger: IncidentScheduleTrigger,
+    IncidentScheduleTriggerWrapper: IncidentScheduleTriggerWrapper,
     IncidentTrigger: IncidentTrigger,
     IncidentTriggerWrapper: IncidentTriggerWrapper,
     InputSchema: InputSchema,
