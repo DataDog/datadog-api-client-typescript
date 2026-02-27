@@ -2085,6 +2085,21 @@ import { OnCallTriggerWrapper } from "./OnCallTriggerWrapper";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
+import { OnPremManagementServiceCreateEnrollmentRequest } from "./OnPremManagementServiceCreateEnrollmentRequest";
+import { OnPremManagementServiceCreateEnrollmentResponse } from "./OnPremManagementServiceCreateEnrollmentResponse";
+import { OnPremManagementServiceCreateEnrollmentResponseAttributes } from "./OnPremManagementServiceCreateEnrollmentResponseAttributes";
+import { OnPremManagementServiceCreateEnrollmentResponseData } from "./OnPremManagementServiceCreateEnrollmentResponseData";
+import { OnPremManagementServiceEnrollmentAttributes } from "./OnPremManagementServiceEnrollmentAttributes";
+import { OnPremManagementServiceEnrollmentDataRequest } from "./OnPremManagementServiceEnrollmentDataRequest";
+import { OnPremManagementServiceGetEnrollmentResponse } from "./OnPremManagementServiceGetEnrollmentResponse";
+import { OnPremManagementServiceGetEnrollmentResponseAttributes } from "./OnPremManagementServiceGetEnrollmentResponseAttributes";
+import { OnPremManagementServiceGetEnrollmentResponseData } from "./OnPremManagementServiceGetEnrollmentResponseData";
+import { OnPremManagementServiceRegisterTokenAttributes } from "./OnPremManagementServiceRegisterTokenAttributes";
+import { OnPremManagementServiceRegisterTokenDataRequest } from "./OnPremManagementServiceRegisterTokenDataRequest";
+import { OnPremManagementServiceRegisterTokenRequest } from "./OnPremManagementServiceRegisterTokenRequest";
+import { OnPremManagementServiceRegisterTokenResponse } from "./OnPremManagementServiceRegisterTokenResponse";
+import { OnPremManagementServiceRegisterTokenResponseAttributes } from "./OnPremManagementServiceRegisterTokenResponseAttributes";
+import { OnPremManagementServiceRegisterTokenResponseData } from "./OnPremManagementServiceRegisterTokenResponseData";
 import { OpenAIAPIKey } from "./OpenAIAPIKey";
 import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
 import { OpenAIIntegration } from "./OpenAIIntegration";
@@ -4533,6 +4548,22 @@ const enumsMap: { [key: string]: any[] } = {
   OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
   OnCallPhoneNotificationRuleMethod: ["sms", "voice"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
+  OnPremManagementServiceCreateEnrollmentResponseType: [
+    "createEnrollmentResponse",
+  ],
+  OnPremManagementServiceEnrollmentAttributesRunnerModesItems: [
+    "workflow_automation",
+    "app_builder",
+  ],
+  OnPremManagementServiceEnrollmentType: ["enrollment"],
+  OnPremManagementServiceGetEnrollmentResponseAttributesStatus: [
+    "new",
+    "success",
+    "failed",
+  ],
+  OnPremManagementServiceGetEnrollmentResponseType: ["getEnrollmentResponse"],
+  OnPremManagementServiceRegisterTokenResponseType: ["tokenDefinitions"],
+  OnPremManagementServiceRegisterTokenType: ["registerTokenRequest"],
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
   OpenAIIntegrationType: ["OpenAI"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
@@ -7866,6 +7897,36 @@ const typeMap: { [index: string]: any } = {
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
+  OnPremManagementServiceCreateEnrollmentRequest:
+    OnPremManagementServiceCreateEnrollmentRequest,
+  OnPremManagementServiceCreateEnrollmentResponse:
+    OnPremManagementServiceCreateEnrollmentResponse,
+  OnPremManagementServiceCreateEnrollmentResponseAttributes:
+    OnPremManagementServiceCreateEnrollmentResponseAttributes,
+  OnPremManagementServiceCreateEnrollmentResponseData:
+    OnPremManagementServiceCreateEnrollmentResponseData,
+  OnPremManagementServiceEnrollmentAttributes:
+    OnPremManagementServiceEnrollmentAttributes,
+  OnPremManagementServiceEnrollmentDataRequest:
+    OnPremManagementServiceEnrollmentDataRequest,
+  OnPremManagementServiceGetEnrollmentResponse:
+    OnPremManagementServiceGetEnrollmentResponse,
+  OnPremManagementServiceGetEnrollmentResponseAttributes:
+    OnPremManagementServiceGetEnrollmentResponseAttributes,
+  OnPremManagementServiceGetEnrollmentResponseData:
+    OnPremManagementServiceGetEnrollmentResponseData,
+  OnPremManagementServiceRegisterTokenAttributes:
+    OnPremManagementServiceRegisterTokenAttributes,
+  OnPremManagementServiceRegisterTokenDataRequest:
+    OnPremManagementServiceRegisterTokenDataRequest,
+  OnPremManagementServiceRegisterTokenRequest:
+    OnPremManagementServiceRegisterTokenRequest,
+  OnPremManagementServiceRegisterTokenResponse:
+    OnPremManagementServiceRegisterTokenResponse,
+  OnPremManagementServiceRegisterTokenResponseAttributes:
+    OnPremManagementServiceRegisterTokenResponseAttributes,
+  OnPremManagementServiceRegisterTokenResponseData:
+    OnPremManagementServiceRegisterTokenResponseData,
   OpenAIAPIKey: OpenAIAPIKey,
   OpenAIAPIKeyUpdate: OpenAIAPIKeyUpdate,
   OpenAIIntegration: OpenAIIntegration,
