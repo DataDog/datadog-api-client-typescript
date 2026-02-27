@@ -417,6 +417,7 @@ apiInstance
 | Observability Pipelines | @datadog/datadog-api-client-observability-pipelines | [README.md](../../services/observability-pipelines/README.md) |
 | OCI Integration | @datadog/datadog-api-client-oci-integration | [README.md](../../services/oci-integration/README.md) |
 | Okta Integration | @datadog/datadog-api-client-okta-integration | [README.md](../../services/okta-integration/README.md) |
+| On Prem Management Service | @datadog/datadog-api-client-on-prem-management-service | [README.md](../../services/on-prem-management-service/README.md) |
 | On-Call | @datadog/datadog-api-client-on-call | [README.md](../../services/on-call/README.md) |
 | On-Call Paging | @datadog/datadog-api-client-on-call-paging | [README.md](../../services/on-call-paging/README.md) |
 | Opsgenie Integration | @datadog/datadog-api-client-opsgenie-integration | [README.md](../../services/opsgenie-integration/README.md) |

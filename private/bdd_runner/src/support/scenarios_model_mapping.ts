@@ -8502,6 +8502,27 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "OnPremManagementServiceApi.V2.CreateOnPremManagementServiceEnrollment": {
+    body: {
+      type: "OnPremManagementServiceCreateEnrollmentRequest",
+      format: "",
+    },
+    operationResponseType: "OnPremManagementServiceCreateEnrollmentResponse",
+  },
+  "OnPremManagementServiceApi.V2.GetOnPremManagementServiceEnrollment": {
+    tokenHash: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "OnPremManagementServiceGetEnrollmentResponse",
+  },
+  "OnPremManagementServiceApi.V2.RegisterOnPremManagementServiceToken": {
+    body: {
+      type: "OnPremManagementServiceRegisterTokenRequest",
+      format: "",
+    },
+    operationResponseType: "OnPremManagementServiceRegisterTokenResponse",
+  },
   "OrganizationsApi.V2.ListOrgConfigs": {
     operationResponseType: "OrgConfigListResponse",
   },
