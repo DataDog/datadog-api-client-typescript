@@ -816,6 +816,18 @@ import { CustomRulesetRequest } from "./CustomRulesetRequest";
 import { CustomRulesetRequestData } from "./CustomRulesetRequestData";
 import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
 import { CustomRulesetResponse } from "./CustomRulesetResponse";
+import { CycloneDXAdvisory } from "./CycloneDXAdvisory";
+import { CycloneDXAffect } from "./CycloneDXAffect";
+import { CycloneDXAssetComponent } from "./CycloneDXAssetComponent";
+import { CycloneDXBOM } from "./CycloneDXBOM";
+import { CycloneDXComponent } from "./CycloneDXComponent";
+import { CycloneDXMetadata } from "./CycloneDXMetadata";
+import { CycloneDXRating } from "./CycloneDXRating";
+import { CycloneDXReference } from "./CycloneDXReference";
+import { CycloneDXReferenceSource } from "./CycloneDXReferenceSource";
+import { CycloneDXToolComponent } from "./CycloneDXToolComponent";
+import { CycloneDXTools } from "./CycloneDXTools";
+import { CycloneDXVulnerability } from "./CycloneDXVulnerability";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
@@ -3784,6 +3796,7 @@ const enumsMap: { [key: string]: any[] } = {
   CustomRuleRevisionAttributesSeverity: ["ERROR", "WARNING", "NOTICE"],
   CustomRuleRevisionDataType: ["custom_rule_revision"],
   CustomRulesetDataType: ["custom_ruleset"],
+  CycloneDXComponentType: ["library", "application", "operating-system"],
   DORADeploymentPatchRemediationType: ["rollback", "rollforward"],
   DORADeploymentPatchRequestDataType: ["dora_deployment_patch_request"],
   DORADeploymentType: ["dora_deployment"],
@@ -4798,6 +4811,7 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityEntityRiskScoreType: ["security_entity_risk_score"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
+  SecurityFindingType: ["vulnerability", "configuration_finding"],
   SecurityFindingsDataType: ["finding"],
   SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
   SecurityFindingsStatus: ["done", "timeout"],
@@ -5200,6 +5214,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TenancyProductsDataType: ["oci_tenancy_product"],
   ThreatHuntingJobDataType: ["historicalDetectionsJob"],
+  ThreatIntelIndicatorType: ["ip_address", "domain", "sha256"],
   TimelineCellAuthorUserType: ["USER"],
   TimelineCellResourceType: ["timeline_cell"],
   TimelineCellType: ["COMMENT"],
@@ -6339,6 +6354,18 @@ const typeMap: { [index: string]: any } = {
   CustomRulesetRequestData: CustomRulesetRequestData,
   CustomRulesetRequestDataAttributes: CustomRulesetRequestDataAttributes,
   CustomRulesetResponse: CustomRulesetResponse,
+  CycloneDXAdvisory: CycloneDXAdvisory,
+  CycloneDXAffect: CycloneDXAffect,
+  CycloneDXAssetComponent: CycloneDXAssetComponent,
+  CycloneDXBOM: CycloneDXBOM,
+  CycloneDXComponent: CycloneDXComponent,
+  CycloneDXMetadata: CycloneDXMetadata,
+  CycloneDXRating: CycloneDXRating,
+  CycloneDXReference: CycloneDXReference,
+  CycloneDXReferenceSource: CycloneDXReferenceSource,
+  CycloneDXToolComponent: CycloneDXToolComponent,
+  CycloneDXTools: CycloneDXTools,
+  CycloneDXVulnerability: CycloneDXVulnerability,
   DORADeploymentFetchResponse: DORADeploymentFetchResponse,
   DORADeploymentObject: DORADeploymentObject,
   DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
