@@ -4,6 +4,7 @@ import { NotebookCellCreateRequest } from "./NotebookCellCreateRequest";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
+import { NotebookTemplateVariable } from "./NotebookTemplateVariable";
 
 /**
  * The data attributes of a notebook.
@@ -25,6 +26,10 @@ export class NotebookCreateDataAttributes {
    * Publication status of the notebook. For now, always "published".
    */
   "status"?: NotebookStatus;
+  /**
+   * List of template variables for this notebook.
+   */
+  "templateVariables"?: Array<NotebookTemplateVariable>;
   /**
    * Notebook global timeframe.
    */
@@ -61,6 +66,10 @@ export class NotebookCreateDataAttributes {
     status: {
       baseName: "status",
       type: "NotebookStatus",
+    },
+    templateVariables: {
+      baseName: "template_variables",
+      type: "Array<NotebookTemplateVariable>",
     },
     time: {
       baseName: "time",
