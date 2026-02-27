@@ -34,7 +34,6 @@ export { DeploymentRuleResponseDataAttributes } from "./models/DeploymentRuleRes
 export { DeploymentRuleResponseDataAttributesCreatedBy } from "./models/DeploymentRuleResponseDataAttributesCreatedBy";
 export { DeploymentRuleResponseDataAttributesType } from "./models/DeploymentRuleResponseDataAttributesType";
 export { DeploymentRuleResponseDataAttributesUpdatedBy } from "./models/DeploymentRuleResponseDataAttributesUpdatedBy";
-export { DeploymentRulesOptions } from "./models/DeploymentRulesOptions";
 export { HTTPCDGatesBadRequestResponse } from "./models/HTTPCDGatesBadRequestResponse";
 export { HTTPCDGatesNotFoundResponse } from "./models/HTTPCDGatesNotFoundResponse";
 export { HTTPCDRulesNotFoundResponse } from "./models/HTTPCDRulesNotFoundResponse";

@@ -44,12 +44,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ListDeploymentRulesDataType: ["list_deployment_rules"],
   },
-  oneOfMap: {
-    DeploymentRulesOptions: [
-      "DeploymentRuleOptionsFaultyDeploymentDetection",
-      "DeploymentRuleOptionsMonitor",
-    ],
-  },
+  oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     CreateDeploymentGateParams: CreateDeploymentGateParams,
