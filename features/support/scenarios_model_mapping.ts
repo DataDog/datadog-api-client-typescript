@@ -6104,6 +6104,70 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EventCreateResponsePayload",
     },
+    "v2.ListEventEmailAddresses": {
+        "active": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "EventEmailAddressesResponse",
+    },
+    "v2.CreateEventEmailAddress": {
+        "body": {
+            "type": "EventEmailAddressCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "EventEmailAddressSingleResponse",
+    },
+    "v2.GetOnCallEventEmailAddresses": {
+        "filterTeamHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "EventEmailAddressesResponse",
+    },
+    "v2.CreateOnCallEventEmailAddress": {
+        "body": {
+            "type": "OnCallEventEmailAddressCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "EventEmailAddressSingleResponse",
+    },
+    "v2.DeleteOnCallEventEmailAddress": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetEventEmailAddress": {
+        "emailUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "EventEmailAddressSingleResponse",
+    },
+    "v2.DeleteEventEmailAddress": {
+        "emailUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateEventEmailAddress": {
+        "emailUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "EventEmailAddressUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "EventEmailAddressSingleResponse",
+    },
     "v2.SearchEvents": {
         "body": {
             "type": "EventsListRequest",
