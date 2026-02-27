@@ -6114,6 +6114,70 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "EventCreateResponsePayload",
   },
+  "EventsApi.V2.ListEventEmailAddresses": {
+    active: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "EventEmailAddressesResponse",
+  },
+  "EventsApi.V2.CreateEventEmailAddress": {
+    body: {
+      type: "EventEmailAddressCreateRequest",
+      format: "",
+    },
+    operationResponseType: "EventEmailAddressSingleResponse",
+  },
+  "EventsApi.V2.GetOnCallEventEmailAddresses": {
+    filterTeamHandle: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "EventEmailAddressesResponse",
+  },
+  "EventsApi.V2.CreateOnCallEventEmailAddress": {
+    body: {
+      type: "OnCallEventEmailAddressCreateRequest",
+      format: "",
+    },
+    operationResponseType: "EventEmailAddressSingleResponse",
+  },
+  "EventsApi.V2.DeleteOnCallEventEmailAddress": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "EventsApi.V2.GetEventEmailAddress": {
+    emailUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "EventEmailAddressSingleResponse",
+  },
+  "EventsApi.V2.DeleteEventEmailAddress": {
+    emailUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "EventsApi.V2.UpdateEventEmailAddress": {
+    emailUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "EventEmailAddressUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "EventEmailAddressSingleResponse",
+  },
   "EventsApi.V2.SearchEvents": {
     body: {
       type: "EventsListRequest",
