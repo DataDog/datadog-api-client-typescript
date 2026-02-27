@@ -7,8 +7,7 @@ import { SLOCountDefinition } from "./SLOCountDefinition";
  */
 export class SLOCountSpec {
   /**
-   * A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
-   * and the underlying queries.
+   * A count-based (metric) SLI specification, composed of three parts: the good events formula, the bad or total events formula, and the underlying queries.
    */
   "count": SLOCountDefinition;
   /**

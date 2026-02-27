@@ -4,10 +4,13 @@ import { SLODataSourceQueryDefinition } from "./SLODataSourceQueryDefinition";
 import { SLOFormula } from "./SLOFormula";
 
 /**
- * A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
- * and the underlying queries.
+ * A count-based (metric) SLI specification, composed of three parts: the good events formula, the bad or total events formula, and the underlying queries.
  */
 export class SLOCountDefinition {
+  /**
+   * A formula that specifies how to combine the results of multiple queries.
+   */
+  "badEventsFormula"?: SLOFormula;
   /**
    * A formula that specifies how to combine the results of multiple queries.
    */
@@ -16,7 +19,7 @@ export class SLOCountDefinition {
   /**
    * A formula that specifies how to combine the results of multiple queries.
    */
-  "totalEventsFormula": SLOFormula;
+  "totalEventsFormula"?: SLOFormula;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,6 +35,10 @@ export class SLOCountDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    badEventsFormula: {
+      baseName: "bad_events_formula",
+      type: "SLOFormula",
+    },
     goodEventsFormula: {
       baseName: "good_events_formula",
       type: "SLOFormula",
@@ -45,7 +52,6 @@ export class SLOCountDefinition {
     totalEventsFormula: {
       baseName: "total_events_formula",
       type: "SLOFormula",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
