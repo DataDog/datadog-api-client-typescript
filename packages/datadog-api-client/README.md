@@ -402,6 +402,7 @@ apiInstance
 | IP Ranges | @datadog/datadog-api-client-ip-ranges | [README.md](../../services/ip-ranges/README.md) |
 | Jira Integration | @datadog/datadog-api-client-jira-integration | [README.md](../../services/jira-integration/README.md) |
 | Key Management | @datadog/datadog-api-client-key-management | [README.md](../../services/key-management/README.md) |
+| LLM Observability | @datadog/datadog-api-client-llm-observability | [README.md](../../services/llm-observability/README.md) |
 | Logs | @datadog/datadog-api-client-logs | [README.md](../../services/logs/README.md) |
 | Logs Archives | @datadog/datadog-api-client-logs-archives | [README.md](../../services/logs-archives/README.md) |
 | Logs Custom Destinations | @datadog/datadog-api-client-logs-custom-destinations | [README.md](../../services/logs-custom-destinations/README.md) |
