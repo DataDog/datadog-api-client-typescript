@@ -7376,6 +7376,48 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IPAllowlistResponse",
     },
+    "v2.UpdateLoginOrgConfigMaxSessionDuration": {
+        "body": {
+            "type": "MaxSessionDurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOrgSamlConfigurations": {
+        "body": {
+            "type": "SamlConfigurationsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListOrgConfigs": {
+        "operationResponseType": "OrgConfigListResponse",
+    },
+    "v2.GetOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.UpdateOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OrgConfigWriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.UploadIdPMetadata": {
+        "idpFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.SubmitLog": {
         "contentEncoding": {
             "type": "ContentEncoding",
@@ -8489,34 +8531,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "pageId": {
             "type": "string",
             "format": "uuid",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.ListOrgConfigs": {
-        "operationResponseType": "OrgConfigListResponse",
-    },
-    "v2.GetOrgConfig": {
-        "orgConfigName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "OrgConfigGetResponse",
-    },
-    "v2.UpdateOrgConfig": {
-        "orgConfigName": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "OrgConfigWriteRequest",
-            "format": "",
-            },
-        "operationResponseType": "OrgConfigGetResponse",
-    },
-    "v2.UploadIdPMetadata": {
-        "idpFile": {
-            "type": "HttpFile",
-            "format": "binary",
             },
         "operationResponseType": "{}",
     },
