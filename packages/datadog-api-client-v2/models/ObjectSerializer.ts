@@ -2978,6 +2978,22 @@ import { StatusPageDataRelationshipsCreatedByUser } from "./StatusPageDataRelati
 import { StatusPageDataRelationshipsCreatedByUserData } from "./StatusPageDataRelationshipsCreatedByUserData";
 import { StatusPageDataRelationshipsLastModifiedByUser } from "./StatusPageDataRelationshipsLastModifiedByUser";
 import { StatusPageDataRelationshipsLastModifiedByUserData } from "./StatusPageDataRelationshipsLastModifiedByUserData";
+import { StatusPageEmailSubscriptionRequest } from "./StatusPageEmailSubscriptionRequest";
+import { StatusPageEmailSubscriptionRequestAttributes } from "./StatusPageEmailSubscriptionRequestAttributes";
+import { StatusPageEmailSubscriptionRequestData } from "./StatusPageEmailSubscriptionRequestData";
+import { StatusPageEmailSubscriptionRequestRelationships } from "./StatusPageEmailSubscriptionRequestRelationships";
+import { StatusPageEmailSubscriptionResponse } from "./StatusPageEmailSubscriptionResponse";
+import { StatusPageEmailSubscriptionResponseAttributes } from "./StatusPageEmailSubscriptionResponseAttributes";
+import { StatusPageEmailSubscriptionResponseData } from "./StatusPageEmailSubscriptionResponseData";
+import { StatusPageEmailSubscriptionResponseRelationships } from "./StatusPageEmailSubscriptionResponseRelationships";
+import { StatusPageEmailSubscriptionsRequest } from "./StatusPageEmailSubscriptionsRequest";
+import { StatusPageEmailSubscriptionsResponse } from "./StatusPageEmailSubscriptionsResponse";
+import { StatusPageEmailSubscriptionsResponseMeta } from "./StatusPageEmailSubscriptionsResponseMeta";
+import { StatusPageEmailSubscriptionsResponseMetaPage } from "./StatusPageEmailSubscriptionsResponseMetaPage";
+import { StatusPageRelationshipStatusPage } from "./StatusPageRelationshipStatusPage";
+import { StatusPageRelationshipStatusPageData } from "./StatusPageRelationshipStatusPageData";
+import { StatusPageRelationshipSubscribedComponentData } from "./StatusPageRelationshipSubscribedComponentData";
+import { StatusPageRelationshipSubscribedComponents } from "./StatusPageRelationshipSubscribedComponents";
 import { StatusPagesComponent } from "./StatusPagesComponent";
 import { StatusPagesComponentArray } from "./StatusPagesComponentArray";
 import { StatusPagesComponentData } from "./StatusPagesComponentData";
@@ -5084,7 +5100,10 @@ const enumsMap: { [key: string]: any[] } = {
   StateVariableType: ["stateVariable"],
   StatsigAPIKeyType: ["StatsigAPIKey"],
   StatsigIntegrationType: ["Statsig"],
+  StatusPageComponentType: ["status_page_components"],
   StatusPageDataType: ["status_pages"],
+  StatusPageEmailSubscriptionStatus: ["active", "unconfirmed"],
+  StatusPageEmailSubscriptionType: ["email_subscriptions"],
   StatusPagesComponentDataAttributesStatus: [
     "operational",
     "degraded",
@@ -8922,6 +8941,32 @@ const typeMap: { [index: string]: any } = {
     StatusPageDataRelationshipsLastModifiedByUser,
   StatusPageDataRelationshipsLastModifiedByUserData:
     StatusPageDataRelationshipsLastModifiedByUserData,
+  StatusPageEmailSubscriptionRequest: StatusPageEmailSubscriptionRequest,
+  StatusPageEmailSubscriptionRequestAttributes:
+    StatusPageEmailSubscriptionRequestAttributes,
+  StatusPageEmailSubscriptionRequestData:
+    StatusPageEmailSubscriptionRequestData,
+  StatusPageEmailSubscriptionRequestRelationships:
+    StatusPageEmailSubscriptionRequestRelationships,
+  StatusPageEmailSubscriptionResponse: StatusPageEmailSubscriptionResponse,
+  StatusPageEmailSubscriptionResponseAttributes:
+    StatusPageEmailSubscriptionResponseAttributes,
+  StatusPageEmailSubscriptionResponseData:
+    StatusPageEmailSubscriptionResponseData,
+  StatusPageEmailSubscriptionResponseRelationships:
+    StatusPageEmailSubscriptionResponseRelationships,
+  StatusPageEmailSubscriptionsRequest: StatusPageEmailSubscriptionsRequest,
+  StatusPageEmailSubscriptionsResponse: StatusPageEmailSubscriptionsResponse,
+  StatusPageEmailSubscriptionsResponseMeta:
+    StatusPageEmailSubscriptionsResponseMeta,
+  StatusPageEmailSubscriptionsResponseMetaPage:
+    StatusPageEmailSubscriptionsResponseMetaPage,
+  StatusPageRelationshipStatusPage: StatusPageRelationshipStatusPage,
+  StatusPageRelationshipStatusPageData: StatusPageRelationshipStatusPageData,
+  StatusPageRelationshipSubscribedComponentData:
+    StatusPageRelationshipSubscribedComponentData,
+  StatusPageRelationshipSubscribedComponents:
+    StatusPageRelationshipSubscribedComponents,
   StatusPagesComponent: StatusPagesComponent,
   StatusPagesComponentArray: StatusPagesComponentArray,
   StatusPagesComponentData: StatusPagesComponentData,
