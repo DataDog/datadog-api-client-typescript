@@ -1,0 +1,143 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * Campaign attributes.
+ */
+export class CampaignResponseAttributes {
+  /**
+   * Creation time of the campaign.
+   */
+  "createdAt": Date;
+  /**
+   * The description of the campaign.
+   */
+  "description"?: string;
+  /**
+   * The due date of the campaign.
+   */
+  "dueDate"?: Date;
+  /**
+   * Entity scope query to filter entities for this campaign.
+   */
+  "entityScope"?: string;
+  /**
+   * Guidance for the campaign.
+   */
+  "guidance"?: string;
+  /**
+   * The unique key for the campaign.
+   */
+  "key": string;
+  /**
+   * Time of last campaign modification.
+   */
+  "modifiedAt": Date;
+  /**
+   * The name of the campaign.
+   */
+  "name": string;
+  /**
+   * The UUID of the campaign owner.
+   */
+  "owner": string;
+  /**
+   * The start date of the campaign.
+   */
+  "startDate": Date;
+  /**
+   * The status of the campaign.
+   */
+  "status": string;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    dueDate: {
+      baseName: "due_date",
+      type: "Date",
+      format: "date-time",
+    },
+    entityScope: {
+      baseName: "entity_scope",
+      type: "string",
+    },
+    guidance: {
+      baseName: "guidance",
+      type: "string",
+    },
+    key: {
+      baseName: "key",
+      type: "string",
+      required: true,
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    owner: {
+      baseName: "owner",
+      type: "string",
+      required: true,
+    },
+    startDate: {
+      baseName: "start_date",
+      type: "Date",
+      required: true,
+      format: "date-time",
+    },
+    status: {
+      baseName: "status",
+      type: "string",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CampaignResponseAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

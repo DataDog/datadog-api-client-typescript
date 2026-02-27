@@ -370,6 +370,9 @@ import { CIAppWarning } from "./CIAppWarning";
 import { CSMAgentsMetadata } from "./CSMAgentsMetadata";
 import { CVSS } from "./CVSS";
 import { CalculatedField } from "./CalculatedField";
+import { CampaignResponse } from "./CampaignResponse";
+import { CampaignResponseAttributes } from "./CampaignResponseAttributes";
+import { CampaignResponseData } from "./CampaignResponseData";
 import { CancelDataDeletionResponseBody } from "./CancelDataDeletionResponseBody";
 import { Case } from "./Case";
 import { CaseAssign } from "./CaseAssign";
@@ -629,6 +632,9 @@ import { CreateAttachmentRequest } from "./CreateAttachmentRequest";
 import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
 import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
 import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
+import { CreateCampaignRequest } from "./CreateCampaignRequest";
+import { CreateCampaignRequestAttributes } from "./CreateCampaignRequestAttributes";
+import { CreateCampaignRequestData } from "./CreateCampaignRequestData";
 import { CreateCaseRequestArray } from "./CreateCaseRequestArray";
 import { CreateCaseRequestData } from "./CreateCaseRequestData";
 import { CreateCaseRequestDataAttributes } from "./CreateCaseRequestDataAttributes";
@@ -884,6 +890,8 @@ import { DatastoreData } from "./DatastoreData";
 import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
 import { DatastoreTrigger } from "./DatastoreTrigger";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
+import { DefaultRuleResponseAttributes } from "./DefaultRuleResponseAttributes";
+import { DefaultRuleResponseData } from "./DefaultRuleResponseData";
 import { Degradation } from "./Degradation";
 import { DegradationArray } from "./DegradationArray";
 import { DegradationData } from "./DegradationData";
@@ -988,6 +996,7 @@ import { EPSS } from "./EPSS";
 import { EntityAttributes } from "./EntityAttributes";
 import { EntityData } from "./EntityData";
 import { EntityMeta } from "./EntityMeta";
+import { EntityOwnerDestination } from "./EntityOwnerDestination";
 import { EntityRelationships } from "./EntityRelationships";
 import { EntityResponseArray } from "./EntityResponseArray";
 import { EntityResponseDataAttributes } from "./EntityResponseDataAttributes";
@@ -1120,6 +1129,9 @@ import { FacetInfoResponseDataAttributes } from "./FacetInfoResponseDataAttribut
 import { FacetInfoResponseDataAttributesResult } from "./FacetInfoResponseDataAttributesResult";
 import { FacetInfoResponseDataAttributesResultRange } from "./FacetInfoResponseDataAttributesResultRange";
 import { FacetInfoResponseDataAttributesResultValuesItems } from "./FacetInfoResponseDataAttributesResultValuesItems";
+import { FacetItem } from "./FacetItem";
+import { FacetResponseAttributes } from "./FacetResponseAttributes";
+import { FacetResponseData } from "./FacetResponseData";
 import { FastlyAPIKey } from "./FastlyAPIKey";
 import { FastlyAPIKeyUpdate } from "./FastlyAPIKeyUpdate";
 import { FastlyAccounResponseAttributes } from "./FastlyAccounResponseAttributes";
@@ -1271,6 +1283,12 @@ import { GeminiAPIKey } from "./GeminiAPIKey";
 import { GeminiAPIKeyUpdate } from "./GeminiAPIKeyUpdate";
 import { GeminiIntegration } from "./GeminiIntegration";
 import { GeminiIntegrationUpdate } from "./GeminiIntegrationUpdate";
+import { GenerateCampaignReportRequest } from "./GenerateCampaignReportRequest";
+import { GenerateCampaignReportRequestAttributes } from "./GenerateCampaignReportRequestAttributes";
+import { GenerateCampaignReportRequestData } from "./GenerateCampaignReportRequestData";
+import { GenerateCampaignTeamReportsRequest } from "./GenerateCampaignTeamReportsRequest";
+import { GenerateCampaignTeamReportsRequestAttributes } from "./GenerateCampaignTeamReportsRequestAttributes";
+import { GenerateCampaignTeamReportsRequestData } from "./GenerateCampaignTeamReportsRequestData";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
@@ -1661,11 +1679,13 @@ import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataIt
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
 import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
+import { ListCampaignsResponse } from "./ListCampaignsResponse";
 import { ListConnectionsResponse } from "./ListConnectionsResponse";
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
 import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
+import { ListDefaultRulesResponse } from "./ListDefaultRulesResponse";
 import { ListDeploymentRuleResponseData } from "./ListDeploymentRuleResponseData";
 import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRulesResponseDataAttributes";
 import { ListDevicesResponse } from "./ListDevicesResponse";
@@ -1674,6 +1694,8 @@ import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPa
 import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListEntityCatalogResponse } from "./ListEntityCatalogResponse";
 import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks";
+import { ListFacetsResponse } from "./ListFacetsResponse";
+import { ListFacetsResponseMeta } from "./ListFacetsResponseMeta";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
@@ -1691,6 +1713,8 @@ import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseL
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
+import { ListScorecardsResponse } from "./ListScorecardsResponse";
+import { ListScoresResponse } from "./ListScoresResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
@@ -2142,6 +2166,7 @@ import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseInclud
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
+import { PaginatedResponseMeta } from "./PaginatedResponseMeta";
 import { Pagination } from "./Pagination";
 import { Parameter } from "./Parameter";
 import { PartialAPIKey } from "./PartialAPIKey";
@@ -2609,6 +2634,10 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { ScoreResponseAttributes } from "./ScoreResponseAttributes";
+import { ScoreResponseData } from "./ScoreResponseData";
+import { ScorecardListResponseAttributes } from "./ScorecardListResponseAttributes";
+import { ScorecardListResponseData } from "./ScorecardListResponseData";
 import { SeatUserData } from "./SeatUserData";
 import { SeatUserDataArray } from "./SeatUserDataArray";
 import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
@@ -2868,6 +2897,9 @@ import { ServiceNowUserData } from "./ServiceNowUserData";
 import { ServiceNowUsersResponse } from "./ServiceNowUsersResponse";
 import { SessionIdArray } from "./SessionIdArray";
 import { SessionIdData } from "./SessionIdData";
+import { SetupRulesRequest } from "./SetupRulesRequest";
+import { SetupRulesRequestAttributes } from "./SetupRulesRequestAttributes";
+import { SetupRulesRequestData } from "./SetupRulesRequestData";
 import { Shift } from "./Shift";
 import { ShiftData } from "./ShiftData";
 import { ShiftDataAttributes } from "./ShiftDataAttributes";
@@ -2885,6 +2917,7 @@ import { SingleAggregatedDnsResponseDataAttributesGroupByItems } from "./SingleA
 import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleAggregatedDnsResponseDataAttributesMetricsItems";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { SlackRoutingOptions } from "./SlackRoutingOptions";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
 import { SloReportCreateRequest } from "./SloReportCreateRequest";
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
@@ -3209,6 +3242,9 @@ import { UpdateAppsDatastoreItemRequestDataAttributesItemChanges } from "./Updat
 import { UpdateAppsDatastoreRequest } from "./UpdateAppsDatastoreRequest";
 import { UpdateAppsDatastoreRequestData } from "./UpdateAppsDatastoreRequestData";
 import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreRequestDataAttributes";
+import { UpdateCampaignRequest } from "./UpdateCampaignRequest";
+import { UpdateCampaignRequestAttributes } from "./UpdateCampaignRequestAttributes";
+import { UpdateCampaignRequestData } from "./UpdateCampaignRequestData";
 import { UpdateConnectionRequest } from "./UpdateConnectionRequest";
 import { UpdateConnectionRequestData } from "./UpdateConnectionRequestData";
 import { UpdateConnectionRequestDataAttributes } from "./UpdateConnectionRequestDataAttributes";
@@ -3618,6 +3654,8 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppTestEventTypeName: ["citest"],
   CIAppTestLevel: ["session", "module", "suite", "test"],
   CSMAgentsType: ["datadog_agent"],
+  CampaignStatus: ["in_progress", "not_started", "completed"],
+  CampaignType: ["campaign"],
   Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
   CaseDataType: ["cases"],
   CaseManagementProjectDataType: ["projects"],
@@ -3807,6 +3845,7 @@ const enumsMap: { [key: string]: any[] } = {
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
   DatastoreItemsDataType: ["items"],
   DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
+  DefaultRuleType: ["default-rule"],
   DeletedSuitesRequestType: ["delete_suites_request"],
   DeletedTestsRequestType: ["delete_tests_request"],
   DeletedTestsResponseType: ["delete_tests"],
@@ -3899,6 +3938,7 @@ const enumsMap: { [key: string]: any[] } = {
   EventsSortType: ["alphabetical", "measure"],
   FacetInfoRequestDataType: ["users_facet_info_request"],
   FacetInfoResponseDataType: ["users_facet_info"],
+  FacetType: ["facet"],
   FastlyAPIKeyType: ["FastlyAPIKey"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
@@ -3964,6 +4004,8 @@ const enumsMap: { [key: string]: any[] } = {
   GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
+  GenerateCampaignReportRequestDataType: ["campaign-report"],
+  GenerateCampaignTeamReportsRequestDataType: ["campaign-team-report"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
   GetMappingResponseDataType: ["get_mappings_response"],
   GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
@@ -4778,6 +4820,8 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleTargetType: ["schedules"],
   ScheduleUpdateRequestDataType: ["schedules"],
   ScheduleUserType: ["users"],
+  ScoreType: ["score"],
+  ScorecardListType: ["scorecard"],
   ScorecardType: ["scorecard"],
   SearchIssuesIncludeQueryParameterItem: [
     "issue",
@@ -5045,6 +5089,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceNowTemplateType: ["servicenow_templates"],
   ServiceNowTicketResourceType: ["tickets"],
   ServiceNowUserType: ["users"],
+  SetupRulesRequestDataType: ["setup"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
@@ -5791,6 +5836,9 @@ const typeMap: { [index: string]: any } = {
   CSMAgentsMetadata: CSMAgentsMetadata,
   CVSS: CVSS,
   CalculatedField: CalculatedField,
+  CampaignResponse: CampaignResponse,
+  CampaignResponseAttributes: CampaignResponseAttributes,
+  CampaignResponseData: CampaignResponseData,
   CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   Case: Case,
   CaseAssign: CaseAssign,
@@ -6093,6 +6141,9 @@ const typeMap: { [index: string]: any } = {
   CreateAttachmentRequestDataAttributes: CreateAttachmentRequestDataAttributes,
   CreateAttachmentRequestDataAttributesAttachment:
     CreateAttachmentRequestDataAttributesAttachment,
+  CreateCampaignRequest: CreateCampaignRequest,
+  CreateCampaignRequestAttributes: CreateCampaignRequestAttributes,
+  CreateCampaignRequestData: CreateCampaignRequestData,
   CreateCaseRequestArray: CreateCaseRequestArray,
   CreateCaseRequestData: CreateCaseRequestData,
   CreateCaseRequestDataAttributes: CreateCaseRequestDataAttributes,
@@ -6407,6 +6458,8 @@ const typeMap: { [index: string]: any } = {
   DatastoreDataAttributes: DatastoreDataAttributes,
   DatastoreTrigger: DatastoreTrigger,
   DatastoreTriggerWrapper: DatastoreTriggerWrapper,
+  DefaultRuleResponseAttributes: DefaultRuleResponseAttributes,
+  DefaultRuleResponseData: DefaultRuleResponseData,
   Degradation: Degradation,
   DegradationArray: DegradationArray,
   DegradationData: DegradationData,
@@ -6530,6 +6583,7 @@ const typeMap: { [index: string]: any } = {
   EntityAttributes: EntityAttributes,
   EntityData: EntityData,
   EntityMeta: EntityMeta,
+  EntityOwnerDestination: EntityOwnerDestination,
   EntityRelationships: EntityRelationships,
   EntityResponseArray: EntityResponseArray,
   EntityResponseDataAttributes: EntityResponseDataAttributes,
@@ -6693,6 +6747,9 @@ const typeMap: { [index: string]: any } = {
     FacetInfoResponseDataAttributesResultRange,
   FacetInfoResponseDataAttributesResultValuesItems:
     FacetInfoResponseDataAttributesResultValuesItems,
+  FacetItem: FacetItem,
+  FacetResponseAttributes: FacetResponseAttributes,
+  FacetResponseData: FacetResponseData,
   FastlyAPIKey: FastlyAPIKey,
   FastlyAPIKeyUpdate: FastlyAPIKeyUpdate,
   FastlyAccounResponseAttributes: FastlyAccounResponseAttributes,
@@ -6849,6 +6906,15 @@ const typeMap: { [index: string]: any } = {
   GeminiAPIKeyUpdate: GeminiAPIKeyUpdate,
   GeminiIntegration: GeminiIntegration,
   GeminiIntegrationUpdate: GeminiIntegrationUpdate,
+  GenerateCampaignReportRequest: GenerateCampaignReportRequest,
+  GenerateCampaignReportRequestAttributes:
+    GenerateCampaignReportRequestAttributes,
+  GenerateCampaignReportRequestData: GenerateCampaignReportRequestData,
+  GenerateCampaignTeamReportsRequest: GenerateCampaignTeamReportsRequest,
+  GenerateCampaignTeamReportsRequestAttributes:
+    GenerateCampaignTeamReportsRequestAttributes,
+  GenerateCampaignTeamReportsRequestData:
+    GenerateCampaignTeamReportsRequestData,
   GetActionConnectionResponse: GetActionConnectionResponse,
   GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
   GetAppResponse: GetAppResponse,
@@ -7293,6 +7359,7 @@ const typeMap: { [index: string]: any } = {
   ListAppsResponseMeta: ListAppsResponseMeta,
   ListAppsResponseMetaPage: ListAppsResponseMetaPage,
   ListAssetsSBOMsResponse: ListAssetsSBOMsResponse,
+  ListCampaignsResponse: ListCampaignsResponse,
   ListConnectionsResponse: ListConnectionsResponse,
   ListConnectionsResponseData: ListConnectionsResponseData,
   ListConnectionsResponseDataAttributes: ListConnectionsResponseDataAttributes,
@@ -7300,6 +7367,7 @@ const typeMap: { [index: string]: any } = {
     ListConnectionsResponseDataAttributesConnectionsItems,
   ListConnectionsResponseDataAttributesConnectionsItemsJoin:
     ListConnectionsResponseDataAttributesConnectionsItemsJoin,
+  ListDefaultRulesResponse: ListDefaultRulesResponse,
   ListDeploymentRuleResponseData: ListDeploymentRuleResponseData,
   ListDeploymentRulesResponseDataAttributes:
     ListDeploymentRulesResponseDataAttributes,
@@ -7309,6 +7377,8 @@ const typeMap: { [index: string]: any } = {
   ListDowntimesResponse: ListDowntimesResponse,
   ListEntityCatalogResponse: ListEntityCatalogResponse,
   ListEntityCatalogResponseLinks: ListEntityCatalogResponseLinks,
+  ListFacetsResponse: ListFacetsResponse,
+  ListFacetsResponseMeta: ListFacetsResponseMeta,
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
@@ -7326,6 +7396,8 @@ const typeMap: { [index: string]: any } = {
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,
+  ListScorecardsResponse: ListScorecardsResponse,
+  ListScoresResponse: ListScoresResponse,
   ListSecurityFindingsResponse: ListSecurityFindingsResponse,
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
@@ -7924,6 +7996,7 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponseLinks: OutcomesResponseLinks,
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
+  PaginatedResponseMeta: PaginatedResponseMeta,
   Pagination: Pagination,
   Parameter: Parameter,
   PartialAPIKey: PartialAPIKey,
@@ -8453,6 +8526,10 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataRelationships,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
+  ScoreResponseAttributes: ScoreResponseAttributes,
+  ScoreResponseData: ScoreResponseData,
+  ScorecardListResponseAttributes: ScorecardListResponseAttributes,
+  ScorecardListResponseData: ScorecardListResponseData,
   SeatUserData: SeatUserData,
   SeatUserDataArray: SeatUserDataArray,
   SeatUserDataAttributes: SeatUserDataAttributes,
@@ -8793,6 +8870,9 @@ const typeMap: { [index: string]: any } = {
   ServiceNowUsersResponse: ServiceNowUsersResponse,
   SessionIdArray: SessionIdArray,
   SessionIdData: SessionIdData,
+  SetupRulesRequest: SetupRulesRequest,
+  SetupRulesRequestAttributes: SetupRulesRequestAttributes,
+  SetupRulesRequestData: SetupRulesRequestData,
   Shift: Shift,
   ShiftData: ShiftData,
   ShiftDataAttributes: ShiftDataAttributes,
@@ -8816,6 +8896,7 @@ const typeMap: { [index: string]: any } = {
     SingleAggregatedDnsResponseDataAttributesMetricsItems,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+  SlackRoutingOptions: SlackRoutingOptions,
   SlackTriggerWrapper: SlackTriggerWrapper,
   SloReportCreateRequest: SloReportCreateRequest,
   SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
@@ -9200,6 +9281,9 @@ const typeMap: { [index: string]: any } = {
   UpdateAppsDatastoreRequestData: UpdateAppsDatastoreRequestData,
   UpdateAppsDatastoreRequestDataAttributes:
     UpdateAppsDatastoreRequestDataAttributes,
+  UpdateCampaignRequest: UpdateCampaignRequest,
+  UpdateCampaignRequestAttributes: UpdateCampaignRequestAttributes,
+  UpdateCampaignRequestData: UpdateCampaignRequestData,
   UpdateConnectionRequest: UpdateConnectionRequest,
   UpdateConnectionRequestData: UpdateConnectionRequestData,
   UpdateConnectionRequestDataAttributes: UpdateConnectionRequestDataAttributes,
