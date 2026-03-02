@@ -43,6 +43,8 @@ export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeams
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
 export { Escalation } from "./models/Escalation";
 export { EscalationPolicy } from "./models/EscalationPolicy";
+export { EscalationPolicyAction } from "./models/EscalationPolicyAction";
+export { EscalationPolicyActionType } from "./models/EscalationPolicyActionType";
 export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
 export { EscalationPolicyCreateRequestData } from "./models/EscalationPolicyCreateRequestData";
 export { EscalationPolicyCreateRequestDataAttributes } from "./models/EscalationPolicyCreateRequestDataAttributes";

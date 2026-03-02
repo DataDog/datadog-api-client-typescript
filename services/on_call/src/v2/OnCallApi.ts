@@ -602,6 +602,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
   public async getOnCallTeamRoutingRules(
     teamId: string,
     include?: string,
+    usePolicyAction?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -641,6 +642,13 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (usePolicyAction !== undefined) {
+      requestContext.setQueryParam(
+        "use_policy_action",
+        serialize(usePolicyAction, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -992,6 +1000,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     teamId: string,
     body: TeamRoutingRulesRequest,
     include?: string,
+    usePolicyAction?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1036,6 +1045,13 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (usePolicyAction !== undefined) {
+      requestContext.setQueryParam(
+        "use_policy_action",
+        serialize(usePolicyAction, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -2643,6 +2659,11 @@ export interface OnCallApiGetOnCallTeamRoutingRulesRequest {
    * @type string
    */
   include?: string;
+  /**
+   * When set to `true`, escalation policies are returned as actions within routing rules rather than as a separate `policy_id` field.
+   * @type boolean
+   */
+  usePolicyAction?: boolean;
 }
 
 export interface OnCallApiGetScheduleOnCallUserRequest {
@@ -2743,6 +2764,11 @@ export interface OnCallApiSetOnCallTeamRoutingRulesRequest {
    * @type string
    */
   include?: string;
+  /**
+   * When set to `true`, escalation policies are returned as actions within routing rules rather than as a separate `policy_id` field.
+   * @type boolean
+   */
+  usePolicyAction?: boolean;
 }
 
 export interface OnCallApiUpdateOnCallEscalationPolicyRequest {
@@ -3066,6 +3092,7 @@ export class OnCallApi {
     const requestContextPromise = this.requestFactory.getOnCallTeamRoutingRules(
       param.teamId,
       param.include,
+      param.usePolicyAction,
       options,
     );
     return requestContextPromise.then((requestContext) => {
@@ -3231,6 +3258,7 @@ export class OnCallApi {
       param.teamId,
       param.body,
       param.include,
+      param.usePolicyAction,
       options,
     );
     return requestContextPromise.then((requestContext) => {
