@@ -89,6 +89,7 @@ import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEven
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
 import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
+import { FormulaAndFunctionEventQueryGroupByFields } from "./FormulaAndFunctionEventQueryGroupByFields";
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
@@ -1874,6 +1875,8 @@ const typeMap: { [index: string]: any } = {
   FormulaAndFunctionEventQueryDefinitionSearch:
     FormulaAndFunctionEventQueryDefinitionSearch,
   FormulaAndFunctionEventQueryGroupBy: FormulaAndFunctionEventQueryGroupBy,
+  FormulaAndFunctionEventQueryGroupByFields:
+    FormulaAndFunctionEventQueryGroupByFields,
   FormulaAndFunctionEventQueryGroupBySort:
     FormulaAndFunctionEventQueryGroupBySort,
   FormulaAndFunctionMetricQueryDefinition:
@@ -2501,6 +2504,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
+  ],
+  FormulaAndFunctionEventQueryGroupByConfig: [
+    "Array<FormulaAndFunctionEventQueryGroupBy>",
+    "FormulaAndFunctionEventQueryGroupByFields",
   ],
   FormulaAndFunctionQueryDefinition: [
     "FormulaAndFunctionMetricQueryDefinition",

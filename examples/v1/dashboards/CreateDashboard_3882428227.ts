@@ -44,7 +44,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                 },
                 name: "query1",
                 indexes: ["*"],
-                groupBy: [],
               },
               requestType: "histogram",
             },

@@ -43,7 +43,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                     aggregation: "count",
                     metric: "@ci.queue_time",
                   },
-                  groupBy: [],
                 },
               ],
               responseFormat: "timeseries",
