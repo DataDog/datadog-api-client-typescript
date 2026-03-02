@@ -5,7 +5,7 @@
  */
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
-import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
+import { FormulaAndFunctionEventQueryGroupByConfig } from "./FormulaAndFunctionEventQueryGroupByConfig";
 import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -27,9 +27,9 @@ export class FormulaAndFunctionEventQueryDefinition {
    */
   "dataSource": FormulaAndFunctionEventsDataSource;
   /**
-   * Group by options.
+   * Group by configuration for a formula and functions events query. Accepts either a list of facet objects or a flat object that specifies a list of facet fields.
    */
-  "groupBy"?: Array<FormulaAndFunctionEventQueryGroupBy>;
+  "groupBy"?: FormulaAndFunctionEventQueryGroupByConfig;
   /**
    * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
    */
@@ -79,7 +79,7 @@ export class FormulaAndFunctionEventQueryDefinition {
     },
     groupBy: {
       baseName: "group_by",
-      type: "Array<FormulaAndFunctionEventQueryGroupBy>",
+      type: "FormulaAndFunctionEventQueryGroupByConfig",
     },
     indexes: {
       baseName: "indexes",

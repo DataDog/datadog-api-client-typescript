@@ -30,7 +30,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                   compute: {
                     aggregation: "count",
                   },
-                  groupBy: [],
                 },
               ],
               conditionalFormats: [
