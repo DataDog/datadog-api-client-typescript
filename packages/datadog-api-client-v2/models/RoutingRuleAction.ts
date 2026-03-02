@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { EscalationPolicyAction } from "./EscalationPolicyAction";
 import { SendSlackMessageAction } from "./SendSlackMessageAction";
 import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type RoutingRuleAction =
   | SendSlackMessageAction
   | SendTeamsMessageAction
+  | EscalationPolicyAction
   | UnparsedObject;
