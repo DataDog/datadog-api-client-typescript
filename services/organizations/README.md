@@ -22,13 +22,21 @@ yarn add @datadog/datadog-api-client-organizations
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { OrganizationsApiV2 } from "@datadog/datadog-api-client-organizations";
-import { v2 } from "@datadog/datadog-api-client-organizations";
 
 const configuration = createConfiguration();
-const apiInstance = new OrganizationsApiV2(configuration);
+// Enable unstable operations
+const configurationOpts = {
+    unstableOperations: {
+        "OrganizationsApi.v2.updateLoginOrgConfigMaxSessionDuration": true
+    }
+}
 
-apiInstance.listOrgConfigs().then((data) => {
-    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+const configuration = createConfiguration(configurationOpts);
+const apiInstance = new OrganizationsApiV2(configuration);
+const params = {/* parameters */};
+
+apiInstance.updateLoginOrgConfigMaxSessionDuration(params).then(() => {
+    console.log("API called successfully.");
 }).catch((error) => {
     console.error("Error calling API: " + error);
 });
