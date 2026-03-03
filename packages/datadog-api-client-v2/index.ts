@@ -733,7 +733,9 @@ export {
 
 export {
   OrganizationsApiGetOrgConfigRequest,
+  OrganizationsApiUpdateLoginOrgConfigMaxSessionDurationRequest,
   OrganizationsApiUpdateOrgConfigRequest,
+  OrganizationsApiUpdateOrgSamlConfigurationsRequest,
   OrganizationsApiUploadIdPMetadataRequest,
   OrganizationsApi,
 } from "./apis/OrganizationsApi";
@@ -3452,6 +3454,10 @@ export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
+export { MaxSessionDurationUpdateAttributes } from "./models/MaxSessionDurationUpdateAttributes";
+export { MaxSessionDurationUpdateRequest } from "./models/MaxSessionDurationUpdateRequest";
+export { MaxSessionDurationUpdateRequestData } from "./models/MaxSessionDurationUpdateRequestData";
+export { MaxSessionDurationUpdateRequestDataType } from "./models/MaxSessionDurationUpdateRequestDataType";
 export { MemberTeam } from "./models/MemberTeam";
 export { MemberTeamType } from "./models/MemberTeamType";
 export { Metadata } from "./models/Metadata";
@@ -4535,6 +4541,10 @@ export { RunThreatHuntingJobRequestDataType } from "./models/RunThreatHuntingJob
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
+export { SamlConfigurationsUpdateAttributes } from "./models/SamlConfigurationsUpdateAttributes";
+export { SamlConfigurationsUpdateRequest } from "./models/SamlConfigurationsUpdateRequest";
+export { SamlConfigurationsUpdateRequestData } from "./models/SamlConfigurationsUpdateRequestData";
+export { SamlConfigurationsUpdateRequestDataType } from "./models/SamlConfigurationsUpdateRequestDataType";
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
