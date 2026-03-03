@@ -7710,6 +7710,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "filterQueriedWindowSeconds": {
+            "type": "number",
+            "format": "int64",
+            },
         "filterTags": {
             "type": "string",
             "format": "",
