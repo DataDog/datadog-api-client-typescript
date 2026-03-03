@@ -22,17 +22,24 @@ import {
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
+import {} from "./models/";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateComponentRequest } from "./models/CreateComponentRequest";
 import { CreateDegradationRequest } from "./models/CreateDegradationRequest";
 import { CreateStatusPageRequest } from "./models/CreateStatusPageRequest";
 import { Degradation } from "./models/Degradation";
 import { DegradationArray } from "./models/DegradationArray";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { PatchComponentRequest } from "./models/PatchComponentRequest";
 import { PatchDegradationRequest } from "./models/PatchDegradationRequest";
 import { PatchStatusPageRequest } from "./models/PatchStatusPageRequest";
 import { StatusPage } from "./models/StatusPage";
 import { StatusPageArray } from "./models/StatusPageArray";
+import { StatusPageEmailSubscriptionRequest } from "./models/StatusPageEmailSubscriptionRequest";
+import { StatusPageEmailSubscriptionResponse } from "./models/StatusPageEmailSubscriptionResponse";
+import { StatusPageEmailSubscriptionsRequest } from "./models/StatusPageEmailSubscriptionsRequest";
+import { StatusPageEmailSubscriptionsResponse } from "./models/StatusPageEmailSubscriptionsResponse";
+import { StatusPageEmailSubscriptionStatus } from "./models/StatusPageEmailSubscriptionStatus";
 import { StatusPagesComponent } from "./models/StatusPagesComponent";
 import { StatusPagesComponentArray } from "./models/StatusPagesComponentArray";
 import { version } from "../version";
@@ -189,6 +196,76 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createInternalEmailSubscription(
+    pageId: string,
+    body: StatusPageEmailSubscriptionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "StatusPagesApi.v2.createInternalEmailSubscription"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createInternalEmailSubscription' is disabled. Enable it by setting `configuration.unstableOperations['StatusPagesApi.v2.createInternalEmailSubscription'] = true`",
+      );
+    }
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "createInternalEmailSubscription");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createInternalEmailSubscription");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/internal/{page_id}/subscriptions/email".replace(
+        "{page_id}",
+        encodeURIComponent(String(pageId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.createInternalEmailSubscription",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "StatusPageEmailSubscriptionRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -579,6 +656,74 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async importEmailSubscriptions(
+    pageId: string,
+    body: StatusPageEmailSubscriptionsRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["StatusPagesApi.v2.importEmailSubscriptions"]
+    ) {
+      throw new Error(
+        "Unstable operation 'importEmailSubscriptions' is disabled. Enable it by setting `configuration.unstableOperations['StatusPagesApi.v2.importEmailSubscriptions'] = true`",
+      );
+    }
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "importEmailSubscriptions");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "importEmailSubscriptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/subscriptions/email/import".replace(
+        "{page_id}",
+        encodeURIComponent(String(pageId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.importEmailSubscriptions",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "StatusPageEmailSubscriptionsRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listComponents(
     pageId: string,
     include?: string,
@@ -707,6 +852,98 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listEmailSubscriptions(
+    pageId: string,
+    filterStatus?: StatusPageEmailSubscriptionStatus,
+    pageOffset?: number,
+    pageLimit?: number,
+    sort?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["StatusPagesApi.v2.listEmailSubscriptions"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listEmailSubscriptions' is disabled. Enable it by setting `configuration.unstableOperations['StatusPagesApi.v2.listEmailSubscriptions'] = true`",
+      );
+    }
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "listEmailSubscriptions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/subscriptions/email".replace(
+        "{page_id}",
+        encodeURIComponent(String(pageId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.listEmailSubscriptions",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        serialize(
+          filterStatus,
+          TypingInfo,
+          "StatusPageEmailSubscriptionStatus",
+          "",
+        ),
+        "",
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        serialize(pageOffset, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -1130,6 +1367,83 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createInternalEmailSubscription
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createInternalEmailSubscription(
+    response: ResponseContext,
+  ): Promise<StatusPageEmailSubscriptionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: StatusPageEmailSubscriptionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailSubscriptionResponse",
+      ) as StatusPageEmailSubscriptionResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: StatusPageEmailSubscriptionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailSubscriptionResponse",
+        "",
+      ) as StatusPageEmailSubscriptionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createStatusPage
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1479,6 +1793,86 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to importEmailSubscriptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async importEmailSubscriptions(
+    response: ResponseContext,
+  ): Promise<StatusPageEmailSubscriptionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: StatusPageEmailSubscriptionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailSubscriptionsResponse",
+      ) as StatusPageEmailSubscriptionsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: StatusPageEmailSubscriptionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailSubscriptionsResponse",
+        "",
+      ) as StatusPageEmailSubscriptionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listComponents
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1577,6 +1971,87 @@ export class StatusPagesApiResponseProcessor {
         "DegradationArray",
         "",
       ) as DegradationArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listEmailSubscriptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listEmailSubscriptions(
+    response: ResponseContext,
+  ): Promise<StatusPageEmailSubscriptionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: StatusPageEmailSubscriptionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailSubscriptionsResponse",
+      ) as StatusPageEmailSubscriptionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: StatusPageEmailSubscriptionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "StatusPageEmailSubscriptionsResponse",
+        "",
+      ) as StatusPageEmailSubscriptionsResponse;
       return body;
     }
 
@@ -1851,6 +2326,18 @@ export interface StatusPagesApiCreateDegradationRequest {
   include?: string;
 }
 
+export interface StatusPagesApiCreateInternalEmailSubscriptionRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * @type StatusPageEmailSubscriptionRequest
+   */
+  body: StatusPageEmailSubscriptionRequest;
+}
+
 export interface StatusPagesApiCreateStatusPageRequest {
   /**
    * @type CreateStatusPageRequest
@@ -1946,6 +2433,18 @@ export interface StatusPagesApiGetStatusPageRequest {
   include?: string;
 }
 
+export interface StatusPagesApiImportEmailSubscriptionsRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * @type StatusPageEmailSubscriptionsRequest
+   */
+  body: StatusPageEmailSubscriptionsRequest;
+}
+
 export interface StatusPagesApiListComponentsRequest {
   /**
    * The ID of the status page.
@@ -1985,6 +2484,34 @@ export interface StatusPagesApiListDegradationsRequest {
    * @type string
    */
   filterStatus?: string;
+}
+
+export interface StatusPagesApiListEmailSubscriptionsRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * Filter subscriptions by status.
+   * @type StatusPageEmailSubscriptionStatus
+   */
+  filterStatus?: StatusPageEmailSubscriptionStatus;
+  /**
+   * The offset for pagination.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * The maximum number of items to return per page.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Sort field for the list of subscriptions. Prefix with '-' for descending order.
+   * @type string
+   */
+  sort?: string;
 }
 
 export interface StatusPagesApiListStatusPagesRequest {
@@ -2138,6 +2665,31 @@ export class StatusPagesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createDegradation(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Creates an internal email subscription for a status page.
+   * @param param The request object
+   */
+  public createInternalEmailSubscription(
+    param: StatusPagesApiCreateInternalEmailSubscriptionRequest,
+    options?: Configuration,
+  ): Promise<StatusPageEmailSubscriptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.createInternalEmailSubscription(
+        param.pageId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createInternalEmailSubscription(
+            responseContext,
+          );
         });
     });
   }
@@ -2298,6 +2850,30 @@ export class StatusPagesApi {
   }
 
   /**
+   * Imports multiple email subscriptions for a status page. Accepts up to 1000 subscriptions at once.
+   * @param param The request object
+   */
+  public importEmailSubscriptions(
+    param: StatusPagesApiImportEmailSubscriptionsRequest,
+    options?: Configuration,
+  ): Promise<StatusPageEmailSubscriptionsResponse> {
+    const requestContextPromise = this.requestFactory.importEmailSubscriptions(
+      param.pageId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.importEmailSubscriptions(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Lists all components for a status page.
    * @param param The request object
    */
@@ -2340,6 +2916,31 @@ export class StatusPagesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listDegradations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a list of email subscriptions for a status page. Supports filtering by status and pagination.
+   * @param param The request object
+   */
+  public listEmailSubscriptions(
+    param: StatusPagesApiListEmailSubscriptionsRequest,
+    options?: Configuration,
+  ): Promise<StatusPageEmailSubscriptionsResponse> {
+    const requestContextPromise = this.requestFactory.listEmailSubscriptions(
+      param.pageId,
+      param.filterStatus,
+      param.pageOffset,
+      param.pageLimit,
+      param.sort,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listEmailSubscriptions(responseContext);
         });
     });
   }

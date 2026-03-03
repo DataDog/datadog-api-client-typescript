@@ -10,6 +10,24 @@ Feature: Status Pages
     And a valid "appKeyAuth" key in the system
     And an instance of "StatusPages" API
 
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Create an internal email subscription returns "Bad Request" response
+    Given operation "CreateInternalEmailSubscription" enabled
+    And new "CreateInternalEmailSubscription" request
+    And request contains "page_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"email_address": "test@example.com"}, "relationships": {"subscribed_components": {"data": [{"id": "00000000-0000-0000-0000-000000000000", "type": "status_page_components"}]}}, "type": "email_subscriptions"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Create an internal email subscription returns "Created" response
+    Given operation "CreateInternalEmailSubscription" enabled
+    And new "CreateInternalEmailSubscription" request
+    And request contains "page_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"email_address": "test@example.com"}, "relationships": {"subscribed_components": {"data": [{"id": "00000000-0000-0000-0000-000000000000", "type": "status_page_components"}]}}, "type": "email_subscriptions"}}
+    When the request is sent
+    Then the response status is 201 Created
+
   @team:DataDog/incident-app
   Scenario: Create component returns "Created" response
     Given there is a valid "status_page" in the system
@@ -91,6 +109,33 @@ Feature: Status Pages
     When the request is sent
     Then the response status is 200 OK
 
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Import email subscriptions returns "Bad Request" response
+    Given operation "ImportEmailSubscriptions" enabled
+    And new "ImportEmailSubscriptions" request
+    And request contains "page_id" parameter from "REPLACE.ME"
+    And body with value {"data": [{"attributes": {"email_address": "test@example.com"}, "relationships": {"subscribed_components": {"data": [{"id": "00000000-0000-0000-0000-000000000000", "type": "status_page_components"}]}}, "type": "email_subscriptions"}]}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Import email subscriptions returns "Created" response
+    Given operation "ImportEmailSubscriptions" enabled
+    And new "ImportEmailSubscriptions" request
+    And request contains "page_id" parameter from "REPLACE.ME"
+    And body with value {"data": [{"attributes": {"email_address": "test@example.com"}, "relationships": {"subscribed_components": {"data": [{"id": "00000000-0000-0000-0000-000000000000", "type": "status_page_components"}]}}, "type": "email_subscriptions"}]}
+    When the request is sent
+    Then the response status is 201 Created
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: Import email subscriptions returns "No Content" response
+    Given operation "ImportEmailSubscriptions" enabled
+    And new "ImportEmailSubscriptions" request
+    And request contains "page_id" parameter from "REPLACE.ME"
+    And body with value {"data": [{"attributes": {"email_address": "test@example.com"}, "relationships": {"subscribed_components": {"data": [{"id": "00000000-0000-0000-0000-000000000000", "type": "status_page_components"}]}}, "type": "email_subscriptions"}]}
+    When the request is sent
+    Then the response status is 204 No Content
+
   @team:DataDog/incident-app
   Scenario: List components returns "OK" response
     Given new "ListComponents" request
@@ -104,6 +149,30 @@ Feature: Status Pages
     Given new "ListDegradations" request
     And there is a valid "status_page" in the system
     And there is a valid "degradation" in the system
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: List email subscriptions returns "Bad Request" response
+    Given operation "ListEmailSubscriptions" enabled
+    And new "ListEmailSubscriptions" request
+    And request contains "page_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: List email subscriptions returns "Not Found" response
+    Given operation "ListEmailSubscriptions" enabled
+    And new "ListEmailSubscriptions" request
+    And request contains "page_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @generated @skip @team:DataDog/incident-app
+  Scenario: List email subscriptions returns "OK" response
+    Given operation "ListEmailSubscriptions" enabled
+    And new "ListEmailSubscriptions" request
+    And request contains "page_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 

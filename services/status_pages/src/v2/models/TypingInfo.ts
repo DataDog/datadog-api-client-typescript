@@ -31,6 +31,9 @@ import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDat
 import { DegradationDataRelationshipsLastModifiedByUserData } from "./DegradationDataRelationshipsLastModifiedByUserData";
 import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
 import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRelationshipsStatusPageData";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { PatchComponentRequest } from "./PatchComponentRequest";
 import { PatchComponentRequestData } from "./PatchComponentRequestData";
 import { PatchComponentRequestDataAttributes } from "./PatchComponentRequestDataAttributes";
@@ -61,6 +64,22 @@ import { StatusPageDataRelationshipsCreatedByUser } from "./StatusPageDataRelati
 import { StatusPageDataRelationshipsCreatedByUserData } from "./StatusPageDataRelationshipsCreatedByUserData";
 import { StatusPageDataRelationshipsLastModifiedByUser } from "./StatusPageDataRelationshipsLastModifiedByUser";
 import { StatusPageDataRelationshipsLastModifiedByUserData } from "./StatusPageDataRelationshipsLastModifiedByUserData";
+import { StatusPageEmailSubscriptionRequest } from "./StatusPageEmailSubscriptionRequest";
+import { StatusPageEmailSubscriptionRequestAttributes } from "./StatusPageEmailSubscriptionRequestAttributes";
+import { StatusPageEmailSubscriptionRequestData } from "./StatusPageEmailSubscriptionRequestData";
+import { StatusPageEmailSubscriptionRequestRelationships } from "./StatusPageEmailSubscriptionRequestRelationships";
+import { StatusPageEmailSubscriptionResponse } from "./StatusPageEmailSubscriptionResponse";
+import { StatusPageEmailSubscriptionResponseAttributes } from "./StatusPageEmailSubscriptionResponseAttributes";
+import { StatusPageEmailSubscriptionResponseData } from "./StatusPageEmailSubscriptionResponseData";
+import { StatusPageEmailSubscriptionResponseRelationships } from "./StatusPageEmailSubscriptionResponseRelationships";
+import { StatusPageEmailSubscriptionsRequest } from "./StatusPageEmailSubscriptionsRequest";
+import { StatusPageEmailSubscriptionsResponse } from "./StatusPageEmailSubscriptionsResponse";
+import { StatusPageEmailSubscriptionsResponseMeta } from "./StatusPageEmailSubscriptionsResponseMeta";
+import { StatusPageEmailSubscriptionsResponseMetaPage } from "./StatusPageEmailSubscriptionsResponseMetaPage";
+import { StatusPageRelationshipStatusPage } from "./StatusPageRelationshipStatusPage";
+import { StatusPageRelationshipStatusPageData } from "./StatusPageRelationshipStatusPageData";
+import { StatusPageRelationshipSubscribedComponentData } from "./StatusPageRelationshipSubscribedComponentData";
+import { StatusPageRelationshipSubscribedComponents } from "./StatusPageRelationshipSubscribedComponents";
 import { StatusPagesComponent } from "./StatusPagesComponent";
 import { StatusPagesComponentArray } from "./StatusPagesComponentArray";
 import { StatusPagesComponentData } from "./StatusPagesComponentData";
@@ -114,7 +133,10 @@ export const TypingInfo: ModelTypingInfo = {
       "resolved",
     ],
     PatchDegradationRequestDataType: ["degradations"],
+    StatusPageComponentType: ["status_page_components"],
     StatusPageDataType: ["status_pages"],
+    StatusPageEmailSubscriptionStatus: ["active", "unconfirmed"],
+    StatusPageEmailSubscriptionType: ["email_subscriptions"],
     StatusPagesComponentDataAttributesStatus: [
       "operational",
       "degraded",
@@ -191,6 +213,9 @@ export const TypingInfo: ModelTypingInfo = {
       DegradationDataRelationshipsStatusPage,
     DegradationDataRelationshipsStatusPageData:
       DegradationDataRelationshipsStatusPageData,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     PatchComponentRequest: PatchComponentRequest,
     PatchComponentRequestData: PatchComponentRequestData,
     PatchComponentRequestDataAttributes: PatchComponentRequestDataAttributes,
@@ -235,6 +260,32 @@ export const TypingInfo: ModelTypingInfo = {
       StatusPageDataRelationshipsLastModifiedByUser,
     StatusPageDataRelationshipsLastModifiedByUserData:
       StatusPageDataRelationshipsLastModifiedByUserData,
+    StatusPageEmailSubscriptionRequest: StatusPageEmailSubscriptionRequest,
+    StatusPageEmailSubscriptionRequestAttributes:
+      StatusPageEmailSubscriptionRequestAttributes,
+    StatusPageEmailSubscriptionRequestData:
+      StatusPageEmailSubscriptionRequestData,
+    StatusPageEmailSubscriptionRequestRelationships:
+      StatusPageEmailSubscriptionRequestRelationships,
+    StatusPageEmailSubscriptionResponse: StatusPageEmailSubscriptionResponse,
+    StatusPageEmailSubscriptionResponseAttributes:
+      StatusPageEmailSubscriptionResponseAttributes,
+    StatusPageEmailSubscriptionResponseData:
+      StatusPageEmailSubscriptionResponseData,
+    StatusPageEmailSubscriptionResponseRelationships:
+      StatusPageEmailSubscriptionResponseRelationships,
+    StatusPageEmailSubscriptionsRequest: StatusPageEmailSubscriptionsRequest,
+    StatusPageEmailSubscriptionsResponse: StatusPageEmailSubscriptionsResponse,
+    StatusPageEmailSubscriptionsResponseMeta:
+      StatusPageEmailSubscriptionsResponseMeta,
+    StatusPageEmailSubscriptionsResponseMetaPage:
+      StatusPageEmailSubscriptionsResponseMetaPage,
+    StatusPageRelationshipStatusPage: StatusPageRelationshipStatusPage,
+    StatusPageRelationshipStatusPageData: StatusPageRelationshipStatusPageData,
+    StatusPageRelationshipSubscribedComponentData:
+      StatusPageRelationshipSubscribedComponentData,
+    StatusPageRelationshipSubscribedComponents:
+      StatusPageRelationshipSubscribedComponents,
     StatusPagesComponent: StatusPagesComponent,
     StatusPagesComponentArray: StatusPagesComponentArray,
     StatusPagesComponentData: StatusPagesComponentData,
