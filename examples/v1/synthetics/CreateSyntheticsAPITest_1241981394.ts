@@ -80,6 +80,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             originalFileName: "image.png",
             content: "file content",
             type: "file type",
+            encoding: "base64",
           },
         ],
         basicAuth: {

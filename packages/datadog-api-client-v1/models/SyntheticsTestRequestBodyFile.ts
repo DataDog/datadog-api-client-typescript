@@ -19,6 +19,10 @@ export class SyntheticsTestRequestBodyFile {
    */
   "content"?: string;
   /**
+   * Encoding of the file content. The only supported value is `base64`, indicating the `content` field contains base64-encoded data.
+   */
+  "encoding"?: string;
+  /**
    * Name of the file.
    */
   "name"?: string;
@@ -57,6 +61,10 @@ export class SyntheticsTestRequestBodyFile {
     },
     content: {
       baseName: "content",
+      type: "string",
+    },
+    encoding: {
+      baseName: "encoding",
       type: "string",
     },
     name: {
