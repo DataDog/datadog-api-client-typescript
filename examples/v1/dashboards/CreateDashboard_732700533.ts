@@ -1,5 +1,5 @@
 /**
- * Create a new timeseries widget with legacy live span time format
+ * Create a new dashboard with formulas and functions events query using facet group by
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -9,54 +9,44 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title: "Example-Dashboard with legacy live span time",
+    title: "Example-Dashboard with events facet group_by",
     widgets: [
       {
         definition: {
-          title: "",
-          showLegend: true,
-          legendLayout: "auto",
-          legendColumns: ["avg", "min", "max", "value", "sum"],
-          time: {
-            liveSpan: "5m",
-            hideIncompleteCostData: true,
-          },
           type: "timeseries",
           requests: [
             {
-              formulas: [
-                {
-                  formula: "query1",
-                },
-              ],
+              responseFormat: "timeseries",
               queries: [
                 {
-                  dataSource: "ci_pipelines",
+                  dataSource: "events",
                   name: "query1",
                   search: {
-                    query: "ci_level:job",
+                    query: "",
                   },
-                  indexes: ["*"],
                   compute: {
                     aggregation: "count",
-                    metric: "@ci.queue_time",
                   },
+                  groupBy: [
+                    {
+                      facet: "service",
+                      limit: 10,
+                    },
+                  ],
                 },
               ],
-              responseFormat: "timeseries",
-              style: {
-                palette: "dog_classic",
-                lineType: "solid",
-                lineWidth: "normal",
-              },
-              displayType: "line",
             },
           ],
+        },
+        layout: {
+          x: 0,
+          y: 0,
+          width: 4,
+          height: 2,
         },
       },
     ],
     layoutType: "ordered",
-    reflowType: "auto",
   },
 };
 

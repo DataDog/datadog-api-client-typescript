@@ -3,21 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ViewershipHistorySessionDataAttributes } from "./ViewershipHistorySessionDataAttributes";
-import { ViewershipHistorySessionDataType } from "./ViewershipHistorySessionDataType";
+import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Viewership history session data.
+ * Flat group by configuration using multiple event facet fields.
  */
-export class ViewershipHistorySessionData {
-  "attributes"?: ViewershipHistorySessionDataAttributes;
-  "id"?: string;
+export class FormulaAndFunctionEventQueryGroupByFields {
   /**
-   * Rum replay session resource type.
+   * List of event facets to group by.
    */
-  "type": ViewershipHistorySessionDataType;
+  "fields": Array<string>;
+  /**
+   * Number of groups to return.
+   */
+  "limit"?: number;
+  /**
+   * Options for sorting group by results.
+   */
+  "sort"?: FormulaAndFunctionEventQueryGroupBySort;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,18 +40,19 @@ export class ViewershipHistorySessionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ViewershipHistorySessionDataAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "ViewershipHistorySessionDataType",
+    fields: {
+      baseName: "fields",
+      type: "Array<string>",
       required: true,
+    },
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      baseName: "sort",
+      type: "FormulaAndFunctionEventQueryGroupBySort",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -58,7 +64,7 @@ export class ViewershipHistorySessionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ViewershipHistorySessionData.attributeTypeMap;
+    return FormulaAndFunctionEventQueryGroupByFields.attributeTypeMap;
   }
 
   public constructor() {}
