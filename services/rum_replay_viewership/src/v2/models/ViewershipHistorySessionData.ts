@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ViewershipHistorySessionDataAttributes } from "./ViewershipHistorySessionDataAttributes";
 import { ViewershipHistorySessionDataType } from "./ViewershipHistorySessionDataType";
 
+/**
+ * Viewership history session data.
+ */
 export class ViewershipHistorySessionData {
   "attributes"?: ViewershipHistorySessionDataAttributes;
   "id"?: string;
