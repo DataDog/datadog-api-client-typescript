@@ -7,9 +7,7 @@ Synthetic tests use simulated requests and actions so you can monitor the availa
 - [Browser tests](https://docs.datadoghq.com/synthetics/browser_tests)
 - [Network Path tests](https://docs.datadoghq.com/synthetics/network_path_tests/)
 - [Mobile Application tests](https://docs.datadoghq.com/synthetics/mobile_app_testing)
-
 You can use the Datadog API to create, manage, and organize tests and test suites programmatically.
-
 For more information, see the [Synthetic Monitoring documentation](https://docs.datadoghq.com/synthetics/).
 
 ## Navigation
