@@ -20,7 +20,7 @@ export class UsageBillableSummaryHour {
    */
   "accountPublicId"?: string;
   /**
-   * The billing plan.
+   * The billing plan (metadata). (Deprecated from May 2026)
    */
   "billingPlan"?: string;
   /**
