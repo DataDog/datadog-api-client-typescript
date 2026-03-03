@@ -7720,6 +7720,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
+    filterQueriedWindowSeconds: {
+      type: "number",
+      format: "int64",
+    },
     filterTags: {
       type: "string",
       format: "",
