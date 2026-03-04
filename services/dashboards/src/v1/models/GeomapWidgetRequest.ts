@@ -32,7 +32,7 @@ export class GeomapWidgetRequest {
    */
   "logQuery"?: LogQueryDefinition;
   /**
-   * The widget metrics query.
+   * The widget metrics query. Deprecated - Use `queries` and `formulas` instead.
    */
   "q"?: string;
   /**
