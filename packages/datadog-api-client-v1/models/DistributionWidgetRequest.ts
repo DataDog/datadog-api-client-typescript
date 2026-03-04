@@ -52,7 +52,7 @@ export class DistributionWidgetRequest {
    */
   "profileMetricsQuery"?: LogQueryDefinition;
   /**
-   * Widget query.
+   * Widget query. Deprecated - Use `queries` and `formulas` instead.
    */
   "q"?: string;
   /**
@@ -64,7 +64,7 @@ export class DistributionWidgetRequest {
    */
   "query"?: DistributionWidgetHistogramRequestQuery;
   /**
-   * Request type for the histogram request.
+   * Request type for distribution of point values for distribution metrics. Query space aggregator must be `histogram:<metric name>` for points distributions.
    */
   "requestType"?: WidgetHistogramRequestType;
   /**
