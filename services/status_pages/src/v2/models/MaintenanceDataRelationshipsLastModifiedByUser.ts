@@ -1,15 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { StatusPagesPagination } from "./StatusPagesPagination";
+import { MaintenanceDataRelationshipsLastModifiedByUserData } from "./MaintenanceDataRelationshipsLastModifiedByUserData";
 
-/**
- * Response metadata.
- */
-export class StatusPagesResponseMeta {
-  /**
-   * Offset-based pagination schema.
-   */
-  "page"?: StatusPagesPagination;
+export class MaintenanceDataRelationshipsLastModifiedByUser {
+  "data": MaintenanceDataRelationshipsLastModifiedByUserData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +19,10 @@ export class StatusPagesResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "StatusPagesPagination",
+    data: {
+      baseName: "data",
+      type: "MaintenanceDataRelationshipsLastModifiedByUserData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +34,7 @@ export class StatusPagesResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return StatusPagesResponseMeta.attributeTypeMap;
+    return MaintenanceDataRelationshipsLastModifiedByUser.attributeTypeMap;
   }
 
   public constructor() {}

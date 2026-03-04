@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { PaginationMeta } from "./PaginationMeta";
 import { StatusPageArrayIncluded } from "./StatusPageArrayIncluded";
 import { StatusPageData } from "./StatusPageData";
-import { StatusPagesResponseMeta } from "./StatusPagesResponseMeta";
 
 export class StatusPageArray {
   "data": Array<StatusPageData>;
@@ -13,7 +13,7 @@ export class StatusPageArray {
   /**
    * Response metadata.
    */
-  "meta"?: StatusPagesResponseMeta;
+  "meta"?: PaginationMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -40,7 +40,7 @@ export class StatusPageArray {
     },
     meta: {
       baseName: "meta",
-      type: "StatusPagesResponseMeta",
+      type: "PaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
