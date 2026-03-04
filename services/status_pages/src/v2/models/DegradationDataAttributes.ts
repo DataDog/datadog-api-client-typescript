@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateDegradationRequestDataAttributesStatus } from "./CreateDegradationRequestDataAttributesStatus";
 import { DegradationDataAttributesComponentsAffectedItems } from "./DegradationDataAttributesComponentsAffectedItems";
+import { DegradationDataAttributesSource } from "./DegradationDataAttributesSource";
 import { DegradationDataAttributesUpdatesItems } from "./DegradationDataAttributesUpdatesItems";
 
 /**
@@ -24,6 +25,10 @@ export class DegradationDataAttributes {
    * Timestamp of when the degradation was last modified.
    */
   "modifiedAt"?: Date;
+  /**
+   * The source of the degradation.
+   */
+  "source"?: DegradationDataAttributesSource;
   /**
    * The status of the degradation.
    */
@@ -68,6 +73,10 @@ export class DegradationDataAttributes {
       baseName: "modified_at",
       type: "Date",
       format: "date-time",
+    },
+    source: {
+      baseName: "source",
+      type: "DegradationDataAttributesSource",
     },
     status: {
       baseName: "status",

@@ -1,19 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DegradationArrayIncluded } from "./DegradationArrayIncluded";
 import { DegradationData } from "./DegradationData";
-import { StatusPagesResponseMeta } from "./StatusPagesResponseMeta";
+import { DegradationIncluded } from "./DegradationIncluded";
+import { PaginationMeta } from "./PaginationMeta";
 
 export class DegradationArray {
   "data": Array<DegradationData>;
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.
    */
-  "included"?: Array<DegradationArrayIncluded>;
+  "included"?: Array<DegradationIncluded>;
   /**
    * Response metadata.
    */
-  "meta"?: StatusPagesResponseMeta;
+  "meta"?: PaginationMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -36,11 +36,11 @@ export class DegradationArray {
     },
     included: {
       baseName: "included",
-      type: "Array<DegradationArrayIncluded>",
+      type: "Array<DegradationIncluded>",
     },
     meta: {
       baseName: "meta",
-      type: "StatusPagesResponseMeta",
+      type: "PaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
