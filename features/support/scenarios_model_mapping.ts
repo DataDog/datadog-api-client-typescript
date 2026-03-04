@@ -7376,6 +7376,237 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IPAllowlistResponse",
     },
+    "v2.ListLLMObsExperiments": {
+        "filterProjectId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDatasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "LLMObsExperimentsResponse",
+    },
+    "v2.CreateLLMObsExperiment": {
+        "body": {
+            "type": "LLMObsExperimentRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsExperimentResponse",
+    },
+    "v2.DeleteLLMObsExperiments": {
+        "body": {
+            "type": "LLMObsDeleteExperimentsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateLLMObsExperiment": {
+        "experimentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsExperimentUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsExperimentResponse",
+    },
+    "v2.CreateLLMObsExperimentEvents": {
+        "experimentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsExperimentEventsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListLLMObsProjects": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "LLMObsProjectsResponse",
+    },
+    "v2.CreateLLMObsProject": {
+        "body": {
+            "type": "LLMObsProjectRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsProjectResponse",
+    },
+    "v2.DeleteLLMObsProjects": {
+        "body": {
+            "type": "LLMObsDeleteProjectsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateLLMObsProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsProjectUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsProjectResponse",
+    },
+    "v2.ListLLMObsDatasets": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "LLMObsDatasetsResponse",
+    },
+    "v2.CreateLLMObsDataset": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDatasetRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetResponse",
+    },
+    "v2.DeleteLLMObsDatasets": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDeleteDatasetsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateLLMObsDataset": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDatasetUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetResponse",
+    },
+    "v2.ListLLMObsDatasetRecords": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterVersion": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "LLMObsDatasetRecordsListResponse",
+    },
+    "v2.CreateLLMObsDatasetRecords": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDatasetRecordsRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetRecordsMutationResponse",
+    },
+    "v2.UpdateLLMObsDatasetRecords": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDatasetRecordsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetRecordsMutationResponse",
+    },
+    "v2.DeleteLLMObsDatasetRecords": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDeleteDatasetRecordsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.SubmitLog": {
         "contentEncoding": {
             "type": "ContentEncoding",
