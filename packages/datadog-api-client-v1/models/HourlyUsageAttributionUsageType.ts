@@ -22,6 +22,8 @@ export type HourlyUsageAttributionUsageType =
   | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
   | typeof BITS_AI_INVESTIGATIONS_USAGE
   | typeof BROWSER_USAGE
+  | typeof CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE
+  | typeof CI_CODE_COVERAGE_COMMITTERS_USAGE
   | typeof CI_PIPELINE_INDEXED_SPANS_USAGE
   | typeof CI_TEST_INDEXED_SPANS_USAGE
   | typeof CI_VISIBILITY_ITR_USAGE
@@ -108,6 +110,10 @@ export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
   "asm_serverless_traced_invocations_percentage";
 export const BITS_AI_INVESTIGATIONS_USAGE = "bits_ai_investigations_usage";
 export const BROWSER_USAGE = "browser_usage";
+export const CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE =
+  "ci_code_coverage_committers_percentage";
+export const CI_CODE_COVERAGE_COMMITTERS_USAGE =
+  "ci_code_coverage_committers_usage";
 export const CI_PIPELINE_INDEXED_SPANS_USAGE =
   "ci_pipeline_indexed_spans_usage";
 export const CI_TEST_INDEXED_SPANS_USAGE = "ci_test_indexed_spans_usage";
