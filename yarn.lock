@@ -757,6 +757,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-llm-observability@workspace:services/llm_observability":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-llm-observability@workspace:services/llm_observability"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-logs-archives@workspace:services/logs_archives":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-logs-archives@workspace:services/logs_archives"
