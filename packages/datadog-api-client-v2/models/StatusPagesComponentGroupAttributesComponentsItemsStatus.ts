@@ -15,8 +15,10 @@ export type StatusPagesComponentGroupAttributesComponentsItemsStatus =
   | typeof DEGRADED
   | typeof PARTIAL_OUTAGE
   | typeof MAJOR_OUTAGE
+  | typeof MAINTENANCE
   | UnparsedObject;
 export const OPERATIONAL = "operational";
 export const DEGRADED = "degraded";
 export const PARTIAL_OUTAGE = "partial_outage";
 export const MAJOR_OUTAGE = "major_outage";
+export const MAINTENANCE = "maintenance";

@@ -3,9 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { PaginationMeta } from "./PaginationMeta";
 import { StatusPageArrayIncluded } from "./StatusPageArrayIncluded";
 import { StatusPageData } from "./StatusPageData";
-import { StatusPagesResponseMeta } from "./StatusPagesResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -18,7 +18,7 @@ export class StatusPageArray {
   /**
    * Response metadata.
    */
-  "meta"?: StatusPagesResponseMeta;
+  "meta"?: PaginationMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,7 +47,7 @@ export class StatusPageArray {
     },
     meta: {
       baseName: "meta",
-      type: "StatusPagesResponseMeta",
+      type: "PaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

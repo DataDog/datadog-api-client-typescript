@@ -30,6 +30,10 @@ export class DegradationDataAttributesUpdatesItems {
    */
   "modifiedAt"?: Date;
   /**
+   * Timestamp of when the update started.
+   */
+  "startedAt"?: Date;
+  /**
    * The status of the degradation.
    */
   "status"?: CreateDegradationRequestDataAttributesStatus;
@@ -70,6 +74,11 @@ export class DegradationDataAttributesUpdatesItems {
     },
     modifiedAt: {
       baseName: "modified_at",
+      type: "Date",
+      format: "date-time",
+    },
+    startedAt: {
+      baseName: "started_at",
       type: "Date",
       format: "date-time",
     },
