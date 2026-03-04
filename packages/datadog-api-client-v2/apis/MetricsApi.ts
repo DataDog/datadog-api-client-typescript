@@ -438,6 +438,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     filterMetricType?: MetricTagConfigurationMetricTypeCategory,
     filterIncludePercentiles?: boolean,
     filterQueried?: boolean,
+    filterQueriedWindowSeconds?: number,
     filterTags?: string,
     filterRelatedAssets?: boolean,
     windowSeconds?: number,
@@ -494,6 +495,17 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[queried]",
         ObjectSerializer.serialize(filterQueried, "boolean", ""),
+        ""
+      );
+    }
+    if (filterQueriedWindowSeconds !== undefined) {
+      requestContext.setQueryParam(
+        "filter[queried][window][seconds]",
+        ObjectSerializer.serialize(
+          filterQueriedWindowSeconds,
+          "number",
+          "int64"
+        ),
         ""
       );
     }
@@ -1986,6 +1998,15 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterQueried?: boolean;
   /**
+   * The number of seconds of look back (from now) used by the `filter[queried]` filter logic.
+   * Must be sent with `filter[queried]` and is only applied when `filter[queried]=true`.
+   * If `filter[queried]=false`, this parameter is ignored and default queried-window behavior applies.
+   * If `filter[queried]` is not provided, sending this parameter returns a 400.
+   * For example: `GET /api/v2/metrics?filter[queried]=true&filter[queried][window][seconds]=7776000`.
+   * @type number
+   */
+  filterQueriedWindowSeconds?: number;
+  /**
    * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions.
    * Can only be combined with the filter[queried] filter.
    * @type string
@@ -2364,6 +2385,7 @@ export class MetricsApi {
       param.filterMetricType,
       param.filterIncludePercentiles,
       param.filterQueried,
+      param.filterQueriedWindowSeconds,
       param.filterTags,
       param.filterRelatedAssets,
       param.windowSeconds,
@@ -2399,6 +2421,7 @@ export class MetricsApi {
         param.filterMetricType,
         param.filterIncludePercentiles,
         param.filterQueried,
+        param.filterQueriedWindowSeconds,
         param.filterTags,
         param.filterRelatedAssets,
         param.windowSeconds,
