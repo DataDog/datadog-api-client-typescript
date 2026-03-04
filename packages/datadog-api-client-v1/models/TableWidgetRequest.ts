@@ -79,7 +79,7 @@ export class TableWidgetRequest {
    */
   "profileMetricsQuery"?: LogQueryDefinition;
   /**
-   * Query definition.
+   * Query definition. Deprecated - Use `queries` and `formulas` instead.
    */
   "q"?: string;
   /**
