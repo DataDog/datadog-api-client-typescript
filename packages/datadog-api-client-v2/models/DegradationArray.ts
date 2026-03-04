@@ -3,9 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DegradationArrayIncluded } from "./DegradationArrayIncluded";
 import { DegradationData } from "./DegradationData";
-import { StatusPagesResponseMeta } from "./StatusPagesResponseMeta";
+import { DegradationIncluded } from "./DegradationIncluded";
+import { PaginationMeta } from "./PaginationMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,11 +14,11 @@ export class DegradationArray {
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.
    */
-  "included"?: Array<DegradationArrayIncluded>;
+  "included"?: Array<DegradationIncluded>;
   /**
    * Response metadata.
    */
-  "meta"?: StatusPagesResponseMeta;
+  "meta"?: PaginationMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,11 +43,11 @@ export class DegradationArray {
     },
     included: {
       baseName: "included",
-      type: "Array<DegradationArrayIncluded>",
+      type: "Array<DegradationIncluded>",
     },
     meta: {
       baseName: "meta",
-      type: "StatusPagesResponseMeta",
+      type: "PaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
