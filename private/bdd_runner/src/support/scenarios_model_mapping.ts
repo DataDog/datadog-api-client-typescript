@@ -7386,6 +7386,237 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IPAllowlistResponse",
   },
+  "LLMObservabilityApi.V2.ListLLMObsExperiments": {
+    filterProjectId: {
+      type: "string",
+      format: "",
+    },
+    filterDatasetId: {
+      type: "string",
+      format: "",
+    },
+    filterId: {
+      type: "string",
+      format: "",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "LLMObsExperimentsResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsExperiment": {
+    body: {
+      type: "LLMObsExperimentRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsExperimentResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsExperiments": {
+    body: {
+      type: "LLMObsDeleteExperimentsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsExperiment": {
+    experimentId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsExperimentUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsExperimentResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsExperimentEvents": {
+    experimentId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsExperimentEventsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsProjects": {
+    filterId: {
+      type: "string",
+      format: "",
+    },
+    filterName: {
+      type: "string",
+      format: "",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "LLMObsProjectsResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsProject": {
+    body: {
+      type: "LLMObsProjectRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsProjectResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsProjects": {
+    body: {
+      type: "LLMObsDeleteProjectsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsProject": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsProjectUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsProjectResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsDatasets": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    filterName: {
+      type: "string",
+      format: "",
+    },
+    filterId: {
+      type: "string",
+      format: "",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "LLMObsDatasetsResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsDataset": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDatasetRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsDatasets": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDeleteDatasetsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsDataset": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDatasetUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsDatasetRecords": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    filterVersion: {
+      type: "number",
+      format: "int64",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "LLMObsDatasetRecordsListResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsDatasetRecords": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDatasetRecordsRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetRecordsMutationResponse",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsDatasetRecords": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDatasetRecordsUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetRecordsMutationResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsDatasetRecords": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDeleteDatasetRecordsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "LogsApi.V2.SubmitLog": {
     contentEncoding: {
       type: "ContentEncoding",
