@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Supported products for hourly usage attribution requests.
- * The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
+ * Supported products for hourly usage attribution requests. Usage types are in the format `<usage_type>_usage`.
+ * To obtain the complete list of valid usage types, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
  */
 
 export type HourlyUsageAttributionUsageType =

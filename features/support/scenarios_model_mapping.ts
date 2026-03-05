@@ -5615,6 +5615,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProjectedCostResponse",
     },
+    "v2.GetUsageAttributionTypes": {
+        "operationResponseType": "UsageAttributionTypesResponse",
+    },
     "v2.ListAllCSMAgents": {
         "page": {
             "type": "number",

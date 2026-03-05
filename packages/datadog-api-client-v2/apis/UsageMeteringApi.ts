@@ -25,6 +25,7 @@ import { MonthlyCostAttributionResponse } from "../models/MonthlyCostAttribution
 import { ProjectedCostResponse } from "../models/ProjectedCostResponse";
 import { SortDirection } from "../models/SortDirection";
 import { UsageApplicationSecurityMonitoringResponse } from "../models/UsageApplicationSecurityMonitoringResponse";
+import { UsageAttributionTypesResponse } from "../models/UsageAttributionTypesResponse";
 import { UsageLambdaTracedInvocationsResponse } from "../models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
 
@@ -608,6 +609,34 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getUsageAttributionTypes(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/usage-attribution-types";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getUsageAttributionTypes")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1291,6 +1320,64 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUsageAttributionTypes
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageAttributionTypes(
+    response: ResponseContext
+  ): Promise<UsageAttributionTypesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UsageAttributionTypesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageAttributionTypesResponse"
+      ) as UsageAttributionTypesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageAttributionTypesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageAttributionTypesResponse",
+        ""
+      ) as UsageAttributionTypesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getUsageLambdaTracedInvocations
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1929,6 +2016,26 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUsageApplicationSecurityMonitoring(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get usage attribution types.
+   * @param param The request object
+   */
+  public getUsageAttributionTypes(
+    options?: Configuration
+  ): Promise<UsageAttributionTypesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getUsageAttributionTypes(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageAttributionTypes(
             responseContext
           );
         });

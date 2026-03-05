@@ -4408,8 +4408,10 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   startHr: Date;
   /**
-   * Usage type to retrieve. The following values have been **deprecated**:
-   * `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
+   * Usage type to retrieve. Usage types are in the format `<usage_type>_usage`.
+   * Example: `infra_host_usage`
+   * To obtain the complete list of active usage types that can be used to replace
+   * `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
    * @type HourlyUsageAttributionUsageType
    */
   usageType: HourlyUsageAttributionUsageType;
@@ -4498,8 +4500,10 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
   startMonth: Date;
   /**
    * Comma-separated list of usage types to return, or `*` for all usage types.
-   * The following values have been **deprecated**:
-   * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`, `llm_observability_usage`, `llm_observability_percentage`.
+   * Usage types are in the format `<usage_type>_usage` and `<usage_type>_percentage`.
+   * Example: `infra_host_usage,infra_host_percentage`
+   * To obtain the complete list of usage attribution types that can be used to replace
+   * `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
    * @type MonthlyUsageAttributionSupportedMetrics
    */
   fields: MonthlyUsageAttributionSupportedMetrics;
@@ -4514,9 +4518,10 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    */
   sortDirection?: UsageSortDirection;
   /**
-   * The field to sort by.
-   * The following values have been **deprecated**:
-   * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
+   * The field to sort by. Sort fields are in the format `<usage_type>_usage`.
+   * Example: `infra_host_usage`
+   * To obtain the complete list of usage attribution types that can be used to replace
+   * `<usage_type>` in the field names, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
    * @type MonthlyUsageAttributionSupportedMetrics
    */
   sortName?: MonthlyUsageAttributionSupportedMetrics;
@@ -5040,8 +5045,6 @@ export class UsageMeteringApi {
    *   cursor := response.metadata.pagination.next_record_id
    * END
    * ```
-   * The following values have been **deprecated**:
-   *     `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`, `llm_observability_usage`, `llm_observability_percentage`.
    * @param param The request object
    */
   public getHourlyUsageAttribution(
