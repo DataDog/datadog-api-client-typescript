@@ -5625,6 +5625,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProjectedCostResponse",
   },
+  "UsageMeteringApi.V2.GetUsageAttributionTypes": {
+    operationResponseType: "UsageAttributionTypesResponse",
+  },
   "CSMAgentsApi.V2.ListAllCSMAgents": {
     page: {
       type: "number",

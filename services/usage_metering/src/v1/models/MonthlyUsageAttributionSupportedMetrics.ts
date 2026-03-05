@@ -1,7 +1,8 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Supported metrics for monthly usage attribution requests.
+ * Supported metrics for monthly usage attribution requests. Usage types are in the format `<usage_type>_usage`.
+ * To obtain the complete list of valid usage types, make a request to the [Get usage attribution types API](https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types).
  */
 export type MonthlyUsageAttributionSupportedMetrics =
   | typeof API_USAGE
