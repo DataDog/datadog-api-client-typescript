@@ -29,6 +29,9 @@ import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
+import { UsageAttributionTypesAttributes } from "./UsageAttributionTypesAttributes";
+import { UsageAttributionTypesBody } from "./UsageAttributionTypesBody";
+import { UsageAttributionTypesResponse } from "./UsageAttributionTypesResponse";
 import { UsageDataObject } from "./UsageDataObject";
 import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
@@ -50,6 +53,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ProjectedCostType: ["projected_cost"],
     SortDirection: ["desc", "asc"],
+    UsageAttributionTypesType: ["usage_attribution_types"],
     UsageTimeSeriesType: ["usage_timeseries"],
   },
   oneOfMap: {},
@@ -86,6 +90,9 @@ export const TypingInfo: ModelTypingInfo = {
     UsageApplicationSecurityMonitoringResponse:
       UsageApplicationSecurityMonitoringResponse,
     UsageAttributesObject: UsageAttributesObject,
+    UsageAttributionTypesAttributes: UsageAttributionTypesAttributes,
+    UsageAttributionTypesBody: UsageAttributionTypesBody,
+    UsageAttributionTypesResponse: UsageAttributionTypesResponse,
     UsageDataObject: UsageDataObject,
     UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
     UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
