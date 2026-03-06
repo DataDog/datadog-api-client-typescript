@@ -4,10 +4,10 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { WidgetDisplayType } from "./WidgetDisplayType";
 import { WidgetFormula } from "./WidgetFormula";
-import { WidgetRequestStyle } from "./WidgetRequestStyle";
 
 /**
  * Updated timeseries widget.
@@ -78,9 +78,9 @@ export class TimeseriesWidgetRequest {
    */
   "securityQuery"?: LogQueryDefinition;
   /**
-   * Define request widget style.
+   * Define request widget style for timeseries widgets.
    */
-  "style"?: WidgetRequestStyle;
+  "style"?: TimeseriesRequestStyle;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -162,7 +162,7 @@ export class TimeseriesWidgetRequest {
     },
     style: {
       baseName: "style",
-      type: "WidgetRequestStyle",
+      type: "TimeseriesRequestStyle",
     },
     additionalProperties: {
       baseName: "additionalProperties",
