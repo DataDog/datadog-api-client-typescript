@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-03-06
+
+### Added
+* Add Network Path test endpoints to v2 spec [#3399](https://github.com/DataDog/datadog-api-client-typescript/pull/3399)
+
 ## 0.0.1-beta.5/2026-02-17
 
 ### Added

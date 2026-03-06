@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.2/2026-03-06
+
+### Added
+* Add Maintenances and minor updates to Status Pages API [#3520](https://github.com/DataDog/datadog-api-client-typescript/pull/3520)
+
 ## 0.0.1-beta.1/2026-02-17
 
 ### Changed

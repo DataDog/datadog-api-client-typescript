@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-03-06
+
+### Added
+* Workflow Automation - Add Form Trigger [#3524](https://github.com/DataDog/datadog-api-client-typescript/pull/3524)
+
 ## 0.0.1-beta.3/2026-02-17
 
 ### Added
