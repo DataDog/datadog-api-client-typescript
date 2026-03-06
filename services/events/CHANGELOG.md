@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-03-06
+
+### Added
+* Post an event v2 API - add a new enum value to links.category field and add pattern validation on changed_resource.name field [#3478](https://github.com/DataDog/datadog-api-client-typescript/pull/3478)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Changed

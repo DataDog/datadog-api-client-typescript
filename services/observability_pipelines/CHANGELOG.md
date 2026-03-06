@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-03-06
+
+### Added
+* Adding Observability Pipelines Secret Management feature support [#3525](https://github.com/DataDog/datadog-api-client-typescript/pull/3525)
+* Adding custom mapper support to Observability Pipelines OCSF Mapper [#3455](https://github.com/DataDog/datadog-api-client-typescript/pull/3455)
+
 ## 0.0.1-beta.5/2026-02-17
 
 ### Fixed

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-03-06
+
+### Added
+* Billing_plan field deprecation - correction start date [#3589](https://github.com/DataDog/datadog-api-client-typescript/pull/3589)
+* Add ci_code_coverage_committers to usage API [#3584](https://github.com/DataDog/datadog-api-client-typescript/pull/3584)
+* Expose usage-attribution-types publicly and update attribution descriptions [#3582](https://github.com/DataDog/datadog-api-client-typescript/pull/3582)
+* billing_plan field deprecation in billable-summary endpoint [#3556](https://github.com/DataDog/datadog-api-client-typescript/pull/3556)
+
 ## 0.0.1-beta.5/2026-02-17
 
 ### Added

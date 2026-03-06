@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-03-06
+
+### Added
+* Expose usage-attribution-types publicly and update attribution descriptions [#3582](https://github.com/DataDog/datadog-api-client-typescript/pull/3582)
+* Add new param to api/v2/metrics [#3570](https://github.com/DataDog/datadog-api-client-typescript/pull/3570)
+
 ## 0.0.1-beta.3/2026-02-17
 
 ### Added

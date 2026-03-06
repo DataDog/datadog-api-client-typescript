@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-03-06
+
+### Added
+* Add FormulaAndFunctionEventQueryGroupByFields schema to support flat group_by form [#3564](https://github.com/DataDog/datadog-api-client-typescript/pull/3564)
+
+### Deprecated
+* Mark legacy non-FnF query fields and WidgetEvent as deprecated in dashboard spec + update Distribuition docs [#3560](https://github.com/DataDog/datadog-api-client-typescript/pull/3560)
+
+### Fixed
+* Fix WidgetNewFixedSpan - timestamps are milliseconds not seconds [#3512](https://github.com/DataDog/datadog-api-client-typescript/pull/3512)
+
 ## 0.0.1-beta.4/2026-02-17
 
 ### Added

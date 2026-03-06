@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-03-06
+
+### Added
+* Add sort parameter to detection rules list endpoint [#3494](https://github.com/DataDog/datadog-api-client-typescript/pull/3494)
+* Add suppression sort by create date [#3311](https://github.com/DataDog/datadog-api-client-typescript/pull/3311)
+
 ## 0.0.1-beta.6/2026-02-17
 
 ### Added
