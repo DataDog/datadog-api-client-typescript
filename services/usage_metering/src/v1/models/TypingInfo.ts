@@ -108,6 +108,8 @@ export const TypingInfo: ModelTypingInfo = {
       "asm_serverless_traced_invocations_percentage",
       "bits_ai_investigations_usage",
       "browser_usage",
+      "ci_code_coverage_committers_percentage",
+      "ci_code_coverage_committers_usage",
       "ci_pipeline_indexed_spans_usage",
       "ci_test_indexed_spans_usage",
       "ci_visibility_itr_usage",
