@@ -3,6 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TeamSyncAttributesFrequency } from "./TeamSyncAttributesFrequency";
 import { TeamSyncAttributesSource } from "./TeamSyncAttributesSource";
 import { TeamSyncAttributesType } from "./TeamSyncAttributesType";
+import { TeamSyncSelectionStateItem } from "./TeamSyncSelectionStateItem";
 
 /**
  * Team sync attributes.
@@ -12,6 +13,12 @@ export class TeamSyncAttributes {
    * How often the sync process should be run. Defaults to `once` when not provided.
    */
   "frequency"?: TeamSyncAttributesFrequency;
+  /**
+   * Specifies which teams or organizations to sync. When
+   * provided, synchronization is limited to the specified
+   * items and their subtrees.
+   */
+  "selectionState"?: Array<TeamSyncSelectionStateItem>;
   /**
    * The external source platform for team synchronization. Only "github" is supported.
    */
@@ -42,6 +49,10 @@ export class TeamSyncAttributes {
     frequency: {
       baseName: "frequency",
       type: "TeamSyncAttributesFrequency",
+    },
+    selectionState: {
+      baseName: "selection_state",
+      type: "Array<TeamSyncSelectionStateItem>",
     },
     source: {
       baseName: "source",
