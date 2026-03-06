@@ -62,6 +62,7 @@ import { NumberFormatUnitCanonical } from "./NumberFormatUnitCanonical";
 import { NumberFormatUnitCustom } from "./NumberFormatUnitCustom";
 import { NumberFormatUnitScale } from "./NumberFormatUnitScale";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
@@ -390,6 +391,7 @@ export const TypingInfo: ModelTypingInfo = {
     NumberFormatUnitCustom: NumberFormatUnitCustom,
     NumberFormatUnitScale: NumberFormatUnitScale,
     ProcessQueryDefinition: ProcessQueryDefinition,
+    TimeseriesRequestStyle: TimeseriesRequestStyle,
     TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
     TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
     TimeseriesWidgetRequest: TimeseriesWidgetRequest,
