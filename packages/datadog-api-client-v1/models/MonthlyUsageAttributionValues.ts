@@ -83,6 +83,14 @@ export class MonthlyUsageAttributionValues {
    */
   "browserUsage"?: number;
   /**
+   * The percentage of Code Coverage committers usage by tag(s).
+   */
+  "ciCodeCoverageCommittersPercentage"?: number;
+  /**
+   * The total Code Coverage committers usage by tag(s).
+   */
+  "ciCodeCoverageCommittersUsage"?: number;
+  /**
    * The percentage of CI Pipeline Indexed Spans usage by tag(s).
    */
   "ciPipelineIndexedSpansPercentage"?: number;
@@ -754,6 +762,16 @@ export class MonthlyUsageAttributionValues {
     },
     browserUsage: {
       baseName: "browser_usage",
+      type: "number",
+      format: "double",
+    },
+    ciCodeCoverageCommittersPercentage: {
+      baseName: "ci_code_coverage_committers_percentage",
+      type: "number",
+      format: "double",
+    },
+    ciCodeCoverageCommittersUsage: {
+      baseName: "ci_code_coverage_committers_usage",
       type: "number",
       format: "double",
     },
