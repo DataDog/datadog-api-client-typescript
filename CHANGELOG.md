@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 1.53.0/2026-03-06
+
+### Added
+* Billing_plan field deprecation - correction start date [#3590](https://github.com/DataDog/datadog-api-client-typescript/pull/3590)
+* Add ci_code_coverage_committers to usage API [#3585](https://github.com/DataDog/datadog-api-client-typescript/pull/3585)
+* Expose usage-attribution-types publicly and update attribution descriptions [#3583](https://github.com/DataDog/datadog-api-client-typescript/pull/3583)
+* Add new param to api/v2/metrics [#3571](https://github.com/DataDog/datadog-api-client-typescript/pull/3571)
+* Add FormulaAndFunctionEventQueryGroupByFields schema to support flat group_by form [#3565](https://github.com/DataDog/datadog-api-client-typescript/pull/3565)
+* billing_plan field deprecation in billable-summary endpoint [#3557](https://github.com/DataDog/datadog-api-client-typescript/pull/3557)
+* Add OpenAPI spec for LLM Observability Experiments API [#3553](https://github.com/DataDog/datadog-api-client-typescript/pull/3553)
+* Add missing persona_mapping endpoints [#3531](https://github.com/DataDog/datadog-api-client-typescript/pull/3531)
+* Adding Observability Pipelines Secret Management feature support [#3526](https://github.com/DataDog/datadog-api-client-typescript/pull/3526)
+* Add Maintenances and minor updates to Status Pages API [#3521](https://github.com/DataDog/datadog-api-client-typescript/pull/3521)
+* Introduce api/v2/integration API endpoint [#3507](https://github.com/DataDog/datadog-api-client-typescript/pull/3507)
+* Add OpenAPI spec for Change Management endpoints [#3503](https://github.com/DataDog/datadog-api-client-typescript/pull/3503)
+* Workflow Automation - Add Form Trigger [#3501](https://github.com/DataDog/datadog-api-client-typescript/pull/3501)
+* Add sort parameter to detection rules list endpoint [#3495](https://github.com/DataDog/datadog-api-client-typescript/pull/3495)
+* Add public documentation on NDM interface tags endpoint [#3489](https://github.com/DataDog/datadog-api-client-typescript/pull/3489)
+* Add documentation for POST api/v2/incidents/import [#3482](https://github.com/DataDog/datadog-api-client-typescript/pull/3482)
+* Post an event v2 API - add a new enum value to links.category field and add pattern validation on changed_resource.name field [#3479](https://github.com/DataDog/datadog-api-client-typescript/pull/3479)
+* Add receives_permissions_from field to Roles API [#3465](https://github.com/DataDog/datadog-api-client-typescript/pull/3465)
+* Added support for Google Chat Organization Handles Public API [#3461](https://github.com/DataDog/datadog-api-client-typescript/pull/3461)
+* Adding custom mapper support to Observability Pipelines OCSF Mapper [#3456](https://github.com/DataDog/datadog-api-client-typescript/pull/3456)
+* Add seats API v2 endpoints with error responses and required fields [#3450](https://github.com/DataDog/datadog-api-client-typescript/pull/3450)
+* Add Network Path test endpoints to v2 spec [#3400](https://github.com/DataDog/datadog-api-client-typescript/pull/3400)
+* Add OpenAPI documentation for cloud-auth-config service [#3343](https://github.com/DataDog/datadog-api-client-typescript/pull/3343)
+* Add suppression sort by create date [#3313](https://github.com/DataDog/datadog-api-client-typescript/pull/3313)
+
+### Deprecated
+* Mark legacy non-FnF query fields and WidgetEvent as deprecated in dashboard spec + update Distribuition docs [#3561](https://github.com/DataDog/datadog-api-client-typescript/pull/3561)
+
+### Fixed
+* Fix WidgetNewFixedSpan - timestamps are milliseconds not seconds [#3513](https://github.com/DataDog/datadog-api-client-typescript/pull/3513)
+* Increase validation limit on integration type [#3497](https://github.com/DataDog/datadog-api-client-typescript/pull/3497)
+
 ## 1.52.0/2026-02-17
 
 ### Fixed
