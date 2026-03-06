@@ -543,6 +543,7 @@ import { TableWidgetTextFormatReplaceSubstring } from "./TableWidgetTextFormatRe
 import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
 import { TagToHosts } from "./TagToHosts";
 import { TimeseriesBackground } from "./TimeseriesBackground";
+import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
@@ -2371,6 +2372,7 @@ const typeMap: { [index: string]: any } = {
   TableWidgetTextFormatRule: TableWidgetTextFormatRule,
   TagToHosts: TagToHosts,
   TimeseriesBackground: TimeseriesBackground,
+  TimeseriesRequestStyle: TimeseriesRequestStyle,
   TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
   TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
