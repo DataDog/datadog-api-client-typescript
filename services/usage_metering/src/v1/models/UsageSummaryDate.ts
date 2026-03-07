@@ -415,7 +415,7 @@ export class UsageSummaryDate {
    */
   "herokuHostTop99p"?: number;
   /**
-   * Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations.
+   * Shows the high-water mark of Incident Management monthly active users over all hours in the current date for all organizations.
    */
   "incidentManagementMonthlyActiveUsersHwm"?: number;
   /**

@@ -429,7 +429,7 @@ export class UsageSummaryDateOrg {
    */
   "id"?: string;
   /**
-   * Shows the high-water mark of incident management monthly active users over all hours in the current date for the given org.
+   * Shows the high-water mark of Incident Management monthly active users over all hours in the current date for the given org.
    */
   "incidentManagementMonthlyActiveUsersHwm"?: number;
   /**
