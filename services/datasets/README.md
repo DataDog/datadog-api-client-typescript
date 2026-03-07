@@ -27,14 +27,6 @@ import { DatasetsApiV2 } from "@datadog/datadog-api-client-datasets";
 import { v2 } from "@datadog/datadog-api-client-datasets";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "DatasetsApi.v2.getAllDatasets": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new DatasetsApiV2(configuration);
 
 apiInstance.getAllDatasets().then((data) => {
