@@ -10420,6 +10420,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.GetLicenses": {
+        "operationResponseType": "LicensesListRequest",
+    },
     "v2.CreateSCAResolveVulnerableSymbols": {
         "body": {
             "type": "ResolveVulnerableSymbolsRequest",
