@@ -32,6 +32,7 @@ import { CustomRuleRevisionsResponse } from "./models/CustomRuleRevisionsRespons
 import { CustomRulesetRequest } from "./models/CustomRulesetRequest";
 import { CustomRulesetResponse } from "./models/CustomRulesetResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { LicensesListRequest } from "./models/LicensesListRequest";
 import { ResolveVulnerableSymbolsRequest } from "./models/ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsResponse } from "./models/ResolveVulnerableSymbolsResponse";
 import { RevertCustomRuleRevisionRequest } from "./models/RevertCustomRuleRevisionRequest";
@@ -583,6 +584,46 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLicenses(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.getLicenses"]) {
+      throw new Error(
+        "Unstable operation 'getLicenses' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getLicenses'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/static-analysis-sca/licenses/list";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StaticAnalysisApi.v2.getLicenses",
+      StaticAnalysisApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1445,6 +1486,65 @@ export class StaticAnalysisApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getLicenses
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLicenses(
+    response: ResponseContext,
+  ): Promise<LicensesListRequest> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LicensesListRequest = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LicensesListRequest",
+      ) as LicensesListRequest;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 500) {
+      throw new ApiException<string>(response.httpStatusCode, "");
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LicensesListRequest = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LicensesListRequest",
+        "",
+      ) as LicensesListRequest;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listCustomRuleRevisions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2022,6 +2122,21 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCustomRuleset(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a list of all available license identifiers and display names that can be used for filtering and categorization in SCA.
+   * @param param The request object
+   */
+  public getLicenses(options?: Configuration): Promise<LicensesListRequest> {
+    const requestContextPromise = this.requestFactory.getLicenses(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLicenses(responseContext);
         });
     });
   }
