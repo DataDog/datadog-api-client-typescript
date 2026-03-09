@@ -208,9 +208,17 @@ export class UsageSummaryResponse {
    */
   "csmHostEnterpriseGcpHostCountTop99pSum"?: number;
   /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise OCI hosts over all hours in the current month for all organizations.
+   */
+  "csmHostEnterpriseOciHostCountTop99pSum"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current month for all organizations.
    */
   "csmHostEnterpriseTotalHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro OCI hosts over all hours in the current month for all organizations.
+   */
+  "csmHostProOciHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current month for all organizations.
    */
@@ -1164,8 +1172,18 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    csmHostEnterpriseOciHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_oci_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
     csmHostEnterpriseTotalHostCountTop99pSum: {
       baseName: "csm_host_enterprise_total_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostProOciHostCountTop99pSum: {
+      baseName: "csm_host_pro_oci_host_count_top99p_sum",
       type: "number",
       format: "int64",
     },
