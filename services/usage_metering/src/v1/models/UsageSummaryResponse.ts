@@ -448,10 +448,6 @@ export class UsageSummaryResponse {
    */
   "indexedEventsCountAggSum"?: number;
   /**
-   * Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current month for all organizations.
-   */
-  "infraEdgeMonitoringDevicesTop99pSum"?: number;
-  /**
    * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current month for all organizations.
    */
   "infraHostTop99pSum"?: number;
@@ -1474,11 +1470,6 @@ export class UsageSummaryResponse {
     },
     indexedEventsCountAggSum: {
       baseName: "indexed_events_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraEdgeMonitoringDevicesTop99pSum: {
-      baseName: "infra_edge_monitoring_devices_top99p_sum",
       type: "number",
       format: "int64",
     },
