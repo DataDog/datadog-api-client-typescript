@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type OrgConnectionTypeEnum =
   | typeof LOGS
   | typeof METRICS
+  | typeof AUDIT
   | UnparsedObject;
 export const LOGS = "logs";
 export const METRICS = "metrics";
+export const AUDIT = "audit";

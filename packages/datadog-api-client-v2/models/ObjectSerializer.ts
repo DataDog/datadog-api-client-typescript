@@ -4649,7 +4649,7 @@ const enumsMap: { [key: string]: any[] } = {
   OrgConfigType: ["org_configs"],
   OrgConnectionOrgRelationshipDataType: ["orgs"],
   OrgConnectionType: ["org_connection"],
-  OrgConnectionTypeEnum: ["logs", "metrics"],
+  OrgConnectionTypeEnum: ["logs", "metrics", "audit"],
   OrgConnectionUserRelationshipDataType: ["users"],
   OrganizationsType: ["orgs"],
   OutcomeType: ["outcome"],
