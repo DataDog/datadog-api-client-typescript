@@ -7,6 +7,9 @@ import { CaseManagementProjectDataType } from "./CaseManagementProjectDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object representing a case management project.
+ */
 export class CaseManagementProjectData {
   /**
    * Unique identifier of the case management project.
