@@ -6,6 +6,9 @@ import { BatchUpsertRowsRequestData } from "./BatchUpsertRowsRequestData";
  * The request body for creating or updating multiple rows into a reference table.
  */
 export class BatchUpsertRowsRequestArray {
+  /**
+   * List of row resources to create or update in the reference table.
+   */
   "data": Array<BatchUpsertRowsRequestData>;
   /**
    * A container for additional, undeclared properties.
