@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
 import { RumRetentionFilterEventType } from "./RumRetentionFilterEventType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The object describing attributes of a RUM retention filter to update.
  */
 export class RumRetentionFilterUpdateAttributes {
+  /**
+   * Configuration for cross-product sampling when updating a retention filter. All fields are optional for partial updates.
+   */
+  "crossProductSampling"?: RumCrossProductSamplingUpdate;
   /**
    * Whether the retention filter is enabled.
    */
@@ -48,6 +53,10 @@ export class RumRetentionFilterUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    crossProductSampling: {
+      baseName: "cross_product_sampling",
+      type: "RumCrossProductSamplingUpdate",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
