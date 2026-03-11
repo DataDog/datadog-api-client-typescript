@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
   /**
-   * The `ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions` `fields`.
+   * List of log attribute names (field paths) to which the scope applies. Only these fields are included in or excluded from pattern matching.
    */
   "fields": Array<string>;
   /**
