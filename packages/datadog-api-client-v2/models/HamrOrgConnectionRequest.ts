@@ -7,7 +7,13 @@ import { HamrOrgConnectionDataRequest } from "./HamrOrgConnectionDataRequest";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request payload for creating or updating a HAMR organization connection.
+ */
 export class HamrOrgConnectionRequest {
+  /**
+   * Data object for a HAMR organization connection request.
+   */
   "data": HamrOrgConnectionDataRequest;
 
   /**
