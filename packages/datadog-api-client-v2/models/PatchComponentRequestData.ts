@@ -8,6 +8,9 @@ import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object for updating a component.
+ */
 export class PatchComponentRequestData {
   /**
    * The supported attributes for updating a component.

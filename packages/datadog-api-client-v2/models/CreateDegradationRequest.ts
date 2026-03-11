@@ -7,7 +7,13 @@ import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request object for creating a degradation.
+ */
 export class CreateDegradationRequest {
+  /**
+   * The data object for creating a degradation.
+   */
   "data"?: CreateDegradationRequestData;
 
   /**

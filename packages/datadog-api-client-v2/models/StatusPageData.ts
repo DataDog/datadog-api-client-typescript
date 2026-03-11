@@ -9,6 +9,9 @@ import { StatusPageDataType } from "./StatusPageDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object for a status page.
+ */
 export class StatusPageData {
   /**
    * The attributes of a status page.

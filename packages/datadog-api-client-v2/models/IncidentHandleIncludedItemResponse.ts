@@ -8,6 +8,10 @@ import { IncidentUserData } from "./IncidentUserData";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * A single included resource item in an incident handle response, which can be a user or an incident type.
+ */
+
 export type IncidentHandleIncludedItemResponse =
   | IncidentUserData
   | IncidentTypeObject

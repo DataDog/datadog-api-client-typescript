@@ -7,7 +7,13 @@ import { IncidentHandleRelationshipData } from "./IncidentHandleRelationshipData
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A single relationship object for an incident handle, wrapping the related resource data.
+ */
 export class IncidentHandleRelationship {
+  /**
+   * Relationship data for an incident handle, containing the ID and type of the related resource.
+   */
   "data": IncidentHandleRelationshipData;
 
   /**

@@ -8,7 +8,13 @@ import { IncidentHandleIncludedItemResponse } from "./IncidentHandleIncludedItem
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response payload for a list of global incident handles, including handle data and related resources.
+ */
 export class IncidentHandlesResponse {
+  /**
+   * Array of incident handle data objects returned in a list response.
+   */
   "data": Array<IncidentHandleDataResponse>;
   /**
    * Included related resources

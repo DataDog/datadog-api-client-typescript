@@ -7,7 +7,13 @@ import { MaintenanceDataRelationshipsCreatedByUserData } from "./MaintenanceData
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The Datadog user who created the maintenance.
+ */
 export class MaintenanceDataRelationshipsCreatedByUser {
+  /**
+   * The data object identifying the Datadog user who created the maintenance.
+   */
   "data": MaintenanceDataRelationshipsCreatedByUserData;
 
   /**

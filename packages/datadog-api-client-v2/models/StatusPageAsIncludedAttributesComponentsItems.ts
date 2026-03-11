@@ -9,7 +9,13 @@ import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./Stat
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A component displayed on an included status page.
+ */
 export class StatusPageAsIncludedAttributesComponentsItems {
+  /**
+   * If the component is of type `group`, the components within the group.
+   */
   "components"?: Array<StatusPageAsIncludedAttributesComponentsItemsComponentsItems>;
   /**
    * The ID of the component.

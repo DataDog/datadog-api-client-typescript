@@ -9,6 +9,9 @@ import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object for creating a component.
+ */
 export class CreateComponentRequestData {
   /**
    * The supported attributes for creating a component.

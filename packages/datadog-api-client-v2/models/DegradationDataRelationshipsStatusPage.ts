@@ -7,7 +7,13 @@ import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRel
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The status page the degradation belongs to.
+ */
 export class DegradationDataRelationshipsStatusPage {
+  /**
+   * The data object identifying the status page the degradation belongs to.
+   */
   "data": DegradationDataRelationshipsStatusPageData;
 
   /**
