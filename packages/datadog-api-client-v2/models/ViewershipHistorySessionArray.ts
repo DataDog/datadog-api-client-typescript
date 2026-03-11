@@ -7,7 +7,13 @@ import { ViewershipHistorySessionData } from "./ViewershipHistorySessionData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A list of RUM replay sessions from a user's viewership history.
+ */
 export class ViewershipHistorySessionArray {
+  /**
+   * Array of viewership history session data objects.
+   */
   "data": Array<ViewershipHistorySessionData>;
 
   /**

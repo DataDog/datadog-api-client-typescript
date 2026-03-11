@@ -8,8 +8,17 @@ import { ViewershipHistorySessionDataType } from "./ViewershipHistorySessionData
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object representing a session in the viewership history, including its identifier, type, and attributes.
+ */
 export class ViewershipHistorySessionData {
+  /**
+   * Attributes of a viewership history session entry, capturing when it was last watched and the associated event data.
+   */
   "attributes"?: ViewershipHistorySessionDataAttributes;
+  /**
+   * Unique identifier of the RUM replay session.
+   */
   "id"?: string;
   /**
    * Rum replay session resource type.

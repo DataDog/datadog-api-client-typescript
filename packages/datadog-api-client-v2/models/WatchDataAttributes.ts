@@ -6,10 +6,25 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for recording a session watch event, including the application, event reference, and timestamp.
+ */
 export class WatchDataAttributes {
+  /**
+   * Unique identifier of the RUM application containing the session.
+   */
   "applicationId": string;
+  /**
+   * Data source type indicating the origin of the session data (e.g., rum or product_analytics).
+   */
   "dataSource"?: string;
+  /**
+   * Unique identifier of the RUM event that was watched.
+   */
   "eventId": string;
+  /**
+   * Timestamp when the session was watched.
+   */
   "timestamp": Date;
 
   /**

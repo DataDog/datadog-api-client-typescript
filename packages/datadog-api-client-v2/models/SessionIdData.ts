@@ -7,7 +7,13 @@ import { ViewershipHistorySessionDataType } from "./ViewershipHistorySessionData
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A session identifier data object used for bulk playlist operations.
+ */
 export class SessionIdData {
+  /**
+   * Unique identifier of the RUM replay session.
+   */
   "id"?: string;
   /**
    * Rum replay session resource type.

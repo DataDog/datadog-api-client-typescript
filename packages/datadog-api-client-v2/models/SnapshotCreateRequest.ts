@@ -7,7 +7,13 @@ import { SnapshotCreateRequestData } from "./SnapshotCreateRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for creating a heatmap snapshot.
+ */
 export class SnapshotCreateRequest {
+  /**
+   * Data object for a heatmap snapshot creation request, containing the resource type and attributes.
+   */
   "data": SnapshotCreateRequestData;
 
   /**

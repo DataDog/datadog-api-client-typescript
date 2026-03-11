@@ -7,7 +7,13 @@ import { WatchData } from "./WatchData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A single RUM replay session watch resource returned by create operations.
+ */
 export class Watch {
+  /**
+   * Data object representing a session watch record, including its identifier, type, and attributes.
+   */
   "data": WatchData;
 
   /**
