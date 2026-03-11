@@ -1,6 +1,9 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { RumCrossProductSampling } from "./RumCrossProductSampling";
+import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
+import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
 import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
 import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
@@ -31,6 +34,9 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    RumCrossProductSampling: RumCrossProductSampling,
+    RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
+    RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
     RumRetentionFilterAttributes: RumRetentionFilterAttributes,
     RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,
     RumRetentionFilterCreateData: RumRetentionFilterCreateData,
