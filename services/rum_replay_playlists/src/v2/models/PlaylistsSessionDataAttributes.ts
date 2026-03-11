@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes of a session within a playlist, including the session event data and its replay track.
+ */
 export class PlaylistsSessionDataAttributes {
+  /**
+   * Raw event data associated with the replay session.
+   */
   "sessionEvent"?: { [key: string]: any };
+  /**
+   * Replay track identifier indicating which recording track the session belongs to.
+   */
   "track"?: string;
   /**
    * A container for additional, undeclared properties.

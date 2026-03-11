@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { WatcherDataAttributes } from "./WatcherDataAttributes";
 import { WatcherDataType } from "./WatcherDataType";
 
+/**
+ * Data object representing a session watcher, including their identifier, type, and attributes.
+ */
 export class WatcherData {
+  /**
+   * Attributes of a user who has watched a RUM replay session, including contact information and watch statistics.
+   */
   "attributes"?: WatcherDataAttributes;
+  /**
+   * Unique identifier of the watcher user.
+   */
   "id"?: string;
   /**
    * Rum replay watcher resource type.

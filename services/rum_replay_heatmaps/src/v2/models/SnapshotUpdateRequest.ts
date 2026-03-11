@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SnapshotUpdateRequestData } from "./SnapshotUpdateRequestData";
 
+/**
+ * Request body for updating a heatmap snapshot.
+ */
 export class SnapshotUpdateRequest {
+  /**
+   * Data object for a heatmap snapshot update request, containing the resource identifier, type, and attributes.
+   */
   "data": SnapshotUpdateRequestData;
   /**
    * A container for additional, undeclared properties.
