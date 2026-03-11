@@ -1,6 +1,12 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Term-level search configuration for filtering facet values by an exact or partial term match.
+ */
 export class FacetInfoRequestDataAttributesTermSearch {
+  /**
+   * The term string to match against facet values.
+   */
   "value"?: string;
   /**
    * A container for additional, undeclared properties.

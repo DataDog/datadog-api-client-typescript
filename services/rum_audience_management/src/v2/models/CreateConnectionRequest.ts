@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateConnectionRequestData } from "./CreateConnectionRequestData";
 
+/**
+ * Request body for creating a new data source connection for an entity.
+ */
 export class CreateConnectionRequest {
+  /**
+   * The data object containing the resource type and attributes for creating a new connection.
+   */
   "data"?: CreateConnectionRequestData;
   /**
    * A container for additional, undeclared properties.
