@@ -5,6 +5,9 @@ import { IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties } from ".
 import { SyncProperty } from "./SyncProperty";
 import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
 
+/**
+ * Field synchronization properties for Jira integration
+ */
 export class IntegrationJiraSyncProperties {
   /**
    * Sync property configuration
@@ -14,6 +17,9 @@ export class IntegrationJiraSyncProperties {
    * Sync property configuration
    */
   "comments"?: SyncProperty;
+  /**
+   * Map of custom field identifiers to their sync configurations
+   */
   "customFields"?: {
     [
       key: string
@@ -23,6 +29,9 @@ export class IntegrationJiraSyncProperties {
    * Sync property configuration
    */
   "description"?: SyncProperty;
+  /**
+   * Due date synchronization configuration for Jira integration
+   */
   "dueDate"?: IntegrationJiraSyncDueDate;
   /**
    * Sync property with mapping configuration

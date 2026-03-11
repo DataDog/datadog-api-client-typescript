@@ -6,6 +6,9 @@ import { ProjectColumnsConfigColumnsItems } from "./ProjectColumnsConfigColumnsI
  * Project columns configuration
  */
 export class ProjectColumnsConfig {
+  /**
+   * List of column configurations for the project board view
+   */
   "columns"?: Array<ProjectColumnsConfigColumnsItems>;
   /**
    * A container for additional, undeclared properties.

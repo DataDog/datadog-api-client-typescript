@@ -14,6 +14,9 @@ export class IntegrationOnCall {
    * Whether On-Call integration is enabled
    */
   "enabled"?: boolean;
+  /**
+   * List of escalation queries for routing cases to on-call responders
+   */
   "escalationQueries"?: Array<IntegrationOnCallEscalationQueriesItems>;
   /**
    * A container for additional, undeclared properties.
