@@ -541,6 +541,10 @@ export class UsageSummaryResponse {
    */
   "networkDeviceWirelessTop99pSum"?: number;
   /**
+   * Shows the sum of all Network Path scheduled tests over all hours in the current month for all organizations.
+   */
+  "networkPathAggSum"?: number;
+  /**
    * Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as Network hosts) over all hours in the current month for all organizations.
    */
   "npmHostTop99pSum"?: number;
@@ -1590,6 +1594,11 @@ export class UsageSummaryResponse {
     },
     networkDeviceWirelessTop99pSum: {
       baseName: "network_device_wireless_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    networkPathAggSum: {
+      baseName: "network_path_agg_sum",
       type: "number",
       format: "int64",
     },
