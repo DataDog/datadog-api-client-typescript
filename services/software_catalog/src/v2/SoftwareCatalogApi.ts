@@ -25,11 +25,17 @@ import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { EntityData } from "./models/EntityData";
 import { EntityResponseArray } from "./models/EntityResponseArray";
+import { EntitySchemaVersion } from "./models/EntitySchemaVersion";
+import { IDPConfigRequest } from "./models/IDPConfigRequest";
+import { IDPConfigResponse } from "./models/IDPConfigResponse";
 import { IncludeType } from "./models/IncludeType";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { KindData } from "./models/KindData";
 import { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
 import { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 import { ListRelationCatalogResponse } from "./models/ListRelationCatalogResponse";
+import { RecommendedEntityID } from "./models/RecommendedEntityID";
+import { RecommendedEntityWithSchema } from "./models/RecommendedEntityWithSchema";
 import { RelationIncludeType } from "./models/RelationIncludeType";
 import { RelationResponse } from "./models/RelationResponse";
 import { RelationType } from "./models/RelationType";
@@ -48,6 +54,204 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("software-catalog", version);
     }
   }
+  public async acceptRecommendedEntities(
+    body: Array<RecommendedEntityWithSchema>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SoftwareCatalogApi.v2.acceptRecommendedEntities"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'acceptRecommendedEntities' is disabled. Enable it by setting `configuration.unstableOperations['SoftwareCatalogApi.v2.acceptRecommendedEntities'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "acceptRecommendedEntities");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/catalog/recommended_entity/bulk_accept";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.acceptRecommendedEntities",
+      SoftwareCatalogApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "Array<RecommendedEntityWithSchema>", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async convertCatalogEntities(
+    targetVersion: EntitySchemaVersion,
+    body: UpsertCatalogEntityRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SoftwareCatalogApi.v2.convertCatalogEntities"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'convertCatalogEntities' is disabled. Enable it by setting `configuration.unstableOperations['SoftwareCatalogApi.v2.convertCatalogEntities'] = true`",
+      );
+    }
+
+    // verify required parameter 'targetVersion' is not null or undefined
+    if (targetVersion === null || targetVersion === undefined) {
+      throw new RequiredError("targetVersion", "convertCatalogEntities");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "convertCatalogEntities");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/catalog/entity/convert";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.convertCatalogEntities",
+      SoftwareCatalogApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (targetVersion !== undefined) {
+      requestContext.setQueryParam(
+        "target_version",
+        serialize(targetVersion, TypingInfo, "EntitySchemaVersion", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpsertCatalogEntityRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async declineRecommendedEntities(
+    body: Array<RecommendedEntityID>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SoftwareCatalogApi.v2.declineRecommendedEntities"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'declineRecommendedEntities' is disabled. Enable it by setting `configuration.unstableOperations['SoftwareCatalogApi.v2.declineRecommendedEntities'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "declineRecommendedEntities");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/catalog/recommended_entity/bulk_decline";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.declineRecommendedEntities",
+      SoftwareCatalogApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "Array<RecommendedEntityID>", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteCatalogEntity(
     entityId: string,
     _options?: Configuration,
@@ -121,6 +325,59 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
       overrides,
     );
     requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIDPConfigValue(
+    configName: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SoftwareCatalogApi.v2.getIDPConfigValue"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getIDPConfigValue' is disabled. Enable it by setting `configuration.unstableOperations['SoftwareCatalogApi.v2.getIDPConfigValue'] = true`",
+      );
+    }
+
+    // verify required parameter 'configName' is not null or undefined
+    if (configName === null || configName === undefined) {
+      throw new RequiredError("configName", "getIDPConfigValue");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/idp/config/{config_name}".replace(
+      "{config_name}",
+      encodeURIComponent(String(configName)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.getIDPConfigValue",
+      SoftwareCatalogApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -464,6 +721,62 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async triggerRecommendedEntities(
+    body?: any,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SoftwareCatalogApi.v2.triggerRecommendedEntities"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'triggerRecommendedEntities' is disabled. Enable it by setting `configuration.unstableOperations['SoftwareCatalogApi.v2.triggerRecommendedEntities'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/catalog/recommended_entity/trigger";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.triggerRecommendedEntities",
+      SoftwareCatalogApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "any", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async upsertCatalogEntity(
     body: UpsertCatalogEntityRequest,
     _options?: Configuration,
@@ -565,9 +878,286 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async upsertIDPConfigValue(
+    configName: string,
+    body: IDPConfigRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SoftwareCatalogApi.v2.upsertIDPConfigValue"]
+    ) {
+      throw new Error(
+        "Unstable operation 'upsertIDPConfigValue' is disabled. Enable it by setting `configuration.unstableOperations['SoftwareCatalogApi.v2.upsertIDPConfigValue'] = true`",
+      );
+    }
+
+    // verify required parameter 'configName' is not null or undefined
+    if (configName === null || configName === undefined) {
+      throw new RequiredError("configName", "upsertIDPConfigValue");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "upsertIDPConfigValue");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/idp/config/{config_name}".replace(
+      "{config_name}",
+      encodeURIComponent(String(configName)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.upsertIDPConfigValue",
+      SoftwareCatalogApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IDPConfigRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class SoftwareCatalogApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to acceptRecommendedEntities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async acceptRecommendedEntities(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to convertCatalogEntities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async convertCatalogEntities(
+    response: ResponseContext,
+  ): Promise<string> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "string",
+      ) as string;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "string",
+        "",
+      ) as string;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to declineRecommendedEntities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async declineRecommendedEntities(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -655,6 +1245,87 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getIDPConfigValue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIDPConfigValue(
+    response: ResponseContext,
+  ): Promise<IDPConfigResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IDPConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IDPConfigResponse",
+      ) as IDPConfigResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IDPConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IDPConfigResponse",
+        "",
+      ) as IDPConfigResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -896,6 +1567,83 @@ export class SoftwareCatalogApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to triggerRecommendedEntities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async triggerRecommendedEntities(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      const body: any = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "any",
+      ) as any;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: any = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "any",
+        "",
+      ) as any;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to upsertCatalogEntity
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1011,6 +1759,99 @@ export class SoftwareCatalogApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to upsertIDPConfigValue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async upsertIDPConfigValue(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+}
+
+export interface SoftwareCatalogApiAcceptRecommendedEntitiesRequest {
+  /**
+   * List of recommended entities to accept with their schemas.
+   * @type Array<RecommendedEntityWithSchema>
+   */
+  body: Array<RecommendedEntityWithSchema>;
+}
+
+export interface SoftwareCatalogApiConvertCatalogEntitiesRequest {
+  /**
+   * The target schema version to convert entities to.
+   * @type EntitySchemaVersion
+   */
+  targetVersion: EntitySchemaVersion;
+  /**
+   * Entity YAML or JSON to convert.
+   * @type UpsertCatalogEntityRequest
+   */
+  body: UpsertCatalogEntityRequest;
+}
+
+export interface SoftwareCatalogApiDeclineRecommendedEntitiesRequest {
+  /**
+   * List of recommended entity IDs to decline.
+   * @type Array<RecommendedEntityID>
+   */
+  body: Array<RecommendedEntityID>;
 }
 
 export interface SoftwareCatalogApiDeleteCatalogEntityRequest {
@@ -1027,6 +1868,14 @@ export interface SoftwareCatalogApiDeleteCatalogKindRequest {
    * @type string
    */
   kindId: string;
+}
+
+export interface SoftwareCatalogApiGetIDPConfigValueRequest {
+  /**
+   * The configuration key to retrieve.
+   * @type string
+   */
+  configName: string;
 }
 
 export interface SoftwareCatalogApiListCatalogEntityRequest {
@@ -1148,6 +1997,14 @@ export interface SoftwareCatalogApiListCatalogRelationRequest {
   includeDiscovered?: boolean;
 }
 
+export interface SoftwareCatalogApiTriggerRecommendedEntitiesRequest {
+  /**
+   * Optional request body for triggering recommended entity discovery.
+   * @type any
+   */
+  body?: any;
+}
+
 export interface SoftwareCatalogApiUpsertCatalogEntityRequest {
   /**
    * Entity YAML or JSON.
@@ -1162,6 +2019,19 @@ export interface SoftwareCatalogApiUpsertCatalogKindRequest {
    * @type UpsertCatalogKindRequest
    */
   body: UpsertCatalogKindRequest;
+}
+
+export interface SoftwareCatalogApiUpsertIDPConfigValueRequest {
+  /**
+   * The configuration key to create or update.
+   * @type string
+   */
+  configName: string;
+  /**
+   * Configuration value to set.
+   * @type IDPConfigRequest
+   */
+  body: IDPConfigRequest;
 }
 
 export class SoftwareCatalogApi {
@@ -1182,6 +2052,72 @@ export class SoftwareCatalogApi {
       new SoftwareCatalogApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SoftwareCatalogApiResponseProcessor();
+  }
+
+  /**
+   * Accept multiple recommended entities in Software Catalog in a single request.
+   * @param param The request object
+   */
+  public acceptRecommendedEntities(
+    param: SoftwareCatalogApiAcceptRecommendedEntitiesRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.acceptRecommendedEntities(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.acceptRecommendedEntities(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Convert entities from one schema version to another in Software Catalog.
+   * @param param The request object
+   */
+  public convertCatalogEntities(
+    param: SoftwareCatalogApiConvertCatalogEntitiesRequest,
+    options?: Configuration,
+  ): Promise<string> {
+    const requestContextPromise = this.requestFactory.convertCatalogEntities(
+      param.targetVersion,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.convertCatalogEntities(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Decline multiple recommended entities in Software Catalog in a single request.
+   * @param param The request object
+   */
+  public declineRecommendedEntities(
+    param: SoftwareCatalogApiDeclineRecommendedEntitiesRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.declineRecommendedEntities(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.declineRecommendedEntities(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**
@@ -1222,6 +2158,27 @@ export class SoftwareCatalogApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteCatalogKind(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a configuration value for the Internal Developer Portal (IDP).
+   * @param param The request object
+   */
+  public getIDPConfigValue(
+    param: SoftwareCatalogApiGetIDPConfigValueRequest,
+    options?: Configuration,
+  ): Promise<IDPConfigResponse> {
+    const requestContextPromise = this.requestFactory.getIDPConfigValue(
+      param.configName,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIDPConfigValue(responseContext);
         });
     });
   }
@@ -1468,6 +2425,27 @@ export class SoftwareCatalogApi {
   }
 
   /**
+   * Trigger the discovery of recommended entities in Software Catalog.
+   * @param param The request object
+   */
+  public triggerRecommendedEntities(
+    param: SoftwareCatalogApiTriggerRecommendedEntitiesRequest = {},
+    options?: Configuration,
+  ): Promise<any> {
+    const requestContextPromise =
+      this.requestFactory.triggerRecommendedEntities(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.triggerRecommendedEntities(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create or update entities in Software Catalog.
    * @param param The request object
    */
@@ -1505,6 +2483,28 @@ export class SoftwareCatalogApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.upsertCatalogKind(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create or update a configuration value for the Internal Developer Portal (IDP).
+   * @param param The request object
+   */
+  public upsertIDPConfigValue(
+    param: SoftwareCatalogApiUpsertIDPConfigValueRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.upsertIDPConfigValue(
+      param.configName,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.upsertIDPConfigValue(responseContext);
         });
     });
   }
