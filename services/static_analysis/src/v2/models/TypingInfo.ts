@@ -25,6 +25,10 @@ import { CustomRulesetResponse } from "./CustomRulesetResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { LicensesListRequest } from "./LicensesListRequest";
+import { LicensesListRequestData } from "./LicensesListRequestData";
+import { LicensesListRequestDataAttributes } from "./LicensesListRequestDataAttributes";
+import { LicensesListRequestLicense } from "./LicensesListRequestLicense";
 import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
@@ -78,6 +82,7 @@ export const TypingInfo: ModelTypingInfo = {
       "KOTLIN",
       "SWIFT",
     ],
+    LicensesListRequestDataType: ["licenserequest"],
     ResolveVulnerableSymbolsRequestDataType: [
       "resolve-vulnerable-symbols-request",
     ],
@@ -114,6 +119,10 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    LicensesListRequest: LicensesListRequest,
+    LicensesListRequestData: LicensesListRequestData,
+    LicensesListRequestDataAttributes: LicensesListRequestDataAttributes,
+    LicensesListRequestLicense: LicensesListRequestLicense,
     ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
     ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
     ResolveVulnerableSymbolsRequestDataAttributes:
