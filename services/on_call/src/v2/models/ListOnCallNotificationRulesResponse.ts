@@ -7,7 +7,13 @@ import { OnCallNotificationRulesIncluded } from "./OnCallNotificationRulesInclud
  * Response type for listing notification rules for a user
  */
 export class ListOnCallNotificationRulesResponse {
+  /**
+   * Array of notification rule data objects.
+   */
   "data"?: Array<OnCallNotificationRuleData>;
+  /**
+   * Array of related resources included in the response.
+   */
   "included"?: Array<OnCallNotificationRulesIncluded>;
   /**
    * A container for additional, undeclared properties.
