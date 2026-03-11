@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CreateDegradationRequestDataAttributesStatus } from "./CreateDegradationRequestDataAttributesStatus";
 import { DegradationDataAttributesUpdatesItemsComponentsAffectedItems } from "./DegradationDataAttributesUpdatesItemsComponentsAffectedItems";
 
+/**
+ * A status update recorded during a degradation.
+ */
 export class DegradationDataAttributesUpdatesItems {
   /**
    * The components affected at the time of the update.

@@ -6,6 +6,9 @@ import { CreateComponentRequestDataRelationshipsGroup } from "./CreateComponentR
  * The supported relationships for creating a component.
  */
 export class CreateComponentRequestDataRelationships {
+  /**
+   * The group to create the component within.
+   */
   "group"?: CreateComponentRequestDataRelationshipsGroup;
   /**
    * A container for additional, undeclared properties.

@@ -4,6 +4,9 @@ import { MaintenanceDataAttributes } from "./MaintenanceDataAttributes";
 import { MaintenanceDataRelationships } from "./MaintenanceDataRelationships";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
+/**
+ * The data object for a maintenance.
+ */
 export class MaintenanceData {
   /**
    * The attributes of a maintenance.

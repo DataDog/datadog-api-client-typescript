@@ -7,7 +7,13 @@ import { StatusPageAsIncludedRelationshipsLastModifiedByUser } from "./StatusPag
  * The relationships of a status page.
  */
 export class StatusPageAsIncludedRelationships {
+  /**
+   * The Datadog user who created the status page.
+   */
   "createdByUser"?: StatusPageAsIncludedRelationshipsCreatedByUser;
+  /**
+   * The Datadog user who last modified the status page.
+   */
   "lastModifiedByUser"?: StatusPageAsIncludedRelationshipsLastModifiedByUser;
   /**
    * A container for additional, undeclared properties.

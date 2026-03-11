@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
 
+/**
+ * Request object for updating a degradation.
+ */
 export class PatchDegradationRequest {
+  /**
+   * The data object for updating a degradation.
+   */
   "data"?: PatchDegradationRequestData;
   /**
    * A container for additional, undeclared properties.

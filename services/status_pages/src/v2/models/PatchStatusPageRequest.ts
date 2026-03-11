@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PatchStatusPageRequestData } from "./PatchStatusPageRequestData";
 
+/**
+ * Request object for updating a status page.
+ */
 export class PatchStatusPageRequest {
+  /**
+   * The data object for updating a status page.
+   */
   "data"?: PatchStatusPageRequestData;
   /**
    * A container for additional, undeclared properties.

@@ -4,6 +4,9 @@ import { CreateComponentRequestDataAttributesType } from "./CreateComponentReque
 import { StatusPageDataAttributesComponentsItemsComponentsItems } from "./StatusPageDataAttributesComponentsItemsComponentsItems";
 import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./StatusPagesComponentGroupAttributesComponentsItemsStatus";
 
+/**
+ * A component displayed on a status page.
+ */
 export class StatusPageDataAttributesComponentsItems {
   /**
    * If the component is of type `group`, the components within the group.

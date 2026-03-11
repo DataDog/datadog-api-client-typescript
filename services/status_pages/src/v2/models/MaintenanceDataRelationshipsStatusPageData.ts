@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { StatusPageDataType } from "./StatusPageDataType";
 
+/**
+ * The data object identifying the status page associated with a maintenance.
+ */
 export class MaintenanceDataRelationshipsStatusPageData {
   /**
    * The ID of the status page.
