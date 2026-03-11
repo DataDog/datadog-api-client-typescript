@@ -445,6 +445,7 @@ export function createConfiguration(
       "v2.getCustomRule": false,
       "v2.getCustomRuleRevision": false,
       "v2.getCustomRuleset": false,
+      "v2.getLicenses": false,
       "v2.listCustomRuleRevisions": false,
       "v2.revertCustomRuleRevision": false,
       "v2.updateCustomRuleset": false,
