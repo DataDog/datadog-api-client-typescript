@@ -7,8 +7,17 @@ import { IntegrationServiceNowSyncConfig139772721534496 } from "./IntegrationSer
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Synchronization configuration for ServiceNow integration
+ */
 export class IntegrationServiceNowSyncConfig {
+  /**
+   * Whether ServiceNow synchronization is enabled
+   */
   "enabled"?: boolean;
+  /**
+   * Field-level synchronization properties for ServiceNow integration
+   */
   "properties"?: IntegrationServiceNowSyncConfig139772721534496;
 
   /**

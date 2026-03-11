@@ -6,7 +6,13 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Auto-creation settings for ServiceNow incidents from cases
+ */
 export class IntegrationServiceNowAutoCreation {
+  /**
+   * Whether automatic ServiceNow incident creation is enabled
+   */
   "enabled"?: boolean;
 
   /**

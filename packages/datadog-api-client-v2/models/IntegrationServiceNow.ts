@@ -16,6 +16,9 @@ export class IntegrationServiceNow {
    * Assignment group
    */
   "assignmentGroup"?: string;
+  /**
+   * Auto-creation settings for ServiceNow incidents from cases
+   */
   "autoCreation"?: IntegrationServiceNowAutoCreation;
   /**
    * Whether ServiceNow integration is enabled
@@ -25,6 +28,9 @@ export class IntegrationServiceNow {
    * ServiceNow instance name
    */
   "instanceName"?: string;
+  /**
+   * Synchronization configuration for ServiceNow integration
+   */
   "syncConfig"?: IntegrationServiceNowSyncConfig;
 
   /**
