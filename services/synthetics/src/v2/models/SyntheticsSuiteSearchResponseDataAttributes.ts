@@ -6,7 +6,13 @@ import { SyntheticsSuite } from "./SyntheticsSuite";
  * Synthetics suite search response data attributes
  */
 export class SyntheticsSuiteSearchResponseDataAttributes {
+  /**
+   * List of Synthetic suites matching the search query.
+   */
   "suites"?: Array<SyntheticsSuite>;
+  /**
+   * Total number of Synthetic suites matching the search query.
+   */
   "total"?: number;
   /**
    * A container for additional, undeclared properties.
