@@ -15,10 +15,24 @@ import { ProductAnalyticsEventSearch } from "./ProductAnalyticsEventSearch";
 import { ProductAnalyticsGroupBy } from "./ProductAnalyticsGroupBy";
 import { ProductAnalyticsGroupBySort } from "./ProductAnalyticsGroupBySort";
 import { ProductAnalyticsInterval } from "./ProductAnalyticsInterval";
+import { ProductAnalyticsJoinKeys } from "./ProductAnalyticsJoinKeys";
 import { ProductAnalyticsOccurrenceFilter } from "./ProductAnalyticsOccurrenceFilter";
 import { ProductAnalyticsOccurrenceQuery } from "./ProductAnalyticsOccurrenceQuery";
 import { ProductAnalyticsOccurrenceSearch } from "./ProductAnalyticsOccurrenceSearch";
 import { ProductAnalyticsResponseMeta } from "./ProductAnalyticsResponseMeta";
+import { ProductAnalyticsSampling } from "./ProductAnalyticsSampling";
+import { ProductAnalyticsSankeyAggregatedNode } from "./ProductAnalyticsSankeyAggregatedNode";
+import { ProductAnalyticsSankeyDefinition } from "./ProductAnalyticsSankeyDefinition";
+import { ProductAnalyticsSankeyLink } from "./ProductAnalyticsSankeyLink";
+import { ProductAnalyticsSankeyNode } from "./ProductAnalyticsSankeyNode";
+import { ProductAnalyticsSankeyRequest } from "./ProductAnalyticsSankeyRequest";
+import { ProductAnalyticsSankeyRequestAttributes } from "./ProductAnalyticsSankeyRequestAttributes";
+import { ProductAnalyticsSankeyRequestData } from "./ProductAnalyticsSankeyRequestData";
+import { ProductAnalyticsSankeyResponse } from "./ProductAnalyticsSankeyResponse";
+import { ProductAnalyticsSankeyResponseAttributes } from "./ProductAnalyticsSankeyResponseAttributes";
+import { ProductAnalyticsSankeyResponseData } from "./ProductAnalyticsSankeyResponseData";
+import { ProductAnalyticsSankeySearch } from "./ProductAnalyticsSankeySearch";
+import { ProductAnalyticsSankeyTime } from "./ProductAnalyticsSankeyTime";
 import { ProductAnalyticsScalarColumn } from "./ProductAnalyticsScalarColumn";
 import { ProductAnalyticsScalarColumnMeta } from "./ProductAnalyticsScalarColumnMeta";
 import { ProductAnalyticsScalarResponse } from "./ProductAnalyticsScalarResponse";
@@ -52,6 +66,10 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ProductAnalyticsOccurrenceQueryDataSource: ["product_analytics_occurrence"],
     ProductAnalyticsResponseMetaStatus: ["done", "running", "timeout"],
+    ProductAnalyticsSankeyAggregatedNodeType: ["aggregated"],
+    ProductAnalyticsSankeyNodeType: ["regular", "other", "dropoff"],
+    ProductAnalyticsSankeyRequestType: ["sankey_request"],
+    ProductAnalyticsSankeyResponseType: ["sankey_response"],
     ProductAnalyticsScalarColumnType: ["number", "group"],
     ProductAnalyticsScalarResponseType: ["scalar_response"],
     ProductAnalyticsServerSideEventItemType: ["server"],
@@ -83,10 +101,26 @@ export const TypingInfo: ModelTypingInfo = {
     ProductAnalyticsGroupBy: ProductAnalyticsGroupBy,
     ProductAnalyticsGroupBySort: ProductAnalyticsGroupBySort,
     ProductAnalyticsInterval: ProductAnalyticsInterval,
+    ProductAnalyticsJoinKeys: ProductAnalyticsJoinKeys,
     ProductAnalyticsOccurrenceFilter: ProductAnalyticsOccurrenceFilter,
     ProductAnalyticsOccurrenceQuery: ProductAnalyticsOccurrenceQuery,
     ProductAnalyticsOccurrenceSearch: ProductAnalyticsOccurrenceSearch,
     ProductAnalyticsResponseMeta: ProductAnalyticsResponseMeta,
+    ProductAnalyticsSampling: ProductAnalyticsSampling,
+    ProductAnalyticsSankeyAggregatedNode: ProductAnalyticsSankeyAggregatedNode,
+    ProductAnalyticsSankeyDefinition: ProductAnalyticsSankeyDefinition,
+    ProductAnalyticsSankeyLink: ProductAnalyticsSankeyLink,
+    ProductAnalyticsSankeyNode: ProductAnalyticsSankeyNode,
+    ProductAnalyticsSankeyRequest: ProductAnalyticsSankeyRequest,
+    ProductAnalyticsSankeyRequestAttributes:
+      ProductAnalyticsSankeyRequestAttributes,
+    ProductAnalyticsSankeyRequestData: ProductAnalyticsSankeyRequestData,
+    ProductAnalyticsSankeyResponse: ProductAnalyticsSankeyResponse,
+    ProductAnalyticsSankeyResponseAttributes:
+      ProductAnalyticsSankeyResponseAttributes,
+    ProductAnalyticsSankeyResponseData: ProductAnalyticsSankeyResponseData,
+    ProductAnalyticsSankeySearch: ProductAnalyticsSankeySearch,
+    ProductAnalyticsSankeyTime: ProductAnalyticsSankeyTime,
     ProductAnalyticsScalarColumn: ProductAnalyticsScalarColumn,
     ProductAnalyticsScalarColumnMeta: ProductAnalyticsScalarColumnMeta,
     ProductAnalyticsScalarResponse: ProductAnalyticsScalarResponse,

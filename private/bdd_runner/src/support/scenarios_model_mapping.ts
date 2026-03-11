@@ -9085,6 +9085,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProductAnalyticsTimeseriesResponse",
   },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsSankey": {
+    body: {
+      type: "ProductAnalyticsSankeyRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsSankeyResponse",
+  },
   "RumAudienceManagementApi.V2.GetAccountFacetInfo": {
     body: {
       type: "FacetInfoRequest",
