@@ -4683,7 +4683,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update case attributes
+   * Update case attributes. This replaces all attributes with the provided payload. To update a single attribute (e.g., team), include all existing attributes in the request to avoid overwriting them.
    * @param param The request object
    */
   public updateAttributes(
