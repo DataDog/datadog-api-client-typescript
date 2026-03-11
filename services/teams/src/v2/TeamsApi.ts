@@ -3160,11 +3160,7 @@ export class TeamsApiResponseProcessor {
       ) as TeamSyncResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -3592,7 +3588,7 @@ export class TeamsApiResponseProcessor {
    */
   public async syncTeams(response: ResponseContext): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 204) {
       return;
     }
     if (
@@ -5270,6 +5266,10 @@ export class TeamsApi {
    * (lowercased and kebab-cased).
    *
    * This operation is read-only on the GitHub side, no teams will be modified or created.
+   *
+   * Optionally, provide `selection_state` to limit synchronization
+   * to specific teams or organizations and their subtrees, instead
+   * of syncing all teams.
    *
    * [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
    * and the GitHub App integrated with Datadog must have the `Members Read` permission. Matching is performed by comparing the Datadog team handle to the GitHub team slug
