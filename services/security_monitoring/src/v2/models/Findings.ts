@@ -6,6 +6,9 @@ import { FindingData } from "./FindingData";
  * A list of security findings.
  */
 export class Findings {
+  /**
+   * Array of security finding data objects.
+   */
   "data"?: Array<FindingData>;
   /**
    * A container for additional, undeclared properties.
