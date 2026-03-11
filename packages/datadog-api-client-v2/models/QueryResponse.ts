@@ -7,7 +7,13 @@ import { QueryResponseData } from "./QueryResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response containing the query results with matched records and total count.
+ */
 export class QueryResponse {
+  /**
+   * The data object containing the resource type and attributes of the query response.
+   */
   "data"?: QueryResponseData;
 
   /**

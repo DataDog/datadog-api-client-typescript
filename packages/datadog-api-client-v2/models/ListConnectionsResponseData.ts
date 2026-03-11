@@ -8,8 +8,17 @@ import { ListConnectionsResponseDataType } from "./ListConnectionsResponseDataTy
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object containing the resource type and attributes for the list connections response.
+ */
 export class ListConnectionsResponseData {
+  /**
+   * Attributes of the list connections response, containing the collection of data source connections.
+   */
   "attributes"?: ListConnectionsResponseDataAttributes;
+  /**
+   * Unique identifier for the list connections response resource.
+   */
   "id"?: string;
   /**
    * List connections response resource type.

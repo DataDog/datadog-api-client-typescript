@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Sorting configuration specifying the field and direction for ordering query results.
+ */
 export class QueryAccountRequestDataAttributesSort {
+  /**
+   * The attribute field name to sort results by.
+   */
   "field"?: string;
+  /**
+   * The sort direction, either ascending or descending.
+   */
   "order"?: string;
 
   /**

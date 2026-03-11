@@ -7,7 +7,13 @@ import { UpdateConnectionRequestData } from "./UpdateConnectionRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for updating an existing data source connection by adding, modifying, or removing fields.
+ */
 export class UpdateConnectionRequest {
+  /**
+   * The data object containing the resource identifier and attributes for updating an existing connection.
+   */
   "data"?: UpdateConnectionRequestData;
 
   /**

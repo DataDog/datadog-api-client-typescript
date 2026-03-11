@@ -8,8 +8,17 @@ import { QueryUsersRequestDataType } from "./QueryUsersRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object containing the resource type and attributes for querying users.
+ */
 export class QueryUsersRequestData {
+  /**
+   * Attributes for filtering and shaping the user query results.
+   */
   "attributes"?: QueryUsersRequestDataAttributes;
+  /**
+   * Unique identifier for the query users request resource.
+   */
   "id"?: string;
   /**
    * Query users request resource type.

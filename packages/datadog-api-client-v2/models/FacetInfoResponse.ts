@@ -7,7 +7,13 @@ import { FacetInfoResponseData } from "./FacetInfoResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response containing facet information for an attribute, including its distinct values and occurrence counts.
+ */
 export class FacetInfoResponse {
+  /**
+   * The data object containing the resource type and attributes for the facet info response.
+   */
   "data"?: FacetInfoResponseData;
 
   /**
