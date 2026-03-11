@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions {
   /**
-   * The `ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions` `replace`.
+   * The string used to replace matched sensitive data (for example, "***" or "[REDACTED]").
    */
   "replace": string;
 
