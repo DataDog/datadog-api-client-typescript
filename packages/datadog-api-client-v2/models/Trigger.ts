@@ -12,6 +12,7 @@ import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWra
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
 import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
+import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
@@ -40,6 +41,7 @@ export type Trigger =
   | FormTriggerWrapper
   | GithubWebhookTriggerWrapper
   | IncidentTriggerWrapper
+  | IncidentScheduleTriggerWrapper
   | MonitorTriggerWrapper
   | NotebookTriggerWrapper
   | OnCallTriggerWrapper
