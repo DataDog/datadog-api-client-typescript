@@ -1065,6 +1065,7 @@ import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { ErrorHandler } from "./ErrorHandler";
 import { Escalation } from "./Escalation";
 import { EscalationPolicy } from "./EscalationPolicy";
+import { EscalationPolicyAction } from "./EscalationPolicyAction";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
 import { EscalationPolicyCreateRequestDataAttributes } from "./EscalationPolicyCreateRequestDataAttributes";
@@ -3956,6 +3957,7 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
+  EscalationPolicyActionType: ["escalation_policy"],
   EscalationPolicyCreateRequestDataType: ["policies"],
   EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
   EscalationPolicyDataType: ["policies"],
@@ -6744,6 +6746,7 @@ const typeMap: { [index: string]: any } = {
   ErrorHandler: ErrorHandler,
   Escalation: Escalation,
   EscalationPolicy: EscalationPolicy,
+  EscalationPolicyAction: EscalationPolicyAction,
   EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
   EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
   EscalationPolicyCreateRequestDataAttributes:
@@ -10075,7 +10078,11 @@ const oneOfMap: { [index: string]: string[] } = {
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
   RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
-  RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
+  RoutingRuleAction: [
+    "SendSlackMessageAction",
+    "SendTeamsMessageAction",
+    "EscalationPolicyAction",
+  ],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
   ScheduleDataIncludedItem: [
