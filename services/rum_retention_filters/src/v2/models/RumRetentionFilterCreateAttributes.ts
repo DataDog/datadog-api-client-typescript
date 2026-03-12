@@ -8,7 +8,7 @@ import { RumRetentionFilterEventType } from "./RumRetentionFilterEventType";
  */
 export class RumRetentionFilterCreateAttributes {
   /**
-   * Configuration for cross-product sampling when creating a retention filter.
+   * The configuration for cross-product retention filters.
    */
   "crossProductSampling"?: RumCrossProductSamplingCreate;
   /**
