@@ -20,7 +20,7 @@ export class CreateDeploymentRuleParamsDataAttributes {
    */
   "name": string;
   /**
-   * Options for deployment rule response representing either faulty deployment detection or monitor options.
+   * Options for deployment rule requests representing either faulty deployment detection or monitor options.
    */
   "options": DeploymentRulesOptions;
   /**
