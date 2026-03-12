@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RumRetentionFilterUpdateAttributes {
   /**
-   * Configuration for cross-product sampling when updating a retention filter. All fields are optional for partial updates.
+   * The configuration for cross-product retention filters. All fields are optional for partial updates.
    */
   "crossProductSampling"?: RumCrossProductSamplingUpdate;
   /**
