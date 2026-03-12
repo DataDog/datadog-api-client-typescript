@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Configuration for cross-product sampling when updating a retention filter. All fields are optional for partial updates.
+ * The configuration for cross-product retention filters. All fields are optional for partial updates.
  */
 export class RumCrossProductSamplingUpdate {
   /**
-   * Indicates whether trace cross-product sampling is enabled.
+   * Whether the cross-product retention filter for APM traces is enabled.
    */
   "traceEnabled"?: boolean;
   /**
-   * The percentage (0-100) of retained sessions with ingested traces whose traces are indexed.
+   * The sample rate for the APM cross-product retention filter, between 0 and 100.
    */
   "traceSampleRate"?: number;
   /**
