@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition } from "./MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition";
+import { MonitorFormulaAndFunctionAggregateFilteredQueryDefinition } from "./MonitorFormulaAndFunctionAggregateFilteredQueryDefinition";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
@@ -17,4 +19,6 @@ export type MonitorFormulaAndFunctionQueryDefinition =
   | MonitorFormulaAndFunctionEventQueryDefinition
   | MonitorFormulaAndFunctionCostQueryDefinition
   | MonitorFormulaAndFunctionDataQualityQueryDefinition
+  | MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition
+  | MonitorFormulaAndFunctionAggregateFilteredQueryDefinition
   | UnparsedObject;
