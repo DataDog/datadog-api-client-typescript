@@ -35,6 +35,7 @@ import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigur
 import { MetricTagConfigurationMetricTypeCategory } from "../models/MetricTagConfigurationMetricTypeCategory";
 import { MetricTagConfigurationResponse } from "../models/MetricTagConfigurationResponse";
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
+import { MetricVolumesInclude } from "../models/MetricVolumesInclude";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { ScalarFormulaQueryRequest } from "../models/ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "../models/ScalarFormulaQueryResponse";
@@ -441,6 +442,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     filterQueriedWindowSeconds?: number,
     filterTags?: string,
     filterRelatedAssets?: boolean,
+    include?: MetricVolumesInclude,
     windowSeconds?: number,
     pageSize?: number,
     pageCursor?: string,
@@ -520,6 +522,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[related_assets]",
         ObjectSerializer.serialize(filterRelatedAssets, "boolean", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "MetricVolumesInclude", ""),
         ""
       );
     }
@@ -2018,6 +2027,11 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterRelatedAssets?: boolean;
   /**
+   * Comma-separated list of additional data to include in the response. Allowed values: `metric_volumes`. When `metric_volumes` is specified, the response includes volume data for each custom metric in the `included` array, with a corresponding `relationships` link on each metric in `data`.
+   * @type MetricVolumesInclude
+   */
+  include?: MetricVolumesInclude;
+  /**
    * The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query.
    * Default value is 3600 (1 hour), maximum value is 5,184,000 (60 days).
    * @type number
@@ -2373,6 +2387,7 @@ export class MetricsApi {
    * Optionally, paginate by using the `page[cursor]` and/or `page[size]` query parameters.
    * To fetch the first page, pass in a query parameter with either a valid `page[size]` or an empty cursor like `page[cursor]=`. To fetch the next page, pass in the `next_cursor` value from the response as the new `page[cursor]` value.
    * Once the `meta.pagination.next_cursor` value is null, all pages have been retrieved.
+   * Use the `include` query parameter to fetch additional data with the response. When `include=metric_volumes` is specified, the response includes volume data for each custom metric in the `included` array, with a corresponding `relationships` link on each metric in `data`. Volume data is only returned for custom metrics. All volume values represent a 1-hour timeframe.
    * @param param The request object
    */
   public listTagConfigurations(
@@ -2388,6 +2403,7 @@ export class MetricsApi {
       param.filterQueriedWindowSeconds,
       param.filterTags,
       param.filterRelatedAssets,
+      param.include,
       param.windowSeconds,
       param.pageSize,
       param.pageCursor,
@@ -2424,6 +2440,7 @@ export class MetricsApi {
         param.filterQueriedWindowSeconds,
         param.filterTags,
         param.filterRelatedAssets,
+        param.include,
         param.windowSeconds,
         param.pageSize,
         param.pageCursor,

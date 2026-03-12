@@ -7992,6 +7992,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "include": {
+            "type": "MetricVolumesInclude",
+            "format": "",
+            },
         "windowSeconds": {
             "type": "number",
             "format": "int64",

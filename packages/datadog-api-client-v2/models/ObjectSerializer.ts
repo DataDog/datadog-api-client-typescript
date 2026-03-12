@@ -1891,6 +1891,7 @@ import { MetricOrigin } from "./MetricOrigin";
 import { MetricPaginationMeta } from "./MetricPaginationMeta";
 import { MetricPayload } from "./MetricPayload";
 import { MetricPoint } from "./MetricPoint";
+import { MetricRelationships } from "./MetricRelationships";
 import { MetricResource } from "./MetricResource";
 import { MetricSLOAsset } from "./MetricSLOAsset";
 import { MetricSeries } from "./MetricSeries";
@@ -1910,6 +1911,8 @@ import { MetricTagConfigurationResponse } from "./MetricTagConfigurationResponse
 import { MetricTagConfigurationUpdateAttributes } from "./MetricTagConfigurationUpdateAttributes";
 import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
 import { MetricTagConfigurationUpdateRequest } from "./MetricTagConfigurationUpdateRequest";
+import { MetricVolumesRelationship } from "./MetricVolumesRelationship";
+import { MetricVolumesRelationshipData } from "./MetricVolumesRelationshipData";
 import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
@@ -4338,6 +4341,7 @@ const enumsMap: { [key: string]: any[] } = {
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
+  MetricVolumesInclude: ["metric_volumes", "generated_metric_attributes"],
   MetricsAggregator: [
     "avg",
     "min",
@@ -7668,6 +7672,7 @@ const typeMap: { [index: string]: any } = {
   MetricPaginationMeta: MetricPaginationMeta,
   MetricPayload: MetricPayload,
   MetricPoint: MetricPoint,
+  MetricRelationships: MetricRelationships,
   MetricResource: MetricResource,
   MetricSLOAsset: MetricSLOAsset,
   MetricSeries: MetricSeries,
@@ -7690,6 +7695,8 @@ const typeMap: { [index: string]: any } = {
     MetricTagConfigurationUpdateAttributes,
   MetricTagConfigurationUpdateData: MetricTagConfigurationUpdateData,
   MetricTagConfigurationUpdateRequest: MetricTagConfigurationUpdateRequest,
+  MetricVolumesRelationship: MetricVolumesRelationship,
+  MetricVolumesRelationshipData: MetricVolumesRelationshipData,
   MetricVolumesResponse: MetricVolumesResponse,
   MetricsAndMetricTagConfigurationsResponse:
     MetricsAndMetricTagConfigurationsResponse,

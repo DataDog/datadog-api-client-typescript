@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 import { MetricPaginationMeta } from "./MetricPaginationMeta";
 import { MetricsAndMetricTagConfigurations } from "./MetricsAndMetricTagConfigurations";
 import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
@@ -17,6 +18,10 @@ export class MetricsAndMetricTagConfigurationsResponse {
    * Array of metrics and metric tag configurations.
    */
   "data"?: Array<MetricsAndMetricTagConfigurations>;
+  /**
+   * Array of included metric volume objects. Only present when `include=metric_volumes` is requested.
+   */
+  "included"?: Array<MetricIngestedIndexedVolume>;
   /**
    * Pagination links. Only present if pagination query parameters were provided.
    */
@@ -45,6 +50,10 @@ export class MetricsAndMetricTagConfigurationsResponse {
     data: {
       baseName: "data",
       type: "Array<MetricsAndMetricTagConfigurations>",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<MetricIngestedIndexedVolume>",
     },
     links: {
       baseName: "links",
