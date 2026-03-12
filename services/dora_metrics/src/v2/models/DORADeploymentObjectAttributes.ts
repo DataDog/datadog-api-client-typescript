@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAGitInfoResponse } from "./DORAGitInfoResponse";
 
 /**
  * The attributes of the deployment event.
@@ -19,9 +19,9 @@ export class DORADeploymentObjectAttributes {
    */
   "finishedAt": number;
   /**
-   * Git info for DORA Metrics events.
+   * Git info returned by DORA Metrics events.
    */
-  "git"?: DORAGitInfo;
+  "git"?: DORAGitInfoResponse;
   /**
    * Service name.
    */
@@ -69,7 +69,7 @@ export class DORADeploymentObjectAttributes {
     },
     git: {
       baseName: "git",
-      type: "DORAGitInfo",
+      type: "DORAGitInfoResponse",
     },
     service: {
       baseName: "service",

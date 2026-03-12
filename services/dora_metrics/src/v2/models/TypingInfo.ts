@@ -22,6 +22,7 @@ import { DORAFailureResponse } from "./DORAFailureResponse";
 import { DORAFailureResponseData } from "./DORAFailureResponseData";
 import { DORAFailuresListResponse } from "./DORAFailuresListResponse";
 import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAGitInfoResponse } from "./DORAGitInfoResponse";
 import { DORAIncidentObject } from "./DORAIncidentObject";
 import { DORAIncidentObjectAttributes } from "./DORAIncidentObjectAttributes";
 import { DORAListDeploymentsRequest } from "./DORAListDeploymentsRequest";
@@ -67,6 +68,7 @@ export const TypingInfo: ModelTypingInfo = {
     DORAFailureResponseData: DORAFailureResponseData,
     DORAFailuresListResponse: DORAFailuresListResponse,
     DORAGitInfo: DORAGitInfo,
+    DORAGitInfoResponse: DORAGitInfoResponse,
     DORAIncidentObject: DORAIncidentObject,
     DORAIncidentObjectAttributes: DORAIncidentObjectAttributes,
     DORAListDeploymentsRequest: DORAListDeploymentsRequest,
