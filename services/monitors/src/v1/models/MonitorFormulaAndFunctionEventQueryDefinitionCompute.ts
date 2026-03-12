@@ -19,6 +19,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    */
   "metric"?: string;
   /**
+   * The name assigned to this aggregation, when multiple aggregations are defined for a query.
+   */
+  "name"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -45,6 +49,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     },
     metric: {
       baseName: "metric",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
       type: "string",
     },
     additionalProperties: {
