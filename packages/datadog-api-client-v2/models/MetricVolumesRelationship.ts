@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MetricRelationships } from "./MetricRelationships";
-import { MetricType } from "./MetricType";
+import { MetricVolumesRelationshipData } from "./MetricVolumesRelationshipData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object for a single metric tag configuration.
+ * Relationship to a metric's ingested and indexed volumes.
  */
-export class Metric {
+export class MetricVolumesRelationship {
   /**
-   * The metric name for this resource.
+   * Relationship data for a metric's ingested and indexed volumes.
    */
-  "id"?: string;
-  /**
-   * Relationships to related metric objects.
-   */
-  "relationships"?: MetricRelationships;
-  /**
-   * The metric resource type.
-   */
-  "type"?: MetricType;
+  "data"?: MetricVolumesRelationshipData;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +32,9 @@ export class Metric {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "MetricRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "MetricType",
+    data: {
+      baseName: "data",
+      type: "MetricVolumesRelationshipData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +46,7 @@ export class Metric {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Metric.attributeTypeMap;
+    return MetricVolumesRelationship.attributeTypeMap;
   }
 
   public constructor() {}
