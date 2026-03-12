@@ -93,6 +93,7 @@ export { MetricOrigin } from "./models/MetricOrigin";
 export { MetricPaginationMeta } from "./models/MetricPaginationMeta";
 export { MetricPayload } from "./models/MetricPayload";
 export { MetricPoint } from "./models/MetricPoint";
+export { MetricRelationships } from "./models/MetricRelationships";
 export { MetricResource } from "./models/MetricResource";
 export { MetricsAggregator } from "./models/MetricsAggregator";
 export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagConfigurations";
@@ -125,6 +126,9 @@ export { MetricTagConfigurationUpdateData } from "./models/MetricTagConfiguratio
 export { MetricTagConfigurationUpdateRequest } from "./models/MetricTagConfigurationUpdateRequest";
 export { MetricType } from "./models/MetricType";
 export { MetricVolumes } from "./models/MetricVolumes";
+export { MetricVolumesInclude } from "./models/MetricVolumesInclude";
+export { MetricVolumesRelationship } from "./models/MetricVolumesRelationship";
+export { MetricVolumesRelationshipData } from "./models/MetricVolumesRelationshipData";
 export { MetricVolumesResponse } from "./models/MetricVolumesResponse";
 export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";

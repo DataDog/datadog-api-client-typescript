@@ -8002,6 +8002,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
+    include: {
+      type: "MetricVolumesInclude",
+      format: "",
+    },
     windowSeconds: {
       type: "number",
       format: "int64",
