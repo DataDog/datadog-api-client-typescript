@@ -223,6 +223,10 @@ import { MetricsQueryResponse } from "./MetricsQueryResponse";
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
 import { Monitor } from "./Monitor";
 import { MonitorAsset } from "./MonitorAsset";
+import { MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition } from "./MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition";
+import { MonitorFormulaAndFunctionAggregateFilteredQueryDefinition } from "./MonitorFormulaAndFunctionAggregateFilteredQueryDefinition";
+import { MonitorFormulaAndFunctionAggregateQueryFilter } from "./MonitorFormulaAndFunctionAggregateQueryFilter";
+import { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./MonitorFormulaAndFunctionAggregateQueryJoinCondition";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
@@ -231,6 +235,9 @@ import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorF
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 import { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./MonitorFormulaAndFunctionEventQueryGroupBySort";
+import { MonitorFormulaAndFunctionMetricsQueryDefinition } from "./MonitorFormulaAndFunctionMetricsQueryDefinition";
+import { MonitorFormulaAndFunctionReferenceTableColumn } from "./MonitorFormulaAndFunctionReferenceTableColumn";
+import { MonitorFormulaAndFunctionReferenceTableQueryDefinition } from "./MonitorFormulaAndFunctionReferenceTableQueryDefinition";
 import { MonitorGroupSearchResponse } from "./MonitorGroupSearchResponse";
 import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
@@ -1012,6 +1019,13 @@ const enumsMap: { [key: string]: any[] } = {
     "firefox.mobile_small",
   ],
   MonitorDraftStatus: ["draft", "published"],
+  MonitorFormulaAndFunctionAggregateAugmentedDataSource: [
+    "aggregate_augmented_query",
+  ],
+  MonitorFormulaAndFunctionAggregateFilteredDataSource: [
+    "aggregate_filtered_query",
+  ],
+  MonitorFormulaAndFunctionAggregateQueryJoinType: ["inner", "left"],
   MonitorFormulaAndFunctionCostAggregator: [
     "avg",
     "sum",
@@ -1060,6 +1074,25 @@ const enumsMap: { [key: string]: any[] } = {
     "network",
     "network_path",
   ],
+  MonitorFormulaAndFunctionMetricsAggregator: [
+    "avg",
+    "min",
+    "max",
+    "sum",
+    "last",
+    "mean",
+    "area",
+    "l2norm",
+    "percentile",
+    "stddev",
+    "count_unique",
+  ],
+  MonitorFormulaAndFunctionMetricsDataSource: [
+    "metrics",
+    "cloud_cost",
+    "datadog_usage",
+  ],
+  MonitorFormulaAndFunctionReferenceTableDataSource: ["reference_table"],
   MonitorOptionsNotificationPresets: [
     "show_all",
     "hide_query",
@@ -2016,6 +2049,14 @@ const typeMap: { [index: string]: any } = {
   MetricsQueryUnit: MetricsQueryUnit,
   Monitor: Monitor,
   MonitorAsset: MonitorAsset,
+  MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition:
+    MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition,
+  MonitorFormulaAndFunctionAggregateFilteredQueryDefinition:
+    MonitorFormulaAndFunctionAggregateFilteredQueryDefinition,
+  MonitorFormulaAndFunctionAggregateQueryFilter:
+    MonitorFormulaAndFunctionAggregateQueryFilter,
+  MonitorFormulaAndFunctionAggregateQueryJoinCondition:
+    MonitorFormulaAndFunctionAggregateQueryJoinCondition,
   MonitorFormulaAndFunctionCostQueryDefinition:
     MonitorFormulaAndFunctionCostQueryDefinition,
   MonitorFormulaAndFunctionDataQualityMonitorOptions:
@@ -2032,6 +2073,12 @@ const typeMap: { [index: string]: any } = {
     MonitorFormulaAndFunctionEventQueryGroupBy,
   MonitorFormulaAndFunctionEventQueryGroupBySort:
     MonitorFormulaAndFunctionEventQueryGroupBySort,
+  MonitorFormulaAndFunctionMetricsQueryDefinition:
+    MonitorFormulaAndFunctionMetricsQueryDefinition,
+  MonitorFormulaAndFunctionReferenceTableColumn:
+    MonitorFormulaAndFunctionReferenceTableColumn,
+  MonitorFormulaAndFunctionReferenceTableQueryDefinition:
+    MonitorFormulaAndFunctionReferenceTableQueryDefinition,
   MonitorGroupSearchResponse: MonitorGroupSearchResponse,
   MonitorGroupSearchResponseCounts: MonitorGroupSearchResponseCounts,
   MonitorGroupSearchResult: MonitorGroupSearchResult,
@@ -2550,10 +2597,24 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsSchemaProcessor",
   ],
   LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
+  MonitorFormulaAndFunctionAggregateAugmentQuery: [
+    "MonitorFormulaAndFunctionEventQueryDefinition",
+    "MonitorFormulaAndFunctionReferenceTableQueryDefinition",
+  ],
+  MonitorFormulaAndFunctionAggregateBaseQuery: [
+    "MonitorFormulaAndFunctionEventQueryDefinition",
+    "MonitorFormulaAndFunctionMetricsQueryDefinition",
+  ],
+  MonitorFormulaAndFunctionAggregateFilterQuery: [
+    "MonitorFormulaAndFunctionEventQueryDefinition",
+    "MonitorFormulaAndFunctionReferenceTableQueryDefinition",
+  ],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
     "MonitorFormulaAndFunctionCostQueryDefinition",
     "MonitorFormulaAndFunctionDataQualityQueryDefinition",
+    "MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition",
+    "MonitorFormulaAndFunctionAggregateFilteredQueryDefinition",
   ],
   NotebookCellCreateRequestAttributes: [
     "NotebookMarkdownCellAttributes",

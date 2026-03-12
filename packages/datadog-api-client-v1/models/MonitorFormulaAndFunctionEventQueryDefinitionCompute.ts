@@ -23,6 +23,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    * Measurable attribute to compute.
    */
   "metric"?: string;
+  /**
+   * The name assigned to this aggregation, when multiple aggregations are defined for a query.
+   */
+  "name"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,6 +56,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     },
     metric: {
       baseName: "metric",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
       type: "string",
     },
     additionalProperties: {
