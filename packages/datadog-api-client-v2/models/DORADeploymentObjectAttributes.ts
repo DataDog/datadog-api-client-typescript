@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAGitInfoResponse } from "./DORAGitInfoResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -24,9 +24,9 @@ export class DORADeploymentObjectAttributes {
    */
   "finishedAt": number;
   /**
-   * Git info for DORA Metrics events.
+   * Git info returned by DORA Metrics events.
    */
-  "git"?: DORAGitInfo;
+  "git"?: DORAGitInfoResponse;
   /**
    * Service name.
    */
@@ -76,7 +76,7 @@ export class DORADeploymentObjectAttributes {
     },
     git: {
       baseName: "git",
-      type: "DORAGitInfo",
+      type: "DORAGitInfoResponse",
     },
     service: {
       baseName: "service",

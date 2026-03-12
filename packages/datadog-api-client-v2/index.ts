@@ -2454,6 +2454,7 @@ export { DORAFailureResponseData } from "./models/DORAFailureResponseData";
 export { DORAFailuresListResponse } from "./models/DORAFailuresListResponse";
 export { DORAFailureType } from "./models/DORAFailureType";
 export { DORAGitInfo } from "./models/DORAGitInfo";
+export { DORAGitInfoResponse } from "./models/DORAGitInfoResponse";
 export { DORAIncidentObject } from "./models/DORAIncidentObject";
 export { DORAIncidentObjectAttributes } from "./models/DORAIncidentObjectAttributes";
 export { DORAListDeploymentsRequest } from "./models/DORAListDeploymentsRequest";
