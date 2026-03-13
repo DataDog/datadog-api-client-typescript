@@ -879,6 +879,8 @@ export { SLOCorrectionUpdateData } from "./models/SLOCorrectionUpdateData";
 export { SLOCorrectionUpdateRequest } from "./models/SLOCorrectionUpdateRequest";
 export { SLOCorrectionUpdateRequestAttributes } from "./models/SLOCorrectionUpdateRequestAttributes";
 export { SLOCountDefinition } from "./models/SLOCountDefinition";
+export { SLOCountDefinitionWithBadEventsFormula } from "./models/SLOCountDefinitionWithBadEventsFormula";
+export { SLOCountDefinitionWithTotalEventsFormula } from "./models/SLOCountDefinitionWithTotalEventsFormula";
 export { SLOCountSpec } from "./models/SLOCountSpec";
 export { SLOCreator } from "./models/SLOCreator";
 export { SLODataSourceQueryDefinition } from "./models/SLODataSourceQueryDefinition";
