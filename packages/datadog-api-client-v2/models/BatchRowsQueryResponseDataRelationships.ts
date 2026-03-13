@@ -3,19 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceDataType } from "./TableRowResourceDataType";
+import { BatchRowsQueryResponseDataRelationshipsRows } from "./BatchRowsQueryResponseDataRelationshipsRows";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * Row resource containing a single row identifier for deletion.
- */
-export class BatchDeleteRowsRequestData {
-  "id": string;
-  /**
-   * Row resource type.
-   */
-  "type": TableRowResourceDataType;
+export class BatchRowsQueryResponseDataRelationships {
+  "rows"?: BatchRowsQueryResponseDataRelationshipsRows;
 
   /**
    * A container for additional, undeclared properties.
@@ -33,15 +26,9 @@ export class BatchDeleteRowsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "TableRowResourceDataType",
-      required: true,
+    rows: {
+      baseName: "rows",
+      type: "BatchRowsQueryResponseDataRelationshipsRows",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +40,7 @@ export class BatchDeleteRowsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestData.attributeTypeMap;
+    return BatchRowsQueryResponseDataRelationships.attributeTypeMap;
   }
 
   public constructor() {}

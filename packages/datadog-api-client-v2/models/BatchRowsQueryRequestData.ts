@@ -3,15 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { BatchRowsQueryDataType } from "./BatchRowsQueryDataType";
+import { BatchRowsQueryRequestDataAttributes } from "./BatchRowsQueryRequestDataAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The request body for deleting multiple rows from a reference table.
- */
-export class BatchDeleteRowsRequestArray {
-  "data": Array<TableRowResourceIdentifier>;
+export class BatchRowsQueryRequestData {
+  "attributes"?: BatchRowsQueryRequestDataAttributes;
+  /**
+   * Resource type identifier for batch queries of reference table rows.
+   */
+  "type": BatchRowsQueryDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -29,9 +31,13 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+    attributes: {
+      baseName: "attributes",
+      type: "BatchRowsQueryRequestDataAttributes",
+    },
+    type: {
+      baseName: "type",
+      type: "BatchRowsQueryDataType",
       required: true,
     },
     additionalProperties: {
@@ -44,7 +50,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return BatchRowsQueryRequestData.attributeTypeMap;
   }
 
   public constructor() {}
