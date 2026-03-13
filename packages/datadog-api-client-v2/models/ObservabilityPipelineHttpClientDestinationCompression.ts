@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineHttpClientDestinationCompression {
   /**
-   * Compression algorithm.
+   * The compression algorithm used for HTTP client destinations.
    */
   "algorithm": ObservabilityPipelineHttpClientDestinationCompressionAlgorithm;
 
