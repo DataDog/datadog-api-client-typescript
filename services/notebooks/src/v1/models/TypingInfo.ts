@@ -9,6 +9,7 @@ import { DistributionWidgetXAxis } from "./DistributionWidgetXAxis";
 import { DistributionWidgetYAxis } from "./DistributionWidgetYAxis";
 import { EventQueryDefinition } from "./EventQueryDefinition";
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
+import { FormulaAndFunctionApmMetricsQueryDefinition } from "./FormulaAndFunctionApmMetricsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
 import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
@@ -105,6 +106,32 @@ export const TypingInfo: ModelTypingInfo = {
       "total_traces_count",
     ],
     FormulaAndFunctionApmDependencyStatsDataSource: ["apm_dependency_stats"],
+    FormulaAndFunctionApmMetricStatName: [
+      "errors",
+      "error_rate",
+      "errors_per_second",
+      "latency_avg",
+      "latency_max",
+      "latency_p50",
+      "latency_p75",
+      "latency_p90",
+      "latency_p95",
+      "latency_p99",
+      "latency_p999",
+      "latency_distribution",
+      "hits",
+      "hits_per_second",
+      "total_time",
+      "apdex",
+    ],
+    FormulaAndFunctionApmMetricsDataSource: ["apm_metrics"],
+    FormulaAndFunctionApmMetricsSpanKind: [
+      "consumer",
+      "server",
+      "client",
+      "producer",
+      "internal",
+    ],
     FormulaAndFunctionApmResourceStatName: [
       "errors",
       "error_rate",
@@ -276,6 +303,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionProcessQueryDefinition",
       "FormulaAndFunctionApmDependencyStatsQueryDefinition",
       "FormulaAndFunctionApmResourceStatsQueryDefinition",
+      "FormulaAndFunctionApmMetricsQueryDefinition",
       "FormulaAndFunctionSLOQueryDefinition",
       "FormulaAndFunctionCloudCostQueryDefinition",
     ],
@@ -329,6 +357,8 @@ export const TypingInfo: ModelTypingInfo = {
     EventQueryDefinition: EventQueryDefinition,
     FormulaAndFunctionApmDependencyStatsQueryDefinition:
       FormulaAndFunctionApmDependencyStatsQueryDefinition,
+    FormulaAndFunctionApmMetricsQueryDefinition:
+      FormulaAndFunctionApmMetricsQueryDefinition,
     FormulaAndFunctionApmResourceStatsQueryDefinition:
       FormulaAndFunctionApmResourceStatsQueryDefinition,
     FormulaAndFunctionCloudCostQueryDefinition:

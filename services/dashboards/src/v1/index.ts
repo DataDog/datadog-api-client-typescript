@@ -73,6 +73,10 @@ export { EventTimelineWidgetDefinitionType } from "./models/EventTimelineWidgetD
 export { FormulaAndFunctionApmDependencyStatName } from "./models/FormulaAndFunctionApmDependencyStatName";
 export { FormulaAndFunctionApmDependencyStatsDataSource } from "./models/FormulaAndFunctionApmDependencyStatsDataSource";
 export { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./models/FormulaAndFunctionApmDependencyStatsQueryDefinition";
+export { FormulaAndFunctionApmMetricsDataSource } from "./models/FormulaAndFunctionApmMetricsDataSource";
+export { FormulaAndFunctionApmMetricsQueryDefinition } from "./models/FormulaAndFunctionApmMetricsQueryDefinition";
+export { FormulaAndFunctionApmMetricsSpanKind } from "./models/FormulaAndFunctionApmMetricsSpanKind";
+export { FormulaAndFunctionApmMetricStatName } from "./models/FormulaAndFunctionApmMetricStatName";
 export { FormulaAndFunctionApmResourceStatName } from "./models/FormulaAndFunctionApmResourceStatName";
 export { FormulaAndFunctionApmResourceStatsDataSource } from "./models/FormulaAndFunctionApmResourceStatsDataSource";
 export { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./models/FormulaAndFunctionApmResourceStatsQueryDefinition";
