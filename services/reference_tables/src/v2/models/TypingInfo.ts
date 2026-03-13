@@ -2,7 +2,13 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
 import { BatchDeleteRowsRequestArray } from "./BatchDeleteRowsRequestArray";
-import { BatchDeleteRowsRequestData } from "./BatchDeleteRowsRequestData";
+import { BatchRowsQueryRequest } from "./BatchRowsQueryRequest";
+import { BatchRowsQueryRequestData } from "./BatchRowsQueryRequestData";
+import { BatchRowsQueryRequestDataAttributes } from "./BatchRowsQueryRequestDataAttributes";
+import { BatchRowsQueryResponse } from "./BatchRowsQueryResponse";
+import { BatchRowsQueryResponseData } from "./BatchRowsQueryResponseData";
+import { BatchRowsQueryResponseDataRelationships } from "./BatchRowsQueryResponseDataRelationships";
+import { BatchRowsQueryResponseDataRelationshipsRows } from "./BatchRowsQueryResponseDataRelationshipsRows";
 import { BatchUpsertRowsRequestArray } from "./BatchUpsertRowsRequestArray";
 import { BatchUpsertRowsRequestData } from "./BatchUpsertRowsRequestData";
 import { BatchUpsertRowsRequestDataAttributes } from "./BatchUpsertRowsRequestDataAttributes";
@@ -48,9 +54,11 @@ import { TableResultV2DataAttributesSchemaFieldsItems } from "./TableResultV2Dat
 import { TableRowResourceArray } from "./TableRowResourceArray";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
+import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    BatchRowsQueryDataType: ["reference-tables-batch-rows-query"],
     CreateTableRequestDataType: ["reference_table"],
     CreateUploadRequestDataType: ["upload"],
     CreateUploadResponseDataType: ["upload"],
@@ -103,7 +111,15 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     BatchDeleteRowsRequestArray: BatchDeleteRowsRequestArray,
-    BatchDeleteRowsRequestData: BatchDeleteRowsRequestData,
+    BatchRowsQueryRequest: BatchRowsQueryRequest,
+    BatchRowsQueryRequestData: BatchRowsQueryRequestData,
+    BatchRowsQueryRequestDataAttributes: BatchRowsQueryRequestDataAttributes,
+    BatchRowsQueryResponse: BatchRowsQueryResponse,
+    BatchRowsQueryResponseData: BatchRowsQueryResponseData,
+    BatchRowsQueryResponseDataRelationships:
+      BatchRowsQueryResponseDataRelationships,
+    BatchRowsQueryResponseDataRelationshipsRows:
+      BatchRowsQueryResponseDataRelationshipsRows,
     BatchUpsertRowsRequestArray: BatchUpsertRowsRequestArray,
     BatchUpsertRowsRequestData: BatchUpsertRowsRequestData,
     BatchUpsertRowsRequestDataAttributes: BatchUpsertRowsRequestDataAttributes,
@@ -171,5 +187,6 @@ export const TypingInfo: ModelTypingInfo = {
     TableRowResourceArray: TableRowResourceArray,
     TableRowResourceData: TableRowResourceData,
     TableRowResourceDataAttributes: TableRowResourceDataAttributes,
+    TableRowResourceIdentifier: TableRowResourceIdentifier,
   },
 };

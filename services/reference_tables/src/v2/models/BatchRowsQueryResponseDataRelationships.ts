@@ -1,12 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { BatchRowsQueryResponseDataRelationshipsRows } from "./BatchRowsQueryResponseDataRelationshipsRows";
 
-/**
- * The request body for deleting multiple rows from a reference table.
- */
-export class BatchDeleteRowsRequestArray {
-  "data": Array<TableRowResourceIdentifier>;
+export class BatchRowsQueryResponseDataRelationships {
+  "rows"?: BatchRowsQueryResponseDataRelationshipsRows;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -22,10 +19,9 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
-      required: true,
+    rows: {
+      baseName: "rows",
+      type: "BatchRowsQueryResponseDataRelationshipsRows",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -37,7 +33,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return BatchRowsQueryResponseDataRelationships.attributeTypeMap;
   }
 
   public constructor() {}
