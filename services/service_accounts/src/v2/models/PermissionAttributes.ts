@@ -29,6 +29,10 @@ export class PermissionAttributes {
    */
   "name"?: string;
   /**
+   * List of alias names for the permission.
+   */
+  "nameAliases"?: Array<string>;
+  /**
    * Whether or not the permission is restricted.
    */
   "restricted"?: boolean;
@@ -71,6 +75,10 @@ export class PermissionAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    nameAliases: {
+      baseName: "name_aliases",
+      type: "Array<string>",
     },
     restricted: {
       baseName: "restricted",
