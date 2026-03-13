@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Compression algorithm.
+ * The compression algorithm used for HTTP client destinations.
  */
 export type ObservabilityPipelineHttpClientDestinationCompressionAlgorithm =
   | typeof GZIP
