@@ -7,7 +7,7 @@ import { ObservabilityPipelineHttpClientDestinationCompressionAlgorithm } from "
  */
 export class ObservabilityPipelineHttpClientDestinationCompression {
   /**
-   * Compression algorithm.
+   * The compression algorithm used for HTTP client destinations.
    */
   "algorithm": ObservabilityPipelineHttpClientDestinationCompressionAlgorithm;
   /**
