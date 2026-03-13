@@ -291,7 +291,13 @@ import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
 import { BatchDeleteRowsRequestArray } from "./BatchDeleteRowsRequestArray";
-import { BatchDeleteRowsRequestData } from "./BatchDeleteRowsRequestData";
+import { BatchRowsQueryRequest } from "./BatchRowsQueryRequest";
+import { BatchRowsQueryRequestData } from "./BatchRowsQueryRequestData";
+import { BatchRowsQueryRequestDataAttributes } from "./BatchRowsQueryRequestDataAttributes";
+import { BatchRowsQueryResponse } from "./BatchRowsQueryResponse";
+import { BatchRowsQueryResponseData } from "./BatchRowsQueryResponseData";
+import { BatchRowsQueryResponseDataRelationships } from "./BatchRowsQueryResponseDataRelationships";
+import { BatchRowsQueryResponseDataRelationshipsRows } from "./BatchRowsQueryResponseDataRelationshipsRows";
 import { BatchUpsertRowsRequestArray } from "./BatchUpsertRowsRequestArray";
 import { BatchUpsertRowsRequestData } from "./BatchUpsertRowsRequestData";
 import { BatchUpsertRowsRequestDataAttributes } from "./BatchUpsertRowsRequestDataAttributes";
@@ -3160,6 +3166,7 @@ import { TableResultV2DataAttributesSchemaFieldsItems } from "./TableResultV2Dat
 import { TableRowResourceArray } from "./TableRowResourceArray";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
+import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamConnection } from "./TeamConnection";
@@ -3667,6 +3674,7 @@ const enumsMap: { [key: string]: any[] } = {
   AzureUCConfigPairType: ["azure_uc_configs"],
   AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
   AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
+  BatchRowsQueryDataType: ["reference-tables-batch-rows-query"],
   BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus: [
     "OK",
     "NOT_FOUND",
@@ -5819,7 +5827,15 @@ const typeMap: { [index: string]: any } = {
   AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
   AzureUCConfigsResponse: AzureUCConfigsResponse,
   BatchDeleteRowsRequestArray: BatchDeleteRowsRequestArray,
-  BatchDeleteRowsRequestData: BatchDeleteRowsRequestData,
+  BatchRowsQueryRequest: BatchRowsQueryRequest,
+  BatchRowsQueryRequestData: BatchRowsQueryRequestData,
+  BatchRowsQueryRequestDataAttributes: BatchRowsQueryRequestDataAttributes,
+  BatchRowsQueryResponse: BatchRowsQueryResponse,
+  BatchRowsQueryResponseData: BatchRowsQueryResponseData,
+  BatchRowsQueryResponseDataRelationships:
+    BatchRowsQueryResponseDataRelationships,
+  BatchRowsQueryResponseDataRelationshipsRows:
+    BatchRowsQueryResponseDataRelationshipsRows,
   BatchUpsertRowsRequestArray: BatchUpsertRowsRequestArray,
   BatchUpsertRowsRequestData: BatchUpsertRowsRequestData,
   BatchUpsertRowsRequestDataAttributes: BatchUpsertRowsRequestDataAttributes,
@@ -9277,6 +9293,7 @@ const typeMap: { [index: string]: any } = {
   TableRowResourceArray: TableRowResourceArray,
   TableRowResourceData: TableRowResourceData,
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
+  TableRowResourceIdentifier: TableRowResourceIdentifier,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamConnection: TeamConnection,
