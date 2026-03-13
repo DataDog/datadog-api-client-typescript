@@ -61,10 +61,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
