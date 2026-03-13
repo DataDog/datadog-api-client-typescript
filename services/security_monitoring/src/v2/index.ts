@@ -11,6 +11,7 @@ export {
   SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
+  SecurityMonitoringApiCreateSecurityFindingRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
@@ -48,6 +49,8 @@ export {
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
   SecurityMonitoringApiGetThreatHuntingJobRequest,
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiImportSecurityVulnerabilitiesRequest,
+  SecurityMonitoringApiImportThreatIntelRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListMultipleRulesetsRequest,
@@ -148,6 +151,19 @@ export { CustomFrameworkRequirement } from "./models/CustomFrameworkRequirement"
 export { CustomFrameworkType } from "./models/CustomFrameworkType";
 export { CustomFrameworkWithoutRequirements } from "./models/CustomFrameworkWithoutRequirements";
 export { CVSS } from "./models/CVSS";
+export { CycloneDXAdvisory } from "./models/CycloneDXAdvisory";
+export { CycloneDXAffect } from "./models/CycloneDXAffect";
+export { CycloneDXAssetComponent } from "./models/CycloneDXAssetComponent";
+export { CycloneDXBOM } from "./models/CycloneDXBOM";
+export { CycloneDXComponent } from "./models/CycloneDXComponent";
+export { CycloneDXComponentType } from "./models/CycloneDXComponentType";
+export { CycloneDXMetadata } from "./models/CycloneDXMetadata";
+export { CycloneDXRating } from "./models/CycloneDXRating";
+export { CycloneDXReference } from "./models/CycloneDXReference";
+export { CycloneDXReferenceSource } from "./models/CycloneDXReferenceSource";
+export { CycloneDXToolComponent } from "./models/CycloneDXToolComponent";
+export { CycloneDXTools } from "./models/CycloneDXTools";
+export { CycloneDXVulnerability } from "./models/CycloneDXVulnerability";
 export { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
 export { DependencyLocation } from "./models/DependencyLocation";
 export { DetachCaseRequest } from "./models/DetachCaseRequest";
@@ -303,6 +319,7 @@ export { SecurityFindingsSearchRequestDataAttributes } from "./models/SecurityFi
 export { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSearchRequestPage";
 export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
 export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
+export { SecurityFindingType } from "./models/SecurityFindingType";
 export { SecurityMonitoringContentPackActivation } from "./models/SecurityMonitoringContentPackActivation";
 export { SecurityMonitoringContentPackIntegrationStatus } from "./models/SecurityMonitoringContentPackIntegrationStatus";
 export { SecurityMonitoringContentPackStateAttributes } from "./models/SecurityMonitoringContentPackStateAttributes";
@@ -448,6 +465,7 @@ export { ThreatHuntingJobQuery } from "./models/ThreatHuntingJobQuery";
 export { ThreatHuntingJobResponse } from "./models/ThreatHuntingJobResponse";
 export { ThreatHuntingJobResponseAttributes } from "./models/ThreatHuntingJobResponseAttributes";
 export { ThreatHuntingJobResponseData } from "./models/ThreatHuntingJobResponseData";
+export { ThreatIntelIndicatorType } from "./models/ThreatIntelIndicatorType";
 export { TriggerSource } from "./models/TriggerSource";
 export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
