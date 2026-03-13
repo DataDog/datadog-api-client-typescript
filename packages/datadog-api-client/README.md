@@ -438,6 +438,7 @@ apiInstance
 | Rum Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |
 | Rum Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
 | Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
+| Scorecards | @datadog/datadog-api-client-scorecards | [README.md](../../services/scorecards/README.md) |
 | Seats | @datadog/datadog-api-client-seats | [README.md](../../services/seats/README.md) |
 | Security Monitoring | @datadog/datadog-api-client-security-monitoring | [README.md](../../services/security-monitoring/README.md) |
 | Sensitive Data Scanner | @datadog/datadog-api-client-sensitive-data-scanner | [README.md](../../services/sensitive-data-scanner/README.md) |
@@ -446,7 +447,6 @@ apiInstance
 | Service Definition | @datadog/datadog-api-client-service-definition | [README.md](../../services/service-definition/README.md) |
 | Service Level Objective Corrections | @datadog/datadog-api-client-service-level-objective-corrections | [README.md](../../services/service-level-objective-corrections/README.md) |
 | Service Level Objectives | @datadog/datadog-api-client-service-level-objectives | [README.md](../../services/service-level-objectives/README.md) |
-| Service Scorecards | @datadog/datadog-api-client-service-scorecards | [README.md](../../services/service-scorecards/README.md) |
 | ServiceNow Integration | @datadog/datadog-api-client-service-now-integration | [README.md](../../services/service-now-integration/README.md) |
 | Slack Integration | @datadog/datadog-api-client-slack-integration | [README.md](../../services/slack-integration/README.md) |
 | Snapshots | @datadog/datadog-api-client-snapshots | [README.md](../../services/snapshots/README.md) |
