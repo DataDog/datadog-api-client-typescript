@@ -12,6 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Response containing a list of entity risk scores
  */
 export class SecurityEntityRiskScoresResponse {
+  /**
+   * Array of entity risk score objects.
+   */
   "data": Array<SecurityEntityRiskScore>;
   /**
    * Metadata for pagination
