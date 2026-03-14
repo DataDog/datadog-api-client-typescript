@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Case management project.
  */
 export class CaseManagementProject {
+  /**
+   * Data object representing a case management project.
+   */
   "data": CaseManagementProjectData;
 
   /**

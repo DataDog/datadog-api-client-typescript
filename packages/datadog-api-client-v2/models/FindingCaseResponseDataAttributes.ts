@@ -21,6 +21,9 @@ export class FindingCaseResponseDataAttributes {
    * Relationship to user.
    */
   "assignedTo"?: RelationshipToUser;
+  /**
+   * Custom attributes associated with the case as key-value pairs where values are string arrays.
+   */
   "attributes"?: { [key: string]: Array<string> };
   /**
    * Timestamp of when the case was closed.

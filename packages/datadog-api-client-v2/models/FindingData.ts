@@ -7,6 +7,9 @@ import { FindingDataType } from "./FindingDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object representing a security finding.
+ */
 export class FindingData {
   /**
    * Unique identifier of the security finding.

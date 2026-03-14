@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * List of requests to create cases for security findings.
  */
 export class CreateCaseRequestArray {
+  /**
+   * Array of case creation request data objects.
+   */
   "data": Array<CreateCaseRequestData>;
 
   /**
