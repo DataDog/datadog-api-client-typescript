@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Row resource containing a single row identifier for deletion.
  */
 export class BatchDeleteRowsRequestData {
+  /**
+   * The primary key value that uniquely identifies the row to delete.
+   */
   "id": string;
   /**
    * Row resource type.
