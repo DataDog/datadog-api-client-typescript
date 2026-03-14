@@ -9,7 +9,7 @@ import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Options for deployment rule response representing either faulty deployment detection or monitor options.
+ * Options for deployment rule requests representing either faulty deployment detection or monitor options.
  */
 
 export type DeploymentRulesOptions =
