@@ -4,7 +4,7 @@ import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRule
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
 
 /**
- * Options for deployment rule response representing either faulty deployment detection or monitor options.
+ * Options for deployment rule requests representing either faulty deployment detection or monitor options.
  */
 export type DeploymentRulesOptions =
   | DeploymentRuleOptionsFaultyDeploymentDetection
