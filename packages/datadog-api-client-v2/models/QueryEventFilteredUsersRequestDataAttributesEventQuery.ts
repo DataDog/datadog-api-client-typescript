@@ -7,8 +7,17 @@ import { QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame } from 
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Event platform query used to filter users based on their event activity within a specified time window.
+ */
 export class QueryEventFilteredUsersRequestDataAttributesEventQuery {
+  /**
+   * The event platform query expression for filtering users by their event activity.
+   */
   "query"?: string;
+  /**
+   * The time window defining the start and end of the event query period as Unix timestamps.
+   */
   "timeFrame"?: QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame;
 
   /**

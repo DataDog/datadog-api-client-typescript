@@ -7,7 +7,13 @@ import { QueryUsersRequestData } from "./QueryUsersRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for querying users with optional filtering, column selection, and sorting.
+ */
 export class QueryUsersRequest {
+  /**
+   * The data object containing the resource type and attributes for querying users.
+   */
   "data"?: QueryUsersRequestData;
 
   /**

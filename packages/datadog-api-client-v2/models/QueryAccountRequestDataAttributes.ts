@@ -7,11 +7,29 @@ import { QueryAccountRequestDataAttributesSort } from "./QueryAccountRequestData
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for filtering and shaping the account query results.
+ */
 export class QueryAccountRequestDataAttributes {
+  /**
+   * Maximum number of account records to return in the response.
+   */
   "limit"?: number;
+  /**
+   * Filter expression using account attribute conditions to narrow results.
+   */
   "query"?: string;
+  /**
+   * List of account attribute column names to include in the response.
+   */
   "selectColumns"?: Array<string>;
+  /**
+   * Sorting configuration specifying the field and direction for ordering query results.
+   */
   "sort"?: QueryAccountRequestDataAttributesSort;
+  /**
+   * Free-text term used for wildcard search across account attribute values.
+   */
   "wildcardSearchTerm"?: string;
 
   /**
