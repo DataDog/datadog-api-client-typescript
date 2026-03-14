@@ -50,6 +50,8 @@ export { SLOCorrectionResponseAttributes } from "./models/SLOCorrectionResponseA
 export { SLOCorrectionResponseAttributesModifier } from "./models/SLOCorrectionResponseAttributesModifier";
 export { SLOCorrectionType } from "./models/SLOCorrectionType";
 export { SLOCountDefinition } from "./models/SLOCountDefinition";
+export { SLOCountDefinitionWithBadEventsFormula } from "./models/SLOCountDefinitionWithBadEventsFormula";
+export { SLOCountDefinitionWithTotalEventsFormula } from "./models/SLOCountDefinitionWithTotalEventsFormula";
 export { SLOCountSpec } from "./models/SLOCountSpec";
 export { SLOCreator } from "./models/SLOCreator";
 export { SLODataSourceQueryDefinition } from "./models/SLODataSourceQueryDefinition";
