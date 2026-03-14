@@ -339,7 +339,8 @@ import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponse
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
 import { SLOCorrectionUpdateRequest } from "./SLOCorrectionUpdateRequest";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
-import { SLOCountDefinition } from "./SLOCountDefinition";
+import { SLOCountDefinitionWithBadEventsFormula } from "./SLOCountDefinitionWithBadEventsFormula";
+import { SLOCountDefinitionWithTotalEventsFormula } from "./SLOCountDefinitionWithTotalEventsFormula";
 import { SLOCountSpec } from "./SLOCountSpec";
 import { SLOCreator } from "./SLOCreator";
 import { SLODeleteResponse } from "./SLODeleteResponse";
@@ -2185,7 +2186,10 @@ const typeMap: { [index: string]: any } = {
   SLOCorrectionUpdateData: SLOCorrectionUpdateData,
   SLOCorrectionUpdateRequest: SLOCorrectionUpdateRequest,
   SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,
-  SLOCountDefinition: SLOCountDefinition,
+  SLOCountDefinitionWithBadEventsFormula:
+    SLOCountDefinitionWithBadEventsFormula,
+  SLOCountDefinitionWithTotalEventsFormula:
+    SLOCountDefinitionWithTotalEventsFormula,
   SLOCountSpec: SLOCountSpec,
   SLOCreator: SLOCreator,
   SLODeleteResponse: SLODeleteResponse,
@@ -2647,6 +2651,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "NotebookCellUpdateRequest",
   ],
   NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
+  SLOCountDefinition: [
+    "SLOCountDefinitionWithTotalEventsFormula",
+    "SLOCountDefinitionWithBadEventsFormula",
+  ],
   SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
   SLOSliSpec: ["SLOTimeSliceSpec", "SLOCountSpec"],
   SharedDashboardInvitesData: [
