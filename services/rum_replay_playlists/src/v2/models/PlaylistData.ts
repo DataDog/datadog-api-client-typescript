@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PlaylistDataAttributes } from "./PlaylistDataAttributes";
 import { PlaylistDataType } from "./PlaylistDataType";
 
+/**
+ * Data object representing a RUM replay playlist, including its identifier, type, and attributes.
+ */
 export class PlaylistData {
+  /**
+   * Attributes of a RUM replay playlist, including its name, description, session count, and audit timestamps.
+   */
   "attributes"?: PlaylistDataAttributes;
+  /**
+   * Unique identifier of the playlist.
+   */
   "id"?: string;
   /**
    * Rum replay playlist resource type.

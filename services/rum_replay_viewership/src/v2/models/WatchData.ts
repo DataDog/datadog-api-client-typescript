@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatchDataType } from "./WatchDataType";
 
+/**
+ * Data object representing a session watch record, including its identifier, type, and attributes.
+ */
 export class WatchData {
+  /**
+   * Attributes for recording a session watch event, including the application, event reference, and timestamp.
+   */
   "attributes"?: WatchDataAttributes;
+  /**
+   * Unique identifier of the watch record.
+   */
   "id"?: string;
   /**
    * Rum replay watch resource type.
