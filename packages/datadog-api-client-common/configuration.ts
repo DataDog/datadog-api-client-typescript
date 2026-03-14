@@ -208,6 +208,14 @@ export function createConfiguration(
   ) {
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
+  if (
+    !("bearerAuth" in authMethods) &&
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.DD_BEARER_TOKEN
+  ) {
+    authMethods["bearerAuth"] = process.env.DD_BEARER_TOKEN;
+  }
 
   const configuration = new Configuration(
     conf.baseServer,
@@ -505,6 +513,10 @@ export function applySecurityAuthentication<
   requestContext: RequestContext,
   authMethods: AuthMethodKey[]
 ): void {
+  if (conf.authMethods["bearerAuth"]) {
+    conf.authMethods["bearerAuth"].applySecurityAuthentication(requestContext);
+  }
+
   for (const authMethodName of authMethods) {
     const authMethod = conf.authMethods[authMethodName];
     if (authMethod) {
