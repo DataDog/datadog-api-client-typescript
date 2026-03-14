@@ -44836,7 +44836,7 @@ components:
         Protocol (OTLP) over gRPC and HTTP.
 
 
-        **Supported pipeline types:** logs, metrics'
+        **Supported pipeline types:** logs'
       properties:
         grpc_address_key:
           description: Environment variable name containing the gRPC server address
@@ -44866,7 +44866,6 @@ components:
       type: object
       x-pipeline-types:
       - logs
-      - metrics
     ObservabilityPipelineOpentelemetrySourceType:
       default: opentelemetry
       description: The source type. The value should always be `opentelemetry`.
@@ -60890,6 +60889,8 @@ components:
           - address
           - login
           items:
+            description: A keyword to match within the defined proximity of the detected
+              pattern.
             type: string
           type: array
         use_recommended_keywords:
@@ -60998,6 +60999,7 @@ components:
           example:
           - admin.name
           items:
+            description: An attribute path to exclude from the scan.
             type: string
           type: array
         included_keyword_configuration:
@@ -61016,6 +61018,7 @@ components:
           example:
           - admin
           items:
+            description: An attribute path to include in the scan.
             type: string
           type: array
         pattern:
@@ -61032,6 +61035,7 @@ components:
         tags:
           description: List of tags.
           items:
+            description: A tag associated with the rule.
             type: string
           type: array
         text_replacement:
@@ -61189,6 +61193,8 @@ components:
         included_keywords:
           description: List of included keywords.
           items:
+            description: A keyword used to increase match precision for the standard
+              pattern.
             type: string
           type: array
         name:
@@ -61210,6 +61216,7 @@ components:
         tags:
           description: List of tags.
           items:
+            description: A tag associated with the standard pattern.
             type: string
           type: array
       type: object
@@ -61264,6 +61271,7 @@ components:
           - '@example.com'
           - another.example.com
           items:
+            description: A string suffix; matches ending with this value are suppressed.
             type: string
           type: array
         exact_match:
@@ -61273,6 +61281,7 @@ components:
           - admin@example.com
           - user@example.com
           items:
+            description: A string value; matches exactly equal to this value are suppressed.
             type: string
           type: array
         starts_with:
@@ -61282,6 +61291,7 @@ components:
           - admin
           - user
           items:
+            description: A string prefix; matches starting with this value are suppressed.
             type: string
           type: array
       type: object
