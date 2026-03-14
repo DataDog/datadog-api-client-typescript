@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * The join configuration describing how the data source is linked to the entity.
+ */
 export class ListConnectionsResponseDataAttributesConnectionsItemsJoin {
+  /**
+   * The entity attribute used as the join key to link records from the data source.
+   */
   "attribute"?: string;
+  /**
+   * The type of join key used (for example, email or user_id).
+   */
   "type"?: string;
   /**
    * A container for additional, undeclared properties.

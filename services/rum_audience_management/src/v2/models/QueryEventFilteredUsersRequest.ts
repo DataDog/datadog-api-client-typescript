@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { QueryEventFilteredUsersRequestData } from "./QueryEventFilteredUsersRequestData";
 
+/**
+ * Request body for querying users filtered by user properties combined with event platform activity.
+ */
 export class QueryEventFilteredUsersRequest {
+  /**
+   * The data object containing the resource type and attributes for querying event-filtered users.
+   */
   "data"?: QueryEventFilteredUsersRequestData;
   /**
    * A container for additional, undeclared properties.
