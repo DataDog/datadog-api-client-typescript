@@ -36,10 +36,6 @@ export class ObservabilityPipelineSplunkHecDestination {
    */
   "index"?: string;
   /**
-   * List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
-   */
-  "indexedFields"?: Array<string>;
-  /**
    * A list of component IDs whose output is used as the `input` for this component.
    */
   "inputs": Array<string>;
@@ -94,10 +90,6 @@ export class ObservabilityPipelineSplunkHecDestination {
     index: {
       baseName: "index",
       type: "string",
-    },
-    indexedFields: {
-      baseName: "indexed_fields",
-      type: "Array<string>",
     },
     inputs: {
       baseName: "inputs",
