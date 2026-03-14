@@ -7,6 +7,7 @@ import { AzureStorageDestination } from "./AzureStorageDestination";
 import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
+import { ObservabilityPipelineAmazonS3GenericDestination } from "./ObservabilityPipelineAmazonS3GenericDestination";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
@@ -37,6 +38,7 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineHttpClientDestination
   | ObservabilityPipelineAmazonOpenSearchDestination
   | ObservabilityPipelineAmazonS3Destination
+  | ObservabilityPipelineAmazonS3GenericDestination
   | ObservabilityPipelineAmazonSecurityLakeDestination
   | AzureStorageDestination
   | ObservabilityPipelineCloudPremDestination
