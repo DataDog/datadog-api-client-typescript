@@ -7,12 +7,33 @@ import { PlaylistDataAttributesCreatedBy } from "./PlaylistDataAttributesCreated
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of a RUM replay playlist, including its name, description, session count, and audit timestamps.
+ */
 export class PlaylistDataAttributes {
+  /**
+   * Timestamp when the playlist was created.
+   */
   "createdAt"?: Date;
+  /**
+   * Information about the user who created the playlist.
+   */
   "createdBy"?: PlaylistDataAttributesCreatedBy;
+  /**
+   * Optional human-readable description of the playlist's purpose or contents.
+   */
   "description"?: string;
+  /**
+   * Human-readable name of the playlist.
+   */
   "name": string;
+  /**
+   * Number of replay sessions currently in the playlist.
+   */
   "sessionCount"?: number;
+  /**
+   * Timestamp when the playlist was last updated.
+   */
   "updatedAt"?: Date;
 
   /**
