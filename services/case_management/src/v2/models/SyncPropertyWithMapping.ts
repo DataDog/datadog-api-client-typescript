@@ -4,8 +4,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  * Sync property with mapping configuration
  */
 export class SyncPropertyWithMapping {
+  /**
+   * Map of source values to destination values for synchronization
+   */
   "mapping"?: { [key: string]: string };
+  /**
+   * Map of source names to display names used during synchronization
+   */
   "nameMapping"?: { [key: string]: string };
+  /**
+   * The direction and type of synchronization for this property
+   */
   "syncType"?: string;
   /**
    * A container for additional, undeclared properties.

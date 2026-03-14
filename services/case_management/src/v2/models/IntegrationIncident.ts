@@ -19,11 +19,17 @@ export class IntegrationIncident {
    * Whether incident integration is enabled
    */
   "enabled"?: boolean;
+  /**
+   * List of mappings between incident fields and case fields
+   */
   "fieldMappings"?: Array<IntegrationIncidentFieldMappingsItems>;
   /**
    * Incident type
    */
   "incidentType"?: string;
+  /**
+   * Severity configuration for mapping incident priorities to case priorities
+   */
   "severityConfig"?: IntegrationIncidentSeverityConfig;
   /**
    * A container for additional, undeclared properties.

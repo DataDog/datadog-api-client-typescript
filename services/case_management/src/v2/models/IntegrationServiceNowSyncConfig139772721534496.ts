@@ -4,11 +4,17 @@ import { IntegrationServiceNowSyncConfigPriority } from "./IntegrationServiceNow
 import { SyncProperty } from "./SyncProperty";
 import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
 
+/**
+ * Field-level synchronization properties for ServiceNow integration
+ */
 export class IntegrationServiceNowSyncConfig139772721534496 {
   /**
    * Sync property configuration
    */
   "comments"?: SyncProperty;
+  /**
+   * Priority synchronization configuration for ServiceNow integration
+   */
   "priority"?: IntegrationServiceNowSyncConfigPriority;
   /**
    * Sync property with mapping configuration
