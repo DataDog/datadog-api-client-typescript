@@ -11,6 +11,12 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FlakyTestsSearchFilter {
   /**
+   * Whether to include the status change history for each flaky test in the response.
+   * When set to true, each test will include a 'history' array with chronological status changes.
+   * Defaults to false.
+   */
+  "includeHistory"?: boolean;
+  /**
    * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
    * - `flaky_test_state`
    * - `flaky_test_category`
@@ -41,6 +47,10 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    includeHistory: {
+      baseName: "include_history",
+      type: "boolean",
+    },
     query: {
       baseName: "query",
       type: "string",

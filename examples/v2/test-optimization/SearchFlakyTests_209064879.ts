@@ -14,12 +14,12 @@ const params: v2.TestOptimizationApiSearchFlakyTestsRequest = {
       attributes: {
         filter: {
           query: `flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"`,
+          includeHistory: true,
         },
         page: {
           limit: 10,
         },
         sort: "fqn",
-        includeHistory: true,
       },
       type: "search_flaky_tests_request",
     },
