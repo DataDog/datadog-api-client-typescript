@@ -8,8 +8,17 @@ import { MaintenanceDataRelationshipsStatusPage } from "./MaintenanceDataRelatio
  * The relationships of a maintenance.
  */
 export class MaintenanceDataRelationships {
+  /**
+   * The Datadog user who created the maintenance.
+   */
   "createdByUser"?: MaintenanceDataRelationshipsCreatedByUser;
+  /**
+   * The Datadog user who last modified the maintenance.
+   */
   "lastModifiedByUser"?: MaintenanceDataRelationshipsLastModifiedByUser;
+  /**
+   * The status page the maintenance belongs to.
+   */
   "statusPage"?: MaintenanceDataRelationshipsStatusPage;
   /**
    * A container for additional, undeclared properties.

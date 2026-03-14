@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { StatusPagesComponentDataRelationshipsCreatedByUserData } from "./StatusPagesComponentDataRelationshipsCreatedByUserData";
 
+/**
+ * The Datadog user who created the component.
+ */
 export class StatusPagesComponentDataRelationshipsCreatedByUser {
+  /**
+   * The data object identifying the Datadog user who created the component.
+   */
   "data": StatusPagesComponentDataRelationshipsCreatedByUserData;
   /**
    * A container for additional, undeclared properties.

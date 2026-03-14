@@ -8,8 +8,17 @@ import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelatio
  * The relationships of a degradation.
  */
 export class DegradationDataRelationships {
+  /**
+   * The Datadog user who created the degradation.
+   */
   "createdByUser"?: DegradationDataRelationshipsCreatedByUser;
+  /**
+   * The Datadog user who last modified the degradation.
+   */
   "lastModifiedByUser"?: DegradationDataRelationshipsLastModifiedByUser;
+  /**
+   * The status page the degradation belongs to.
+   */
   "statusPage"?: DegradationDataRelationshipsStatusPage;
   /**
    * A container for additional, undeclared properties.

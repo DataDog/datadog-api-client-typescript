@@ -6,6 +6,9 @@ import { StatusPagesComponentGroupRelationshipsLastModifiedByUserData } from "./
  * The Datadog user who last modified the component group.
  */
 export class StatusPagesComponentGroupRelationshipsLastModifiedByUser {
+  /**
+   * The data object identifying the Datadog user who last modified the component group.
+   */
   "data": StatusPagesComponentGroupRelationshipsLastModifiedByUserData;
   /**
    * A container for additional, undeclared properties.

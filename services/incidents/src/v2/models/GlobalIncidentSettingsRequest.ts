@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataRequest";
 
+/**
+ * Request payload for updating global incident settings.
+ */
 export class GlobalIncidentSettingsRequest {
+  /**
+   * Data object in the global incident settings request.
+   */
   "data": GlobalIncidentSettingsDataRequest;
   /**
    * A container for additional, undeclared properties.

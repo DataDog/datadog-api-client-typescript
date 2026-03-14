@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
+/**
+ * The data object for updating a maintenance.
+ */
 export class PatchMaintenanceRequestData {
   /**
    * The supported attributes for updating a maintenance.

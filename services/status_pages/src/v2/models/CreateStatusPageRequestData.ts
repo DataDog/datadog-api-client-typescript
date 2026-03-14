@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
 import { StatusPageDataType } from "./StatusPageDataType";
 
+/**
+ * The data object for creating a status page.
+ */
 export class CreateStatusPageRequestData {
   /**
    * The supported attributes for creating a status page.

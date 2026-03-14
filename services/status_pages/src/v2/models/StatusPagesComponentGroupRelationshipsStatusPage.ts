@@ -6,6 +6,9 @@ import { StatusPagesComponentGroupRelationshipsStatusPageData } from "./StatusPa
  * The status page the component group belongs to.
  */
 export class StatusPagesComponentGroupRelationshipsStatusPage {
+  /**
+   * The data object identifying the status page the component group belongs to.
+   */
   "data": StatusPagesComponentGroupRelationshipsStatusPageData;
   /**
    * A container for additional, undeclared properties.

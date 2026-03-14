@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
 import { PostmortemTemplateType } from "./PostmortemTemplateType";
 
+/**
+ * Data object for a postmortem template returned in a response.
+ */
 export class PostmortemTemplateDataResponse {
+  /**
+   * Attributes of a postmortem template returned in a response.
+   */
   "attributes": PostmortemTemplateAttributesResponse;
   /**
    * The ID of the template
