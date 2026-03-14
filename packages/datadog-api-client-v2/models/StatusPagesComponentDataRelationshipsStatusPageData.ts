@@ -7,6 +7,9 @@ import { StatusPageDataType } from "./StatusPageDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object identifying the status page the component belongs to.
+ */
 export class StatusPagesComponentDataRelationshipsStatusPageData {
   /**
    * The ID of the status page the component belongs to.

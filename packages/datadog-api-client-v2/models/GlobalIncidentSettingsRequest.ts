@@ -7,7 +7,13 @@ import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataR
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request payload for updating global incident settings.
+ */
 export class GlobalIncidentSettingsRequest {
+  /**
+   * Data object in the global incident settings request.
+   */
   "data": GlobalIncidentSettingsDataRequest;
 
   /**

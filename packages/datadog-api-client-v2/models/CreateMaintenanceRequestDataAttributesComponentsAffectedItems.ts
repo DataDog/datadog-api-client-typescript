@@ -7,6 +7,9 @@ import { PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus } fr
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A component affected by a maintenance.
+ */
 export class CreateMaintenanceRequestDataAttributesComponentsAffectedItems {
   /**
    * The ID of the component. Must be a component of type `component`.

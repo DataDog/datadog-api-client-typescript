@@ -6,6 +6,9 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for creating or updating a postmortem template.
+ */
 export class PostmortemTemplateAttributesRequest {
   /**
    * The name of the template

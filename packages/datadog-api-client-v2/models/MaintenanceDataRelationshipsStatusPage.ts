@@ -7,7 +7,13 @@ import { MaintenanceDataRelationshipsStatusPageData } from "./MaintenanceDataRel
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The status page the maintenance belongs to.
+ */
 export class MaintenanceDataRelationshipsStatusPage {
+  /**
+   * The data object identifying the status page associated with a maintenance.
+   */
   "data": MaintenanceDataRelationshipsStatusPageData;
 
   /**

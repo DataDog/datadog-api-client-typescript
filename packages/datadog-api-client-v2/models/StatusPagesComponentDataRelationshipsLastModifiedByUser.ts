@@ -7,7 +7,13 @@ import { StatusPagesComponentDataRelationshipsLastModifiedByUserData } from "./S
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The Datadog user who last modified the component.
+ */
 export class StatusPagesComponentDataRelationshipsLastModifiedByUser {
+  /**
+   * The data object identifying the Datadog user who last modified the component.
+   */
   "data": StatusPagesComponentDataRelationshipsLastModifiedByUserData;
 
   /**

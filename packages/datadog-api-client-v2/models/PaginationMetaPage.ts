@@ -39,6 +39,9 @@ export class PaginationMetaPage {
    * Integer representing the total number of elements available.
    */
   "total"?: number;
+  /**
+   * The pagination type used for offset-based pagination.
+   */
   "type"?: PaginationMetaPageType;
 
   /**
