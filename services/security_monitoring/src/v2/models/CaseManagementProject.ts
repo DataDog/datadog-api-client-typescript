@@ -6,6 +6,9 @@ import { CaseManagementProjectData } from "./CaseManagementProjectData";
  * Case management project.
  */
 export class CaseManagementProject {
+  /**
+   * Data object representing a case management project.
+   */
   "data": CaseManagementProjectData;
   /**
    * A container for additional, undeclared properties.

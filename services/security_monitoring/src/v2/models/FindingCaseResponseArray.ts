@@ -6,6 +6,9 @@ import { FindingCaseResponseData } from "./FindingCaseResponseData";
  * List of case responses.
  */
 export class FindingCaseResponseArray {
+  /**
+   * Array of case response data objects.
+   */
   "data": Array<FindingCaseResponseData>;
   /**
    * A container for additional, undeclared properties.
