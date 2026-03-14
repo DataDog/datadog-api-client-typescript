@@ -6,6 +6,10 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * Type for the bulk delete Synthetic suites request, `delete_suites_request`.
+ */
+
 export type DeletedSuitesRequestType =
   | typeof DELETE_SUITES_REQUEST
   | UnparsedObject;

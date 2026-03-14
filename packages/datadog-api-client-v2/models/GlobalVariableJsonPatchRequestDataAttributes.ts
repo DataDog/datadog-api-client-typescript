@@ -7,6 +7,9 @@ import { JsonPatchOperation } from "./JsonPatchOperation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for a JSON Patch request on a Synthetic global variable.
+ */
 export class GlobalVariableJsonPatchRequestDataAttributes {
   /**
    * JSON Patch operations following RFC 6902.
