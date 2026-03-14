@@ -7,7 +7,13 @@ import { ServiceListData } from "./ServiceListData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The response body for the service list endpoint.
+ */
 export class ServiceList {
+  /**
+   * A single data item in the service list response.
+   */
   "data"?: ServiceListData;
 
   /**
