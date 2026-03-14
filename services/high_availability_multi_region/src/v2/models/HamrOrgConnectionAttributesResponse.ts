@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { HamrOrgConnectionStatus } from "./HamrOrgConnectionStatus";
 
+/**
+ * Attributes of a HAMR organization connection response.
+ */
 export class HamrOrgConnectionAttributesResponse {
   /**
    * Status of the HAMR connection:
