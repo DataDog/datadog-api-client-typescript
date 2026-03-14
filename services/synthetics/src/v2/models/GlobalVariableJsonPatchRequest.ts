@@ -6,6 +6,9 @@ import { GlobalVariableJsonPatchRequestData } from "./GlobalVariableJsonPatchReq
  * JSON Patch request for global variable.
  */
 export class GlobalVariableJsonPatchRequest {
+  /**
+   * Data object for a JSON Patch request on a Synthetic global variable.
+   */
   "data": GlobalVariableJsonPatchRequestData;
   /**
    * A container for additional, undeclared properties.
