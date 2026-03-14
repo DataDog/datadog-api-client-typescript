@@ -2,8 +2,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ServiceListDataAttributesMetadataItems } from "./ServiceListDataAttributesMetadataItems";
 
+/**
+ * Attributes of a service list entry, containing metadata and a list of service names.
+ */
 export class ServiceListDataAttributes {
+  /**
+   * A list of metadata items associated with the service.
+   */
   "metadata"?: Array<ServiceListDataAttributesMetadataItems>;
+  /**
+   * A list of service names.
+   */
   "services"?: Array<string>;
   /**
    * A container for additional, undeclared properties.
