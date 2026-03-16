@@ -1722,6 +1722,10 @@ import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersD
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { Library } from "./Library";
+import { LicensesListRequest } from "./LicensesListRequest";
+import { LicensesListRequestData } from "./LicensesListRequestData";
+import { LicensesListRequestDataAttributes } from "./LicensesListRequestDataAttributes";
+import { LicensesListRequestLicense } from "./LicensesListRequestLicense";
 import { Links } from "./Links";
 import { ListAPIsResponse } from "./ListAPIsResponse";
 import { ListAPIsResponseData } from "./ListAPIsResponseData";
@@ -4272,6 +4276,7 @@ const enumsMap: { [key: string]: any[] } = {
   LayerRelationshipsMembersDataItemsType: ["members"],
   LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
+  LicensesListRequestDataType: ["licenserequest"],
   ListConnectionsResponseDataType: ["list_connections_response"],
   ListDeploymentRulesDataType: ["list_deployment_rules"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
@@ -7486,6 +7491,10 @@ const typeMap: { [index: string]: any } = {
   LeakedKey: LeakedKey,
   LeakedKeyAttributes: LeakedKeyAttributes,
   Library: Library,
+  LicensesListRequest: LicensesListRequest,
+  LicensesListRequestData: LicensesListRequestData,
+  LicensesListRequestDataAttributes: LicensesListRequestDataAttributes,
+  LicensesListRequestLicense: LicensesListRequestLicense,
   Links: Links,
   ListAPIsResponse: ListAPIsResponse,
   ListAPIsResponseData: ListAPIsResponseData,
