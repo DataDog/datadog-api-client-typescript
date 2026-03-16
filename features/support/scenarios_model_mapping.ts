@@ -9075,6 +9075,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProductAnalyticsTimeseriesResponse",
     },
+    "v2.QueryProductAnalyticsSankey": {
+        "body": {
+            "type": "ProductAnalyticsSankeyRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProductAnalyticsSankeyResponse",
+    },
     "v2.GetAccountFacetInfo": {
         "body": {
             "type": "FacetInfoRequest",
