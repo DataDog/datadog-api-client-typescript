@@ -15,6 +15,10 @@ export class IncidentTrigger {
    * Defines a rate limit for a trigger.
    */
   "rateLimit"?: TriggerRateLimit;
+  /**
+   * Version of the incident trigger.
+   */
+  "version"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +39,10 @@ export class IncidentTrigger {
     rateLimit: {
       baseName: "rateLimit",
       type: "TriggerRateLimit",
+    },
+    version: {
+      baseName: "version",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
