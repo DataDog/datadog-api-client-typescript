@@ -63,6 +63,14 @@ y = 6;
         ],
         name: "Example-Notebook",
         status: "published",
+        templateVariables: [
+          {
+            name: "example-notebook",
+            prefix: "host",
+            availableValues: ["host1", "host2"],
+            _default: "*",
+          },
+        ],
         time: {
           liveSpan: "1h",
         },

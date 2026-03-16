@@ -8,6 +8,7 @@ import { NotebookCellResponse } from "./NotebookCellResponse";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
+import { NotebookTemplateVariable } from "./NotebookTemplateVariable";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -43,6 +44,10 @@ export class NotebooksResponseDataAttributes {
    * Publication status of the notebook. For now, always "published".
    */
   "status"?: NotebookStatus;
+  /**
+   * List of template variables for this notebook.
+   */
+  "templateVariables"?: Array<NotebookTemplateVariable>;
   /**
    * Notebook global timeframe.
    */
@@ -94,6 +99,10 @@ export class NotebooksResponseDataAttributes {
     status: {
       baseName: "status",
       type: "NotebookStatus",
+    },
+    templateVariables: {
+      baseName: "template_variables",
+      type: "Array<NotebookTemplateVariable>",
     },
     time: {
       baseName: "time",
