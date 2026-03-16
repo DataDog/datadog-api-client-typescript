@@ -8624,6 +8624,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    usePolicyAction: {
+      type: "boolean",
+      format: "",
+    },
     operationResponseType: "TeamRoutingRules",
   },
   "OnCallApi.V2.SetOnCallTeamRoutingRules": {
@@ -8633,6 +8637,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     include: {
       type: "string",
+      format: "",
+    },
+    usePolicyAction: {
+      type: "boolean",
       format: "",
     },
     body: {

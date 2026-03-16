@@ -17,6 +17,7 @@ import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { Escalation } from "./Escalation";
 import { EscalationPolicy } from "./EscalationPolicy";
+import { EscalationPolicyAction } from "./EscalationPolicyAction";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
 import { EscalationPolicyCreateRequestDataAttributes } from "./EscalationPolicyCreateRequestDataAttributes";
@@ -144,6 +145,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ConfiguredScheduleTargetType: ["schedule_target"],
     DataRelationshipsTeamsDataItemsType: ["teams"],
+    EscalationPolicyActionType: ["escalation_policy"],
     EscalationPolicyCreateRequestDataType: ["policies"],
     EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
     EscalationPolicyDataType: ["policies"],
@@ -232,7 +234,11 @@ export const TypingInfo: ModelTypingInfo = {
       "OnCallPhoneNotificationRuleSettings",
     ],
     OnCallNotificationRulesIncluded: ["NotificationChannelData"],
-    RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
+    RoutingRuleAction: [
+      "SendSlackMessageAction",
+      "SendTeamsMessageAction",
+      "EscalationPolicyAction",
+    ],
     ScheduleDataIncludedItem: [
       "TeamReference",
       "Layer",
@@ -264,6 +270,7 @@ export const TypingInfo: ModelTypingInfo = {
     DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
     Escalation: Escalation,
     EscalationPolicy: EscalationPolicy,
+    EscalationPolicyAction: EscalationPolicyAction,
     EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
     EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
     EscalationPolicyCreateRequestDataAttributes:

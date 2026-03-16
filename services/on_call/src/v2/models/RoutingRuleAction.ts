@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { EscalationPolicyAction } from "./EscalationPolicyAction";
 import { SendSlackMessageAction } from "./SendSlackMessageAction";
 import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 
@@ -9,4 +10,5 @@ import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 export type RoutingRuleAction =
   | SendSlackMessageAction
   | SendTeamsMessageAction
+  | EscalationPolicyAction
   | UnparsedObject;
