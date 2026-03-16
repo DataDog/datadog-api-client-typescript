@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DeploymentRuleResponseDataAttributesCreatedBy } from "./DeploymentRuleResponseDataAttributesCreatedBy";
 import { DeploymentRuleResponseDataAttributesType } from "./DeploymentRuleResponseDataAttributesType";
 import { DeploymentRuleResponseDataAttributesUpdatedBy } from "./DeploymentRuleResponseDataAttributesUpdatedBy";
-import { DeploymentRulesOptions } from "./DeploymentRulesOptions";
+import { DeploymentRulesOptionsResponse } from "./DeploymentRulesOptionsResponse";
 
 /**
  * Basic information about a deployment rule.
@@ -30,9 +30,9 @@ export class DeploymentRuleResponseDataAttributes {
    */
   "name": string;
   /**
-   * Options for deployment rule response representing either faulty deployment detection or monitor options.
+   * Options returned in deployment rule responses representing either faulty deployment detection or monitor options. Faulty deployment detection responses always include `excluded_resources`, making the two variants unambiguous.
    */
-  "options": DeploymentRulesOptions;
+  "options": DeploymentRulesOptionsResponse;
   /**
    * The type of the deployment rule.
    */
@@ -88,7 +88,7 @@ export class DeploymentRuleResponseDataAttributes {
     },
     options: {
       baseName: "options",
-      type: "DeploymentRulesOptions",
+      type: "DeploymentRulesOptionsResponse",
       required: true,
     },
     type: {

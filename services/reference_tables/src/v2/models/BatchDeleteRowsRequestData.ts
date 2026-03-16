@@ -1,9 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { TableRowResourceDataType } from "./TableRowResourceDataType";
 
-export class BatchRowsQueryResponseDataRelationshipsRows {
-  "data"?: Array<TableRowResourceIdentifier>;
+/**
+ * Row resource containing a single row identifier for deletion.
+ */
+export class BatchDeleteRowsRequestData {
+  "id": string;
+  /**
+   * Row resource type.
+   */
+  "type": TableRowResourceDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -19,9 +26,15 @@ export class BatchRowsQueryResponseDataRelationshipsRows {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "TableRowResourceDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -33,7 +46,7 @@ export class BatchRowsQueryResponseDataRelationshipsRows {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchRowsQueryResponseDataRelationshipsRows.attributeTypeMap;
+    return BatchDeleteRowsRequestData.attributeTypeMap;
   }
 
   public constructor() {}

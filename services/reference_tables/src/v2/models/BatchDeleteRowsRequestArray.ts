@@ -1,12 +1,12 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { BatchDeleteRowsRequestData } from "./BatchDeleteRowsRequestData";
 
 /**
  * The request body for deleting multiple rows from a reference table.
  */
 export class BatchDeleteRowsRequestArray {
-  "data": Array<TableRowResourceIdentifier>;
+  "data": Array<BatchDeleteRowsRequestData>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -24,7 +24,7 @@ export class BatchDeleteRowsRequestArray {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+      type: "Array<BatchDeleteRowsRequestData>",
       required: true,
     },
     additionalProperties: {

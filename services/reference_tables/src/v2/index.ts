@@ -1,5 +1,4 @@
 export {
-  ReferenceTablesApiBatchRowsQueryRequest,
   ReferenceTablesApiCreateReferenceTableRequest,
   ReferenceTablesApiCreateReferenceTableUploadRequest,
   ReferenceTablesApiDeleteRowsRequest,
@@ -14,14 +13,7 @@ export {
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { BatchDeleteRowsRequestArray } from "./models/BatchDeleteRowsRequestArray";
-export { BatchRowsQueryDataType } from "./models/BatchRowsQueryDataType";
-export { BatchRowsQueryRequest } from "./models/BatchRowsQueryRequest";
-export { BatchRowsQueryRequestData } from "./models/BatchRowsQueryRequestData";
-export { BatchRowsQueryRequestDataAttributes } from "./models/BatchRowsQueryRequestDataAttributes";
-export { BatchRowsQueryResponse } from "./models/BatchRowsQueryResponse";
-export { BatchRowsQueryResponseData } from "./models/BatchRowsQueryResponseData";
-export { BatchRowsQueryResponseDataRelationships } from "./models/BatchRowsQueryResponseDataRelationships";
-export { BatchRowsQueryResponseDataRelationshipsRows } from "./models/BatchRowsQueryResponseDataRelationshipsRows";
+export { BatchDeleteRowsRequestData } from "./models/BatchDeleteRowsRequestData";
 export { BatchUpsertRowsRequestArray } from "./models/BatchUpsertRowsRequestArray";
 export { BatchUpsertRowsRequestData } from "./models/BatchUpsertRowsRequestData";
 export { BatchUpsertRowsRequestDataAttributes } from "./models/BatchUpsertRowsRequestDataAttributes";
@@ -81,4 +73,3 @@ export { TableRowResourceArray } from "./models/TableRowResourceArray";
 export { TableRowResourceData } from "./models/TableRowResourceData";
 export { TableRowResourceDataAttributes } from "./models/TableRowResourceDataAttributes";
 export { TableRowResourceDataType } from "./models/TableRowResourceDataType";
-export { TableRowResourceIdentifier } from "./models/TableRowResourceIdentifier";
