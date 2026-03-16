@@ -10473,6 +10473,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "StaticAnalysisApi.V2.GetLicenses": {
+    operationResponseType: "LicensesListRequest",
+  },
   "StaticAnalysisApi.V2.CreateSCAResolveVulnerableSymbols": {
     body: {
       type: "ResolveVulnerableSymbolsRequest",
