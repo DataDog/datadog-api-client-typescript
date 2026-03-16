@@ -9157,6 +9157,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListConnectionsResponse",
     },
+    "v2.BatchRowsQuery": {
+        "body": {
+            "type": "BatchRowsQueryRequest",
+            "format": "",
+            },
+        "operationResponseType": "BatchRowsQueryResponse",
+    },
     "v2.ListTables": {
         "pageLimit": {
             "type": "number",
