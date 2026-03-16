@@ -44,12 +44,6 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["DatasetsApi.v2.createDataset"]) {
-      throw new Error(
-        "Unstable operation 'createDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.createDataset'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createDataset");
@@ -101,12 +95,6 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["DatasetsApi.v2.deleteDataset"]) {
-      throw new Error(
-        "Unstable operation 'deleteDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.deleteDataset'] = true`",
-      );
-    }
-
     // verify required parameter 'datasetId' is not null or undefined
     if (datasetId === null || datasetId === undefined) {
       throw new RequiredError("datasetId", "deleteDataset");
@@ -151,12 +139,6 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["DatasetsApi.v2.getAllDatasets"]) {
-      throw new Error(
-        "Unstable operation 'getAllDatasets' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.getAllDatasets'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/datasets";
 
@@ -193,12 +175,6 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["DatasetsApi.v2.getDataset"]) {
-      throw new Error(
-        "Unstable operation 'getDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.getDataset'] = true`",
-      );
-    }
 
     // verify required parameter 'datasetId' is not null or undefined
     if (datasetId === null || datasetId === undefined) {
@@ -245,12 +221,6 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["DatasetsApi.v2.updateDataset"]) {
-      throw new Error(
-        "Unstable operation 'updateDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.updateDataset'] = true`",
-      );
-    }
 
     // verify required parameter 'datasetId' is not null or undefined
     if (datasetId === null || datasetId === undefined) {
