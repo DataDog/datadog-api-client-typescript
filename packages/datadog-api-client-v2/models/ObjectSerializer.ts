@@ -1395,6 +1395,7 @@ import { IPAllowlistEntryAttributes } from "./IPAllowlistEntryAttributes";
 import { IPAllowlistEntryData } from "./IPAllowlistEntryData";
 import { IPAllowlistResponse } from "./IPAllowlistResponse";
 import { IPAllowlistUpdateRequest } from "./IPAllowlistUpdateRequest";
+import { IncidentCondition } from "./IncidentCondition";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -1474,6 +1475,8 @@ import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
+import { IncidentScheduleTrigger } from "./IncidentScheduleTrigger";
+import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper";
 import { IncidentSearchResponse } from "./IncidentSearchResponse";
 import { IncidentSearchResponseAttributes } from "./IncidentSearchResponseAttributes";
 import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
@@ -7117,6 +7120,7 @@ const typeMap: { [index: string]: any } = {
   IPAllowlistEntryData: IPAllowlistEntryData,
   IPAllowlistResponse: IPAllowlistResponse,
   IPAllowlistUpdateRequest: IPAllowlistUpdateRequest,
+  IncidentCondition: IncidentCondition,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,
@@ -7214,6 +7218,8 @@ const typeMap: { [index: string]: any } = {
   IncidentResponseMeta: IncidentResponseMeta,
   IncidentResponseMetaPagination: IncidentResponseMetaPagination,
   IncidentResponseRelationships: IncidentResponseRelationships,
+  IncidentScheduleTrigger: IncidentScheduleTrigger,
+  IncidentScheduleTriggerWrapper: IncidentScheduleTriggerWrapper,
   IncidentSearchResponse: IncidentSearchResponse,
   IncidentSearchResponseAttributes: IncidentSearchResponseAttributes,
   IncidentSearchResponseData: IncidentSearchResponseData,
@@ -10180,6 +10186,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormTriggerWrapper",
     "GithubWebhookTriggerWrapper",
     "IncidentTriggerWrapper",
+    "IncidentScheduleTriggerWrapper",
     "MonitorTriggerWrapper",
     "NotebookTriggerWrapper",
     "OnCallTriggerWrapper",
