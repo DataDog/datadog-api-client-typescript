@@ -194,12 +194,6 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["DatasetsApi.v2.getDataset"]) {
-      throw new Error(
-        "Unstable operation 'getDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.getDataset'] = true`",
-      );
-    }
-
     // verify required parameter 'datasetId' is not null or undefined
     if (datasetId === null || datasetId === undefined) {
       throw new RequiredError("datasetId", "getDataset");
