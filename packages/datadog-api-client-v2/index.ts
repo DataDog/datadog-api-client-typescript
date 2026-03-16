@@ -2590,6 +2590,8 @@ export { EPSS } from "./models/EPSS";
 export { ErrorHandler } from "./models/ErrorHandler";
 export { Escalation } from "./models/Escalation";
 export { EscalationPolicy } from "./models/EscalationPolicy";
+export { EscalationPolicyAction } from "./models/EscalationPolicyAction";
+export { EscalationPolicyActionType } from "./models/EscalationPolicyActionType";
 export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
 export { EscalationPolicyCreateRequestData } from "./models/EscalationPolicyCreateRequestData";
 export { EscalationPolicyCreateRequestDataAttributes } from "./models/EscalationPolicyCreateRequestDataAttributes";
