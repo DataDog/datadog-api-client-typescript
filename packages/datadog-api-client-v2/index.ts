@@ -2404,6 +2404,7 @@ export { DeploymentRelationship } from "./models/DeploymentRelationship";
 export { DeploymentRelationshipData } from "./models/DeploymentRelationshipData";
 export { DeploymentRuleDataType } from "./models/DeploymentRuleDataType";
 export { DeploymentRuleOptionsFaultyDeploymentDetection } from "./models/DeploymentRuleOptionsFaultyDeploymentDetection";
+export { DeploymentRuleOptionsFaultyDeploymentDetectionResponse } from "./models/DeploymentRuleOptionsFaultyDeploymentDetectionResponse";
 export { DeploymentRuleOptionsMonitor } from "./models/DeploymentRuleOptionsMonitor";
 export { DeploymentRuleResponse } from "./models/DeploymentRuleResponse";
 export { DeploymentRuleResponseData } from "./models/DeploymentRuleResponseData";
@@ -2412,6 +2413,7 @@ export { DeploymentRuleResponseDataAttributesCreatedBy } from "./models/Deployme
 export { DeploymentRuleResponseDataAttributesType } from "./models/DeploymentRuleResponseDataAttributesType";
 export { DeploymentRuleResponseDataAttributesUpdatedBy } from "./models/DeploymentRuleResponseDataAttributesUpdatedBy";
 export { DeploymentRulesOptions } from "./models/DeploymentRulesOptions";
+export { DeploymentRulesOptionsResponse } from "./models/DeploymentRulesOptionsResponse";
 export { DetachCaseRequest } from "./models/DetachCaseRequest";
 export { DetachCaseRequestData } from "./models/DetachCaseRequestData";
 export { DetachCaseRequestDataRelationships } from "./models/DetachCaseRequestDataRelationships";
