@@ -7,7 +7,13 @@ import { CreateComponentRequestData } from "./CreateComponentRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request object for creating a component.
+ */
 export class CreateComponentRequest {
+  /**
+   * The data object for creating a component.
+   */
   "data"?: CreateComponentRequestData;
 
   /**

@@ -9,6 +9,9 @@ import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataTy
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object for a maintenance.
+ */
 export class MaintenanceData {
   /**
    * The attributes of a maintenance.

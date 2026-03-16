@@ -8,7 +8,13 @@ import { StatusPagesComponentData } from "./StatusPagesComponentData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response object for a list of components.
+ */
 export class StatusPagesComponentArray {
+  /**
+   * A list of component data objects.
+   */
   "data": Array<StatusPagesComponentData>;
   /**
    * The included related resources of a component. Client must explicitly request these resources by name in the `include` query parameter.
