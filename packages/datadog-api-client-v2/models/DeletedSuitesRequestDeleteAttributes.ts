@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for a bulk delete Synthetic test suites request.
+ */
 export class DeletedSuitesRequestDeleteAttributes {
+  /**
+   * Whether to force deletion of suites that have dependent resources.
+   */
   "forceDeleteDependencies"?: boolean;
+  /**
+   * List of public IDs of the Synthetic test suites to delete.
+   */
   "publicIds": Array<string>;
 
   /**
