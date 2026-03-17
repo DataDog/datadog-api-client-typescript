@@ -3451,6 +3451,21 @@ import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatcherArray } from "./WatcherArray";
 import { WatcherData } from "./WatcherData";
 import { WatcherDataAttributes } from "./WatcherDataAttributes";
+import { WebIntegrationAccountAttributes } from "./WebIntegrationAccountAttributes";
+import { WebIntegrationAccountCreateRequest } from "./WebIntegrationAccountCreateRequest";
+import { WebIntegrationAccountCreateRequestAttributes } from "./WebIntegrationAccountCreateRequestAttributes";
+import { WebIntegrationAccountCreateRequestData } from "./WebIntegrationAccountCreateRequestData";
+import { WebIntegrationAccountResponse } from "./WebIntegrationAccountResponse";
+import { WebIntegrationAccountResponseData } from "./WebIntegrationAccountResponseData";
+import { WebIntegrationAccountSchemaResponse } from "./WebIntegrationAccountSchemaResponse";
+import { WebIntegrationAccountSchemaResponseProperties } from "./WebIntegrationAccountSchemaResponseProperties";
+import { WebIntegrationAccountSchemaResponseSecretsObject } from "./WebIntegrationAccountSchemaResponseSecretsObject";
+import { WebIntegrationAccountSchemaResponseSettingsField } from "./WebIntegrationAccountSchemaResponseSettingsField";
+import { WebIntegrationAccountSchemaResponseSettingsObject } from "./WebIntegrationAccountSchemaResponseSettingsObject";
+import { WebIntegrationAccountUpdateRequest } from "./WebIntegrationAccountUpdateRequest";
+import { WebIntegrationAccountUpdateRequestAttributes } from "./WebIntegrationAccountUpdateRequestAttributes";
+import { WebIntegrationAccountUpdateRequestData } from "./WebIntegrationAccountUpdateRequestData";
+import { WebIntegrationAccountsResponse } from "./WebIntegrationAccountsResponse";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -5469,6 +5484,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   WatchDataType: ["rum_replay_watch"],
   WatcherDataType: ["rum_replay_watcher"],
+  WebIntegrationAccountType: ["Account"],
   Weekday: [
     "monday",
     "tuesday",
@@ -9644,6 +9660,29 @@ const typeMap: { [index: string]: any } = {
   WatcherArray: WatcherArray,
   WatcherData: WatcherData,
   WatcherDataAttributes: WatcherDataAttributes,
+  WebIntegrationAccountAttributes: WebIntegrationAccountAttributes,
+  WebIntegrationAccountCreateRequest: WebIntegrationAccountCreateRequest,
+  WebIntegrationAccountCreateRequestAttributes:
+    WebIntegrationAccountCreateRequestAttributes,
+  WebIntegrationAccountCreateRequestData:
+    WebIntegrationAccountCreateRequestData,
+  WebIntegrationAccountResponse: WebIntegrationAccountResponse,
+  WebIntegrationAccountResponseData: WebIntegrationAccountResponseData,
+  WebIntegrationAccountSchemaResponse: WebIntegrationAccountSchemaResponse,
+  WebIntegrationAccountSchemaResponseProperties:
+    WebIntegrationAccountSchemaResponseProperties,
+  WebIntegrationAccountSchemaResponseSecretsObject:
+    WebIntegrationAccountSchemaResponseSecretsObject,
+  WebIntegrationAccountSchemaResponseSettingsField:
+    WebIntegrationAccountSchemaResponseSettingsField,
+  WebIntegrationAccountSchemaResponseSettingsObject:
+    WebIntegrationAccountSchemaResponseSettingsObject,
+  WebIntegrationAccountUpdateRequest: WebIntegrationAccountUpdateRequest,
+  WebIntegrationAccountUpdateRequestAttributes:
+    WebIntegrationAccountUpdateRequestAttributes,
+  WebIntegrationAccountUpdateRequestData:
+    WebIntegrationAccountUpdateRequestData,
+  WebIntegrationAccountsResponse: WebIntegrationAccountsResponse,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,
