@@ -2,9 +2,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ProjectColumnsConfigColumnsItemsSort } from "./ProjectColumnsConfigColumnsItemsSort";
 
+/**
+ * Configuration for a single column in a project board view
+ */
 export class ProjectColumnsConfigColumnsItems {
+  /**
+   * Sort configuration for a project board column
+   */
   "sort"?: ProjectColumnsConfigColumnsItemsSort;
+  /**
+   * The field used to sort items in this column
+   */
   "sortField"?: string;
+  /**
+   * The type of column
+   */
   "type"?: string;
   /**
    * A container for additional, undeclared properties.
