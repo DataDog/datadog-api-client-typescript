@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DeletedSuiteResponseDataAttributes } from "./DeletedSuiteResponseDataAttributes";
 import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
 
+/**
+ * Data object for a deleted Synthetic test suite.
+ */
 export class DeletedSuiteResponseData {
+  /**
+   * Attributes of a deleted Synthetic test suite, including deletion timestamp and public ID.
+   */
   "attributes"?: DeletedSuiteResponseDataAttributes;
+  /**
+   * The public ID of the deleted Synthetic test suite.
+   */
   "id"?: string;
   /**
    * Type for the Synthetics suites responses, `suites`.

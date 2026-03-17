@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes of a deleted Synthetic test suite, including deletion timestamp and public ID.
+ */
 export class DeletedSuiteResponseDataAttributes {
   /**
    * Deletion timestamp of the Synthetic suite ID.
