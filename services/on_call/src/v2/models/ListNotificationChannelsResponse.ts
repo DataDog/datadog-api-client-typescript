@@ -6,6 +6,9 @@ import { NotificationChannelData } from "./NotificationChannelData";
  * Response type for listing notification channels for a user
  */
 export class ListNotificationChannelsResponse {
+  /**
+   * Array of notification channel data objects.
+   */
   "data"?: Array<NotificationChannelData>;
   /**
    * A container for additional, undeclared properties.

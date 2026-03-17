@@ -11,6 +11,9 @@ export class OnCallNotificationRule {
    * Data for an on-call notification rule
    */
   "data": OnCallNotificationRuleData;
+  /**
+   * Array of related resources included in the response.
+   */
   "included"?: Array<OnCallNotificationRulesIncluded>;
   /**
    * A container for additional, undeclared properties.
