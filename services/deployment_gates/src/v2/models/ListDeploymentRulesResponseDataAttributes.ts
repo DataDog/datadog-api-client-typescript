@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DeploymentRuleResponseDataAttributes } from "./DeploymentRuleResponseDataAttributes";
 
+/**
+ * Attributes of the response for listing deployment rules.
+ */
 export class ListDeploymentRulesResponseDataAttributes {
+  /**
+   * The list of deployment rules.
+   */
   "rules"?: Array<DeploymentRuleResponseDataAttributes>;
   /**
    * A container for additional, undeclared properties.

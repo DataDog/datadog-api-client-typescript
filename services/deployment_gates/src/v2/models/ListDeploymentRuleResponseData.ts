@@ -7,6 +7,9 @@ import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRules
  * Data for a list of deployment rules.
  */
 export class ListDeploymentRuleResponseData {
+  /**
+   * Attributes of the response for listing deployment rules.
+   */
   "attributes": ListDeploymentRulesResponseDataAttributes;
   /**
    * Unique identifier of the deployment rule.
