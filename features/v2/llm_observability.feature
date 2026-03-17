@@ -8,7 +8,7 @@ Feature: LLM Observability
     And a valid "appKeyAuth" key in the system
     And an instance of "LLMObservability" API
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Append records to an LLM Observability dataset returns "Bad Request" response
     Given operation "CreateLLMObsDatasetRecords" enabled
     And new "CreateLLMObsDatasetRecords" request
@@ -18,7 +18,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Append records to an LLM Observability dataset returns "Created" response
     Given operation "CreateLLMObsDatasetRecords" enabled
     And new "CreateLLMObsDatasetRecords" request
@@ -28,7 +28,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 201 Created
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Append records to an LLM Observability dataset returns "Not Found" response
     Given operation "CreateLLMObsDatasetRecords" enabled
     And new "CreateLLMObsDatasetRecords" request
@@ -38,7 +38,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Append records to an LLM Observability dataset returns "OK" response
     Given operation "CreateLLMObsDatasetRecords" enabled
     And new "CreateLLMObsDatasetRecords" request
@@ -48,7 +48,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability dataset returns "Bad Request" response
     Given operation "CreateLLMObsDataset" enabled
     And new "CreateLLMObsDataset" request
@@ -57,7 +57,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability dataset returns "Created" response
     Given operation "CreateLLMObsDataset" enabled
     And new "CreateLLMObsDataset" request
@@ -66,7 +66,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 201 Created
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability dataset returns "Not Found" response
     Given operation "CreateLLMObsDataset" enabled
     And new "CreateLLMObsDataset" request
@@ -75,7 +75,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability dataset returns "OK" response
     Given operation "CreateLLMObsDataset" enabled
     And new "CreateLLMObsDataset" request
@@ -84,7 +84,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability experiment returns "Bad Request" response
     Given operation "CreateLLMObsExperiment" enabled
     And new "CreateLLMObsExperiment" request
@@ -92,7 +92,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability experiment returns "Created" response
     Given operation "CreateLLMObsExperiment" enabled
     And new "CreateLLMObsExperiment" request
@@ -100,7 +100,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 201 Created
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability experiment returns "OK" response
     Given operation "CreateLLMObsExperiment" enabled
     And new "CreateLLMObsExperiment" request
@@ -108,7 +108,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability project returns "Bad Request" response
     Given operation "CreateLLMObsProject" enabled
     And new "CreateLLMObsProject" request
@@ -116,7 +116,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability project returns "Created" response
     Given operation "CreateLLMObsProject" enabled
     And new "CreateLLMObsProject" request
@@ -124,7 +124,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 201 Created
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Create an LLM Observability project returns "OK" response
     Given operation "CreateLLMObsProject" enabled
     And new "CreateLLMObsProject" request
@@ -132,7 +132,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability dataset records returns "Bad Request" response
     Given operation "DeleteLLMObsDatasetRecords" enabled
     And new "DeleteLLMObsDatasetRecords" request
@@ -142,7 +142,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability dataset records returns "No Content" response
     Given operation "DeleteLLMObsDatasetRecords" enabled
     And new "DeleteLLMObsDatasetRecords" request
@@ -152,7 +152,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 204 No Content
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability dataset records returns "Not Found" response
     Given operation "DeleteLLMObsDatasetRecords" enabled
     And new "DeleteLLMObsDatasetRecords" request
@@ -162,7 +162,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability datasets returns "Bad Request" response
     Given operation "DeleteLLMObsDatasets" enabled
     And new "DeleteLLMObsDatasets" request
@@ -171,7 +171,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability datasets returns "No Content" response
     Given operation "DeleteLLMObsDatasets" enabled
     And new "DeleteLLMObsDatasets" request
@@ -180,7 +180,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 204 No Content
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability datasets returns "Not Found" response
     Given operation "DeleteLLMObsDatasets" enabled
     And new "DeleteLLMObsDatasets" request
@@ -189,7 +189,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability experiments returns "Bad Request" response
     Given operation "DeleteLLMObsExperiments" enabled
     And new "DeleteLLMObsExperiments" request
@@ -197,7 +197,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability experiments returns "No Content" response
     Given operation "DeleteLLMObsExperiments" enabled
     And new "DeleteLLMObsExperiments" request
@@ -205,7 +205,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 204 No Content
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability projects returns "Bad Request" response
     Given operation "DeleteLLMObsProjects" enabled
     And new "DeleteLLMObsProjects" request
@@ -213,7 +213,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Delete LLM Observability projects returns "No Content" response
     Given operation "DeleteLLMObsProjects" enabled
     And new "DeleteLLMObsProjects" request
@@ -221,7 +221,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 204 No Content
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability dataset records returns "Bad Request" response
     Given operation "ListLLMObsDatasetRecords" enabled
     And new "ListLLMObsDatasetRecords" request
@@ -230,7 +230,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability dataset records returns "Not Found" response
     Given operation "ListLLMObsDatasetRecords" enabled
     And new "ListLLMObsDatasetRecords" request
@@ -239,7 +239,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability dataset records returns "OK" response
     Given operation "ListLLMObsDatasetRecords" enabled
     And new "ListLLMObsDatasetRecords" request
@@ -248,7 +248,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability datasets returns "Bad Request" response
     Given operation "ListLLMObsDatasets" enabled
     And new "ListLLMObsDatasets" request
@@ -256,7 +256,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability datasets returns "Not Found" response
     Given operation "ListLLMObsDatasets" enabled
     And new "ListLLMObsDatasets" request
@@ -264,7 +264,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability datasets returns "OK" response
     Given operation "ListLLMObsDatasets" enabled
     And new "ListLLMObsDatasets" request
@@ -272,35 +272,35 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability experiments returns "Bad Request" response
     Given operation "ListLLMObsExperiments" enabled
     And new "ListLLMObsExperiments" request
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability experiments returns "OK" response
     Given operation "ListLLMObsExperiments" enabled
     And new "ListLLMObsExperiments" request
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability projects returns "Bad Request" response
     Given operation "ListLLMObsProjects" enabled
     And new "ListLLMObsProjects" request
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: List LLM Observability projects returns "OK" response
     Given operation "ListLLMObsProjects" enabled
     And new "ListLLMObsProjects" request
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Push events for an LLM Observability experiment returns "Accepted" response
     Given operation "CreateLLMObsExperimentEvents" enabled
     And new "CreateLLMObsExperimentEvents" request
@@ -309,7 +309,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 202 Accepted
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Push events for an LLM Observability experiment returns "Bad Request" response
     Given operation "CreateLLMObsExperimentEvents" enabled
     And new "CreateLLMObsExperimentEvents" request
@@ -318,7 +318,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Push events for an LLM Observability experiment returns "Not Found" response
     Given operation "CreateLLMObsExperimentEvents" enabled
     And new "CreateLLMObsExperimentEvents" request
@@ -327,7 +327,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update LLM Observability dataset records returns "Bad Request" response
     Given operation "UpdateLLMObsDatasetRecords" enabled
     And new "UpdateLLMObsDatasetRecords" request
@@ -337,7 +337,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update LLM Observability dataset records returns "Not Found" response
     Given operation "UpdateLLMObsDatasetRecords" enabled
     And new "UpdateLLMObsDatasetRecords" request
@@ -347,7 +347,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update LLM Observability dataset records returns "OK" response
     Given operation "UpdateLLMObsDatasetRecords" enabled
     And new "UpdateLLMObsDatasetRecords" request
@@ -357,7 +357,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability dataset returns "Bad Request" response
     Given operation "UpdateLLMObsDataset" enabled
     And new "UpdateLLMObsDataset" request
@@ -367,7 +367,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability dataset returns "Not Found" response
     Given operation "UpdateLLMObsDataset" enabled
     And new "UpdateLLMObsDataset" request
@@ -377,7 +377,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability dataset returns "OK" response
     Given operation "UpdateLLMObsDataset" enabled
     And new "UpdateLLMObsDataset" request
@@ -387,7 +387,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability experiment returns "Bad Request" response
     Given operation "UpdateLLMObsExperiment" enabled
     And new "UpdateLLMObsExperiment" request
@@ -396,7 +396,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability experiment returns "Not Found" response
     Given operation "UpdateLLMObsExperiment" enabled
     And new "UpdateLLMObsExperiment" request
@@ -405,7 +405,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability experiment returns "OK" response
     Given operation "UpdateLLMObsExperiment" enabled
     And new "UpdateLLMObsExperiment" request
@@ -414,7 +414,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability project returns "Bad Request" response
     Given operation "UpdateLLMObsProject" enabled
     And new "UpdateLLMObsProject" request
@@ -423,7 +423,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability project returns "Not Found" response
     Given operation "UpdateLLMObsProject" enabled
     And new "UpdateLLMObsProject" request
@@ -432,7 +432,7 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/ml-observability
+  @generated @skip
   Scenario: Update an LLM Observability project returns "OK" response
     Given operation "UpdateLLMObsProject" enabled
     And new "UpdateLLMObsProject" request

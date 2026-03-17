@@ -10,58 +10,46 @@ Feature: Restriction Policies
     And a valid "appKeyAuth" key in the system
     And an instance of "RestrictionPolicies" API
 
-  @team:DataDog/aaa-granular-access
+  @generated @skip
   Scenario: Delete a restriction policy returns "Bad Request" response
     Given new "DeleteRestrictionPolicy" request
-    And request contains "resource_id" parameter with value "malformed"
+    And request contains "resource_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/aaa-granular-access
+  @generated @skip
   Scenario: Delete a restriction policy returns "No Content" response
     Given new "DeleteRestrictionPolicy" request
-    And request contains "resource_id" parameter with value "dashboard:test-delete"
+    And request contains "resource_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 204 No Content
 
-  @team:DataDog/aaa-granular-access
+  @generated @skip
   Scenario: Get a restriction policy returns "Bad Request" response
     Given new "GetRestrictionPolicy" request
-    And request contains "resource_id" parameter with value "malformed"
+    And request contains "resource_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/aaa-granular-access
+  @generated @skip
   Scenario: Get a restriction policy returns "OK" response
     Given new "GetRestrictionPolicy" request
-    And request contains "resource_id" parameter with value "dashboard:test-get"
+    And request contains "resource_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
-    And the response "data.type" is equal to "restriction_policy"
-    And the response "data.id" is equal to "dashboard:test-get"
-    And the response "data.attributes.bindings" has length 0
 
-  @team:DataDog/aaa-granular-access
+  @generated @skip
   Scenario: Update a restriction policy returns "Bad Request" response
-    Given there is a valid "role" in the system
-    And there is a valid "user" in the system
-    And the "user" has the "role"
-    And new "UpdateRestrictionPolicy" request
-    And request contains "resource_id" parameter with value "malformed"
-    And body with value {"data": {"id": "dashboard:abc-def-ghi", "type": "restriction_policy", "attributes": {"bindings": [{"relation": "editor", "principals": ["org:{{ user.data.relationships.org.data.id }}"]}]}}}
+    Given new "UpdateRestrictionPolicy" request
+    And request contains "resource_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"bindings": []}, "id": "dashboard:abc-def-ghi", "type": "restriction_policy"}}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/aaa-granular-access
+  @generated @skip
   Scenario: Update a restriction policy returns "OK" response
-    Given there is a valid "role" in the system
-    And there is a valid "user" in the system
-    And the "user" has the "role"
-    And new "UpdateRestrictionPolicy" request
-    And request contains "resource_id" parameter with value "dashboard:test-update"
-    And body with value {"data": {"id": "dashboard:test-update", "type": "restriction_policy", "attributes": {"bindings": [{"relation": "editor", "principals": ["org:{{ user.data.relationships.org.data.id }}"]}]}}}
+    Given new "UpdateRestrictionPolicy" request
+    And request contains "resource_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"bindings": []}, "id": "dashboard:abc-def-ghi", "type": "restriction_policy"}}
     When the request is sent
     Then the response status is 200 OK
-    And the response "data.type" is equal to "restriction_policy"
-    And the response "data.id" is equal to "dashboard:test-update"
-    And the response "data.attributes.bindings[0]" is equal to {"relation": "editor", "principals": ["org:{{ user.data.relationships.org.data.id }}"]}

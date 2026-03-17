@@ -9,7 +9,7 @@ Feature: ServiceNow Integration
     And a valid "appKeyAuth" key in the system
     And an instance of "ServiceNowIntegration" API
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Create ServiceNow template returns "Bad Request" response
     Given operation "CreateServiceNowTemplate" enabled
     And new "CreateServiceNowTemplate" request
@@ -17,7 +17,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Create ServiceNow template returns "Created" response
     Given operation "CreateServiceNowTemplate" enabled
     And new "CreateServiceNowTemplate" request
@@ -25,7 +25,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 201 Created
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Delete ServiceNow template returns "Bad Request" response
     Given operation "DeleteServiceNowTemplate" enabled
     And new "DeleteServiceNowTemplate" request
@@ -33,7 +33,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Delete ServiceNow template returns "Not Found" response
     Given operation "DeleteServiceNowTemplate" enabled
     And new "DeleteServiceNowTemplate" request
@@ -41,7 +41,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Delete ServiceNow template returns "OK" response
     Given operation "DeleteServiceNowTemplate" enabled
     And new "DeleteServiceNowTemplate" request
@@ -49,7 +49,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Get ServiceNow template returns "Bad Request" response
     Given operation "GetServiceNowTemplate" enabled
     And new "GetServiceNowTemplate" request
@@ -57,7 +57,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Get ServiceNow template returns "Not Found" response
     Given operation "GetServiceNowTemplate" enabled
     And new "GetServiceNowTemplate" request
@@ -65,7 +65,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Get ServiceNow template returns "OK" response
     Given operation "GetServiceNowTemplate" enabled
     And new "GetServiceNowTemplate" request
@@ -73,7 +73,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow assignment groups returns "Bad Request" response
     Given operation "ListServiceNowAssignmentGroups" enabled
     And new "ListServiceNowAssignmentGroups" request
@@ -81,7 +81,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow assignment groups returns "Not Found" response
     Given operation "ListServiceNowAssignmentGroups" enabled
     And new "ListServiceNowAssignmentGroups" request
@@ -89,7 +89,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow assignment groups returns "OK" response
     Given operation "ListServiceNowAssignmentGroups" enabled
     And new "ListServiceNowAssignmentGroups" request
@@ -97,7 +97,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow business services returns "Bad Request" response
     Given operation "ListServiceNowBusinessServices" enabled
     And new "ListServiceNowBusinessServices" request
@@ -105,7 +105,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow business services returns "Not Found" response
     Given operation "ListServiceNowBusinessServices" enabled
     And new "ListServiceNowBusinessServices" request
@@ -113,7 +113,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow business services returns "OK" response
     Given operation "ListServiceNowBusinessServices" enabled
     And new "ListServiceNowBusinessServices" request
@@ -121,28 +121,28 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow instances returns "Not Found" response
     Given operation "ListServiceNowInstances" enabled
     And new "ListServiceNowInstances" request
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow instances returns "OK" response
     Given operation "ListServiceNowInstances" enabled
     And new "ListServiceNowInstances" request
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow templates returns "OK" response
     Given operation "ListServiceNowTemplates" enabled
     And new "ListServiceNowTemplates" request
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow users returns "Bad Request" response
     Given operation "ListServiceNowUsers" enabled
     And new "ListServiceNowUsers" request
@@ -150,7 +150,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow users returns "Not Found" response
     Given operation "ListServiceNowUsers" enabled
     And new "ListServiceNowUsers" request
@@ -158,7 +158,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: List ServiceNow users returns "OK" response
     Given operation "ListServiceNowUsers" enabled
     And new "ListServiceNowUsers" request
@@ -166,7 +166,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Update ServiceNow template returns "Bad Request" response
     Given operation "UpdateServiceNowTemplate" enabled
     And new "UpdateServiceNowTemplate" request
@@ -175,7 +175,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Update ServiceNow template returns "Not Found" response
     Given operation "UpdateServiceNowTemplate" enabled
     And new "UpdateServiceNowTemplate" request
@@ -184,7 +184,7 @@ Feature: ServiceNow Integration
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:Datadog/collaboration-integrations
+  @generated @skip
   Scenario: Update ServiceNow template returns "OK" response
     Given operation "UpdateServiceNowTemplate" enabled
     And new "UpdateServiceNowTemplate" request

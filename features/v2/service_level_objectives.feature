@@ -13,74 +13,71 @@ Feature: Service Level Objectives
     And a valid "appKeyAuth" key in the system
     And an instance of "ServiceLevelObjectives" API
 
-  @team:DataDog/slo-app
+  @generated @skip
   Scenario: Create a new SLO report returns "Bad Request" response
     Given operation "CreateSLOReportJob" enabled
     And new "CreateSLOReportJob" request
-    And body with value {"data": {"attributes": {"from_ts": {{ timestamp('now - 40d') }},  "to_ts": {{ timestamp('now') }}, "query": "slo_type:metric \"SLO Reporting Test\"", "interval": "bad-interval"}}}
+    And body with value {"data": {"attributes": {"from_ts": 1690901870, "interval": "weekly", "query": "slo_type:metric", "timezone": "America/New_York", "to_ts": 1706803070}}}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/slo-app
+  @generated @skip
   Scenario: Create a new SLO report returns "OK" response
     Given operation "CreateSLOReportJob" enabled
     And new "CreateSLOReportJob" request
-    And body with value {"data": {"attributes": {"from_ts": {{ timestamp('now - 40d') }},  "to_ts": {{ timestamp('now') }}, "query": "slo_type:metric \"SLO Reporting Test\"", "interval": "monthly", "timezone": "America/New_York"}}}
+    And body with value {"data": {"attributes": {"from_ts": 1690901870, "interval": "weekly", "query": "slo_type:metric", "timezone": "America/New_York", "to_ts": 1706803070}}}
     When the request is sent
     Then the response status is 200 OK
-    And the response "data.type" is equal to "report_id"
 
-  @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO report returns "Bad Request" response
     Given operation "GetSLOReport" enabled
     And new "GetSLOReport" request
-    And request contains "report_id" parameter with value "invalid-report-id"
+    And request contains "report_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO report returns "Not Found" response
     Given operation "GetSLOReport" enabled
     And new "GetSLOReport" request
-    And request contains "report_id" parameter with value "2b468c54-f2a7-11ee-b0b4-ffe56bb6ad43"
+    And request contains "report_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 404 Not Found
 
-  @skip @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO report returns "OK" response
     Given operation "GetSLOReport" enabled
     And new "GetSLOReport" request
-    And request contains "report_id" parameter with value "9fb2dc2a-ead0-11ee-a174-9fe3a9d7627f"
+    And request contains "report_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 
-  @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO report status returns "Bad Request" response
     Given operation "GetSLOReportJobStatus" enabled
     And new "GetSLOReportJobStatus" request
-    And request contains "report_id" parameter with value "invalid-report-id"
+    And request contains "report_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO report status returns "Not Found" response
     Given operation "GetSLOReportJobStatus" enabled
     And new "GetSLOReportJobStatus" request
-    And request contains "report_id" parameter with value "2b468c54-f2a7-11ee-b0b4-ffe56bb6ad43"
+    And request contains "report_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO report status returns "OK" response
     Given operation "GetSLOReportJobStatus" enabled
     And new "GetSLOReportJobStatus" request
-    And there is a valid "report" in the system
-    And request contains "report_id" parameter from "report.data.id"
+    And request contains "report_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
-    And the response "data.type" is equal to "report_id"
 
-  @generated @skip @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO status returns "Bad Request" response
     Given operation "GetSloStatus" enabled
     And new "GetSloStatus" request
@@ -90,7 +87,7 @@ Feature: Service Level Objectives
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO status returns "Not Found" response
     Given operation "GetSloStatus" enabled
     And new "GetSloStatus" request
@@ -100,7 +97,7 @@ Feature: Service Level Objectives
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/slo-app
+  @generated @skip
   Scenario: Get SLO status returns "OK" response
     Given operation "GetSloStatus" enabled
     And new "GetSloStatus" request

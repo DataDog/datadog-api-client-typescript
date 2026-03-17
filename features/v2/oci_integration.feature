@@ -7,7 +7,7 @@ Feature: OCI Integration
     And a valid "appKeyAuth" key in the system
     And an instance of "OCIIntegration" API
 
-  @generated @skip @team:DataDog/emerging-cloud-integrations
+  @generated @skip
   Scenario: Create tenancy config returns "Created" response
     Given operation "CreateTenancyConfig" enabled
     And new "CreateTenancyConfig" request
@@ -15,35 +15,35 @@ Feature: OCI Integration
     When the request is sent
     Then the response status is 201 Created
 
-  @generated @skip @team:DataDog/emerging-cloud-integrations
+  @generated @skip
   Scenario: Delete tenancy config returns "No Content" response
     Given new "DeleteTenancyConfig" request
     And request contains "tenancy_ocid" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 204 No Content
 
-  @generated @skip @team:DataDog/emerging-cloud-integrations
+  @generated @skip
   Scenario: Get tenancy config returns "OK" response
     Given new "GetTenancyConfig" request
     And request contains "tenancy_ocid" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/emerging-cloud-integrations
+  @generated @skip
   Scenario: Get tenancy configs returns "OK" response
     Given operation "GetTenancyConfigs" enabled
     And new "GetTenancyConfigs" request
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/emerging-cloud-integrations
+  @generated @skip
   Scenario: List tenancy products returns "OK" response
     Given new "ListTenancyProducts" request
     And request contains "productKeys" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/emerging-cloud-integrations
+  @generated @skip
   Scenario: Update tenancy config returns "OK" response
     Given new "UpdateTenancyConfig" request
     And request contains "tenancy_ocid" parameter from "REPLACE.ME"

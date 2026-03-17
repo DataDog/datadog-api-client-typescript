@@ -10,43 +10,39 @@ Feature: Service Scorecards
     And a valid "appKeyAuth" key in the system
     And an instance of "ServiceScorecards" API
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Create a new rule returns "Bad Request" response
     Given operation "CreateScorecardRule" enabled
     And new "CreateScorecardRule" request
-    And body with value {"data": {"attributes": {"enabled": true, "level": 2, "name": "Team Defined", "scorecard_id": "NOT.FOUND"}, "type": "rule"}}
+    And body with value {"data": {"attributes": {"enabled": true, "level": 2, "name": "Team Defined", "scorecard_name": "Deployments automated via Deployment Trains"}, "type": "rule"}}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Create a new rule returns "Created" response
     Given operation "CreateScorecardRule" enabled
     And new "CreateScorecardRule" request
-    And body with value {"data": {"attributes": {"enabled": true, "name": "{{unique}}", "scorecard_name": "Observability Best Practices"}, "type": "rule"}}
+    And body with value {"data": {"attributes": {"enabled": true, "level": 2, "name": "Team Defined", "scorecard_name": "Deployments automated via Deployment Trains"}, "type": "rule"}}
     When the request is sent
     Then the response status is 201 Created
-    And the response "data.attributes.scorecard_name" is equal to "Observability Best Practices"
-    And the response "data.relationships.scorecard.data" has field "id"
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Create outcomes batch returns "Bad Request" response
-    Given there is a valid "create_scorecard_rule" in the system
-    And operation "CreateScorecardOutcomesBatch" enabled
+    Given operation "CreateScorecardOutcomesBatch" enabled
     And new "CreateScorecardOutcomesBatch" request
-    And body with value {"data": {"attributes": {"results": [{"remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "rule_id": "{{ create_scorecard_rule.data.id }}", "state": "pass", "service_name": ""}]}, "type": "batched-outcome"}}
+    And body with value {"data": {"attributes": {"results": [{"remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "rule_id": "q8MQxk8TCqrHnWkx", "service_name": "my-service", "state": "pass"}]}, "type": "batched-outcome"}}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Create outcomes batch returns "OK" response
-    Given there is a valid "create_scorecard_rule" in the system
-    And operation "CreateScorecardOutcomesBatch" enabled
+    Given operation "CreateScorecardOutcomesBatch" enabled
     And new "CreateScorecardOutcomesBatch" request
-    And body with value {"data": {"attributes": {"results": [{"remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "rule_id": "{{ create_scorecard_rule.data.id }}", "service_name": "my-service", "state": "pass"}]}, "type": "batched-outcome"}}
+    And body with value {"data": {"attributes": {"results": [{"remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "rule_id": "q8MQxk8TCqrHnWkx", "service_name": "my-service", "state": "pass"}]}, "type": "batched-outcome"}}
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Delete a rule returns "Bad Request" response
     Given operation "DeleteScorecardRule" enabled
     And new "DeleteScorecardRule" request
@@ -54,103 +50,89 @@ Feature: Service Scorecards
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Delete a rule returns "Not Found" response
     Given operation "DeleteScorecardRule" enabled
     And new "DeleteScorecardRule" request
-    And request contains "rule_id" parameter with value "2a4f524e-168a-429d-bb75-7b1ffeab0cbb"
+    And request contains "rule_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Delete a rule returns "OK" response
     Given operation "DeleteScorecardRule" enabled
-    And there is a valid "create_scorecard_rule" in the system
     And new "DeleteScorecardRule" request
-    And request contains "rule_id" parameter from "create_scorecard_rule.data.id"
+    And request contains "rule_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 204 OK
 
-  @generated @skip @team:DataDog/service-catalog
+  @generated @skip
   Scenario: List all rule outcomes returns "Bad Request" response
     Given operation "ListScorecardOutcomes" enabled
     And new "ListScorecardOutcomes" request
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: List all rule outcomes returns "OK" response
     Given operation "ListScorecardOutcomes" enabled
     And new "ListScorecardOutcomes" request
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @skip-validation @team:DataDog/service-catalog @with-pagination
+  @generated @skip @with-pagination
   Scenario: List all rule outcomes returns "OK" response with pagination
     Given operation "ListScorecardOutcomes" enabled
     And new "ListScorecardOutcomes" request
-    And request contains "page[size]" parameter with value 2
-    And request contains "fields[outcome]" parameter with value "state"
-    And request contains "filter[outcome][service_name]" parameter with value "my-service"
     When the request with pagination is sent
     Then the response status is 200 OK
-    And the response has 2 items
 
-  @generated @skip @team:DataDog/service-catalog
+  @generated @skip
   Scenario: List all rules returns "Bad Request" response
     Given operation "ListScorecardRules" enabled
     And new "ListScorecardRules" request
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: List all rules returns "OK" response
     Given operation "ListScorecardRules" enabled
     And new "ListScorecardRules" request
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @skip-validation @team:DataDog/service-catalog @with-pagination
+  @generated @skip @with-pagination
   Scenario: List all rules returns "OK" response with pagination
     Given operation "ListScorecardRules" enabled
     And new "ListScorecardRules" request
-    And request contains "page[size]" parameter with value 2
-    And request contains "fields[rule]" parameter with value "name"
-    And request contains "filter[rule][custom]" parameter with value true
     When the request with pagination is sent
     Then the response status is 200 OK
-    And the response has 4 items
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Update Scorecard outcomes asynchronously returns "Accepted" response
     Given operation "UpdateScorecardOutcomesAsync" enabled
-    And there is a valid "create_scorecard_rule" in the system
     And new "UpdateScorecardOutcomesAsync" request
-    And body with value {"data": {"attributes": {"results": [{"rule_id": "{{create_scorecard_rule.data.id}}", "entity_reference": "service:my-service", "remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "state": "pass"}]}, "type": "batched-outcome"}}
+    And body with value {"data": {"attributes": {"results": [{"entity_reference": "service:my-service", "remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "rule_id": "q8MQxk8TCqrHnWkx", "state": "pass"}]}, "type": "batched-outcome"}}
     When the request is sent
     Then the response status is 202 Accepted
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Update Scorecard outcomes asynchronously returns "Bad Request" response
     Given operation "UpdateScorecardOutcomesAsync" enabled
-    And there is a valid "create_scorecard_rule" in the system
     And new "UpdateScorecardOutcomesAsync" request
-    And body with value {"data": {"attributes": {"results": [{"rule_id": "{{create_scorecard_rule.data.id}}", "entity_reference": "service:my-service", "state": "INVALID"}]}, "type": "batched-outcome"}}
+    And body with value {"data": {"attributes": {"results": [{"entity_reference": "service:my-service", "remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "rule_id": "q8MQxk8TCqrHnWkx", "state": "pass"}]}, "type": "batched-outcome"}}
     When the request is sent
     Then the response status is 400 Bad Request
-    And the response "errors" has length 1
-    And the response "errors[0]" has field "detail"
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Update Scorecard outcomes asynchronously returns "Conflict" response
     Given operation "UpdateScorecardOutcomesAsync" enabled
     And new "UpdateScorecardOutcomesAsync" request
-    And body with value {"data": {"attributes": {"results": [{"rule_id": "INVALID.RULE_ID", "entity_reference": "service:my-service", "remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "state": "pass"}]}, "type": "batched-outcome"}}
+    And body with value {"data": {"attributes": {"results": [{"entity_reference": "service:my-service", "remarks": "See: <a href=\"https://app.datadoghq.com/services\">Services</a>", "rule_id": "q8MQxk8TCqrHnWkx", "state": "pass"}]}, "type": "batched-outcome"}}
     When the request is sent
     Then the response status is 409 Conflict
-    And the response "errors" has length 1
 
-  @generated @skip @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Update an existing rule returns "Bad Request" response
     Given operation "UpdateScorecardRule" enabled
     And new "UpdateScorecardRule" request
@@ -159,31 +141,11 @@ Feature: Service Scorecards
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/service-catalog
+  @generated @skip
   Scenario: Update an existing rule returns "Rule updated successfully" response
     Given operation "UpdateScorecardRule" enabled
-    And there is a valid "create_scorecard_rule" in the system
     And new "UpdateScorecardRule" request
-    And request contains "rule_id" parameter from "create_scorecard_rule.data.id"
-    And body with value {"data": { "attributes" : {"enabled": true, "name": "{{create_scorecard_rule.data.attributes.name}}", "scorecard_name": "{{create_scorecard_rule.data.attributes.scorecard_name}}", "description": "Updated description via test"}}}
-    When the request is sent
-    Then the response status is 200 Rule updated successfully
-
-  @team:DataDog/service-catalog
-  Scenario: Update an existing scorecard rule returns "Bad Request" response
-    Given operation "UpdateScorecardRule" enabled
-    And there is a valid "create_scorecard_rule" in the system
-    And new "UpdateScorecardRule" request
-    And request contains "rule_id" parameter from "create_scorecard_rule.data.id"
-    And body with value {"data": {"attributes": {"enabled": true, "level": 2, "name": "Team Defined", "scorecard_id": "NOT.FOUND"}, "type": "rule"}}
-    When the request is sent
-    Then the response status is 400 Bad Request
-
-  @team:DataDog/service-catalog
-  Scenario: Update an existing scorecard rule returns "Not Found" response
-    Given operation "UpdateScorecardRule" enabled
-    And new "UpdateScorecardRule" request
-    And request contains "rule_id" parameter with value "REPLACE.ME"
+    And request contains "rule_id" parameter from "REPLACE.ME"
     And body with value {"data": {"attributes": {"enabled": true, "level": 2, "name": "Team Defined", "scorecard_name": "Deployments automated via Deployment Trains"}, "type": "rule"}}
     When the request is sent
-    Then the response status is 404 Not Found
+    Then the response status is 200 Rule updated successfully

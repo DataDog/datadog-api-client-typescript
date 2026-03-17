@@ -1,6267 +1,2681 @@
 {
   "ListFleetAgentVersions": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fleet Automation"
   },
   "ListFleetAgents": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fleet Automation"
   },
   "GetFleetAgentInfo": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fleet Automation"
   },
   "ListFleetDeployments": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fleet Automation"
   },
   "CreateFleetDeploymentConfigure": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "operationId": "CancelFleetDeployment",
-      "parameters": [
-        {
-          "name": "deployment_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Fleet Automation"
   },
   "CreateFleetDeploymentUpgrade": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "operationId": "CancelFleetDeployment",
-      "parameters": [
-        {
-          "name": "deployment_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Fleet Automation"
   },
   "GetFleetDeployment": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fleet Automation"
   },
   "CancelFleetDeployment": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Fleet Automation"
   },
   "ListFleetSchedules": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fleet Automation"
   },
   "CreateFleetSchedule": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "operationId": "DeleteFleetSchedule",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Fleet Automation"
   },
   "DeleteFleetSchedule": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "unsafe"
-    }
+    "tag": "Fleet Automation"
   },
   "GetFleetSchedule": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fleet Automation"
   },
   "UpdateFleetSchedule": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Fleet Automation"
   },
   "TriggerFleetSchedule": {
-    "tag": "Fleet Automation",
-    "undo": {
-      "operationId": "CancelFleetDeployment",
-      "parameters": [
-        {
-          "name": "deployment_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Fleet Automation"
   },
   "ListDatastores": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Actions Datastores"
   },
   "CreateDatastore": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "operationId": "DeleteDatastore",
-      "parameters": [
-        {
-          "name": "datastore_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Actions Datastores"
   },
   "DeleteDatastore": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Actions Datastores"
   },
   "GetDatastore": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Actions Datastores"
   },
   "UpdateDatastore": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Actions Datastores"
   },
   "DeleteDatastoreItem": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Actions Datastores"
   },
   "ListDatastoreItems": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Actions Datastores"
   },
   "UpdateDatastoreItem": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Actions Datastores"
   },
   "BulkDeleteDatastoreItems": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Actions Datastores"
   },
   "BulkWriteDatastoreItems": {
-    "tag": "Actions Datastores",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Actions Datastores"
   },
   "ListAppKeyRegistrations": {
-    "tag": "Action Connection",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Action Connection"
   },
   "UnregisterAppKey": {
-    "tag": "Action Connection",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Action Connection"
   },
   "GetAppKeyRegistration": {
-    "tag": "Action Connection",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Action Connection"
   },
   "RegisterAppKey": {
-    "tag": "Action Connection",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Action Connection"
   },
   "CreateActionConnection": {
-    "tag": "Action Connection",
-    "undo": {
-      "operationId": "DeleteActionConnection",
-      "parameters": [
-        {
-          "name": "connection_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Action Connection"
   },
   "DeleteActionConnection": {
-    "tag": "Action Connection",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Action Connection"
   },
   "GetActionConnection": {
-    "tag": "Action Connection",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Action Connection"
   },
   "UpdateActionConnection": {
-    "tag": "Action Connection",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Action Connection"
   },
   "ListAwsScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "CreateAwsScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "operationId": "DeleteAwsScanOptions",
-      "parameters": [
-        {
-          "name": "account_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Agentless Scanning"
   },
   "DeleteAwsScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Agentless Scanning"
   },
   "GetAwsScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "UpdateAwsScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Agentless Scanning"
   },
   "ListAzureScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "CreateAzureScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "operationId": "DeleteAzureScanOptions",
-      "parameters": [
-        {
-          "name": "subscription_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Agentless Scanning"
   },
   "DeleteAzureScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Agentless Scanning"
   },
   "GetAzureScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "UpdateAzureScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Agentless Scanning"
   },
   "ListGcpScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "CreateGcpScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "operationId": "DeleteGcpScanOptions",
-      "parameters": [
-        {
-          "name": "project_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Agentless Scanning"
   },
   "DeleteGcpScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Agentless Scanning"
   },
   "GetGcpScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "UpdateGcpScanOptions": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Agentless Scanning"
   },
   "ListAwsOnDemandTasks": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "CreateAwsOnDemandTask": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Agentless Scanning"
   },
   "GetAwsOnDemandTask": {
-    "tag": "Agentless Scanning",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Agentless Scanning"
   },
   "ListAPIKeys": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Key Management"
   },
   "CreateAPIKey": {
-    "tag": "Key Management",
-    "undo": {
-      "operationId": "DeleteAPIKey",
-      "parameters": [
-        {
-          "name": "api_key_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Key Management"
   },
   "DeleteAPIKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Key Management"
   },
   "GetAPIKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Key Management"
   },
   "UpdateAPIKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Key Management"
   },
   "ListAPIs": {
-    "tag": "API Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "API Management"
   },
   "DeleteOpenAPI": {
-    "tag": "API Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "API Management"
   },
   "GetOpenAPI": {
-    "tag": "API Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "API Management"
   },
   "UpdateOpenAPI": {
-    "tag": "API Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "API Management"
   },
   "CreateOpenAPI": {
-    "tag": "API Management",
-    "undo": {
-      "operationId": "DeleteOpenAPI",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "API Management"
   },
   "ListSpansMetrics": {
-    "tag": "Spans Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Spans Metrics"
   },
   "CreateSpansMetric": {
-    "tag": "Spans Metrics",
-    "undo": {
-      "operationId": "DeleteSpansMetric",
-      "parameters": [
-        {
-          "name": "metric_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Spans Metrics"
   },
   "DeleteSpansMetric": {
-    "tag": "Spans Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Spans Metrics"
   },
   "GetSpansMetric": {
-    "tag": "Spans Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Spans Metrics"
   },
   "UpdateSpansMetric": {
-    "tag": "Spans Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Spans Metrics"
   },
   "ListApmRetentionFilters": {
-    "tag": "APM Retention Filters",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "APM Retention Filters"
   },
   "CreateApmRetentionFilter": {
-    "tag": "APM Retention Filters",
-    "undo": {
-      "operationId": "DeleteApmRetentionFilter",
-      "parameters": [
-        {
-          "name": "filter_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "APM Retention Filters"
   },
   "ReorderApmRetentionFilters": {
-    "tag": "APM Retention Filters",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "APM Retention Filters"
   },
   "DeleteApmRetentionFilter": {
-    "tag": "APM Retention Filters",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "APM Retention Filters"
   },
   "GetApmRetentionFilter": {
-    "tag": "APM Retention Filters",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "APM Retention Filters"
   },
   "UpdateApmRetentionFilter": {
-    "tag": "APM Retention Filters",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "APM Retention Filters"
   },
   "GetServiceList": {
-    "tag": "APM",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "APM"
   },
   "DeleteApps": {
-    "tag": "App Builder",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "App Builder"
   },
   "ListApps": {
-    "tag": "App Builder",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "App Builder"
   },
   "CreateApp": {
-    "tag": "App Builder",
-    "undo": {
-      "operationId": "DeleteApp",
-      "parameters": [
-        {
-          "name": "app_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "App Builder"
   },
   "DeleteApp": {
-    "tag": "App Builder",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "App Builder"
   },
   "GetApp": {
-    "tag": "App Builder",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "App Builder"
   },
   "UpdateApp": {
-    "tag": "App Builder",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "App Builder"
   },
   "UnpublishApp": {
-    "tag": "App Builder",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "App Builder"
   },
   "PublishApp": {
-    "tag": "App Builder",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "App Builder"
   },
   "ListApplicationKeys": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Key Management"
   },
   "DeleteApplicationKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Key Management"
   },
   "GetApplicationKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Key Management"
   },
   "UpdateApplicationKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Key Management"
   },
   "ListAuditLogs": {
-    "tag": "Audit",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Audit"
   },
   "SearchAuditLogs": {
-    "tag": "Audit",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Audit"
   },
   "ListAuthNMappings": {
-    "tag": "AuthN Mappings",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AuthN Mappings"
   },
   "CreateAuthNMapping": {
-    "tag": "AuthN Mappings",
-    "undo": {
-      "operationId": "DeleteAuthNMapping",
-      "parameters": [
-        {
-          "name": "authn_mapping_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "AuthN Mappings"
   },
   "DeleteAuthNMapping": {
-    "tag": "AuthN Mappings",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "AuthN Mappings"
   },
   "GetAuthNMapping": {
-    "tag": "AuthN Mappings",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AuthN Mappings"
   },
   "UpdateAuthNMapping": {
-    "tag": "AuthN Mappings",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "AuthN Mappings"
   },
   "SearchCases": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management"
   },
   "CreateCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management"
   },
   "GetProjects": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management"
   },
   "CreateProject": {
-    "tag": "Case Management",
-    "undo": {
-      "operationId": "DeleteProject",
-      "parameters": [
-        {
-          "name": "project_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Case Management"
   },
   "DeleteProject": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "GetProject": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management"
   },
   "UpdateProject": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "GetProjectNotificationRules": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management"
   },
   "CreateProjectNotificationRule": {
-    "tag": "Case Management",
-    "undo": {
-      "operationId": "DeleteProjectNotificationRule",
-      "parameters": [
-        {
-          "name": "project_id",
-          "source": "path.project_id"
-        },
-        {
-          "name": "notification_rule_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Case Management"
   },
   "DeleteProjectNotificationRule": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UpdateProjectNotificationRule": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "GetAllCaseTypes": {
-    "tag": "Case Management Type",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management Type"
   },
   "CreateCaseType": {
-    "tag": "Case Management Type",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management Type"
   },
   "GetAllCustomAttributes": {
-    "tag": "Case Management Attribute",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management Attribute"
   },
   "DeleteCaseType": {
-    "tag": "Case Management Type",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management Type"
   },
   "GetAllCustomAttributeConfigsByCaseType": {
-    "tag": "Case Management Attribute",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management Attribute"
   },
   "CreateCustomAttributeConfig": {
-    "tag": "Case Management Attribute",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management Attribute"
   },
   "DeleteCustomAttributeConfig": {
-    "tag": "Case Management Attribute",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management Attribute"
   },
   "GetCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management"
   },
   "ArchiveCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "AssignCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UpdateAttributes": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "CommentCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Case Management"
   },
   "DeleteCaseComment": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "DeleteCaseCustomAttribute": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UpdateCaseCustomAttribute": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UpdateCaseDescription": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UpdatePriority": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "LinkIncident": {
-    "tag": "Case Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Case Management"
   },
   "UnlinkJiraIssue": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "LinkJiraIssueToCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "CreateCaseJiraIssue": {
-    "tag": "Case Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Case Management"
   },
   "CreateCaseNotebook": {
-    "tag": "Case Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Case Management"
   },
   "MoveCaseToProject": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "CreateCaseServiceNowTicket": {
-    "tag": "Case Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Case Management"
   },
   "UpdateStatus": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UpdateCaseTitle": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UnarchiveCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "UnassignCase": {
-    "tag": "Case Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Case Management"
   },
   "ListCatalogEntity": {
-    "tag": "Software Catalog",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Software Catalog"
   },
   "UpsertCatalogEntity": {
-    "tag": "Software Catalog",
-    "undo": {
-      "operationId": "DeleteCatalogEntity",
-      "parameters": [
-        {
-          "name": "entity_id",
-          "source": "data[0].id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Software Catalog"
   },
   "PreviewCatalogEntities": {
-    "tag": "Software Catalog",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Software Catalog"
   },
   "DeleteCatalogEntity": {
-    "tag": "Software Catalog",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Software Catalog"
   },
   "ListCatalogKind": {
-    "tag": "Software Catalog",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Software Catalog"
   },
   "UpsertCatalogKind": {
-    "tag": "Software Catalog",
-    "undo": {
-      "operationId": "DeleteCatalogKind",
-      "parameters": [
-        {
-          "name": "kind_id",
-          "source": "data[0].id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Software Catalog"
   },
   "DeleteCatalogKind": {
-    "tag": "Software Catalog",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Software Catalog"
   },
   "ListCatalogRelation": {
-    "tag": "Software Catalog",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Software Catalog"
   },
   "CreateChangeRequest": {
-    "tag": "Change Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Change Management"
   },
   "GetChangeRequest": {
-    "tag": "Change Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Change Management"
   },
   "UpdateChangeRequest": {
-    "tag": "Change Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Change Management"
   },
   "CreateChangeRequestBranch": {
-    "tag": "Change Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Change Management"
   },
   "DeleteChangeRequestDecision": {
-    "tag": "Change Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Change Management"
   },
   "UpdateChangeRequestDecision": {
-    "tag": "Change Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Change Management"
   },
   "CreateCIAppPipelineEvent": {
-    "tag": "CI Visibility Pipelines",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "CI Visibility Pipelines"
   },
   "AggregateCIAppPipelineEvents": {
-    "tag": "CI Visibility Pipelines",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CI Visibility Pipelines"
   },
   "ListCIAppPipelineEvents": {
-    "tag": "CI Visibility Pipelines",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CI Visibility Pipelines"
   },
   "SearchCIAppPipelineEvents": {
-    "tag": "CI Visibility Pipelines",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CI Visibility Pipelines"
   },
   "AggregateCIAppTestEvents": {
-    "tag": "CI Visibility Tests",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CI Visibility Tests"
   },
   "ListCIAppTestEvents": {
-    "tag": "CI Visibility Tests",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CI Visibility Tests"
   },
   "SearchCIAppTestEvents": {
-    "tag": "CI Visibility Tests",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CI Visibility Tests"
   },
   "ListAWSCloudAuthPersonaMappings": {
-    "tag": "Cloud Authentication",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Authentication"
   },
   "CreateAWSCloudAuthPersonaMapping": {
-    "tag": "Cloud Authentication",
-    "undo": {
-      "operationId": "DeleteAWSCloudAuthPersonaMapping",
-      "parameters": [
-        {
-          "name": "persona_mapping_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Cloud Authentication"
   },
   "DeleteAWSCloudAuthPersonaMapping": {
-    "tag": "Cloud Authentication",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Authentication"
   },
   "GetAWSCloudAuthPersonaMapping": {
-    "tag": "Cloud Authentication",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Authentication"
   },
   "CreateCustomFramework": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DeleteCustomFramework",
-      "parameters": [
-        {
-          "name": "handle",
-          "source": "data.attributes.handle"
-        },
-        {
-          "name": "version",
-          "source": "data.attributes.version"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteCustomFramework": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetCustomFramework": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "UpdateCustomFramework": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetResourceEvaluationFilters": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "UpdateResourceEvaluationFilters": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetCodeCoverageBranchSummary": {
-    "tag": "Code Coverage",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Code Coverage"
   },
   "GetCodeCoverageCommitSummary": {
-    "tag": "Code Coverage",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Code Coverage"
   },
   "ListContainerImages": {
-    "tag": "Container Images",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Container Images"
   },
   "ListContainers": {
-    "tag": "Containers",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Containers"
   },
   "ListCustomAllocationRules": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "CreateCustomAllocationRule": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ReorderCustomAllocationRules": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "DeleteCustomAllocationRule": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetCustomAllocationRule": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "UpdateCustomAllocationRule": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ListCostAWSCURConfigs": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "CreateCostAWSCURConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "DeleteCostAWSCURConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetCostAWSCURConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "UpdateCostAWSCURConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ListCostAzureUCConfigs": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "CreateCostAzureUCConfigs": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "DeleteCostAzureUCConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetCostAzureUCConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "UpdateCostAzureUCConfigs": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "UpsertBudget": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "operationId": "DeleteBudget",
-      "parameters": [
-        {
-          "name": "budget_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ValidateCsvBudget": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ValidateBudget": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "DeleteBudget": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetBudget": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ListBudgets": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ListCustomCostsFiles": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "UploadCustomCostsFile": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "DeleteCustomCostsFile": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetCustomCostsFile": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ListCostGCPUsageCostConfigs": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "CreateCostGCPUsageCostConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "DeleteCostGCPUsageCostConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetCostGCPUsageCostConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "UpdateCostGCPUsageCostConfig": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetActiveBillingDimensions": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetMonthlyCostAttribution": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "ListAllCSMAgents": {
-    "tag": "CSM Agents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Agents"
   },
   "GetCSMCloudAccountsCoverageAnalysis": {
-    "tag": "CSM Coverage Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Coverage Analysis"
   },
   "GetCSMHostsAndContainersCoverageAnalysis": {
-    "tag": "CSM Coverage Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Coverage Analysis"
   },
   "GetCSMServerlessCoverageAnalysis": {
-    "tag": "CSM Coverage Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Coverage Analysis"
   },
   "ListAllCSMServerlessAgents": {
-    "tag": "CSM Agents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Agents"
   },
   "ListCurrentUserApplicationKeys": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Key Management"
   },
   "CreateCurrentUserApplicationKey": {
-    "tag": "Key Management",
-    "undo": {
-      "operationId": "DeleteCurrentUserApplicationKey",
-      "parameters": [
-        {
-          "name": "app_key_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Key Management"
   },
   "DeleteCurrentUserApplicationKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Key Management"
   },
   "GetCurrentUserApplicationKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Key Management"
   },
   "UpdateCurrentUserApplicationKey": {
-    "tag": "Key Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Key Management"
   },
   "DeleteDashboardListItems": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Dashboard Lists"
   },
   "GetDashboardListItems": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Dashboard Lists"
   },
   "CreateDashboardListItems": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Dashboard Lists"
   },
   "UpdateDashboardListItems": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Dashboard Lists"
   },
   "GetAllDatasets": {
-    "tag": "Datasets",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Datasets"
   },
   "CreateDataset": {
-    "tag": "Datasets",
-    "undo": {
-      "operationId": "DeleteDataset",
-      "parameters": [
-        {
-          "name": "dataset_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Datasets"
   },
   "DeleteDataset": {
-    "tag": "Datasets",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Datasets"
   },
   "GetDataset": {
-    "tag": "Datasets",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Datasets"
   },
   "UpdateDataset": {
-    "tag": "Datasets",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Datasets"
   },
   "CreateDataDeletionRequest": {
-    "tag": "Data Deletion",
-    "undo": {
-      "operationId": "CancelDataDeletionRequest",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Data Deletion"
   },
   "GetDataDeletionRequests": {
-    "tag": "Data Deletion",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Data Deletion"
   },
   "CancelDataDeletionRequest": {
-    "tag": "Data Deletion",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Data Deletion"
   },
   "CreateDeploymentGate": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "operationId": "DeleteDeploymentGate",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Deployment Gates"
   },
   "GetDeploymentGateRules": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Deployment Gates"
   },
   "CreateDeploymentRule": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "operationId": "DeleteDeploymentRule",
-      "parameters": [
-        {
-          "name": "gate_id",
-          "source": "data.attributes.gate_id"
-        },
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Deployment Gates"
   },
   "DeleteDeploymentRule": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Deployment Gates"
   },
   "GetDeploymentRule": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Deployment Gates"
   },
   "UpdateDeploymentRule": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Deployment Gates"
   },
   "DeleteDeploymentGate": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Deployment Gates"
   },
   "GetDeploymentGate": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Deployment Gates"
   },
   "UpdateDeploymentGate": {
-    "tag": "Deployment Gates",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Deployment Gates"
   },
   "GetDomainAllowlist": {
-    "tag": "Domain Allowlist",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Domain Allowlist"
   },
   "PatchDomainAllowlist": {
-    "tag": "Domain Allowlist",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Domain Allowlist"
   },
   "CreateDORADeployment": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "DORA Metrics"
   },
   "DeleteDORADeployment": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "DORA Metrics"
   },
   "ListDORADeployments": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "DORA Metrics"
   },
   "GetDORADeployment": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "DORA Metrics"
   },
   "PatchDORADeployment": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "DORA Metrics"
   },
   "CreateDORAFailure": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "DORA Metrics"
   },
   "DeleteDORAFailure": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "DORA Metrics"
   },
   "ListDORAFailures": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "DORA Metrics"
   },
   "GetDORAFailure": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "DORA Metrics"
   },
   "CreateDORAIncident": {
-    "tag": "DORA Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "DORA Metrics"
   },
   "ListDowntimes": {
-    "tag": "Downtimes",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Downtimes"
   },
   "CreateDowntime": {
-    "tag": "Downtimes",
-    "undo": {
-      "operationId": "CancelDowntime",
-      "parameters": [
-        {
-          "name": "downtime_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Downtimes"
   },
   "CancelDowntime": {
-    "tag": "Downtimes",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Downtimes"
   },
   "GetDowntime": {
-    "tag": "Downtimes",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Downtimes"
   },
   "UpdateDowntime": {
-    "tag": "Downtimes",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Downtimes"
   },
   "SearchIssues": {
-    "tag": "Error Tracking",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Error Tracking"
   },
   "GetIssue": {
-    "tag": "Error Tracking",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Error Tracking"
   },
   "DeleteIssueAssignee": {
-    "tag": "Error Tracking",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Error Tracking"
   },
   "UpdateIssueAssignee": {
-    "tag": "Error Tracking",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Error Tracking"
   },
   "UpdateIssueState": {
-    "tag": "Error Tracking",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Error Tracking"
   },
   "ListEvents": {
-    "tag": "Events",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Events"
   },
   "CreateEvent": {
-    "tag": "Events",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Events"
   },
   "SearchEvents": {
-    "tag": "Events",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Events"
   },
   "GetEvent": {
-    "tag": "Events",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Events"
   },
   "GetHamrOrgConnection": {
-    "tag": "High Availability MultiRegion",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "High Availability MultiRegion"
   },
   "CreateHamrOrgConnection": {
-    "tag": "High Availability MultiRegion",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "High Availability MultiRegion"
   },
   "ListIncidents": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncident": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncident",
-      "parameters": [
-        {
-          "name": "incident_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteGlobalIncidentHandle": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListGlobalIncidentHandles": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateGlobalIncidentHandle": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteGlobalIncidentHandle",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "UpdateGlobalIncidentHandle": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetGlobalIncidentSettings": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateGlobalIncidentSettings": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentNotificationRules": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentNotificationRule": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentNotificationRule",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentNotificationRule": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetIncidentNotificationRule": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncidentNotificationRule": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentNotificationTemplates": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentNotificationTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentNotificationTemplate",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentNotificationTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetIncidentNotificationTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncidentNotificationTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentPostmortemTemplates": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentPostmortemTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentPostmortemTemplate",
-      "parameters": [
-        {
-          "name": "template_id",
-          "source": "<RESPONSE_PATH>"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentPostmortemTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetIncidentPostmortemTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncidentPostmortemTemplate": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentTypes": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentType": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentType",
-      "parameters": [
-        {
-          "name": "incident_type_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentType": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetIncidentType": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncidentType": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ImportIncident": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncident",
-      "parameters": [
-        {
-          "name": "incident_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "SearchIncidents": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncident": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetIncident": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncident": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentAttachments": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentAttachment": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentAttachment",
-      "parameters": [
-        {
-          "name": "incident_id",
-          "source": "data.relationships.incident.data.id"
-        },
-        {
-          "name": "attachment_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentPostmortemAttachment": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentAttachment": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncidentAttachment": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentImpacts": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentImpact": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentImpact",
-      "parameters": [
-        {
-          "name": "incident_id",
-          "source": "data.relationships.incident.data.id"
-        },
-        {
-          "name": "impact_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentImpact": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentIntegrations": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentIntegration": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentIntegration",
-      "parameters": [
-        {
-          "name": "incident_id",
-          "source": "data.attributes.incident_id"
-        },
-        {
-          "name": "integration_metadata_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentIntegration": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetIncidentIntegration": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncidentIntegration": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListIncidentTodos": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "CreateIncidentTodo": {
-    "tag": "Incidents",
-    "undo": {
-      "operationId": "DeleteIncidentTodo",
-      "parameters": [
-        {
-          "name": "incident_id",
-          "source": "data.attributes.incident_id"
-        },
-        {
-          "name": "todo_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incidents"
   },
   "DeleteIncidentTodo": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "GetIncidentTodo": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incidents"
   },
   "UpdateIncidentTodo": {
-    "tag": "Incidents",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incidents"
   },
   "ListAWSAccounts": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "CreateAWSAccount": {
-    "tag": "AWS Integration",
-    "undo": {
-      "operationId": "DeleteAWSAccount",
-      "parameters": [
-        {
-          "name": "aws_account_config_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "AWS Integration"
   },
   "DeleteAWSAccount": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "AWS Integration"
   },
   "GetAWSAccount": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "UpdateAWSAccount": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "AWS Integration"
   },
   "DeleteAWSAccountCCMConfig": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "AWS Integration"
   },
   "GetAWSAccountCCMConfig": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "UpdateAWSAccountCCMConfig": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "AWS Integration"
   },
   "CreateAWSAccountCCMConfig": {
-    "tag": "AWS Integration",
-    "undo": {
-      "operationId": "DeleteAWSAccountCCMConfig",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "AWS Integration"
   },
   "ListAWSNamespaces": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "DeleteAWSEventBridgeSource": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "AWS Integration"
   },
   "ListAWSEventBridgeSources": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "CreateAWSEventBridgeSource": {
-    "tag": "AWS Integration",
-    "undo": {
-      "operationId": "DeleteAWSEventBridgeSource",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "AWS Integration"
   },
   "CreateNewAWSExternalID": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "GetAWSIntegrationIAMPermissions": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "GetAWSIntegrationIAMPermissionsResourceCollection": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "GetAWSIntegrationIAMPermissionsStandard": {
-    "tag": "AWS Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Integration"
   },
   "ListAWSLogsServices": {
-    "tag": "AWS Logs Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "AWS Logs Integration"
   },
   "ListGCPSTSAccounts": {
-    "tag": "GCP Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "GCP Integration"
   },
   "CreateGCPSTSAccount": {
-    "tag": "GCP Integration",
-    "undo": {
-      "operationId": "DeleteGCPSTSAccount",
-      "parameters": [
-        {
-          "name": "account_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "GCP Integration"
   },
   "DeleteGCPSTSAccount": {
-    "tag": "GCP Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "GCP Integration"
   },
   "UpdateGCPSTSAccount": {
-    "tag": "GCP Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "GCP Integration"
   },
   "GetGCPSTSDelegate": {
-    "tag": "GCP Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "GCP Integration"
   },
   "MakeGCPSTSDelegate": {
-    "tag": "GCP Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "GCP Integration"
   },
   "GetSpaceByDisplayName": {
-    "tag": "Google Chat Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Google Chat Integration"
   },
   "ListOrganizationHandles": {
-    "tag": "Google Chat Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Google Chat Integration"
   },
   "CreateOrganizationHandle": {
-    "tag": "Google Chat Integration",
-    "undo": {
-      "operationId": "DeleteOrganizationHandle",
-      "parameters": [
-        {
-          "name": "organization_binding_id",
-          "origin": "path",
-          "source": "organization_binding_id"
-        },
-        {
-          "name": "handle_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Google Chat Integration"
   },
   "DeleteOrganizationHandle": {
-    "tag": "Google Chat Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Google Chat Integration"
   },
   "GetOrganizationHandle": {
-    "tag": "Google Chat Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Google Chat Integration"
   },
   "UpdateOrganizationHandle": {
-    "tag": "Google Chat Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Google Chat Integration"
   },
   "ListJiraAccounts": {
-    "tag": "Jira Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Jira Integration"
   },
   "DeleteJiraAccount": {
-    "tag": "Jira Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Jira Integration"
   },
   "ListJiraIssueTemplates": {
-    "tag": "Jira Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Jira Integration"
   },
   "CreateJiraIssueTemplate": {
-    "tag": "Jira Integration",
-    "undo": {
-      "operationId": "DeleteJiraIssueTemplate",
-      "parameters": [
-        {
-          "name": "issue_template_id",
-          "source": "<RESPONSE_PATH>"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Jira Integration"
   },
   "DeleteJiraIssueTemplate": {
-    "tag": "Jira Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Jira Integration"
   },
   "GetJiraIssueTemplate": {
-    "tag": "Jira Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Jira Integration"
   },
   "UpdateJiraIssueTemplate": {
-    "tag": "Jira Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Jira Integration"
   },
   "GetChannelByName": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "ListTenantBasedHandles": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "CreateTenantBasedHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "operationId": "DeleteTenantBasedHandle",
-      "parameters": [
-        {
-          "name": "handle_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "DeleteTenantBasedHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "GetTenantBasedHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "UpdateTenantBasedHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "ListWorkflowsWebhookHandles": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "CreateWorkflowsWebhookHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "operationId": "DeleteWorkflowsWebhookHandle",
-      "parameters": [
-        {
-          "name": "handle_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "DeleteWorkflowsWebhookHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "GetWorkflowsWebhookHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "UpdateWorkflowsWebhookHandle": {
-    "tag": "Microsoft Teams Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Microsoft Teams Integration"
   },
   "ListTenancyProducts": {
-    "tag": "OCI Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "OCI Integration"
   },
   "GetTenancyConfigs": {
-    "tag": "OCI Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "OCI Integration"
   },
   "CreateTenancyConfig": {
-    "tag": "OCI Integration",
-    "undo": {
-      "operationId": "DeleteTenancyConfig",
-      "parameters": [
-        {
-          "name": "tenancy_ocid",
-          "source": "<RESPONSE_PATH>"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "OCI Integration"
   },
   "DeleteTenancyConfig": {
-    "tag": "OCI Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "OCI Integration"
   },
   "GetTenancyConfig": {
-    "tag": "OCI Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "OCI Integration"
   },
   "UpdateTenancyConfig": {
-    "tag": "OCI Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "OCI Integration"
   },
   "ListOpsgenieServices": {
-    "tag": "Opsgenie Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Opsgenie Integration"
   },
   "CreateOpsgenieService": {
-    "tag": "Opsgenie Integration",
-    "undo": {
-      "operationId": "DeleteOpsgenieService",
-      "parameters": [
-        {
-          "name": "integration_service_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Opsgenie Integration"
   },
   "DeleteOpsgenieService": {
-    "tag": "Opsgenie Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Opsgenie Integration"
   },
   "GetOpsgenieService": {
-    "tag": "Opsgenie Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Opsgenie Integration"
   },
   "UpdateOpsgenieService": {
-    "tag": "Opsgenie Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Opsgenie Integration"
   },
   "ListServiceNowAssignmentGroups": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "ServiceNow Integration"
   },
   "ListServiceNowBusinessServices": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "ServiceNow Integration"
   },
   "ListServiceNowTemplates": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "ServiceNow Integration"
   },
   "CreateServiceNowTemplate": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "operationId": "DeleteServiceNowTemplate",
-      "parameters": [
-        {
-          "name": "template_id",
-          "source": "<RESPONSE_PATH>"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "ServiceNow Integration"
   },
   "DeleteServiceNowTemplate": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "ServiceNow Integration"
   },
   "GetServiceNowTemplate": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "ServiceNow Integration"
   },
   "UpdateServiceNowTemplate": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "ServiceNow Integration"
   },
   "ListServiceNowInstances": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "ServiceNow Integration"
   },
   "ListServiceNowUsers": {
-    "tag": "ServiceNow Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "ServiceNow Integration"
   },
   "ListIntegrations": {
-    "tag": "Integrations",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Integrations"
   },
   "ListCloudflareAccounts": {
-    "tag": "Cloudflare Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloudflare Integration"
   },
   "CreateCloudflareAccount": {
-    "tag": "Cloudflare Integration",
-    "undo": {
-      "operationId": "DeleteCloudflareAccount",
-      "parameters": [
-        {
-          "name": "account_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Cloudflare Integration"
   },
   "DeleteCloudflareAccount": {
-    "tag": "Cloudflare Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloudflare Integration"
   },
   "GetCloudflareAccount": {
-    "tag": "Cloudflare Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloudflare Integration"
   },
   "UpdateCloudflareAccount": {
-    "tag": "Cloudflare Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloudflare Integration"
   },
   "ListConfluentAccount": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "CreateConfluentAccount": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "operationId": "DeleteConfluentAccount",
-      "parameters": [
-        {
-          "name": "account_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Confluent Cloud"
   },
   "DeleteConfluentAccount": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "GetConfluentAccount": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "UpdateConfluentAccount": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "ListConfluentResource": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "CreateConfluentResource": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "DeleteConfluentResource": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "GetConfluentResource": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Confluent Cloud"
   },
   "UpdateConfluentResource": {
-    "tag": "Confluent Cloud",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Confluent Cloud"
   },
   "ListFastlyAccounts": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fastly Integration"
   },
   "CreateFastlyAccount": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "operationId": "DeleteFastlyAccount",
-      "parameters": [
-        {
-          "name": "account_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Fastly Integration"
   },
   "DeleteFastlyAccount": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Fastly Integration"
   },
   "GetFastlyAccount": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fastly Integration"
   },
   "UpdateFastlyAccount": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Fastly Integration"
   },
   "ListFastlyServices": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fastly Integration"
   },
   "CreateFastlyService": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "operationId": "DeleteFastlyService",
-      "parameters": [
-        {
-          "name": "account_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Fastly Integration"
   },
   "DeleteFastlyService": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fastly Integration"
   },
   "GetFastlyService": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fastly Integration"
   },
   "UpdateFastlyService": {
-    "tag": "Fastly Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Fastly Integration"
   },
   "ListOktaAccounts": {
-    "tag": "Okta Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Okta Integration"
   },
   "CreateOktaAccount": {
-    "tag": "Okta Integration",
-    "undo": {
-      "operationId": "DeleteOktaAccount",
-      "parameters": [
-        {
-          "name": "account_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Okta Integration"
   },
   "DeleteOktaAccount": {
-    "tag": "Okta Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Okta Integration"
   },
   "GetOktaAccount": {
-    "tag": "Okta Integration",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Okta Integration"
   },
   "UpdateOktaAccount": {
-    "tag": "Okta Integration",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Okta Integration"
   },
   "GetIPAllowlist": {
-    "tag": "IP Allowlist",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "IP Allowlist"
   },
   "UpdateIPAllowlist": {
-    "tag": "IP Allowlist",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "IP Allowlist"
   },
   "ListLLMObsExperiments": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "LLM Observability"
   },
   "CreateLLMObsExperiment": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "DeleteLLMObsExperiments": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "UpdateLLMObsExperiment": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "LLM Observability"
   },
   "CreateLLMObsExperimentEvents": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "ListLLMObsProjects": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "LLM Observability"
   },
   "CreateLLMObsProject": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "DeleteLLMObsProjects": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "UpdateLLMObsProject": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "LLM Observability"
   },
   "ListLLMObsDatasets": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "LLM Observability"
   },
   "CreateLLMObsDataset": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "DeleteLLMObsDatasets": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "UpdateLLMObsDataset": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "LLM Observability"
   },
   "ListLLMObsDatasetRecords": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "LLM Observability"
   },
   "UpdateLLMObsDatasetRecords": {
-    "tag": "LLM Observability",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "LLM Observability"
   },
   "CreateLLMObsDatasetRecords": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "DeleteLLMObsDatasetRecords",
-      "parameters": [
-        {
-          "name": "TODO",
-          "source": "<RESPONSE_PATH>"
-        },
-        {
-          "name": "TODO",
-          "source": "<RESPONSE_PATH>"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "DeleteLLMObsDatasetRecords": {
-    "tag": "LLM Observability",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "LLM Observability"
   },
   "SubmitLog": {
-    "tag": "Logs",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs"
   },
   "AggregateLogs": {
-    "tag": "Logs",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs"
   },
   "GetLogsArchiveOrder": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Archives"
   },
   "UpdateLogsArchiveOrder": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Archives"
   },
   "ListLogsArchives": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Archives"
   },
   "CreateLogsArchive": {
-    "tag": "Logs Archives",
-    "undo": {
-      "operationId": "DeleteLogsArchive",
-      "parameters": [
-        {
-          "name": "archive_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Logs Archives"
   },
   "DeleteLogsArchive": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Archives"
   },
   "GetLogsArchive": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Archives"
   },
   "UpdateLogsArchive": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Archives"
   },
   "RemoveRoleFromArchive": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Archives"
   },
   "ListArchiveReadRoles": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Archives"
   },
   "AddReadRoleToArchive": {
-    "tag": "Logs Archives",
-    "undo": {
-      "type": "unsafe"
-    }
+    "tag": "Logs Archives"
   },
   "ListLogsCustomDestinations": {
-    "tag": "Logs Custom Destinations",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Custom Destinations"
   },
   "CreateLogsCustomDestination": {
-    "tag": "Logs Custom Destinations",
-    "undo": {
-      "operationId": "DeleteLogsCustomDestination",
-      "parameters": [
-        {
-          "name": "custom_destination_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Logs Custom Destinations"
   },
   "DeleteLogsCustomDestination": {
-    "tag": "Logs Custom Destinations",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Custom Destinations"
   },
   "GetLogsCustomDestination": {
-    "tag": "Logs Custom Destinations",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Custom Destinations"
   },
   "UpdateLogsCustomDestination": {
-    "tag": "Logs Custom Destinations",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Custom Destinations"
   },
   "ListLogsMetrics": {
-    "tag": "Logs Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Metrics"
   },
   "CreateLogsMetric": {
-    "tag": "Logs Metrics",
-    "undo": {
-      "operationId": "DeleteLogsMetric",
-      "parameters": [
-        {
-          "name": "metric_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Logs Metrics"
   },
   "DeleteLogsMetric": {
-    "tag": "Logs Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Metrics"
   },
   "GetLogsMetric": {
-    "tag": "Logs Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Metrics"
   },
   "UpdateLogsMetric": {
-    "tag": "Logs Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Metrics"
   },
   "ListRestrictionQueries": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "CreateRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "operationId": "DeleteRestrictionQuery",
-      "parameters": [
-        {
-          "name": "restriction_query_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "GetRoleRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "ListUserRestrictionQueries": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "DeleteRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "GetRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "UpdateRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "ReplaceRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "RemoveRoleFromRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "ListRestrictionQueryRoles": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "AddRoleToRestrictionQuery": {
-    "tag": "Logs Restriction Queries",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs Restriction Queries"
   },
   "ListLogsGet": {
-    "tag": "Logs",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs"
   },
   "ListLogs": {
-    "tag": "Logs",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Logs"
   },
   "ListTagConfigurations": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "DeleteBulkTagsMetricsConfiguration": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Metrics"
   },
   "CreateBulkTagsMetricsConfiguration": {
-    "tag": "Metrics",
-    "undo": {
-      "operationId": "DeleteBulkTagsMetricsConfiguration",
-      "parameters": [
-        {
-          "name": "body",
-          "template": "{\n  \"data\": {\n    \"id\":\"{{ data.id }}\",\n    \"type\":\"metric_bulk_configure_tags\",\n    \"attributes\": {\n      \"emails\": [\"{{ data.attributes.emails[0] }}\"]\n    }\n  }\n}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Metrics"
   },
   "ListActiveMetricConfigurations": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "ListTagsByMetricName": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "ListMetricAssets": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "EstimateMetricsOutputSeries": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "GetMetricTagCardinalityDetails": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "DeleteTagConfiguration": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Metrics"
   },
   "ListTagConfigurationByName": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "UpdateTagConfiguration": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Metrics"
   },
   "CreateTagConfiguration": {
-    "tag": "Metrics",
-    "undo": {
-      "operationId": "DeleteTagConfiguration",
-      "parameters": [
-        {
-          "name": "metric_name",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Metrics"
   },
   "ListVolumesByMetricName": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "GetMonitorNotificationRules": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Monitors"
   },
   "CreateMonitorNotificationRule": {
-    "tag": "Monitors",
-    "undo": {
-      "operationId": "DeleteMonitorNotificationRule",
-      "parameters": [
-        {
-          "name": "rule_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Monitors"
   },
   "DeleteMonitorNotificationRule": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "GetMonitorNotificationRule": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Monitors"
   },
   "UpdateMonitorNotificationRule": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "ListMonitorConfigPolicies": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Monitors"
   },
   "CreateMonitorConfigPolicy": {
-    "tag": "Monitors",
-    "undo": {
-      "operationId": "DeleteMonitorConfigPolicy",
-      "parameters": [
-        {
-          "name": "policy_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Monitors"
   },
   "DeleteMonitorConfigPolicy": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "GetMonitorConfigPolicy": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Monitors"
   },
   "UpdateMonitorConfigPolicy": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "ListMonitorUserTemplates": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Monitors"
   },
   "CreateMonitorUserTemplate": {
-    "tag": "Monitors",
-    "undo": {
-      "operationId": "DeleteMonitorUserTemplate",
-      "parameters": [
-        {
-          "name": "template_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Monitors"
   },
   "ValidateMonitorUserTemplate": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "DeleteMonitorUserTemplate": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "GetMonitorUserTemplate": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Monitors"
   },
   "UpdateMonitorUserTemplate": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "ValidateExistingMonitorUserTemplate": {
-    "tag": "Monitors",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Monitors"
   },
   "ListMonitorDowntimes": {
-    "tag": "Downtimes",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Downtimes"
   },
   "ListDevices": {
-    "tag": "Network Device Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Network Device Monitoring"
   },
   "GetDevice": {
-    "tag": "Network Device Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Network Device Monitoring"
   },
   "GetInterfaces": {
-    "tag": "Network Device Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Network Device Monitoring"
   },
   "ListDeviceUserTags": {
-    "tag": "Network Device Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Network Device Monitoring"
   },
   "UpdateDeviceUserTags": {
-    "tag": "Network Device Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Network Device Monitoring"
   },
   "ListInterfaceUserTags": {
-    "tag": "Network Device Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Network Device Monitoring"
   },
   "UpdateInterfaceUserTags": {
-    "tag": "Network Device Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Network Device Monitoring"
   },
   "GetAggregatedConnections": {
-    "tag": "Cloud Network Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Network Monitoring"
   },
   "GetAggregatedDns": {
-    "tag": "Cloud Network Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Network Monitoring"
   },
   "ListPipelines": {
-    "tag": "Observability Pipelines",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Observability Pipelines"
   },
   "CreatePipeline": {
-    "tag": "Observability Pipelines",
-    "undo": {
-      "operationId": "DeletePipeline",
-      "parameters": [
-        {
-          "name": "pipeline_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Observability Pipelines"
   },
   "ValidatePipeline": {
-    "tag": "Observability Pipelines",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Observability Pipelines"
   },
   "DeletePipeline": {
-    "tag": "Observability Pipelines",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Observability Pipelines"
   },
   "GetPipeline": {
-    "tag": "Observability Pipelines",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Observability Pipelines"
   },
   "UpdatePipeline": {
-    "tag": "Observability Pipelines",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Observability Pipelines"
   },
   "CreateOnCallEscalationPolicy": {
-    "tag": "On-Call",
-    "undo": {
-      "operationId": "DeleteOnCallEscalationPolicy",
-      "parameters": [
-        {
-          "name": "policy_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "On-Call"
   },
   "DeleteOnCallEscalationPolicy": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "On-Call"
   },
   "GetOnCallEscalationPolicy": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "UpdateOnCallEscalationPolicy": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "On-Call"
   },
   "CreateOnCallPage": {
-    "tag": "On-Call Paging",
-    "undo": {
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "On-Call Paging"
   },
   "AcknowledgeOnCallPage": {
-    "tag": "On-Call Paging",
-    "undo": {
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "On-Call Paging"
   },
   "EscalateOnCallPage": {
-    "tag": "On-Call Paging",
-    "undo": {
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "On-Call Paging"
   },
   "ResolveOnCallPage": {
-    "tag": "On-Call Paging",
-    "undo": {
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "On-Call Paging"
   },
   "CreateOnCallSchedule": {
-    "tag": "On-Call",
-    "undo": {
-      "operationId": "DeleteOnCallSchedule",
-      "parameters": [
-        {
-          "name": "schedule_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "On-Call"
   },
   "DeleteOnCallSchedule": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "On-Call"
   },
   "GetOnCallSchedule": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "UpdateOnCallSchedule": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "On-Call"
   },
   "GetScheduleOnCallUser": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "GetTeamOnCallUsers": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "GetOnCallTeamRoutingRules": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "SetOnCallTeamRoutingRules": {
-    "tag": "On-Call",
-    "undo": {
-      "operationId": "SetOnCallTeamRoutingRules",
-      "parameters": [
-        {
-          "name": "team_id",
-          "source": "data.id"
-        },
-        {
-          "name": "body",
-          "template": "{\n  \"data\": {\n    \"type\": \"team_routing_rules\",\n    \"id\": \"{{ data.id }}\",\n    \"attributes\": {\n      \"rules\": []\n    }\n  }\n}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "On-Call"
   },
   "ListUserNotificationChannels": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "CreateUserNotificationChannel": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "DeleteUserNotificationChannel": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "On-Call"
   },
   "GetUserNotificationChannel": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "ListUserNotificationRules": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "CreateUserNotificationRule": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "DeleteUserNotificationRule": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "On-Call"
   },
   "GetUserNotificationRule": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "UpdateUserNotificationRule": {
-    "tag": "On-Call",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "On-Call"
   },
   "ListOrgConfigs": {
-    "tag": "Organizations",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Organizations"
   },
   "GetOrgConfig": {
-    "tag": "Organizations",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Organizations"
   },
   "UpdateOrgConfig": {
-    "tag": "Organizations",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Organizations"
   },
   "ListOrgConnections": {
-    "tag": "Org Connections",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Org Connections"
   },
   "CreateOrgConnections": {
-    "tag": "Org Connections",
-    "undo": {
-      "operationId": "DeleteOrgConnections",
-      "parameters": [
-        {
-          "name": "connection_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Org Connections"
   },
   "DeleteOrgConnections": {
-    "tag": "Org Connections",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Org Connections"
   },
   "UpdateOrgConnections": {
-    "tag": "Org Connections",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Org Connections"
   },
   "ListPermissions": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "ListFindings": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "MuteFindings": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetFinding": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ListPowerpacks": {
-    "tag": "Powerpack",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Powerpack"
   },
   "CreatePowerpack": {
-    "tag": "Powerpack",
-    "undo": {
-      "operationId": "DeletePowerpack",
-      "parameters": [
-        {
-          "name": "powerpack_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Powerpack"
   },
   "DeletePowerpack": {
-    "tag": "Powerpack",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Powerpack"
   },
   "GetPowerpack": {
-    "tag": "Powerpack",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Powerpack"
   },
   "UpdatePowerpack": {
-    "tag": "Powerpack",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Powerpack"
   },
   "ListProcesses": {
-    "tag": "Processes",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Processes"
   },
   "SubmitProductAnalyticsEvent": {
-    "tag": "Product Analytics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Product Analytics"
   },
   "GetAccountFacetInfo": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Rum Audience Management"
   },
   "QueryAccounts": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Rum Audience Management"
   },
   "QueryProductAnalyticsScalar": {
-    "tag": "Product Analytics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Product Analytics"
   },
   "QueryProductAnalyticsTimeseries": {
-    "tag": "Product Analytics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Product Analytics"
   },
   "QueryEventFilteredUsers": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Rum Audience Management"
   },
   "GetUserFacetInfo": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Rum Audience Management"
   },
   "QueryUsers": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Rum Audience Management"
   },
   "GetMapping": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Audience Management"
   },
   "CreateConnection": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "operationId": "DeleteConnection",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "<RESPONSE_PATH>"
-        },
-        {
-          "name": "entity",
-          "source": "<RESPONSE_PATH>"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Rum Audience Management"
   },
   "UpdateConnection": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Audience Management"
   },
   "DeleteConnection": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Audience Management"
   },
   "ListConnections": {
-    "tag": "Rum Audience Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Audience Management"
   },
   "QueryScalarData": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Metrics"
   },
   "QueryTimeseriesData": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Metrics"
   },
   "BatchRowsQuery": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Reference Tables"
   },
   "ListTables": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Reference Tables"
   },
   "CreateReferenceTable": {
-    "tag": "Reference Tables",
-    "undo": {
-      "operationId": "DeleteTable",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Reference Tables"
   },
   "DeleteTable": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Reference Tables"
   },
   "GetTable": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Reference Tables"
   },
   "UpdateReferenceTable": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Reference Tables"
   },
   "DeleteRows": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Reference Tables"
   },
   "GetRowsByID": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Reference Tables"
   },
   "UpsertRows": {
-    "tag": "Reference Tables",
-    "undo": {
-      "operationId": "DeleteRows",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Reference Tables"
   },
   "CreateReferenceTableUpload": {
-    "tag": "Reference Tables",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Reference Tables"
   },
   "ListApplicationSecurityWAFCustomRules": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Application Security"
   },
   "CreateApplicationSecurityWafCustomRule": {
-    "tag": "Application Security",
-    "undo": {
-      "operationId": "DeleteApplicationSecurityWafCustomRule",
-      "parameters": [
-        {
-          "name": "custom_rule_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Application Security"
   },
   "DeleteApplicationSecurityWafCustomRule": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Application Security"
   },
   "GetApplicationSecurityWafCustomRule": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Application Security"
   },
   "UpdateApplicationSecurityWafCustomRule": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Application Security"
   },
   "ListApplicationSecurityWafExclusionFilters": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Application Security"
   },
   "CreateApplicationSecurityWafExclusionFilter": {
-    "tag": "Application Security",
-    "undo": {
-      "operationId": "DeleteApplicationSecurityWafExclusionFilter",
-      "parameters": [
-        {
-          "name": "exclusion_filter_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Application Security"
   },
   "DeleteApplicationSecurityWafExclusionFilter": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Application Security"
   },
   "GetApplicationSecurityWafExclusionFilter": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Application Security"
   },
   "UpdateApplicationSecurityWafExclusionFilter": {
-    "tag": "Application Security",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Application Security"
   },
   "ListCSMThreatsAgentRules": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "CreateCSMThreatsAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "operationId": "DeleteCSMThreatsAgentRule",
-      "parameters": [
-        {
-          "name": "agent_rule_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "CSM Threats"
   },
   "DeleteCSMThreatsAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "CSM Threats"
   },
   "GetCSMThreatsAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "UpdateCSMThreatsAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "CSM Threats"
   },
   "ListCSMThreatsAgentPolicies": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "CreateCSMThreatsAgentPolicy": {
-    "tag": "CSM Threats",
-    "undo": {
-      "operationId": "DeleteCSMThreatsAgentPolicy",
-      "parameters": [
-        {
-          "name": "policy_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "CSM Threats"
   },
   "DownloadCSMThreatsPolicy": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "DeleteCSMThreatsAgentPolicy": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "CSM Threats"
   },
   "GetCSMThreatsAgentPolicy": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "UpdateCSMThreatsAgentPolicy": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "CSM Threats"
   },
   "ListReplayHeatmapSnapshots": {
-    "tag": "Rum Replay Heatmaps",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Replay Heatmaps"
   },
   "CreateReplayHeatmapSnapshot": {
-    "tag": "Rum Replay Heatmaps",
-    "undo": {
-      "operationId": "DeleteReplayHeatmapSnapshot",
-      "parameters": [
-        {
-          "name": "snapshot_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Rum Replay Heatmaps"
   },
   "DeleteReplayHeatmapSnapshot": {
-    "tag": "Rum Replay Heatmaps",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Heatmaps"
   },
   "UpdateReplayHeatmapSnapshot": {
-    "tag": "Rum Replay Heatmaps",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Heatmaps"
   },
   "DeleteRestrictionPolicy": {
-    "tag": "Restriction Policies",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Restriction Policies"
   },
   "GetRestrictionPolicy": {
-    "tag": "Restriction Policies",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Restriction Policies"
   },
   "UpdateRestrictionPolicy": {
-    "tag": "Restriction Policies",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Restriction Policies"
   },
   "ListRoles": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "CreateRole": {
-    "tag": "Roles",
-    "undo": {
-      "operationId": "DeleteRole",
-      "parameters": [
-        {
-          "name": "role_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Roles"
   },
   "ListRoleTemplates": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "DeleteRole": {
-    "tag": "Roles",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Roles"
   },
   "GetRole": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "UpdateRole": {
-    "tag": "Roles",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Roles"
   },
   "CloneRole": {
-    "tag": "Roles",
-    "undo": {
-      "operationId": "DeleteRole",
-      "parameters": [
-        {
-          "name": "role_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Roles"
   },
   "RemovePermissionFromRole": {
-    "tag": "Roles",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Roles"
   },
   "ListRolePermissions": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "AddPermissionToRole": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "RemoveUserFromRole": {
-    "tag": "Roles",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Roles"
   },
   "ListRoleUsers": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "AddUserToRole": {
-    "tag": "Roles",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Roles"
   },
   "AggregateRUMEvents": {
-    "tag": "RUM",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "RUM"
   },
   "GetRUMApplications": {
-    "tag": "RUM",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "RUM"
   },
   "CreateRUMApplication": {
-    "tag": "RUM",
-    "undo": {
-      "operationId": "DeleteRUMApplication",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "RUM"
   },
   "OrderRetentionFilters": {
-    "tag": "Rum Retention Filters",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Retention Filters"
   },
   "ListRetentionFilters": {
-    "tag": "Rum Retention Filters",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Retention Filters"
   },
   "CreateRetentionFilter": {
-    "tag": "Rum Retention Filters",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Retention Filters"
   },
   "DeleteRetentionFilter": {
-    "tag": "Rum Retention Filters",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Retention Filters"
   },
   "GetRetentionFilter": {
-    "tag": "Rum Retention Filters",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Retention Filters"
   },
   "UpdateRetentionFilter": {
-    "tag": "Rum Retention Filters",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Retention Filters"
   },
   "DeleteRUMApplication": {
-    "tag": "RUM",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "RUM"
   },
   "GetRUMApplication": {
-    "tag": "RUM",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "RUM"
   },
   "UpdateRUMApplication": {
-    "tag": "RUM",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "RUM"
   },
   "ListRumMetrics": {
-    "tag": "Rum Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Metrics"
   },
   "CreateRumMetric": {
-    "tag": "Rum Metrics",
-    "undo": {
-      "operationId": "DeleteRumMetric",
-      "parameters": [
-        {
-          "name": "metric_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Rum Metrics"
   },
   "DeleteRumMetric": {
-    "tag": "Rum Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Metrics"
   },
   "GetRumMetric": {
-    "tag": "Rum Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Metrics"
   },
   "UpdateRumMetric": {
-    "tag": "Rum Metrics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Metrics"
   },
   "ListRUMEvents": {
-    "tag": "RUM",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "RUM"
   },
   "SearchRUMEvents": {
-    "tag": "RUM",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "RUM"
   },
   "ListRumReplayPlaylists": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "CreateRumReplayPlaylist": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "operationId": "DeleteRumReplayPlaylist",
-      "parameters": [
-        {
-          "name": "playlist_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "DeleteRumReplayPlaylist": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "GetRumReplayPlaylist": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "UpdateRumReplayPlaylist": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "BulkRemoveRumReplayPlaylistSessions": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "ListRumReplayPlaylistSessions": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "RemoveRumReplaySessionFromPlaylist": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "AddRumReplaySessionToPlaylist": {
-    "tag": "Rum Replay Playlists",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Playlists"
   },
   "GetSegments": {
-    "tag": "Rum Replay Sessions",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Replay Sessions"
   },
   "ListRumReplaySessionWatchers": {
-    "tag": "Rum Replay Viewership",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Replay Viewership"
   },
   "DeleteRumReplaySessionWatch": {
-    "tag": "Rum Replay Viewership",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Rum Replay Viewership"
   },
   "CreateRumReplaySessionWatch": {
-    "tag": "Rum Replay Viewership",
-    "undo": {
-      "operationId": "DeleteRumReplaySessionWatch",
-      "parameters": [
-        {
-          "name": "session_id",
-          "origin": "path",
-          "source": "session_id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Rum Replay Viewership"
   },
   "ListRumReplayViewershipHistorySessions": {
-    "tag": "Rum Replay Viewership",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Rum Replay Viewership"
   },
   "UploadIdPMetadata": {
-    "tag": "Organizations",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Organizations"
   },
   "ListScorecardOutcomes": {
-    "tag": "Service Scorecards",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Scorecards"
   },
   "UpdateScorecardOutcomesAsync": {
-    "tag": "Service Scorecards",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Service Scorecards"
   },
   "CreateScorecardOutcomesBatch": {
-    "tag": "Service Scorecards",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Service Scorecards"
   },
   "ListScorecardRules": {
-    "tag": "Service Scorecards",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Scorecards"
   },
   "CreateScorecardRule": {
-    "tag": "Service Scorecards",
-    "undo": {
-      "operationId": "DeleteScorecardRule",
-      "parameters": [
-        {
-          "name": "rule_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Service Scorecards"
   },
   "DeleteScorecardRule": {
-    "tag": "Service Scorecards",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Service Scorecards"
   },
   "UpdateScorecardRule": {
-    "tag": "Service Scorecards",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Service Scorecards"
   },
   "UnassignSeatsUser": {
-    "tag": "Seats",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Seats"
   },
   "GetSeatsUsers": {
-    "tag": "Seats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Seats"
   },
   "AssignSeatsUser": {
-    "tag": "Seats",
-    "undo": {
-      "operationId": "UnassignSeatsUser",
-      "parameters": [
-        {
-          "name": "body",
-          "template": "{\"data\": {\"type\": \"seat-assignments\", \"attributes\": {\"product_code\": \"{{ data.attributes.product_code }}\", \"user_uuids\": {{ data.attributes.assigned_ids }}}}}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Seats"
   },
   "ListEntityRiskScores": {
-    "tag": "Entity Risk Scores",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Entity Risk Scores"
   },
   "DownloadCloudWorkloadPolicyFile": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "ListSecurityFindings": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "DetachCase": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateCases": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DetachCase",
-      "parameters": [
-        {
-          "name": "body",
-          "template": "{\n  \"data\": {\n    \"type\": \"cases\",\n    \"relationships\": {\n      \"findings\": {\n        \"data\": [\n          {\n              \"type\": \"findings\",\n              \"id\": \"{{data[0].attributes.insights[0].resource_id}}\"\n          }\n        ]\n      }\n    }\n  }\n}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "AttachCase": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "AttachJiraIssue": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateJiraIssues": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DetachCase",
-      "parameters": [
-        {
-          "name": "body",
-          "template": "{\n  \"data\": {\n    \"type\": \"cases\",\n    \"relationships\": {\n      \"findings\": {\n        \"data\": [\n          {\n              \"type\": \"findings\",\n              \"id\": \"{{data[0].attributes.insights[0].resource_id}}\"\n          }\n        ]\n      }\n    }\n  }\n}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "SearchSecurityFindings": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ListAssetsSBOMs": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSBOM": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ListScannedAssetsMetadata": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSignalNotificationRules": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateSignalNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DeleteSignalNotificationRule",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteSignalNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSignalNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "PatchSignalNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ListVulnerabilities": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetVulnerabilityNotificationRules": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateVulnerabilityNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DeleteVulnerabilityNotificationRule",
-      "parameters": [
-        {
-          "name": "id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteVulnerabilityNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetVulnerabilityNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "PatchVulnerabilityNotificationRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ListVulnerableAssets": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ListCloudWorkloadSecurityAgentRules": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "CreateCloudWorkloadSecurityAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "operationId": "DeleteCloudWorkloadSecurityAgentRule",
-      "parameters": [
-        {
-          "name": "agent_rule_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "CSM Threats"
   },
   "DeleteCloudWorkloadSecurityAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "CSM Threats"
   },
   "GetCloudWorkloadSecurityAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "CSM Threats"
   },
   "UpdateCloudWorkloadSecurityAgentRule": {
-    "tag": "CSM Threats",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "CSM Threats"
   },
   "ListSecurityMonitoringCriticalAssets": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateSecurityMonitoringCriticalAsset": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DeleteSecurityMonitoringCriticalAsset",
-      "parameters": [
-        {
-          "name": "critical_asset_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetCriticalAssetsAffectingRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteSecurityMonitoringCriticalAsset": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecurityMonitoringCriticalAsset": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "UpdateSecurityMonitoringCriticalAsset": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ListSecurityFilters": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateSecurityFilter": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DeleteSecurityFilter",
-      "parameters": [
-        {
-          "name": "security_filter_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteSecurityFilter": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecurityFilter": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "UpdateSecurityFilter": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ListSecurityMonitoringSuppressions": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateSecurityMonitoringSuppression": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DeleteSecurityMonitoringSuppression",
-      "parameters": [
-        {
-          "name": "suppression_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSuppressionsAffectingFutureRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSuppressionsAffectingRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ValidateSecurityMonitoringSuppression": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteSecurityMonitoringSuppression": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecurityMonitoringSuppression": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "UpdateSecurityMonitoringSuppression": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSuppressionVersionHistory": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetContentPacksStates": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ActivateContentPack": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "DeactivateContentPack": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ListSecurityMonitoringRules": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "DeleteSecurityMonitoringRule",
-      "parameters": [
-        {
-          "name": "rule_id",
-          "source": "id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "BulkExportSecurityMonitoringRules": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ConvertSecurityMonitoringRuleFromJSONToTerraform": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "TestSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ValidateSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "UpdateSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ConvertExistingSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "TestExistingSecurityMonitoringRule": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetRuleVersionHistory": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ListSecurityMonitoringSignals": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "SearchSecurityMonitoringSignals": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecurityMonitoringSignal": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "EditSecurityMonitoringSignalAssignee": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "EditSecurityMonitoringSignalIncidents": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "EditSecurityMonitoringSignalState": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ListScanningGroups": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "ReorderScanningGroups": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "CreateScanningGroup": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "operationId": "DeleteScanningGroup",
-      "parameters": [
-        {
-          "name": "group_id",
-          "source": "data.id"
-        },
-        {
-          "name": "body",
-          "template": "{\n  \"meta\": {}\n}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "DeleteScanningGroup": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "UpdateScanningGroup": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "CreateScanningRule": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "operationId": "DeleteScanningRule",
-      "parameters": [
-        {
-          "name": "rule_id",
-          "source": "data.id"
-        },
-        {
-          "name": "body",
-          "template": "{\n  \"meta\": {}\n}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "DeleteScanningRule": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "UpdateScanningRule": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "ListStandardPatterns": {
-    "tag": "Sensitive Data Scanner",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Sensitive Data Scanner"
   },
   "SubmitMetrics": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Metrics"
   },
   "CreateServiceAccount": {
-    "tag": "Service Accounts",
-    "undo": {
-      "operationId": "DisableUser",
-      "parameters": [
-        {
-          "name": "user_id",
-          "source": "data.id"
-        }
-      ],
-      "tag": "Users",
-      "type": "unsafe"
-    }
+    "tag": "Service Accounts"
   },
   "ListServiceAccountApplicationKeys": {
-    "tag": "Service Accounts",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Accounts"
   },
   "CreateServiceAccountApplicationKey": {
-    "tag": "Service Accounts",
-    "undo": {
-      "operationId": "DeleteServiceAccountApplicationKey",
-      "parameters": [
-        {
-          "name": "app_key_id",
-          "source": "data.id"
-        },
-        {
-          "name": "service_account_id",
-          "source": "data.relationships.owned_by.data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Service Accounts"
   },
   "DeleteServiceAccountApplicationKey": {
-    "tag": "Service Accounts",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Service Accounts"
   },
   "GetServiceAccountApplicationKey": {
-    "tag": "Service Accounts",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Accounts"
   },
   "UpdateServiceAccountApplicationKey": {
-    "tag": "Service Accounts",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Service Accounts"
   },
   "ListIncidentServices": {
-    "tag": "Incident Services",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incident Services"
   },
   "CreateIncidentService": {
-    "tag": "Incident Services",
-    "undo": {
-      "operationId": "DeleteIncidentService",
-      "parameters": [
-        {
-          "name": "service_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incident Services"
   },
   "ListServiceDefinitions": {
-    "tag": "Service Definition",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Definition"
   },
   "CreateOrUpdateServiceDefinitions": {
-    "tag": "Service Definition",
-    "undo": {
-      "operationId": "DeleteServiceDefinition",
-      "parameters": [
-        {
-          "name": "service_name",
-          "source": "data[0].attributes.schema.dd-service"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Service Definition"
   },
   "DeleteServiceDefinition": {
-    "tag": "Service Definition",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Service Definition"
   },
   "GetServiceDefinition": {
-    "tag": "Service Definition",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Definition"
   },
   "DeleteIncidentService": {
-    "tag": "Incident Services",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incident Services"
   },
   "GetIncidentService": {
-    "tag": "Incident Services",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incident Services"
   },
   "UpdateIncidentService": {
-    "tag": "Incident Services",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incident Services"
   },
   "ListSecurityMonitoringHistsignals": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "SearchSecurityMonitoringHistsignals": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecurityMonitoringHistsignal": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ListThreatHuntingJobs": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "RunThreatHuntingJob": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "ConvertJobResultToSignal": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "DeleteThreatHuntingJob": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetThreatHuntingJob": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CancelThreatHuntingJob": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecurityMonitoringHistsignalsByJobId": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "CreateSLOReportJob": {
-    "tag": "Service Level Objectives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Level Objectives"
   },
   "GetSLOReport": {
-    "tag": "Service Level Objectives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Level Objectives"
   },
   "GetSLOReportJobStatus": {
-    "tag": "Service Level Objectives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Level Objectives"
   },
   "GetSloStatus": {
-    "tag": "Service Level Objectives",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Service Level Objectives"
   },
   "GetSPARecommendations": {
-    "tag": "Spa",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Spa"
   },
   "GetSPARecommendationsWithShard": {
-    "tag": "Spa",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Spa"
   },
   "AggregateSpans": {
-    "tag": "Spans",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Spans"
   },
   "ListSpansGet": {
-    "tag": "Spans",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Spans"
   },
   "ListSpans": {
-    "tag": "Spans",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Spans"
   },
   "CreateSCAResult": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Static Analysis"
   },
   "CreateSCAResolveVulnerableSymbols": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Static Analysis"
   },
   "DeleteCustomRuleset": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Static Analysis"
   },
   "GetCustomRuleset": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Static Analysis"
   },
   "UpdateCustomRuleset": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Static Analysis"
   },
   "CreateCustomRule": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Static Analysis"
   },
   "DeleteCustomRule": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Static Analysis"
   },
   "GetCustomRule": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Static Analysis"
   },
   "ListCustomRuleRevisions": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Static Analysis"
   },
   "CreateCustomRuleRevision": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Static Analysis"
   },
   "RevertCustomRuleRevision": {
-    "tag": "Static Analysis",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Static Analysis"
   },
   "GetCustomRuleRevision": {
-    "tag": "Static Analysis",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Static Analysis"
   },
   "ListMultipleRulesets": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "operationId": "TODO",
-      "parameters": [],
-      "type": "unsafe"
-    }
+    "tag": "Security Monitoring"
   },
   "GetSecretsRules": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Security Monitoring"
   },
   "ListStatusPages": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "CreateStatusPage": {
-    "tag": "Status Pages",
-    "undo": {
-      "operationId": "DeleteStatusPage",
-      "parameters": [
-        {
-          "name": "page_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Status Pages"
   },
   "ListDegradations": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "ListMaintenances": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "DeleteStatusPage": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Status Pages"
   },
   "GetStatusPage": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "UpdateStatusPage": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Status Pages"
   },
   "ListComponents": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "CreateComponent": {
-    "tag": "Status Pages",
-    "undo": {
-      "operationId": "DeleteComponent",
-      "parameters": [
-        {
-          "name": "page_id",
-          "source": "data.relationships.status_page.data.id"
-        },
-        {
-          "name": "component_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Status Pages"
   },
   "DeleteComponent": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Status Pages"
   },
   "GetComponent": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "UpdateComponent": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Status Pages"
   },
   "CreateDegradation": {
-    "tag": "Status Pages",
-    "undo": {
-      "operationId": "DeleteDegradation",
-      "parameters": [
-        {
-          "name": "page_id",
-          "source": "data.relationships.status_page.data.id"
-        },
-        {
-          "name": "degradation_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Status Pages"
   },
   "DeleteDegradation": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Status Pages"
   },
   "GetDegradation": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "UpdateDegradation": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Status Pages"
   },
   "CreateMaintenance": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "GetMaintenance": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Status Pages"
   },
   "UpdateMaintenance": {
-    "tag": "Status Pages",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Status Pages"
   },
   "GetOnDemandConcurrencyCap": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Synthetics"
   },
   "SetOnDemandConcurrencyCap": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Synthetics"
   },
   "CreateSyntheticsSuite": {
-    "tag": "Synthetics",
-    "undo": {
-      "operationId": "DeleteSyntheticsSuites",
-      "parameters": [
-        {
-          "name": "body",
-          "template": "{\"data\": {\"type\": \"delete_suites_request\", \"attributes\": {\"public_ids\": [\"{{ data.attributes.public_id }}\"]}}}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Synthetics"
   },
   "DeleteSyntheticsSuites": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Synthetics"
   },
   "SearchSuites": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Synthetics"
   },
   "GetSyntheticsSuite": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Synthetics"
   },
   "EditSyntheticsSuite": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Synthetics"
   },
   "DeleteSyntheticsTests": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Synthetics"
   },
   "CreateSyntheticsNetworkTest": {
-    "tag": "Synthetics",
-    "undo": {
-      "operationId": "DeleteSyntheticsTests",
-      "parameters": [
-        {
-          "name": "body",
-          "template": "{\"data\": {\"type\": \"delete_tests_request\", \"attributes\": {\"public_ids\": [\"{{ data.attributes.public_id }}\"]}}}"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Synthetics"
   },
   "GetSyntheticsNetworkTest": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Synthetics"
   },
   "UpdateSyntheticsNetworkTest": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Synthetics"
   },
   "PatchGlobalVariable": {
-    "tag": "Synthetics",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Synthetics"
   },
   "ListTagPipelinesRulesets": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "CreateTagPipelinesRuleset": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ReorderTagPipelinesRulesets": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ValidateQuery": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "DeleteTagPipelinesRuleset": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "GetTagPipelinesRuleset": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Cloud Cost Management"
   },
   "UpdateTagPipelinesRuleset": {
-    "tag": "Cloud Cost Management",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Cloud Cost Management"
   },
   "ListTeams": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "CreateTeam": {
-    "tag": "Teams",
-    "undo": {
-      "operationId": "DeleteTeam",
-      "parameters": [
-        {
-          "name": "team_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Teams"
   },
   "ListTeamHierarchyLinks": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "AddTeamHierarchyLink": {
-    "tag": "Teams",
-    "undo": {
-      "operationId": "RemoveTeamHierarchyLink",
-      "parameters": [
-        {
-          "name": "link_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Teams"
   },
   "RemoveTeamHierarchyLink": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeamHierarchyLink": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "DeleteTeamConnections": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "ListTeamConnections": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "CreateTeamConnections": {
-    "tag": "Teams",
-    "undo": {
-      "operationId": "DeleteTeamConnections",
-      "type": "unsafe"
-    }
+    "tag": "Teams"
   },
   "GetTeamSync": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "SyncTeams": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "ListMemberTeams": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "AddMemberTeam": {
-    "tag": "Teams",
-    "undo": {
-      "operationId": "RemoveMemberTeam",
-      "type": "unsafe"
-    }
+    "tag": "Teams"
   },
   "RemoveMemberTeam": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "DeleteTeam": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeam": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "UpdateTeam": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeamLinks": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "CreateTeamLink": {
-    "tag": "Teams",
-    "undo": {
-      "operationId": "DeleteTeamLink",
-      "parameters": [
-        {
-          "name": "team_id",
-          "origin": "path",
-          "source": "team_id"
-        },
-        {
-          "name": "link_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Teams"
   },
   "DeleteTeamLink": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeamLink": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "UpdateTeamLink": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeamMemberships": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "CreateTeamMembership": {
-    "tag": "Teams",
-    "undo": {
-      "operationId": "DeleteTeamMembership",
-      "parameters": [
-        {
-          "name": "team_id",
-          "origin": "path",
-          "source": "team_id"
-        },
-        {
-          "name": "user_id",
-          "source": "data.relationships.user.data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Teams"
   },
   "DeleteTeamMembership": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "UpdateTeamMembership": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeamNotificationRules": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "CreateTeamNotificationRule": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "DeleteTeamNotificationRule": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeamNotificationRule": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "UpdateTeamNotificationRule": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "GetTeamPermissionSettings": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "UpdateTeamPermissionSetting": {
-    "tag": "Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Teams"
   },
   "ListIncidentTeams": {
-    "tag": "Incident Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incident Teams"
   },
   "CreateIncidentTeam": {
-    "tag": "Incident Teams",
-    "undo": {
-      "operationId": "DeleteIncidentTeam",
-      "parameters": [
-        {
-          "name": "team_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Incident Teams"
   },
   "DeleteIncidentTeam": {
-    "tag": "Incident Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incident Teams"
   },
   "GetIncidentTeam": {
-    "tag": "Incident Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Incident Teams"
   },
   "UpdateIncidentTeam": {
-    "tag": "Incident Teams",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Incident Teams"
   },
   "UpdateFlakyTests": {
-    "tag": "Test Optimization",
-    "undo": {
-      "type": "unsafe"
-    }
+    "tag": "Test Optimization"
   },
   "SearchFlakyTests": {
-    "tag": "Test Optimization",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Test Optimization"
   },
   "GetUsageApplicationSecurityMonitoring": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetBillingDimensionMapping": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetCostByOrg": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetEstimatedCostByOrg": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetHistoricalCostByOrg": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetHourlyUsage": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetUsageLambdaTracedInvocations": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetUsageObservabilityPipelines": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetProjectedCost": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "GetUsageAttributionTypes": {
-    "tag": "Usage Metering",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Usage Metering"
   },
   "SendInvitations": {
-    "tag": "Users",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Users"
   },
   "GetInvitation": {
-    "tag": "Users",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Users"
   },
   "ListUsers": {
-    "tag": "Users",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Users"
   },
   "CreateUser": {
-    "tag": "Users",
-    "undo": {
-      "operationId": "DisableUser",
-      "parameters": [
-        {
-          "name": "user_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Users"
   },
   "DisableUser": {
-    "tag": "Users",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Users"
   },
   "GetUser": {
-    "tag": "Users",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Users"
   },
   "UpdateUser": {
-    "tag": "Users",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Users"
   },
   "ListUserOrganizations": {
-    "tag": "Users",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Users"
   },
   "ListUserPermissions": {
-    "tag": "Users",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Users"
   },
   "GetUserMemberships": {
-    "tag": "Teams",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Teams"
   },
   "CreateWorkflow": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "operationId": "DeleteWorkflow",
-      "parameters": [
-        {
-          "name": "workflow_id",
-          "source": "data.id"
-        }
-      ],
-      "type": "unsafe"
-    }
+    "tag": "Workflow Automation"
   },
   "DeleteWorkflow": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Workflow Automation"
   },
   "GetWorkflow": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Workflow Automation"
   },
   "UpdateWorkflow": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "type": "idempotent"
-    }
+    "tag": "Workflow Automation"
   },
   "ListWorkflowInstances": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Workflow Automation"
   },
   "CreateWorkflowInstance": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Workflow Automation"
   },
   "GetWorkflowInstance": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Workflow Automation"
   },
   "CancelWorkflowInstance": {
-    "tag": "Workflow Automation",
-    "undo": {
-      "type": "safe"
-    }
+    "tag": "Workflow Automation"
   }
 }

@@ -9,12 +9,12 @@ Feature: Entity Risk Scores
     And operation "ListEntityRiskScores" enabled
     And new "ListEntityRiskScores" request
 
-  @generated @skip @team:DataDog/cloud-siem
+  @generated @skip
   Scenario: List Entity Risk Scores returns "Bad Request" response
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/cloud-siem
+  @generated @skip
   Scenario: List Entity Risk Scores returns "OK" response
     When the request is sent
     Then the response status is 200 OK

@@ -7,7 +7,7 @@ Feature: Static Analysis
     And a valid "appKeyAuth" key in the system
     And an instance of "StaticAnalysis" API
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Create Custom Rule Revision returns "Bad request" response
     Given operation "CreateCustomRuleRevision" enabled
     And new "CreateCustomRuleRevision" request
@@ -17,7 +17,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Create Custom Rule Revision returns "Rule not found" response
     Given operation "CreateCustomRuleRevision" enabled
     And new "CreateCustomRuleRevision" request
@@ -27,7 +27,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 404 Rule not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Create Custom Rule Revision returns "Successfully created" response
     Given operation "CreateCustomRuleRevision" enabled
     And new "CreateCustomRuleRevision" request
@@ -37,7 +37,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successfully created
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Create Custom Rule returns "Bad request" response
     Given operation "CreateCustomRule" enabled
     And new "CreateCustomRule" request
@@ -46,7 +46,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Create Custom Rule returns "Conflict - rule already exists" response
     Given operation "CreateCustomRule" enabled
     And new "CreateCustomRule" request
@@ -55,7 +55,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 409 Conflict - rule already exists
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Create Custom Rule returns "Precondition failed - validation error or ruleset not found" response
     Given operation "CreateCustomRule" enabled
     And new "CreateCustomRule" request
@@ -64,7 +64,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 412 Precondition failed - validation error or ruleset not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Create Custom Rule returns "Successfully created" response
     Given operation "CreateCustomRule" enabled
     And new "CreateCustomRule" request
@@ -73,7 +73,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successfully created
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Delete Custom Rule returns "Bad request" response
     Given operation "DeleteCustomRule" enabled
     And new "DeleteCustomRule" request
@@ -82,7 +82,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Delete Custom Rule returns "Rule not found" response
     Given operation "DeleteCustomRule" enabled
     And new "DeleteCustomRule" request
@@ -91,7 +91,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 404 Rule not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Delete Custom Rule returns "Successfully deleted" response
     Given operation "DeleteCustomRule" enabled
     And new "DeleteCustomRule" request
@@ -100,7 +100,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successfully deleted
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Delete Custom Ruleset returns "Bad request" response
     Given operation "DeleteCustomRuleset" enabled
     And new "DeleteCustomRuleset" request
@@ -108,7 +108,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Delete Custom Ruleset returns "Ruleset not found" response
     Given operation "DeleteCustomRuleset" enabled
     And new "DeleteCustomRuleset" request
@@ -116,7 +116,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 404 Ruleset not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Delete Custom Ruleset returns "Successfully deleted" response
     Given operation "DeleteCustomRuleset" enabled
     And new "DeleteCustomRuleset" request
@@ -124,7 +124,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successfully deleted
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: List Custom Rule Revisions returns "Bad request" response
     Given operation "ListCustomRuleRevisions" enabled
     And new "ListCustomRuleRevisions" request
@@ -133,7 +133,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: List Custom Rule Revisions returns "Rule not found" response
     Given operation "ListCustomRuleRevisions" enabled
     And new "ListCustomRuleRevisions" request
@@ -142,7 +142,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 404 Rule not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: List Custom Rule Revisions returns "Successful response" response
     Given operation "ListCustomRuleRevisions" enabled
     And new "ListCustomRuleRevisions" request
@@ -151,7 +151,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successful response
 
-  @generated @skip @team:DataDog/k9-vm-ast @with-pagination
+  @generated @skip @with-pagination
   Scenario: List Custom Rule Revisions returns "Successful response" response with pagination
     Given operation "ListCustomRuleRevisions" enabled
     And new "ListCustomRuleRevisions" request
@@ -160,7 +160,7 @@ Feature: Static Analysis
     When the request with pagination is sent
     Then the response status is 200 Successful response
 
-  @generated @skip @team:DataDog/k9-vm-sca
+  @generated @skip
   Scenario: POST request to resolve vulnerable symbols returns "OK" response
     Given operation "CreateSCAResolveVulnerableSymbols" enabled
     And new "CreateSCAResolveVulnerableSymbols" request
@@ -168,7 +168,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/k9-vm-sca
+  @generated @skip
   Scenario: Post dependencies for analysis returns "OK" response
     Given operation "CreateSCAResult" enabled
     And new "CreateSCAResult" request
@@ -176,7 +176,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Revert Custom Rule Revision returns "Bad request" response
     Given operation "RevertCustomRuleRevision" enabled
     And new "RevertCustomRuleRevision" request
@@ -186,7 +186,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Revert Custom Rule Revision returns "Successfully reverted" response
     Given operation "RevertCustomRuleRevision" enabled
     And new "RevertCustomRuleRevision" request
@@ -196,7 +196,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successfully reverted
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Rule Revision returns "Bad request" response
     Given operation "GetCustomRuleRevision" enabled
     And new "GetCustomRuleRevision" request
@@ -206,7 +206,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Rule Revision returns "Revision not found" response
     Given operation "GetCustomRuleRevision" enabled
     And new "GetCustomRuleRevision" request
@@ -216,7 +216,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 404 Revision not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Rule Revision returns "Successful response" response
     Given operation "GetCustomRuleRevision" enabled
     And new "GetCustomRuleRevision" request
@@ -226,7 +226,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successful response
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Rule returns "Bad request" response
     Given operation "GetCustomRule" enabled
     And new "GetCustomRule" request
@@ -235,7 +235,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Rule returns "Rule not found" response
     Given operation "GetCustomRule" enabled
     And new "GetCustomRule" request
@@ -244,7 +244,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 404 Rule not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Rule returns "Successful response" response
     Given operation "GetCustomRule" enabled
     And new "GetCustomRule" request
@@ -253,7 +253,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successful response
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Ruleset returns "Bad request" response
     Given operation "GetCustomRuleset" enabled
     And new "GetCustomRuleset" request
@@ -261,7 +261,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Ruleset returns "Ruleset not found" response
     Given operation "GetCustomRuleset" enabled
     And new "GetCustomRuleset" request
@@ -269,7 +269,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 404 Ruleset not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Show Custom Ruleset returns "Successful response" response
     Given operation "GetCustomRuleset" enabled
     And new "GetCustomRuleset" request
@@ -277,7 +277,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 200 Successful response
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Update Custom Ruleset returns "Bad request" response
     Given operation "UpdateCustomRuleset" enabled
     And new "UpdateCustomRuleset" request
@@ -286,7 +286,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 400 Bad request
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Update Custom Ruleset returns "Precondition failed - validation error or ruleset not found" response
     Given operation "UpdateCustomRuleset" enabled
     And new "UpdateCustomRuleset" request
@@ -295,7 +295,7 @@ Feature: Static Analysis
     When the request is sent
     Then the response status is 412 Precondition failed - validation error or ruleset not found
 
-  @generated @skip @team:DataDog/k9-vm-ast
+  @generated @skip
   Scenario: Update Custom Ruleset returns "Successfully updated" response
     Given operation "UpdateCustomRuleset" enabled
     And new "UpdateCustomRuleset" request

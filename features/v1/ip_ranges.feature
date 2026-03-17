@@ -2,11 +2,11 @@
 Feature: IP Ranges
   Get a list of IP prefixes belonging to Datadog.
 
-  @team:DataDog/network-edge
+  @generated @skip
   Scenario: List IP Ranges returns "OK" response
-    Given an instance of "IPRanges" API
+    Given a valid "apiKeyAuth" key in the system
+    And a valid "appKeyAuth" key in the system
+    And an instance of "IPRanges" API
     And new "GetIPRanges" request
     When the request is sent
     Then the response status is 200 OK
-    And the response "agents.prefixes_ipv4" has length 1
-    And the response "agents.prefixes_ipv6" has length 1

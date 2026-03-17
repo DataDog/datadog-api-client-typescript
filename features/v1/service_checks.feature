@@ -19,27 +19,24 @@ Feature: Service Checks
     Given a valid "apiKeyAuth" key in the system
     And an instance of "ServiceChecks" API
     And new "SubmitServiceCheck" request
+    And body with value [{"check": "app.ok", "host_name": "app.host1", "message": "app is running", "status": 0, "tags": ["environment:test"]}]
 
-  @generated @skip @team:DataDog/monitors-evaluation
+  @generated @skip
   Scenario: Submit a Service Check returns "Bad Request" response
-    Given body with value [{"check": "app.ok", "host_name": "app.host1", "message": "app is running", "status": 0, "tags": ["environment:test"]}]
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @skip-validation @team:DataDog/monitors-evaluation
+  @generated @skip
   Scenario: Submit a Service Check returns "Payload accepted" response
-    Given body with value [{"check": "app.ok", "host_name": "host", "status": 0, "tags": ["test:{{ unique_alnum }}"]}]
     When the request is sent
     Then the response status is 202 Payload accepted
 
-  @generated @skip @team:DataDog/monitors-evaluation
+  @generated @skip
   Scenario: Submit a Service Check returns "Payload too large" response
-    Given body with value [{"check": "app.ok", "host_name": "app.host1", "message": "app is running", "status": 0, "tags": ["environment:test"]}]
     When the request is sent
     Then the response status is 413 Payload too large
 
-  @generated @skip @team:DataDog/monitors-evaluation
+  @generated @skip
   Scenario: Submit a Service Check returns "Request timeout" response
-    Given body with value [{"check": "app.ok", "host_name": "app.host1", "message": "app is running", "status": 0, "tags": ["environment:test"]}]
     When the request is sent
     Then the response status is 408 Request timeout

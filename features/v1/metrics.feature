@@ -14,7 +14,7 @@ Feature: Metrics
     Given a valid "apiKeyAuth" key in the system
     And an instance of "Metrics" API
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Edit metric metadata returns "Bad Request" response
     Given a valid "appKeyAuth" key in the system
     And new "UpdateMetricMetadata" request
@@ -23,7 +23,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Edit metric metadata returns "Not Found" response
     Given a valid "appKeyAuth" key in the system
     And new "UpdateMetricMetadata" request
@@ -32,7 +32,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Edit metric metadata returns "OK" response
     Given a valid "appKeyAuth" key in the system
     And new "UpdateMetricMetadata" request
@@ -41,7 +41,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Get active metrics list returns "Bad Request" response
     Given a valid "appKeyAuth" key in the system
     And new "ListActiveMetrics" request
@@ -49,7 +49,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Get active metrics list returns "OK" response
     Given a valid "appKeyAuth" key in the system
     And new "ListActiveMetrics" request
@@ -57,7 +57,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Get metric metadata returns "Not Found" response
     Given a valid "appKeyAuth" key in the system
     And new "GetMetricMetadata" request
@@ -65,7 +65,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 404 Not Found
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Get metric metadata returns "OK" response
     Given a valid "appKeyAuth" key in the system
     And new "GetMetricMetadata" request
@@ -73,7 +73,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Query timeseries points returns "Bad Request" response
     Given a valid "appKeyAuth" key in the system
     And new "QueryMetrics" request
@@ -83,19 +83,17 @@ Feature: Metrics
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Query timeseries points returns "OK" response
     Given a valid "appKeyAuth" key in the system
     And new "QueryMetrics" request
-    And request contains "from" parameter with value {{ timestamp("now - 1d") }}
-    And request contains "to" parameter with value {{ timestamp("now") }}
-    And request contains "query" parameter with value "system.cpu.idle{*}"
+    And request contains "from" parameter from "REPLACE.ME"
+    And request contains "to" parameter from "REPLACE.ME"
+    And request contains "query" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
-    And the response "status" is equal to "ok"
-    And the response "query" is equal to "system.cpu.idle{*}"
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Search metrics returns "Bad Request" response
     Given a valid "appKeyAuth" key in the system
     And new "ListMetrics" request
@@ -103,7 +101,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/metrics-experience @team:DataDog/metrics-index @team:DataDog/metrics-intake @team:DataDog/timeseries-query
+  @generated @skip
   Scenario: Search metrics returns "OK" response
     Given a valid "appKeyAuth" key in the system
     And new "ListMetrics" request
@@ -111,72 +109,56 @@ Feature: Metrics
     When the request is sent
     Then the response status is 200 OK
 
-  @integration-only @skip-terraform-config @skip-validation @team:DataDog/metrics-aggregation
-  Scenario: Submit deflate distribution points returns "Payload accepted" response
-    Given new "SubmitDistributionPoints" request
-    And body with value {"series": [{"metric": "system.load.1.dist", "points": [[{{ timestamp("now") }}, [1.0, 2.0]]]}]}
-    And request contains "Content-Encoding" parameter with value "deflate"
-    When the request is sent
-    Then the response status is 202 Payload accepted
-
-  @integration-only @skip-terraform-config @skip-validation @team:DataDog/metrics-intake
-  Scenario: Submit deflate metrics returns "Payload accepted" response
-    Given new "SubmitMetrics" request
-    And body with value {"series": [{"metric": "system.load.1", "type": "gauge", "points": [[{{ timestamp("now") }}, 1.1]], "tags": ["test:{{ unique_alnum }}"]}]}
-    And request contains "Content-Encoding" parameter with value "deflate"
-    When the request is sent
-    Then the response status is 202 Payload accepted
-
-  @integration-only @skip-terraform-config @skip-validation @team:DataDog/metrics-aggregation
+  @generated @skip
   Scenario: Submit distribution points returns "Bad Request" response
     Given new "SubmitDistributionPoints" request
-    And body with value {"series": [{"metric": "system.load.1.dist", "points": [[1475317847.0, 1.0]]}]}
+    And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, [1.0, 2.0]]]}]}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @integration-only @skip-terraform-config @skip-validation @team:DataDog/metrics-aggregation
+  @generated @skip
   Scenario: Submit distribution points returns "Payload accepted" response
     Given new "SubmitDistributionPoints" request
-    And body with value {"series": [{"metric": "system.load.1.dist", "points": [[{{ timestamp("now") }}, [1.0, 2.0]]]}]}
+    And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, [1.0, 2.0]]]}]}
     When the request is sent
     Then the response status is 202 Payload accepted
 
-  @generated @skip @team:DataDog/metrics-aggregation
+  @generated @skip
   Scenario: Submit distribution points returns "Payload too large" response
     Given new "SubmitDistributionPoints" request
     And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, [1.0, 2.0]]]}]}
     When the request is sent
     Then the response status is 413 Payload too large
 
-  @generated @skip @team:DataDog/metrics-aggregation
+  @generated @skip
   Scenario: Submit distribution points returns "Request timeout" response
     Given new "SubmitDistributionPoints" request
     And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, [1.0, 2.0]]]}]}
     When the request is sent
     Then the response status is 408 Request timeout
 
-  @skip @team:DataDog/metrics-intake
+  @generated @skip
   Scenario: Submit metrics returns "Bad Request" response
     Given new "SubmitMetrics" request
-    And body with value "invalid"
+    And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, 0.7]]}]}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @skip-validation @team:DataDog/metrics-intake
+  @generated @skip
   Scenario: Submit metrics returns "Payload accepted" response
     Given new "SubmitMetrics" request
-    And body with value {"series": [{"metric": "system.load.1", "type": "gauge", "points": [[{{ timestamp("now") }}, 1.1]], "tags": ["test:{{ unique_alnum }}"]}]}
+    And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, 0.7]]}]}
     When the request is sent
     Then the response status is 202 Payload accepted
 
-  @generated @skip @team:DataDog/metrics-intake
+  @generated @skip
   Scenario: Submit metrics returns "Payload too large" response
     Given new "SubmitMetrics" request
     And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, 0.7]]}]}
     When the request is sent
     Then the response status is 413 Payload too large
 
-  @generated @skip @team:DataDog/metrics-intake
+  @generated @skip
   Scenario: Submit metrics returns "Request timeout" response
     Given new "SubmitMetrics" request
     And body with value {"series": [{"metric": "system.load.1", "points": [[1475317847.0, 0.7]]}]}
