@@ -6,12 +6,33 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Details of a single entity attribute including its mapping configuration and metadata.
+ */
 export class GetMappingResponseDataAttributesAttributesItems {
+  /**
+   * The attribute identifier as used in the entity data model.
+   */
   "attribute"?: string;
+  /**
+   * Human-readable explanation of what the attribute represents.
+   */
   "description"?: string;
+  /**
+   * The human-readable label for the attribute shown in the UI.
+   */
   "displayName"?: string;
+  /**
+   * List of group labels used to categorize the attribute.
+   */
   "groups"?: Array<string>;
+  /**
+   * Whether this attribute is a custom user-defined attribute rather than a built-in one.
+   */
   "isCustom"?: boolean;
+  /**
+   * The data type of the attribute (for example, string or number).
+   */
   "type"?: string;
 
   /**

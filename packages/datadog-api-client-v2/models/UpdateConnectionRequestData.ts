@@ -8,8 +8,17 @@ import { UpdateConnectionRequestDataType } from "./UpdateConnectionRequestDataTy
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object containing the resource identifier and attributes for updating an existing connection.
+ */
 export class UpdateConnectionRequestData {
+  /**
+   * Attributes specifying the field modifications to apply to an existing connection.
+   */
   "attributes"?: UpdateConnectionRequestDataAttributes;
+  /**
+   * The unique identifier of the connection to update.
+   */
   "id": string;
   /**
    * Connection id resource type.
