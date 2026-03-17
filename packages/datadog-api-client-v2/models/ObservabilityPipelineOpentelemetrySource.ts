@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
  *
- * **Supported pipeline types:** logs, metrics
+ * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOpentelemetrySource {
   /**
