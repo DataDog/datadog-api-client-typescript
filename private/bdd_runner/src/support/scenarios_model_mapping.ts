@@ -11577,6 +11577,68 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PermissionsResponse",
   },
+  "IntegrationAccountsApi.V2.ListWebIntegrationAccounts": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountsResponse",
+  },
+  "IntegrationAccountsApi.V2.CreateWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "WebIntegrationAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
+  "IntegrationAccountsApi.V2.GetWebIntegrationAccountSchema": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountSchemaResponse",
+  },
+  "IntegrationAccountsApi.V2.GetWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
+  "IntegrationAccountsApi.V2.DeleteWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IntegrationAccountsApi.V2.UpdateWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "WebIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
   "WorkflowAutomationApi.V2.CreateWorkflow": {
     body: {
       type: "CreateWorkflowRequest",
