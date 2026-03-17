@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { MaintenanceDataRelationshipsStatusPageData } from "./MaintenanceDataRelationshipsStatusPageData";
 
+/**
+ * The status page the maintenance belongs to.
+ */
 export class MaintenanceDataRelationshipsStatusPage {
+  /**
+   * The data object identifying the status page associated with a maintenance.
+   */
   "data": MaintenanceDataRelationshipsStatusPageData;
   /**
    * A container for additional, undeclared properties.

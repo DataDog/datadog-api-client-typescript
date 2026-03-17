@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
+/**
+ * The data object identifying the group the component belongs to.
+ */
 export class StatusPagesComponentDataRelationshipsGroupData {
   /**
    * The ID of the group the component belongs to.

@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./StatusPagesComponentGroupAttributesComponentsItemsStatus";
 import { StatusPagesComponentGroupAttributesComponentsItemsType } from "./StatusPagesComponentGroupAttributesComponentsItemsType";
 
+/**
+ * A grouped component to be created within a status page component group.
+ */
 export class CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems {
   /**
    * The ID of the grouped component.

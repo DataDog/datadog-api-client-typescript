@@ -4,7 +4,13 @@ import { CreateComponentRequestDataAttributesType } from "./CreateComponentReque
 import { StatusPageAsIncludedAttributesComponentsItemsComponentsItems } from "./StatusPageAsIncludedAttributesComponentsItemsComponentsItems";
 import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./StatusPagesComponentGroupAttributesComponentsItemsStatus";
 
+/**
+ * A component displayed on an included status page.
+ */
 export class StatusPageAsIncludedAttributesComponentsItems {
+  /**
+   * If the component is of type `group`, the components within the group.
+   */
   "components"?: Array<StatusPageAsIncludedAttributesComponentsItemsComponentsItems>;
   /**
    * The ID of the component.

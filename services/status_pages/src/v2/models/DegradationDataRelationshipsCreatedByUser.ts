@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DegradationDataRelationshipsCreatedByUserData } from "./DegradationDataRelationshipsCreatedByUserData";
 
+/**
+ * The Datadog user who created the degradation.
+ */
 export class DegradationDataRelationshipsCreatedByUser {
+  /**
+   * The data object identifying the Datadog user who created the degradation.
+   */
   "data": DegradationDataRelationshipsCreatedByUserData;
   /**
    * A container for additional, undeclared properties.

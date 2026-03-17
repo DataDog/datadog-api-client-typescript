@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { StatusPageAsIncludedRelationshipsLastModifiedByUserData } from "./StatusPageAsIncludedRelationshipsLastModifiedByUserData";
 
+/**
+ * The Datadog user who last modified the status page.
+ */
 export class StatusPageAsIncludedRelationshipsLastModifiedByUser {
+  /**
+   * The data object identifying the Datadog user who last modified the status page.
+   */
   "data": StatusPageAsIncludedRelationshipsLastModifiedByUserData;
   /**
    * A container for additional, undeclared properties.

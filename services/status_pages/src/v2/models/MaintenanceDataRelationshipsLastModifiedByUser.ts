@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { MaintenanceDataRelationshipsLastModifiedByUserData } from "./MaintenanceDataRelationshipsLastModifiedByUserData";
 
+/**
+ * The Datadog user who last modified the maintenance.
+ */
 export class MaintenanceDataRelationshipsLastModifiedByUser {
+  /**
+   * The data object identifying the Datadog user who last modified the maintenance.
+   */
   "data": MaintenanceDataRelationshipsLastModifiedByUserData;
   /**
    * A container for additional, undeclared properties.

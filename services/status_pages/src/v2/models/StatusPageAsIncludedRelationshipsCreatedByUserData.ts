@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { StatusPagesUserType } from "./StatusPagesUserType";
 
+/**
+ * The data object identifying the Datadog user who created the status page.
+ */
 export class StatusPageAsIncludedRelationshipsCreatedByUserData {
   /**
    * The ID of the Datadog user who created the status page.

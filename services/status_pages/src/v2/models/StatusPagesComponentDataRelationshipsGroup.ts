@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { StatusPagesComponentDataRelationshipsGroupData } from "./StatusPagesComponentDataRelationshipsGroupData";
 
+/**
+ * The group the component belongs to.
+ */
 export class StatusPagesComponentDataRelationshipsGroup {
+  /**
+   * The data object identifying the group the component belongs to.
+   */
   "data": StatusPagesComponentDataRelationshipsGroupData | null;
   /**
    * A container for additional, undeclared properties.

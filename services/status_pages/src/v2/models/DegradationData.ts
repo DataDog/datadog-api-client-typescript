@@ -4,6 +4,9 @@ import { DegradationDataAttributes } from "./DegradationDataAttributes";
 import { DegradationDataRelationships } from "./DegradationDataRelationships";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
 
+/**
+ * The data object for a degradation.
+ */
 export class DegradationData {
   /**
    * The attributes of a degradation.

@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { GlobalIncidentSettingsAttributesResponse } from "./GlobalIncidentSettingsAttributesResponse";
 import { GlobalIncidentSettingsType } from "./GlobalIncidentSettingsType";
 
+/**
+ * Data object in the global incident settings response.
+ */
 export class GlobalIncidentSettingsDataResponse {
   /**
    * Global incident settings attributes
