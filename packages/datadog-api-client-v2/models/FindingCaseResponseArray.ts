@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * List of case responses.
  */
 export class FindingCaseResponseArray {
+  /**
+   * Array of case response data objects.
+   */
   "data": Array<FindingCaseResponseData>;
 
   /**

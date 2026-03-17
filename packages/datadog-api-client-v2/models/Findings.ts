@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * A list of security findings.
  */
 export class Findings {
+  /**
+   * Array of security finding data objects.
+   */
   "data"?: Array<FindingData>;
 
   /**
