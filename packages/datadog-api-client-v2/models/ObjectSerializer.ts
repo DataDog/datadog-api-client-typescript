@@ -2030,6 +2030,13 @@ import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPi
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
 import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
+import { ObservabilityPipelineAmazonS3GenericBatchSettings } from "./ObservabilityPipelineAmazonS3GenericBatchSettings";
+import { ObservabilityPipelineAmazonS3GenericCompressionGzip } from "./ObservabilityPipelineAmazonS3GenericCompressionGzip";
+import { ObservabilityPipelineAmazonS3GenericCompressionSnappy } from "./ObservabilityPipelineAmazonS3GenericCompressionSnappy";
+import { ObservabilityPipelineAmazonS3GenericCompressionZstd } from "./ObservabilityPipelineAmazonS3GenericCompressionZstd";
+import { ObservabilityPipelineAmazonS3GenericDestination } from "./ObservabilityPipelineAmazonS3GenericDestination";
+import { ObservabilityPipelineAmazonS3GenericEncodingJson } from "./ObservabilityPipelineAmazonS3GenericEncodingJson";
+import { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./ObservabilityPipelineAmazonS3GenericEncodingParquet";
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
@@ -4400,6 +4407,12 @@ const enumsMap: { [key: string]: any[] } = {
     "DEEP_ARCHIVE",
   ],
   ObservabilityPipelineAmazonS3DestinationType: ["amazon_s3"],
+  ObservabilityPipelineAmazonS3GenericCompressionGzipType: ["gzip"],
+  ObservabilityPipelineAmazonS3GenericCompressionSnappyType: ["snappy"],
+  ObservabilityPipelineAmazonS3GenericCompressionZstdType: ["zstd"],
+  ObservabilityPipelineAmazonS3GenericDestinationType: ["amazon_s3_generic"],
+  ObservabilityPipelineAmazonS3GenericEncodingJsonType: ["json"],
+  ObservabilityPipelineAmazonS3GenericEncodingParquetType: ["parquet"],
   ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
   ObservabilityPipelineAmazonSecurityLakeDestinationType: [
     "amazon_security_lake",
@@ -7865,6 +7878,20 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineAmazonOpenSearchDestinationAuth,
   ObservabilityPipelineAmazonS3Destination:
     ObservabilityPipelineAmazonS3Destination,
+  ObservabilityPipelineAmazonS3GenericBatchSettings:
+    ObservabilityPipelineAmazonS3GenericBatchSettings,
+  ObservabilityPipelineAmazonS3GenericCompressionGzip:
+    ObservabilityPipelineAmazonS3GenericCompressionGzip,
+  ObservabilityPipelineAmazonS3GenericCompressionSnappy:
+    ObservabilityPipelineAmazonS3GenericCompressionSnappy,
+  ObservabilityPipelineAmazonS3GenericCompressionZstd:
+    ObservabilityPipelineAmazonS3GenericCompressionZstd,
+  ObservabilityPipelineAmazonS3GenericDestination:
+    ObservabilityPipelineAmazonS3GenericDestination,
+  ObservabilityPipelineAmazonS3GenericEncodingJson:
+    ObservabilityPipelineAmazonS3GenericEncodingJson,
+  ObservabilityPipelineAmazonS3GenericEncodingParquet:
+    ObservabilityPipelineAmazonS3GenericEncodingParquet,
   ObservabilityPipelineAmazonS3Source: ObservabilityPipelineAmazonS3Source,
   ObservabilityPipelineAmazonSecurityLakeDestination:
     ObservabilityPipelineAmazonSecurityLakeDestination,
@@ -9962,6 +9989,15 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
+  ObservabilityPipelineAmazonS3GenericCompression: [
+    "ObservabilityPipelineAmazonS3GenericCompressionZstd",
+    "ObservabilityPipelineAmazonS3GenericCompressionGzip",
+    "ObservabilityPipelineAmazonS3GenericCompressionSnappy",
+  ],
+  ObservabilityPipelineAmazonS3GenericEncoding: [
+    "ObservabilityPipelineAmazonS3GenericEncodingJson",
+    "ObservabilityPipelineAmazonS3GenericEncodingParquet",
+  ],
   ObservabilityPipelineBufferOptions: [
     "ObservabilityPipelineDiskBufferOptions",
     "ObservabilityPipelineMemoryBufferOptions",
@@ -9971,6 +10007,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineHttpClientDestination",
     "ObservabilityPipelineAmazonOpenSearchDestination",
     "ObservabilityPipelineAmazonS3Destination",
+    "ObservabilityPipelineAmazonS3GenericDestination",
     "ObservabilityPipelineAmazonSecurityLakeDestination",
     "AzureStorageDestination",
     "ObservabilityPipelineCloudPremDestination",
