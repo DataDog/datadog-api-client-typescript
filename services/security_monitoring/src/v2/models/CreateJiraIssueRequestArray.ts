@@ -6,6 +6,9 @@ import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
  * List of requests to create Jira issues for security findings.
  */
 export class CreateJiraIssueRequestArray {
+  /**
+   * Array of Jira issue creation request data objects.
+   */
   "data": Array<CreateJiraIssueRequestData>;
   /**
    * A container for additional, undeclared properties.

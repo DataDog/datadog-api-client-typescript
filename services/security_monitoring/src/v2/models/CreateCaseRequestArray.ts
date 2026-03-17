@@ -6,6 +6,9 @@ import { CreateCaseRequestData } from "./CreateCaseRequestData";
  * List of requests to create cases for security findings.
  */
 export class CreateCaseRequestArray {
+  /**
+   * Array of case creation request data objects.
+   */
   "data": Array<CreateCaseRequestData>;
   /**
    * A container for additional, undeclared properties.
