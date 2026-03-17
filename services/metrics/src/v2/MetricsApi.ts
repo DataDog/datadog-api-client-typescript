@@ -2099,67 +2099,57 @@ export interface MetricsApiListTagConfigurationByNameRequest {
 
 export interface MetricsApiListTagConfigurationsRequest {
   /**
-   * Filter custom metrics that have configured tags.
+   * Only return custom metrics that have been configured with Metrics Without Limits.
    * @type boolean
    */
   filterConfigured?: boolean;
   /**
-   * Filter tag configurations by configured tags.
+   * Only return metrics that have the given tag key(s) in their Metrics Without Limits configuration (included or excluded).
    * @type string
    */
   filterTagsConfigured?: string;
   /**
-   * Filter metrics by metric type.
+   * Only return metrics of the given metric type.
    * @type MetricTagConfigurationMetricTypeCategory
    */
   filterMetricType?: MetricTagConfigurationMetricTypeCategory;
   /**
-   * Filter distributions with additional percentile
-   * aggregations enabled or disabled.
+   * Only return distribution metrics that have percentile aggregations enabled (true) or disabled (false).
    * @type boolean
    */
   filterIncludePercentiles?: boolean;
   /**
-   * (Preview) Filter custom metrics that have or have not been queried in the specified window[seconds].
-   * If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
+   * Only return metrics that have been queried (true) or not queried (false) in the look back window. Set the window with `filter[queried][window][seconds]`; if omitted, a default window is used.
    * @type boolean
    */
   filterQueried?: boolean;
   /**
-   * The number of seconds of look back (from now) used by the `filter[queried]` filter logic.
-   * Must be sent with `filter[queried]` and is only applied when `filter[queried]=true`.
-   * If `filter[queried]=false`, this parameter is ignored and default queried-window behavior applies.
-   * If `filter[queried]` is not provided, sending this parameter returns a 400.
-   * For example: `GET /api/v2/metrics?filter[queried]=true&filter[queried][window][seconds]=15552000`.
+   * Only return metrics that have been queried or not queried in the specified window. Dependent on being sent with `filter[queried]`.
    * @type number
    */
   filterQueriedWindowSeconds?: number;
   /**
-   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions.
-   * Can only be combined with the filter[queried] filter.
+   * Only return metrics that were submitted with tags matching this expression. You can use AND, OR, IN, and wildcards (for example, service:web*).
    * @type string
    */
   filterTags?: string;
   /**
-   * (Preview) Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
+   * Only return metrics that are used in at least one dashboard, monitor, notebook, or SLO.
    * @type boolean
    */
   filterRelatedAssets?: boolean;
   /**
-   * The number of seconds of look back (from now) to apply to a filter[tag] query.
-   * Default value is 3600 (1 hour), maximum value is 5,184,000 (60 days).
+   * Only return metrics that have been actively reporting in the specified window.
    * @type number
    */
   windowSeconds?: number;
   /**
-   * Maximum number of results returned.
+   * Maximum number of results per page. Use with `page[cursor]` for pagination.
    * @type number
    */
   pageSize?: number;
   /**
-   * String to query the next page of results.
-   * This key is provided with each valid response from the API in `meta.pagination.next_cursor`.
-   * Once the `meta.pagination.next_cursor` key is null, all pages have been retrieved.
+   * Cursor for pagination. Use `page[size]` to opt-in to pagination and get the first page; for subsequent pages, use the value from `meta.pagination.next_cursor` in the response. Pagination is complete when `next_cursor` is null.
    * @type string
    */
   pageCursor?: string;
@@ -2499,10 +2489,7 @@ export class MetricsApi {
   }
 
   /**
-   * Returns all metrics for your organization that match the given filter parameters.
-   * Optionally, paginate by using the `page[cursor]` and/or `page[size]` query parameters.
-   * To fetch the first page, pass in a query parameter with either a valid `page[size]` or an empty cursor like `page[cursor]=`. To fetch the next page, pass in the `next_cursor` value from the response as the new `page[cursor]` value.
-   * Once the `meta.pagination.next_cursor` value is null, all pages have been retrieved.
+   * Get a list of actively reporting metrics for your organization. Pagination is optional using the `page[cursor]` and `page[size]` query parameters.
    * @param param The request object
    */
   public listTagConfigurations(
