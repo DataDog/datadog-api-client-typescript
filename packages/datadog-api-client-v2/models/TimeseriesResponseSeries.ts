@@ -7,6 +7,9 @@ import { Unit } from "./Unit";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A single series in a timeseries query response, containing the query index, unit information, and group tags.
+ */
 export class TimeseriesResponseSeries {
   /**
    * List of tags that apply to a single response value.
