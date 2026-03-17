@@ -6,6 +6,10 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * A single item in an array of arbitrary values, which can be a string, number, object, or boolean.
+ */
+
 export type AnyValueItem =
   | string
   | number
