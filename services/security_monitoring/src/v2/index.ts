@@ -53,7 +53,6 @@ export {
   SecurityMonitoringApiListMultipleRulesetsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
-  SecurityMonitoringApiListSecurityMonitoringCriticalAssetsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,

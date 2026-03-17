@@ -14,7 +14,8 @@ import { SLOCorrection } from "./SLOCorrection";
 import { SLOCorrectionListResponse } from "./SLOCorrectionListResponse";
 import { SLOCorrectionResponseAttributes } from "./SLOCorrectionResponseAttributes";
 import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
-import { SLOCountDefinition } from "./SLOCountDefinition";
+import { SLOCountDefinitionWithBadEventsFormula } from "./SLOCountDefinitionWithBadEventsFormula";
+import { SLOCountDefinitionWithTotalEventsFormula } from "./SLOCountDefinitionWithTotalEventsFormula";
 import { SLOCountSpec } from "./SLOCountSpec";
 import { SLOCreator } from "./SLOCreator";
 import { SLODeleteResponse } from "./SLODeleteResponse";
@@ -90,6 +91,10 @@ export const TypingInfo: ModelTypingInfo = {
     SearchSLOTimeframe: ["7d", "30d", "90d"],
   },
   oneOfMap: {
+    SLOCountDefinition: [
+      "SLOCountDefinitionWithTotalEventsFormula",
+      "SLOCountDefinitionWithBadEventsFormula",
+    ],
     SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
     SLOSliSpec: ["SLOTimeSliceSpec", "SLOCountSpec"],
   },
@@ -110,7 +115,10 @@ export const TypingInfo: ModelTypingInfo = {
     SLOCorrectionResponseAttributes: SLOCorrectionResponseAttributes,
     SLOCorrectionResponseAttributesModifier:
       SLOCorrectionResponseAttributesModifier,
-    SLOCountDefinition: SLOCountDefinition,
+    SLOCountDefinitionWithBadEventsFormula:
+      SLOCountDefinitionWithBadEventsFormula,
+    SLOCountDefinitionWithTotalEventsFormula:
+      SLOCountDefinitionWithTotalEventsFormula,
     SLOCountSpec: SLOCountSpec,
     SLOCreator: SLOCreator,
     SLODeleteResponse: SLODeleteResponse,
