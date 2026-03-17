@@ -10,6 +10,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Sync property configuration
  */
 export class SyncProperty {
+  /**
+   * The direction and type of synchronization for this property
+   */
   "syncType"?: string;
 
   /**

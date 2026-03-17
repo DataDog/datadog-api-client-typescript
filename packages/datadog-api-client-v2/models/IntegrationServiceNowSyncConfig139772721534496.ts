@@ -9,11 +9,17 @@ import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Field-level synchronization properties for ServiceNow integration
+ */
 export class IntegrationServiceNowSyncConfig139772721534496 {
   /**
    * Sync property configuration
    */
   "comments"?: SyncProperty;
+  /**
+   * Priority synchronization configuration for ServiceNow integration
+   */
   "priority"?: IntegrationServiceNowSyncConfigPriority;
   /**
    * Sync property with mapping configuration
