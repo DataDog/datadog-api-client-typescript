@@ -1,6 +1,12 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Query-based search configuration for filtering the audience context when retrieving facet values.
+ */
 export class FacetInfoRequestDataAttributesSearch {
+  /**
+   * The filter expression used to scope the audience from which facet values are retrieved.
+   */
   "query"?: string;
   /**
    * A container for additional, undeclared properties.

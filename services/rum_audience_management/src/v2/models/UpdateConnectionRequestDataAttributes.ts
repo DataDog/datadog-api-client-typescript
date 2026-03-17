@@ -3,9 +3,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CreateConnectionRequestDataAttributesFieldsItems } from "./CreateConnectionRequestDataAttributesFieldsItems";
 import { UpdateConnectionRequestDataAttributesFieldsToUpdateItems } from "./UpdateConnectionRequestDataAttributesFieldsToUpdateItems";
 
+/**
+ * Attributes specifying the field modifications to apply to an existing connection.
+ */
 export class UpdateConnectionRequestDataAttributes {
+  /**
+   * New fields to add to the connection from the data source.
+   */
   "fieldsToAdd"?: Array<CreateConnectionRequestDataAttributesFieldsItems>;
+  /**
+   * Identifiers of existing fields to remove from the connection.
+   */
   "fieldsToDelete"?: Array<string>;
+  /**
+   * Existing fields with updated metadata to apply to the connection.
+   */
   "fieldsToUpdate"?: Array<UpdateConnectionRequestDataAttributesFieldsToUpdateItems>;
   /**
    * A container for additional, undeclared properties.

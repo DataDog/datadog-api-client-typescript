@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { FacetInfoResponseDataAttributes } from "./FacetInfoResponseDataAttributes";
 import { FacetInfoResponseDataType } from "./FacetInfoResponseDataType";
 
+/**
+ * The data object containing the resource type and attributes for the facet info response.
+ */
 export class FacetInfoResponseData {
+  /**
+   * Attributes of the facet info response, containing the facet result data.
+   */
   "attributes"?: FacetInfoResponseDataAttributes;
+  /**
+   * Unique identifier for the facet info response resource.
+   */
   "id"?: string;
   /**
    * Users facet info resource type.

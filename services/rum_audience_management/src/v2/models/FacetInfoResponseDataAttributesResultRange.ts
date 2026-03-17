@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * The numeric range of a facet attribute, representing the minimum and maximum observed values.
+ */
 export class FacetInfoResponseDataAttributesResultRange {
+  /**
+   * The maximum observed value for the numeric facet attribute.
+   */
   "max"?: any;
+  /**
+   * The minimum observed value for the numeric facet attribute.
+   */
   "min"?: any;
   /**
    * A container for additional, undeclared properties.

@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes of the query response, containing the matched records and total count.
+ */
 export class QueryResponseDataAttributes {
+  /**
+   * The list of matching records returned by the query, each as a map of attribute names to values.
+   */
   "hits"?: Array<{ [key: string]: any }>;
+  /**
+   * Total number of records matching the query, regardless of the limit applied.
+   */
   "total"?: number;
   /**
    * A container for additional, undeclared properties.
