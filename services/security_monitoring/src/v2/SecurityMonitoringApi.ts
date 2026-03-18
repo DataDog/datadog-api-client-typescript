@@ -3514,6 +3514,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSecurityMonitoringCriticalAssets(
+    query?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3538,6 +3539,15 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        serialize(query, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -11316,6 +11326,14 @@ export interface SecurityMonitoringApiListSecurityFindingsRequest {
   sort?: SecurityFindingsSort;
 }
 
+export interface SecurityMonitoringApiListSecurityMonitoringCriticalAssetsRequest {
+  /**
+   * Query string.
+   * @type string
+   */
+  query?: string;
+}
+
 export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
   /**
    * The search query for security signals.
@@ -13551,10 +13569,14 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public listSecurityMonitoringCriticalAssets(
+    param: SecurityMonitoringApiListSecurityMonitoringCriticalAssetsRequest = {},
     options?: Configuration,
   ): Promise<SecurityMonitoringCriticalAssetsResponse> {
     const requestContextPromise =
-      this.requestFactory.listSecurityMonitoringCriticalAssets(options);
+      this.requestFactory.listSecurityMonitoringCriticalAssets(
+        param.query,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
