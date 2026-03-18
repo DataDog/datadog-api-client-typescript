@@ -4,9 +4,9 @@ import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaA
 import { MonitorFormulaAndFunctionReferenceTableQueryDefinition } from "./MonitorFormulaAndFunctionReferenceTableQueryDefinition";
 
 /**
- * Augment query for aggregate augmented queries. Can be an events query or a reference table query.
+ * Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a reference table query.
  */
-export type MonitorFormulaAndFunctionAggregateAugmentQuery =
+export type MonitorFormulaAndFunctionAggregateSubQuery =
   | MonitorFormulaAndFunctionEventQueryDefinition
   | MonitorFormulaAndFunctionReferenceTableQueryDefinition
   | UnparsedObject;

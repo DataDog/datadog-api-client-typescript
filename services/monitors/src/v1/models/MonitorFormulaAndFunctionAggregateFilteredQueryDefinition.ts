@@ -2,8 +2,8 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { MonitorFormulaAndFunctionAggregateBaseQuery } from "./MonitorFormulaAndFunctionAggregateBaseQuery";
 import { MonitorFormulaAndFunctionAggregateFilteredDataSource } from "./MonitorFormulaAndFunctionAggregateFilteredDataSource";
-import { MonitorFormulaAndFunctionAggregateFilterQuery } from "./MonitorFormulaAndFunctionAggregateFilterQuery";
 import { MonitorFormulaAndFunctionAggregateQueryFilter } from "./MonitorFormulaAndFunctionAggregateQueryFilter";
+import { MonitorFormulaAndFunctionAggregateSubQuery } from "./MonitorFormulaAndFunctionAggregateSubQuery";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 
@@ -24,9 +24,9 @@ export class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
    */
   "dataSource": MonitorFormulaAndFunctionAggregateFilteredDataSource;
   /**
-   * Filter query for aggregate filtered queries. Can be an events query or a reference table query.
+   * Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a reference table query.
    */
-  "filterQuery": MonitorFormulaAndFunctionAggregateFilterQuery;
+  "filterQuery": MonitorFormulaAndFunctionAggregateSubQuery;
   /**
    * Filter conditions for the query.
    */
@@ -64,7 +64,7 @@ export class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
     },
     filterQuery: {
       baseName: "filter_query",
-      type: "MonitorFormulaAndFunctionAggregateFilterQuery",
+      type: "MonitorFormulaAndFunctionAggregateSubQuery",
       required: true,
     },
     filters: {

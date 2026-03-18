@@ -180,15 +180,11 @@ export const TypingInfo: ModelTypingInfo = {
     QuerySortOrder: ["asc", "desc"],
   },
   oneOfMap: {
-    MonitorFormulaAndFunctionAggregateAugmentQuery: [
-      "MonitorFormulaAndFunctionEventQueryDefinition",
-      "MonitorFormulaAndFunctionReferenceTableQueryDefinition",
-    ],
     MonitorFormulaAndFunctionAggregateBaseQuery: [
       "MonitorFormulaAndFunctionEventQueryDefinition",
       "MonitorFormulaAndFunctionMetricsQueryDefinition",
     ],
-    MonitorFormulaAndFunctionAggregateFilterQuery: [
+    MonitorFormulaAndFunctionAggregateSubQuery: [
       "MonitorFormulaAndFunctionEventQueryDefinition",
       "MonitorFormulaAndFunctionReferenceTableQueryDefinition",
     ],
