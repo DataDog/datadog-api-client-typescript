@@ -31,6 +31,10 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    */
   "include": string;
   /**
+   * Whether to keep an event that does not match any of the mapping filters.
+   */
+  "keepUnmatched"?: boolean;
+  /**
    * A list of mapping rules to convert events to the OCSF format.
    */
   "mappings": Array<ObservabilityPipelineOcsfMapperProcessorMapping>;
@@ -73,6 +77,10 @@ export class ObservabilityPipelineOcsfMapperProcessor {
       baseName: "include",
       type: "string",
       required: true,
+    },
+    keepUnmatched: {
+      baseName: "keep_unmatched",
+      type: "boolean",
     },
     mappings: {
       baseName: "mappings",
