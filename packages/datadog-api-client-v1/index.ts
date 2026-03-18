@@ -674,7 +674,6 @@ export { MonitorFormulaAndFunctionAggregateQueryFilter } from "./models/MonitorF
 export { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./models/MonitorFormulaAndFunctionAggregateQueryJoinCondition";
 export { MonitorFormulaAndFunctionAggregateQueryJoinType } from "./models/MonitorFormulaAndFunctionAggregateQueryJoinType";
 export { MonitorFormulaAndFunctionCostAggregator } from "./models/MonitorFormulaAndFunctionCostAggregator";
-export { MonitorFormulaAndFunctionCostDataSource } from "./models/MonitorFormulaAndFunctionCostDataSource";
 export { MonitorFormulaAndFunctionCostQueryDefinition } from "./models/MonitorFormulaAndFunctionCostQueryDefinition";
 export { MonitorFormulaAndFunctionDataQualityDataSource } from "./models/MonitorFormulaAndFunctionDataQualityDataSource";
 export { MonitorFormulaAndFunctionDataQualityModelTypeOverride } from "./models/MonitorFormulaAndFunctionDataQualityModelTypeOverride";
