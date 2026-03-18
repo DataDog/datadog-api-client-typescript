@@ -4600,6 +4600,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "ListVulnerableAssetsResponse",
   },
   "SecurityMonitoringApi.V2.ListSecurityMonitoringCriticalAssets": {
+    query: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "SecurityMonitoringCriticalAssetsResponse",
   },
   "SecurityMonitoringApi.V2.CreateSecurityMonitoringCriticalAsset": {
