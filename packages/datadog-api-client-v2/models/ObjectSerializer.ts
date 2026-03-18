@@ -4360,7 +4360,14 @@ const enumsMap: { [key: string]: any[] } = {
     "non_distribution",
     "distribution",
   ],
-  MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
+  MetricTagConfigurationMetricTypes: [
+    "gauge",
+    "count",
+    "rate",
+    "distribution",
+    "exponential_histogram",
+    "explicit_histogram",
+  ],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
   MetricsAggregator: [
