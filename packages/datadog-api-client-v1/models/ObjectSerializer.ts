@@ -1038,11 +1038,6 @@ const enumsMap: { [key: string]: any[] } = {
     "percentile",
     "stddev",
   ],
-  MonitorFormulaAndFunctionCostDataSource: [
-    "metrics",
-    "cloud_cost",
-    "datadog_usage",
-  ],
   MonitorFormulaAndFunctionDataQualityDataSource: ["data_quality_metrics"],
   MonitorFormulaAndFunctionDataQualityModelTypeOverride: [
     "freshness",

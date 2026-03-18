@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { MonitorFormulaAndFunctionCostAggregator } from "./MonitorFormulaAndFunctionCostAggregator";
-import { MonitorFormulaAndFunctionCostDataSource } from "./MonitorFormulaAndFunctionCostDataSource";
+import { MonitorFormulaAndFunctionMetricsDataSource } from "./MonitorFormulaAndFunctionMetricsDataSource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +17,9 @@ export class MonitorFormulaAndFunctionCostQueryDefinition {
    */
   "aggregator"?: MonitorFormulaAndFunctionCostAggregator;
   /**
-   * Data source for cost queries.
+   * Data source for metrics queries.
    */
-  "dataSource": MonitorFormulaAndFunctionCostDataSource;
+  "dataSource": MonitorFormulaAndFunctionMetricsDataSource;
   /**
    * Name of the query for use in formulas.
    */
@@ -51,7 +51,7 @@ export class MonitorFormulaAndFunctionCostQueryDefinition {
     },
     dataSource: {
       baseName: "data_source",
-      type: "MonitorFormulaAndFunctionCostDataSource",
+      type: "MonitorFormulaAndFunctionMetricsDataSource",
       required: true,
     },
     name: {
