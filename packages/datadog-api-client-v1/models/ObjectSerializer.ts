@@ -2596,15 +2596,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsSchemaProcessor",
   ],
   LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
-  MonitorFormulaAndFunctionAggregateAugmentQuery: [
-    "MonitorFormulaAndFunctionEventQueryDefinition",
-    "MonitorFormulaAndFunctionReferenceTableQueryDefinition",
-  ],
   MonitorFormulaAndFunctionAggregateBaseQuery: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
     "MonitorFormulaAndFunctionMetricsQueryDefinition",
   ],
-  MonitorFormulaAndFunctionAggregateFilterQuery: [
+  MonitorFormulaAndFunctionAggregateSubQuery: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
     "MonitorFormulaAndFunctionReferenceTableQueryDefinition",
   ],

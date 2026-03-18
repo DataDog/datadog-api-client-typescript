@@ -9,10 +9,10 @@ import { MonitorFormulaAndFunctionReferenceTableQueryDefinition } from "./Monito
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Augment query for aggregate augmented queries. Can be an events query or a reference table query.
+ * Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a reference table query.
  */
 
-export type MonitorFormulaAndFunctionAggregateAugmentQuery =
+export type MonitorFormulaAndFunctionAggregateSubQuery =
   | MonitorFormulaAndFunctionEventQueryDefinition
   | MonitorFormulaAndFunctionReferenceTableQueryDefinition
   | UnparsedObject;

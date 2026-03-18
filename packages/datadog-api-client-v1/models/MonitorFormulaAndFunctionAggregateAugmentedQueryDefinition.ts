@@ -4,9 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { MonitorFormulaAndFunctionAggregateAugmentedDataSource } from "./MonitorFormulaAndFunctionAggregateAugmentedDataSource";
-import { MonitorFormulaAndFunctionAggregateAugmentQuery } from "./MonitorFormulaAndFunctionAggregateAugmentQuery";
 import { MonitorFormulaAndFunctionAggregateBaseQuery } from "./MonitorFormulaAndFunctionAggregateBaseQuery";
 import { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./MonitorFormulaAndFunctionAggregateQueryJoinCondition";
+import { MonitorFormulaAndFunctionAggregateSubQuery } from "./MonitorFormulaAndFunctionAggregateSubQuery";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 
@@ -17,9 +17,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
   /**
-   * Augment query for aggregate augmented queries. Can be an events query or a reference table query.
+   * Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a reference table query.
    */
-  "augmentQuery": MonitorFormulaAndFunctionAggregateAugmentQuery;
+  "augmentQuery": MonitorFormulaAndFunctionAggregateSubQuery;
   /**
    * Base query for aggregate queries. Can be an events query or a metrics query.
    */
@@ -56,7 +56,7 @@ export class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
   static readonly attributeTypeMap: AttributeTypeMap = {
     augmentQuery: {
       baseName: "augment_query",
-      type: "MonitorFormulaAndFunctionAggregateAugmentQuery",
+      type: "MonitorFormulaAndFunctionAggregateSubQuery",
       required: true,
     },
     baseQuery: {
