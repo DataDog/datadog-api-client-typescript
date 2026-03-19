@@ -9163,13 +9163,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListConnectionsResponse",
   },
-  "ReferenceTablesApi.V2.BatchRowsQuery": {
-    body: {
-      type: "BatchRowsQueryRequest",
-      format: "",
-    },
-    operationResponseType: "BatchRowsQueryResponse",
-  },
   "ReferenceTablesApi.V2.ListTables": {
     pageLimit: {
       type: "number",

@@ -28,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new ReferenceTablesApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.batchRowsQuery(params).then((data) => {
+apiInstance.listTables(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
