@@ -956,6 +956,7 @@ import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationship } from "./DeploymentRelationship";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
 import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
+import { DeploymentRuleOptionsFaultyDeploymentDetectionResponse } from "./DeploymentRuleOptionsFaultyDeploymentDetectionResponse";
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
 import { DeploymentRuleResponse } from "./DeploymentRuleResponse";
 import { DeploymentRuleResponseData } from "./DeploymentRuleResponseData";
@@ -6646,6 +6647,8 @@ const typeMap: { [index: string]: any } = {
   DeploymentRelationshipData: DeploymentRelationshipData,
   DeploymentRuleOptionsFaultyDeploymentDetection:
     DeploymentRuleOptionsFaultyDeploymentDetection,
+  DeploymentRuleOptionsFaultyDeploymentDetectionResponse:
+    DeploymentRuleOptionsFaultyDeploymentDetectionResponse,
   DeploymentRuleOptionsMonitor: DeploymentRuleOptionsMonitor,
   DeploymentRuleResponse: DeploymentRuleResponse,
   DeploymentRuleResponseData: DeploymentRuleResponseData,
@@ -9850,6 +9853,10 @@ const oneOfMap: { [index: string]: string[] } = {
   DegradationIncluded: ["StatusPagesUser", "StatusPageAsIncluded"],
   DeploymentRulesOptions: [
     "DeploymentRuleOptionsFaultyDeploymentDetection",
+    "DeploymentRuleOptionsMonitor",
+  ],
+  DeploymentRulesOptionsResponse: [
+    "DeploymentRuleOptionsFaultyDeploymentDetectionResponse",
     "DeploymentRuleOptionsMonitor",
   ],
   DowntimeMonitorIdentifier: [
