@@ -1003,7 +1003,7 @@ export class WebhooksIntegrationApi {
   }
 
   /**
-   * Deletes the endpoint with the name `<WEBHOOK NAME>`.
+   * Deletes the endpoint with the name `<WEBHOOK NAME>`. This action cannot be undone.
    * @param param The request object
    */
   public deleteWebhooksIntegration(
