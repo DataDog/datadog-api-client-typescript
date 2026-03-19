@@ -60,7 +60,6 @@ import { DashboardListListResponse } from "./DashboardListListResponse";
 import { DashboardRestoreRequest } from "./DashboardRestoreRequest";
 import { DashboardSummary } from "./DashboardSummary";
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
-import { DashboardTab } from "./DashboardTab";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
@@ -1873,7 +1872,6 @@ const typeMap: { [index: string]: any } = {
   DashboardRestoreRequest: DashboardRestoreRequest,
   DashboardSummary: DashboardSummary,
   DashboardSummaryDefinition: DashboardSummaryDefinition,
-  DashboardTab: DashboardTab,
   DashboardTemplateVariable: DashboardTemplateVariable,
   DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
   DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
