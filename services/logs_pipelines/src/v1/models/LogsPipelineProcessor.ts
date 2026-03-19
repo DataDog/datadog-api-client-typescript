@@ -13,6 +13,10 @@ import { LogsProcessor } from "./LogsProcessor";
  */
 export class LogsPipelineProcessor {
   /**
+   * A description of the pipeline.
+   */
+  "description"?: string;
+  /**
    * Filter for logs.
    */
   "filter"?: LogsFilter;
@@ -28,6 +32,10 @@ export class LogsPipelineProcessor {
    * Ordered list of processors in this pipeline.
    */
   "processors"?: Array<LogsProcessor>;
+  /**
+   * A list of tags associated with the pipeline.
+   */
+  "tags"?: Array<string>;
   /**
    * Type of logs pipeline processor.
    */
@@ -47,6 +55,10 @@ export class LogsPipelineProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     filter: {
       baseName: "filter",
       type: "LogsFilter",
@@ -62,6 +74,10 @@ export class LogsPipelineProcessor {
     processors: {
       baseName: "processors",
       type: "Array<LogsProcessor>",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     type: {
       baseName: "type",
