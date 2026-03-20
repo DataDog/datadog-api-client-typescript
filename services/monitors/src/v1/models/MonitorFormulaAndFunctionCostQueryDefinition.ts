@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { MonitorFormulaAndFunctionCostAggregator } from "./MonitorFormulaAndFunctionCostAggregator";
-import { MonitorFormulaAndFunctionMetricsDataSource } from "./MonitorFormulaAndFunctionMetricsDataSource";
+import { MonitorFormulaAndFunctionCostDataSource } from "./MonitorFormulaAndFunctionCostDataSource";
 
 /**
  * A formula and functions cost query.
@@ -12,9 +12,9 @@ export class MonitorFormulaAndFunctionCostQueryDefinition {
    */
   "aggregator"?: MonitorFormulaAndFunctionCostAggregator;
   /**
-   * Data source for metrics queries.
+   * Data source for cost queries.
    */
-  "dataSource": MonitorFormulaAndFunctionMetricsDataSource;
+  "dataSource": MonitorFormulaAndFunctionCostDataSource;
   /**
    * Name of the query for use in formulas.
    */
@@ -44,7 +44,7 @@ export class MonitorFormulaAndFunctionCostQueryDefinition {
     },
     dataSource: {
       baseName: "data_source",
-      type: "MonitorFormulaAndFunctionMetricsDataSource",
+      type: "MonitorFormulaAndFunctionCostDataSource",
       required: true,
     },
     name: {
