@@ -10,7 +10,10 @@ import {
   RequestContext,
   HttpMethod,
   ResponseContext,
+  HttpFile,
 } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -59,6 +62,10 @@ import { IncidentTypeListResponse } from "../models/IncidentTypeListResponse";
 import { IncidentTypePatchRequest } from "../models/IncidentTypePatchRequest";
 import { IncidentTypeResponse } from "../models/IncidentTypeResponse";
 import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
+import { IncidentUserDefinedFieldCreateRequest } from "../models/IncidentUserDefinedFieldCreateRequest";
+import { IncidentUserDefinedFieldListResponse } from "../models/IncidentUserDefinedFieldListResponse";
+import { IncidentUserDefinedFieldResponse } from "../models/IncidentUserDefinedFieldResponse";
+import { IncidentUserDefinedFieldUpdateRequest } from "../models/IncidentUserDefinedFieldUpdateRequest";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { PatchAttachmentRequest } from "../models/PatchAttachmentRequest";
 import { PatchIncidentNotificationTemplateRequest } from "../models/PatchIncidentNotificationTemplateRequest";
@@ -693,6 +700,69 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createIncidentUserDefinedField(
+    body: IncidentUserDefinedFieldCreateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentUserDefinedField'");
+    if (!_config.unstableOperations["v2.createIncidentUserDefinedField"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentUserDefinedField' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentUserDefinedField");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/user-defined-fields";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentUserDefinedField")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "IncidentUserDefinedFieldCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteGlobalIncidentHandle(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1134,6 +1204,48 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentUserDefinedField(
+    fieldId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteIncidentUserDefinedField'");
+    if (!_config.unstableOperations["v2.deleteIncidentUserDefinedField"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentUserDefinedField' is disabled"
+      );
+    }
+
+    // verify required parameter 'fieldId' is not null or undefined
+    if (fieldId === null || fieldId === undefined) {
+      throw new RequiredError("fieldId", "deleteIncidentUserDefinedField");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
+        "{field_id}",
+        encodeURIComponent(String(fieldId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentUserDefinedField")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getGlobalIncidentSettings(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1497,6 +1609,58 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getIncidentUserDefinedField(
+    fieldId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getIncidentUserDefinedField'");
+    if (!_config.unstableOperations["v2.getIncidentUserDefinedField"]) {
+      throw new Error(
+        "Unstable operation 'getIncidentUserDefinedField' is disabled"
+      );
+    }
+
+    // verify required parameter 'fieldId' is not null or undefined
+    if (fieldId === null || fieldId === undefined) {
+      throw new RequiredError("fieldId", "getIncidentUserDefinedField");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
+        "{field_id}",
+        encodeURIComponent(String(fieldId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getIncidentUserDefinedField")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async importIncident(
     body: IncidentImportRequest,
     include?: Array<IncidentImportRelatedObject>,
@@ -1547,6 +1711,74 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async importIncidentUserDefinedFieldValues(
+    fieldId: string,
+    replaceValues?: string,
+    file?: HttpFile,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'importIncidentUserDefinedFieldValues'"
+    );
+    if (
+      !_config.unstableOperations["v2.importIncidentUserDefinedFieldValues"]
+    ) {
+      throw new Error(
+        "Unstable operation 'importIncidentUserDefinedFieldValues' is disabled"
+      );
+    }
+
+    // verify required parameter 'fieldId' is not null or undefined
+    if (fieldId === null || fieldId === undefined) {
+      throw new RequiredError(
+        "fieldId",
+        "importIncidentUserDefinedFieldValues"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/fields/{field_id}/values/import".replace(
+        "{field_id}",
+        encodeURIComponent(String(fieldId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.importIncidentUserDefinedFieldValues")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (replaceValues !== undefined) {
+      requestContext.setQueryParam(
+        "replace_values",
+        ObjectSerializer.serialize(replaceValues, "string", ""),
+        ""
+      );
+    }
+
+    // Form Params
+    const localVarFormParams = new FormData();
+    if (file !== undefined) {
+      // TODO: replace .append with .set
+      localVarFormParams.append("file", file.data, file.name);
+    }
+    requestContext.setBody(localVarFormParams);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1992,6 +2224,80 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include_deleted",
         ObjectSerializer.serialize(includeDeleted, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentUserDefinedFields(
+    pageSize?: number,
+    pageNumber?: number,
+    includeDeleted?: boolean,
+    filterIncidentType?: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIncidentUserDefinedFields'");
+    if (!_config.unstableOperations["v2.listIncidentUserDefinedFields"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentUserDefinedFields' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/user-defined-fields";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentUserDefinedFields")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (includeDeleted !== undefined) {
+      requestContext.setQueryParam(
+        "include-deleted",
+        ObjectSerializer.serialize(includeDeleted, "boolean", ""),
+        ""
+      );
+    }
+    if (filterIncidentType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[incident-type]",
+        ObjectSerializer.serialize(filterIncidentType, "string", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
         ""
       );
     }
@@ -2714,6 +3020,79 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentTypePatchRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateIncidentUserDefinedField(
+    fieldId: string,
+    body: IncidentUserDefinedFieldUpdateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncidentUserDefinedField'");
+    if (!_config.unstableOperations["v2.updateIncidentUserDefinedField"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentUserDefinedField' is disabled"
+      );
+    }
+
+    // verify required parameter 'fieldId' is not null or undefined
+    if (fieldId === null || fieldId === undefined) {
+      throw new RequiredError("fieldId", "updateIncidentUserDefinedField");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentUserDefinedField");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
+        "{field_id}",
+        encodeURIComponent(String(fieldId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentUserDefinedField")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "IncidentUserDefinedFieldUpdateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -3489,6 +3868,93 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentUserDefinedField
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentUserDefinedField(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse"
+        ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse",
+          ""
+        ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteGlobalIncidentHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4025,6 +4491,82 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentUserDefinedField
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentUserDefinedField(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -4611,6 +5153,93 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getIncidentUserDefinedField
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentUserDefinedField(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse"
+        ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse",
+          ""
+        ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to importIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4661,6 +5290,93 @@ export class IncidentsApiResponseProcessor {
         "IncidentImportResponse",
         ""
       ) as IncidentImportResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to importIncidentUserDefinedFieldValues
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async importIncidentUserDefinedFieldValues(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse"
+        ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse",
+          ""
+        ) as IncidentUserDefinedFieldResponse;
       return body;
     }
 
@@ -5332,6 +6048,93 @@ export class IncidentsApiResponseProcessor {
         "IncidentTypeListResponse",
         ""
       ) as IncidentTypeListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentUserDefinedFields
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentUserDefinedFields(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedFieldListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedFieldListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldListResponse"
+        ) as IncidentUserDefinedFieldListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedFieldListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldListResponse",
+          ""
+        ) as IncidentUserDefinedFieldListResponse;
       return body;
     }
 
@@ -6097,6 +6900,93 @@ export class IncidentsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentUserDefinedField
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentUserDefinedField(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse"
+        ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedFieldResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedFieldResponse",
+          ""
+        ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface IncidentsApiCreateGlobalIncidentHandleRequest {
@@ -6221,6 +7111,19 @@ export interface IncidentsApiCreateIncidentTypeRequest {
   body: IncidentTypeCreateRequest;
 }
 
+export interface IncidentsApiCreateIncidentUserDefinedFieldRequest {
+  /**
+   * Incident user-defined field payload.
+   * @type IncidentUserDefinedFieldCreateRequest
+   */
+  body: IncidentUserDefinedFieldCreateRequest;
+  /**
+   * Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiDeleteIncidentRequest {
   /**
    * The UUID of the incident.
@@ -6323,6 +7226,14 @@ export interface IncidentsApiDeleteIncidentTypeRequest {
   incidentTypeId: string;
 }
 
+export interface IncidentsApiDeleteIncidentUserDefinedFieldRequest {
+  /**
+   * The ID of the incident user-defined field.
+   * @type string
+   */
+  fieldId: string;
+}
+
 export interface IncidentsApiGetIncidentRequest {
   /**
    * The UUID of the incident.
@@ -6404,6 +7315,19 @@ export interface IncidentsApiGetIncidentTypeRequest {
   incidentTypeId: string;
 }
 
+export interface IncidentsApiGetIncidentUserDefinedFieldRequest {
+  /**
+   * The ID of the incident user-defined field.
+   * @type string
+   */
+  fieldId: string;
+  /**
+   * Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiImportIncidentRequest {
   /**
    * Incident import payload.
@@ -6415,6 +7339,24 @@ export interface IncidentsApiImportIncidentRequest {
    * @type Array<IncidentImportRelatedObject>
    */
   include?: Array<IncidentImportRelatedObject>;
+}
+
+export interface IncidentsApiImportIncidentUserDefinedFieldValuesRequest {
+  /**
+   * The ID of the incident user-defined field.
+   * @type string
+   */
+  fieldId: string;
+  /**
+   * When "true", "True", or "1", replaces all existing valid values with the imported values. Otherwise, appends the imported values to the existing list.
+   * @type string
+   */
+  replaceValues?: string;
+  /**
+   * CSV file containing the values to import.
+   * @type HttpFile
+   */
+  file?: HttpFile;
 }
 
 export interface IncidentsApiListGlobalIncidentHandlesRequest {
@@ -6517,6 +7459,34 @@ export interface IncidentsApiListIncidentTypesRequest {
    * @type boolean
    */
   includeDeleted?: boolean;
+}
+
+export interface IncidentsApiListIncidentUserDefinedFieldsRequest {
+  /**
+   * The number of results to return per page. Must be between 0 and 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page number to retrieve, starting at 0.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * When true, include soft-deleted fields in the response.
+   * @type boolean
+   */
+  includeDeleted?: boolean;
+  /**
+   * Filter results to fields associated with the given incident type UUID.
+   * @type string
+   */
+  filterIncidentType?: string;
+  /**
+   * Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+   * @type string
+   */
+  include?: string;
 }
 
 export interface IncidentsApiSearchIncidentsRequest {
@@ -6701,6 +7671,24 @@ export interface IncidentsApiUpdateIncidentTypeRequest {
    * @type IncidentTypePatchRequest
    */
   body: IncidentTypePatchRequest;
+}
+
+export interface IncidentsApiUpdateIncidentUserDefinedFieldRequest {
+  /**
+   * The ID of the incident user-defined field.
+   * @type string
+   */
+  fieldId: string;
+  /**
+   * Incident user-defined field update payload.
+   * @type IncidentUserDefinedFieldUpdateRequest
+   */
+  body: IncidentUserDefinedFieldUpdateRequest;
+  /**
+   * Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+   * @type string
+   */
+  include?: string;
 }
 
 export class IncidentsApi {
@@ -6977,6 +7965,31 @@ export class IncidentsApi {
   }
 
   /**
+   * Create an incident user-defined field.
+   * @param param The request object
+   */
+  public createIncidentUserDefinedField(
+    param: IncidentsApiCreateIncidentUserDefinedFieldRequest,
+    options?: Configuration
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentUserDefinedField(
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentUserDefinedField(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a global incident handle.
    * @param param The request object
    */
@@ -7202,6 +8215,30 @@ export class IncidentsApi {
   }
 
   /**
+   * Delete an incident user-defined field.
+   * @param param The request object
+   */
+  public deleteIncidentUserDefinedField(
+    param: IncidentsApiDeleteIncidentUserDefinedFieldRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteIncidentUserDefinedField(
+        param.fieldId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentUserDefinedField(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Retrieve global incident settings for the organization.
    * @param param The request object
    */
@@ -7383,6 +8420,31 @@ export class IncidentsApi {
   }
 
   /**
+   * Get details of an incident user-defined field.
+   * @param param The request object
+   */
+  public getIncidentUserDefinedField(
+    param: IncidentsApiGetIncidentUserDefinedFieldRequest,
+    options?: Configuration
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const requestContextPromise =
+      this.requestFactory.getIncidentUserDefinedField(
+        param.fieldId,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentUserDefinedField(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Import an incident from an external system. This endpoint allows you to create incidents with
    * historical data such as custom timestamps for detection, declaration, and resolution.
    * Imported incidents do not execute integrations or notification rules.
@@ -7402,6 +8464,32 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.importIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Import valid values for an incident user-defined field from a CSV file. Only supported for dropdown, multiselect, and autocomplete field types.
+   * @param param The request object
+   */
+  public importIncidentUserDefinedFieldValues(
+    param: IncidentsApiImportIncidentUserDefinedFieldValuesRequest,
+    options?: Configuration
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const requestContextPromise =
+      this.requestFactory.importIncidentUserDefinedFieldValues(
+        param.fieldId,
+        param.replaceValues,
+        param.file,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.importIncidentUserDefinedFieldValues(
+            responseContext
+          );
         });
     });
   }
@@ -7671,6 +8759,34 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentTypes(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a list of all incident user-defined fields.
+   * @param param The request object
+   */
+  public listIncidentUserDefinedFields(
+    param: IncidentsApiListIncidentUserDefinedFieldsRequest = {},
+    options?: Configuration
+  ): Promise<IncidentUserDefinedFieldListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentUserDefinedFields(
+        param.pageSize,
+        param.pageNumber,
+        param.includeDeleted,
+        param.filterIncidentType,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentUserDefinedFields(
+            responseContext
+          );
         });
     });
   }
@@ -7992,6 +9108,32 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update an incident user-defined field.
+   * @param param The request object
+   */
+  public updateIncidentUserDefinedField(
+    param: IncidentsApiUpdateIncidentUserDefinedFieldRequest,
+    options?: Configuration
+  ): Promise<IncidentUserDefinedFieldResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentUserDefinedField(
+        param.fieldId,
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentUserDefinedField(
+            responseContext
+          );
         });
     });
   }

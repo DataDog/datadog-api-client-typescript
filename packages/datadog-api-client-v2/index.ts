@@ -474,6 +474,7 @@ export {
   IncidentsApiCreateIncidentPostmortemTemplateRequest,
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
+  IncidentsApiCreateIncidentUserDefinedFieldRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentAttachmentRequest,
   IncidentsApiDeleteIncidentImpactRequest,
@@ -483,6 +484,7 @@ export {
   IncidentsApiDeleteIncidentPostmortemTemplateRequest,
   IncidentsApiDeleteIncidentTodoRequest,
   IncidentsApiDeleteIncidentTypeRequest,
+  IncidentsApiDeleteIncidentUserDefinedFieldRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiGetIncidentNotificationRuleRequest,
@@ -490,7 +492,9 @@ export {
   IncidentsApiGetIncidentPostmortemTemplateRequest,
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
+  IncidentsApiGetIncidentUserDefinedFieldRequest,
   IncidentsApiImportIncidentRequest,
+  IncidentsApiImportIncidentUserDefinedFieldValuesRequest,
   IncidentsApiListGlobalIncidentHandlesRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentImpactsRequest,
@@ -499,6 +503,7 @@ export {
   IncidentsApiListIncidentNotificationTemplatesRequest,
   IncidentsApiListIncidentTodosRequest,
   IncidentsApiListIncidentTypesRequest,
+  IncidentsApiListIncidentUserDefinedFieldsRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateGlobalIncidentHandleRequest,
@@ -511,6 +516,7 @@ export {
   IncidentsApiUpdateIncidentPostmortemTemplateRequest,
   IncidentsApiUpdateIncidentTodoRequest,
   IncidentsApiUpdateIncidentTypeRequest,
+  IncidentsApiUpdateIncidentUserDefinedFieldRequest,
   IncidentsApi,
 } from "./apis/IncidentsApi";
 
@@ -3203,7 +3209,25 @@ export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationship
 export { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
 export { IncidentUserAttributes } from "./models/IncidentUserAttributes";
 export { IncidentUserData } from "./models/IncidentUserData";
+export { IncidentUserDefinedFieldAttributesCreateRequest } from "./models/IncidentUserDefinedFieldAttributesCreateRequest";
+export { IncidentUserDefinedFieldAttributesResponse } from "./models/IncidentUserDefinedFieldAttributesResponse";
+export { IncidentUserDefinedFieldAttributesUpdateRequest } from "./models/IncidentUserDefinedFieldAttributesUpdateRequest";
+export { IncidentUserDefinedFieldCategory } from "./models/IncidentUserDefinedFieldCategory";
+export { IncidentUserDefinedFieldCollected } from "./models/IncidentUserDefinedFieldCollected";
+export { IncidentUserDefinedFieldCreateData } from "./models/IncidentUserDefinedFieldCreateData";
+export { IncidentUserDefinedFieldCreateRelationships } from "./models/IncidentUserDefinedFieldCreateRelationships";
+export { IncidentUserDefinedFieldCreateRequest } from "./models/IncidentUserDefinedFieldCreateRequest";
+export { IncidentUserDefinedFieldFieldType } from "./models/IncidentUserDefinedFieldFieldType";
+export { IncidentUserDefinedFieldListMeta } from "./models/IncidentUserDefinedFieldListMeta";
+export { IncidentUserDefinedFieldListResponse } from "./models/IncidentUserDefinedFieldListResponse";
+export { IncidentUserDefinedFieldMetadata } from "./models/IncidentUserDefinedFieldMetadata";
+export { IncidentUserDefinedFieldRelationships } from "./models/IncidentUserDefinedFieldRelationships";
+export { IncidentUserDefinedFieldResponse } from "./models/IncidentUserDefinedFieldResponse";
+export { IncidentUserDefinedFieldResponseData } from "./models/IncidentUserDefinedFieldResponseData";
 export { IncidentUserDefinedFieldType } from "./models/IncidentUserDefinedFieldType";
+export { IncidentUserDefinedFieldUpdateData } from "./models/IncidentUserDefinedFieldUpdateData";
+export { IncidentUserDefinedFieldUpdateRequest } from "./models/IncidentUserDefinedFieldUpdateRequest";
+export { IncidentUserDefinedFieldValidValue } from "./models/IncidentUserDefinedFieldValidValue";
 export { IncludeType } from "./models/IncludeType";
 export { InputSchema } from "./models/InputSchema";
 export { InputSchemaParameters } from "./models/InputSchemaParameters";

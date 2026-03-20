@@ -6149,6 +6149,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentResponse",
     },
+    "v2.ImportIncidentUserDefinedFieldValues": {
+        "fieldId": {
+            "type": "string",
+            "format": "",
+            },
+        "replaceValues": {
+            "type": "string",
+            "format": "",
+            },
+        "file": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "IncidentUserDefinedFieldResponse",
+    },
     "v2.ListGlobalIncidentHandles": {
         "include": {
             "type": "string",
@@ -6370,6 +6385,73 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.ListIncidentUserDefinedFields": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterIncidentType": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedFieldListResponse",
+    },
+    "v2.CreateIncidentUserDefinedField": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentUserDefinedFieldCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedFieldResponse",
+    },
+    "v2.GetIncidentUserDefinedField": {
+        "fieldId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedFieldResponse",
+    },
+    "v2.DeleteIncidentUserDefinedField": {
+        "fieldId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentUserDefinedField": {
+        "fieldId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentUserDefinedFieldUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedFieldResponse",
     },
     "v2.ImportIncident": {
         "include": {
