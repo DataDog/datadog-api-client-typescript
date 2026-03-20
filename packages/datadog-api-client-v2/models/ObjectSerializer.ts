@@ -674,6 +674,12 @@ import { CreateDeploymentRuleParams } from "./CreateDeploymentRuleParams";
 import { CreateDeploymentRuleParamsData } from "./CreateDeploymentRuleParamsData";
 import { CreateDeploymentRuleParamsDataAttributes } from "./CreateDeploymentRuleParamsDataAttributes";
 import { CreateEmailNotificationChannelConfig } from "./CreateEmailNotificationChannelConfig";
+import { CreateEnvironmentAttributes } from "./CreateEnvironmentAttributes";
+import { CreateEnvironmentData } from "./CreateEnvironmentData";
+import { CreateEnvironmentRequest } from "./CreateEnvironmentRequest";
+import { CreateFeatureFlagAttributes } from "./CreateFeatureFlagAttributes";
+import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
+import { CreateFeatureFlagRequest } from "./CreateFeatureFlagRequest";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
@@ -743,6 +749,7 @@ import { CreateUploadResponse } from "./CreateUploadResponse";
 import { CreateUploadResponseData } from "./CreateUploadResponseData";
 import { CreateUploadResponseDataAttributes } from "./CreateUploadResponseDataAttributes";
 import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationChannelRequest";
+import { CreateVariant } from "./CreateVariant";
 import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
@@ -1069,6 +1076,11 @@ import { EntityV3ServiceSpec } from "./EntityV3ServiceSpec";
 import { EntityV3System } from "./EntityV3System";
 import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
+import { Environment } from "./Environment";
+import { EnvironmentAttributes } from "./EnvironmentAttributes";
+import { EnvironmentResponse } from "./EnvironmentResponse";
+import { EnvironmentsPaginationMeta } from "./EnvironmentsPaginationMeta";
+import { EnvironmentsPaginationMetaPage } from "./EnvironmentsPaginationMetaPage";
 import { ErrorHandler } from "./ErrorHandler";
 import { Escalation } from "./Escalation";
 import { EscalationPolicy } from "./EscalationPolicy";
@@ -1160,6 +1172,12 @@ import { FastlyServiceData } from "./FastlyServiceData";
 import { FastlyServiceRequest } from "./FastlyServiceRequest";
 import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
+import { FeatureFlag } from "./FeatureFlag";
+import { FeatureFlagAttributes } from "./FeatureFlagAttributes";
+import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
+import { FeatureFlagResponse } from "./FeatureFlagResponse";
+import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
+import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
 import { FiltersPerProduct } from "./FiltersPerProduct";
 import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
@@ -1757,6 +1775,8 @@ import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPa
 import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListEntityCatalogResponse } from "./ListEntityCatalogResponse";
 import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks";
+import { ListEnvironmentsResponse } from "./ListEnvironmentsResponse";
+import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
@@ -3333,6 +3353,12 @@ import { UpdateDeploymentGateParamsDataAttributes } from "./UpdateDeploymentGate
 import { UpdateDeploymentRuleParams } from "./UpdateDeploymentRuleParams";
 import { UpdateDeploymentRuleParamsData } from "./UpdateDeploymentRuleParamsData";
 import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRuleParamsDataAttributes";
+import { UpdateEnvironmentAttributes } from "./UpdateEnvironmentAttributes";
+import { UpdateEnvironmentData } from "./UpdateEnvironmentData";
+import { UpdateEnvironmentRequest } from "./UpdateEnvironmentRequest";
+import { UpdateFeatureFlagAttributes } from "./UpdateFeatureFlagAttributes";
+import { UpdateFeatureFlagData } from "./UpdateFeatureFlagData";
+import { UpdateFeatureFlagRequest } from "./UpdateFeatureFlagRequest";
 import { UpdateFlakyTestsRequest } from "./UpdateFlakyTestsRequest";
 import { UpdateFlakyTestsRequestAttributes } from "./UpdateFlakyTestsRequestAttributes";
 import { UpdateFlakyTestsRequestData } from "./UpdateFlakyTestsRequestData";
@@ -3428,6 +3454,7 @@ import { V2EventResponse } from "./V2EventResponse";
 import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
+import { Variant } from "./Variant";
 import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 import { ViewershipHistorySessionArray } from "./ViewershipHistorySessionArray";
 import { ViewershipHistorySessionData } from "./ViewershipHistorySessionData";
@@ -3859,6 +3886,8 @@ const enumsMap: { [key: string]: any[] } = {
     "monitoring",
     "resolved",
   ],
+  CreateEnvironmentDataType: ["environments"],
+  CreateFeatureFlagDataType: ["feature-flags"],
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
   CreateRulesetRequestDataType: ["create_ruleset"],
@@ -4031,6 +4060,7 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
+  FeatureFlagStatus: ["ENABLED", "DISABLED"],
   FindingDataType: ["findings"],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
@@ -5360,6 +5390,8 @@ const enumsMap: { [key: string]: any[] } = {
   UCConfigPairDataType: ["azure_uc_configs"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateConnectionRequestDataType: ["connection_id"],
+  UpdateEnvironmentDataType: ["environments"],
+  UpdateFeatureFlagDataType: ["feature-flags"],
   UpdateFlakyTestsRequestDataType: ["update_flaky_test_state_request"],
   UpdateFlakyTestsRequestTestNewState: [
     "active",
@@ -5384,6 +5416,7 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
+  ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
   VersionHistoryUpdateType: ["create", "update", "delete"],
   ViewershipHistorySessionDataType: ["rum_replay_session"],
   VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
@@ -6301,6 +6334,12 @@ const typeMap: { [index: string]: any } = {
   CreateDeploymentRuleParamsDataAttributes:
     CreateDeploymentRuleParamsDataAttributes,
   CreateEmailNotificationChannelConfig: CreateEmailNotificationChannelConfig,
+  CreateEnvironmentAttributes: CreateEnvironmentAttributes,
+  CreateEnvironmentData: CreateEnvironmentData,
+  CreateEnvironmentRequest: CreateEnvironmentRequest,
+  CreateFeatureFlagAttributes: CreateFeatureFlagAttributes,
+  CreateFeatureFlagData: CreateFeatureFlagData,
+  CreateFeatureFlagRequest: CreateFeatureFlagRequest,
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
@@ -6395,6 +6434,7 @@ const typeMap: { [index: string]: any } = {
   CreateUploadResponseData: CreateUploadResponseData,
   CreateUploadResponseDataAttributes: CreateUploadResponseDataAttributes,
   CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
+  CreateVariant: CreateVariant,
   CreateWorkflowRequest: CreateWorkflowRequest,
   CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
@@ -6782,6 +6822,11 @@ const typeMap: { [index: string]: any } = {
   EntityV3System: EntityV3System,
   EntityV3SystemDatadog: EntityV3SystemDatadog,
   EntityV3SystemSpec: EntityV3SystemSpec,
+  Environment: Environment,
+  EnvironmentAttributes: EnvironmentAttributes,
+  EnvironmentResponse: EnvironmentResponse,
+  EnvironmentsPaginationMeta: EnvironmentsPaginationMeta,
+  EnvironmentsPaginationMetaPage: EnvironmentsPaginationMetaPage,
   ErrorHandler: ErrorHandler,
   Escalation: Escalation,
   EscalationPolicy: EscalationPolicy,
@@ -6888,6 +6933,12 @@ const typeMap: { [index: string]: any } = {
   FastlyServiceRequest: FastlyServiceRequest,
   FastlyServiceResponse: FastlyServiceResponse,
   FastlyServicesResponse: FastlyServicesResponse,
+  FeatureFlag: FeatureFlag,
+  FeatureFlagAttributes: FeatureFlagAttributes,
+  FeatureFlagEnvironment: FeatureFlagEnvironment,
+  FeatureFlagResponse: FeatureFlagResponse,
+  FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
+  FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
   FiltersPerProduct: FiltersPerProduct,
   Finding: Finding,
   FindingAttributes: FindingAttributes,
@@ -7558,6 +7609,8 @@ const typeMap: { [index: string]: any } = {
   ListDowntimesResponse: ListDowntimesResponse,
   ListEntityCatalogResponse: ListEntityCatalogResponse,
   ListEntityCatalogResponseLinks: ListEntityCatalogResponseLinks,
+  ListEnvironmentsResponse: ListEnvironmentsResponse,
+  ListFeatureFlagsResponse: ListFeatureFlagsResponse,
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
@@ -9509,6 +9562,12 @@ const typeMap: { [index: string]: any } = {
   UpdateDeploymentRuleParamsData: UpdateDeploymentRuleParamsData,
   UpdateDeploymentRuleParamsDataAttributes:
     UpdateDeploymentRuleParamsDataAttributes,
+  UpdateEnvironmentAttributes: UpdateEnvironmentAttributes,
+  UpdateEnvironmentData: UpdateEnvironmentData,
+  UpdateEnvironmentRequest: UpdateEnvironmentRequest,
+  UpdateFeatureFlagAttributes: UpdateFeatureFlagAttributes,
+  UpdateFeatureFlagData: UpdateFeatureFlagData,
+  UpdateFeatureFlagRequest: UpdateFeatureFlagRequest,
   UpdateFlakyTestsRequest: UpdateFlakyTestsRequest,
   UpdateFlakyTestsRequestAttributes: UpdateFlakyTestsRequestAttributes,
   UpdateFlakyTestsRequestData: UpdateFlakyTestsRequestData,
@@ -9620,6 +9679,7 @@ const typeMap: { [index: string]: any } = {
   ValidationError: ValidationError,
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,
+  Variant: Variant,
   VersionHistoryUpdate: VersionHistoryUpdate,
   ViewershipHistorySessionArray: ViewershipHistorySessionArray,
   ViewershipHistorySessionData: ViewershipHistorySessionData,
