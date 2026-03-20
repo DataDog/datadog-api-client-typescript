@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions {
   /**
-   * The `ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions` `characters`.
+   * Number of characters to leave visible from the start or end of the matched value; the rest are redacted.
    */
   "characters": number;
   /**
