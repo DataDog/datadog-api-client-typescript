@@ -6127,6 +6127,137 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "V2EventResponse",
   },
+  "FeatureFlagsApi.V2.ListFeatureFlags": {
+    key: {
+      type: "string",
+      format: "",
+    },
+    isArchived: {
+      type: "boolean",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "",
+    },
+    offset: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "ListFeatureFlagsResponse",
+  },
+  "FeatureFlagsApi.V2.CreateFeatureFlag": {
+    body: {
+      type: "CreateFeatureFlagRequest",
+      format: "",
+    },
+    operationResponseType: "FeatureFlagResponse",
+  },
+  "FeatureFlagsApi.V2.ListFeatureFlagsEnvironments": {
+    name: {
+      type: "string",
+      format: "",
+    },
+    key: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "",
+    },
+    offset: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "ListEnvironmentsResponse",
+  },
+  "FeatureFlagsApi.V2.CreateFeatureFlagsEnvironment": {
+    body: {
+      type: "CreateEnvironmentRequest",
+      format: "",
+    },
+    operationResponseType: "EnvironmentResponse",
+  },
+  "FeatureFlagsApi.V2.GetFeatureFlagsEnvironment": {
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "EnvironmentResponse",
+  },
+  "FeatureFlagsApi.V2.UpdateFeatureFlagsEnvironment": {
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateEnvironmentRequest",
+      format: "",
+    },
+    operationResponseType: "EnvironmentResponse",
+  },
+  "FeatureFlagsApi.V2.DeleteFeatureFlagsEnvironment": {
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "FeatureFlagsApi.V2.GetFeatureFlag": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "FeatureFlagResponse",
+  },
+  "FeatureFlagsApi.V2.UpdateFeatureFlag": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateFeatureFlagRequest",
+      format: "",
+    },
+    operationResponseType: "FeatureFlagResponse",
+  },
+  "FeatureFlagsApi.V2.ArchiveFeatureFlag": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "FeatureFlagResponse",
+  },
+  "FeatureFlagsApi.V2.DisableFeatureFlagEnvironment": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "FeatureFlagsApi.V2.EnableFeatureFlagEnvironment": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "FeatureFlagsApi.V2.UnarchiveFeatureFlag": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "FeatureFlagResponse",
+  },
   "HighAvailabilityMultiRegionApi.V2.GetHamrOrgConnection": {
     operationResponseType: "HamrOrgConnectionResponse",
   },
