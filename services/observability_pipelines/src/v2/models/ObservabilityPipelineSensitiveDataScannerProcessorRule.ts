@@ -32,7 +32,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorRule {
   /**
    * Tags assigned to this rule for filtering and classification.
    */
-  "tags": Array<string>;
+  "tags"?: Array<string>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -75,7 +75,6 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorRule {
     tags: {
       baseName: "tags",
       type: "Array<string>",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
