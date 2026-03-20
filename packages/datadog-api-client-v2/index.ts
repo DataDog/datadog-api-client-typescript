@@ -401,6 +401,23 @@ export {
 } from "./apis/FastlyIntegrationApi";
 
 export {
+  FeatureFlagsApiArchiveFeatureFlagRequest,
+  FeatureFlagsApiCreateFeatureFlagRequest,
+  FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiDisableFeatureFlagEnvironmentRequest,
+  FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
+  FeatureFlagsApiGetFeatureFlagRequest,
+  FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiListFeatureFlagsRequest,
+  FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
+  FeatureFlagsApiUnarchiveFeatureFlagRequest,
+  FeatureFlagsApiUpdateFeatureFlagRequest,
+  FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApi,
+} from "./apis/FeatureFlagsApi";
+
+export {
   FleetAutomationApiCancelFleetDeploymentRequest,
   FleetAutomationApiCreateFleetDeploymentConfigureRequest,
   FleetAutomationApiCreateFleetDeploymentUpgradeRequest,
@@ -2098,6 +2115,14 @@ export { CreateDeploymentRuleParams } from "./models/CreateDeploymentRuleParams"
 export { CreateDeploymentRuleParamsData } from "./models/CreateDeploymentRuleParamsData";
 export { CreateDeploymentRuleParamsDataAttributes } from "./models/CreateDeploymentRuleParamsDataAttributes";
 export { CreateEmailNotificationChannelConfig } from "./models/CreateEmailNotificationChannelConfig";
+export { CreateEnvironmentAttributes } from "./models/CreateEnvironmentAttributes";
+export { CreateEnvironmentData } from "./models/CreateEnvironmentData";
+export { CreateEnvironmentDataType } from "./models/CreateEnvironmentDataType";
+export { CreateEnvironmentRequest } from "./models/CreateEnvironmentRequest";
+export { CreateFeatureFlagAttributes } from "./models/CreateFeatureFlagAttributes";
+export { CreateFeatureFlagData } from "./models/CreateFeatureFlagData";
+export { CreateFeatureFlagDataType } from "./models/CreateFeatureFlagDataType";
+export { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
@@ -2177,6 +2202,7 @@ export { CreateUploadResponseData } from "./models/CreateUploadResponseData";
 export { CreateUploadResponseDataAttributes } from "./models/CreateUploadResponseDataAttributes";
 export { CreateUploadResponseDataType } from "./models/CreateUploadResponseDataType";
 export { CreateUserNotificationChannelRequest } from "./models/CreateUserNotificationChannelRequest";
+export { CreateVariant } from "./models/CreateVariant";
 export { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 export { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
 export { Creator } from "./models/Creator";
@@ -2593,6 +2619,11 @@ export { EntityV3System } from "./models/EntityV3System";
 export { EntityV3SystemDatadog } from "./models/EntityV3SystemDatadog";
 export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
+export { Environment } from "./models/Environment";
+export { EnvironmentAttributes } from "./models/EnvironmentAttributes";
+export { EnvironmentResponse } from "./models/EnvironmentResponse";
+export { EnvironmentsPaginationMeta } from "./models/EnvironmentsPaginationMeta";
+export { EnvironmentsPaginationMetaPage } from "./models/EnvironmentsPaginationMetaPage";
 export { EPSS } from "./models/EPSS";
 export { ErrorHandler } from "./models/ErrorHandler";
 export { Escalation } from "./models/Escalation";
@@ -2718,6 +2749,13 @@ export { FastlyServiceRequest } from "./models/FastlyServiceRequest";
 export { FastlyServiceResponse } from "./models/FastlyServiceResponse";
 export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
+export { FeatureFlag } from "./models/FeatureFlag";
+export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagEnvironment } from "./models/FeatureFlagEnvironment";
+export { FeatureFlagResponse } from "./models/FeatureFlagResponse";
+export { FeatureFlagsPaginationMeta } from "./models/FeatureFlagsPaginationMeta";
+export { FeatureFlagsPaginationMetaPage } from "./models/FeatureFlagsPaginationMetaPage";
+export { FeatureFlagStatus } from "./models/FeatureFlagStatus";
 export { FiltersPerProduct } from "./models/FiltersPerProduct";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
@@ -3399,6 +3437,8 @@ export { ListDowntimesResponse } from "./models/ListDowntimesResponse";
 export { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
 export { ListEntityCatalogResponseIncludedItem } from "./models/ListEntityCatalogResponseIncludedItem";
 export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogResponseLinks";
+export { ListEnvironmentsResponse } from "./models/ListEnvironmentsResponse";
+export { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
@@ -5606,6 +5646,14 @@ export { UpdateDeploymentGateParamsDataAttributes } from "./models/UpdateDeploym
 export { UpdateDeploymentRuleParams } from "./models/UpdateDeploymentRuleParams";
 export { UpdateDeploymentRuleParamsData } from "./models/UpdateDeploymentRuleParamsData";
 export { UpdateDeploymentRuleParamsDataAttributes } from "./models/UpdateDeploymentRuleParamsDataAttributes";
+export { UpdateEnvironmentAttributes } from "./models/UpdateEnvironmentAttributes";
+export { UpdateEnvironmentData } from "./models/UpdateEnvironmentData";
+export { UpdateEnvironmentDataType } from "./models/UpdateEnvironmentDataType";
+export { UpdateEnvironmentRequest } from "./models/UpdateEnvironmentRequest";
+export { UpdateFeatureFlagAttributes } from "./models/UpdateFeatureFlagAttributes";
+export { UpdateFeatureFlagData } from "./models/UpdateFeatureFlagData";
+export { UpdateFeatureFlagDataType } from "./models/UpdateFeatureFlagDataType";
+export { UpdateFeatureFlagRequest } from "./models/UpdateFeatureFlagRequest";
 export { UpdateFlakyTestsRequest } from "./models/UpdateFlakyTestsRequest";
 export { UpdateFlakyTestsRequestAttributes } from "./models/UpdateFlakyTestsRequestAttributes";
 export { UpdateFlakyTestsRequestData } from "./models/UpdateFlakyTestsRequestData";
@@ -5726,6 +5774,8 @@ export { V2EventResponse } from "./models/V2EventResponse";
 export { ValidationError } from "./models/ValidationError";
 export { ValidationErrorMeta } from "./models/ValidationErrorMeta";
 export { ValidationResponse } from "./models/ValidationResponse";
+export { ValueType } from "./models/ValueType";
+export { Variant } from "./models/Variant";
 export { VersionHistoryUpdate } from "./models/VersionHistoryUpdate";
 export { VersionHistoryUpdateType } from "./models/VersionHistoryUpdateType";
 export { ViewershipHistorySessionArray } from "./models/ViewershipHistorySessionArray";

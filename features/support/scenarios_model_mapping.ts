@@ -6117,6 +6117,137 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "V2EventResponse",
     },
+    "v2.ListFeatureFlags": {
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "isArchived": {
+            "type": "boolean",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "",
+            },
+        "offset": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "ListFeatureFlagsResponse",
+    },
+    "v2.CreateFeatureFlag": {
+        "body": {
+            "type": "CreateFeatureFlagRequest",
+            "format": "",
+            },
+        "operationResponseType": "FeatureFlagResponse",
+    },
+    "v2.ListFeatureFlagsEnvironments": {
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "",
+            },
+        "offset": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "ListEnvironmentsResponse",
+    },
+    "v2.CreateFeatureFlagsEnvironment": {
+        "body": {
+            "type": "CreateEnvironmentRequest",
+            "format": "",
+            },
+        "operationResponseType": "EnvironmentResponse",
+    },
+    "v2.GetFeatureFlagsEnvironment": {
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "EnvironmentResponse",
+    },
+    "v2.UpdateFeatureFlagsEnvironment": {
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateEnvironmentRequest",
+            "format": "",
+            },
+        "operationResponseType": "EnvironmentResponse",
+    },
+    "v2.DeleteFeatureFlagsEnvironment": {
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetFeatureFlag": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "FeatureFlagResponse",
+    },
+    "v2.UpdateFeatureFlag": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateFeatureFlagRequest",
+            "format": "",
+            },
+        "operationResponseType": "FeatureFlagResponse",
+    },
+    "v2.ArchiveFeatureFlag": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "FeatureFlagResponse",
+    },
+    "v2.DisableFeatureFlagEnvironment": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.EnableFeatureFlagEnvironment": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnarchiveFeatureFlag": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "FeatureFlagResponse",
+    },
     "v2.GetHamrOrgConnection": {
         "operationResponseType": "HamrOrgConnectionResponse",
     },
