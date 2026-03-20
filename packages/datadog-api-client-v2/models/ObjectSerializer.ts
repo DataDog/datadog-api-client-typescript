@@ -3870,6 +3870,7 @@ const enumsMap: { [key: string]: any[] } = {
   ConvertJobResultsToSignalsDataType: [
     "historicalDetectionsJobResultSignalConversion",
   ],
+  CostAggregationType: ["cumulative"],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
   CoverageSummaryType: ["ci_app_coverage_summary"],

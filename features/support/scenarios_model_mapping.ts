@@ -5514,6 +5514,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Date",
             "format": "date-time",
             },
+        "costAggregation": {
+            "type": "CostAggregationType",
+            "format": "",
+            },
         "includeConnectedAccounts": {
             "type": "boolean",
             "format": "",

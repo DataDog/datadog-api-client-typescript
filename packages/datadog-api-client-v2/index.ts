@@ -2050,6 +2050,7 @@ export { ConvertJobResultsToSignalsAttributes } from "./models/ConvertJobResults
 export { ConvertJobResultsToSignalsData } from "./models/ConvertJobResultsToSignalsData";
 export { ConvertJobResultsToSignalsDataType } from "./models/ConvertJobResultsToSignalsDataType";
 export { ConvertJobResultsToSignalsRequest } from "./models/ConvertJobResultsToSignalsRequest";
+export { CostAggregationType } from "./models/CostAggregationType";
 export { CostAttributionAggregatesBody } from "./models/CostAttributionAggregatesBody";
 export { CostAttributionType } from "./models/CostAttributionType";
 export { CostByOrg } from "./models/CostByOrg";
