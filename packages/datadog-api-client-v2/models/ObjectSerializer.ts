@@ -959,6 +959,19 @@ import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDa
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
 import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
+import { DeploymentGatesEvaluationRequest } from "./DeploymentGatesEvaluationRequest";
+import { DeploymentGatesEvaluationRequestAttributes } from "./DeploymentGatesEvaluationRequestAttributes";
+import { DeploymentGatesEvaluationRequestData } from "./DeploymentGatesEvaluationRequestData";
+import { DeploymentGatesEvaluationResponse } from "./DeploymentGatesEvaluationResponse";
+import { DeploymentGatesEvaluationResponseAttributes } from "./DeploymentGatesEvaluationResponseAttributes";
+import { DeploymentGatesEvaluationResponseData } from "./DeploymentGatesEvaluationResponseData";
+import { DeploymentGatesEvaluationResultResponse } from "./DeploymentGatesEvaluationResultResponse";
+import { DeploymentGatesEvaluationResultResponseAttributes } from "./DeploymentGatesEvaluationResultResponseAttributes";
+import { DeploymentGatesEvaluationResultResponseData } from "./DeploymentGatesEvaluationResultResponseData";
+import { DeploymentGatesListResponse } from "./DeploymentGatesListResponse";
+import { DeploymentGatesListResponseMeta } from "./DeploymentGatesListResponseMeta";
+import { DeploymentGatesListResponseMetaPage } from "./DeploymentGatesListResponseMetaPage";
+import { DeploymentGatesRuleResponse } from "./DeploymentGatesRuleResponse";
 import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationship } from "./DeploymentRelationship";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
@@ -3968,6 +3981,20 @@ const enumsMap: { [key: string]: any[] } = {
   DeletedTestsRequestType: ["delete_tests_request"],
   DeletedTestsResponseType: ["delete_tests"],
   DeploymentGateDataType: ["deployment_gate"],
+  DeploymentGatesEvaluationRequestDataType: [
+    "deployment_gates_evaluation_request",
+  ],
+  DeploymentGatesEvaluationResponseDataType: [
+    "deployment_gates_evaluation_response",
+  ],
+  DeploymentGatesEvaluationResultResponseAttributesGateStatus: [
+    "in_progress",
+    "pass",
+    "fail",
+  ],
+  DeploymentGatesEvaluationResultResponseDataType: [
+    "deployment_gates_evaluation_result_response",
+  ],
   DeploymentRuleDataType: ["deployment_rule"],
   DeploymentRuleResponseDataAttributesType: [
     "faulty_deployment_detection",
@@ -6681,6 +6708,24 @@ const typeMap: { [index: string]: any } = {
   DeploymentGateResponseDataAttributesUpdatedBy:
     DeploymentGateResponseDataAttributesUpdatedBy,
   DeploymentGateRulesResponse: DeploymentGateRulesResponse,
+  DeploymentGatesEvaluationRequest: DeploymentGatesEvaluationRequest,
+  DeploymentGatesEvaluationRequestAttributes:
+    DeploymentGatesEvaluationRequestAttributes,
+  DeploymentGatesEvaluationRequestData: DeploymentGatesEvaluationRequestData,
+  DeploymentGatesEvaluationResponse: DeploymentGatesEvaluationResponse,
+  DeploymentGatesEvaluationResponseAttributes:
+    DeploymentGatesEvaluationResponseAttributes,
+  DeploymentGatesEvaluationResponseData: DeploymentGatesEvaluationResponseData,
+  DeploymentGatesEvaluationResultResponse:
+    DeploymentGatesEvaluationResultResponse,
+  DeploymentGatesEvaluationResultResponseAttributes:
+    DeploymentGatesEvaluationResultResponseAttributes,
+  DeploymentGatesEvaluationResultResponseData:
+    DeploymentGatesEvaluationResultResponseData,
+  DeploymentGatesListResponse: DeploymentGatesListResponse,
+  DeploymentGatesListResponseMeta: DeploymentGatesListResponseMeta,
+  DeploymentGatesListResponseMetaPage: DeploymentGatesListResponseMetaPage,
+  DeploymentGatesRuleResponse: DeploymentGatesRuleResponse,
   DeploymentMetadata: DeploymentMetadata,
   DeploymentRelationship: DeploymentRelationship,
   DeploymentRelationshipData: DeploymentRelationshipData,
