@@ -1,5 +1,5 @@
 /**
- * Send shared dashboard invitation email returns "OK" response
+ * Send shared dashboard invitation email returns OK
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -7,18 +7,19 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
+// there is a valid "shared_dashboard" in the system
+const SHARED_DASHBOARD_TOKEN = process.env.SHARED_DASHBOARD_TOKEN as string;
+
 const params: v1.DashboardsApiSendPublicDashboardInvitationRequest = {
   body: {
-    data: [
-      {
-        attributes: {
-          email: "test@datadoghq.com",
-        },
-        type: "public_dashboard_invitation",
+    data: {
+      attributes: {
+        email: "exampledashboard@datadoghq.com",
       },
-    ],
+      type: "public_dashboard_invitation",
+    },
   },
-  token: "token",
+  token: SHARED_DASHBOARD_TOKEN,
 };
 
 apiInstance
