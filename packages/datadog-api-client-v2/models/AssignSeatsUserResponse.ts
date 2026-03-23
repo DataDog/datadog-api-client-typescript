@@ -7,7 +7,13 @@ import { AssignSeatsUserResponseData } from "./AssignSeatsUserResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The response body returned after successfully assigning seats to users.
+ */
 export class AssignSeatsUserResponse {
+  /**
+   * The response data object containing attributes of the seat assignment result.
+   */
   "data"?: AssignSeatsUserResponseData;
 
   /**

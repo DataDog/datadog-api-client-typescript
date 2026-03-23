@@ -7,7 +7,13 @@ import { CreateComponentRequestDataRelationshipsGroupData } from "./CreateCompon
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The group to create the component within.
+ */
 export class CreateComponentRequestDataRelationshipsGroup {
+  /**
+   * The data object identifying the group to create the component within.
+   */
   "data": CreateComponentRequestDataRelationshipsGroupData | null;
 
   /**

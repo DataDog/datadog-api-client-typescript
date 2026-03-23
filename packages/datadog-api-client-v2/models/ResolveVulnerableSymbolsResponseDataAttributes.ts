@@ -7,7 +7,13 @@ import { ResolveVulnerableSymbolsResponseResults } from "./ResolveVulnerableSymb
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attributes of a response containing resolved vulnerable symbols, organized by package.
+ */
 export class ResolveVulnerableSymbolsResponseDataAttributes {
+  /**
+   * The list of resolved vulnerable symbol results, one entry per queried package.
+   */
   "results"?: Array<ResolveVulnerableSymbolsResponseResults>;
 
   /**

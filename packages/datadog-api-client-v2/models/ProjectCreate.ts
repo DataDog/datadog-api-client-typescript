@@ -9,15 +9,15 @@ import { ProjectResourceType } from "./ProjectResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project create
+ * Project create.
  */
 export class ProjectCreate {
   /**
-   * Project creation attributes
+   * Project creation attributes.
    */
   "attributes": ProjectCreateAttributes;
   /**
-   * Project resource type
+   * Project resource type.
    */
   "type": ProjectResourceType;
 

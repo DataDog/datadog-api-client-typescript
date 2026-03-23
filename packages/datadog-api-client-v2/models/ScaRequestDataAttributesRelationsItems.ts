@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A dependency relation describing which other components a given component depends on.
+ */
 export class ScaRequestDataAttributesRelationsItems {
+  /**
+   * The list of BOM references that this component directly depends on.
+   */
   "dependsOn"?: Array<string>;
+  /**
+   * The BOM reference of the component that has dependencies.
+   */
   "ref"?: string;
 
   /**

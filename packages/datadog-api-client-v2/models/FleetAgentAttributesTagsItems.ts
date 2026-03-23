@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A key-value pair representing a tag associated with a Datadog Agent.
+ */
 export class FleetAgentAttributesTagsItems {
+  /**
+   * The tag key.
+   */
   "key"?: string;
+  /**
+   * The tag value.
+   */
   "value"?: string;
 
   /**

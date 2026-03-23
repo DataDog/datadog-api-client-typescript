@@ -7,10 +7,25 @@ import { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } f
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The source code location where a dependency is declared, including block, name, namespace, and version positions within the file.
+ */
 export class ScaRequestDataAttributesDependenciesItemsLocationsItems {
+  /**
+   * A range within a file defined by a start and end position, along with the file name.
+   */
   "block"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
+  /**
+   * A range within a file defined by a start and end position, along with the file name.
+   */
   "name"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
+  /**
+   * A range within a file defined by a start and end position, along with the file name.
+   */
   "namespace"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
+  /**
+   * A range within a file defined by a start and end position, along with the file name.
+   */
   "version"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
 
   /**

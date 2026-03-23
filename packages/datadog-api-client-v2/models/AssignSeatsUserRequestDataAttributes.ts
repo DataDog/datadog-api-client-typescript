@@ -6,6 +6,9 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes specifying the product and users to whom seats will be assigned.
+ */
 export class AssignSeatsUserRequestDataAttributes {
   /**
    * The product code for which to assign seats.

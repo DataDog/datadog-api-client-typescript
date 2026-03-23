@@ -8,7 +8,13 @@ import { GlobalVariableJsonPatchType } from "./GlobalVariableJsonPatchType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object for a JSON Patch request on a Synthetic global variable.
+ */
 export class GlobalVariableJsonPatchRequestData {
+  /**
+   * Attributes for a JSON Patch request on a Synthetic global variable.
+   */
   "attributes"?: GlobalVariableJsonPatchRequestDataAttributes;
   /**
    * Global variable JSON Patch type.

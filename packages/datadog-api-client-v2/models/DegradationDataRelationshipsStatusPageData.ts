@@ -7,6 +7,9 @@ import { StatusPageDataType } from "./StatusPageDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object identifying the status page the degradation belongs to.
+ */
 export class DegradationDataRelationshipsStatusPageData {
   /**
    * The ID of the status page.

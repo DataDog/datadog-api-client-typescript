@@ -7,7 +7,13 @@ import { EntityResponseDataRelationshipsSchemaData } from "./EntityResponseDataR
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Schema relationship linking an entity to its associated schema resource.
+ */
 export class EntityResponseDataRelationshipsSchema {
+  /**
+   * Schema relationship data containing the schema resource identifier and type.
+   */
   "data": EntityResponseDataRelationshipsSchemaData;
 
   /**

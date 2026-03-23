@@ -7,7 +7,13 @@ import { HamrOrgConnectionDataResponse } from "./HamrOrgConnectionDataResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response payload for a HAMR organization connection.
+ */
 export class HamrOrgConnectionResponse {
+  /**
+   * Data object for a HAMR organization connection response.
+   */
   "data": HamrOrgConnectionDataResponse;
 
   /**

@@ -8,11 +8,11 @@ import { ProjectCreate } from "./ProjectCreate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project create request
+ * Project create request.
  */
 export class ProjectCreateRequest {
   /**
-   * Project create
+   * Project create.
    */
   "data": ProjectCreate;
 

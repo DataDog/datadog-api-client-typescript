@@ -7,7 +7,13 @@ import { EntityResponseDataRelationshipsRelatedEntitiesDataItems } from "./Entit
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Related entities relationship containing a list of entity references related to this entity.
+ */
 export class EntityResponseDataRelationshipsRelatedEntities {
+  /**
+   * List of related entity relationship data items.
+   */
   "data"?: Array<EntityResponseDataRelationshipsRelatedEntitiesDataItems>;
 
   /**

@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A tag filter used to scope a budget entry to specific resource tags.
+ */
 export class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
+  /**
+   * The tag key to filter on.
+   */
   "tagKey"?: string;
+  /**
+   * The tag value to filter on.
+   */
   "tagValue"?: string;
 
   /**

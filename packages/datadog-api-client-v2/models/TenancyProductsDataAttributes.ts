@@ -7,7 +7,13 @@ import { TenancyProductsDataAttributesProductsItems } from "./TenancyProductsDat
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of an OCI tenancy product resource, containing the list of available products and their enablement status.
+ */
 export class TenancyProductsDataAttributes {
+  /**
+   * List of Datadog products and their enablement status for the tenancy.
+   */
   "products"?: Array<TenancyProductsDataAttributesProductsItems>;
 
   /**

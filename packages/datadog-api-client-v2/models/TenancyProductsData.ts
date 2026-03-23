@@ -8,8 +8,17 @@ import { TenancyProductsDataType } from "./TenancyProductsDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A single OCI tenancy product resource object containing the tenancy ID, type, and product attributes.
+ */
 export class TenancyProductsData {
+  /**
+   * Attributes of an OCI tenancy product resource, containing the list of available products and their enablement status.
+   */
   "attributes"?: TenancyProductsDataAttributes;
+  /**
+   * The OCID of the OCI tenancy.
+   */
   "id"?: string;
   /**
    * OCI tenancy product resource type.

@@ -7,7 +7,13 @@ import { SnapshotData } from "./SnapshotData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A single heatmap snapshot resource returned by create or update operations.
+ */
 export class Snapshot {
+  /**
+   * Data object representing a heatmap snapshot, including its identifier, type, and attributes.
+   */
   "data"?: SnapshotData;
 
   /**

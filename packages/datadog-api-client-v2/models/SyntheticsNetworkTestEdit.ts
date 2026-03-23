@@ -8,6 +8,9 @@ import { SyntheticsNetworkTestType } from "./SyntheticsNetworkTestType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object for creating or editing a Network Path test.
+ */
 export class SyntheticsNetworkTestEdit {
   /**
    * Object containing details about a Network Path test.

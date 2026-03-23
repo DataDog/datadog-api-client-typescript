@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Response type for listing notification channels for a user
  */
 export class ListNotificationChannelsResponse {
+  /**
+   * Array of notification channel data objects.
+   */
   "data"?: Array<NotificationChannelData>;
 
   /**

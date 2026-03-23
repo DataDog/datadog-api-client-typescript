@@ -6,11 +6,29 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for updating a heatmap snapshot, including event, session, and view context.
+ */
 export class SnapshotUpdateRequestDataAttributes {
+  /**
+   * Unique identifier of the RUM event associated with the snapshot.
+   */
   "eventId": string;
+  /**
+   * Indicates whether the device type was explicitly selected by the user rather than auto-detected.
+   */
   "isDeviceTypeSelectedByUser": boolean;
+  /**
+   * Unique identifier of the RUM session associated with the snapshot.
+   */
   "sessionId"?: string;
+  /**
+   * Offset in milliseconds from the start of the session at which the snapshot was captured.
+   */
   "start": number;
+  /**
+   * Unique identifier of the RUM view associated with the snapshot.
+   */
   "viewId"?: string;
 
   /**

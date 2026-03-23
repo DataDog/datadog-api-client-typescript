@@ -6,6 +6,10 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * The resource type identifier for a scalar analytics response.
+ */
+
 export type ProductAnalyticsScalarResponseType =
   | typeof SCALAR_RESPONSE
   | UnparsedObject;

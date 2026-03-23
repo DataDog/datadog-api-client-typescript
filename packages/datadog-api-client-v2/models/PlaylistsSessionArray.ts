@@ -7,7 +7,13 @@ import { PlaylistsSessionData } from "./PlaylistsSessionData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A list of RUM replay sessions belonging to a playlist.
+ */
 export class PlaylistsSessionArray {
+  /**
+   * Array of playlist session data objects.
+   */
   "data": Array<PlaylistsSessionData>;
 
   /**

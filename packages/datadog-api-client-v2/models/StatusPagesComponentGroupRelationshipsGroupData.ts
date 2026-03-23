@@ -7,7 +7,13 @@ import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object identifying the parent group of a component group.
+ */
 export class StatusPagesComponentGroupRelationshipsGroupData {
+  /**
+   * The ID of the parent group.
+   */
   "id": string;
   /**
    * Components resource type.

@@ -8,8 +8,17 @@ import { QueryEventFilteredUsersRequestDataType } from "./QueryEventFilteredUser
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object containing the resource type and attributes for querying event-filtered users.
+ */
 export class QueryEventFilteredUsersRequestData {
+  /**
+   * Attributes for filtering users by both user properties and event platform activity.
+   */
   "attributes"?: QueryEventFilteredUsersRequestDataAttributes;
+  /**
+   * Unique identifier for the query event filtered users request resource.
+   */
   "id"?: string;
   /**
    * Query event filtered users request resource type.

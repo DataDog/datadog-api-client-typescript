@@ -7,7 +7,13 @@ import { CreateTenancyConfigData } from "./CreateTenancyConfigData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for creating a new OCI tenancy integration configuration.
+ */
 export class CreateTenancyConfigRequest {
+  /**
+   * The data object for creating a new OCI tenancy integration configuration, including the tenancy ID, type, and configuration attributes.
+   */
   "data": CreateTenancyConfigData;
 
   /**

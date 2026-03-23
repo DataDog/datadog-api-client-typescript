@@ -7,7 +7,13 @@ import { EntityResponseDataRelationshipsRelatedEntitiesDataItemsType } from "./E
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Related entity relationship data item containing the related entity resource identifier and type.
+ */
 export class EntityResponseDataRelationshipsRelatedEntitiesDataItems {
+  /**
+   * Related entity unique identifier.
+   */
   "id": string;
   /**
    * Related entity resource type.

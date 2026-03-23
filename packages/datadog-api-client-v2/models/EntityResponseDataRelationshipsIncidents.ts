@@ -7,7 +7,13 @@ import { EntityResponseDataRelationshipsIncidentsDataItems } from "./EntityRespo
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Incidents relationship containing a list of incident resources associated with this entity.
+ */
 export class EntityResponseDataRelationshipsIncidents {
+  /**
+   * List of incident relationship data items.
+   */
   "data"?: Array<EntityResponseDataRelationshipsIncidentsDataItems>;
 
   /**

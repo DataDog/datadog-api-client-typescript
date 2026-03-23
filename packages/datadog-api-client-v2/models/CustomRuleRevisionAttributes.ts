@@ -11,6 +11,9 @@ import { Language } from "./Language";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of a custom rule revision, including code, metadata, and test cases.
+ */
 export class CustomRuleRevisionAttributes {
   /**
    * Rule arguments

@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * List of requests to create Jira issues for security findings.
  */
 export class CreateJiraIssueRequestArray {
+  /**
+   * Array of Jira issue creation request data objects.
+   */
   "data": Array<CreateJiraIssueRequestData>;
 
   /**

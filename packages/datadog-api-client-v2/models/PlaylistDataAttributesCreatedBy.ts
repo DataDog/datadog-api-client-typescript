@@ -6,11 +6,29 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Information about the user who created the playlist.
+ */
 export class PlaylistDataAttributesCreatedBy {
+  /**
+   * Email handle of the user who created the playlist.
+   */
   "handle": string;
+  /**
+   * URL or identifier of the user's avatar icon.
+   */
   "icon"?: string;
+  /**
+   * Unique identifier of the user who created the playlist.
+   */
   "id": string;
+  /**
+   * Display name of the user who created the playlist.
+   */
   "name"?: string;
+  /**
+   * UUID of the user who created the playlist.
+   */
   "uuid": string;
 
   /**

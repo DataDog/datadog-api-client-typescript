@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes of the SPA Recommendation resource. Contains recommendations for both driver and executor components.
  */
 export class RecommendationAttributes {
+  /**
+   * The confidence level of the recommendation, expressed as a value between 0.0 (low confidence) and 1.0 (high confidence).
+   */
   "confidenceLevel"?: number;
   /**
    * Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.

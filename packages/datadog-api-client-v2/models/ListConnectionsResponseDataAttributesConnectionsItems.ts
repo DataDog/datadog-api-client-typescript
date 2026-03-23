@@ -8,15 +8,45 @@ import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./Lis
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Details of a single data source connection, including its fields, join configuration, and audit metadata.
+ */
 export class ListConnectionsResponseDataAttributesConnectionsItems {
+  /**
+   * Timestamp indicating when the connection was created.
+   */
   "createdAt"?: Date;
+  /**
+   * Identifier of the user who created the connection.
+   */
   "createdBy"?: string;
+  /**
+   * List of custom attribute fields imported from the data source.
+   */
   "fields"?: Array<CreateConnectionRequestDataAttributesFieldsItems>;
+  /**
+   * Unique identifier of the connection.
+   */
   "id"?: string;
+  /**
+   * The join configuration describing how the data source is linked to the entity.
+   */
   "join"?: ListConnectionsResponseDataAttributesConnectionsItemsJoin;
+  /**
+   * Additional key-value metadata associated with the connection.
+   */
   "metadata"?: { [key: string]: string };
+  /**
+   * The type of data source connection (for example, ref_table).
+   */
   "type"?: string;
+  /**
+   * Timestamp indicating when the connection was last updated.
+   */
   "updatedAt"?: Date;
+  /**
+   * Identifier of the user who last updated the connection.
+   */
   "updatedBy"?: string;
 
   /**

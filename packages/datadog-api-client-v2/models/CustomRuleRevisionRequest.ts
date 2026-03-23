@@ -7,7 +7,13 @@ import { CustomRuleRevisionRequestData } from "./CustomRuleRevisionRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for creating a new custom rule revision.
+ */
 export class CustomRuleRevisionRequest {
+  /**
+   * Data object for a custom rule revision create request.
+   */
   "data"?: CustomRuleRevisionRequestData;
 
   /**

@@ -8,7 +8,13 @@ import { CustomRuleRequestDataAttributes } from "./CustomRuleRequestDataAttribut
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object for a custom rule create or update request.
+ */
 export class CustomRuleRequestData {
+  /**
+   * Attributes for creating or updating a custom rule.
+   */
   "attributes"?: CustomRuleRequestDataAttributes;
   /**
    * Rule identifier

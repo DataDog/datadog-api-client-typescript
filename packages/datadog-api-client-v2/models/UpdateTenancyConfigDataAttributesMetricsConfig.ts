@@ -6,9 +6,21 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Metrics collection configuration for updating an OCI tenancy, controlling which compartments and services are included or excluded.
+ */
 export class UpdateTenancyConfigDataAttributesMetricsConfig {
+  /**
+   * List of compartment tag filters to scope metrics collection to specific compartments.
+   */
   "compartmentTagFilters"?: Array<string>;
+  /**
+   * Whether metrics collection is enabled for the tenancy.
+   */
   "enabled"?: boolean;
+  /**
+   * List of OCI service names to exclude from metrics collection.
+   */
   "excludedServices"?: Array<string>;
 
   /**

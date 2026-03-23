@@ -9,6 +9,9 @@ import { IncidentHandleType } from "./IncidentHandleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object representing an incident handle in a response.
+ */
 export class IncidentHandleDataResponse {
   /**
    * Incident handle attributes for responses
@@ -18,6 +21,9 @@ export class IncidentHandleDataResponse {
    * The ID of the incident handle
    */
   "id": string;
+  /**
+   * Relationships associated with an incident handle response, including linked users and incident type.
+   */
   "relationships"?: IncidentHandleRelationships;
   /**
    * Incident handle resource type

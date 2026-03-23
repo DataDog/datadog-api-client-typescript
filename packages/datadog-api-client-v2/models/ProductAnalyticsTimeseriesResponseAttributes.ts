@@ -8,8 +8,17 @@ import { ProductAnalyticsSerie } from "./ProductAnalyticsSerie";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
+ */
 export class ProductAnalyticsTimeseriesResponseAttributes {
+  /**
+   * Interval definitions describing the time buckets used in the response.
+   */
   "intervals"?: Array<ProductAnalyticsInterval>;
+  /**
+   * The list of series, each corresponding to a query or group-by combination.
+   */
   "series"?: Array<ProductAnalyticsSerie>;
   /**
    * Timestamps for each data point (epoch milliseconds).

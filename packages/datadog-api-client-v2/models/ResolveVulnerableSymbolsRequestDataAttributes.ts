@@ -6,7 +6,13 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attributes of a request to resolve vulnerable symbols, containing the list of package PURLs to check.
+ */
 export class ResolveVulnerableSymbolsRequestDataAttributes {
+  /**
+   * The list of Package URLs (PURLs) for which to resolve vulnerable symbols.
+   */
   "purls"?: Array<string>;
 
   /**

@@ -7,7 +7,13 @@ import { DeletedSuiteResponseData } from "./DeletedSuiteResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response containing the list of deleted Synthetic test suites.
+ */
 export class DeletedSuitesResponse {
+  /**
+   * List of deleted Synthetic suite data objects.
+   */
   "data"?: Array<DeletedSuiteResponseData>;
 
   /**

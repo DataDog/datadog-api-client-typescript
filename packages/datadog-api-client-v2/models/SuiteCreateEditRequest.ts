@@ -7,7 +7,13 @@ import { SuiteCreateEdit } from "./SuiteCreateEdit";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for creating or editing a Synthetic test suite.
+ */
 export class SuiteCreateEditRequest {
+  /**
+   * Data object for creating or editing a Synthetic test suite.
+   */
   "data": SuiteCreateEdit;
 
   /**

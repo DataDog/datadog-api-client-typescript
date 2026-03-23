@@ -11,8 +11,17 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * A series in a timeseries response.
  */
 export class ProductAnalyticsSerie {
+  /**
+   * The group-by tag values that identify this series.
+   */
   "groupTags"?: Array<string>;
+  /**
+   * The index of the query that produced this series.
+   */
   "queryIndex"?: number;
+  /**
+   * Unit definitions for the series values.
+   */
   "unit"?: Array<ProductAnalyticsUnit>;
 
   /**

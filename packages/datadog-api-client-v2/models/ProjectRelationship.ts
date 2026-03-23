@@ -8,11 +8,11 @@ import { ProjectRelationshipData } from "./ProjectRelationshipData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Relationship to project
+ * Relationship to project.
  */
 export class ProjectRelationship {
   /**
-   * Relationship to project object
+   * Relationship to project object.
    */
   "data": ProjectRelationshipData;
 

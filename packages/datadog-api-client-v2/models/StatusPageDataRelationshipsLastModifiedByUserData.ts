@@ -7,6 +7,9 @@ import { StatusPagesUserType } from "./StatusPagesUserType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object identifying the Datadog user who last modified the status page.
+ */
 export class StatusPageDataRelationshipsLastModifiedByUserData {
   /**
    * The ID of the Datadog user who last modified the status page.

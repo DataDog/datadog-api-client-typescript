@@ -7,11 +7,29 @@ import { QueryUsersRequestDataAttributesSort } from "./QueryUsersRequestDataAttr
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for filtering and shaping the user query results.
+ */
 export class QueryUsersRequestDataAttributes {
+  /**
+   * Maximum number of user records to return in the response.
+   */
   "limit"?: number;
+  /**
+   * Filter expression using user attribute conditions to narrow results.
+   */
   "query"?: string;
+  /**
+   * List of user attribute column names to include in the response.
+   */
   "selectColumns"?: Array<string>;
+  /**
+   * Sorting configuration specifying the field and direction for ordering user query results.
+   */
   "sort"?: QueryUsersRequestDataAttributesSort;
+  /**
+   * Free-text term used for wildcard search across user attribute values.
+   */
   "wildcardSearchTerm"?: string;
 
   /**

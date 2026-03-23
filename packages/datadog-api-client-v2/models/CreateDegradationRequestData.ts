@@ -8,6 +8,9 @@ import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataTy
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object for creating a degradation.
+ */
 export class CreateDegradationRequestData {
   /**
    * The supported attributes for creating a degradation.

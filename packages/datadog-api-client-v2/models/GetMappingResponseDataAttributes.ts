@@ -7,7 +7,13 @@ import { GetMappingResponseDataAttributesAttributesItems } from "./GetMappingRes
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of the get mapping response, containing the list of configured entity attributes.
+ */
 export class GetMappingResponseDataAttributes {
+  /**
+   * The list of entity attributes and their mapping configurations.
+   */
   "attributes"?: Array<GetMappingResponseDataAttributesAttributesItems>;
 
   /**

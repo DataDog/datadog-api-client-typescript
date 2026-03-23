@@ -6,6 +6,10 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * The type identifier for responses containing resolved vulnerable symbols.
+ */
+
 export type ResolveVulnerableSymbolsResponseDataType =
   | typeof RESOLVE_VULNERABLE_SYMBOLS_RESPONSE
   | UnparsedObject;

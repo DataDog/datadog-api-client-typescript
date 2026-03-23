@@ -9,7 +9,13 @@ import { PaginationMeta } from "./PaginationMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response object for a list of degradations.
+ */
 export class DegradationArray {
+  /**
+   * A list of degradation data objects.
+   */
   "data": Array<DegradationData>;
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.

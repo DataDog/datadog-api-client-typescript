@@ -12,6 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Response for a timeseries analytics query.
  */
 export class ProductAnalyticsTimeseriesResponse {
+  /**
+   * Data object for a timeseries analytics response.
+   */
   "data"?: ProductAnalyticsTimeseriesResponseData;
   /**
    * Metadata for a Product Analytics query response.

@@ -7,7 +7,13 @@ import { StatusPageAsIncludedRelationshipsCreatedByUserData } from "./StatusPage
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The Datadog user who created the status page.
+ */
 export class StatusPageAsIncludedRelationshipsCreatedByUser {
+  /**
+   * The data object identifying the Datadog user who created the status page.
+   */
   "data": StatusPageAsIncludedRelationshipsCreatedByUserData;
 
   /**

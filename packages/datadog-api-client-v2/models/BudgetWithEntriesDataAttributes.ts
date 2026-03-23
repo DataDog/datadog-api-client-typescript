@@ -7,17 +7,53 @@ import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntries
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attributes of a budget including all its monthly entries.
+ */
 export class BudgetWithEntriesDataAttributes {
+  /**
+   * The timestamp when the budget was created.
+   */
   "createdAt"?: number;
+  /**
+   * The ID of the user that created the budget.
+   */
   "createdBy"?: string;
+  /**
+   * The month when the budget ends, in YYYYMM format.
+   */
   "endMonth"?: number;
+  /**
+   * The list of monthly budget entries.
+   */
   "entries"?: Array<BudgetWithEntriesDataAttributesEntriesItems>;
+  /**
+   * The cost query used to track spending against the budget.
+   */
   "metricsQuery"?: string;
+  /**
+   * The name of the budget.
+   */
   "name"?: string;
+  /**
+   * The ID of the organization the budget belongs to.
+   */
   "orgId"?: number;
+  /**
+   * The month when the budget starts, in YYYYMM format.
+   */
   "startMonth"?: number;
+  /**
+   * The total budget amount across all entries.
+   */
   "totalAmount"?: number;
+  /**
+   * The timestamp when the budget was last updated.
+   */
   "updatedAt"?: number;
+  /**
+   * The ID of the user that last updated the budget.
+   */
   "updatedBy"?: string;
 
   /**

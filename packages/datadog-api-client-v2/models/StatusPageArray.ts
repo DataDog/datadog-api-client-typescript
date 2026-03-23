@@ -9,7 +9,13 @@ import { StatusPageData } from "./StatusPageData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response object for a list of status pages.
+ */
 export class StatusPageArray {
+  /**
+   * A list of status page data objects.
+   */
   "data": Array<StatusPageData>;
   /**
    * The included related resources of a status page. Client must explicitly request these resources by name in the `include` query parameter.

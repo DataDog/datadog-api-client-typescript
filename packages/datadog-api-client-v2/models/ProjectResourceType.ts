@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Project resource type
+ * Project resource type.
  */
 
 export type ProjectResourceType = typeof PROJECT | UnparsedObject;

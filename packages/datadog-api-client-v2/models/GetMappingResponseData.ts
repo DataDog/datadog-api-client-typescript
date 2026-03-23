@@ -8,8 +8,17 @@ import { GetMappingResponseDataType } from "./GetMappingResponseDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object containing the resource type and attributes for the get mapping response.
+ */
 export class GetMappingResponseData {
+  /**
+   * Attributes of the get mapping response, containing the list of configured entity attributes.
+   */
   "attributes"?: GetMappingResponseDataAttributes;
+  /**
+   * Unique identifier for the get mapping response resource.
+   */
   "id"?: string;
   /**
    * Get mappings response resource type.

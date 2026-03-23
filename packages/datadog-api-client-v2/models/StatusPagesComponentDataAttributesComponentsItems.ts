@@ -8,9 +8,21 @@ import { StatusPagesComponentGroupAttributesComponentsItemsType } from "./Status
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A component within a component group.
+ */
 export class StatusPagesComponentDataAttributesComponentsItems {
+  /**
+   * The ID of the component within the group.
+   */
   "id"?: string;
+  /**
+   * The name of the component within the group.
+   */
   "name"?: string;
+  /**
+   * The zero-indexed position of the component within the group.
+   */
   "position"?: number;
   /**
    * The status of the component.

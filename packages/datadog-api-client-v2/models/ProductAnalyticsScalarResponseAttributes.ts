@@ -7,7 +7,13 @@ import { ProductAnalyticsScalarColumn } from "./ProductAnalyticsScalarColumn";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of a scalar analytics response, containing the result columns.
+ */
 export class ProductAnalyticsScalarResponseAttributes {
+  /**
+   * The list of result columns, each containing values and metadata.
+   */
   "columns"?: Array<ProductAnalyticsScalarColumn>;
 
   /**

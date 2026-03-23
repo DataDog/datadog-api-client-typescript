@@ -6,6 +6,10 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * The resource type identifier for a timeseries analytics response.
+ */
+
 export type ProductAnalyticsTimeseriesResponseType =
   | typeof TIMESERIES_RESPONSE
   | UnparsedObject;

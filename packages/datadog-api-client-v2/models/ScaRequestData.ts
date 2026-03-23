@@ -8,9 +8,21 @@ import { ScaRequestDataType } from "./ScaRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object in an SCA request, containing the dependency graph attributes and request type.
+ */
 export class ScaRequestData {
+  /**
+   * The attributes of an SCA request, containing dependency graph data, vulnerability information, and repository context.
+   */
   "attributes"?: ScaRequestDataAttributes;
+  /**
+   * An optional identifier for this SCA request data object.
+   */
   "id"?: string;
+  /**
+   * The type identifier for SCA dependency analysis requests.
+   */
   "type": ScaRequestDataType;
 
   /**

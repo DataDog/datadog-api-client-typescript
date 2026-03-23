@@ -8,8 +8,17 @@ import { BudgetValidationResponseDataType } from "./BudgetValidationResponseData
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object for a budget validation response, containing the resource type, ID, and validation attributes.
+ */
 export class BudgetValidationResponseData {
+  /**
+   * The attributes of a budget validation response, including any validation errors and the validity status.
+   */
   "attributes"?: BudgetValidationResponseDataAttributes;
+  /**
+   * The unique identifier of the budget being validated.
+   */
   "id"?: string;
   /**
    * Budget validation resource type.

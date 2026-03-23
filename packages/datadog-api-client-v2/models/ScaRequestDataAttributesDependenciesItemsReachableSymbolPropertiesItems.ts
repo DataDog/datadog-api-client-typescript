@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A key-value property describing a reachable symbol within a dependency.
+ */
 export class ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems {
+  /**
+   * The name of the reachable symbol property.
+   */
   "name"?: string;
+  /**
+   * The value of the reachable symbol property.
+   */
   "value"?: string;
 
   /**

@@ -9,9 +9,21 @@ import { EntityResponseDataType } from "./EntityResponseDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Entity data returned in a preview response, including attributes, relationships, and type.
+ */
 export class PreviewEntityResponseData {
+  /**
+   * Entity response attributes containing core entity metadata fields.
+   */
   "attributes"?: EntityResponseDataAttributes;
+  /**
+   * Entity unique identifier.
+   */
   "id"?: string;
+  /**
+   * Entity relationships including incidents, oncalls, schemas, and related entities.
+   */
   "relationships"?: EntityResponseDataRelationships;
   /**
    * Entity resource type.

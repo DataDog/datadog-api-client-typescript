@@ -8,7 +8,13 @@ import { MaintenanceData } from "./MaintenanceData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response object for a single maintenance.
+ */
 export class Maintenance {
+  /**
+   * The data object for a maintenance.
+   */
   "data"?: MaintenanceData;
   /**
    * The included related resources of a maintenance. Client must explicitly request these resources by name in the `include` query parameter.

@@ -7,8 +7,17 @@ import { IntegrationJiraSyncProperties } from "./IntegrationJiraSyncProperties";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Synchronization configuration for Jira integration.
+ */
 export class IntegrationJiraSync {
+  /**
+   * Whether Jira field synchronization is enabled.
+   */
   "enabled"?: boolean;
+  /**
+   * Field synchronization properties for Jira integration.
+   */
   "properties"?: IntegrationJiraSyncProperties;
 
   /**

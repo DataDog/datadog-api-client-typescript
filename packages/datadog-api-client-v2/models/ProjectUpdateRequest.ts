@@ -8,11 +8,11 @@ import { ProjectUpdate } from "./ProjectUpdate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project update request
+ * Project update request.
  */
 export class ProjectUpdateRequest {
   /**
-   * Project update
+   * Project update.
    */
   "data": ProjectUpdate;
 

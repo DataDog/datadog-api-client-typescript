@@ -7,7 +7,13 @@ import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType } from "
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The resource identifier and type for a ruleset.
+ */
 export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
+  /**
+   * The unique identifier of the ruleset resource.
+   */
   "id"?: string;
   /**
    * Rulesets resource type.

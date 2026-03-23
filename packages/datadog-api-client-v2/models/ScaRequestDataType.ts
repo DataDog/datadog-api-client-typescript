@@ -6,5 +6,9 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * The type identifier for SCA dependency analysis requests.
+ */
+
 export type ScaRequestDataType = typeof SCAREQUESTS | UnparsedObject;
 export const SCAREQUESTS = "scarequests";
