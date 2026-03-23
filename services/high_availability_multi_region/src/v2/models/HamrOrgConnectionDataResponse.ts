@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { HamrOrgConnectionAttributesResponse } from "./HamrOrgConnectionAttributesResponse";
 import { HamrOrgConnectionType } from "./HamrOrgConnectionType";
 
+/**
+ * Data object for a HAMR organization connection response.
+ */
 export class HamrOrgConnectionDataResponse {
+  /**
+   * Attributes of a HAMR organization connection response.
+   */
   "attributes": HamrOrgConnectionAttributesResponse;
   /**
    * The organization UUID for this HAMR connection.

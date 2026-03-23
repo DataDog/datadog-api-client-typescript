@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { Project } from "./Project";
 
 /**
- * Response with projects
+ * Response with projects.
  */
 export class ProjectsResponse {
   /**
-   * Projects response data
+   * Projects response data.
    */
   "data"?: Array<Project>;
   /**

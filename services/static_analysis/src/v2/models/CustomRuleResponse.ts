@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CustomRuleResponseData } from "./CustomRuleResponseData";
 
+/**
+ * Response containing a single custom rule.
+ */
 export class CustomRuleResponse {
+  /**
+   * Data object returned in a custom rule response, including its ID, type, and attributes.
+   */
   "data": CustomRuleResponseData;
   /**
    * A container for additional, undeclared properties.

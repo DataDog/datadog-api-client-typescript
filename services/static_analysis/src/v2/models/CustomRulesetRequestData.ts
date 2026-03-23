@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CustomRulesetDataType } from "./CustomRulesetDataType";
 import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
 
+/**
+ * Data object for a custom ruleset create or update request.
+ */
 export class CustomRulesetRequestData {
+  /**
+   * Attributes for creating or updating a custom ruleset.
+   */
   "attributes"?: CustomRulesetRequestDataAttributes;
   /**
    * Ruleset identifier

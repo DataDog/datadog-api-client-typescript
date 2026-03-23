@@ -6,6 +6,9 @@ import { TableRowResourceDataType } from "./TableRowResourceDataType";
  * Row resource containing a single row identifier.
  */
 export class TableRowResourceIdentifier {
+  /**
+   * The primary key value that uniquely identifies the row to delete.
+   */
   "id": string;
   /**
    * Row resource type.

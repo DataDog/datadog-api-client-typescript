@@ -2,9 +2,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition";
 
+/**
+ * A range within a file defined by a start and end position, along with the file name.
+ */
 export class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition {
+  /**
+   * A specific position (line and column) within a source file.
+   */
   "end"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition;
+  /**
+   * The name or path of the file containing this location.
+   */
   "fileName"?: string;
+  /**
+   * A specific position (line and column) within a source file.
+   */
   "start"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition;
   /**
    * A container for additional, undeclared properties.

@@ -11,6 +11,9 @@ export class CreateAttachmentRequestData {
    * The attributes for creating an attachment.
    */
   "attributes"?: CreateAttachmentRequestDataAttributes;
+  /**
+   * The unique identifier of the attachment.
+   */
   "id"?: string;
   /**
    * The incident attachment resource type.

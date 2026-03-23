@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
 
+/**
+ * The request object for validating a budget configuration before creating or updating it.
+ */
 export class BudgetValidationRequest {
+  /**
+   * The data object for a budget validation request, containing the resource type, ID, and budget attributes to validate.
+   */
   "data"?: BudgetValidationRequestData;
   /**
    * A container for additional, undeclared properties.

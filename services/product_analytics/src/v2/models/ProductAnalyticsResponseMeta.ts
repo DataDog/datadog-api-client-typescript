@@ -6,7 +6,13 @@ import { ProductAnalyticsResponseMetaStatus } from "./ProductAnalyticsResponseMe
  * Metadata for a Product Analytics query response.
  */
 export class ProductAnalyticsResponseMeta {
+  /**
+   * Unique identifier for the request, used for multi-step query continuation.
+   */
   "requestId"?: string;
+  /**
+   * The execution status of a Product Analytics query.
+   */
   "status"?: ProductAnalyticsResponseMetaStatus;
   /**
    * A container for additional, undeclared properties.

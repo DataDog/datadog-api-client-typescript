@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ProjectRelationshipData } from "./ProjectRelationshipData";
 
 /**
- * Relationship to project
+ * Relationship to project.
  */
 export class ProjectRelationship {
   /**
-   * Relationship to project object
+   * Relationship to project object.
    */
   "data": ProjectRelationshipData;
   /**

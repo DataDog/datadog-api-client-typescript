@@ -4,15 +4,15 @@ import { ProjectResourceType } from "./ProjectResourceType";
 import { ProjectUpdateAttributes } from "./ProjectUpdateAttributes";
 
 /**
- * Project update
+ * Project update.
  */
 export class ProjectUpdate {
   /**
-   * Project update attributes
+   * Project update attributes.
    */
   "attributes"?: ProjectUpdateAttributes;
   /**
-   * Project resource type
+   * Project resource type.
    */
   "type": ProjectResourceType;
   /**

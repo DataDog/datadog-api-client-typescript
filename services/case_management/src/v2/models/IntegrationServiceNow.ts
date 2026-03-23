@@ -4,22 +4,28 @@ import { IntegrationServiceNowAutoCreation } from "./IntegrationServiceNowAutoCr
 import { IntegrationServiceNowSyncConfig } from "./IntegrationServiceNowSyncConfig";
 
 /**
- * ServiceNow integration settings
+ * ServiceNow integration settings.
  */
 export class IntegrationServiceNow {
   /**
-   * Assignment group
+   * Assignment group.
    */
   "assignmentGroup"?: string;
+  /**
+   * Auto-creation settings for ServiceNow incidents from cases.
+   */
   "autoCreation"?: IntegrationServiceNowAutoCreation;
   /**
-   * Whether ServiceNow integration is enabled
+   * Whether ServiceNow integration is enabled.
    */
   "enabled"?: boolean;
   /**
-   * ServiceNow instance name
+   * ServiceNow instance name.
    */
   "instanceName"?: string;
+  /**
+   * Synchronization configuration for ServiceNow integration.
+   */
   "syncConfig"?: IntegrationServiceNowSyncConfig;
   /**
    * A container for additional, undeclared properties.

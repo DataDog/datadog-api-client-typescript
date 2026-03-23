@@ -4,7 +4,7 @@ import { RelationshipToTeamLinks } from "./RelationshipToTeamLinks";
 import { UsersRelationship } from "./UsersRelationship";
 
 /**
- * Project relationships
+ * Project relationships.
  */
 export class ProjectRelationships {
   /**

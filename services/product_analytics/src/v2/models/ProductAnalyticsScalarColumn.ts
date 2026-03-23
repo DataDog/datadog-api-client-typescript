@@ -7,6 +7,9 @@ import { ProductAnalyticsScalarColumnType } from "./ProductAnalyticsScalarColumn
  * A column in a scalar response.
  */
 export class ProductAnalyticsScalarColumn {
+  /**
+   * Metadata associated with a scalar response column, including optional unit information.
+   */
   "meta"?: ProductAnalyticsScalarColumnMeta;
   /**
    * Column name (facet name for group-by, or "query").

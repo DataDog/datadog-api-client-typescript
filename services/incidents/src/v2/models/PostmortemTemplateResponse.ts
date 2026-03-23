@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PostmortemTemplateDataResponse } from "./PostmortemTemplateDataResponse";
 
+/**
+ * Response containing a single postmortem template.
+ */
 export class PostmortemTemplateResponse {
+  /**
+   * Data object for a postmortem template returned in a response.
+   */
   "data": PostmortemTemplateDataResponse;
   /**
    * A container for additional, undeclared properties.

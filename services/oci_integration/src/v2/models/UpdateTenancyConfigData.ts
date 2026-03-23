@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { UpdateTenancyConfigDataAttributes } from "./UpdateTenancyConfigDataAttributes";
 import { UpdateTenancyConfigDataType } from "./UpdateTenancyConfigDataType";
 
+/**
+ * The data object for updating an existing OCI tenancy integration configuration, including the tenancy ID, type, and updated attributes.
+ */
 export class UpdateTenancyConfigData {
+  /**
+   * Attributes for updating an existing OCI tenancy integration configuration, including optional credentials, region settings, and collection options.
+   */
   "attributes"?: UpdateTenancyConfigDataAttributes;
+  /**
+   * The OCID of the OCI tenancy to update.
+   */
   "id": string;
   /**
    * OCI tenancy resource type.

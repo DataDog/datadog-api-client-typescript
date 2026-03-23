@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SecretRuleData } from "./SecretRuleData";
 
+/**
+ * A collection of secret detection rules returned by the list endpoint.
+ */
 export class SecretRuleArray {
+  /**
+   * The list of secret detection rules.
+   */
   "data": Array<SecretRuleData>;
   /**
    * A container for additional, undeclared properties.

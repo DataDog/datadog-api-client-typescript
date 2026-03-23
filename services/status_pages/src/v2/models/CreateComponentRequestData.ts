@@ -4,6 +4,9 @@ import { CreateComponentRequestDataAttributes } from "./CreateComponentRequestDa
 import { CreateComponentRequestDataRelationships } from "./CreateComponentRequestDataRelationships";
 import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
+/**
+ * The data object for creating a component.
+ */
 export class CreateComponentRequestData {
   /**
    * The supported attributes for creating a component.

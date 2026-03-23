@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
 
+/**
+ * Request object for creating a maintenance.
+ */
 export class CreateMaintenanceRequest {
+  /**
+   * The data object for creating a maintenance.
+   */
   "data"?: CreateMaintenanceRequestData;
   /**
    * A container for additional, undeclared properties.

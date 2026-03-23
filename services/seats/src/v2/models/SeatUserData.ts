@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
 import { SeatUserDataType } from "./SeatUserDataType";
 
+/**
+ * A seat user resource object containing its ID, type, and associated attributes.
+ */
 export class SeatUserData {
+  /**
+   * Attributes of a user assigned to a seat, including their email, name, and assignment timestamp.
+   */
   "attributes"?: SeatUserDataAttributes;
   /**
    * The ID of the seat user.

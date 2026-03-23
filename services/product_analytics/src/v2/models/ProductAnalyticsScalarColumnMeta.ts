@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
 
+/**
+ * Metadata associated with a scalar response column, including optional unit information.
+ */
 export class ProductAnalyticsScalarColumnMeta {
+  /**
+   * Unit definitions for the column values, if applicable.
+   */
   "unit"?: Array<ProductAnalyticsUnit>;
   /**
    * A container for additional, undeclared properties.

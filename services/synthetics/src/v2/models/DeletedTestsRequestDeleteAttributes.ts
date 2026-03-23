@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes for a bulk delete Synthetic tests request.
+ */
 export class DeletedTestsRequestDeleteAttributes {
+  /**
+   * Whether to force deletion of tests that have dependent resources.
+   */
   "forceDeleteDependencies"?: boolean;
+  /**
+   * List of public IDs of the Synthetic tests to delete.
+   */
   "publicIds": Array<string>;
   /**
    * A container for additional, undeclared properties.

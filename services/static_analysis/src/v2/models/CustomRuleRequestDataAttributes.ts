@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes for creating or updating a custom rule.
+ */
 export class CustomRuleRequestDataAttributes {
   /**
    * Rule name

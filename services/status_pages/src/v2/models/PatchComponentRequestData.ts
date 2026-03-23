@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PatchComponentRequestDataAttributes } from "./PatchComponentRequestDataAttributes";
 import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
+/**
+ * The data object for updating a component.
+ */
 export class PatchComponentRequestData {
   /**
    * The supported attributes for updating a component.

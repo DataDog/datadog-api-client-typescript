@@ -4,27 +4,27 @@ import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
 import { ProjectSettings } from "./ProjectSettings";
 
 /**
- * Project update attributes
+ * Project update attributes.
  */
 export class ProjectUpdateAttributes {
   /**
-   * Project columns configuration
+   * Project columns configuration.
    */
   "columnsConfig"?: ProjectColumnsConfig;
   /**
-   * List of enabled custom case type IDs
+   * List of enabled custom case type IDs.
    */
   "enabledCustomCaseTypes"?: Array<string>;
   /**
-   * Project name
+   * Project name.
    */
   "name"?: string;
   /**
-   * Project settings
+   * Project settings.
    */
   "settings"?: ProjectSettings;
   /**
-   * Team UUID to associate with the project
+   * Team UUID to associate with the project.
    */
   "teamUuid"?: string;
   /**

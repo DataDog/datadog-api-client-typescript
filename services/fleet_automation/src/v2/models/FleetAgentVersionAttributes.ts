@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes of an available Datadog Agent version.
+ */
 export class FleetAgentVersionAttributes {
   /**
    * The Agent version string.

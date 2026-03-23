@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SnapshotCreateRequestDataAttributes } from "./SnapshotCreateRequestDataAttributes";
 import { SnapshotUpdateRequestDataType } from "./SnapshotUpdateRequestDataType";
 
+/**
+ * Data object for a heatmap snapshot creation request, containing the resource type and attributes.
+ */
 export class SnapshotCreateRequestData {
+  /**
+   * Attributes for creating a heatmap snapshot, including the view, session, event, and device context.
+   */
   "attributes"?: SnapshotCreateRequestDataAttributes;
   /**
    * Snapshots resource type.

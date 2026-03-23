@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { GlobalVariableJsonPatchRequestDataAttributes } from "./GlobalVariableJsonPatchRequestDataAttributes";
 import { GlobalVariableJsonPatchType } from "./GlobalVariableJsonPatchType";
 
+/**
+ * Data object for a JSON Patch request on a Synthetic global variable.
+ */
 export class GlobalVariableJsonPatchRequestData {
+  /**
+   * Attributes for a JSON Patch request on a Synthetic global variable.
+   */
   "attributes"?: GlobalVariableJsonPatchRequestDataAttributes;
   /**
    * Global variable JSON Patch type.

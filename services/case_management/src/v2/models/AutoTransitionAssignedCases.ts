@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Auto-transition assigned cases settings
+ * Auto-transition assigned cases settings.
  */
 export class AutoTransitionAssignedCases {
   /**
-   * Whether to auto-transition cases when self-assigned
+   * Whether to auto-transition cases when self-assigned.
    */
   "autoTransitionAssignedCasesOnSelfAssigned"?: boolean;
   /**

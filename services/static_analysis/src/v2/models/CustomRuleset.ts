@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CustomRulesetAttributes } from "./CustomRulesetAttributes";
 import { CustomRulesetDataType } from "./CustomRulesetDataType";
 
+/**
+ * A custom static analysis ruleset containing a set of user-defined rules.
+ */
 export class CustomRuleset {
+  /**
+   * Attributes of a custom ruleset, including its name, description, and rules.
+   */
   "attributes": CustomRulesetAttributes;
   /**
    * Ruleset identifier

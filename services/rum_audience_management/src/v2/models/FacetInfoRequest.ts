@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FacetInfoRequestData } from "./FacetInfoRequestData";
 
+/**
+ * Request body for retrieving facet value information for a specified attribute with optional filtering.
+ */
 export class FacetInfoRequest {
+  /**
+   * The data object containing the resource type and attributes for the facet info request.
+   */
   "data"?: FacetInfoRequestData;
   /**
    * A container for additional, undeclared properties.

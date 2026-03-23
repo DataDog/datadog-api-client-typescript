@@ -3,9 +3,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ProductAnalyticsTimeseriesResponseAttributes } from "./ProductAnalyticsTimeseriesResponseAttributes";
 import { ProductAnalyticsTimeseriesResponseType } from "./ProductAnalyticsTimeseriesResponseType";
 
+/**
+ * Data object for a timeseries analytics response.
+ */
 export class ProductAnalyticsTimeseriesResponseData {
+  /**
+   * Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
+   */
   "attributes"?: ProductAnalyticsTimeseriesResponseAttributes;
+  /**
+   * Unique identifier for this response data object.
+   */
   "id"?: string;
+  /**
+   * The resource type identifier for a timeseries analytics response.
+   */
   "type"?: ProductAnalyticsTimeseriesResponseType;
   /**
    * A container for additional, undeclared properties.

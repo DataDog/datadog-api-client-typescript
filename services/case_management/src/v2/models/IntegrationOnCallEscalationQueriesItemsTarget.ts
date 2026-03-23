@@ -1,8 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * The target recipient for an On-Call escalation query.
+ */
 export class IntegrationOnCallEscalationQueriesItemsTarget {
+  /**
+   * Whether to use dynamic team paging for escalation.
+   */
   "dynamicTeamPaging"?: boolean;
+  /**
+   * The identifier of the team to escalate to.
+   */
   "teamId"?: string;
+  /**
+   * The identifier of the user to escalate to.
+   */
   "userId"?: string;
   /**
    * A container for additional, undeclared properties.

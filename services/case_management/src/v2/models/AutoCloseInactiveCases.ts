@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Auto-close inactive cases settings
+ * Auto-close inactive cases settings.
  */
 export class AutoCloseInactiveCases {
   /**
-   * Whether auto-close is enabled
+   * Whether auto-close is enabled.
    */
   "enabled"?: boolean;
   /**
-   * Maximum inactive time in seconds before auto-closing
+   * Maximum inactive time in seconds before auto-closing.
    */
   "maxInactiveTimeInSecs"?: number;
   /**

@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * A single facet value with its occurrence count in the dataset.
+ */
 export class FacetInfoResponseDataAttributesResultValuesItems {
+  /**
+   * The number of records that have this facet value.
+   */
   "count"?: number;
+  /**
+   * The facet value (for example, a browser name or country code).
+   */
   "value"?: string;
   /**
    * A container for additional, undeclared properties.

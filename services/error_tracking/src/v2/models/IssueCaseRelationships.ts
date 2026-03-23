@@ -20,7 +20,7 @@ export class IssueCaseRelationships {
    */
   "modifiedBy"?: NullableUserRelationship;
   /**
-   * Relationship to project
+   * Relationship to project.
    */
   "project"?: ProjectRelationship;
   /**

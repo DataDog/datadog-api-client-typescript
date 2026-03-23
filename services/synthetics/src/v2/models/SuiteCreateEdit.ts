@@ -3,6 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SyntheticsSuite } from "./SyntheticsSuite";
 import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
 
+/**
+ * Data object for creating or editing a Synthetic test suite.
+ */
 export class SuiteCreateEdit {
   /**
    * Object containing details about a Synthetic suite.

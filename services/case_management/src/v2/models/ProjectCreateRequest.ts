@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ProjectCreate } from "./ProjectCreate";
 
 /**
- * Project create request
+ * Project create request.
  */
 export class ProjectCreateRequest {
   /**
-   * Project create
+   * Project create.
    */
   "data": ProjectCreate;
   /**

@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * A named argument for a custom static analysis rule.
+ */
 export class Argument {
   /**
    * Base64-encoded argument description

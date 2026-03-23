@@ -1,12 +1,36 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Metadata about the commit associated with the SCA scan, including author, committer, and branch information.
+ */
 export class ScaRequestDataAttributesCommit {
+  /**
+   * The date when the commit was authored.
+   */
   "authorDate"?: string;
+  /**
+   * The email address of the commit author.
+   */
   "authorEmail"?: string;
+  /**
+   * The full name of the commit author.
+   */
   "authorName"?: string;
+  /**
+   * The branch name on which the commit was made.
+   */
   "branch"?: string;
+  /**
+   * The email address of the person who committed the change.
+   */
   "committerEmail"?: string;
+  /**
+   * The full name of the person who committed the change.
+   */
   "committerName"?: string;
+  /**
+   * The SHA hash uniquely identifying the commit.
+   */
   "sha"?: string;
   /**
    * A container for additional, undeclared properties.

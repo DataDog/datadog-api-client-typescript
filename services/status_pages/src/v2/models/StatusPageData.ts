@@ -4,6 +4,9 @@ import { StatusPageDataAttributes } from "./StatusPageDataAttributes";
 import { StatusPageDataRelationships } from "./StatusPageDataRelationships";
 import { StatusPageDataType } from "./StatusPageDataType";
 
+/**
+ * The data object for a status page.
+ */
 export class StatusPageData {
   /**
    * The attributes of a status page.

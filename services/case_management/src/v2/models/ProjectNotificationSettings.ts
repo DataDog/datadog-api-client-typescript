@@ -1,23 +1,44 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Project notification settings
+ * Project notification settings.
  */
 export class ProjectNotificationSettings {
   /**
-   * Notification destinations (1=email, 2=slack, 3=in-app)
+   * Notification destinations (1=email, 2=slack, 3=in-app).
    */
   "destinations"?: Array<number>;
   /**
-   * Whether notifications are enabled
+   * Whether notifications are enabled.
    */
   "enabled"?: boolean;
+  /**
+   * Whether to send a notification when a case is assigned.
+   */
   "notifyOnCaseAssignment"?: boolean;
+  /**
+   * Whether to send a notification when a case is closed.
+   */
   "notifyOnCaseClosed"?: boolean;
+  /**
+   * Whether to send a notification when a comment is added to a case.
+   */
   "notifyOnCaseComment"?: boolean;
+  /**
+   * Whether to send a notification when a user is mentioned in a case comment.
+   */
   "notifyOnCaseCommentMention"?: boolean;
+  /**
+   * Whether to send a notification when a case's priority changes.
+   */
   "notifyOnCasePriorityChange"?: boolean;
+  /**
+   * Whether to send a notification when a case's status changes.
+   */
   "notifyOnCaseStatusChange"?: boolean;
+  /**
+   * Whether to send a notification when a case is unassigned.
+   */
   "notifyOnCaseUnassignment"?: boolean;
   /**
    * A container for additional, undeclared properties.

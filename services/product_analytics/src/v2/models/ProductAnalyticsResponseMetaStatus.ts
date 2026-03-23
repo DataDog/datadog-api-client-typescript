@@ -1,4 +1,8 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
+
+/**
+ * The execution status of a Product Analytics query.
+ */
 export type ProductAnalyticsResponseMetaStatus =
   | typeof DONE
   | typeof RUNNING

@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Relationship data for an incident handle, containing the ID and type of the related resource.
+ */
 export class IncidentHandleRelationshipData {
   /**
    * The ID of the related resource

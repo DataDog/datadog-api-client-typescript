@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AssignSeatsUserRequestData } from "./AssignSeatsUserRequestData";
 
+/**
+ * The request body for assigning seats to users for a product code.
+ */
 export class AssignSeatsUserRequest {
+  /**
+   * The request data object containing attributes for assigning seats to users.
+   */
   "data"?: AssignSeatsUserRequestData;
   /**
    * A container for additional, undeclared properties.

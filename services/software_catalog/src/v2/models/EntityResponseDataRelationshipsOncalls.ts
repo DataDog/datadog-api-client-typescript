@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { EntityResponseDataRelationshipsOncallsDataItems } from "./EntityResponseDataRelationshipsOncallsDataItems";
 
+/**
+ * Oncalls relationship containing a list of oncall resources associated with this entity.
+ */
 export class EntityResponseDataRelationshipsOncalls {
+  /**
+   * List of oncall relationship data items.
+   */
   "data"?: Array<EntityResponseDataRelationshipsOncallsDataItems>;
   /**
    * A container for additional, undeclared properties.

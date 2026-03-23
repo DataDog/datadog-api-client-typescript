@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * An object containing metadata flags for a service, indicating whether it is traced by APM or monitored through Universal Service Monitoring.
+ */
 export class ServiceListDataAttributesMetadataItems {
+  /**
+   * Indicates whether the service is traced by APM.
+   */
   "isTraced"?: boolean;
+  /**
+   * Indicates whether the service uses Universal Service Monitoring.
+   */
   "isUsm"?: boolean;
   /**
    * A container for additional, undeclared properties.

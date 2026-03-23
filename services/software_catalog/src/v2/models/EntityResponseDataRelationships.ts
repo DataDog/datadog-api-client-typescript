@@ -6,11 +6,29 @@ import { EntityResponseDataRelationshipsRawSchema } from "./EntityResponseDataRe
 import { EntityResponseDataRelationshipsRelatedEntities } from "./EntityResponseDataRelationshipsRelatedEntities";
 import { EntityResponseDataRelationshipsSchema } from "./EntityResponseDataRelationshipsSchema";
 
+/**
+ * Entity relationships including incidents, oncalls, schemas, and related entities.
+ */
 export class EntityResponseDataRelationships {
+  /**
+   * Incidents relationship containing a list of incident resources associated with this entity.
+   */
   "incidents"?: EntityResponseDataRelationshipsIncidents;
+  /**
+   * Oncalls relationship containing a list of oncall resources associated with this entity.
+   */
   "oncalls"?: EntityResponseDataRelationshipsOncalls;
+  /**
+   * Raw schema relationship linking an entity to its raw schema resource.
+   */
   "rawSchema"?: EntityResponseDataRelationshipsRawSchema;
+  /**
+   * Related entities relationship containing a list of entity references related to this entity.
+   */
   "relatedEntities"?: EntityResponseDataRelationshipsRelatedEntities;
+  /**
+   * Schema relationship linking an entity to its associated schema resource.
+   */
   "schema"?: EntityResponseDataRelationshipsSchema;
   /**
    * A container for additional, undeclared properties.

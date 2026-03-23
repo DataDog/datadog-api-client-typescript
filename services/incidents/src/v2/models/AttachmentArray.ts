@@ -7,7 +7,13 @@ import { AttachmentIncluded } from "./AttachmentIncluded";
  * A list of incident attachments.
  */
 export class AttachmentArray {
+  /**
+   * An array of attachment data objects.
+   */
   "data": Array<AttachmentData>;
+  /**
+   * A list of related objects included in the response.
+   */
   "included"?: Array<AttachmentIncluded>;
   /**
    * A container for additional, undeclared properties.

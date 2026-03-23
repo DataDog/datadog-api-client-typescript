@@ -5,15 +5,24 @@ import { IntegrationJiraMetadata } from "./IntegrationJiraMetadata";
 import { IntegrationJiraSync } from "./IntegrationJiraSync";
 
 /**
- * Jira integration settings
+ * Jira integration settings.
  */
 export class IntegrationJira {
+  /**
+   * Auto-creation settings for Jira issues from cases.
+   */
   "autoCreation"?: IntegrationJiraAutoCreation;
   /**
-   * Whether Jira integration is enabled
+   * Whether Jira integration is enabled.
    */
   "enabled"?: boolean;
+  /**
+   * Metadata for connecting a case management project to a Jira project.
+   */
   "metadata"?: IntegrationJiraMetadata;
+  /**
+   * Synchronization configuration for Jira integration.
+   */
   "sync"?: IntegrationJiraSync;
   /**
    * A container for additional, undeclared properties.

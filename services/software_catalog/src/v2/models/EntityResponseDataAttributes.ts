@@ -1,14 +1,44 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Entity response attributes containing core entity metadata fields.
+ */
 export class EntityResponseDataAttributes {
+  /**
+   * The API version of the entity schema.
+   */
   "apiVersion"?: string;
+  /**
+   * A short description of the entity.
+   */
   "description"?: string;
+  /**
+   * The user-friendly display name of the entity.
+   */
   "displayName"?: string;
+  /**
+   * The kind of the entity (e.g. service, datastore, queue).
+   */
   "kind"?: string;
+  /**
+   * The unique name of the entity within its kind and namespace.
+   */
   "name"?: string;
+  /**
+   * The namespace the entity belongs to.
+   */
   "namespace"?: string;
+  /**
+   * The owner of the entity, usually a team.
+   */
   "owner"?: string;
+  /**
+   * Additional custom properties for the entity.
+   */
   "properties"?: { [key: string]: any };
+  /**
+   * A set of custom tags assigned to the entity.
+   */
   "tags"?: Array<string>;
   /**
    * A container for additional, undeclared properties.
