@@ -8,7 +8,7 @@ import { TopologyRequestType } from "./TopologyRequestType";
  */
 export class TopologyRequest {
   /**
-   * Query to service-based topology data sources like the service map or data streams.
+   * A topology data source query.
    */
   "query"?: TopologyQuery;
   /**

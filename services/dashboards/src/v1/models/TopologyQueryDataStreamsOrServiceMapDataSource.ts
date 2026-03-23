@@ -3,7 +3,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 /**
  * Name of the data source
  */
-export type TopologyQueryDataSource =
+export type TopologyQueryDataStreamsOrServiceMapDataSource =
   | typeof DATA_STREAMS
   | typeof SERVICE_MAP
   | UnparsedObject;
