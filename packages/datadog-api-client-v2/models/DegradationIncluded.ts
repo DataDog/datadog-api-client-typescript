@@ -8,6 +8,10 @@ import { StatusPagesUser } from "./StatusPagesUser";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+/**
+ * An included resource related to a degradation or maintenance.
+ */
+
 export type DegradationIncluded =
   | StatusPagesUser
   | StatusPageAsIncluded

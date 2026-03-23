@@ -8,15 +8,15 @@ import { ProjectResourceType } from "./ProjectResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Relationship to project object
+ * Relationship to project object.
  */
 export class ProjectRelationshipData {
   /**
-   * A unique identifier that represents the project
+   * A unique identifier that represents the project.
    */
   "id": string;
   /**
-   * Project resource type
+   * Project resource type.
    */
   "type": ProjectResourceType;
 

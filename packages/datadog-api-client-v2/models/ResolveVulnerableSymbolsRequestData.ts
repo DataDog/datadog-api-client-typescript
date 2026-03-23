@@ -8,9 +8,21 @@ import { ResolveVulnerableSymbolsRequestDataType } from "./ResolveVulnerableSymb
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object in a request to resolve vulnerable symbols, containing the package PURLs and request type.
+ */
 export class ResolveVulnerableSymbolsRequestData {
+  /**
+   * The attributes of a request to resolve vulnerable symbols, containing the list of package PURLs to check.
+   */
   "attributes"?: ResolveVulnerableSymbolsRequestDataAttributes;
+  /**
+   * An optional identifier for this request data object.
+   */
   "id"?: string;
+  /**
+   * The type identifier for requests to resolve vulnerable symbols.
+   */
   "type": ResolveVulnerableSymbolsRequestDataType;
 
   /**

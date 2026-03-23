@@ -8,17 +8,20 @@ import { IntegrationOnCallEscalationQueriesItems } from "./IntegrationOnCallEsca
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * On-Call integration settings
+ * On-Call integration settings.
  */
 export class IntegrationOnCall {
   /**
-   * Whether to auto-assign on-call
+   * Whether to auto-assign on-call.
    */
   "autoAssignOnCall"?: boolean;
   /**
-   * Whether On-Call integration is enabled
+   * Whether On-Call integration is enabled.
    */
   "enabled"?: boolean;
+  /**
+   * List of escalation queries for routing cases to on-call responders.
+   */
   "escalationQueries"?: Array<IntegrationOnCallEscalationQueriesItems>;
 
   /**

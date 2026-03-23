@@ -8,8 +8,17 @@ import { QueryAccountRequestDataType } from "./QueryAccountRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object containing the resource type and attributes for querying accounts.
+ */
 export class QueryAccountRequestData {
+  /**
+   * Attributes for filtering and shaping the account query results.
+   */
   "attributes"?: QueryAccountRequestDataAttributes;
+  /**
+   * Unique identifier for the query account request resource.
+   */
   "id"?: string;
   /**
    * Query account request resource type.

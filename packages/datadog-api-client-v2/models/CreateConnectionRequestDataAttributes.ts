@@ -7,11 +7,29 @@ import { CreateConnectionRequestDataAttributesFieldsItems } from "./CreateConnec
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes defining the data source connection, including join configuration and custom fields.
+ */
 export class CreateConnectionRequestDataAttributes {
+  /**
+   * List of custom attribute fields to import from the data source.
+   */
   "fields"?: Array<CreateConnectionRequestDataAttributesFieldsItems>;
+  /**
+   * The attribute in the data source used to join records with the entity.
+   */
   "joinAttribute": string;
+  /**
+   * The type of join key used to link the data source to the entity (for example, email or user_id).
+   */
   "joinType": string;
+  /**
+   * Additional key-value metadata associated with the connection.
+   */
   "metadata"?: { [key: string]: string };
+  /**
+   * The type of data source connection (for example, ref_table).
+   */
   "type": string;
 
   /**

@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The supported relationships for creating a component.
  */
 export class CreateComponentRequestDataRelationships {
+  /**
+   * The group to create the component within.
+   */
   "group"?: CreateComponentRequestDataRelationshipsGroup;
 
   /**

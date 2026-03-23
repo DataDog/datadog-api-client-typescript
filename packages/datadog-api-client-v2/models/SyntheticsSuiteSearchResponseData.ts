@@ -16,7 +16,13 @@ export class SyntheticsSuiteSearchResponseData {
    * Synthetics suite search response data attributes
    */
   "attributes"?: SyntheticsSuiteSearchResponseDataAttributes;
+  /**
+   * The unique identifier of the suite search response data.
+   */
   "id"?: string;
+  /**
+   * Type for the Synthetics suites search response, `suites_search`.
+   */
   "type"?: SuiteSearchResponseType;
 
   /**

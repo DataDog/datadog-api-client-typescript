@@ -7,6 +7,9 @@ import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestDa
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for creating a postmortem attachment.
+ */
 export class PostmortemAttachmentRequest {
   /**
    * Postmortem attachment data

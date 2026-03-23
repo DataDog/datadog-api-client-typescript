@@ -9,19 +9,61 @@ import { TenancyConfigDataAttributesRegionsConfig } from "./TenancyConfigDataAtt
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of an OCI tenancy integration configuration, including authentication details, region settings, and collection options.
+ */
 export class TenancyConfigDataAttributes {
+  /**
+   * The identifier of the billing plan associated with the OCI tenancy.
+   */
   "billingPlanId"?: number;
+  /**
+   * Version number of the integration the tenancy is integrated with
+   */
   "configVersion"?: number;
+  /**
+   * Whether cost data collection from OCI is enabled for the tenancy.
+   */
   "costCollectionEnabled"?: boolean;
+  /**
+   * The OCID of the OCI compartment used by the Datadog integration stack.
+   */
   "ddCompartmentId"?: string;
+  /**
+   * The OCID of the OCI Resource Manager stack used by the Datadog integration.
+   */
   "ddStackId"?: string;
+  /**
+   * The home region of the OCI tenancy (for example, us-ashburn-1).
+   */
   "homeRegion"?: string;
+  /**
+   * Log collection configuration for an OCI tenancy, indicating which compartments and services have log collection enabled.
+   */
   "logsConfig"?: TenancyConfigDataAttributesLogsConfig;
+  /**
+   * Metrics collection configuration for an OCI tenancy, indicating which compartments and services are included or excluded.
+   */
   "metricsConfig"?: TenancyConfigDataAttributesMetricsConfig;
+  /**
+   * The name of the parent OCI tenancy, if applicable.
+   */
   "parentTenancyName"?: string;
+  /**
+   * Region configuration for an OCI tenancy, indicating which regions are available, enabled, or disabled for data collection.
+   */
   "regionsConfig"?: TenancyConfigDataAttributesRegionsConfig;
+  /**
+   * Whether resource collection from OCI is enabled for the tenancy.
+   */
   "resourceCollectionEnabled"?: boolean;
+  /**
+   * The human-readable name of the OCI tenancy.
+   */
   "tenancyName"?: string;
+  /**
+   * The OCID of the OCI user used by the Datadog integration for authentication.
+   */
   "userOcid"?: string;
 
   /**

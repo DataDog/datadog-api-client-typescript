@@ -8,7 +8,13 @@ import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The request data object containing attributes for assigning seats to users.
+ */
 export class AssignSeatsUserRequestData {
+  /**
+   * Attributes specifying the product and users to whom seats will be assigned.
+   */
   "attributes": AssignSeatsUserRequestDataAttributes;
   /**
    * The ID of the assign seats user request.

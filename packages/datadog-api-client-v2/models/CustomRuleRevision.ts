@@ -8,7 +8,13 @@ import { CustomRuleRevisionDataType } from "./CustomRuleRevisionDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A specific revision of a custom static analysis rule.
+ */
 export class CustomRuleRevision {
+  /**
+   * Attributes of a custom rule revision, including code, metadata, and test cases.
+   */
   "attributes": CustomRuleRevisionAttributes;
   /**
    * Revision identifier

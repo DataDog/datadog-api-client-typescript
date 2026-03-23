@@ -6,9 +6,21 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A test case associated with a static analysis rule, containing the source code and expected annotation count.
+ */
 export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems {
+  /**
+   * The expected number of annotations (findings) the rule should produce when run against the test code.
+   */
   "annotationCount"?: number;
+  /**
+   * The source code snippet used as input for the rule test.
+   */
   "code"?: string;
+  /**
+   * The filename associated with the test code snippet.
+   */
   "filename"?: string;
 
   /**

@@ -7,7 +7,13 @@ import { QueryAccountRequestData } from "./QueryAccountRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for querying accounts with optional filtering, column selection, and sorting.
+ */
 export class QueryAccountRequest {
+  /**
+   * The data object containing the resource type and attributes for querying accounts.
+   */
   "data"?: QueryAccountRequestData;
 
   /**

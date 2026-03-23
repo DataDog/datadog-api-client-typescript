@@ -7,7 +7,13 @@ import { DegradationDataRelationshipsCreatedByUserData } from "./DegradationData
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The Datadog user who created the degradation.
+ */
 export class DegradationDataRelationshipsCreatedByUser {
+  /**
+   * The data object identifying the Datadog user who created the degradation.
+   */
   "data": DegradationDataRelationshipsCreatedByUserData;
 
   /**

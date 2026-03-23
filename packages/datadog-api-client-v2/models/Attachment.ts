@@ -16,6 +16,9 @@ export class Attachment {
    * Attachment data from a response.
    */
   "data"?: AttachmentData;
+  /**
+   * A list of related objects included in the response.
+   */
   "included"?: Array<AttachmentIncluded>;
 
   /**

@@ -9,31 +9,31 @@ import { ProjectSettings } from "./ProjectSettings";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project attributes
+ * Project attributes.
  */
 export class ProjectAttributes {
   /**
-   * Project columns configuration
+   * Project columns configuration.
    */
   "columnsConfig"?: ProjectColumnsConfig;
   /**
-   * List of enabled custom case type IDs
+   * List of enabled custom case type IDs.
    */
   "enabledCustomCaseTypes"?: Array<string>;
   /**
-   * The project's key
+   * The project's key.
    */
   "key"?: string;
   /**
-   * Project's name
+   * Project's name.
    */
   "name"?: string;
   /**
-   * Whether the project is restricted
+   * Whether the project is restricted.
    */
   "restricted"?: boolean;
   /**
-   * Project settings
+   * Project settings.
    */
   "settings"?: ProjectSettings;
 

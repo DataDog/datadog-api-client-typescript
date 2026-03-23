@@ -7,7 +7,13 @@ import { DeletedTestsRequestDelete } from "./DeletedTestsRequestDelete";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request body for bulk deleting Synthetic tests.
+ */
 export class DeletedTestsRequestDeleteRequest {
+  /**
+   * Data object for a bulk delete Synthetic tests request.
+   */
   "data": DeletedTestsRequestDelete;
 
   /**

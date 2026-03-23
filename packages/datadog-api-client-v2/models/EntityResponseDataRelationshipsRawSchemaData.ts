@@ -7,7 +7,13 @@ import { EntityResponseDataRelationshipsRawSchemaDataType } from "./EntityRespon
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Raw schema relationship data containing the raw schema resource identifier and type.
+ */
 export class EntityResponseDataRelationshipsRawSchemaData {
+  /**
+   * Raw schema unique identifier.
+   */
   "id": string;
   /**
    * Raw schema resource type.

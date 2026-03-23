@@ -6,12 +6,33 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Definition of a custom attribute field to import from a data source connection.
+ */
 export class CreateConnectionRequestDataAttributesFieldsItems {
+  /**
+   * Human-readable explanation of what the field represents.
+   */
   "description"?: string;
+  /**
+   * The human-readable label for the field shown in the UI.
+   */
   "displayName"?: string;
+  /**
+   * List of group labels used to categorize the field.
+   */
   "groups"?: Array<string>;
+  /**
+   * The unique identifier for the field within the connection.
+   */
   "id": string;
+  /**
+   * The name of the column or attribute in the source data system that maps to this field.
+   */
   "sourceName": string;
+  /**
+   * The data type of the field (for example, string or number).
+   */
   "type": string;
 
   /**

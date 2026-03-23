@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * An individual Datadog product with its enablement status for a tenancy.
+ */
 export class TenancyProductsDataAttributesProductsItems {
+  /**
+   * Indicates whether the product is enabled for the tenancy.
+   */
   "enabled"?: boolean;
+  /**
+   * The unique key identifying the Datadog product (for example, CLOUD_SECURITY_POSTURE_MANAGEMENT).
+   */
   "productKey"?: string;
 
   /**

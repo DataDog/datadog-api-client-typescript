@@ -8,8 +8,17 @@ import { ServiceListDataType } from "./ServiceListDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A single data item in the service list response.
+ */
 export class ServiceListData {
+  /**
+   * Attributes of a service list entry, containing metadata and a list of service names.
+   */
   "attributes"?: ServiceListDataAttributes;
+  /**
+   * The unique identifier of the service.
+   */
   "id"?: string;
   /**
    * Services list resource type.

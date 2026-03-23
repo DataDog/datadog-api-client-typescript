@@ -7,23 +7,23 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Monitor integration settings
+ * Monitor integration settings.
  */
 export class IntegrationMonitor {
   /**
-   * Whether auto-resolve is enabled
+   * Whether auto-resolve is enabled.
    */
   "autoResolveEnabled"?: boolean;
   /**
-   * Case type ID for monitor integration
+   * Case type ID for monitor integration.
    */
   "caseTypeId"?: string;
   /**
-   * Whether monitor integration is enabled
+   * Whether monitor integration is enabled.
    */
   "enabled"?: boolean;
   /**
-   * Monitor handle
+   * Monitor handle.
    */
   "handle"?: string;
 

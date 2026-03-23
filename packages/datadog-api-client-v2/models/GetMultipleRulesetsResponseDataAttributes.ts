@@ -7,7 +7,13 @@ import { GetMultipleRulesetsResponseDataAttributesRulesetsItems } from "./GetMul
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The attributes of the get-multiple-rulesets response, containing the list of requested rulesets.
+ */
 export class GetMultipleRulesetsResponseDataAttributes {
+  /**
+   * The list of rulesets returned in response to the batch request.
+   */
   "rulesets"?: Array<GetMultipleRulesetsResponseDataAttributesRulesetsItems>;
 
   /**

@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Network Path test request.
  */
 export class SyntheticsNetworkTestEditRequest {
+  /**
+   * Data object for creating or editing a Network Path test.
+   */
   "data": SyntheticsNetworkTestEdit;
 
   /**

@@ -7,7 +7,13 @@ import { GetMultipleRulesetsResponseData } from "./GetMultipleRulesetsResponseDa
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The response payload for the get-multiple-rulesets endpoint, containing the requested rulesets and their rules.
+ */
 export class GetMultipleRulesetsResponse {
+  /**
+   * The primary data object in the get-multiple-rulesets response, containing the response attributes and resource type.
+   */
   "data"?: GetMultipleRulesetsResponseData;
 
   /**

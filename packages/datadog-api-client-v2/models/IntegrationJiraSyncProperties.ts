@@ -10,35 +10,44 @@ import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Field synchronization properties for Jira integration.
+ */
 export class IntegrationJiraSyncProperties {
   /**
-   * Sync property configuration
+   * Sync property configuration.
    */
   "assignee"?: SyncProperty;
   /**
-   * Sync property configuration
+   * Sync property configuration.
    */
   "comments"?: SyncProperty;
+  /**
+   * Map of custom field identifiers to their sync configurations.
+   */
   "customFields"?: {
     [
       key: string
     ]: IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties;
   };
   /**
-   * Sync property configuration
+   * Sync property configuration.
    */
   "description"?: SyncProperty;
+  /**
+   * Due date synchronization configuration for Jira integration.
+   */
   "dueDate"?: IntegrationJiraSyncDueDate;
   /**
-   * Sync property with mapping configuration
+   * Sync property with mapping configuration.
    */
   "priority"?: SyncPropertyWithMapping;
   /**
-   * Sync property with mapping configuration
+   * Sync property with mapping configuration.
    */
   "status"?: SyncPropertyWithMapping;
   /**
-   * Sync property configuration
+   * Sync property configuration.
    */
   "title"?: SyncProperty;
 

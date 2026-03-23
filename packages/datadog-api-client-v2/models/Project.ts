@@ -10,23 +10,23 @@ import { ProjectResourceType } from "./ProjectResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A Project
+ * A Project.
  */
 export class Project {
   /**
-   * Project attributes
+   * Project attributes.
    */
   "attributes": ProjectAttributes;
   /**
-   * The Project's identifier
+   * The Project's identifier.
    */
   "id": string;
   /**
-   * Project relationships
+   * Project relationships.
    */
   "relationships"?: ProjectRelationships;
   /**
-   * Project resource type
+   * Project resource type.
    */
   "type": ProjectResourceType;
 

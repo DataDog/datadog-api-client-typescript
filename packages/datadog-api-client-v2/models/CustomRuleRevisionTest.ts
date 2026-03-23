@@ -6,6 +6,9 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A test case associated with a custom rule revision, used to validate rule behavior.
+ */
 export class CustomRuleRevisionTest {
   /**
    * Expected violation count

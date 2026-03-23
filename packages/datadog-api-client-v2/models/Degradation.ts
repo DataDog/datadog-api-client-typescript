@@ -8,7 +8,13 @@ import { DegradationIncluded } from "./DegradationIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response object for a single degradation.
+ */
 export class Degradation {
+  /**
+   * The data object for a degradation.
+   */
   "data"?: DegradationData;
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.

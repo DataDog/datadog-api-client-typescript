@@ -7,7 +7,13 @@ import { FacetInfoResponseDataAttributesResult } from "./FacetInfoResponseDataAt
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes of the facet info response, containing the facet result data.
+ */
 export class FacetInfoResponseDataAttributes {
+  /**
+   * The facet query result containing discrete value counts or a numeric range for the requested facet.
+   */
   "result"?: FacetInfoResponseDataAttributesResult;
 
   /**

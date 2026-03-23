@@ -7,7 +7,13 @@ import { PatchComponentRequestData } from "./PatchComponentRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request object for updating a component.
+ */
 export class PatchComponentRequest {
+  /**
+   * The data object for updating a component.
+   */
   "data"?: PatchComponentRequestData;
 
   /**

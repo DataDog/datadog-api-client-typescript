@@ -8,8 +8,17 @@ import { QueryResponseDataType } from "./QueryResponseDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The data object containing the resource type and attributes of the query response.
+ */
 export class QueryResponseData {
+  /**
+   * Attributes of the query response, containing the matched records and total count.
+   */
   "attributes"?: QueryResponseDataAttributes;
+  /**
+   * Unique identifier for the query response resource.
+   */
   "id"?: string;
   /**
    * Query response resource type.

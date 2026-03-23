@@ -6,9 +6,21 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Log collection configuration for an OCI tenancy, controlling which compartments and services have log collection enabled.
+ */
 export class CreateTenancyConfigDataAttributesLogsConfig {
+  /**
+   * List of compartment tag filters to scope log collection to specific compartments.
+   */
   "compartmentTagFilters"?: Array<string>;
+  /**
+   * Whether log collection is enabled for the tenancy.
+   */
   "enabled"?: boolean;
+  /**
+   * List of OCI service names for which log collection is enabled.
+   */
   "enabledServices"?: Array<string>;
 
   /**

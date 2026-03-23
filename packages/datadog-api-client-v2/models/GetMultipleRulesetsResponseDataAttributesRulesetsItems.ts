@@ -8,11 +8,29 @@ import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems } from
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A ruleset returned in the response, containing its metadata and associated rules.
+ */
 export class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
+  /**
+   * The resource identifier and type for a ruleset.
+   */
   "data": GetMultipleRulesetsResponseDataAttributesRulesetsItemsData;
+  /**
+   * A detailed description of the ruleset's purpose and the types of issues it targets.
+   */
   "description"?: string;
+  /**
+   * The unique name of the ruleset.
+   */
   "name"?: string;
+  /**
+   * The list of static analysis rules included in this ruleset.
+   */
   "rules"?: Array<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems>;
+  /**
+   * A brief summary of the ruleset, suitable for display in listings.
+   */
   "shortDescription"?: string;
 
   /**

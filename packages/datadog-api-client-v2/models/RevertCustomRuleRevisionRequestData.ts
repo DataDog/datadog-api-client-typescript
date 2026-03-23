@@ -8,7 +8,13 @@ import { RevertCustomRuleRevisionRequestDataAttributes } from "./RevertCustomRul
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object for a request to revert a custom rule to a previous revision.
+ */
 export class RevertCustomRuleRevisionRequestData {
+  /**
+   * Attributes specifying the current and target revision IDs for a revert operation.
+   */
   "attributes"?: RevertCustomRuleRevisionRequestDataAttributes;
   /**
    * Request identifier

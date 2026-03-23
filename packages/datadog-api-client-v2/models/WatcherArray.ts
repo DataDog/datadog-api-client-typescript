@@ -7,7 +7,13 @@ import { WatcherData } from "./WatcherData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A list of users who have watched a RUM replay session.
+ */
 export class WatcherArray {
+  /**
+   * Array of watcher data objects.
+   */
   "data": Array<WatcherData>;
 
   /**

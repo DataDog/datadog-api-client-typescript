@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Due date synchronization configuration for Jira integration.
+ */
 export class IntegrationJiraSyncDueDate {
+  /**
+   * The Jira field identifier used to store the due date.
+   */
   "jiraFieldId"?: string;
+  /**
+   * The type of synchronization to apply for the due date field.
+   */
   "syncType"?: string;
 
   /**

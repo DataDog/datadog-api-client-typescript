@@ -7,7 +7,13 @@ import { CustomRuleset } from "./CustomRuleset";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response containing a single custom ruleset.
+ */
 export class CustomRulesetResponse {
+  /**
+   * A custom static analysis ruleset containing a set of user-defined rules.
+   */
   "data": CustomRuleset;
 
   /**

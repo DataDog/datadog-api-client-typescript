@@ -7,7 +7,13 @@ import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataTyp
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The resource identifier and type for a static analysis rule.
+ */
 export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData {
+  /**
+   * The unique identifier of the rule resource.
+   */
   "id"?: string;
   /**
    * Rules resource type.

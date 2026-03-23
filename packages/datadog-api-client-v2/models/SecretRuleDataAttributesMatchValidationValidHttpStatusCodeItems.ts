@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * An HTTP status code range that indicates a valid (successful) secret match during validation.
+ */
 export class SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems {
+  /**
+   * The inclusive upper bound of the HTTP status code range.
+   */
   "end"?: number;
+  /**
+   * The inclusive lower bound of the HTTP status code range.
+   */
   "start"?: number;
 
   /**

@@ -8,7 +8,13 @@ import { PostmortemTemplateType } from "./PostmortemTemplateType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object for creating or updating a postmortem template.
+ */
 export class PostmortemTemplateDataRequest {
+  /**
+   * Attributes for creating or updating a postmortem template.
+   */
   "attributes": PostmortemTemplateAttributesRequest;
   /**
    * Postmortem template resource type

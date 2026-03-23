@@ -9,15 +9,15 @@ import { ProjectUpdateAttributes } from "./ProjectUpdateAttributes";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project update
+ * Project update.
  */
 export class ProjectUpdate {
   /**
-   * Project update attributes
+   * Project update attributes.
    */
   "attributes"?: ProjectUpdateAttributes;
   /**
-   * Project resource type
+   * Project resource type.
    */
   "type": ProjectResourceType;
 

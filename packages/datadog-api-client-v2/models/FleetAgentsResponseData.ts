@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The response data containing status and agents array.
  */
 export class FleetAgentsResponseData {
+  /**
+   * Attributes of the fleet agents response containing the list of agents.
+   */
   "attributes": FleetAgentsResponseDataAttributes;
   /**
    * Status identifier.

@@ -7,9 +7,21 @@ import { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./ScaR
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A vulnerability entry from the Software Bill of Materials (SBOM), describing a known security issue and the components it affects.
+ */
 export class ScaRequestDataAttributesVulnerabilitiesItems {
+  /**
+   * The list of components affected by this vulnerability.
+   */
   "affects"?: Array<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems>;
+  /**
+   * The unique BOM reference identifier for this vulnerability entry.
+   */
   "bomRef"?: string;
+  /**
+   * The vulnerability identifier (e.g., CVE ID or similar).
+   */
   "id"?: string;
 
   /**

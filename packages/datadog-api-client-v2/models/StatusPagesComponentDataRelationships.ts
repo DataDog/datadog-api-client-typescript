@@ -14,9 +14,21 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The relationships of a component.
  */
 export class StatusPagesComponentDataRelationships {
+  /**
+   * The Datadog user who created the component.
+   */
   "createdByUser"?: StatusPagesComponentDataRelationshipsCreatedByUser;
+  /**
+   * The group the component belongs to.
+   */
   "group"?: StatusPagesComponentDataRelationshipsGroup;
+  /**
+   * The Datadog user who last modified the component.
+   */
   "lastModifiedByUser"?: StatusPagesComponentDataRelationshipsLastModifiedByUser;
+  /**
+   * The status page the component belongs to.
+   */
   "statusPage"?: StatusPagesComponentDataRelationshipsStatusPage;
 
   /**

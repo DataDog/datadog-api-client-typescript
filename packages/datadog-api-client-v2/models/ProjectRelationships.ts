@@ -9,7 +9,7 @@ import { UsersRelationship } from "./UsersRelationship";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Project relationships
+ * Project relationships.
  */
 export class ProjectRelationships {
   /**

@@ -11,6 +11,9 @@ import { Language } from "./Language";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Input attributes for creating or updating a custom rule revision.
+ */
 export class CustomRuleRevisionInputAttributes {
   /**
    * Rule arguments

@@ -7,7 +7,13 @@ import { PlaylistData } from "./PlaylistData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A single RUM replay playlist resource returned by create, update, or get operations.
+ */
 export class Playlist {
+  /**
+   * Data object representing a RUM replay playlist, including its identifier, type, and attributes.
+   */
   "data": PlaylistData;
 
   /**

@@ -6,6 +6,9 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes specifying the current and target revision IDs for a revert operation.
+ */
 export class RevertCustomRuleRevisionRequestDataAttributes {
   /**
    * Current revision ID

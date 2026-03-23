@@ -7,7 +7,13 @@ import { IncidentHandleDataRequest } from "./IncidentHandleDataRequest";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request payload for creating or updating a global incident handle.
+ */
 export class IncidentHandleRequest {
+  /**
+   * Data object representing an incident handle in a create or update request.
+   */
   "data": IncidentHandleDataRequest;
 
   /**

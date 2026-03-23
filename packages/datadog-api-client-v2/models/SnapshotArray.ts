@@ -7,7 +7,13 @@ import { SnapshotData } from "./SnapshotData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A list of heatmap snapshots returned by a list operation.
+ */
 export class SnapshotArray {
+  /**
+   * Array of heatmap snapshot data objects.
+   */
   "data": Array<SnapshotData>;
 
   /**

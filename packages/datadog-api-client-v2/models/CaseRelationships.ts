@@ -25,7 +25,7 @@ export class CaseRelationships {
    */
   "modifiedBy"?: NullableUserRelationship;
   /**
-   * Relationship to project
+   * Relationship to project.
    */
   "project"?: ProjectRelationship;
 

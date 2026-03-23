@@ -12,6 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Response type for listing notification rules for a user
  */
 export class ListOnCallNotificationRulesResponse {
+  /**
+   * Array of notification rule data objects.
+   */
   "data"?: Array<OnCallNotificationRuleData>;
   "included"?: Array<OnCallNotificationRulesIncluded>;
 

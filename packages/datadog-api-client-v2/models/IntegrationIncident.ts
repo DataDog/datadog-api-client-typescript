@@ -9,26 +9,32 @@ import { IntegrationIncidentSeverityConfig } from "./IntegrationIncidentSeverity
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident integration settings
+ * Incident integration settings.
  */
 export class IntegrationIncident {
   /**
-   * Query for auto-escalation
+   * Query for auto-escalation.
    */
   "autoEscalationQuery"?: string;
   /**
-   * Default incident commander
+   * Default incident commander.
    */
   "defaultIncidentCommander"?: string;
   /**
-   * Whether incident integration is enabled
+   * Whether incident integration is enabled.
    */
   "enabled"?: boolean;
+  /**
+   * List of mappings between incident fields and case fields.
+   */
   "fieldMappings"?: Array<IntegrationIncidentFieldMappingsItems>;
   /**
-   * Incident type
+   * Incident type.
    */
   "incidentType"?: string;
+  /**
+   * Severity configuration for mapping incident priorities to case priorities.
+   */
   "severityConfig"?: IntegrationIncidentSeverityConfig;
 
   /**

@@ -12,7 +12,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The relationships of a status page.
  */
 export class StatusPageDataRelationships {
+  /**
+   * The Datadog user who created the status page.
+   */
   "createdByUser"?: StatusPageDataRelationshipsCreatedByUser;
+  /**
+   * The Datadog user who last modified the status page.
+   */
   "lastModifiedByUser"?: StatusPageDataRelationshipsLastModifiedByUser;
 
   /**

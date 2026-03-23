@@ -6,9 +6,21 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve and what data to include.
+ */
 export class GetMultipleRulesetsRequestDataAttributes {
+  /**
+   * When true, rules that are available in testing mode are included in the response.
+   */
   "includeTestingRules"?: boolean;
+  /**
+   * When true, test cases associated with each rule are included in the response.
+   */
   "includeTests"?: boolean;
+  /**
+   * The list of ruleset names to retrieve.
+   */
   "rulesets"?: Array<string>;
 
   /**

@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A file entry in the repository associated with a dependency manifest.
+ */
 export class ScaRequestDataAttributesFilesItems {
+  /**
+   * The name or path of the file within the repository.
+   */
   "name"?: string;
+  /**
+   * The Package URL (PURL) associated with the dependency declared in this file.
+   */
   "purl"?: string;
 
   /**

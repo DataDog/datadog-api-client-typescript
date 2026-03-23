@@ -3788,7 +3788,7 @@ export interface CaseManagementApiCreateCaseServiceNowTicketRequest {
 
 export interface CaseManagementApiCreateProjectRequest {
   /**
-   * Project payload
+   * Project payload.
    * @type ProjectCreateRequest
    */
   body: ProjectCreateRequest;
@@ -3835,7 +3835,7 @@ export interface CaseManagementApiDeleteCaseCustomAttributeRequest {
 
 export interface CaseManagementApiDeleteProjectRequest {
   /**
-   * Project UUID
+   * Project UUID.
    * @type string
    */
   projectId: string;
@@ -3864,7 +3864,7 @@ export interface CaseManagementApiGetCaseRequest {
 
 export interface CaseManagementApiGetProjectRequest {
   /**
-   * Project UUID
+   * Project UUID.
    * @type string
    */
   projectId: string;
@@ -4051,12 +4051,12 @@ export interface CaseManagementApiUpdatePriorityRequest {
 
 export interface CaseManagementApiUpdateProjectRequest {
   /**
-   * Project UUID
+   * Project UUID.
    * @type string
    */
   projectId: string;
   /**
-   * Project payload
+   * Project payload.
    * @type ProjectUpdateRequest
    */
   body: ProjectUpdateRequest;

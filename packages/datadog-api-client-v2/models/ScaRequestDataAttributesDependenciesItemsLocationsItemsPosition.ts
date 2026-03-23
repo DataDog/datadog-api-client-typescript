@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * A specific position (line and column) within a source file.
+ */
 export class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition {
+  /**
+   * The column number of the position within the line.
+   */
   "col"?: number;
+  /**
+   * The line number of the position within the file.
+   */
   "line"?: number;
 
   /**
