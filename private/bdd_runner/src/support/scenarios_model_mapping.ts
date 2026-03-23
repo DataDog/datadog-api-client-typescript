@@ -3925,6 +3925,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CIAppPipelineEventsResponse",
   },
+  "TestOptimizationApi.V2.GetTestOptimizationServiceSettings": {
+    body: {
+      type: "TestOptimizationGetServiceSettingsRequest",
+      format: "",
+    },
+    operationResponseType: "TestOptimizationServiceSettingsResponse",
+  },
+  "TestOptimizationApi.V2.DeleteTestOptimizationServiceSettings": {
+    body: {
+      type: "TestOptimizationDeleteServiceSettingsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "TestOptimizationApi.V2.UpdateTestOptimizationServiceSettings": {
+    body: {
+      type: "TestOptimizationUpdateServiceSettingsRequest",
+      format: "",
+    },
+    operationResponseType: "TestOptimizationServiceSettingsResponse",
+  },
+  "TestOptimizationApi.V2.SearchFlakyTests": {
+    body: {
+      type: "FlakyTestsSearchRequest",
+      format: "",
+    },
+    operationResponseType: "FlakyTestsSearchResponse",
+  },
+  "TestOptimizationApi.V2.UpdateFlakyTests": {
+    body: {
+      type: "UpdateFlakyTestsRequest",
+      format: "",
+    },
+    operationResponseType: "UpdateFlakyTestsResponse",
+  },
   "CIVisibilityTestsApi.V2.AggregateCIAppTestEvents": {
     body: {
       type: "CIAppTestsAggregateRequest",
@@ -11627,20 +11662,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "IncidentTeamResponse",
-  },
-  "TestOptimizationApi.V2.SearchFlakyTests": {
-    body: {
-      type: "FlakyTestsSearchRequest",
-      format: "",
-    },
-    operationResponseType: "FlakyTestsSearchResponse",
-  },
-  "TestOptimizationApi.V2.UpdateFlakyTests": {
-    body: {
-      type: "UpdateFlakyTestsRequest",
-      format: "",
-    },
-    operationResponseType: "UpdateFlakyTestsResponse",
   },
   "UsersApi.V2.SendInvitations": {
     body: {
