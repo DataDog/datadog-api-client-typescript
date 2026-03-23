@@ -14,7 +14,7 @@ export class TopologyMapWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
-   * One or more Topology requests.
+   * One Topology request.
    */
   "requests": Array<TopologyRequest>;
   /**

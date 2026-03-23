@@ -139,7 +139,7 @@ import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
 import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
 import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
 import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
-import { TopologyQuery } from "./TopologyQuery";
+import { TopologyQueryDataStreamsOrServiceMap } from "./TopologyQueryDataStreamsOrServiceMap";
 import { TopologyRequest } from "./TopologyRequest";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
@@ -384,7 +384,10 @@ export const TypingInfo: ModelTypingInfo = {
     ToplistWidgetScaling: ["absolute", "relative"],
     ToplistWidgetStackedType: ["stacked"],
     TopologyMapWidgetDefinitionType: ["topology_map"],
-    TopologyQueryDataSource: ["data_streams", "service_map"],
+    TopologyQueryDataStreamsOrServiceMapDataSource: [
+      "data_streams",
+      "service_map",
+    ],
     TopologyRequestType: ["topology"],
     TreeMapColorBy: ["user"],
     TreeMapGroupBy: ["user", "family", "process"],
@@ -559,6 +562,7 @@ export const TypingInfo: ModelTypingInfo = {
       "TableWidgetTextFormatReplaceSubstring",
     ],
     ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
+    TopologyQuery: ["TopologyQueryDataStreamsOrServiceMap"],
     WidgetDefinition: [
       "AlertGraphWidgetDefinition",
       "AlertValueWidgetDefinition",
@@ -756,7 +760,7 @@ export const TypingInfo: ModelTypingInfo = {
     ToplistWidgetStacked: ToplistWidgetStacked,
     ToplistWidgetStyle: ToplistWidgetStyle,
     TopologyMapWidgetDefinition: TopologyMapWidgetDefinition,
-    TopologyQuery: TopologyQuery,
+    TopologyQueryDataStreamsOrServiceMap: TopologyQueryDataStreamsOrServiceMap,
     TopologyRequest: TopologyRequest,
     TreeMapWidgetDefinition: TreeMapWidgetDefinition,
     TreeMapWidgetRequest: TreeMapWidgetRequest,

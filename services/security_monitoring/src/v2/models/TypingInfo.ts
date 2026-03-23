@@ -432,7 +432,6 @@ export const TypingInfo: ModelTypingInfo = {
       "critical",
       "increase",
       "decrease",
-      "no-op",
     ],
     SecurityMonitoringCriticalAssetType: ["critical_assets"],
     SecurityMonitoringFilterAction: ["require", "suppress"],
