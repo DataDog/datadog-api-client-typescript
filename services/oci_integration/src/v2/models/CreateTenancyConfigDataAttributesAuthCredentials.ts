@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * OCI API signing key credentials used to authenticate the Datadog integration with the OCI tenancy.
+ */
 export class CreateTenancyConfigDataAttributesAuthCredentials {
+  /**
+   * The fingerprint of the OCI API signing key used for authentication.
+   */
   "fingerprint"?: string;
+  /**
+   * The PEM-encoded private key corresponding to the OCI API signing key fingerprint.
+   */
   "privateKey": string;
   /**
    * A container for additional, undeclared properties.

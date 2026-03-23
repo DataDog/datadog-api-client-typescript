@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Pagination metadata for the seat users list response.
+ */
 export class SeatUserMeta {
   /**
    * The cursor for the seat users.

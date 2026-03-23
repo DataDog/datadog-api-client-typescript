@@ -11,6 +11,9 @@ export class BatchUpsertRowsRequestData {
    * Attributes containing row data values for row creation or update operations.
    */
   "attributes"?: BatchUpsertRowsRequestDataAttributes;
+  /**
+   * The primary key value that uniquely identifies the row to create or update.
+   */
   "id": string;
   /**
    * Row resource type.

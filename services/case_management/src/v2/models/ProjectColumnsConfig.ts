@@ -3,9 +3,12 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ProjectColumnsConfigColumnsItems } from "./ProjectColumnsConfigColumnsItems";
 
 /**
- * Project columns configuration
+ * Project columns configuration.
  */
 export class ProjectColumnsConfig {
+  /**
+   * List of column configurations for the project board view.
+   */
   "columns"?: Array<ProjectColumnsConfigColumnsItems>;
   /**
    * A container for additional, undeclared properties.

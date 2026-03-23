@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CustomRuleRevision } from "./CustomRuleRevision";
 
+/**
+ * A custom static analysis rule within a ruleset.
+ */
 export class CustomRule {
   /**
    * Creation timestamp
@@ -11,6 +14,9 @@ export class CustomRule {
    * Creator identifier
    */
   "createdBy": string;
+  /**
+   * A specific revision of a custom static analysis rule.
+   */
   "lastRevision": CustomRuleRevision;
   /**
    * Rule name

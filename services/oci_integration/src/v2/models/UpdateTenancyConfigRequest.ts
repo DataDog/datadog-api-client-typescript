@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { UpdateTenancyConfigData } from "./UpdateTenancyConfigData";
 
+/**
+ * Request body for updating an existing OCI tenancy integration configuration.
+ */
 export class UpdateTenancyConfigRequest {
+  /**
+   * The data object for updating an existing OCI tenancy integration configuration, including the tenancy ID, type, and updated attributes.
+   */
   "data": UpdateTenancyConfigData;
   /**
    * A container for additional, undeclared properties.

@@ -6,6 +6,9 @@ import { CustomRuleRevisionAttributesSeverity } from "./CustomRuleRevisionAttrib
 import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { Language } from "./Language";
 
+/**
+ * Input attributes for creating or updating a custom rule revision.
+ */
 export class CustomRuleRevisionInputAttributes {
   /**
    * Rule arguments

@@ -6,6 +6,9 @@ import { StatusPagesComponentGroupRelationshipsCreatedByUserData } from "./Statu
  * The Datadog user who created the component group.
  */
 export class StatusPagesComponentGroupRelationshipsCreatedByUser {
+  /**
+   * The data object identifying the Datadog user who created the component group.
+   */
   "data": StatusPagesComponentGroupRelationshipsCreatedByUserData;
   /**
    * A container for additional, undeclared properties.

@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FleetAgentAttributes } from "./FleetAgentAttributes";
 
+/**
+ * Attributes of the fleet agents response containing the list of agents.
+ */
 export class FleetAgentsResponseDataAttributes {
   /**
    * Array of agents matching the query criteria.

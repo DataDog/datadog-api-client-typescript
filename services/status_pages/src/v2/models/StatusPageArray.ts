@@ -4,7 +4,13 @@ import { PaginationMeta } from "./PaginationMeta";
 import { StatusPageArrayIncluded } from "./StatusPageArrayIncluded";
 import { StatusPageData } from "./StatusPageData";
 
+/**
+ * Response object for a list of status pages.
+ */
 export class StatusPageArray {
+  /**
+   * A list of status page data objects.
+   */
   "data": Array<StatusPageData>;
   /**
    * The included related resources of a status page. Client must explicitly request these resources by name in the `include` query parameter.

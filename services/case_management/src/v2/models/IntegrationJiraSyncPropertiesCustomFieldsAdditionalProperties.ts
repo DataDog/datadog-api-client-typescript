@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AnyValue } from "./AnyValue";
 
+/**
+ * Synchronization configuration for a Jira custom field.
+ */
 export class IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties {
+  /**
+   * The type of synchronization to apply for this custom field.
+   */
   "syncType"?: string;
   /**
    * Represents any valid JSON value.

@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * The time window defining the start and end of the event query period as Unix timestamps.
+ */
 export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
+  /**
+   * End of the time frame as a Unix timestamp in seconds.
+   */
   "end"?: number;
+  /**
+   * Start of the time frame as a Unix timestamp in seconds.
+   */
   "start"?: number;
   /**
    * A container for additional, undeclared properties.

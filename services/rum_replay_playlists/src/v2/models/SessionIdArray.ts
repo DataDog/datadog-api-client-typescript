@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SessionIdData } from "./SessionIdData";
 
+/**
+ * A collection of session identifiers used for bulk add or remove operations on a playlist.
+ */
 export class SessionIdArray {
+  /**
+   * Array of session identifier data objects.
+   */
   "data": Array<SessionIdData>;
   /**
    * A container for additional, undeclared properties.

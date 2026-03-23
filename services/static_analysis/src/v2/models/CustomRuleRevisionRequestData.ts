@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CustomRuleRevisionDataType } from "./CustomRuleRevisionDataType";
 import { CustomRuleRevisionInputAttributes } from "./CustomRuleRevisionInputAttributes";
 
+/**
+ * Data object for a custom rule revision create request.
+ */
 export class CustomRuleRevisionRequestData {
+  /**
+   * Input attributes for creating or updating a custom rule revision.
+   */
   "attributes"?: CustomRuleRevisionInputAttributes;
   /**
    * Revision identifier

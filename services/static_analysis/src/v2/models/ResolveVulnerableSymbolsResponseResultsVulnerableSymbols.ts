@@ -2,8 +2,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols";
 
+/**
+ * A collection of vulnerable symbols associated with a specific security advisory.
+ */
 export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols {
+  /**
+   * The identifier of the security advisory that describes the vulnerability.
+   */
   "advisoryId"?: string;
+  /**
+   * The list of symbols that are vulnerable according to this advisory.
+   */
   "symbols"?: Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols>;
   /**
    * A container for additional, undeclared properties.

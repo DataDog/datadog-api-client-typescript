@@ -4,7 +4,13 @@ import { DegradationIncluded } from "./DegradationIncluded";
 import { MaintenanceData } from "./MaintenanceData";
 import { PaginationMeta } from "./PaginationMeta";
 
+/**
+ * Response object for a list of maintenances.
+ */
 export class MaintenanceArray {
+  /**
+   * A list of maintenance data objects.
+   */
   "data": Array<MaintenanceData>;
   /**
    * The included related resources of a maintenance. Client must explicitly request these resources by name in the `include` query parameter.

@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { EntityResponseDataRelationshipsOncallsDataItemsType } from "./EntityResponseDataRelationshipsOncallsDataItemsType";
 
+/**
+ * Oncall relationship data item containing the oncall resource identifier and type.
+ */
 export class EntityResponseDataRelationshipsOncallsDataItems {
+  /**
+   * Oncall resource unique identifier.
+   */
   "id": string;
   /**
    * Oncall resource type.

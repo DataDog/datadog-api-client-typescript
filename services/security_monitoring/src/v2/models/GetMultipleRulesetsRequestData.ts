@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { GetMultipleRulesetsRequestDataAttributes } from "./GetMultipleRulesetsRequestDataAttributes";
 import { GetMultipleRulesetsRequestDataType } from "./GetMultipleRulesetsRequestDataType";
 
+/**
+ * The primary data object in the get-multiple-rulesets request, containing request attributes and resource type.
+ */
 export class GetMultipleRulesetsRequestData {
+  /**
+   * The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve and what data to include.
+   */
   "attributes"?: GetMultipleRulesetsRequestDataAttributes;
+  /**
+   * An optional identifier for the get-multiple-rulesets request resource.
+   */
   "id"?: string;
   /**
    * Get multiple rulesets request resource type.

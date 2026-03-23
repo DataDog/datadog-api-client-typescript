@@ -4,6 +4,9 @@ import { StatusPagesComponentDataAttributes } from "./StatusPagesComponentDataAt
 import { StatusPagesComponentDataRelationships } from "./StatusPagesComponentDataRelationships";
 import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
+/**
+ * The data object for a component.
+ */
 export class StatusPagesComponentData {
   /**
    * The attributes of a component.

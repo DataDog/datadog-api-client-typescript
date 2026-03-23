@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ScaRequestData } from "./ScaRequestData";
 
+/**
+ * The top-level request object for submitting a Software Composition Analysis (SCA) scan result.
+ */
 export class ScaRequest {
+  /**
+   * The data object in an SCA request, containing the dependency graph attributes and request type.
+   */
   "data"?: ScaRequestData;
   /**
    * A container for additional, undeclared properties.

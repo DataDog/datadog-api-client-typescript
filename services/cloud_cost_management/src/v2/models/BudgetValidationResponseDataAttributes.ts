@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * The attributes of a budget validation response, including any validation errors and the validity status.
+ */
 export class BudgetValidationResponseDataAttributes {
+  /**
+   * A list of validation error messages for the budget.
+   */
   "errors"?: Array<string>;
+  /**
+   * Whether the budget configuration is valid.
+   */
   "valid"?: boolean;
   /**
    * A container for additional, undeclared properties.

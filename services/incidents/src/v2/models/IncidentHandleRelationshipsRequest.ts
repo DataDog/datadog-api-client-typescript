@@ -2,8 +2,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { IncidentHandleRelationship } from "./IncidentHandleRelationship";
 
+/**
+ * Relationships to associate with an incident handle in a create or update request.
+ */
 export class IncidentHandleRelationshipsRequest {
+  /**
+   * A single relationship object for an incident handle, wrapping the related resource data.
+   */
   "commanderUser"?: IncidentHandleRelationship;
+  /**
+   * A single relationship object for an incident handle, wrapping the related resource data.
+   */
   "incidentType": IncidentHandleRelationship;
   /**
    * A container for additional, undeclared properties.

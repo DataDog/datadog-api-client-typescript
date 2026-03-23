@@ -1,10 +1,28 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes of a user who has watched a RUM replay session, including contact information and watch statistics.
+ */
 export class WatcherDataAttributes {
+  /**
+   * Email handle of the user who watched the session.
+   */
   "handle": string;
+  /**
+   * URL or identifier of the watcher's avatar icon.
+   */
   "icon"?: string;
+  /**
+   * Timestamp when the watcher last viewed the session.
+   */
   "lastWatchedAt": Date;
+  /**
+   * Display name of the user who watched the session.
+   */
   "name"?: string;
+  /**
+   * Total number of times the user has watched the session.
+   */
   "watchCount": number;
   /**
    * A container for additional, undeclared properties.

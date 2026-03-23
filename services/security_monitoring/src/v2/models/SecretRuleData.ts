@@ -3,8 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
 import { SecretRuleDataType } from "./SecretRuleDataType";
 
+/**
+ * The data object representing a secret detection rule, including its attributes and resource type.
+ */
 export class SecretRuleData {
+  /**
+   * The attributes of a secret detection rule, including its pattern, priority, and validation configuration.
+   */
   "attributes"?: SecretRuleDataAttributes;
+  /**
+   * The unique identifier of the secret rule resource.
+   */
   "id"?: string;
   /**
    * Secret rule resource type.

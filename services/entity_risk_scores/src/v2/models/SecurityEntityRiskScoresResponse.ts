@@ -7,6 +7,9 @@ import { SecurityEntityRiskScoresMeta } from "./SecurityEntityRiskScoresMeta";
  * Response containing a list of entity risk scores
  */
 export class SecurityEntityRiskScoresResponse {
+  /**
+   * Array of entity risk score objects.
+   */
   "data": Array<SecurityEntityRiskScore>;
   /**
    * Metadata for pagination

@@ -1,10 +1,28 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Specification for updating an existing field in a connection, including which field to modify and the new values.
+ */
 export class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
+  /**
+   * The identifier of the existing field to update.
+   */
   "fieldId": string;
+  /**
+   * The new description to set for the field.
+   */
   "updatedDescription"?: string;
+  /**
+   * The new human-readable display name to set for the field.
+   */
   "updatedDisplayName"?: string;
+  /**
+   * The new identifier to assign to the field, if renaming it.
+   */
   "updatedFieldId"?: string;
+  /**
+   * The updated list of group labels to associate with the field.
+   */
   "updatedGroups"?: Array<string>;
   /**
    * A container for additional, undeclared properties.

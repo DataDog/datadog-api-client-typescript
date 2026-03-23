@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Sort configuration for a project board column.
+ */
 export class ProjectColumnsConfigColumnsItemsSort {
+  /**
+   * Whether to sort in ascending order.
+   */
   "ascending"?: boolean;
+  /**
+   * The sort priority order for this column.
+   */
   "priority"?: number;
   /**
    * A container for additional, undeclared properties.

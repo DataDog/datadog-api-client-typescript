@@ -1,8 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Region configuration for an OCI tenancy, specifying which regions are available, enabled, or disabled for data collection.
+ */
 export class CreateTenancyConfigDataAttributesRegionsConfig {
+  /**
+   * List of OCI regions available for data collection in the tenancy.
+   */
   "available"?: Array<string>;
+  /**
+   * List of OCI regions explicitly disabled for data collection.
+   */
   "disabled"?: Array<string>;
+  /**
+   * List of OCI regions enabled for data collection.
+   */
   "enabled"?: Array<string>;
   /**
    * A container for additional, undeclared properties.

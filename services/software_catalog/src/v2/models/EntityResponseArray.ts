@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
 
+/**
+ * Response object containing an array of entity data items.
+ */
 export class EntityResponseArray {
+  /**
+   * Array of entity response data items.
+   */
   "data": Array<PreviewEntityResponseData>;
   /**
    * A container for additional, undeclared properties.

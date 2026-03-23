@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 
+/**
+ * Response containing the list of all data source connections configured for an entity.
+ */
 export class ListConnectionsResponse {
+  /**
+   * The data object containing the resource type and attributes for the list connections response.
+   */
   "data"?: ListConnectionsResponseData;
   /**
    * A container for additional, undeclared properties.

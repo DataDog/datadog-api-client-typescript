@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DeletedTestResponseData } from "./DeletedTestResponseData";
 
+/**
+ * Response containing the list of deleted Synthetic tests.
+ */
 export class DeletedTestsResponse {
+  /**
+   * List of deleted Synthetic test data objects.
+   */
   "data"?: Array<DeletedTestResponseData>;
   /**
    * A container for additional, undeclared properties.

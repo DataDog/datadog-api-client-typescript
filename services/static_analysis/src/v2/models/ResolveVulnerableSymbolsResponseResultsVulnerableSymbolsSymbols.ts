@@ -1,8 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * A symbol identified as vulnerable within a dependency, including its name, type, and value.
+ */
 export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
+  /**
+   * The name of the vulnerable symbol.
+   */
   "name"?: string;
+  /**
+   * The type classification of the vulnerable symbol (e.g., function, class, variable).
+   */
   "type"?: string;
+  /**
+   * The value or identifier associated with the vulnerable symbol.
+   */
   "value"?: string;
   /**
    * A container for additional, undeclared properties.

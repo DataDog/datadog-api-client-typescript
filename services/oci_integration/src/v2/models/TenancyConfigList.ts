@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { TenancyConfigData } from "./TenancyConfigData";
 
+/**
+ * Response containing a list of OCI tenancy integration configurations.
+ */
 export class TenancyConfigList {
+  /**
+   * List of OCI tenancy integration configuration objects.
+   */
   "data": Array<TenancyConfigData>;
   /**
    * A container for additional, undeclared properties.

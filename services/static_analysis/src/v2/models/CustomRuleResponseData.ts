@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CustomRule } from "./CustomRule";
 import { CustomRuleDataType } from "./CustomRuleDataType";
 
+/**
+ * Data object returned in a custom rule response, including its ID, type, and attributes.
+ */
 export class CustomRuleResponseData {
+  /**
+   * A custom static analysis rule within a ruleset.
+   */
   "attributes": CustomRule;
   /**
    * Rule identifier

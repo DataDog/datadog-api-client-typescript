@@ -10,39 +10,39 @@ import { IntegrationServiceNow } from "./IntegrationServiceNow";
 import { ProjectNotificationSettings } from "./ProjectNotificationSettings";
 
 /**
- * Project settings
+ * Project settings.
  */
 export class ProjectSettings {
   /**
-   * Auto-close inactive cases settings
+   * Auto-close inactive cases settings.
    */
   "autoCloseInactiveCases"?: AutoCloseInactiveCases;
   /**
-   * Auto-transition assigned cases settings
+   * Auto-transition assigned cases settings.
    */
   "autoTransitionAssignedCases"?: AutoTransitionAssignedCases;
   /**
-   * Incident integration settings
+   * Incident integration settings.
    */
   "integrationIncident"?: IntegrationIncident;
   /**
-   * Jira integration settings
+   * Jira integration settings.
    */
   "integrationJira"?: IntegrationJira;
   /**
-   * Monitor integration settings
+   * Monitor integration settings.
    */
   "integrationMonitor"?: IntegrationMonitor;
   /**
-   * On-Call integration settings
+   * On-Call integration settings.
    */
   "integrationOnCall"?: IntegrationOnCall;
   /**
-   * ServiceNow integration settings
+   * ServiceNow integration settings.
    */
   "integrationServiceNow"?: IntegrationServiceNow;
   /**
-   * Project notification settings
+   * Project notification settings.
    */
   "notification"?: ProjectNotificationSettings;
   /**

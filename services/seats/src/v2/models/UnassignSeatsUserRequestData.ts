@@ -3,7 +3,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
 import { UnassignSeatsUserRequestDataAttributes } from "./UnassignSeatsUserRequestDataAttributes";
 
+/**
+ * The request data object containing attributes for unassigning seats from users.
+ */
 export class UnassignSeatsUserRequestData {
+  /**
+   * Attributes specifying the product and users from whom seats will be unassigned.
+   */
   "attributes": UnassignSeatsUserRequestDataAttributes;
   /**
    * The ID of the unassign seats user request.

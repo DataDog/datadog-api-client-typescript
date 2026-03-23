@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 
+/**
+ * The top-level request object for resolving vulnerable symbols in a set of packages.
+ */
 export class ResolveVulnerableSymbolsRequest {
+  /**
+   * The data object in a request to resolve vulnerable symbols, containing the package PURLs and request type.
+   */
   "data"?: ResolveVulnerableSymbolsRequestData;
   /**
    * A container for additional, undeclared properties.

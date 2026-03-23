@@ -7,8 +7,17 @@ import { ProductAnalyticsScalarResponseType } from "./ProductAnalyticsScalarResp
  * Data object for a scalar response.
  */
 export class ProductAnalyticsScalarResponseData {
+  /**
+   * Attributes of a scalar analytics response, containing the result columns.
+   */
   "attributes"?: ProductAnalyticsScalarResponseAttributes;
+  /**
+   * Unique identifier for this response data object.
+   */
   "id"?: string;
+  /**
+   * The resource type identifier for a scalar analytics response.
+   */
   "type"?: ProductAnalyticsScalarResponseType;
   /**
    * A container for additional, undeclared properties.

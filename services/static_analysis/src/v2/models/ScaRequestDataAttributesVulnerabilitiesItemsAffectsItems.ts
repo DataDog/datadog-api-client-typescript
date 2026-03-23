@@ -1,6 +1,12 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * A reference to a component affected by a vulnerability.
+ */
 export class ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems {
+  /**
+   * The BOM reference identifying the affected component.
+   */
   "ref"?: string;
   /**
    * A container for additional, undeclared properties.

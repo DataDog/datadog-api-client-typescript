@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { EntityResponseDataRelationshipsRawSchemaData } from "./EntityResponseDataRelationshipsRawSchemaData";
 
+/**
+ * Raw schema relationship linking an entity to its raw schema resource.
+ */
 export class EntityResponseDataRelationshipsRawSchema {
+  /**
+   * Raw schema relationship data containing the raw schema resource identifier and type.
+   */
   "data": EntityResponseDataRelationshipsRawSchemaData;
   /**
    * A container for additional, undeclared properties.

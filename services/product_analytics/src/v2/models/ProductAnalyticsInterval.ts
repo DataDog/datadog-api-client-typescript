@@ -4,9 +4,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  * An interval definition in a timeseries response.
  */
 export class ProductAnalyticsInterval {
+  /**
+   * The duration of each time bucket in milliseconds.
+   */
   "milliseconds"?: number;
+  /**
+   * The start of this interval as an epoch timestamp in milliseconds.
+   */
   "startTime"?: number;
+  /**
+   * Epoch timestamps (in milliseconds) for each bucket in this interval.
+   */
   "times"?: Array<number>;
+  /**
+   * The interval type (e.g., fixed or auto-computed bucket size).
+   */
   "type"?: string;
   /**
    * A container for additional, undeclared properties.

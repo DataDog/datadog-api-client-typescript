@@ -6,6 +6,9 @@ import { SyntheticsNetworkTestEdit } from "./SyntheticsNetworkTestEdit";
  * Network Path test request.
  */
 export class SyntheticsNetworkTestEditRequest {
+  /**
+   * Data object for creating or editing a Network Path test.
+   */
   "data": SyntheticsNetworkTestEdit;
   /**
    * A container for additional, undeclared properties.

@@ -1,7 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Sorting configuration specifying the field and direction for ordering user query results.
+ */
 export class QueryUsersRequestDataAttributesSort {
+  /**
+   * The user attribute field name to sort results by.
+   */
   "field"?: string;
+  /**
+   * The sort direction, either ascending or descending.
+   */
   "order"?: string;
   /**
    * A container for additional, undeclared properties.

@@ -4,6 +4,9 @@ import { IncidentHandleAttributesRequest } from "./IncidentHandleAttributesReque
 import { IncidentHandleRelationshipsRequest } from "./IncidentHandleRelationshipsRequest";
 import { IncidentHandleType } from "./IncidentHandleType";
 
+/**
+ * Data object representing an incident handle in a create or update request.
+ */
 export class IncidentHandleDataRequest {
   /**
    * Incident handle attributes for requests
@@ -13,6 +16,9 @@ export class IncidentHandleDataRequest {
    * The ID of the incident handle (required for PUT requests)
    */
   "id"?: string;
+  /**
+   * Relationships to associate with an incident handle in a create or update request.
+   */
   "relationships"?: IncidentHandleRelationshipsRequest;
   /**
    * Incident handle resource type

@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRelationshipsStatusPageData";
 
+/**
+ * The status page the degradation belongs to.
+ */
 export class DegradationDataRelationshipsStatusPage {
+  /**
+   * The data object identifying the status page the degradation belongs to.
+   */
   "data": DegradationDataRelationshipsStatusPageData;
   /**
    * A container for additional, undeclared properties.

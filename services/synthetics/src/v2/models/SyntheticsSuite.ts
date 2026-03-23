@@ -32,6 +32,9 @@ export class SyntheticsSuite {
    * Array of tags attached to the suite.
    */
   "tags"?: Array<string>;
+  /**
+   * Array of Synthetic tests included in the suite.
+   */
   "tests": Array<SyntheticsSuiteTest>;
   /**
    * Type of the Synthetic suite, `suite`.

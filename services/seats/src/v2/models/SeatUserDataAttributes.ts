@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes of a user assigned to a seat, including their email, name, and assignment timestamp.
+ */
 export class SeatUserDataAttributes {
   /**
    * The date and time the seat was assigned.

@@ -1,6 +1,12 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Information about the source code repository being analyzed.
+ */
 export class ScaRequestDataAttributesRepository {
+  /**
+   * The URL of the repository.
+   */
   "url"?: string;
   /**
    * A container for additional, undeclared properties.

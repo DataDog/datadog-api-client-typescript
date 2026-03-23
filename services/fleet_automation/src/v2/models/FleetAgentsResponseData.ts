@@ -6,6 +6,9 @@ import { FleetAgentsResponseDataAttributes } from "./FleetAgentsResponseDataAttr
  * The response data containing status and agents array.
  */
 export class FleetAgentsResponseData {
+  /**
+   * Attributes of the fleet agents response containing the list of agents.
+   */
   "attributes": FleetAgentsResponseDataAttributes;
   /**
    * Status identifier.

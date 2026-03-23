@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes specifying the product and users from whom seats will be unassigned.
+ */
 export class UnassignSeatsUserRequestDataAttributes {
   /**
    * The product code for which to unassign seats.

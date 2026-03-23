@@ -2,11 +2,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { StatusPagesComponentDataAttributesStatus } from "./StatusPagesComponentDataAttributesStatus";
 
+/**
+ * A component affected by a degradation.
+ */
 export class CreateDegradationRequestDataAttributesComponentsAffectedItems {
   /**
    * The ID of the component. Must be a component of type `component`.
    */
   "id": string;
+  /**
+   * The name of the component.
+   */
   "name"?: string;
   /**
    * The status of the component.

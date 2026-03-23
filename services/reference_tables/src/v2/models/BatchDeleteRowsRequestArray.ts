@@ -6,6 +6,9 @@ import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
  * The request body for deleting multiple rows from a reference table.
  */
 export class BatchDeleteRowsRequestArray {
+  /**
+   * List of row resources to delete from the reference table.
+   */
   "data": Array<TableRowResourceIdentifier>;
   /**
    * A container for additional, undeclared properties.

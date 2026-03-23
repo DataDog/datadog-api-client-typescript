@@ -3,9 +3,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DeletedTestResponseDataAttributes } from "./DeletedTestResponseDataAttributes";
 import { DeletedTestsResponseType } from "./DeletedTestsResponseType";
 
+/**
+ * Data object for a deleted Synthetic test.
+ */
 export class DeletedTestResponseData {
+  /**
+   * Attributes of a deleted Synthetic test, including deletion timestamp and public ID.
+   */
   "attributes"?: DeletedTestResponseDataAttributes;
+  /**
+   * The public ID of the deleted Synthetic test.
+   */
   "id"?: string;
+  /**
+   * Type for the bulk delete Synthetic tests response, `delete_tests`.
+   */
   "type"?: DeletedTestsResponseType;
   /**
    * A container for additional, undeclared properties.

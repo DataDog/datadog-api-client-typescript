@@ -4,15 +4,15 @@ import { ProjectCreateAttributes } from "./ProjectCreateAttributes";
 import { ProjectResourceType } from "./ProjectResourceType";
 
 /**
- * Project create
+ * Project create.
  */
 export class ProjectCreate {
   /**
-   * Project creation attributes
+   * Project creation attributes.
    */
   "attributes": ProjectCreateAttributes;
   /**
-   * Project resource type
+   * Project resource type.
    */
   "type": ProjectResourceType;
   /**

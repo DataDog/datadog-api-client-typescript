@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { EntityResponseDataRelationshipsIncidentsDataItemsType } from "./EntityResponseDataRelationshipsIncidentsDataItemsType";
 
+/**
+ * Incident relationship data item containing the incident resource identifier and type.
+ */
 export class EntityResponseDataRelationshipsIncidentsDataItems {
+  /**
+   * Incident resource unique identifier.
+   */
   "id": string;
   /**
    * Incident resource type.

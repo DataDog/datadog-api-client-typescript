@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DegradationDataRelationshipsLastModifiedByUserData } from "./DegradationDataRelationshipsLastModifiedByUserData";
 
+/**
+ * The Datadog user who last modified the degradation.
+ */
 export class DegradationDataRelationshipsLastModifiedByUser {
+  /**
+   * The data object identifying the Datadog user who last modified the degradation.
+   */
   "data": DegradationDataRelationshipsLastModifiedByUserData;
   /**
    * A container for additional, undeclared properties.

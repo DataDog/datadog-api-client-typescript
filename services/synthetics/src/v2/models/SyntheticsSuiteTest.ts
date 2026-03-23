@@ -10,6 +10,9 @@ export class SyntheticsSuiteTest {
    * Alerting criticality for each the test.
    */
   "alertingCriticality"?: SyntheticsSuiteTestAlertingCriticality;
+  /**
+   * The public ID of the Synthetic test included in the suite.
+   */
   "publicId": string;
   /**
    * A container for additional, undeclared properties.

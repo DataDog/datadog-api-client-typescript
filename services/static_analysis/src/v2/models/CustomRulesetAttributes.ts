@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CustomRule } from "./CustomRule";
 
+/**
+ * Attributes of a custom ruleset, including its name, description, and rules.
+ */
 export class CustomRulesetAttributes {
   /**
    * Creation timestamp

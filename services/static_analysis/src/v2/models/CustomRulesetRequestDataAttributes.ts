@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CustomRule } from "./CustomRule";
 
+/**
+ * Attributes for creating or updating a custom ruleset.
+ */
 export class CustomRulesetRequestDataAttributes {
   /**
    * Base64-encoded full description

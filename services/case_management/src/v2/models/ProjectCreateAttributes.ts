@@ -1,23 +1,23 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Project creation attributes
+ * Project creation attributes.
  */
 export class ProjectCreateAttributes {
   /**
-   * List of enabled custom case type IDs
+   * List of enabled custom case type IDs.
    */
   "enabledCustomCaseTypes"?: Array<string>;
   /**
-   * Project's key. Cannot be "CASE"
+   * Project's key. Cannot be "CASE".
    */
   "key": string;
   /**
-   * Project name
+   * Project name.
    */
   "name": string;
   /**
-   * Team UUID to associate with the project
+   * Team UUID to associate with the project.
    */
   "teamUuid"?: string;
   /**

@@ -12,7 +12,7 @@ export class CaseCreateRelationships {
    */
   "assignee"?: NullableUserRelationship;
   /**
-   * Relationship to project
+   * Relationship to project.
    */
   "project": ProjectRelationship;
   /**

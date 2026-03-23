@@ -2,8 +2,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbols";
 
+/**
+ * The result of resolving vulnerable symbols for a specific package, identified by its PURL.
+ */
 export class ResolveVulnerableSymbolsResponseResults {
+  /**
+   * The Package URL (PURL) uniquely identifying the package for which vulnerable symbols are resolved.
+   */
   "purl"?: string;
+  /**
+   * The list of vulnerable symbol groups found in this package, organized by advisory.
+   */
   "vulnerableSymbols"?: Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbols>;
   /**
    * A container for additional, undeclared properties.

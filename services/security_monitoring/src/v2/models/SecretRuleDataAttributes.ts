@@ -2,15 +2,45 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SecretRuleDataAttributesMatchValidation } from "./SecretRuleDataAttributesMatchValidation";
 
+/**
+ * The attributes of a secret detection rule, including its pattern, priority, and validation configuration.
+ */
 export class SecretRuleDataAttributes {
+  /**
+   * A list of keywords that are included by default when scanning for secrets matching this rule.
+   */
   "defaultIncludedKeywords"?: Array<string>;
+  /**
+   * A detailed explanation of what type of secret this rule detects.
+   */
   "description"?: string;
+  /**
+   * The license under which this secret rule is distributed.
+   */
   "license"?: string;
+  /**
+   * Configuration for validating whether a detected secret is active by making an HTTP request and inspecting the response.
+   */
   "matchValidation"?: SecretRuleDataAttributesMatchValidation;
+  /**
+   * The unique name of the secret detection rule.
+   */
   "name"?: string;
+  /**
+   * The regular expression pattern used to identify potential secrets in source code or configuration.
+   */
   "pattern"?: string;
+  /**
+   * The priority level of this rule, used to rank findings when multiple rules match.
+   */
   "priority"?: string;
+  /**
+   * The identifier of the corresponding Sensitive Data Scanner rule, if one exists.
+   */
   "sdsId"?: string;
+  /**
+   * A list of validator identifiers used to further confirm a detected secret is genuine.
+   */
   "validators"?: Array<string>;
   /**
    * A container for additional, undeclared properties.

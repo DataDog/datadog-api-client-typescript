@@ -4,11 +4,29 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  * A unit definition for metric values.
  */
 export class ProductAnalyticsUnit {
+  /**
+   * The unit family (e.g., time, bytes).
+   */
   "family"?: string;
+  /**
+   * Numeric identifier for the unit.
+   */
   "id"?: number;
+  /**
+   * The full name of the unit (e.g., nanosecond).
+   */
   "name"?: string;
+  /**
+   * Plural form of the unit name (e.g., nanoseconds).
+   */
   "plural"?: string;
+  /**
+   * Conversion factor relative to the base unit of the family.
+   */
   "scaleFactor"?: number;
+  /**
+   * Abbreviated unit name (e.g., ns).
+   */
   "shortName"?: string;
   /**
    * A container for additional, undeclared properties.

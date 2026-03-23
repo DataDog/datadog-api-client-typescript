@@ -18,6 +18,9 @@ export class BudgetAttributes {
    * The month when the budget ends.
    */
   "endMonth"?: number;
+  /**
+   * The list of monthly budget entries.
+   */
   "entries"?: Array<BudgetWithEntriesDataAttributesEntriesItems>;
   /**
    * The cost query used to track against the budget.

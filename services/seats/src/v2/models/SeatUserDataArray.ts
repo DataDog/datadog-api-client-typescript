@@ -3,11 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SeatUserData } from "./SeatUserData";
 import { SeatUserMeta } from "./SeatUserMeta";
 
+/**
+ * A paginated list of seat user resources with associated pagination metadata.
+ */
 export class SeatUserDataArray {
   /**
    * The list of seat users.
    */
   "data"?: Array<SeatUserData>;
+  /**
+   * Pagination metadata for the seat users list response.
+   */
   "meta"?: SeatUserMeta;
   /**
    * A container for additional, undeclared properties.

@@ -3,9 +3,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DeletedSuitesRequestDeleteAttributes } from "./DeletedSuitesRequestDeleteAttributes";
 import { DeletedSuitesRequestType } from "./DeletedSuitesRequestType";
 
+/**
+ * Data object for a bulk delete Synthetic test suites request.
+ */
 export class DeletedSuitesRequestDelete {
+  /**
+   * Attributes for a bulk delete Synthetic test suites request.
+   */
   "attributes": DeletedSuitesRequestDeleteAttributes;
+  /**
+   * An optional identifier for the delete request.
+   */
   "id"?: string;
+  /**
+   * Type for the bulk delete Synthetic suites request, `delete_suites_request`.
+   */
   "type"?: DeletedSuitesRequestType;
   /**
    * A container for additional, undeclared properties.

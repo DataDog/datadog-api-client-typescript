@@ -1,8 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Priority synchronization configuration for ServiceNow integration.
+ */
 export class IntegrationServiceNowSyncConfigPriority {
+  /**
+   * Mapping of case priority values to ServiceNow impact values.
+   */
   "impactMapping"?: { [key: string]: string };
+  /**
+   * The type of synchronization to apply for priority.
+   */
   "syncType"?: string;
+  /**
+   * Mapping of case priority values to ServiceNow urgency values.
+   */
   "urgencyMapping"?: { [key: string]: string };
   /**
    * A container for additional, undeclared properties.

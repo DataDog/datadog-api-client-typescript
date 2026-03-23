@@ -1,9 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Attributes of a viewership history session entry, capturing when it was last watched and the associated event data.
+ */
 export class ViewershipHistorySessionDataAttributes {
+  /**
+   * Unique identifier of the RUM event associated with the watched session.
+   */
   "eventId"?: string;
+  /**
+   * Timestamp when the session was last watched by the user.
+   */
   "lastWatchedAt": Date;
+  /**
+   * Raw event data associated with the replay session.
+   */
   "sessionEvent"?: { [key: string]: any };
+  /**
+   * Replay track identifier indicating which recording track the session belongs to.
+   */
   "track"?: string;
   /**
    * A container for additional, undeclared properties.
