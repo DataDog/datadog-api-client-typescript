@@ -82,8 +82,6 @@ import { TeamSyncAttributes } from "./TeamSyncAttributes";
 import { TeamSyncData } from "./TeamSyncData";
 import { TeamSyncRequest } from "./TeamSyncRequest";
 import { TeamSyncResponse } from "./TeamSyncResponse";
-import { TeamSyncSelectionStateExternalId } from "./TeamSyncSelectionStateExternalId";
-import { TeamSyncSelectionStateItem } from "./TeamSyncSelectionStateItem";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
@@ -146,9 +144,6 @@ export const TypingInfo: ModelTypingInfo = {
     TeamSyncAttributesSource: ["github"],
     TeamSyncAttributesType: ["link", "provision"],
     TeamSyncBulkType: ["team_sync_bulk"],
-    TeamSyncSelectionStateExternalIdType: ["team", "organization"],
-    TeamSyncSelectionStateOperation: ["include"],
-    TeamSyncSelectionStateScope: ["subtree"],
     TeamType: ["team"],
     TeamsField: [
       "id",
@@ -266,8 +261,6 @@ export const TypingInfo: ModelTypingInfo = {
     TeamSyncData: TeamSyncData,
     TeamSyncRequest: TeamSyncRequest,
     TeamSyncResponse: TeamSyncResponse,
-    TeamSyncSelectionStateExternalId: TeamSyncSelectionStateExternalId,
-    TeamSyncSelectionStateItem: TeamSyncSelectionStateItem,
     TeamUpdate: TeamUpdate,
     TeamUpdateAttributes: TeamUpdateAttributes,
     TeamUpdateRelationships: TeamUpdateRelationships,
