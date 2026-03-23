@@ -3915,6 +3915,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CIAppPipelineEventsResponse",
     },
+    "v2.GetTestOptimizationServiceSettings": {
+        "body": {
+            "type": "TestOptimizationGetServiceSettingsRequest",
+            "format": "",
+            },
+        "operationResponseType": "TestOptimizationServiceSettingsResponse",
+    },
+    "v2.DeleteTestOptimizationServiceSettings": {
+        "body": {
+            "type": "TestOptimizationDeleteServiceSettingsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTestOptimizationServiceSettings": {
+        "body": {
+            "type": "TestOptimizationUpdateServiceSettingsRequest",
+            "format": "",
+            },
+        "operationResponseType": "TestOptimizationServiceSettingsResponse",
+    },
+    "v2.SearchFlakyTests": {
+        "body": {
+            "type": "FlakyTestsSearchRequest",
+            "format": "",
+            },
+        "operationResponseType": "FlakyTestsSearchResponse",
+    },
+    "v2.UpdateFlakyTests": {
+        "body": {
+            "type": "UpdateFlakyTestsRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateFlakyTestsResponse",
+    },
     "v2.AggregateCIAppTestEvents": {
         "body": {
             "type": "CIAppTestsAggregateRequest",
@@ -11617,20 +11652,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
-    },
-    "v2.SearchFlakyTests": {
-        "body": {
-            "type": "FlakyTestsSearchRequest",
-            "format": "",
-            },
-        "operationResponseType": "FlakyTestsSearchResponse",
-    },
-    "v2.UpdateFlakyTests": {
-        "body": {
-            "type": "UpdateFlakyTestsRequest",
-            "format": "",
-            },
-        "operationResponseType": "UpdateFlakyTestsResponse",
     },
     "v2.SendInvitations": {
         "body": {

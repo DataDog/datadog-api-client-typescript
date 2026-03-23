@@ -254,6 +254,11 @@ export function createConfiguration(
       "v2.getChangeRequest": false,
       "v2.updateChangeRequest": false,
       "v2.updateChangeRequestDecision": false,
+      "v2.deleteTestOptimizationServiceSettings": false,
+      "v2.getTestOptimizationServiceSettings": false,
+      "v2.searchFlakyTests": false,
+      "v2.updateFlakyTests": false,
+      "v2.updateTestOptimizationServiceSettings": false,
       "v2.createAWSCloudAuthPersonaMapping": false,
       "v2.deleteAWSCloudAuthPersonaMapping": false,
       "v2.getAWSCloudAuthPersonaMapping": false,
@@ -459,8 +464,6 @@ export function createConfiguration(
       "v2.getIncidentTeam": false,
       "v2.listIncidentTeams": false,
       "v2.updateIncidentTeam": false,
-      "v2.searchFlakyTests": false,
-      "v2.updateFlakyTests": false,
     }
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
