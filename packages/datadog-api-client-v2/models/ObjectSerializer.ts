@@ -3295,6 +3295,18 @@ import { TenancyProductsData } from "./TenancyProductsData";
 import { TenancyProductsDataAttributes } from "./TenancyProductsDataAttributes";
 import { TenancyProductsDataAttributesProductsItems } from "./TenancyProductsDataAttributesProductsItems";
 import { TenancyProductsList } from "./TenancyProductsList";
+import { TestOptimizationDeleteServiceSettingsRequest } from "./TestOptimizationDeleteServiceSettingsRequest";
+import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
+import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
+import { TestOptimizationGetServiceSettingsRequest } from "./TestOptimizationGetServiceSettingsRequest";
+import { TestOptimizationGetServiceSettingsRequestAttributes } from "./TestOptimizationGetServiceSettingsRequestAttributes";
+import { TestOptimizationGetServiceSettingsRequestData } from "./TestOptimizationGetServiceSettingsRequestData";
+import { TestOptimizationServiceSettingsAttributes } from "./TestOptimizationServiceSettingsAttributes";
+import { TestOptimizationServiceSettingsData } from "./TestOptimizationServiceSettingsData";
+import { TestOptimizationServiceSettingsResponse } from "./TestOptimizationServiceSettingsResponse";
+import { TestOptimizationUpdateServiceSettingsRequest } from "./TestOptimizationUpdateServiceSettingsRequest";
+import { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./TestOptimizationUpdateServiceSettingsRequestAttributes";
+import { TestOptimizationUpdateServiceSettingsRequestData } from "./TestOptimizationUpdateServiceSettingsRequestData";
 import { ThreatHuntingJobListMeta } from "./ThreatHuntingJobListMeta";
 import { ThreatHuntingJobOptions } from "./ThreatHuntingJobOptions";
 import { ThreatHuntingJobQuery } from "./ThreatHuntingJobQuery";
@@ -5379,6 +5391,16 @@ const enumsMap: { [key: string]: any[] } = {
     "user_team_permissions",
   ],
   TenancyProductsDataType: ["oci_tenancy_product"],
+  TestOptimizationDeleteServiceSettingsRequestDataType: [
+    "test_optimization_delete_service_settings_request",
+  ],
+  TestOptimizationGetServiceSettingsRequestDataType: [
+    "test_optimization_get_service_settings_request",
+  ],
+  TestOptimizationServiceSettingsType: ["test_optimization_service_settings"],
+  TestOptimizationUpdateServiceSettingsRequestDataType: [
+    "test_optimization_update_service_settings_request",
+  ],
   ThreatHuntingJobDataType: ["historicalDetectionsJob"],
   TimelineCellAuthorUserType: ["USER"],
   TimelineCellResourceType: ["timeline_cell"],
@@ -9496,6 +9518,29 @@ const typeMap: { [index: string]: any } = {
   TenancyProductsDataAttributesProductsItems:
     TenancyProductsDataAttributesProductsItems,
   TenancyProductsList: TenancyProductsList,
+  TestOptimizationDeleteServiceSettingsRequest:
+    TestOptimizationDeleteServiceSettingsRequest,
+  TestOptimizationDeleteServiceSettingsRequestAttributes:
+    TestOptimizationDeleteServiceSettingsRequestAttributes,
+  TestOptimizationDeleteServiceSettingsRequestData:
+    TestOptimizationDeleteServiceSettingsRequestData,
+  TestOptimizationGetServiceSettingsRequest:
+    TestOptimizationGetServiceSettingsRequest,
+  TestOptimizationGetServiceSettingsRequestAttributes:
+    TestOptimizationGetServiceSettingsRequestAttributes,
+  TestOptimizationGetServiceSettingsRequestData:
+    TestOptimizationGetServiceSettingsRequestData,
+  TestOptimizationServiceSettingsAttributes:
+    TestOptimizationServiceSettingsAttributes,
+  TestOptimizationServiceSettingsData: TestOptimizationServiceSettingsData,
+  TestOptimizationServiceSettingsResponse:
+    TestOptimizationServiceSettingsResponse,
+  TestOptimizationUpdateServiceSettingsRequest:
+    TestOptimizationUpdateServiceSettingsRequest,
+  TestOptimizationUpdateServiceSettingsRequestAttributes:
+    TestOptimizationUpdateServiceSettingsRequestAttributes,
+  TestOptimizationUpdateServiceSettingsRequestData:
+    TestOptimizationUpdateServiceSettingsRequestData,
   ThreatHuntingJobListMeta: ThreatHuntingJobListMeta,
   ThreatHuntingJobOptions: ThreatHuntingJobOptions,
   ThreatHuntingJobQuery: ThreatHuntingJobQuery,

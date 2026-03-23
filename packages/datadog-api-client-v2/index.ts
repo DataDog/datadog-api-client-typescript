@@ -1188,8 +1188,11 @@ export {
 } from "./apis/TeamsApi";
 
 export {
+  TestOptimizationApiDeleteTestOptimizationServiceSettingsRequest,
+  TestOptimizationApiGetTestOptimizationServiceSettingsRequest,
   TestOptimizationApiSearchFlakyTestsRequest,
   TestOptimizationApiUpdateFlakyTestsRequest,
+  TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest,
   TestOptimizationApi,
 } from "./apis/TestOptimizationApi";
 
@@ -5573,6 +5576,22 @@ export { TenancyProductsDataAttributes } from "./models/TenancyProductsDataAttri
 export { TenancyProductsDataAttributesProductsItems } from "./models/TenancyProductsDataAttributesProductsItems";
 export { TenancyProductsDataType } from "./models/TenancyProductsDataType";
 export { TenancyProductsList } from "./models/TenancyProductsList";
+export { TestOptimizationDeleteServiceSettingsRequest } from "./models/TestOptimizationDeleteServiceSettingsRequest";
+export { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./models/TestOptimizationDeleteServiceSettingsRequestAttributes";
+export { TestOptimizationDeleteServiceSettingsRequestData } from "./models/TestOptimizationDeleteServiceSettingsRequestData";
+export { TestOptimizationDeleteServiceSettingsRequestDataType } from "./models/TestOptimizationDeleteServiceSettingsRequestDataType";
+export { TestOptimizationGetServiceSettingsRequest } from "./models/TestOptimizationGetServiceSettingsRequest";
+export { TestOptimizationGetServiceSettingsRequestAttributes } from "./models/TestOptimizationGetServiceSettingsRequestAttributes";
+export { TestOptimizationGetServiceSettingsRequestData } from "./models/TestOptimizationGetServiceSettingsRequestData";
+export { TestOptimizationGetServiceSettingsRequestDataType } from "./models/TestOptimizationGetServiceSettingsRequestDataType";
+export { TestOptimizationServiceSettingsAttributes } from "./models/TestOptimizationServiceSettingsAttributes";
+export { TestOptimizationServiceSettingsData } from "./models/TestOptimizationServiceSettingsData";
+export { TestOptimizationServiceSettingsResponse } from "./models/TestOptimizationServiceSettingsResponse";
+export { TestOptimizationServiceSettingsType } from "./models/TestOptimizationServiceSettingsType";
+export { TestOptimizationUpdateServiceSettingsRequest } from "./models/TestOptimizationUpdateServiceSettingsRequest";
+export { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./models/TestOptimizationUpdateServiceSettingsRequestAttributes";
+export { TestOptimizationUpdateServiceSettingsRequestData } from "./models/TestOptimizationUpdateServiceSettingsRequestData";
+export { TestOptimizationUpdateServiceSettingsRequestDataType } from "./models/TestOptimizationUpdateServiceSettingsRequestDataType";
 export { ThreatHuntingJobDataType } from "./models/ThreatHuntingJobDataType";
 export { ThreatHuntingJobListMeta } from "./models/ThreatHuntingJobListMeta";
 export { ThreatHuntingJobOptions } from "./models/ThreatHuntingJobOptions";
