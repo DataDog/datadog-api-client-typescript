@@ -5057,6 +5057,7 @@ const enumsMap: { [key: string]: any[] } = {
     "critical",
     "increase",
     "decrease",
+    "no-op",
   ],
   SecurityMonitoringCriticalAssetType: ["critical_assets"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
