@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TopologyRequest {
   /**
-   * Query to service-based topology data sources like the service map or data streams.
+   * A topology data source query.
    */
   "query"?: TopologyQuery;
   /**

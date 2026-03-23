@@ -562,7 +562,7 @@ import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
 import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
 import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
 import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
-import { TopologyQuery } from "./TopologyQuery";
+import { TopologyQueryDataStreamsOrServiceMap } from "./TopologyQueryDataStreamsOrServiceMap";
 import { TopologyRequest } from "./TopologyRequest";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
@@ -1685,7 +1685,10 @@ const enumsMap: { [key: string]: any[] } = {
   ToplistWidgetScaling: ["absolute", "relative"],
   ToplistWidgetStackedType: ["stacked"],
   TopologyMapWidgetDefinitionType: ["topology_map"],
-  TopologyQueryDataSource: ["data_streams", "service_map"],
+  TopologyQueryDataStreamsOrServiceMapDataSource: [
+    "data_streams",
+    "service_map",
+  ],
   TopologyRequestType: ["topology"],
   TreeMapColorBy: ["user"],
   TreeMapGroupBy: ["user", "family", "process"],
@@ -2435,7 +2438,7 @@ const typeMap: { [index: string]: any } = {
   ToplistWidgetStacked: ToplistWidgetStacked,
   ToplistWidgetStyle: ToplistWidgetStyle,
   TopologyMapWidgetDefinition: TopologyMapWidgetDefinition,
-  TopologyQuery: TopologyQuery,
+  TopologyQueryDataStreamsOrServiceMap: TopologyQueryDataStreamsOrServiceMap,
   TopologyRequest: TopologyRequest,
   TreeMapWidgetDefinition: TreeMapWidgetDefinition,
   TreeMapWidgetRequest: TreeMapWidgetRequest,
@@ -2709,6 +2712,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "TableWidgetTextFormatReplaceSubstring",
   ],
   ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
+  TopologyQuery: ["TopologyQueryDataStreamsOrServiceMap"],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
     "AlertValueWidgetDefinition",
