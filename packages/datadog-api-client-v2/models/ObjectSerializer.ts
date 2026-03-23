@@ -3285,8 +3285,6 @@ import { TeamSyncAttributes } from "./TeamSyncAttributes";
 import { TeamSyncData } from "./TeamSyncData";
 import { TeamSyncRequest } from "./TeamSyncRequest";
 import { TeamSyncResponse } from "./TeamSyncResponse";
-import { TeamSyncSelectionStateExternalId } from "./TeamSyncSelectionStateExternalId";
-import { TeamSyncSelectionStateItem } from "./TeamSyncSelectionStateItem";
 import { TeamTarget } from "./TeamTarget";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
@@ -5388,9 +5386,6 @@ const enumsMap: { [key: string]: any[] } = {
   TeamSyncAttributesSource: ["github"],
   TeamSyncAttributesType: ["link", "provision"],
   TeamSyncBulkType: ["team_sync_bulk"],
-  TeamSyncSelectionStateExternalIdType: ["team", "organization"],
-  TeamSyncSelectionStateOperation: ["include"],
-  TeamSyncSelectionStateScope: ["subtree"],
   TeamTargetType: ["teams"],
   TeamType: ["team"],
   TeamsField: [
@@ -9520,8 +9515,6 @@ const typeMap: { [index: string]: any } = {
   TeamSyncData: TeamSyncData,
   TeamSyncRequest: TeamSyncRequest,
   TeamSyncResponse: TeamSyncResponse,
-  TeamSyncSelectionStateExternalId: TeamSyncSelectionStateExternalId,
-  TeamSyncSelectionStateItem: TeamSyncSelectionStateItem,
   TeamTarget: TeamTarget,
   TeamUpdate: TeamUpdate,
   TeamUpdateAttributes: TeamUpdateAttributes,
