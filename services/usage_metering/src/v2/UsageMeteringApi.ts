@@ -25,6 +25,7 @@ import { TypingInfo } from "./models/TypingInfo";
 import { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMappingResponse";
+import { CostAggregationType } from "./models/CostAggregationType";
 import { CostByOrgResponse } from "./models/CostByOrgResponse";
 import { HourlyUsageResponse } from "./models/HourlyUsageResponse";
 import { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
@@ -209,6 +210,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     endMonth?: Date,
     startDate?: Date,
     endDate?: Date,
+    costAggregation?: CostAggregationType,
     includeConnectedAccounts?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -271,6 +273,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_date",
         serialize(endDate, TypingInfo, "Date", "date-time"),
+        "",
+      );
+    }
+    if (costAggregation !== undefined) {
+      requestContext.setQueryParam(
+        "cost_aggregation",
+        serialize(costAggregation, TypingInfo, "CostAggregationType", ""),
         "",
       );
     }
@@ -1665,6 +1674,11 @@ export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
    */
   endDate?: Date;
   /**
+   * Controls how costs are aggregated when using `start_date`. The `cumulative` option returns month-to-date running totals.
+   * @type CostAggregationType
+   */
+  costAggregation?: CostAggregationType;
+  /**
    * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
    * @type boolean
    */
@@ -1969,6 +1983,7 @@ export class UsageMeteringApi {
       param.endMonth,
       param.startDate,
       param.endDate,
+      param.costAggregation,
       param.includeConnectedAccounts,
       options,
     );

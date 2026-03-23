@@ -23,6 +23,7 @@ export { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./mode
 export { BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus";
 export { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMappingResponse";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
+export { CostAggregationType } from "./models/CostAggregationType";
 export { CostAttributionAggregatesBody } from "./models/CostAttributionAggregatesBody";
 export { CostAttributionType } from "./models/CostAttributionType";
 export { CostByOrg } from "./models/CostByOrg";

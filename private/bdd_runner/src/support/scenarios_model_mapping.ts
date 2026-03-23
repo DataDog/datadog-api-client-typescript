@@ -5559,6 +5559,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "Date",
       format: "date-time",
     },
+    costAggregation: {
+      type: "CostAggregationType",
+      format: "",
+    },
     includeConnectedAccounts: {
       type: "boolean",
       format: "",

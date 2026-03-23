@@ -44,6 +44,7 @@ export const TypingInfo: ModelTypingInfo = {
       "OK",
       "NOT_FOUND",
     ],
+    CostAggregationType: ["cumulative"],
     CostAttributionType: ["cost_by_tag"],
     CostByOrgType: ["cost_by_org"],
     HourlyUsageType: [
