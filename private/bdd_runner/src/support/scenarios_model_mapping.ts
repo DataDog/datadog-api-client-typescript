@@ -5787,6 +5787,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CancelDataDeletionResponseBody",
   },
+  "DeploymentGatesApi.V2.ListDeploymentGates": {
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "DeploymentGatesListResponse",
+  },
   "DeploymentGatesApi.V2.CreateDeploymentGate": {
     body: {
       type: "CreateDeploymentGateParams",
@@ -5873,6 +5884,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "DeploymentGatesApi.V2.TriggerDeploymentGatesEvaluation": {
+    body: {
+      type: "DeploymentGatesEvaluationRequest",
+      format: "",
+    },
+    operationResponseType: "DeploymentGatesEvaluationResponse",
+  },
+  "DeploymentGatesApi.V2.GetDeploymentGatesEvaluationResult": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "DeploymentGatesEvaluationResultResponse",
   },
   "DomainAllowlistApi.V2.GetDomainAllowlist": {
     operationResponseType: "DomainAllowlistResponse",

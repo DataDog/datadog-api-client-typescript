@@ -28,7 +28,7 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "DeploymentGatesApi.v2.createDeploymentGate": true
+        "DeploymentGatesApi.v2.listDeploymentGates": true
     }
 }
 
@@ -36,7 +36,7 @@ const configuration = createConfiguration(configurationOpts);
 const apiInstance = new DeploymentGatesApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createDeploymentGate(params).then((data) => {
+apiInstance.listDeploymentGates(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
