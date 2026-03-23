@@ -15,6 +15,18 @@ import { FlakyTestsSearchRequestAttributes } from "./FlakyTestsSearchRequestAttr
 import { FlakyTestsSearchRequestData } from "./FlakyTestsSearchRequestData";
 import { FlakyTestsSearchResponse } from "./FlakyTestsSearchResponse";
 import { FlakyTestsSearchResponseMeta } from "./FlakyTestsSearchResponseMeta";
+import { TestOptimizationDeleteServiceSettingsRequest } from "./TestOptimizationDeleteServiceSettingsRequest";
+import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
+import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
+import { TestOptimizationGetServiceSettingsRequest } from "./TestOptimizationGetServiceSettingsRequest";
+import { TestOptimizationGetServiceSettingsRequestAttributes } from "./TestOptimizationGetServiceSettingsRequestAttributes";
+import { TestOptimizationGetServiceSettingsRequestData } from "./TestOptimizationGetServiceSettingsRequestData";
+import { TestOptimizationServiceSettingsAttributes } from "./TestOptimizationServiceSettingsAttributes";
+import { TestOptimizationServiceSettingsData } from "./TestOptimizationServiceSettingsData";
+import { TestOptimizationServiceSettingsResponse } from "./TestOptimizationServiceSettingsResponse";
+import { TestOptimizationUpdateServiceSettingsRequest } from "./TestOptimizationUpdateServiceSettingsRequest";
+import { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./TestOptimizationUpdateServiceSettingsRequestAttributes";
+import { TestOptimizationUpdateServiceSettingsRequestData } from "./TestOptimizationUpdateServiceSettingsRequestData";
 import { UpdateFlakyTestsRequest } from "./UpdateFlakyTestsRequest";
 import { UpdateFlakyTestsRequestAttributes } from "./UpdateFlakyTestsRequestAttributes";
 import { UpdateFlakyTestsRequestData } from "./UpdateFlakyTestsRequestData";
@@ -48,6 +60,16 @@ export const TypingInfo: ModelTypingInfo = {
       "pipelines_duration_lost",
       "-pipelines_duration_lost",
     ],
+    TestOptimizationDeleteServiceSettingsRequestDataType: [
+      "test_optimization_delete_service_settings_request",
+    ],
+    TestOptimizationGetServiceSettingsRequestDataType: [
+      "test_optimization_get_service_settings_request",
+    ],
+    TestOptimizationServiceSettingsType: ["test_optimization_service_settings"],
+    TestOptimizationUpdateServiceSettingsRequestDataType: [
+      "test_optimization_update_service_settings_request",
+    ],
     UpdateFlakyTestsRequestDataType: ["update_flaky_test_state_request"],
     UpdateFlakyTestsRequestTestNewState: [
       "active",
@@ -74,6 +96,29 @@ export const TypingInfo: ModelTypingInfo = {
     FlakyTestsSearchRequestData: FlakyTestsSearchRequestData,
     FlakyTestsSearchResponse: FlakyTestsSearchResponse,
     FlakyTestsSearchResponseMeta: FlakyTestsSearchResponseMeta,
+    TestOptimizationDeleteServiceSettingsRequest:
+      TestOptimizationDeleteServiceSettingsRequest,
+    TestOptimizationDeleteServiceSettingsRequestAttributes:
+      TestOptimizationDeleteServiceSettingsRequestAttributes,
+    TestOptimizationDeleteServiceSettingsRequestData:
+      TestOptimizationDeleteServiceSettingsRequestData,
+    TestOptimizationGetServiceSettingsRequest:
+      TestOptimizationGetServiceSettingsRequest,
+    TestOptimizationGetServiceSettingsRequestAttributes:
+      TestOptimizationGetServiceSettingsRequestAttributes,
+    TestOptimizationGetServiceSettingsRequestData:
+      TestOptimizationGetServiceSettingsRequestData,
+    TestOptimizationServiceSettingsAttributes:
+      TestOptimizationServiceSettingsAttributes,
+    TestOptimizationServiceSettingsData: TestOptimizationServiceSettingsData,
+    TestOptimizationServiceSettingsResponse:
+      TestOptimizationServiceSettingsResponse,
+    TestOptimizationUpdateServiceSettingsRequest:
+      TestOptimizationUpdateServiceSettingsRequest,
+    TestOptimizationUpdateServiceSettingsRequestAttributes:
+      TestOptimizationUpdateServiceSettingsRequestAttributes,
+    TestOptimizationUpdateServiceSettingsRequestData:
+      TestOptimizationUpdateServiceSettingsRequestData,
     UpdateFlakyTestsRequest: UpdateFlakyTestsRequest,
     UpdateFlakyTestsRequestAttributes: UpdateFlakyTestsRequestAttributes,
     UpdateFlakyTestsRequestData: UpdateFlakyTestsRequestData,

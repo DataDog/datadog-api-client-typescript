@@ -28,7 +28,7 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "TestOptimizationApi.v2.searchFlakyTests": true
+        "TestOptimizationApi.v2.getTestOptimizationServiceSettings": true
     }
 }
 
@@ -36,7 +36,7 @@ const configuration = createConfiguration(configurationOpts);
 const apiInstance = new TestOptimizationApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.searchFlakyTests(params).then((data) => {
+apiInstance.getTestOptimizationServiceSettings(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

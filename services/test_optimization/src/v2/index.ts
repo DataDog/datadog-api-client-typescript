@@ -1,6 +1,9 @@
 export {
+  TestOptimizationApiDeleteTestOptimizationServiceSettingsRequest,
+  TestOptimizationApiGetTestOptimizationServiceSettingsRequest,
   TestOptimizationApiSearchFlakyTestsRequest,
   TestOptimizationApiUpdateFlakyTestsRequest,
+  TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest,
   TestOptimizationApi,
 } from "./TestOptimizationApi";
 
@@ -23,6 +26,22 @@ export { FlakyTestsSearchResponseMeta } from "./models/FlakyTestsSearchResponseM
 export { FlakyTestsSearchSort } from "./models/FlakyTestsSearchSort";
 export { FlakyTestStats } from "./models/FlakyTestStats";
 export { FlakyTestType } from "./models/FlakyTestType";
+export { TestOptimizationDeleteServiceSettingsRequest } from "./models/TestOptimizationDeleteServiceSettingsRequest";
+export { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./models/TestOptimizationDeleteServiceSettingsRequestAttributes";
+export { TestOptimizationDeleteServiceSettingsRequestData } from "./models/TestOptimizationDeleteServiceSettingsRequestData";
+export { TestOptimizationDeleteServiceSettingsRequestDataType } from "./models/TestOptimizationDeleteServiceSettingsRequestDataType";
+export { TestOptimizationGetServiceSettingsRequest } from "./models/TestOptimizationGetServiceSettingsRequest";
+export { TestOptimizationGetServiceSettingsRequestAttributes } from "./models/TestOptimizationGetServiceSettingsRequestAttributes";
+export { TestOptimizationGetServiceSettingsRequestData } from "./models/TestOptimizationGetServiceSettingsRequestData";
+export { TestOptimizationGetServiceSettingsRequestDataType } from "./models/TestOptimizationGetServiceSettingsRequestDataType";
+export { TestOptimizationServiceSettingsAttributes } from "./models/TestOptimizationServiceSettingsAttributes";
+export { TestOptimizationServiceSettingsData } from "./models/TestOptimizationServiceSettingsData";
+export { TestOptimizationServiceSettingsResponse } from "./models/TestOptimizationServiceSettingsResponse";
+export { TestOptimizationServiceSettingsType } from "./models/TestOptimizationServiceSettingsType";
+export { TestOptimizationUpdateServiceSettingsRequest } from "./models/TestOptimizationUpdateServiceSettingsRequest";
+export { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./models/TestOptimizationUpdateServiceSettingsRequestAttributes";
+export { TestOptimizationUpdateServiceSettingsRequestData } from "./models/TestOptimizationUpdateServiceSettingsRequestData";
+export { TestOptimizationUpdateServiceSettingsRequestDataType } from "./models/TestOptimizationUpdateServiceSettingsRequestDataType";
 export { UpdateFlakyTestsRequest } from "./models/UpdateFlakyTestsRequest";
 export { UpdateFlakyTestsRequestAttributes } from "./models/UpdateFlakyTestsRequestAttributes";
 export { UpdateFlakyTestsRequestData } from "./models/UpdateFlakyTestsRequestData";
