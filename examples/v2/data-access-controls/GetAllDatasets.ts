@@ -1,12 +1,12 @@
 /**
- * Get all datasets returns "OK" response
+ * Get all Data Access Control datasets returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.getAllDatasets"] = true;
-const apiInstance = new v2.DatasetsApi(configuration);
+const apiInstance = new v2.DataAccessControlsApi(configuration);
 
 apiInstance
   .getAllDatasets()

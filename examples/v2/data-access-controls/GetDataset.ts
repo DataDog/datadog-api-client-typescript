@@ -1,18 +1,15 @@
 /**
- * Get a single dataset by ID returns "OK" response
+ * Get a Data Access Control dataset by ID returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.getDataset"] = true;
-const apiInstance = new v2.DatasetsApi(configuration);
+const apiInstance = new v2.DataAccessControlsApi(configuration);
 
-// there is a valid "dataset" in the system
-const DATASET_DATA_ID = process.env.DATASET_DATA_ID as string;
-
-const params: v2.DatasetsApiGetDatasetRequest = {
-  datasetId: DATASET_DATA_ID,
+const params: v2.DataAccessControlsApiGetDatasetRequest = {
+  datasetId: "dataset_id",
 };
 
 apiInstance

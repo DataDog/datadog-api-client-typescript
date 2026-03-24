@@ -1,17 +1,14 @@
 /**
- * Edit a dataset returns "OK" response
+ * Create a Data Access Control dataset returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.updateDataset"] = true;
-const apiInstance = new v2.DatasetsApi(configuration);
+configuration.unstableOperations["v2.createDataset"] = true;
+const apiInstance = new v2.DataAccessControlsApi(configuration);
 
-// there is a valid "dataset" in the system
-const DATASET_DATA_ID = process.env.DATASET_DATA_ID as string;
-
-const params: v2.DatasetsApiUpdateDatasetRequest = {
+const params: v2.DataAccessControlsApiCreateDatasetRequest = {
   body: {
     data: {
       attributes: {
@@ -19,19 +16,18 @@ const params: v2.DatasetsApiUpdateDatasetRequest = {
         principals: ["role:94172442-be03-11e9-a77a-3b7612558ac1"],
         productFilters: [
           {
-            filters: ["@application.id:1234"],
-            product: "metrics",
+            filters: ["@application.id:ABCD"],
+            product: "logs",
           },
         ],
       },
       type: "dataset",
     },
   },
-  datasetId: DATASET_DATA_ID,
 };
 
 apiInstance
-  .updateDataset(params)
+  .createDataset(params)
   .then((data: v2.DatasetResponseSingle) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

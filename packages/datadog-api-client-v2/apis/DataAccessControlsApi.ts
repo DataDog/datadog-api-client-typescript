@@ -22,7 +22,7 @@ import { DatasetResponseMulti } from "../models/DatasetResponseMulti";
 import { DatasetResponseSingle } from "../models/DatasetResponseSingle";
 import { DatasetUpdateRequest } from "../models/DatasetUpdateRequest";
 
-export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
+export class DataAccessControlsApiRequestFactory extends BaseAPIRequestFactory {
   public async createDataset(
     body: DatasetCreateRequest,
     _options?: Configuration
@@ -44,7 +44,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DatasetsApi.createDataset")
+      .getServer("v2.DataAccessControlsApi.createDataset")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -94,7 +94,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DatasetsApi.deleteDataset")
+      .getServer("v2.DataAccessControlsApi.deleteDataset")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -124,7 +124,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DatasetsApi.getAllDatasets")
+      .getServer("v2.DataAccessControlsApi.getAllDatasets")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -163,7 +163,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DatasetsApi.getDataset")
+      .getServer("v2.DataAccessControlsApi.getDataset")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -208,7 +208,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DatasetsApi.updateDataset")
+      .getServer("v2.DataAccessControlsApi.updateDataset")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -235,7 +235,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class DatasetsApiResponseProcessor {
+export class DataAccessControlsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -536,7 +536,7 @@ export class DatasetsApiResponseProcessor {
   }
 }
 
-export interface DatasetsApiCreateDatasetRequest {
+export interface DataAccessControlsApiCreateDatasetRequest {
   /**
    * Dataset payload
    * @type DatasetCreateRequest
@@ -544,7 +544,7 @@ export interface DatasetsApiCreateDatasetRequest {
   body: DatasetCreateRequest;
 }
 
-export interface DatasetsApiDeleteDatasetRequest {
+export interface DataAccessControlsApiDeleteDatasetRequest {
   /**
    * The ID of a defined dataset.
    * @type string
@@ -552,7 +552,7 @@ export interface DatasetsApiDeleteDatasetRequest {
   datasetId: string;
 }
 
-export interface DatasetsApiGetDatasetRequest {
+export interface DataAccessControlsApiGetDatasetRequest {
   /**
    * The ID of a defined dataset.
    * @type string
@@ -560,7 +560,7 @@ export interface DatasetsApiGetDatasetRequest {
   datasetId: string;
 }
 
-export interface DatasetsApiUpdateDatasetRequest {
+export interface DataAccessControlsApiUpdateDatasetRequest {
   /**
    * The ID of a defined dataset.
    * @type string
@@ -573,21 +573,21 @@ export interface DatasetsApiUpdateDatasetRequest {
   body: DatasetUpdateRequest;
 }
 
-export class DatasetsApi {
-  private requestFactory: DatasetsApiRequestFactory;
-  private responseProcessor: DatasetsApiResponseProcessor;
+export class DataAccessControlsApi {
+  private requestFactory: DataAccessControlsApiRequestFactory;
+  private responseProcessor: DataAccessControlsApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: DatasetsApiRequestFactory,
-    responseProcessor?: DatasetsApiResponseProcessor
+    requestFactory?: DataAccessControlsApiRequestFactory,
+    responseProcessor?: DataAccessControlsApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory || new DatasetsApiRequestFactory(configuration);
+      requestFactory || new DataAccessControlsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DatasetsApiResponseProcessor();
+      responseProcessor || new DataAccessControlsApiResponseProcessor();
   }
 
   /**
@@ -595,7 +595,7 @@ export class DatasetsApi {
    * @param param The request object
    */
   public createDataset(
-    param: DatasetsApiCreateDatasetRequest,
+    param: DataAccessControlsApiCreateDatasetRequest,
     options?: Configuration
   ): Promise<DatasetResponseSingle> {
     const requestContextPromise = this.requestFactory.createDataset(
@@ -616,7 +616,7 @@ export class DatasetsApi {
    * @param param The request object
    */
   public deleteDataset(
-    param: DatasetsApiDeleteDatasetRequest,
+    param: DataAccessControlsApiDeleteDatasetRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.deleteDataset(
@@ -654,7 +654,7 @@ export class DatasetsApi {
    * @param param The request object
    */
   public getDataset(
-    param: DatasetsApiGetDatasetRequest,
+    param: DataAccessControlsApiGetDatasetRequest,
     options?: Configuration
   ): Promise<DatasetResponseSingle> {
     const requestContextPromise = this.requestFactory.getDataset(
@@ -675,7 +675,7 @@ export class DatasetsApi {
    * @param param The request object
    */
   public updateDataset(
-    param: DatasetsApiUpdateDatasetRequest,
+    param: DataAccessControlsApiUpdateDatasetRequest,
     options?: Configuration
   ): Promise<DatasetResponseSingle> {
     const requestContextPromise = this.requestFactory.updateDataset(

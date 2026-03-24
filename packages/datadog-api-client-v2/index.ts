@@ -323,19 +323,19 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  DataAccessControlsApiCreateDatasetRequest,
+  DataAccessControlsApiDeleteDatasetRequest,
+  DataAccessControlsApiGetDatasetRequest,
+  DataAccessControlsApiUpdateDatasetRequest,
+  DataAccessControlsApi,
+} from "./apis/DataAccessControlsApi";
+
+export {
   DataDeletionApiCancelDataDeletionRequestRequest,
   DataDeletionApiCreateDataDeletionRequestRequest,
   DataDeletionApiGetDataDeletionRequestsRequest,
   DataDeletionApi,
 } from "./apis/DataDeletionApi";
-
-export {
-  DatasetsApiCreateDatasetRequest,
-  DatasetsApiDeleteDatasetRequest,
-  DatasetsApiGetDatasetRequest,
-  DatasetsApiUpdateDatasetRequest,
-  DatasetsApi,
-} from "./apis/DatasetsApi";
 
 export {
   DeploymentGatesApiCreateDeploymentGateRequest,
