@@ -18,6 +18,10 @@ export class ServiceMapWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Your environment and primary tag (or * if enabled for your account).
    */
   "filters": Array<string>;
@@ -61,6 +65,10 @@ export class ServiceMapWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     filters: {
       baseName: "filters",

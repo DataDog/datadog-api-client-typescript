@@ -23,6 +23,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           title: "",
           titleSize: "16",
           titleAlign: "left",
+          description: "Example widget description",
           time: {},
           type: "query_value",
           requests: [

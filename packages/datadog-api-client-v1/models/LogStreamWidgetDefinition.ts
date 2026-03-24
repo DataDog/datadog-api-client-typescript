@@ -20,6 +20,10 @@ export class LogStreamWidgetDefinition {
    */
   "columns"?: Array<string>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * An array of index names to query in the stream. Use [] to query all indexes at once.
    */
   "indexes"?: Array<string>;
@@ -87,6 +91,10 @@ export class LogStreamWidgetDefinition {
     columns: {
       baseName: "columns",
       type: "Array<string>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     indexes: {
       baseName: "indexes",

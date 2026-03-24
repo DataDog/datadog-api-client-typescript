@@ -15,6 +15,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FunnelWidgetDefinition {
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Request payload used to query items.
    */
   "requests": [FunnelWidgetRequest];
@@ -55,6 +59,10 @@ export class FunnelWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     requests: {
       baseName: "requests",
       type: "[FunnelWidgetRequest]",

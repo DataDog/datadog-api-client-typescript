@@ -19,6 +19,10 @@ export class AlertGraphWidgetDefinition {
    */
   "alertId": string;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Time setting for the widget.
    */
   "time"?: WidgetTime;
@@ -63,6 +67,10 @@ export class AlertGraphWidgetDefinition {
       baseName: "alert_id",
       type: "string",
       required: true,
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     time: {
       baseName: "time",
