@@ -14,6 +14,10 @@ export class TopologyMapWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * One or more Topology requests.
    */
   "requests": Array<TopologyRequest>;
@@ -51,6 +55,10 @@ export class TopologyMapWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     requests: {
       baseName: "requests",

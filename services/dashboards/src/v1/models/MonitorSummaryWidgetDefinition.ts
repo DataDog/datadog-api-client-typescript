@@ -20,6 +20,10 @@ export class MonitorSummaryWidgetDefinition {
    */
   "count"?: number;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * What to display on the widget.
    */
   "displayFormat"?: WidgetMonitorSummaryDisplayFormat;
@@ -90,6 +94,10 @@ export class MonitorSummaryWidgetDefinition {
       baseName: "count",
       type: "number",
       format: "int64",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     displayFormat: {
       baseName: "display_format",

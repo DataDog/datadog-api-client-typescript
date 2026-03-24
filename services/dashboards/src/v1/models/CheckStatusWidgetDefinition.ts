@@ -14,6 +14,10 @@ export class CheckStatusWidgetDefinition {
    */
   "check": string;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Group reporting a single check.
    */
   "group"?: string;
@@ -68,6 +72,10 @@ export class CheckStatusWidgetDefinition {
       baseName: "check",
       type: "string",
       required: true,
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     group: {
       baseName: "group",

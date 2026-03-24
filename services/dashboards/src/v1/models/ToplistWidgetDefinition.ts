@@ -16,6 +16,10 @@ export class ToplistWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * List of top list widget requests.
    */
   "requests": Array<ToplistWidgetRequest>;
@@ -61,6 +65,10 @@ export class ToplistWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     requests: {
       baseName: "requests",

@@ -24,6 +24,10 @@ export class QueryValueWidgetDefinition {
    */
   "customUnit"?: string;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Number of decimals to show. If not defined, the widget uses the raw value.
    */
   "precision"?: number;
@@ -84,6 +88,10 @@ export class QueryValueWidgetDefinition {
     },
     customUnit: {
       baseName: "custom_unit",
+      type: "string",
+    },
+    description: {
+      baseName: "description",
       type: "string",
     },
     precision: {

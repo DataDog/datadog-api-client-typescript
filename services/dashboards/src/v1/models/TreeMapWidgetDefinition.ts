@@ -21,6 +21,10 @@ export class TreeMapWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * (deprecated) The attribute formerly used to group elements in the widget.
    */
   "groupBy"?: TreeMapGroupBy;
@@ -66,6 +70,10 @@ export class TreeMapWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     groupBy: {
       baseName: "group_by",

@@ -9,6 +9,10 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
  */
 export class SLOListWidgetDefinition {
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Array of one request object to display in the widget.
    */
   "requests": [SLOListWidgetRequest];
@@ -43,6 +47,10 @@ export class SLOListWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     requests: {
       baseName: "requests",
       type: "[SLOListWidgetRequest]",

@@ -12,6 +12,10 @@ export class AlertValueWidgetDefinition {
    */
   "alertId": string;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Number of decimal to show. If not defined, will use the raw value.
    */
   "precision"?: number;
@@ -58,6 +62,10 @@ export class AlertValueWidgetDefinition {
       baseName: "alert_id",
       type: "string",
       required: true,
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     precision: {
       baseName: "precision",

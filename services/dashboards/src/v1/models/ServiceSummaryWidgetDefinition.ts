@@ -11,6 +11,10 @@ import { WidgetTime } from "./WidgetTime";
  */
 export class ServiceSummaryWidgetDefinition {
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Number of columns to display.
    */
   "displayFormat"?: WidgetServiceSummaryDisplayFormat;
@@ -89,6 +93,10 @@ export class ServiceSummaryWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     displayFormat: {
       baseName: "display_format",
       type: "WidgetServiceSummaryDisplayFormat",
