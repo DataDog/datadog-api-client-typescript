@@ -14,6 +14,10 @@ export class SLOWidgetDefinition {
    */
   "additionalQueryFilters"?: string;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Defined global time target.
    */
   "globalTimeTarget"?: string;
@@ -70,6 +74,10 @@ export class SLOWidgetDefinition {
   static readonly attributeTypeMap: AttributeTypeMap = {
     additionalQueryFilters: {
       baseName: "additional_query_filters",
+      type: "string",
+    },
+    description: {
+      baseName: "description",
       type: "string",
     },
     globalTimeTarget: {

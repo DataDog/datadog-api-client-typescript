@@ -16,6 +16,10 @@ export class TableWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Controls the display of the search bar.
    */
   "hasSearchBar"?: TableWidgetHasSearchBar;
@@ -61,6 +65,10 @@ export class TableWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     hasSearchBar: {
       baseName: "has_search_bar",

@@ -16,6 +16,10 @@ export class BarChartWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * List of bar chart widget requests.
    */
   "requests": [BarChartWidgetRequest];
@@ -61,6 +65,10 @@ export class BarChartWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     requests: {
       baseName: "requests",

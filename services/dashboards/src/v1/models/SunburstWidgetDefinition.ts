@@ -16,6 +16,10 @@ export class SunburstWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Show the total value in this widget.
    */
   "hideTotal"?: boolean;
@@ -65,6 +69,10 @@ export class SunburstWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     hideTotal: {
       baseName: "hide_total",

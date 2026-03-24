@@ -19,6 +19,10 @@ export class HeatMapWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * List of widget events. Deprecated - Use `overlay` request type instead.
    */
   "events"?: Array<WidgetEvent>;
@@ -84,6 +88,10 @@ export class HeatMapWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     events: {
       baseName: "events",

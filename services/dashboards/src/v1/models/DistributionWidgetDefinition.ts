@@ -20,6 +20,10 @@ export class DistributionWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
    */
   "legendSize"?: string;
@@ -84,6 +88,10 @@ export class DistributionWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     legendSize: {
       baseName: "legend_size",

@@ -20,6 +20,10 @@ export class ScatterPlotWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Widget definition.
    */
   "requests": ScatterPlotWidgetDefinitionRequests;
@@ -73,6 +77,10 @@ export class ScatterPlotWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     requests: {
       baseName: "requests",
