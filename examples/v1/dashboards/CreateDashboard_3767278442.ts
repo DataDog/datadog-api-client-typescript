@@ -1,5 +1,5 @@
 /**
- * Create a new dashboard with timeseries widget with custom_unit
+ * Create a new dashboard with a query_value widget containing a description
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -13,56 +13,40 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
     description: "",
     widgets: [
       {
+        layout: {
+          x: 0,
+          y: 0,
+          width: 47,
+          height: 15,
+        },
         definition: {
           title: "",
           titleSize: "16",
           titleAlign: "left",
           description: "Example widget description",
-          showLegend: true,
-          legendLayout: "auto",
           time: {},
-          type: "timeseries",
+          type: "query_value",
           requests: [
             {
-              formulas: [
-                {
-                  formula: "query1",
-                  numberFormat: {
-                    unitScale: {
-                      type: "canonical_unit",
-                      unitName: "apdex",
-                    },
-                    unit: {
-                      type: "canonical_unit",
-                      unitName: "fraction",
-                    },
-                  },
-                },
-              ],
+              responseFormat: "scalar",
               queries: [
                 {
-                  dataSource: "metrics",
                   name: "query1",
+                  dataSource: "metrics",
                   query: "avg:system.cpu.user{*}",
+                  aggregator: "avg",
                 },
               ],
-              responseFormat: "timeseries",
-              displayType: "line",
             },
           ],
-        },
-        layout: {
-          x: 0,
-          y: 0,
-          width: 12,
-          height: 5,
+          autoscale: true,
+          precision: 2,
         },
       },
     ],
     templateVariables: [],
-    layoutType: "ordered",
+    layoutType: "free",
     notifyList: [],
-    reflowType: "fixed",
   },
 };
 

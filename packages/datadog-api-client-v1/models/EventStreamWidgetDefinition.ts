@@ -16,6 +16,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EventStreamWidgetDefinition {
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Size to use to display an event.
    */
   "eventSize"?: WidgetEventSize;
@@ -64,6 +68,10 @@ export class EventStreamWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     eventSize: {
       baseName: "event_size",
       type: "WidgetEventSize",

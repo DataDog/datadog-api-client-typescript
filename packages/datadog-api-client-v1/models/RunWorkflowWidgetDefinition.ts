@@ -20,6 +20,10 @@ export class RunWorkflowWidgetDefinition {
    */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Array of workflow inputs to map to dashboard template variables.
    */
   "inputs"?: Array<RunWorkflowWidgetInput>;
@@ -67,6 +71,10 @@ export class RunWorkflowWidgetDefinition {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     inputs: {
       baseName: "inputs",

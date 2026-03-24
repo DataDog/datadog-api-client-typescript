@@ -16,6 +16,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ListStreamWidgetDefinition {
   /**
+   * The description of the widget.
+   */
+  "description"?: string;
+  /**
    * Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
    */
   "legendSize"?: string;
@@ -64,6 +68,10 @@ export class ListStreamWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     legendSize: {
       baseName: "legend_size",
       type: "string",
