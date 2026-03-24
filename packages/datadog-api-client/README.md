@@ -379,8 +379,8 @@ apiInstance
 | CSM Threats | @datadog/datadog-api-client-csm-threats | [README.md](../../services/csm-threats/README.md) |
 | Dashboard Lists | @datadog/datadog-api-client-dashboard-lists | [README.md](../../services/dashboard-lists/README.md) |
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
+| Data Access Controls | @datadog/datadog-api-client-data-access-controls | [README.md](../../services/data-access-controls/README.md) |
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
-| Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
 | Deployment Gates | @datadog/datadog-api-client-deployment-gates | [README.md](../../services/deployment-gates/README.md) |
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
 | DORA Metrics | @datadog/datadog-api-client-dora-metrics | [README.md](../../services/dora-metrics/README.md) |
