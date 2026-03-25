@@ -9810,6 +9810,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RUMEventsResponse",
   },
+  "RUMApi.V2.UploadSourceMap": {
+    operationResponseType: "SourceMapUploadResponse",
+  },
   "RumRetentionFiltersApi.V2.OrderRetentionFilters": {
     appId: {
       type: "string",
