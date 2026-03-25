@@ -929,6 +929,8 @@ export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiBulkEditSecurityMonitoringSignalsAssigneeRequest,
+  SecurityMonitoringApiBulkEditSecurityMonitoringSignalsStateRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
   SecurityMonitoringApiCancelThreatHuntingJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
@@ -4994,6 +4996,15 @@ export { SecurityMonitoringSignalRuleQuery } from "./models/SecurityMonitoringSi
 export { SecurityMonitoringSignalRuleResponse } from "./models/SecurityMonitoringSignalRuleResponse";
 export { SecurityMonitoringSignalRuleResponseQuery } from "./models/SecurityMonitoringSignalRuleResponseQuery";
 export { SecurityMonitoringSignalRuleType } from "./models/SecurityMonitoringSignalRuleType";
+export { SecurityMonitoringSignalsBulkAssigneeUpdateAttributes } from "./models/SecurityMonitoringSignalsBulkAssigneeUpdateAttributes";
+export { SecurityMonitoringSignalsBulkAssigneeUpdateData } from "./models/SecurityMonitoringSignalsBulkAssigneeUpdateData";
+export { SecurityMonitoringSignalsBulkAssigneeUpdateRequest } from "./models/SecurityMonitoringSignalsBulkAssigneeUpdateRequest";
+export { SecurityMonitoringSignalsBulkStateUpdateData } from "./models/SecurityMonitoringSignalsBulkStateUpdateData";
+export { SecurityMonitoringSignalsBulkStateUpdateRequest } from "./models/SecurityMonitoringSignalsBulkStateUpdateRequest";
+export { SecurityMonitoringSignalsBulkTriageEvent } from "./models/SecurityMonitoringSignalsBulkTriageEvent";
+export { SecurityMonitoringSignalsBulkTriageEventAttributes } from "./models/SecurityMonitoringSignalsBulkTriageEventAttributes";
+export { SecurityMonitoringSignalsBulkTriageUpdateResponse } from "./models/SecurityMonitoringSignalsBulkTriageUpdateResponse";
+export { SecurityMonitoringSignalsBulkTriageUpdateResult } from "./models/SecurityMonitoringSignalsBulkTriageUpdateResult";
 export { SecurityMonitoringSignalsListResponse } from "./models/SecurityMonitoringSignalsListResponse";
 export { SecurityMonitoringSignalsListResponseLinks } from "./models/SecurityMonitoringSignalsListResponseLinks";
 export { SecurityMonitoringSignalsListResponseMeta } from "./models/SecurityMonitoringSignalsListResponseMeta";
