@@ -1996,7 +1996,7 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterQueried?: boolean;
   /**
-   * Only return metrics that have been queried or not queried in the specified window. Dependent on being sent with `filter[queried]`.
+   * Only return metrics that have been queried or not queried in the specified window. Dependent on being sent with `filter[queried]`. The default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds (180 days), and the minimum value is 1 second.
    * @type number
    */
   filterQueriedWindowSeconds?: number;
@@ -2011,12 +2011,12 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterRelatedAssets?: boolean;
   /**
-   * Only return metrics that have been actively reporting in the specified window.
+   * Only return metrics that have been actively reporting in the specified window. The default value is 3600 seconds (1 hour), the maximum value is 2,592,000 seconds (30 days), and the minimum value is 1 second.
    * @type number
    */
   windowSeconds?: number;
   /**
-   * Maximum number of results per page. Use with `page[cursor]` for pagination.
+   * Maximum number of results per page. Use with `page[cursor]` for pagination. The default value is 10000, the maximum value is 10000, and the minimum value is 1.
    * @type number
    */
   pageSize?: number;
