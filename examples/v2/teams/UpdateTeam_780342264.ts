@@ -1,5 +1,5 @@
 /**
- * Remove a user from a team returns "No Content" response
+ * Update a team with partial update returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -8,19 +8,26 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.TeamsApi(configuration);
 
 // there is a valid "dd_team" in the system
+const DD_TEAM_DATA_ATTRIBUTES_HANDLE = process.env
+  .DD_TEAM_DATA_ATTRIBUTES_HANDLE as string;
 const DD_TEAM_DATA_ID = process.env.DD_TEAM_DATA_ID as string;
 
-// there is a valid "user" in the system
-const USER_DATA_ID = process.env.USER_DATA_ID as string;
-
-const params: v2.TeamsApiDeleteTeamMembershipRequest = {
+const params: v2.TeamsApiUpdateTeamRequest = {
+  body: {
+    data: {
+      attributes: {
+        handle: DD_TEAM_DATA_ATTRIBUTES_HANDLE,
+        name: "Example Team updated",
+      },
+      type: "team",
+    },
+  },
   teamId: DD_TEAM_DATA_ID,
-  userId: USER_DATA_ID,
 };
 
 apiInstance
-  .deleteTeamMembership(params)
-  .then((data: any) => {
+  .updateTeam(params)
+  .then((data: v2.TeamResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
