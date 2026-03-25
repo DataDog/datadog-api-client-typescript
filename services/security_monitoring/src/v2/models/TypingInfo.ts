@@ -247,6 +247,15 @@ import { SecurityMonitoringSignalStateUpdateRequest } from "./SecurityMonitoring
 import { SecurityMonitoringSignalTriageAttributes } from "./SecurityMonitoringSignalTriageAttributes";
 import { SecurityMonitoringSignalTriageUpdateData } from "./SecurityMonitoringSignalTriageUpdateData";
 import { SecurityMonitoringSignalTriageUpdateResponse } from "./SecurityMonitoringSignalTriageUpdateResponse";
+import { SecurityMonitoringSignalsBulkAssigneeUpdateAttributes } from "./SecurityMonitoringSignalsBulkAssigneeUpdateAttributes";
+import { SecurityMonitoringSignalsBulkAssigneeUpdateData } from "./SecurityMonitoringSignalsBulkAssigneeUpdateData";
+import { SecurityMonitoringSignalsBulkAssigneeUpdateRequest } from "./SecurityMonitoringSignalsBulkAssigneeUpdateRequest";
+import { SecurityMonitoringSignalsBulkStateUpdateData } from "./SecurityMonitoringSignalsBulkStateUpdateData";
+import { SecurityMonitoringSignalsBulkStateUpdateRequest } from "./SecurityMonitoringSignalsBulkStateUpdateRequest";
+import { SecurityMonitoringSignalsBulkTriageEvent } from "./SecurityMonitoringSignalsBulkTriageEvent";
+import { SecurityMonitoringSignalsBulkTriageEventAttributes } from "./SecurityMonitoringSignalsBulkTriageEventAttributes";
+import { SecurityMonitoringSignalsBulkTriageUpdateResponse } from "./SecurityMonitoringSignalsBulkTriageUpdateResponse";
+import { SecurityMonitoringSignalsBulkTriageUpdateResult } from "./SecurityMonitoringSignalsBulkTriageUpdateResult";
 import { SecurityMonitoringSignalsListResponse } from "./SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
@@ -544,7 +553,6 @@ export const TypingInfo: ModelTypingInfo = {
       "none",
       "false_positive",
       "testing_or_maintenance",
-      "remediated",
       "investigated_case_opened",
       "true_positive_benign",
       "true_positive_malicious",
@@ -1001,6 +1009,24 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringSignalTriageUpdateData,
     SecurityMonitoringSignalTriageUpdateResponse:
       SecurityMonitoringSignalTriageUpdateResponse,
+    SecurityMonitoringSignalsBulkAssigneeUpdateAttributes:
+      SecurityMonitoringSignalsBulkAssigneeUpdateAttributes,
+    SecurityMonitoringSignalsBulkAssigneeUpdateData:
+      SecurityMonitoringSignalsBulkAssigneeUpdateData,
+    SecurityMonitoringSignalsBulkAssigneeUpdateRequest:
+      SecurityMonitoringSignalsBulkAssigneeUpdateRequest,
+    SecurityMonitoringSignalsBulkStateUpdateData:
+      SecurityMonitoringSignalsBulkStateUpdateData,
+    SecurityMonitoringSignalsBulkStateUpdateRequest:
+      SecurityMonitoringSignalsBulkStateUpdateRequest,
+    SecurityMonitoringSignalsBulkTriageEvent:
+      SecurityMonitoringSignalsBulkTriageEvent,
+    SecurityMonitoringSignalsBulkTriageEventAttributes:
+      SecurityMonitoringSignalsBulkTriageEventAttributes,
+    SecurityMonitoringSignalsBulkTriageUpdateResponse:
+      SecurityMonitoringSignalsBulkTriageUpdateResponse,
+    SecurityMonitoringSignalsBulkTriageUpdateResult:
+      SecurityMonitoringSignalsBulkTriageUpdateResult,
     SecurityMonitoringSignalsListResponse:
       SecurityMonitoringSignalsListResponse,
     SecurityMonitoringSignalsListResponseLinks:

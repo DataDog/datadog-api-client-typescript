@@ -1,0 +1,127 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSignalArchiveReason";
+import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
+import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
+
+/**
+ * Triage attributes of a security signal returned in a bulk update response.
+ */
+export class SecurityMonitoringSignalsBulkTriageEventAttributes {
+  /**
+   * Optional comment to display on archived signals.
+   */
+  "archiveComment"?: string;
+  /**
+   * Timestamp of the last edit to the archive comment.
+   */
+  "archiveCommentTimestamp"?: number;
+  /**
+   * Object representing a given user entity.
+   */
+  "archiveCommentUser"?: SecurityMonitoringTriageUser;
+  /**
+   * Reason a signal is archived.
+   */
+  "archiveReason"?: SecurityMonitoringSignalArchiveReason;
+  /**
+   * Object representing a given user entity.
+   */
+  "assignee": SecurityMonitoringTriageUser;
+  /**
+   * The unique ID of the security signal.
+   */
+  "id": string;
+  /**
+   * Array of incidents that are associated with this signal.
+   */
+  "incidentIds": Array<number>;
+  /**
+   * The new triage state of the signal.
+   */
+  "state": SecurityMonitoringSignalState;
+  /**
+   * Timestamp of the last state update.
+   */
+  "stateUpdateTimestamp"?: number;
+  /**
+   * Object representing a given user entity.
+   */
+  "stateUpdateUser"?: SecurityMonitoringTriageUser;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    archiveComment: {
+      baseName: "archive_comment",
+      type: "string",
+    },
+    archiveCommentTimestamp: {
+      baseName: "archive_comment_timestamp",
+      type: "number",
+      format: "int64",
+    },
+    archiveCommentUser: {
+      baseName: "archive_comment_user",
+      type: "SecurityMonitoringTriageUser",
+    },
+    archiveReason: {
+      baseName: "archive_reason",
+      type: "SecurityMonitoringSignalArchiveReason",
+    },
+    assignee: {
+      baseName: "assignee",
+      type: "SecurityMonitoringTriageUser",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    incidentIds: {
+      baseName: "incident_ids",
+      type: "Array<number>",
+      required: true,
+      format: "int64",
+    },
+    state: {
+      baseName: "state",
+      type: "SecurityMonitoringSignalState",
+      required: true,
+    },
+    stateUpdateTimestamp: {
+      baseName: "state_update_timestamp",
+      type: "number",
+      format: "int64",
+    },
+    stateUpdateUser: {
+      baseName: "state_update_user",
+      type: "SecurityMonitoringTriageUser",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return SecurityMonitoringSignalsBulkTriageEventAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
