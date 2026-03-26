@@ -3161,6 +3161,13 @@ import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
 import { SyncProperty } from "./SyncProperty";
 import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
+import { SyntheticsFastTestResult } from "./SyntheticsFastTestResult";
+import { SyntheticsFastTestResultAttributes } from "./SyntheticsFastTestResultAttributes";
+import { SyntheticsFastTestResultData } from "./SyntheticsFastTestResultData";
+import { SyntheticsFastTestResultDetail } from "./SyntheticsFastTestResultDetail";
+import { SyntheticsFastTestResultDevice } from "./SyntheticsFastTestResultDevice";
+import { SyntheticsFastTestResultFailure } from "./SyntheticsFastTestResultFailure";
+import { SyntheticsFastTestResultLocation } from "./SyntheticsFastTestResultLocation";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
 import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
@@ -5325,6 +5332,19 @@ const enumsMap: { [key: string]: any[] } = {
   StatusPagesComponentGroupType: ["components"],
   StatusPagesUserType: ["users"],
   SuiteSearchResponseType: ["suites_search"],
+  SyntheticsFastTestResultType: ["result"],
+  SyntheticsFastTestSubType: [
+    "dns",
+    "grpc",
+    "http",
+    "icmp",
+    "mcp",
+    "multi",
+    "ssl",
+    "tcp",
+    "udp",
+    "websocket",
+  ],
   SyntheticsGlobalVariableParseTestOptionsType: [
     "http_body",
     "http_header",
@@ -9400,6 +9420,13 @@ const typeMap: { [index: string]: any } = {
   SuppressionVersions: SuppressionVersions,
   SyncProperty: SyncProperty,
   SyncPropertyWithMapping: SyncPropertyWithMapping,
+  SyntheticsFastTestResult: SyntheticsFastTestResult,
+  SyntheticsFastTestResultAttributes: SyntheticsFastTestResultAttributes,
+  SyntheticsFastTestResultData: SyntheticsFastTestResultData,
+  SyntheticsFastTestResultDetail: SyntheticsFastTestResultDetail,
+  SyntheticsFastTestResultDevice: SyntheticsFastTestResultDevice,
+  SyntheticsFastTestResultFailure: SyntheticsFastTestResultFailure,
+  SyntheticsFastTestResultLocation: SyntheticsFastTestResultLocation,
   SyntheticsGlobalVariable: SyntheticsGlobalVariable,
   SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
   SyntheticsGlobalVariableOptions: SyntheticsGlobalVariableOptions,
