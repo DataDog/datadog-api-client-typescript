@@ -11168,6 +11168,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DeletedTestsResponse",
     },
+    "v2.GetSyntheticsFastTestResult": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsFastTestResult",
+    },
     "v2.CreateSyntheticsNetworkTest": {
         "body": {
             "type": "SyntheticsNetworkTestEditRequest",

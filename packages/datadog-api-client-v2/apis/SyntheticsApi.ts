@@ -26,6 +26,7 @@ import { GlobalVariableResponse } from "../models/GlobalVariableResponse";
 import { OnDemandConcurrencyCapAttributes } from "../models/OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "../models/OnDemandConcurrencyCapResponse";
 import { SuiteCreateEditRequest } from "../models/SuiteCreateEditRequest";
+import { SyntheticsFastTestResult } from "../models/SyntheticsFastTestResult";
 import { SyntheticsNetworkTestEditRequest } from "../models/SyntheticsNetworkTestEditRequest";
 import { SyntheticsNetworkTestResponse } from "../models/SyntheticsNetworkTestResponse";
 import { SyntheticsSuiteResponse } from "../models/SyntheticsSuiteResponse";
@@ -271,6 +272,40 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSyntheticsFastTestResult(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getSyntheticsFastTestResult");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/tests/fast/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getSyntheticsFastTestResult")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -913,6 +948,68 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSyntheticsFastTestResult
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSyntheticsFastTestResult(
+    response: ResponseContext
+  ): Promise<SyntheticsFastTestResult> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsFastTestResult = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsFastTestResult"
+      ) as SyntheticsFastTestResult;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsFastTestResult = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsFastTestResult",
+        ""
+      ) as SyntheticsFastTestResult;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSyntheticsNetworkTest
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1311,6 +1408,14 @@ export interface SyntheticsApiEditSyntheticsSuiteRequest {
   body: SuiteCreateEditRequest;
 }
 
+export interface SyntheticsApiGetSyntheticsFastTestResultRequest {
+  /**
+   * The UUID of the fast test to retrieve the result for.
+   * @type string
+   */
+  id: string;
+}
+
 export interface SyntheticsApiGetSyntheticsNetworkTestRequest {
   /**
    * The public ID of the Network Path test to get details from.
@@ -1521,6 +1626,26 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOnDemandConcurrencyCap(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public getSyntheticsFastTestResult(
+    param: SyntheticsApiGetSyntheticsFastTestResultRequest,
+    options?: Configuration
+  ): Promise<SyntheticsFastTestResult> {
+    const requestContextPromise =
+      this.requestFactory.getSyntheticsFastTestResult(param.id, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSyntheticsFastTestResult(
             responseContext
           );
         });

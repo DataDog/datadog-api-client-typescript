@@ -1143,6 +1143,7 @@ export {
   SyntheticsApiDeleteSyntheticsSuitesRequest,
   SyntheticsApiDeleteSyntheticsTestsRequest,
   SyntheticsApiEditSyntheticsSuiteRequest,
+  SyntheticsApiGetSyntheticsFastTestResultRequest,
   SyntheticsApiGetSyntheticsNetworkTestRequest,
   SyntheticsApiGetSyntheticsSuiteRequest,
   SyntheticsApiPatchGlobalVariableRequest,
@@ -5403,6 +5404,15 @@ export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
 export { SuppressionVersions } from "./models/SuppressionVersions";
 export { SyncProperty } from "./models/SyncProperty";
 export { SyncPropertyWithMapping } from "./models/SyncPropertyWithMapping";
+export { SyntheticsFastTestResult } from "./models/SyntheticsFastTestResult";
+export { SyntheticsFastTestResultAttributes } from "./models/SyntheticsFastTestResultAttributes";
+export { SyntheticsFastTestResultData } from "./models/SyntheticsFastTestResultData";
+export { SyntheticsFastTestResultDetail } from "./models/SyntheticsFastTestResultDetail";
+export { SyntheticsFastTestResultDevice } from "./models/SyntheticsFastTestResultDevice";
+export { SyntheticsFastTestResultFailure } from "./models/SyntheticsFastTestResultFailure";
+export { SyntheticsFastTestResultLocation } from "./models/SyntheticsFastTestResultLocation";
+export { SyntheticsFastTestResultType } from "./models/SyntheticsFastTestResultType";
+export { SyntheticsFastTestSubType } from "./models/SyntheticsFastTestSubType";
 export { SyntheticsGlobalVariable } from "./models/SyntheticsGlobalVariable";
 export { SyntheticsGlobalVariableAttributes } from "./models/SyntheticsGlobalVariableAttributes";
 export { SyntheticsGlobalVariableOptions } from "./models/SyntheticsGlobalVariableOptions";
