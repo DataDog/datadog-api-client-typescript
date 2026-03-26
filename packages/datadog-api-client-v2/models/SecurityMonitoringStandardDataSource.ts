@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Source of events, either logs, audit trail, or Datadog events.
+ * Source of events, either logs, audit trail, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
  */
 
 export type SecurityMonitoringStandardDataSource =
