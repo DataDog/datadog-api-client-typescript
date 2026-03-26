@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
+import { FormulaAndFunctionApmMetricsQueryDefinition } from "./FormulaAndFunctionApmMetricsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
 import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
@@ -23,6 +24,7 @@ export type FormulaAndFunctionQueryDefinition =
   | FormulaAndFunctionProcessQueryDefinition
   | FormulaAndFunctionApmDependencyStatsQueryDefinition
   | FormulaAndFunctionApmResourceStatsQueryDefinition
+  | FormulaAndFunctionApmMetricsQueryDefinition
   | FormulaAndFunctionSLOQueryDefinition
   | FormulaAndFunctionCloudCostQueryDefinition
   | UnparsedObject;

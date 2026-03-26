@@ -84,6 +84,7 @@ import { EventResponse } from "./EventResponse";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
+import { FormulaAndFunctionApmMetricsQueryDefinition } from "./FormulaAndFunctionApmMetricsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
 import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
@@ -794,6 +795,32 @@ const enumsMap: { [key: string]: any[] } = {
     "total_traces_count",
   ],
   FormulaAndFunctionApmDependencyStatsDataSource: ["apm_dependency_stats"],
+  FormulaAndFunctionApmMetricStatName: [
+    "errors",
+    "error_rate",
+    "errors_per_second",
+    "latency_avg",
+    "latency_max",
+    "latency_p50",
+    "latency_p75",
+    "latency_p90",
+    "latency_p95",
+    "latency_p99",
+    "latency_p999",
+    "latency_distribution",
+    "hits",
+    "hits_per_second",
+    "total_time",
+    "apdex",
+  ],
+  FormulaAndFunctionApmMetricsDataSource: ["apm_metrics"],
+  FormulaAndFunctionApmMetricsSpanKind: [
+    "consumer",
+    "server",
+    "client",
+    "producer",
+    "internal",
+  ],
   FormulaAndFunctionApmResourceStatName: [
     "errors",
     "error_rate",
@@ -1935,6 +1962,8 @@ const typeMap: { [index: string]: any } = {
   EventTimelineWidgetDefinition: EventTimelineWidgetDefinition,
   FormulaAndFunctionApmDependencyStatsQueryDefinition:
     FormulaAndFunctionApmDependencyStatsQueryDefinition,
+  FormulaAndFunctionApmMetricsQueryDefinition:
+    FormulaAndFunctionApmMetricsQueryDefinition,
   FormulaAndFunctionApmResourceStatsQueryDefinition:
     FormulaAndFunctionApmResourceStatsQueryDefinition,
   FormulaAndFunctionCloudCostQueryDefinition:
@@ -2621,6 +2650,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionProcessQueryDefinition",
     "FormulaAndFunctionApmDependencyStatsQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
+    "FormulaAndFunctionApmMetricsQueryDefinition",
     "FormulaAndFunctionSLOQueryDefinition",
     "FormulaAndFunctionCloudCostQueryDefinition",
   ],
