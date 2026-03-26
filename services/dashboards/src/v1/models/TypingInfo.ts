@@ -178,6 +178,8 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
+import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
+import { WildcardWidgetSpecification } from "./WildcardWidgetSpecification";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -544,6 +546,8 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetVerticalAlign: ["center", "top", "bottom"],
     WidgetViewMode: ["overall", "component", "both"],
     WidgetVizType: ["timeseries", "toplist"],
+    WildcardWidgetDefinitionType: ["wildcard"],
+    WildcardWidgetSpecificationType: ["vega", "vega-lite"],
   },
   oneOfMap: {
     BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
@@ -630,12 +634,19 @@ export const TypingInfo: ModelTypingInfo = {
       "ToplistWidgetDefinition",
       "TopologyMapWidgetDefinition",
       "TreeMapWidgetDefinition",
+      "WildcardWidgetDefinition",
     ],
     WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
     WidgetTime: [
       "WidgetLegacyLiveSpan",
       "WidgetNewLiveSpan",
       "WidgetNewFixedSpan",
+    ],
+    WildcardWidgetRequest: [
+      "TreeMapWidgetRequest",
+      "TimeseriesWidgetRequest",
+      "ListStreamWidgetRequest",
+      "DistributionWidgetRequest",
     ],
   },
   typeMap: {
@@ -833,5 +844,7 @@ export const TypingInfo: ModelTypingInfo = {
     WidgetRequestStyle: WidgetRequestStyle,
     WidgetSortBy: WidgetSortBy,
     WidgetStyle: WidgetStyle,
+    WildcardWidgetDefinition: WildcardWidgetDefinition,
+    WildcardWidgetSpecification: WildcardWidgetSpecification,
   },
 };
