@@ -25,14 +25,6 @@ import { ServiceNowIntegrationApiV2 } from "@datadog/datadog-api-client-service-
 import { v2 } from "@datadog/datadog-api-client-service-now-integration";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "ServiceNowIntegrationApi.v2.listServiceNowAssignmentGroups": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new ServiceNowIntegrationApiV2(configuration);
 const params = {/* parameters */};
 
