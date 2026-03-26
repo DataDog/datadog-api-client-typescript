@@ -358,3 +358,8 @@ export { WidgetTimeWindows } from "./models/WidgetTimeWindows";
 export { WidgetVerticalAlign } from "./models/WidgetVerticalAlign";
 export { WidgetViewMode } from "./models/WidgetViewMode";
 export { WidgetVizType } from "./models/WidgetVizType";
+export { WildcardWidgetDefinition } from "./models/WildcardWidgetDefinition";
+export { WildcardWidgetDefinitionType } from "./models/WildcardWidgetDefinitionType";
+export { WildcardWidgetRequest } from "./models/WildcardWidgetRequest";
+export { WildcardWidgetSpecification } from "./models/WildcardWidgetSpecification";
+export { WildcardWidgetSpecificationType } from "./models/WildcardWidgetSpecificationType";

@@ -36,6 +36,7 @@ import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
+import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
 
 /**
  * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
@@ -77,4 +78,5 @@ export type WidgetDefinition =
   | ToplistWidgetDefinition
   | TopologyMapWidgetDefinition
   | TreeMapWidgetDefinition
+  | WildcardWidgetDefinition
   | UnparsedObject;
