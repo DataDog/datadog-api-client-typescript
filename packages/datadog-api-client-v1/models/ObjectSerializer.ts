@@ -688,6 +688,8 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
+import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
+import { WildcardWidgetSpecification } from "./WildcardWidgetSpecification";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
@@ -1845,6 +1847,8 @@ const enumsMap: { [key: string]: any[] } = {
   WidgetVerticalAlign: ["center", "top", "bottom"],
   WidgetViewMode: ["overall", "component", "both"],
   WidgetVizType: ["timeseries", "toplist"],
+  WildcardWidgetDefinitionType: ["wildcard"],
+  WildcardWidgetSpecificationType: ["vega", "vega-lite"],
 };
 
 const typeMap: { [index: string]: any } = {
@@ -2600,6 +2604,8 @@ const typeMap: { [index: string]: any } = {
   WidgetRequestStyle: WidgetRequestStyle,
   WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
+  WildcardWidgetDefinition: WildcardWidgetDefinition,
+  WildcardWidgetSpecification: WildcardWidgetSpecification,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
@@ -2796,12 +2802,19 @@ const oneOfMap: { [index: string]: string[] } = {
     "ToplistWidgetDefinition",
     "TopologyMapWidgetDefinition",
     "TreeMapWidgetDefinition",
+    "WildcardWidgetDefinition",
   ],
   WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
   WidgetTime: [
     "WidgetLegacyLiveSpan",
     "WidgetNewLiveSpan",
     "WidgetNewFixedSpan",
+  ],
+  WildcardWidgetRequest: [
+    "TreeMapWidgetRequest",
+    "TimeseriesWidgetRequest",
+    "ListStreamWidgetRequest",
+    "DistributionWidgetRequest",
   ],
 };
 

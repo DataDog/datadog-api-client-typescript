@@ -39,6 +39,7 @@ import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
+import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -83,4 +84,5 @@ export type WidgetDefinition =
   | ToplistWidgetDefinition
   | TopologyMapWidgetDefinition
   | TreeMapWidgetDefinition
+  | WildcardWidgetDefinition
   | UnparsedObject;
