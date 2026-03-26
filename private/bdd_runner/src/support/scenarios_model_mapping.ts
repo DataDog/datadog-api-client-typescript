@@ -11178,6 +11178,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DeletedTestsResponse",
   },
+  "SyntheticsApi.V2.GetSyntheticsFastTestResult": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsFastTestResult",
+  },
   "SyntheticsApi.V2.CreateSyntheticsNetworkTest": {
     body: {
       type: "SyntheticsNetworkTestEditRequest",
