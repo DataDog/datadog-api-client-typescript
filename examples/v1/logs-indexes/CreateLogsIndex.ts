@@ -19,6 +19,7 @@ const params: v1.LogsIndexesApiCreateLogsIndexRequest = {
       {
         filter: {
           query: "*",
+          sampleAttribute: "@ci.job_id",
           sampleRate: 1.0,
         },
         name: "payment",

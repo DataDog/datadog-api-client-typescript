@@ -20,6 +20,7 @@ const params: v1.LogsIndexesApiUpdateLogsIndexRequest = {
       {
         filter: {
           query: "*",
+          sampleAttribute: "@ci.job_id",
           sampleRate: 1.0,
         },
         name: "payment",
