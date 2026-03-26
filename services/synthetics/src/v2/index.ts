@@ -4,6 +4,7 @@ export {
   SyntheticsApiDeleteSyntheticsSuitesRequest,
   SyntheticsApiDeleteSyntheticsTestsRequest,
   SyntheticsApiEditSyntheticsSuiteRequest,
+  SyntheticsApiGetSyntheticsFastTestResultRequest,
   SyntheticsApiGetSyntheticsNetworkTestRequest,
   SyntheticsApiGetSyntheticsSuiteRequest,
   SyntheticsApiPatchGlobalVariableRequest,
@@ -45,6 +46,15 @@ export { OnDemandConcurrencyCapType } from "./models/OnDemandConcurrencyCapType"
 export { SuiteCreateEdit } from "./models/SuiteCreateEdit";
 export { SuiteCreateEditRequest } from "./models/SuiteCreateEditRequest";
 export { SuiteSearchResponseType } from "./models/SuiteSearchResponseType";
+export { SyntheticsFastTestResult } from "./models/SyntheticsFastTestResult";
+export { SyntheticsFastTestResultAttributes } from "./models/SyntheticsFastTestResultAttributes";
+export { SyntheticsFastTestResultData } from "./models/SyntheticsFastTestResultData";
+export { SyntheticsFastTestResultDetail } from "./models/SyntheticsFastTestResultDetail";
+export { SyntheticsFastTestResultDevice } from "./models/SyntheticsFastTestResultDevice";
+export { SyntheticsFastTestResultFailure } from "./models/SyntheticsFastTestResultFailure";
+export { SyntheticsFastTestResultLocation } from "./models/SyntheticsFastTestResultLocation";
+export { SyntheticsFastTestResultType } from "./models/SyntheticsFastTestResultType";
+export { SyntheticsFastTestSubType } from "./models/SyntheticsFastTestSubType";
 export { SyntheticsGlobalVariable } from "./models/SyntheticsGlobalVariable";
 export { SyntheticsGlobalVariableAttributes } from "./models/SyntheticsGlobalVariableAttributes";
 export { SyntheticsGlobalVariableOptions } from "./models/SyntheticsGlobalVariableOptions";

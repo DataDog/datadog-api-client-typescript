@@ -24,6 +24,13 @@ import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttrib
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
 import { SuiteCreateEdit } from "./SuiteCreateEdit";
 import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
+import { SyntheticsFastTestResult } from "./SyntheticsFastTestResult";
+import { SyntheticsFastTestResultAttributes } from "./SyntheticsFastTestResultAttributes";
+import { SyntheticsFastTestResultData } from "./SyntheticsFastTestResultData";
+import { SyntheticsFastTestResultDetail } from "./SyntheticsFastTestResultDetail";
+import { SyntheticsFastTestResultDevice } from "./SyntheticsFastTestResultDevice";
+import { SyntheticsFastTestResultFailure } from "./SyntheticsFastTestResultFailure";
+import { SyntheticsFastTestResultLocation } from "./SyntheticsFastTestResultLocation";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
 import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
@@ -66,6 +73,19 @@ export const TypingInfo: ModelTypingInfo = {
     JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
     OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
     SuiteSearchResponseType: ["suites_search"],
+    SyntheticsFastTestResultType: ["result"],
+    SyntheticsFastTestSubType: [
+      "dns",
+      "grpc",
+      "http",
+      "icmp",
+      "mcp",
+      "multi",
+      "ssl",
+      "tcp",
+      "udp",
+      "websocket",
+    ],
     SyntheticsGlobalVariableParseTestOptionsType: [
       "http_body",
       "http_header",
@@ -140,6 +160,13 @@ export const TypingInfo: ModelTypingInfo = {
     OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
     SuiteCreateEdit: SuiteCreateEdit,
     SuiteCreateEditRequest: SuiteCreateEditRequest,
+    SyntheticsFastTestResult: SyntheticsFastTestResult,
+    SyntheticsFastTestResultAttributes: SyntheticsFastTestResultAttributes,
+    SyntheticsFastTestResultData: SyntheticsFastTestResultData,
+    SyntheticsFastTestResultDetail: SyntheticsFastTestResultDetail,
+    SyntheticsFastTestResultDevice: SyntheticsFastTestResultDevice,
+    SyntheticsFastTestResultFailure: SyntheticsFastTestResultFailure,
+    SyntheticsFastTestResultLocation: SyntheticsFastTestResultLocation,
     SyntheticsGlobalVariable: SyntheticsGlobalVariable,
     SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
     SyntheticsGlobalVariableOptions: SyntheticsGlobalVariableOptions,
