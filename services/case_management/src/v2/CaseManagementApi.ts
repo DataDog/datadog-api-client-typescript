@@ -4829,7 +4829,7 @@ export class CaseManagementApi {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
-    param.pageNumber = 0;
+    param.pageNumber = 1;
     while (true) {
       const requestContext = await this.requestFactory.searchCases(
         param.pageSize,
