@@ -1,6 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
+import { FormulaAndFunctionApmMetricsQueryDefinition } from "./FormulaAndFunctionApmMetricsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
 import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
@@ -17,6 +18,7 @@ export type FormulaAndFunctionQueryDefinition =
   | FormulaAndFunctionProcessQueryDefinition
   | FormulaAndFunctionApmDependencyStatsQueryDefinition
   | FormulaAndFunctionApmResourceStatsQueryDefinition
+  | FormulaAndFunctionApmMetricsQueryDefinition
   | FormulaAndFunctionSLOQueryDefinition
   | FormulaAndFunctionCloudCostQueryDefinition
   | UnparsedObject;
