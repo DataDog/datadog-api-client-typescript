@@ -5750,24 +5750,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DashboardListDeleteItemsResponse",
   },
-  "DatasetsApi.V2.GetAllDatasets": {
+  "DataAccessControlsApi.V2.GetAllDatasets": {
     operationResponseType: "DatasetResponseMulti",
   },
-  "DatasetsApi.V2.CreateDataset": {
+  "DataAccessControlsApi.V2.CreateDataset": {
     body: {
       type: "DatasetCreateRequest",
       format: "",
     },
     operationResponseType: "DatasetResponseSingle",
   },
-  "DatasetsApi.V2.GetDataset": {
+  "DataAccessControlsApi.V2.GetDataset": {
     datasetId: {
       type: "string",
       format: "",
     },
     operationResponseType: "DatasetResponseSingle",
   },
-  "DatasetsApi.V2.UpdateDataset": {
+  "DataAccessControlsApi.V2.UpdateDataset": {
     datasetId: {
       type: "string",
       format: "",
@@ -5778,7 +5778,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DatasetResponseSingle",
   },
-  "DatasetsApi.V2.DeleteDataset": {
+  "DataAccessControlsApi.V2.DeleteDataset": {
     datasetId: {
       type: "string",
       format: "",
