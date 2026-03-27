@@ -11096,6 +11096,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Maintenance",
     },
+    "v2.GetApiMultistepSubtests": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsApiMultistepSubtestsResponse",
+    },
+    "v2.GetApiMultistepSubtestParents": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsApiMultistepParentTestsResponse",
+    },
     "v2.GetOnDemandConcurrencyCap": {
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
@@ -11161,6 +11175,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsSuiteResponse",
     },
+    "v2.PatchTestSuite": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SuiteJsonPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsSuiteResponse",
+    },
     "v2.DeleteSyntheticsTests": {
         "body": {
             "type": "DeletedTestsRequestDeleteRequest",
@@ -11199,6 +11224,47 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SyntheticsNetworkTestResponse",
+    },
+    "v2.GetTestParentSuites": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTestParentSuitesResponse",
+    },
+    "v2.ListSyntheticsTestVersions": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "lastVersionNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SyntheticsTestVersionHistoryResponse",
+    },
+    "v2.GetSyntheticsTestVersion": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "versionNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "includeChangeMetadata": {
+            "type": "boolean",
+            "format": "",
+            },
+        "onlyCheckExistence": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTestVersionResponse",
     },
     "v2.PatchGlobalVariable": {
         "variableId": {
@@ -11750,6 +11816,93 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "PermissionsResponse",
+    },
+    "v2.SearchWidgets": {
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "filterWidgetType": {
+            "type": "WidgetType",
+            "format": "",
+            },
+        "filterCreatorHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIsFavorited": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterTitle": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "WidgetListResponse",
+    },
+    "v2.CreateWidget": {
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateOrUpdateWidgetRequest",
+            "format": "",
+            },
+        "operationResponseType": "WidgetResponse",
+    },
+    "v2.GetWidget": {
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "uuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "WidgetResponse",
+    },
+    "v2.UpdateWidget": {
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "uuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CreateOrUpdateWidgetRequest",
+            "format": "",
+            },
+        "operationResponseType": "WidgetResponse",
+    },
+    "v2.DeleteWidget": {
+        "experienceType": {
+            "type": "WidgetExperienceType",
+            "format": "",
+            },
+        "uuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
     },
     "v2.CreateWorkflow": {
         "body": {
