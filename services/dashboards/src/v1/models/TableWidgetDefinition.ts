@@ -8,7 +8,7 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
 /**
- * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
+ * The table visualization is available on dashboards. It displays columns of metrics grouped by tag key.
  */
 export class TableWidgetDefinition {
   /**

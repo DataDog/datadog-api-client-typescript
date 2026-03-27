@@ -7,7 +7,7 @@ import { WidgetMargin } from "./WidgetMargin";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
 
 /**
- * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
+ * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF.
  */
 export class ImageWidgetDefinition {
   /**

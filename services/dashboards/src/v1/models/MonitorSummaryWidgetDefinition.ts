@@ -8,7 +8,7 @@ import { WidgetSummaryType } from "./WidgetSummaryType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
 /**
- * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
+ * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query.
  */
 export class MonitorSummaryWidgetDefinition {
   /**

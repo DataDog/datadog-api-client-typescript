@@ -6,7 +6,7 @@ import { WidgetTimeWindows } from "./WidgetTimeWindows";
 import { WidgetViewMode } from "./WidgetViewMode";
 
 /**
- * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
+ * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on dashboards.
  */
 export class SLOWidgetDefinition {
   /**
