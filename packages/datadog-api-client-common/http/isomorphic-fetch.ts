@@ -180,6 +180,9 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         "x"
       );
     }
+    if (headers["Authorization"]) {
+      headers["Authorization"] = headers["Authorization"].replace(/./g, "x");
+    }
 
     const headersJSON = JSON.stringify(headers, null, 2).replace(/\n/g, "\n\t");
     const method = request.getHttpMethod().toString();

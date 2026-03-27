@@ -81,10 +81,26 @@ export class AppKeyAuthAuthentication implements SecurityAuthentication {
   }
 }
 
+/**
+ * Applies bearer token authentication to the request context.
+ */
+export class BearerAuthAuthentication implements SecurityAuthentication {
+  public constructor(private token: string) {}
+
+  public getName(): string {
+    return "bearerAuth";
+  }
+
+  public applySecurityAuthentication(context: RequestContext): void {
+    context.setHeaderParam("Authorization", "Bearer " + this.token);
+  }
+}
+
 export type AuthMethods = {
   AuthZ?: SecurityAuthentication;
   apiKeyAuth?: SecurityAuthentication;
   appKeyAuth?: SecurityAuthentication;
+  bearerAuth?: SecurityAuthentication;
 };
 
 export type ApiKeyConfiguration = string;
@@ -96,6 +112,7 @@ export type AuthMethodsConfiguration = {
   AuthZ?: OAuth2Configuration;
   apiKeyAuth?: ApiKeyConfiguration;
   appKeyAuth?: ApiKeyConfiguration;
+  bearerAuth?: ApiKeyConfiguration;
 };
 
 /**
@@ -126,6 +143,12 @@ export function configureAuthMethods(
   if (config["appKeyAuth"]) {
     authMethods["appKeyAuth"] = new AppKeyAuthAuthentication(
       config["appKeyAuth"]
+    );
+  }
+
+  if (config["bearerAuth"]) {
+    authMethods["bearerAuth"] = new BearerAuthAuthentication(
+      config["bearerAuth"]
     );
   }
 
