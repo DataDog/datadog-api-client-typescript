@@ -23,6 +23,11 @@ export class ObservabilityPipelineSplunkHecSource {
    */
   "id": string;
   /**
+   * If `true`, the HEC token is stored in the event's metadata and made available to the Enrichment Table
+   * processor and the `splunk_hec` destination for routing or enrichment based on the token. Defaults to `false`.
+   */
+  "storeHecToken"?: boolean;
+  /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
   "tls"?: ObservabilityPipelineTls;
@@ -55,6 +60,10 @@ export class ObservabilityPipelineSplunkHecSource {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    storeHecToken: {
+      baseName: "store_hec_token",
+      type: "boolean",
     },
     tls: {
       baseName: "tls",
