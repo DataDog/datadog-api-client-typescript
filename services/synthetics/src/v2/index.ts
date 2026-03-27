@@ -4,10 +4,16 @@ export {
   SyntheticsApiDeleteSyntheticsSuitesRequest,
   SyntheticsApiDeleteSyntheticsTestsRequest,
   SyntheticsApiEditSyntheticsSuiteRequest,
+  SyntheticsApiGetApiMultistepSubtestParentsRequest,
+  SyntheticsApiGetApiMultistepSubtestsRequest,
   SyntheticsApiGetSyntheticsFastTestResultRequest,
   SyntheticsApiGetSyntheticsNetworkTestRequest,
   SyntheticsApiGetSyntheticsSuiteRequest,
+  SyntheticsApiGetSyntheticsTestVersionRequest,
+  SyntheticsApiGetTestParentSuitesRequest,
+  SyntheticsApiListSyntheticsTestVersionsRequest,
   SyntheticsApiPatchGlobalVariableRequest,
+  SyntheticsApiPatchTestSuiteRequest,
   SyntheticsApiSearchSuitesRequest,
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
   SyntheticsApiUpdateSyntheticsNetworkTestRequest,
@@ -45,7 +51,19 @@ export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapR
 export { OnDemandConcurrencyCapType } from "./models/OnDemandConcurrencyCapType";
 export { SuiteCreateEdit } from "./models/SuiteCreateEdit";
 export { SuiteCreateEditRequest } from "./models/SuiteCreateEditRequest";
+export { SuiteJsonPatchRequest } from "./models/SuiteJsonPatchRequest";
+export { SuiteJsonPatchRequestData } from "./models/SuiteJsonPatchRequestData";
+export { SuiteJsonPatchRequestDataAttributes } from "./models/SuiteJsonPatchRequestDataAttributes";
+export { SuiteJsonPatchType } from "./models/SuiteJsonPatchType";
 export { SuiteSearchResponseType } from "./models/SuiteSearchResponseType";
+export { SyntheticsApiMultistepParentTestAttributes } from "./models/SyntheticsApiMultistepParentTestAttributes";
+export { SyntheticsApiMultistepParentTestData } from "./models/SyntheticsApiMultistepParentTestData";
+export { SyntheticsApiMultistepParentTestsResponse } from "./models/SyntheticsApiMultistepParentTestsResponse";
+export { SyntheticsApiMultistepParentTestType } from "./models/SyntheticsApiMultistepParentTestType";
+export { SyntheticsApiMultistepSubtestAttributes } from "./models/SyntheticsApiMultistepSubtestAttributes";
+export { SyntheticsApiMultistepSubtestData } from "./models/SyntheticsApiMultistepSubtestData";
+export { SyntheticsApiMultistepSubtestsResponse } from "./models/SyntheticsApiMultistepSubtestsResponse";
+export { SyntheticsApiMultistepSubtestType } from "./models/SyntheticsApiMultistepSubtestType";
 export { SyntheticsFastTestResult } from "./models/SyntheticsFastTestResult";
 export { SyntheticsFastTestResultAttributes } from "./models/SyntheticsFastTestResultAttributes";
 export { SyntheticsFastTestResultData } from "./models/SyntheticsFastTestResultData";
@@ -102,5 +120,23 @@ export { SyntheticsTestOptionsMonitorOptionsNotificationPresetName } from "./mod
 export { SyntheticsTestOptionsRetry } from "./models/SyntheticsTestOptionsRetry";
 export { SyntheticsTestOptionsScheduling } from "./models/SyntheticsTestOptionsScheduling";
 export { SyntheticsTestOptionsSchedulingTimeframe } from "./models/SyntheticsTestOptionsSchedulingTimeframe";
+export { SyntheticsTestParentSuiteAttributes } from "./models/SyntheticsTestParentSuiteAttributes";
+export { SyntheticsTestParentSuiteData } from "./models/SyntheticsTestParentSuiteData";
+export { SyntheticsTestParentSuitesResponse } from "./models/SyntheticsTestParentSuitesResponse";
+export { SyntheticsTestParentSuiteType } from "./models/SyntheticsTestParentSuiteType";
 export { SyntheticsTestPauseStatus } from "./models/SyntheticsTestPauseStatus";
+export { SyntheticsTestVersionActionMetadata } from "./models/SyntheticsTestVersionActionMetadata";
+export { SyntheticsTestVersionAttributes } from "./models/SyntheticsTestVersionAttributes";
+export { SyntheticsTestVersionAuthor } from "./models/SyntheticsTestVersionAuthor";
+export { SyntheticsTestVersionChangeAttributes } from "./models/SyntheticsTestVersionChangeAttributes";
+export { SyntheticsTestVersionChangeData } from "./models/SyntheticsTestVersionChangeData";
+export { SyntheticsTestVersionChangeMetadataItem } from "./models/SyntheticsTestVersionChangeMetadataItem";
+export { SyntheticsTestVersionChangeType } from "./models/SyntheticsTestVersionChangeType";
+export { SyntheticsTestVersionData } from "./models/SyntheticsTestVersionData";
+export { SyntheticsTestVersionDiffPatchDiff } from "./models/SyntheticsTestVersionDiffPatchDiff";
+export { SyntheticsTestVersionDiffPatches } from "./models/SyntheticsTestVersionDiffPatches";
+export { SyntheticsTestVersionHistoryMeta } from "./models/SyntheticsTestVersionHistoryMeta";
+export { SyntheticsTestVersionHistoryResponse } from "./models/SyntheticsTestVersionHistoryResponse";
+export { SyntheticsTestVersionResponse } from "./models/SyntheticsTestVersionResponse";
+export { SyntheticsTestVersionType } from "./models/SyntheticsTestVersionType";
 export { SyntheticsVariableParser } from "./models/SyntheticsVariableParser";

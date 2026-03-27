@@ -11106,6 +11106,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Maintenance",
   },
+  "SyntheticsApi.V2.GetApiMultistepSubtests": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsApiMultistepSubtestsResponse",
+  },
+  "SyntheticsApi.V2.GetApiMultistepSubtestParents": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsApiMultistepParentTestsResponse",
+  },
   "SyntheticsApi.V2.GetOnDemandConcurrencyCap": {
     operationResponseType: "OnDemandConcurrencyCapResponse",
   },
@@ -11171,6 +11185,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsSuiteResponse",
   },
+  "SyntheticsApi.V2.PatchTestSuite": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SuiteJsonPatchRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsSuiteResponse",
+  },
   "SyntheticsApi.V2.DeleteSyntheticsTests": {
     body: {
       type: "DeletedTestsRequestDeleteRequest",
@@ -11209,6 +11234,47 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "SyntheticsNetworkTestResponse",
+  },
+  "SyntheticsApi.V2.GetTestParentSuites": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestParentSuitesResponse",
+  },
+  "SyntheticsApi.V2.ListSyntheticsTestVersions": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    lastVersionNumber: {
+      type: "number",
+      format: "int64",
+    },
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SyntheticsTestVersionHistoryResponse",
+  },
+  "SyntheticsApi.V2.GetSyntheticsTestVersion": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    versionNumber: {
+      type: "number",
+      format: "int64",
+    },
+    includeChangeMetadata: {
+      type: "boolean",
+      format: "",
+    },
+    onlyCheckExistence: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestVersionResponse",
   },
   "SyntheticsApi.V2.PatchGlobalVariable": {
     variableId: {
@@ -11760,6 +11826,93 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "PermissionsResponse",
+  },
+  "WidgetsApi.V2.SearchWidgets": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    filterWidgetType: {
+      type: "WidgetType",
+      format: "",
+    },
+    filterCreatorHandle: {
+      type: "string",
+      format: "",
+    },
+    filterIsFavorited: {
+      type: "boolean",
+      format: "",
+    },
+    filterTitle: {
+      type: "string",
+      format: "",
+    },
+    filterTags: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "WidgetListResponse",
+  },
+  "WidgetsApi.V2.CreateWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequest",
+      format: "",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.GetWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.UpdateWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequest",
+      format: "",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.DeleteWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
   },
   "WorkflowAutomationApi.V2.CreateWorkflow": {
     body: {
