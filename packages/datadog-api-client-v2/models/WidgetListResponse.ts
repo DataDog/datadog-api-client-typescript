@@ -3,33 +3,28 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { WidgetData } from "./WidgetData";
+import { WidgetIncludedUser } from "./WidgetIncludedUser";
+import { WidgetSearchMeta } from "./WidgetSearchMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Search filter settings.
+ * Response containing a list of widgets.
  */
-export class FlakyTestsSearchFilter {
+export class WidgetListResponse {
   /**
-   * Whether to include the status change history for each flaky test in the response.
-   * When set to true, each test will include a 'history' array with chronological status changes.
-   * Defaults to false.
+   * List of widget resources.
    */
-  "includeHistory"?: boolean;
+  "data": Array<WidgetData>;
   /**
-   * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
-   * - `flaky_test_state`
-   * - `flaky_test_category`
-   * - `@test.name`
-   * - `@test.suite`
-   * - `@test.module`
-   * - `@test.service`
-   * - `@git.repository.id_v2`
-   * - `@git.branch`
-   * - `@test.codeowners`
-   * - `env`
+   * Array of user resources related to the widgets.
    */
-  "query"?: string;
+  "included"?: Array<WidgetIncludedUser>;
+  /**
+   * Metadata about the search results.
+   */
+  "meta"?: WidgetSearchMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,13 +42,18 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeHistory: {
-      baseName: "include_history",
-      type: "boolean",
+    data: {
+      baseName: "data",
+      type: "Array<WidgetData>",
+      required: true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    included: {
+      baseName: "included",
+      type: "Array<WidgetIncludedUser>",
+    },
+    meta: {
+      baseName: "meta",
+      type: "WidgetSearchMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +65,7 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FlakyTestsSearchFilter.attributeTypeMap;
+    return WidgetListResponse.attributeTypeMap;
   }
 
   public constructor() {}

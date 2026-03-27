@@ -3,33 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { WidgetRelationshipItem } from "./WidgetRelationshipItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Search filter settings.
+ * Relationships of the widget resource.
  */
-export class FlakyTestsSearchFilter {
+export class WidgetRelationships {
   /**
-   * Whether to include the status change history for each flaky test in the response.
-   * When set to true, each test will include a 'history' array with chronological status changes.
-   * Defaults to false.
+   * A JSON:API relationship to a user.
    */
-  "includeHistory"?: boolean;
+  "createdBy"?: WidgetRelationshipItem;
   /**
-   * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
-   * - `flaky_test_state`
-   * - `flaky_test_category`
-   * - `@test.name`
-   * - `@test.suite`
-   * - `@test.module`
-   * - `@test.service`
-   * - `@git.repository.id_v2`
-   * - `@git.branch`
-   * - `@test.codeowners`
-   * - `env`
+   * A JSON:API relationship to a user.
    */
-  "query"?: string;
+  "modifiedBy"?: WidgetRelationshipItem;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,13 +36,13 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeHistory: {
-      baseName: "include_history",
-      type: "boolean",
+    createdBy: {
+      baseName: "created_by",
+      type: "WidgetRelationshipItem",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    modifiedBy: {
+      baseName: "modified_by",
+      type: "WidgetRelationshipItem",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +54,7 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FlakyTestsSearchFilter.attributeTypeMap;
+    return WidgetRelationships.attributeTypeMap;
   }
 
   public constructor() {}

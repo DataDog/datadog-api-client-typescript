@@ -3,33 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CreateOrUpdateWidgetRequestData } from "./CreateOrUpdateWidgetRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Search filter settings.
+ * Request body for creating or updating a widget.
  */
-export class FlakyTestsSearchFilter {
+export class CreateOrUpdateWidgetRequest {
   /**
-   * Whether to include the status change history for each flaky test in the response.
-   * When set to true, each test will include a 'history' array with chronological status changes.
-   * Defaults to false.
+   * Data for creating or updating a widget.
    */
-  "includeHistory"?: boolean;
-  /**
-   * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
-   * - `flaky_test_state`
-   * - `flaky_test_category`
-   * - `@test.name`
-   * - `@test.suite`
-   * - `@test.module`
-   * - `@test.service`
-   * - `@git.repository.id_v2`
-   * - `@git.branch`
-   * - `@test.codeowners`
-   * - `env`
-   */
-  "query"?: string;
+  "data": CreateOrUpdateWidgetRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,13 +32,10 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeHistory: {
-      baseName: "include_history",
-      type: "boolean",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "CreateOrUpdateWidgetRequestData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +47,7 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FlakyTestsSearchFilter.attributeTypeMap;
+    return CreateOrUpdateWidgetRequest.attributeTypeMap;
   }
 
   public constructor() {}

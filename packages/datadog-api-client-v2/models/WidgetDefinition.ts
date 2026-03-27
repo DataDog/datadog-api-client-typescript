@@ -3,33 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { WidgetType } from "./WidgetType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Search filter settings.
+ * The definition of a widget, including its type and configuration.
  */
-export class FlakyTestsSearchFilter {
+export class WidgetDefinition {
   /**
-   * Whether to include the status change history for each flaky test in the response.
-   * When set to true, each test will include a 'history' array with chronological status changes.
-   * Defaults to false.
+   * The display title of the widget.
    */
-  "includeHistory"?: boolean;
+  "title": string;
   /**
-   * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
-   * - `flaky_test_state`
-   * - `flaky_test_category`
-   * - `@test.name`
-   * - `@test.suite`
-   * - `@test.module`
-   * - `@test.service`
-   * - `@git.repository.id_v2`
-   * - `@git.branch`
-   * - `@test.codeowners`
-   * - `env`
+   * Widget types that are allowed to be stored as individual records.
+   * This is not a complete list of dashboard and notebook widget types.
    */
-  "query"?: string;
+  "type": WidgetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,13 +37,15 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeHistory: {
-      baseName: "include_history",
-      type: "boolean",
-    },
-    query: {
-      baseName: "query",
+    title: {
+      baseName: "title",
       type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "WidgetType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +57,7 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FlakyTestsSearchFilter.attributeTypeMap;
+    return WidgetDefinition.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,28 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FlakyTestsSearchFilter } from "./FlakyTestsSearchFilter";
-import { FlakyTestsSearchPageOptions } from "./FlakyTestsSearchPageOptions";
-import { FlakyTestsSearchSort } from "./FlakyTestsSearchSort";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for the flaky tests search request.
+ * Metadata about the search results.
  */
-export class FlakyTestsSearchRequestAttributes {
+export class WidgetSearchMeta {
   /**
-   * Search filter settings.
+   * Total number of widgets created by anyone.
    */
-  "filter"?: FlakyTestsSearchFilter;
+  "createdByAnyoneTotal"?: number;
   /**
-   * Pagination attributes for listing flaky tests.
+   * Total number of widgets created by the current user.
    */
-  "page"?: FlakyTestsSearchPageOptions;
+  "createdByYouTotal"?: number;
   /**
-   * Parameter for sorting flaky test results. The default sort is by ascending Fully Qualified Name (FQN). The FQN is the concatenation of the test module, suite, and name.
+   * Total number of widgets favorited by the current user.
    */
-  "sort"?: FlakyTestsSearchSort;
+  "favoritedByYouTotal"?: number;
+  /**
+   * Total number of widgets matching the current filter criteria.
+   */
+  "filteredTotal"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,17 +43,25 @@ export class FlakyTestsSearchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "FlakyTestsSearchFilter",
+    createdByAnyoneTotal: {
+      baseName: "created_by_anyone_total",
+      type: "number",
+      format: "int64",
     },
-    page: {
-      baseName: "page",
-      type: "FlakyTestsSearchPageOptions",
+    createdByYouTotal: {
+      baseName: "created_by_you_total",
+      type: "number",
+      format: "int64",
     },
-    sort: {
-      baseName: "sort",
-      type: "FlakyTestsSearchSort",
+    favoritedByYouTotal: {
+      baseName: "favorited_by_you_total",
+      type: "number",
+      format: "int64",
+    },
+    filteredTotal: {
+      baseName: "filtered_total",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +73,7 @@ export class FlakyTestsSearchRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FlakyTestsSearchRequestAttributes.attributeTypeMap;
+    return WidgetSearchMeta.attributeTypeMap;
   }
 
   public constructor() {}

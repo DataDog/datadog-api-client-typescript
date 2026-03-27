@@ -7,29 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Search filter settings.
+ * Relationship data referencing a user resource.
  */
-export class FlakyTestsSearchFilter {
+export class WidgetRelationshipData {
   /**
-   * Whether to include the status change history for each flaky test in the response.
-   * When set to true, each test will include a 'history' array with chronological status changes.
-   * Defaults to false.
+   * The unique identifier of the user.
    */
-  "includeHistory"?: boolean;
+  "id": string;
   /**
-   * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
-   * - `flaky_test_state`
-   * - `flaky_test_category`
-   * - `@test.name`
-   * - `@test.suite`
-   * - `@test.module`
-   * - `@test.service`
-   * - `@git.repository.id_v2`
-   * - `@git.branch`
-   * - `@test.codeowners`
-   * - `env`
+   * Users resource type.
    */
-  "query"?: string;
+  "type": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,13 +35,15 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeHistory: {
-      baseName: "include_history",
-      type: "boolean",
-    },
-    query: {
-      baseName: "query",
+    id: {
+      baseName: "id",
       type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +55,7 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FlakyTestsSearchFilter.attributeTypeMap;
+    return WidgetRelationshipData.attributeTypeMap;
   }
 
   public constructor() {}

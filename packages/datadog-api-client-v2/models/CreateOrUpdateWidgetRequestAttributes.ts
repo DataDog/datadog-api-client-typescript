@@ -3,33 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { WidgetDefinition } from "./WidgetDefinition";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Search filter settings.
+ * Attributes for creating or updating a widget.
  */
-export class FlakyTestsSearchFilter {
+export class CreateOrUpdateWidgetRequestAttributes {
   /**
-   * Whether to include the status change history for each flaky test in the response.
-   * When set to true, each test will include a 'history' array with chronological status changes.
-   * Defaults to false.
+   * The definition of a widget, including its type and configuration.
    */
-  "includeHistory"?: boolean;
+  "definition": WidgetDefinition;
   /**
-   * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
-   * - `flaky_test_state`
-   * - `flaky_test_category`
-   * - `@test.name`
-   * - `@test.suite`
-   * - `@test.module`
-   * - `@test.service`
-   * - `@git.repository.id_v2`
-   * - `@git.branch`
-   * - `@test.codeowners`
-   * - `env`
+   * User-defined tags for organizing the widget.
    */
-  "query"?: string;
+  "tags"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,13 +36,14 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeHistory: {
-      baseName: "include_history",
-      type: "boolean",
+    definition: {
+      baseName: "definition",
+      type: "WidgetDefinition",
+      required: true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +55,7 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FlakyTestsSearchFilter.attributeTypeMap;
+    return CreateOrUpdateWidgetRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}
