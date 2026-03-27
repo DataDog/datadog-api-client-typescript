@@ -10109,7 +10109,70 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ViewershipHistorySessionArray",
   },
-  "ServiceScorecardsApi.V2.ListScorecardOutcomes": {
+  "ScorecardsApi.V2.ListScorecardCampaigns": {
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    filterCampaignName: {
+      type: "string",
+      format: "",
+    },
+    filterCampaignStatus: {
+      type: "string",
+      format: "",
+    },
+    filterCampaignOwner: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListCampaignsResponse",
+  },
+  "ScorecardsApi.V2.CreateScorecardCampaign": {
+    body: {
+      type: "CreateCampaignRequest",
+      format: "",
+    },
+    operationResponseType: "CampaignResponse",
+  },
+  "ScorecardsApi.V2.GetScorecardCampaign": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    includeMeta: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "CampaignResponse",
+  },
+  "ScorecardsApi.V2.UpdateScorecardCampaign": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateCampaignRequest",
+      format: "",
+    },
+    operationResponseType: "CampaignResponse",
+  },
+  "ScorecardsApi.V2.DeleteScorecardCampaign": {
+    campaignId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ScorecardsApi.V2.ListScorecardOutcomes": {
     pageSize: {
       type: "number",
       format: "int64",
@@ -10152,21 +10215,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OutcomesResponse",
   },
-  "ServiceScorecardsApi.V2.UpdateScorecardOutcomesAsync": {
+  "ScorecardsApi.V2.UpdateScorecardOutcomes": {
     body: {
       type: "UpdateOutcomesAsyncRequest",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "ServiceScorecardsApi.V2.CreateScorecardOutcomesBatch": {
+  "ScorecardsApi.V2.CreateScorecardOutcomesBatch": {
     body: {
       type: "OutcomesBatchRequest",
       format: "",
     },
     operationResponseType: "OutcomesBatchResponse",
   },
-  "ServiceScorecardsApi.V2.ListScorecardRules": {
+  "ScorecardsApi.V2.ListScorecardRules": {
     pageSize: {
       type: "number",
       format: "int64",
@@ -10209,14 +10272,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListRulesResponse",
   },
-  "ServiceScorecardsApi.V2.CreateScorecardRule": {
+  "ScorecardsApi.V2.CreateScorecardRule": {
     body: {
       type: "CreateRuleRequest",
       format: "",
     },
     operationResponseType: "CreateRuleResponse",
   },
-  "ServiceScorecardsApi.V2.UpdateScorecardRule": {
+  "ScorecardsApi.V2.UpdateScorecardRule": {
     ruleId: {
       type: "string",
       format: "",
@@ -10227,12 +10290,35 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UpdateRuleResponse",
   },
-  "ServiceScorecardsApi.V2.DeleteScorecardRule": {
+  "ScorecardsApi.V2.DeleteScorecardRule": {
     ruleId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "ScorecardsApi.V2.ListScorecards": {
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    filterScorecardId: {
+      type: "string",
+      format: "",
+    },
+    filterScorecardName: {
+      type: "string",
+      format: "",
+    },
+    filterScorecardDescription: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListScorecardsResponse",
   },
   "SeatsApi.V2.GetSeatsUsers": {
     productCode: {
@@ -11760,6 +11846,93 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "PermissionsResponse",
+  },
+  "WidgetsApi.V2.SearchWidgets": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    filterWidgetType: {
+      type: "WidgetType",
+      format: "",
+    },
+    filterCreatorHandle: {
+      type: "string",
+      format: "",
+    },
+    filterIsFavorited: {
+      type: "boolean",
+      format: "",
+    },
+    filterTitle: {
+      type: "string",
+      format: "",
+    },
+    filterTags: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "WidgetListResponse",
+  },
+  "WidgetsApi.V2.CreateWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequest",
+      format: "",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.GetWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.UpdateWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequest",
+      format: "",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.DeleteWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
   },
   "WorkflowAutomationApi.V2.CreateWorkflow": {
     body: {
