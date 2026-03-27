@@ -114,6 +114,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof PUBLISHED_APP_PERCENTAGE
   | typeof SERVERLESS_APPS_USAGE
   | typeof SERVERLESS_APPS_PERCENTAGE
+  | typeof SERVERLESS_APPS_APM_USAGE
+  | typeof SERVERLESS_APPS_APM_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof SNMP_PERCENTAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
@@ -295,6 +297,8 @@ export const PUBLISHED_APP_USAGE = "published_app_usage";
 export const PUBLISHED_APP_PERCENTAGE = "published_app_percentage";
 export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
 export const SERVERLESS_APPS_PERCENTAGE = "serverless_apps_percentage";
+export const SERVERLESS_APPS_APM_USAGE = "serverless_apps_apm_usage";
+export const SERVERLESS_APPS_APM_PERCENTAGE = "serverless_apps_apm_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";
 export const UNIVERSAL_SERVICE_MONITORING_USAGE =
