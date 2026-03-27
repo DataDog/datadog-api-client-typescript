@@ -7,11 +7,14 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.TeamsApi(configuration);
 
+// there is a valid "team_connection" in the system
+const TEAM_CONNECTION_ID = process.env.TEAM_CONNECTION_ID as string;
+
 const params: v2.TeamsApiDeleteTeamConnectionsRequest = {
   body: {
     data: [
       {
-        id: "12345678-1234-5678-9abc-123456789012",
+        id: TEAM_CONNECTION_ID,
         type: "team_connection",
       },
     ],

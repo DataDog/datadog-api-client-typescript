@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.createTeamConnections"] = true;
 const apiInstance = new v2.TeamsApi(configuration);
 
 // there is a valid "dd_team" in the system
