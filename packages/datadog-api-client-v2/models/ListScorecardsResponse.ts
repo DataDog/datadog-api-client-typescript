@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
+import { ScorecardListResponseData } from "./ScorecardListResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * Response containing a list of scorecards.
  */
-export class UpdateRuleRequestData {
+export class ListScorecardsResponse {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * Array of scorecards.
    */
-  "attributes"?: RuleAttributesRequest;
-  /**
-   * The JSON:API type for scorecard rules.
-   */
-  "type"?: RuleType;
+  "data": Array<ScorecardListResponseData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +32,10 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributesRequest",
-    },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    data: {
+      baseName: "data",
+      type: "Array<ScorecardListResponseData>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +47,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return ListScorecardsResponse.attributeTypeMap;
   }
 
   public constructor() {}

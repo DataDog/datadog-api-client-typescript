@@ -383,6 +383,9 @@ import { CIAppWarning } from "./CIAppWarning";
 import { CSMAgentsMetadata } from "./CSMAgentsMetadata";
 import { CVSS } from "./CVSS";
 import { CalculatedField } from "./CalculatedField";
+import { CampaignResponse } from "./CampaignResponse";
+import { CampaignResponseAttributes } from "./CampaignResponseAttributes";
+import { CampaignResponseData } from "./CampaignResponseData";
 import { CancelDataDeletionResponseBody } from "./CancelDataDeletionResponseBody";
 import { Case } from "./Case";
 import { CaseAssign } from "./CaseAssign";
@@ -642,6 +645,9 @@ import { CreateAttachmentRequest } from "./CreateAttachmentRequest";
 import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
 import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
 import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
+import { CreateCampaignRequest } from "./CreateCampaignRequest";
+import { CreateCampaignRequestAttributes } from "./CreateCampaignRequestAttributes";
+import { CreateCampaignRequestData } from "./CreateCampaignRequestData";
 import { CreateCaseRequestArray } from "./CreateCaseRequestArray";
 import { CreateCaseRequestData } from "./CreateCaseRequestData";
 import { CreateCaseRequestDataAttributes } from "./CreateCaseRequestDataAttributes";
@@ -700,6 +706,9 @@ import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificat
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
+import { CreateOrUpdateWidgetRequest } from "./CreateOrUpdateWidgetRequest";
+import { CreateOrUpdateWidgetRequestAttributes } from "./CreateOrUpdateWidgetRequestAttributes";
+import { CreateOrUpdateWidgetRequestData } from "./CreateOrUpdateWidgetRequestData";
 import { CreatePageRequest } from "./CreatePageRequest";
 import { CreatePageRequestData } from "./CreatePageRequestData";
 import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttributes";
@@ -1775,6 +1784,7 @@ import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataIt
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
 import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
+import { ListCampaignsResponse } from "./ListCampaignsResponse";
 import { ListConnectionsResponse } from "./ListConnectionsResponse";
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
@@ -1807,6 +1817,7 @@ import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseL
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
+import { ListScorecardsResponse } from "./ListScorecardsResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
@@ -2279,6 +2290,7 @@ import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseInclud
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
+import { PaginatedResponseMeta } from "./PaginatedResponseMeta";
 import { Pagination } from "./Pagination";
 import { PaginationMeta } from "./PaginationMeta";
 import { PaginationMetaPage } from "./PaginationMetaPage";
@@ -2625,6 +2637,7 @@ import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
 import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy";
 import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
 import { RuleAttributes } from "./RuleAttributes";
+import { RuleAttributesRequest } from "./RuleAttributesRequest";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
@@ -2755,6 +2768,8 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { ScorecardListResponseAttributes } from "./ScorecardListResponseAttributes";
+import { ScorecardListResponseData } from "./ScorecardListResponseData";
 import { SeatUserData } from "./SeatUserData";
 import { SeatUserDataArray } from "./SeatUserDataArray";
 import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
@@ -3375,6 +3390,9 @@ import { UpdateAppsDatastoreItemRequestDataAttributesItemChanges } from "./Updat
 import { UpdateAppsDatastoreRequest } from "./UpdateAppsDatastoreRequest";
 import { UpdateAppsDatastoreRequestData } from "./UpdateAppsDatastoreRequestData";
 import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreRequestDataAttributes";
+import { UpdateCampaignRequest } from "./UpdateCampaignRequest";
+import { UpdateCampaignRequestAttributes } from "./UpdateCampaignRequestAttributes";
+import { UpdateCampaignRequestData } from "./UpdateCampaignRequestData";
 import { UpdateConnectionRequest } from "./UpdateConnectionRequest";
 import { UpdateConnectionRequestData } from "./UpdateConnectionRequestData";
 import { UpdateConnectionRequestDataAttributes } from "./UpdateConnectionRequestDataAttributes";
@@ -3512,6 +3530,17 @@ import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatcherArray } from "./WatcherArray";
 import { WatcherData } from "./WatcherData";
 import { WatcherDataAttributes } from "./WatcherDataAttributes";
+import { WidgetAttributes } from "./WidgetAttributes";
+import { WidgetData } from "./WidgetData";
+import { WidgetDefinition } from "./WidgetDefinition";
+import { WidgetIncludedUser } from "./WidgetIncludedUser";
+import { WidgetIncludedUserAttributes } from "./WidgetIncludedUserAttributes";
+import { WidgetListResponse } from "./WidgetListResponse";
+import { WidgetRelationshipData } from "./WidgetRelationshipData";
+import { WidgetRelationshipItem } from "./WidgetRelationshipItem";
+import { WidgetRelationships } from "./WidgetRelationships";
+import { WidgetResponse } from "./WidgetResponse";
+import { WidgetSearchMeta } from "./WidgetSearchMeta";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -3806,6 +3835,8 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppTestEventTypeName: ["citest"],
   CIAppTestLevel: ["session", "module", "suite", "test"],
   CSMAgentsType: ["datadog_agent"],
+  CampaignStatus: ["in_progress", "not_started", "completed"],
+  CampaignType: ["campaign"],
   Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
   CaseDataType: ["cases"],
   CaseManagementProjectDataType: ["projects"],
@@ -5006,6 +5037,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleTargetType: ["schedules"],
   ScheduleUpdateRequestDataType: ["schedules"],
   ScheduleUserType: ["users"],
+  ScorecardListType: ["scorecard"],
   ScorecardType: ["scorecard"],
   SearchIssuesIncludeQueryParameterItem: [
     "issue",
@@ -5587,6 +5619,12 @@ const enumsMap: { [key: string]: any[] } = {
     "saturday",
     "sunday",
   ],
+  WidgetExperienceType: [
+    "ccm_reports",
+    "logs_reports",
+    "csv_reports",
+    "product_analytics",
+  ],
   WidgetLiveSpan: [
     "1m",
     "5m",
@@ -5603,6 +5641,23 @@ const enumsMap: { [key: string]: any[] } = {
     "6mo",
     "1y",
     "alert",
+  ],
+  WidgetType: [
+    "bar_chart",
+    "change",
+    "cloud_cost_summary",
+    "cohort",
+    "funnel",
+    "geomap",
+    "list_stream",
+    "query_table",
+    "query_value",
+    "retention_curve",
+    "sankey",
+    "sunburst",
+    "timeseries",
+    "toplist",
+    "treemap",
   ],
   WorkflowDataType: ["workflows"],
   WorkflowUserRelationshipType: ["users"],
@@ -6066,6 +6121,9 @@ const typeMap: { [index: string]: any } = {
   CSMAgentsMetadata: CSMAgentsMetadata,
   CVSS: CVSS,
   CalculatedField: CalculatedField,
+  CampaignResponse: CampaignResponse,
+  CampaignResponseAttributes: CampaignResponseAttributes,
+  CampaignResponseData: CampaignResponseData,
   CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   Case: Case,
   CaseAssign: CaseAssign,
@@ -6368,6 +6426,9 @@ const typeMap: { [index: string]: any } = {
   CreateAttachmentRequestDataAttributes: CreateAttachmentRequestDataAttributes,
   CreateAttachmentRequestDataAttributesAttachment:
     CreateAttachmentRequestDataAttributesAttachment,
+  CreateCampaignRequest: CreateCampaignRequest,
+  CreateCampaignRequestAttributes: CreateCampaignRequestAttributes,
+  CreateCampaignRequestData: CreateCampaignRequestData,
   CreateCaseRequestArray: CreateCaseRequestArray,
   CreateCaseRequestData: CreateCaseRequestData,
   CreateCaseRequestDataAttributes: CreateCaseRequestDataAttributes,
@@ -6442,6 +6503,9 @@ const typeMap: { [index: string]: any } = {
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
+  CreateOrUpdateWidgetRequest: CreateOrUpdateWidgetRequest,
+  CreateOrUpdateWidgetRequestAttributes: CreateOrUpdateWidgetRequestAttributes,
+  CreateOrUpdateWidgetRequestData: CreateOrUpdateWidgetRequestData,
   CreatePageRequest: CreatePageRequest,
   CreatePageRequestData: CreatePageRequestData,
   CreatePageRequestDataAttributes: CreatePageRequestDataAttributes,
@@ -7687,6 +7751,7 @@ const typeMap: { [index: string]: any } = {
   ListAppsResponseMeta: ListAppsResponseMeta,
   ListAppsResponseMetaPage: ListAppsResponseMetaPage,
   ListAssetsSBOMsResponse: ListAssetsSBOMsResponse,
+  ListCampaignsResponse: ListCampaignsResponse,
   ListConnectionsResponse: ListConnectionsResponse,
   ListConnectionsResponseData: ListConnectionsResponseData,
   ListConnectionsResponseDataAttributes: ListConnectionsResponseDataAttributes,
@@ -7722,6 +7787,7 @@ const typeMap: { [index: string]: any } = {
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,
+  ListScorecardsResponse: ListScorecardsResponse,
   ListSecurityFindingsResponse: ListSecurityFindingsResponse,
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
@@ -8356,6 +8422,7 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponseLinks: OutcomesResponseLinks,
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
+  PaginatedResponseMeta: PaginatedResponseMeta,
   Pagination: Pagination,
   PaginationMeta: PaginationMeta,
   PaginationMetaPage: PaginationMetaPage,
@@ -8744,6 +8811,7 @@ const typeMap: { [index: string]: any } = {
   RoutingRuleRelationshipsPolicy: RoutingRuleRelationshipsPolicy,
   RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
   RuleAttributes: RuleAttributes,
+  RuleAttributesRequest: RuleAttributesRequest,
   RuleOutcomeRelationships: RuleOutcomeRelationships,
   RuleUser: RuleUser,
   RuleVersionHistory: RuleVersionHistory,
@@ -8895,6 +8963,8 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataRelationships,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
+  ScorecardListResponseAttributes: ScorecardListResponseAttributes,
+  ScorecardListResponseData: ScorecardListResponseData,
   SeatUserData: SeatUserData,
   SeatUserDataArray: SeatUserDataArray,
   SeatUserDataAttributes: SeatUserDataAttributes,
@@ -9673,6 +9743,9 @@ const typeMap: { [index: string]: any } = {
   UpdateAppsDatastoreRequestData: UpdateAppsDatastoreRequestData,
   UpdateAppsDatastoreRequestDataAttributes:
     UpdateAppsDatastoreRequestDataAttributes,
+  UpdateCampaignRequest: UpdateCampaignRequest,
+  UpdateCampaignRequestAttributes: UpdateCampaignRequestAttributes,
+  UpdateCampaignRequestData: UpdateCampaignRequestData,
   UpdateConnectionRequest: UpdateConnectionRequest,
   UpdateConnectionRequestData: UpdateConnectionRequestData,
   UpdateConnectionRequestDataAttributes: UpdateConnectionRequestDataAttributes,
@@ -9830,6 +9903,17 @@ const typeMap: { [index: string]: any } = {
   WatcherArray: WatcherArray,
   WatcherData: WatcherData,
   WatcherDataAttributes: WatcherDataAttributes,
+  WidgetAttributes: WidgetAttributes,
+  WidgetData: WidgetData,
+  WidgetDefinition: WidgetDefinition,
+  WidgetIncludedUser: WidgetIncludedUser,
+  WidgetIncludedUserAttributes: WidgetIncludedUserAttributes,
+  WidgetListResponse: WidgetListResponse,
+  WidgetRelationshipData: WidgetRelationshipData,
+  WidgetRelationshipItem: WidgetRelationshipItem,
+  WidgetRelationships: WidgetRelationships,
+  WidgetResponse: WidgetResponse,
+  WidgetSearchMeta: WidgetSearchMeta,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,

@@ -3,23 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
+import { WidgetIncludedUserAttributes } from "./WidgetIncludedUserAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * A user resource included in the response.
  */
-export class UpdateRuleRequestData {
+export class WidgetIncludedUser {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * Attributes of an included user resource.
    */
-  "attributes"?: RuleAttributesRequest;
+  "attributes"?: WidgetIncludedUserAttributes;
   /**
-   * The JSON:API type for scorecard rules.
+   * The unique identifier of the user.
    */
-  "type"?: RuleType;
+  "id": string;
+  /**
+   * Users resource type.
+   */
+  "type": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,11 +42,17 @@ export class UpdateRuleRequestData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "RuleAttributesRequest",
+      type: "WidgetIncludedUserAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "RuleType",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +64,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return WidgetIncludedUser.attributeTypeMap;
   }
 
   public constructor() {}

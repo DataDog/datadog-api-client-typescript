@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
+import { WidgetRelationshipData } from "./WidgetRelationshipData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * A JSON:API relationship to a user.
  */
-export class UpdateRuleRequestData {
+export class WidgetRelationshipItem {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * Relationship data referencing a user resource.
    */
-  "attributes"?: RuleAttributesRequest;
-  /**
-   * The JSON:API type for scorecard rules.
-   */
-  "type"?: RuleType;
+  "data"?: WidgetRelationshipData;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +32,9 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributesRequest",
-    },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    data: {
+      baseName: "data",
+      type: "WidgetRelationshipData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +46,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return WidgetRelationshipItem.attributeTypeMap;
   }
 
   public constructor() {}

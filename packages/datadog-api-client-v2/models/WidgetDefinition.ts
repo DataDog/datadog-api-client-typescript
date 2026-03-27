@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
+import { WidgetType } from "./WidgetType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * The definition of a widget, including its type and configuration.
  */
-export class UpdateRuleRequestData {
+export class WidgetDefinition {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * The display title of the widget.
    */
-  "attributes"?: RuleAttributesRequest;
+  "title": string;
   /**
-   * The JSON:API type for scorecard rules.
+   * Widget types that are allowed to be stored as individual records.
+   * This is not a complete list of dashboard and notebook widget types.
    */
-  "type"?: RuleType;
+  "type": WidgetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +37,15 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributesRequest",
+    title: {
+      baseName: "title",
+      type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "RuleType",
+      type: "WidgetType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +57,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return WidgetDefinition.attributeTypeMap;
   }
 
   public constructor() {}

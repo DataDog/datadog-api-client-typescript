@@ -919,6 +919,23 @@ export {
 } from "./apis/RumRetentionFiltersApi";
 
 export {
+  ScorecardsApiCreateScorecardCampaignRequest,
+  ScorecardsApiCreateScorecardOutcomesBatchRequest,
+  ScorecardsApiCreateScorecardRuleRequest,
+  ScorecardsApiDeleteScorecardCampaignRequest,
+  ScorecardsApiDeleteScorecardRuleRequest,
+  ScorecardsApiGetScorecardCampaignRequest,
+  ScorecardsApiListScorecardCampaignsRequest,
+  ScorecardsApiListScorecardOutcomesRequest,
+  ScorecardsApiListScorecardRulesRequest,
+  ScorecardsApiListScorecardsRequest,
+  ScorecardsApiUpdateScorecardCampaignRequest,
+  ScorecardsApiUpdateScorecardOutcomesRequest,
+  ScorecardsApiUpdateScorecardRuleRequest,
+  ScorecardsApi,
+} from "./apis/ScorecardsApi";
+
+export {
   SeatsApiAssignSeatsUserRequest,
   SeatsApiGetSeatsUsersRequest,
   SeatsApiUnassignSeatsUserRequest,
@@ -1043,17 +1060,6 @@ export {
   ServiceLevelObjectivesApiGetSloStatusRequest,
   ServiceLevelObjectivesApi,
 } from "./apis/ServiceLevelObjectivesApi";
-
-export {
-  ServiceScorecardsApiCreateScorecardOutcomesBatchRequest,
-  ServiceScorecardsApiCreateScorecardRuleRequest,
-  ServiceScorecardsApiDeleteScorecardRuleRequest,
-  ServiceScorecardsApiListScorecardOutcomesRequest,
-  ServiceScorecardsApiListScorecardRulesRequest,
-  ServiceScorecardsApiUpdateScorecardOutcomesAsyncRequest,
-  ServiceScorecardsApiUpdateScorecardRuleRequest,
-  ServiceScorecardsApi,
-} from "./apis/ServiceScorecardsApi";
 
 export {
   ServiceNowIntegrationApiCreateServiceNowTemplateRequest,
@@ -1226,6 +1232,15 @@ export {
   UsersApiUpdateUserRequest,
   UsersApi,
 } from "./apis/UsersApi";
+
+export {
+  WidgetsApiCreateWidgetRequest,
+  WidgetsApiDeleteWidgetRequest,
+  WidgetsApiGetWidgetRequest,
+  WidgetsApiSearchWidgetsRequest,
+  WidgetsApiUpdateWidgetRequest,
+  WidgetsApi,
+} from "./apis/WidgetsApi";
 
 export {
   WorkflowAutomationApiCancelWorkflowInstanceRequest,
@@ -1685,6 +1700,11 @@ export { BulkPutAppsDatastoreItemsRequest } from "./models/BulkPutAppsDatastoreI
 export { BulkPutAppsDatastoreItemsRequestData } from "./models/BulkPutAppsDatastoreItemsRequestData";
 export { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./models/BulkPutAppsDatastoreItemsRequestDataAttributes";
 export { CalculatedField } from "./models/CalculatedField";
+export { CampaignResponse } from "./models/CampaignResponse";
+export { CampaignResponseAttributes } from "./models/CampaignResponseAttributes";
+export { CampaignResponseData } from "./models/CampaignResponseData";
+export { CampaignStatus } from "./models/CampaignStatus";
+export { CampaignType } from "./models/CampaignType";
 export { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionResponseBody";
 export { Case } from "./models/Case";
 export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
@@ -2088,6 +2108,9 @@ export { CreateAttachmentRequest } from "./models/CreateAttachmentRequest";
 export { CreateAttachmentRequestData } from "./models/CreateAttachmentRequestData";
 export { CreateAttachmentRequestDataAttributes } from "./models/CreateAttachmentRequestDataAttributes";
 export { CreateAttachmentRequestDataAttributesAttachment } from "./models/CreateAttachmentRequestDataAttributesAttachment";
+export { CreateCampaignRequest } from "./models/CreateCampaignRequest";
+export { CreateCampaignRequestAttributes } from "./models/CreateCampaignRequestAttributes";
+export { CreateCampaignRequestData } from "./models/CreateCampaignRequestData";
 export { CreateCaseRequestArray } from "./models/CreateCaseRequestArray";
 export { CreateCaseRequestData } from "./models/CreateCaseRequestData";
 export { CreateCaseRequestDataAttributes } from "./models/CreateCaseRequestDataAttributes";
@@ -2152,6 +2175,9 @@ export { CreateOnCallNotificationRuleRequestData } from "./models/CreateOnCallNo
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
+export { CreateOrUpdateWidgetRequest } from "./models/CreateOrUpdateWidgetRequest";
+export { CreateOrUpdateWidgetRequestAttributes } from "./models/CreateOrUpdateWidgetRequestAttributes";
+export { CreateOrUpdateWidgetRequestData } from "./models/CreateOrUpdateWidgetRequestData";
 export { CreatePageRequest } from "./models/CreatePageRequest";
 export { CreatePageRequestData } from "./models/CreatePageRequestData";
 export { CreatePageRequestDataAttributes } from "./models/CreatePageRequestDataAttributes";
@@ -3446,6 +3472,7 @@ export { ListAppsResponseDataItemsRelationships } from "./models/ListAppsRespons
 export { ListAppsResponseMeta } from "./models/ListAppsResponseMeta";
 export { ListAppsResponseMetaPage } from "./models/ListAppsResponseMetaPage";
 export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
+export { ListCampaignsResponse } from "./models/ListCampaignsResponse";
 export { ListConnectionsResponse } from "./models/ListConnectionsResponse";
 export { ListConnectionsResponseData } from "./models/ListConnectionsResponseData";
 export { ListConnectionsResponseDataAttributes } from "./models/ListConnectionsResponseDataAttributes";
@@ -3481,6 +3508,7 @@ export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogRe
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
+export { ListScorecardsResponse } from "./models/ListScorecardsResponse";
 export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 export { ListTagsResponse } from "./models/ListTagsResponse";
 export { ListTagsResponseData } from "./models/ListTagsResponseData";
@@ -4272,6 +4300,7 @@ export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { PageUrgency } from "./models/PageUrgency";
+export { PaginatedResponseMeta } from "./models/PaginatedResponseMeta";
 export { Pagination } from "./models/Pagination";
 export { PaginationMeta } from "./models/PaginationMeta";
 export { PaginationMetaPage } from "./models/PaginationMetaPage";
@@ -4639,6 +4668,7 @@ export { RoutingRuleRelationshipsPolicyData } from "./models/RoutingRuleRelation
 export { RoutingRuleRelationshipsPolicyDataType } from "./models/RoutingRuleRelationshipsPolicyDataType";
 export { RoutingRuleType } from "./models/RoutingRuleType";
 export { RuleAttributes } from "./models/RuleAttributes";
+export { RuleAttributesRequest } from "./models/RuleAttributesRequest";
 export { RuleOutcomeRelationships } from "./models/RuleOutcomeRelationships";
 export { RulesetResp } from "./models/RulesetResp";
 export { RulesetRespArray } from "./models/RulesetRespArray";
@@ -4850,6 +4880,9 @@ export { ScheduleUpdateRequestDataType } from "./models/ScheduleUpdateRequestDat
 export { ScheduleUser } from "./models/ScheduleUser";
 export { ScheduleUserAttributes } from "./models/ScheduleUserAttributes";
 export { ScheduleUserType } from "./models/ScheduleUserType";
+export { ScorecardListResponseAttributes } from "./models/ScorecardListResponseAttributes";
+export { ScorecardListResponseData } from "./models/ScorecardListResponseData";
+export { ScorecardListType } from "./models/ScorecardListType";
 export { ScorecardType } from "./models/ScorecardType";
 export { SearchIssuesIncludeQueryParameterItem } from "./models/SearchIssuesIncludeQueryParameterItem";
 export { SeatAssignmentsDataType } from "./models/SeatAssignmentsDataType";
@@ -5688,6 +5721,9 @@ export { UpdateAppsDatastoreItemRequestDataType } from "./models/UpdateAppsDatas
 export { UpdateAppsDatastoreRequest } from "./models/UpdateAppsDatastoreRequest";
 export { UpdateAppsDatastoreRequestData } from "./models/UpdateAppsDatastoreRequestData";
 export { UpdateAppsDatastoreRequestDataAttributes } from "./models/UpdateAppsDatastoreRequestDataAttributes";
+export { UpdateCampaignRequest } from "./models/UpdateCampaignRequest";
+export { UpdateCampaignRequestAttributes } from "./models/UpdateCampaignRequestAttributes";
+export { UpdateCampaignRequestData } from "./models/UpdateCampaignRequestData";
 export { UpdateConnectionRequest } from "./models/UpdateConnectionRequest";
 export { UpdateConnectionRequestData } from "./models/UpdateConnectionRequestData";
 export { UpdateConnectionRequestDataAttributes } from "./models/UpdateConnectionRequestDataAttributes";
@@ -5869,7 +5905,20 @@ export { WatcherData } from "./models/WatcherData";
 export { WatcherDataAttributes } from "./models/WatcherDataAttributes";
 export { WatcherDataType } from "./models/WatcherDataType";
 export { Weekday } from "./models/Weekday";
+export { WidgetAttributes } from "./models/WidgetAttributes";
+export { WidgetData } from "./models/WidgetData";
+export { WidgetDefinition } from "./models/WidgetDefinition";
+export { WidgetExperienceType } from "./models/WidgetExperienceType";
+export { WidgetIncludedUser } from "./models/WidgetIncludedUser";
+export { WidgetIncludedUserAttributes } from "./models/WidgetIncludedUserAttributes";
+export { WidgetListResponse } from "./models/WidgetListResponse";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
+export { WidgetRelationshipData } from "./models/WidgetRelationshipData";
+export { WidgetRelationshipItem } from "./models/WidgetRelationshipItem";
+export { WidgetRelationships } from "./models/WidgetRelationships";
+export { WidgetResponse } from "./models/WidgetResponse";
+export { WidgetSearchMeta } from "./models/WidgetSearchMeta";
+export { WidgetType } from "./models/WidgetType";
 export { WorkflowData } from "./models/WorkflowData";
 export { WorkflowDataAttributes } from "./models/WorkflowDataAttributes";
 export { WorkflowDataRelationships } from "./models/WorkflowDataRelationships";

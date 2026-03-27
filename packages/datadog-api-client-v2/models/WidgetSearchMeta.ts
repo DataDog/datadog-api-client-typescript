@@ -3,23 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * Metadata about the search results.
  */
-export class UpdateRuleRequestData {
+export class WidgetSearchMeta {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * Total number of widgets created by anyone.
    */
-  "attributes"?: RuleAttributesRequest;
+  "createdByAnyoneTotal"?: number;
   /**
-   * The JSON:API type for scorecard rules.
+   * Total number of widgets created by the current user.
    */
-  "type"?: RuleType;
+  "createdByYouTotal"?: number;
+  /**
+   * Total number of widgets favorited by the current user.
+   */
+  "favoritedByYouTotal"?: number;
+  /**
+   * Total number of widgets matching the current filter criteria.
+   */
+  "filteredTotal"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +43,25 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributesRequest",
+    createdByAnyoneTotal: {
+      baseName: "created_by_anyone_total",
+      type: "number",
+      format: "int64",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    createdByYouTotal: {
+      baseName: "created_by_you_total",
+      type: "number",
+      format: "int64",
+    },
+    favoritedByYouTotal: {
+      baseName: "favorited_by_you_total",
+      type: "number",
+      format: "int64",
+    },
+    filteredTotal: {
+      baseName: "filtered_total",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +73,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return WidgetSearchMeta.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributes } from "./RuleAttributes";
+import { RuleAttributesRequest } from "./RuleAttributesRequest";
 import { RuleType } from "./RuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,9 +13,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CreateRuleRequestData {
   /**
-   * Details of a rule.
+   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
    */
-  "attributes"?: RuleAttributes;
+  "attributes"?: RuleAttributesRequest;
   /**
    * The JSON:API type for scorecard rules.
    */
@@ -39,7 +39,7 @@ export class CreateRuleRequestData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "RuleAttributes",
+      type: "RuleAttributesRequest",
     },
     type: {
       baseName: "type",
