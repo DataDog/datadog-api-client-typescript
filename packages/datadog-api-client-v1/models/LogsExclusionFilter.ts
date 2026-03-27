@@ -16,6 +16,11 @@ export class LogsExclusionFilter {
    */
   "query"?: string;
   /**
+   * Sample attribute to use for the sampling of logs going through this exclusion filter.
+   * When set, only the logs with the specified attribute are sampled.
+   */
+  "sampleAttribute"?: string;
+  /**
    * Sample rate to apply to logs going through this exclusion filter,
    * a value of 1.0 excludes all logs matching the query.
    */
@@ -39,6 +44,10 @@ export class LogsExclusionFilter {
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
+      type: "string",
+    },
+    sampleAttribute: {
+      baseName: "sample_attribute",
       type: "string",
     },
     sampleRate: {
