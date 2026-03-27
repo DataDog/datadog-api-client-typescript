@@ -12,7 +12,7 @@ import { WidgetTime } from "./WidgetTime";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
+ * The Log Stream displays a log flow matching the defined query.
  */
 export class LogStreamWidgetDefinition {
   /**

@@ -11,7 +11,7 @@ import { WidgetViewMode } from "./WidgetViewMode";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
+ * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on dashboards.
  */
 export class SLOWidgetDefinition {
   /**

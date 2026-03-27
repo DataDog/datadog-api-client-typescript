@@ -13,7 +13,7 @@ import { WidgetTime } from "./WidgetTime";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
+ * The table visualization is available on dashboards. It displays columns of metrics grouped by tag key.
  */
 export class TableWidgetDefinition {
   /**
