@@ -26,11 +26,17 @@ import { GlobalVariableResponse } from "../models/GlobalVariableResponse";
 import { OnDemandConcurrencyCapAttributes } from "../models/OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "../models/OnDemandConcurrencyCapResponse";
 import { SuiteCreateEditRequest } from "../models/SuiteCreateEditRequest";
+import { SuiteJsonPatchRequest } from "../models/SuiteJsonPatchRequest";
+import { SyntheticsApiMultistepParentTestsResponse } from "../models/SyntheticsApiMultistepParentTestsResponse";
+import { SyntheticsApiMultistepSubtestsResponse } from "../models/SyntheticsApiMultistepSubtestsResponse";
 import { SyntheticsFastTestResult } from "../models/SyntheticsFastTestResult";
 import { SyntheticsNetworkTestEditRequest } from "../models/SyntheticsNetworkTestEditRequest";
 import { SyntheticsNetworkTestResponse } from "../models/SyntheticsNetworkTestResponse";
 import { SyntheticsSuiteResponse } from "../models/SyntheticsSuiteResponse";
 import { SyntheticsSuiteSearchResponse } from "../models/SyntheticsSuiteSearchResponse";
+import { SyntheticsTestParentSuitesResponse } from "../models/SyntheticsTestParentSuitesResponse";
+import { SyntheticsTestVersionHistoryResponse } from "../models/SyntheticsTestVersionHistoryResponse";
+import { SyntheticsTestVersionResponse } from "../models/SyntheticsTestVersionResponse";
 
 export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
   public async createSyntheticsNetworkTest(
@@ -252,6 +258,76 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getApiMultistepSubtestParents(
+    publicId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "getApiMultistepSubtestParents");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/api-multistep/subtests/{public_id}/parents".replace(
+        "{public_id}",
+        encodeURIComponent(String(publicId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getApiMultistepSubtestParents")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getApiMultistepSubtests(
+    publicId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "getApiMultistepSubtests");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/api-multistep/subtests/{public_id}".replace(
+        "{public_id}",
+        encodeURIComponent(String(publicId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getApiMultistepSubtests")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getOnDemandConcurrencyCap(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -379,6 +455,152 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSyntheticsTestVersion(
+    publicId: string,
+    versionNumber: number,
+    includeChangeMetadata?: boolean,
+    onlyCheckExistence?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "getSyntheticsTestVersion");
+    }
+
+    // verify required parameter 'versionNumber' is not null or undefined
+    if (versionNumber === null || versionNumber === undefined) {
+      throw new RequiredError("versionNumber", "getSyntheticsTestVersion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/tests/{public_id}/version_history/{version_number}"
+        .replace("{public_id}", encodeURIComponent(String(publicId)))
+        .replace("{version_number}", encodeURIComponent(String(versionNumber)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getSyntheticsTestVersion")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (includeChangeMetadata !== undefined) {
+      requestContext.setQueryParam(
+        "include_change_metadata",
+        ObjectSerializer.serialize(includeChangeMetadata, "boolean", ""),
+        ""
+      );
+    }
+    if (onlyCheckExistence !== undefined) {
+      requestContext.setQueryParam(
+        "only_check_existence",
+        ObjectSerializer.serialize(onlyCheckExistence, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTestParentSuites(
+    publicId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "getTestParentSuites");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/tests/{public_id}/parent-suites".replace(
+        "{public_id}",
+        encodeURIComponent(String(publicId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getTestParentSuites")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSyntheticsTestVersions(
+    publicId: string,
+    lastVersionNumber?: number,
+    limit?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "listSyntheticsTestVersions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/tests/{public_id}/version_history".replace(
+        "{public_id}",
+        encodeURIComponent(String(publicId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.listSyntheticsTestVersions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (lastVersionNumber !== undefined) {
+      requestContext.setQueryParam(
+        "last_version_number",
+        ObjectSerializer.serialize(lastVersionNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async patchGlobalVariable(
     variableId: string,
     body: GlobalVariableJsonPatchRequest,
@@ -425,6 +647,58 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async patchTestSuite(
+    publicId: string,
+    body: SuiteJsonPatchRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "patchTestSuite");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchTestSuite");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/suites/{public_id}/jsonpatch".replace(
+        "{public_id}",
+        encodeURIComponent(String(publicId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.patchTestSuite")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SuiteJsonPatchRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -890,6 +1164,126 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getApiMultistepSubtestParents
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getApiMultistepSubtestParents(
+    response: ResponseContext
+  ): Promise<SyntheticsApiMultistepParentTestsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsApiMultistepParentTestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsApiMultistepParentTestsResponse"
+        ) as SyntheticsApiMultistepParentTestsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsApiMultistepParentTestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsApiMultistepParentTestsResponse",
+          ""
+        ) as SyntheticsApiMultistepParentTestsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getApiMultistepSubtests
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getApiMultistepSubtests(
+    response: ResponseContext
+  ): Promise<SyntheticsApiMultistepSubtestsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsApiMultistepSubtestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsApiMultistepSubtestsResponse"
+        ) as SyntheticsApiMultistepSubtestsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsApiMultistepSubtestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsApiMultistepSubtestsResponse",
+          ""
+        ) as SyntheticsApiMultistepSubtestsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getOnDemandConcurrencyCap
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1130,6 +1524,188 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSyntheticsTestVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSyntheticsTestVersion(
+    response: ResponseContext
+  ): Promise<SyntheticsTestVersionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsTestVersionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsTestVersionResponse"
+      ) as SyntheticsTestVersionResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsTestVersionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsTestVersionResponse",
+        ""
+      ) as SyntheticsTestVersionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getTestParentSuites
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTestParentSuites(
+    response: ResponseContext
+  ): Promise<SyntheticsTestParentSuitesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsTestParentSuitesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTestParentSuitesResponse"
+        ) as SyntheticsTestParentSuitesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsTestParentSuitesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTestParentSuitesResponse",
+          ""
+        ) as SyntheticsTestParentSuitesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSyntheticsTestVersions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSyntheticsTestVersions(
+    response: ResponseContext
+  ): Promise<SyntheticsTestVersionHistoryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsTestVersionHistoryResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTestVersionHistoryResponse"
+        ) as SyntheticsTestVersionHistoryResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsTestVersionHistoryResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTestVersionHistoryResponse",
+          ""
+        ) as SyntheticsTestVersionHistoryResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to patchGlobalVariable
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1178,6 +1754,64 @@ export class SyntheticsApiResponseProcessor {
         "GlobalVariableResponse",
         ""
       ) as GlobalVariableResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to patchTestSuite
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchTestSuite(
+    response: ResponseContext
+  ): Promise<SyntheticsSuiteResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsSuiteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsSuiteResponse"
+      ) as SyntheticsSuiteResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsSuiteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsSuiteResponse",
+        ""
+      ) as SyntheticsSuiteResponse;
       return body;
     }
 
@@ -1408,6 +2042,22 @@ export interface SyntheticsApiEditSyntheticsSuiteRequest {
   body: SuiteCreateEditRequest;
 }
 
+export interface SyntheticsApiGetApiMultistepSubtestParentsRequest {
+  /**
+   * The public ID of the subtest.
+   * @type string
+   */
+  publicId: string;
+}
+
+export interface SyntheticsApiGetApiMultistepSubtestsRequest {
+  /**
+   * The public ID of the API multistep test.
+   * @type string
+   */
+  publicId: string;
+}
+
 export interface SyntheticsApiGetSyntheticsFastTestResultRequest {
   /**
    * The UUID of the fast test to retrieve the result for.
@@ -1432,6 +2082,56 @@ export interface SyntheticsApiGetSyntheticsSuiteRequest {
   publicId: string;
 }
 
+export interface SyntheticsApiGetSyntheticsTestVersionRequest {
+  /**
+   * The public ID of the Synthetic test.
+   * @type string
+   */
+  publicId: string;
+  /**
+   * The version number to retrieve.
+   * @type number
+   */
+  versionNumber: number;
+  /**
+   * If `true`, include change metadata in the response.
+   * @type boolean
+   */
+  includeChangeMetadata?: boolean;
+  /**
+   * If `true`, only check whether the version exists without returning its full payload.
+   * Returns an empty object if the version exists, or 404 if not.
+   * @type boolean
+   */
+  onlyCheckExistence?: boolean;
+}
+
+export interface SyntheticsApiGetTestParentSuitesRequest {
+  /**
+   * The public ID of the Synthetic test.
+   * @type string
+   */
+  publicId: string;
+}
+
+export interface SyntheticsApiListSyntheticsTestVersionsRequest {
+  /**
+   * The public ID of the Synthetic test.
+   * @type string
+   */
+  publicId: string;
+  /**
+   * The version number of the last item from the previous page. Omit to get the first page.
+   * @type number
+   */
+  lastVersionNumber?: number;
+  /**
+   * Maximum number of version records to return per page.
+   * @type number
+   */
+  limit?: number;
+}
+
 export interface SyntheticsApiPatchGlobalVariableRequest {
   /**
    * The ID of the global variable.
@@ -1443,6 +2143,19 @@ export interface SyntheticsApiPatchGlobalVariableRequest {
    * @type GlobalVariableJsonPatchRequest
    */
   body: GlobalVariableJsonPatchRequest;
+}
+
+export interface SyntheticsApiPatchTestSuiteRequest {
+  /**
+   * The public ID of the Synthetic test suite to patch.
+   * @type string
+   */
+  publicId: string;
+  /**
+   * JSON Patch document with operations to apply.
+   * @type SuiteJsonPatchRequest
+   */
+  body: SuiteJsonPatchRequest;
 }
 
 export interface SyntheticsApiSearchSuitesRequest {
@@ -1613,6 +2326,55 @@ export class SyntheticsApi {
   }
 
   /**
+   * Get the list of API multistep tests that include a given subtest,
+   * along with their monitor status.
+   * @param param The request object
+   */
+  public getApiMultistepSubtestParents(
+    param: SyntheticsApiGetApiMultistepSubtestParentsRequest,
+    options?: Configuration
+  ): Promise<SyntheticsApiMultistepParentTestsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getApiMultistepSubtestParents(
+        param.publicId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getApiMultistepSubtestParents(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the list of API tests that can be added as subtests to a given API multistep test.
+   * The current test is excluded from the list since a test cannot be a subtest of itself.
+   * @param param The request object
+   */
+  public getApiMultistepSubtests(
+    param: SyntheticsApiGetApiMultistepSubtestsRequest,
+    options?: Configuration
+  ): Promise<SyntheticsApiMultistepSubtestsResponse> {
+    const requestContextPromise = this.requestFactory.getApiMultistepSubtests(
+      param.publicId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getApiMultistepSubtests(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the on-demand concurrency cap.
    * @param param The request object
    */
@@ -1695,6 +2457,79 @@ export class SyntheticsApi {
   }
 
   /**
+   * Get a specific version of a Synthetic test by its version number.
+   * @param param The request object
+   */
+  public getSyntheticsTestVersion(
+    param: SyntheticsApiGetSyntheticsTestVersionRequest,
+    options?: Configuration
+  ): Promise<SyntheticsTestVersionResponse> {
+    const requestContextPromise = this.requestFactory.getSyntheticsTestVersion(
+      param.publicId,
+      param.versionNumber,
+      param.includeChangeMetadata,
+      param.onlyCheckExistence,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSyntheticsTestVersion(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the list of parent suites and their status for a given Synthetic test.
+   * @param param The request object
+   */
+  public getTestParentSuites(
+    param: SyntheticsApiGetTestParentSuitesRequest,
+    options?: Configuration
+  ): Promise<SyntheticsTestParentSuitesResponse> {
+    const requestContextPromise = this.requestFactory.getTestParentSuites(
+      param.publicId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTestParentSuites(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the paginated version history for a Synthetic test.
+   * @param param The request object
+   */
+  public listSyntheticsTestVersions(
+    param: SyntheticsApiListSyntheticsTestVersionsRequest,
+    options?: Configuration
+  ): Promise<SyntheticsTestVersionHistoryResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSyntheticsTestVersions(
+        param.publicId,
+        param.lastVersionNumber,
+        param.limit,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSyntheticsTestVersions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Patch a global variable using JSON Patch (RFC 6902).
    * This endpoint allows partial updates to a global variable by specifying only the fields to modify.
    *
@@ -1719,6 +2554,34 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchGlobalVariable(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Patch a Synthetic test suite using JSON Patch (RFC 6902).
+   * Use partial updates to modify only specific fields of a test suite.
+   *
+   * Common operations include:
+   * - Replace field values: `{"op": "replace", "path": "/name", "value": "new_name"}`
+   * - Add/update tags: `{"op": "add", "path": "/tags/-", "value": "new_tag"}`
+   * - Remove fields: `{"op": "remove", "path": "/message"}`
+   * @param param The request object
+   */
+  public patchTestSuite(
+    param: SyntheticsApiPatchTestSuiteRequest,
+    options?: Configuration
+  ): Promise<SyntheticsSuiteResponse> {
+    const requestContextPromise = this.requestFactory.patchTestSuite(
+      param.publicId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchTestSuite(responseContext);
         });
     });
   }

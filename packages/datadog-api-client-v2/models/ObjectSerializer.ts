@@ -700,6 +700,9 @@ import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificat
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
+import { CreateOrUpdateWidgetRequest } from "./CreateOrUpdateWidgetRequest";
+import { CreateOrUpdateWidgetRequestAttributes } from "./CreateOrUpdateWidgetRequestAttributes";
+import { CreateOrUpdateWidgetRequestData } from "./CreateOrUpdateWidgetRequestData";
 import { CreatePageRequest } from "./CreatePageRequest";
 import { CreatePageRequestData } from "./CreatePageRequestData";
 import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttributes";
@@ -3157,10 +3160,19 @@ import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
 import { SuiteCreateEdit } from "./SuiteCreateEdit";
 import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
+import { SuiteJsonPatchRequest } from "./SuiteJsonPatchRequest";
+import { SuiteJsonPatchRequestData } from "./SuiteJsonPatchRequestData";
+import { SuiteJsonPatchRequestDataAttributes } from "./SuiteJsonPatchRequestDataAttributes";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
 import { SyncProperty } from "./SyncProperty";
 import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
+import { SyntheticsApiMultistepParentTestAttributes } from "./SyntheticsApiMultistepParentTestAttributes";
+import { SyntheticsApiMultistepParentTestData } from "./SyntheticsApiMultistepParentTestData";
+import { SyntheticsApiMultistepParentTestsResponse } from "./SyntheticsApiMultistepParentTestsResponse";
+import { SyntheticsApiMultistepSubtestAttributes } from "./SyntheticsApiMultistepSubtestAttributes";
+import { SyntheticsApiMultistepSubtestData } from "./SyntheticsApiMultistepSubtestData";
+import { SyntheticsApiMultistepSubtestsResponse } from "./SyntheticsApiMultistepSubtestsResponse";
 import { SyntheticsFastTestResult } from "./SyntheticsFastTestResult";
 import { SyntheticsFastTestResultAttributes } from "./SyntheticsFastTestResultAttributes";
 import { SyntheticsFastTestResultData } from "./SyntheticsFastTestResultData";
@@ -3198,6 +3210,21 @@ import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMoni
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOptionsSchedulingTimeframe";
+import { SyntheticsTestParentSuiteAttributes } from "./SyntheticsTestParentSuiteAttributes";
+import { SyntheticsTestParentSuiteData } from "./SyntheticsTestParentSuiteData";
+import { SyntheticsTestParentSuitesResponse } from "./SyntheticsTestParentSuitesResponse";
+import { SyntheticsTestVersionActionMetadata } from "./SyntheticsTestVersionActionMetadata";
+import { SyntheticsTestVersionAttributes } from "./SyntheticsTestVersionAttributes";
+import { SyntheticsTestVersionAuthor } from "./SyntheticsTestVersionAuthor";
+import { SyntheticsTestVersionChangeAttributes } from "./SyntheticsTestVersionChangeAttributes";
+import { SyntheticsTestVersionChangeData } from "./SyntheticsTestVersionChangeData";
+import { SyntheticsTestVersionChangeMetadataItem } from "./SyntheticsTestVersionChangeMetadataItem";
+import { SyntheticsTestVersionData } from "./SyntheticsTestVersionData";
+import { SyntheticsTestVersionDiffPatchDiff } from "./SyntheticsTestVersionDiffPatchDiff";
+import { SyntheticsTestVersionDiffPatches } from "./SyntheticsTestVersionDiffPatches";
+import { SyntheticsTestVersionHistoryMeta } from "./SyntheticsTestVersionHistoryMeta";
+import { SyntheticsTestVersionHistoryResponse } from "./SyntheticsTestVersionHistoryResponse";
+import { SyntheticsTestVersionResponse } from "./SyntheticsTestVersionResponse";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableResultV2 } from "./TableResultV2";
 import { TableResultV2Array } from "./TableResultV2Array";
@@ -3512,6 +3539,17 @@ import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatcherArray } from "./WatcherArray";
 import { WatcherData } from "./WatcherData";
 import { WatcherDataAttributes } from "./WatcherDataAttributes";
+import { WidgetAttributes } from "./WidgetAttributes";
+import { WidgetData } from "./WidgetData";
+import { WidgetDefinition } from "./WidgetDefinition";
+import { WidgetIncludedUser } from "./WidgetIncludedUser";
+import { WidgetIncludedUserAttributes } from "./WidgetIncludedUserAttributes";
+import { WidgetListResponse } from "./WidgetListResponse";
+import { WidgetRelationshipData } from "./WidgetRelationshipData";
+import { WidgetRelationshipItem } from "./WidgetRelationshipItem";
+import { WidgetRelationships } from "./WidgetRelationships";
+import { WidgetResponse } from "./WidgetResponse";
+import { WidgetSearchMeta } from "./WidgetSearchMeta";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -5331,7 +5369,10 @@ const enumsMap: { [key: string]: any[] } = {
   StatusPagesComponentGroupAttributesComponentsItemsType: ["component"],
   StatusPagesComponentGroupType: ["components"],
   StatusPagesUserType: ["users"],
+  SuiteJsonPatchType: ["suites_json_patch"],
   SuiteSearchResponseType: ["suites_search"],
+  SyntheticsApiMultistepParentTestType: ["parent_test"],
+  SyntheticsApiMultistepSubtestType: ["subtest"],
   SyntheticsFastTestResultType: ["result"],
   SyntheticsFastTestSubType: [
     "dns",
@@ -5381,7 +5422,10 @@ const enumsMap: { [key: string]: any[] } = {
     "show_only_snapshot",
     "hide_handles_and_footer",
   ],
+  SyntheticsTestParentSuiteType: ["parent_suite"],
   SyntheticsTestPauseStatus: ["live", "paused"],
+  SyntheticsTestVersionChangeType: ["version_metadata"],
+  SyntheticsTestVersionType: ["version"],
   TableResultV2DataAttributesFileMetadataCloudStorageErrorType: [
     "TABLE_SCHEMA_ERROR",
     "FILE_FORMAT_ERROR",
@@ -5587,6 +5631,12 @@ const enumsMap: { [key: string]: any[] } = {
     "saturday",
     "sunday",
   ],
+  WidgetExperienceType: [
+    "ccm_reports",
+    "logs_reports",
+    "csv_reports",
+    "product_analytics",
+  ],
   WidgetLiveSpan: [
     "1m",
     "5m",
@@ -5603,6 +5653,23 @@ const enumsMap: { [key: string]: any[] } = {
     "6mo",
     "1y",
     "alert",
+  ],
+  WidgetType: [
+    "bar_chart",
+    "change",
+    "cloud_cost_summary",
+    "cohort",
+    "funnel",
+    "geomap",
+    "list_stream",
+    "query_table",
+    "query_value",
+    "retention_curve",
+    "sankey",
+    "sunburst",
+    "timeseries",
+    "toplist",
+    "treemap",
   ],
   WorkflowDataType: ["workflows"],
   WorkflowUserRelationshipType: ["users"],
@@ -6442,6 +6509,9 @@ const typeMap: { [index: string]: any } = {
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
+  CreateOrUpdateWidgetRequest: CreateOrUpdateWidgetRequest,
+  CreateOrUpdateWidgetRequestAttributes: CreateOrUpdateWidgetRequestAttributes,
+  CreateOrUpdateWidgetRequestData: CreateOrUpdateWidgetRequestData,
   CreatePageRequest: CreatePageRequest,
   CreatePageRequestData: CreatePageRequestData,
   CreatePageRequestDataAttributes: CreatePageRequestDataAttributes,
@@ -9416,10 +9486,23 @@ const typeMap: { [index: string]: any } = {
   StepDisplayBounds: StepDisplayBounds,
   SuiteCreateEdit: SuiteCreateEdit,
   SuiteCreateEditRequest: SuiteCreateEditRequest,
+  SuiteJsonPatchRequest: SuiteJsonPatchRequest,
+  SuiteJsonPatchRequestData: SuiteJsonPatchRequestData,
+  SuiteJsonPatchRequestDataAttributes: SuiteJsonPatchRequestDataAttributes,
   SuppressionVersionHistory: SuppressionVersionHistory,
   SuppressionVersions: SuppressionVersions,
   SyncProperty: SyncProperty,
   SyncPropertyWithMapping: SyncPropertyWithMapping,
+  SyntheticsApiMultistepParentTestAttributes:
+    SyntheticsApiMultistepParentTestAttributes,
+  SyntheticsApiMultistepParentTestData: SyntheticsApiMultistepParentTestData,
+  SyntheticsApiMultistepParentTestsResponse:
+    SyntheticsApiMultistepParentTestsResponse,
+  SyntheticsApiMultistepSubtestAttributes:
+    SyntheticsApiMultistepSubtestAttributes,
+  SyntheticsApiMultistepSubtestData: SyntheticsApiMultistepSubtestData,
+  SyntheticsApiMultistepSubtestsResponse:
+    SyntheticsApiMultistepSubtestsResponse,
   SyntheticsFastTestResult: SyntheticsFastTestResult,
   SyntheticsFastTestResultAttributes: SyntheticsFastTestResultAttributes,
   SyntheticsFastTestResultData: SyntheticsFastTestResultData,
@@ -9463,6 +9546,22 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestOptionsScheduling: SyntheticsTestOptionsScheduling,
   SyntheticsTestOptionsSchedulingTimeframe:
     SyntheticsTestOptionsSchedulingTimeframe,
+  SyntheticsTestParentSuiteAttributes: SyntheticsTestParentSuiteAttributes,
+  SyntheticsTestParentSuiteData: SyntheticsTestParentSuiteData,
+  SyntheticsTestParentSuitesResponse: SyntheticsTestParentSuitesResponse,
+  SyntheticsTestVersionActionMetadata: SyntheticsTestVersionActionMetadata,
+  SyntheticsTestVersionAttributes: SyntheticsTestVersionAttributes,
+  SyntheticsTestVersionAuthor: SyntheticsTestVersionAuthor,
+  SyntheticsTestVersionChangeAttributes: SyntheticsTestVersionChangeAttributes,
+  SyntheticsTestVersionChangeData: SyntheticsTestVersionChangeData,
+  SyntheticsTestVersionChangeMetadataItem:
+    SyntheticsTestVersionChangeMetadataItem,
+  SyntheticsTestVersionData: SyntheticsTestVersionData,
+  SyntheticsTestVersionDiffPatchDiff: SyntheticsTestVersionDiffPatchDiff,
+  SyntheticsTestVersionDiffPatches: SyntheticsTestVersionDiffPatches,
+  SyntheticsTestVersionHistoryMeta: SyntheticsTestVersionHistoryMeta,
+  SyntheticsTestVersionHistoryResponse: SyntheticsTestVersionHistoryResponse,
+  SyntheticsTestVersionResponse: SyntheticsTestVersionResponse,
   SyntheticsVariableParser: SyntheticsVariableParser,
   TableResultV2: TableResultV2,
   TableResultV2Array: TableResultV2Array,
@@ -9830,6 +9929,17 @@ const typeMap: { [index: string]: any } = {
   WatcherArray: WatcherArray,
   WatcherData: WatcherData,
   WatcherDataAttributes: WatcherDataAttributes,
+  WidgetAttributes: WidgetAttributes,
+  WidgetData: WidgetData,
+  WidgetDefinition: WidgetDefinition,
+  WidgetIncludedUser: WidgetIncludedUser,
+  WidgetIncludedUserAttributes: WidgetIncludedUserAttributes,
+  WidgetListResponse: WidgetListResponse,
+  WidgetRelationshipData: WidgetRelationshipData,
+  WidgetRelationshipItem: WidgetRelationshipItem,
+  WidgetRelationships: WidgetRelationships,
+  WidgetResponse: WidgetResponse,
+  WidgetSearchMeta: WidgetSearchMeta,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,
