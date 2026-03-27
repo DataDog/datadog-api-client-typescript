@@ -21941,6 +21941,77 @@ components:
         - type
         - attributes
       type: object
+    ELFSymbolFileEvent:
+      description: Metadata for an ELF symbol file upload, sent as a JSON-encoded `event` field.
+      properties:
+        arch:
+          description: CPU architecture (max 200 characters).
+          example: x86_64
+          maxLength: 200
+          type: string
+        cli_version:
+          description: Version of the CLI used for upload (max 50 characters).
+          maxLength: 50
+          type: string
+        file_hash:
+          description: File hash (32 hex characters, or empty).
+          pattern: "^([0-9a-f]{32})?$"
+          type: string
+        filename:
+          description: Original filename (max 500 characters).
+          maxLength: 500
+          type: string
+        gnu_build_id:
+          description: GNU Build ID (16+ hex characters, or empty).
+          example: abcdef1234567890abcdef1234567890
+          pattern: "^([0-9a-f]{16,})?$"
+          type: string
+        go_build_id:
+          description: Go Build ID (or redacted, or empty).
+          pattern: "^([0-9a-zA-Z_-]{20}(/[0-9a-zA-Z_-]{20}){3}|redacted)?$"
+          type: string
+        origin:
+          description: Origin identifier (max 200 characters).
+          maxLength: 200
+          type: string
+        origin_version:
+          description: Origin version (max 200 characters).
+          maxLength: 200
+          type: string
+        overwrite:
+          default: false
+          description: Whether to overwrite existing symbol file.
+          type: boolean
+        symbol_source:
+          description: Symbol source (max 200 characters).
+          maxLength: 200
+          type: string
+        type:
+          $ref: "#/components/schemas/ELFSymbolFileFormDataType"
+      required:
+        - type
+      type: object
+    ELFSymbolFileFormData:
+      description: Multipart form data for uploading ELF symbol files for Linux/Unix crash symbolication.
+      properties:
+        elf_symbol_file:
+          description: The ELF symbol file.
+          example: ""
+          format: binary
+          type: string
+        event:
+          $ref: "#/components/schemas/ELFSymbolFileEvent"
+      required:
+        - event
+        - elf_symbol_file
+      type: object
+    ELFSymbolFileFormDataType:
+      description: Must be `elf_symbol_file`.
+      enum: [elf_symbol_file]
+      example: elf_symbol_file
+      type: string
+      x-enum-varnames:
+        - ELF_SYMBOL_FILE
     EPSS:
       description: Vulnerability EPSS severity.
       properties:
@@ -26954,6 +27025,74 @@ components:
       required:
         - data
       type: object
+    FlutterSymbolFileEvent:
+      description: Metadata for a Flutter symbol file upload, sent as a JSON-encoded `event` field.
+      properties:
+        arch:
+          description: CPU architecture (1-200 characters).
+          example: arm64
+          maxLength: 200
+          minLength: 1
+          type: string
+        cli_version:
+          description: Version of the CLI used for upload (max 50 characters).
+          maxLength: 50
+          type: string
+        platform:
+          description: Target platform (1-200 characters).
+          example: android
+          maxLength: 200
+          minLength: 1
+          type: string
+        service:
+          description: Service name (1-200 characters).
+          example: my-flutter-app
+          maxLength: 200
+          minLength: 1
+          type: string
+        type:
+          $ref: "#/components/schemas/FlutterSymbolFileFormDataType"
+        variant:
+          description: Build variant (1-200 characters).
+          example: release
+          maxLength: 200
+          minLength: 1
+          type: string
+        version:
+          description: Version of the service (1-200 characters).
+          example: "1.0.0"
+          maxLength: 200
+          minLength: 1
+          type: string
+      required:
+        - type
+        - service
+        - version
+        - variant
+        - platform
+        - arch
+      type: object
+    FlutterSymbolFileFormData:
+      description: Multipart form data for uploading Flutter symbol files for crash symbolication.
+      properties:
+        event:
+          $ref: "#/components/schemas/FlutterSymbolFileEvent"
+        flutter_symbol_file:
+          description: The Flutter symbol file.
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - flutter_symbol_file
+      type: object
+    FlutterSymbolFileFormDataType:
+      description: Must be `flutter_symbol_file`.
+      enum: [flutter_symbol_file]
+      example: flutter_symbol_file
+      type: string
+      x-enum-varnames:
+        - FLUTTER_SYMBOL_FILE
     FormTrigger:
       description: "Trigger a workflow from a Form."
       properties:
@@ -29842,6 +29981,77 @@ components:
       description: The ID of a notification rule.
       example: aaa-bbb-ccc
       type: string
+    IL2CPPMappingFileEvent:
+      description: Metadata for a Unity IL2CPP mapping file upload, sent as a JSON-encoded `event` field.
+      properties:
+        build_id:
+          description: Build ID (1-200 characters).
+          example: unity-build-12345
+          maxLength: 200
+          minLength: 1
+          type: string
+        type:
+          $ref: "#/components/schemas/IL2CPPMappingFileFormDataType"
+      required:
+        - type
+        - build_id
+      type: object
+    IL2CPPMappingFileFormData:
+      description: Multipart form data for uploading IL2CPP mapping files for Unity crash symbolication.
+      properties:
+        event:
+          $ref: "#/components/schemas/IL2CPPMappingFileEvent"
+        il2cpp_mapping_file:
+          description: The IL2CPP mapping file.
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - il2cpp_mapping_file
+      type: object
+    IL2CPPMappingFileFormDataType:
+      description: Must be `il2cpp_mapping_file`.
+      enum: [il2cpp_mapping_file]
+      example: il2cpp_mapping_file
+      type: string
+      x-enum-varnames:
+        - IL2CPP_MAPPING_FILE
+    IOSSymbolsEvent:
+      description: Metadata for an iOS dSYM file upload, sent as a JSON-encoded `event` field.
+      properties:
+        type:
+          $ref: "#/components/schemas/IOSSymbolsFormDataType"
+        uuids:
+          description: Comma-separated list of dSYM UUIDs (min 1 character).
+          example: A1B2C3D4-E5F6-7890-ABCD-EF1234567890
+          minLength: 1
+          type: string
+      required:
+        - type
+        - uuids
+      type: object
+    IOSSymbolsFormData:
+      description: Multipart form data for uploading dSYM files for iOS crash symbolication.
+      properties:
+        event:
+          $ref: "#/components/schemas/IOSSymbolsEvent"
+        symbols_archive:
+          description: The dSYM archive file (.zip).
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - symbols_archive
+      type: object
+    IOSSymbolsFormDataType:
+      description: Must be `ios_symbols`.
+      enum: [ios_symbols]
+      example: ios_symbols
+      type: string
+      x-enum-varnames:
+        - IOS_SYMBOLS
     IPAllowlistAttributes:
       description: Attributes of the IP allowlist.
       properties:
@@ -34168,6 +34378,143 @@ components:
       required:
         - errors
       type: object
+    JSSourceMapEvent:
+      description: Metadata for a JavaScript source map upload, sent as a JSON-encoded `event` field.
+      properties:
+        cli_version:
+          description: Version of the CLI used for upload (max 50 characters).
+          maxLength: 50
+          minLength: 1
+          type: string
+        git_commit_sha:
+          description: Git commit SHA (40 lowercase hex characters).
+          pattern: "^[a-f0-9]{40}$"
+          type: string
+        git_repository_url:
+          description: Git repository URL (max 2048 characters).
+          maxLength: 2048
+          type: string
+        minified_url:
+          description: URL of the minified JavaScript file (1-2048 characters).
+          example: https://example.com/static/js/main.min.js
+          maxLength: 2048
+          minLength: 1
+          type: string
+        overwrite:
+          default: false
+          description: Whether to overwrite existing source map.
+          type: boolean
+        project_path:
+          description: Path to the project root (max 500 characters).
+          maxLength: 500
+          type: string
+        service:
+          description: Service name (1-200 characters).
+          example: my-web-app
+          maxLength: 200
+          minLength: 1
+          type: string
+        type:
+          $ref: "#/components/schemas/JSSourceMapFormDataType"
+        version:
+          description: Version of the service (1-200 characters).
+          example: "1.2.3"
+          maxLength: 200
+          minLength: 1
+          type: string
+      required:
+        - type
+        - service
+        - version
+        - minified_url
+      type: object
+    JSSourceMapFormData:
+      description: Multipart form data for uploading JavaScript source maps for browser RUM applications.
+      properties:
+        event:
+          $ref: "#/components/schemas/JSSourceMapEvent"
+        minified_file:
+          description: The minified JavaScript file.
+          example: ""
+          format: binary
+          type: string
+        repository:
+          description: Repository metadata file (optional).
+          format: binary
+          type: string
+        source_map:
+          description: The source map file.
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - source_map
+        - minified_file
+      type: object
+    JSSourceMapFormDataType:
+      description: Must be `js_sourcemap`.
+      enum: [js_sourcemap]
+      example: js_sourcemap
+      type: string
+      x-enum-varnames:
+        - JS_SOURCEMAP
+    JVMMappingFileEvent:
+      description: Metadata for a ProGuard or R8 mapping file upload, sent as a JSON-encoded `event` field.
+      properties:
+        overwrite:
+          default: false
+          description: Whether to overwrite existing mapping file.
+          type: boolean
+        service:
+          description: Service name (1-200 characters).
+          example: my-android-app
+          maxLength: 200
+          minLength: 1
+          type: string
+        type:
+          $ref: "#/components/schemas/JVMMappingFileFormDataType"
+        variant:
+          description: Build variant (max 200 characters).
+          example: release
+          maxLength: 200
+          type: string
+        version:
+          description: Version of the service (1-200 characters).
+          example: "3.1.0"
+          maxLength: 200
+          minLength: 1
+          type: string
+      required:
+        - type
+        - service
+        - version
+      type: object
+    JVMMappingFileFormData:
+      description: Multipart form data for uploading ProGuard or R8 mapping files for Android crash deobfuscation.
+      properties:
+        event:
+          $ref: "#/components/schemas/JVMMappingFileEvent"
+        jvm_mapping_file:
+          description: The ProGuard/R8 mapping file.
+          example: ""
+          format: binary
+          type: string
+        repository:
+          description: Repository metadata file (optional).
+          format: binary
+          type: string
+      required:
+        - event
+        - jvm_mapping_file
+      type: object
+    JVMMappingFileFormDataType:
+      description: Must be `jvm_mapping_file`.
+      enum: [jvm_mapping_file]
+      example: jvm_mapping_file
+      type: string
+      x-enum-varnames:
+        - JVM_MAPPING_FILE
     JiraAccountAttributes:
       description: Attributes of a Jira account
       properties:
@@ -40843,6 +41190,53 @@ components:
         meta:
           $ref: "#/components/schemas/MonthlyCostAttributionMeta"
       type: object
+    NDKSymbolFileEvent:
+      description: Metadata for an Android NDK symbol file upload, sent as a JSON-encoded `event` field.
+      properties:
+        arch:
+          description: CPU architecture (1-200 characters).
+          example: arm64-v8a
+          maxLength: 200
+          minLength: 1
+          type: string
+        build_id:
+          description: Build ID (1-200 characters).
+          example: abc123def456
+          maxLength: 200
+          minLength: 1
+          type: string
+        filename:
+          description: Original filename (max 500 characters).
+          maxLength: 500
+          type: string
+        type:
+          $ref: "#/components/schemas/NDKSymbolFileFormDataType"
+      required:
+        - type
+        - build_id
+        - arch
+      type: object
+    NDKSymbolFileFormData:
+      description: Multipart form data for uploading Android NDK symbol files for native crash symbolication.
+      properties:
+        event:
+          $ref: "#/components/schemas/NDKSymbolFileEvent"
+        ndk_symbol_file:
+          description: The NDK symbol file.
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - ndk_symbol_file
+      type: object
+    NDKSymbolFileFormDataType:
+      description: Must be `ndk_symbol_file`.
+      enum: [ndk_symbol_file]
+      example: ndk_symbol_file
+      type: string
+      x-enum-varnames:
+        - NDK_SYMBOL_FILE
     NotebookCreateData:
       description: Notebook creation data
       properties:
@@ -47393,6 +47787,75 @@ components:
         - ARRAY_NUMBER
         - ARRAY_BOOLEAN
         - ARRAY_OBJECT
+    PESymbolFileEvent:
+      description: Metadata for a PE/PDB symbol file upload, sent as a JSON-encoded `event` field.
+      properties:
+        arch:
+          description: CPU architecture (1-200 characters).
+          example: x64
+          maxLength: 200
+          minLength: 1
+          type: string
+        cli_version:
+          description: Version of the CLI used for upload (max 50 characters).
+          maxLength: 50
+          type: string
+        filename:
+          description: Original filename (max 500 characters).
+          maxLength: 500
+          type: string
+        origin:
+          description: Origin identifier (max 200 characters).
+          maxLength: 200
+          type: string
+        origin_version:
+          description: Origin version (max 200 characters).
+          maxLength: 200
+          type: string
+        overwrite:
+          default: false
+          description: Whether to overwrite existing symbol file.
+          type: boolean
+        pdb_age:
+          description: PDB age (>= 0).
+          example: 1
+          format: int64
+          minimum: 0
+          type: integer
+        pdb_sig:
+          description: PDB signature GUID.
+          example: A1B2C3D4-E5F6-7890-ABCD-EF1234567890
+          pattern: "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$"
+          type: string
+        type:
+          $ref: "#/components/schemas/PESymbolFileFormDataType"
+      required:
+        - type
+        - pdb_sig
+        - pdb_age
+        - arch
+      type: object
+    PESymbolFileFormData:
+      description: Multipart form data for uploading PE/PDB symbol files for Windows crash symbolication.
+      properties:
+        event:
+          $ref: "#/components/schemas/PESymbolFileEvent"
+        pe_symbol_file:
+          description: The PDB symbol file.
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - pe_symbol_file
+      type: object
+    PESymbolFileFormDataType:
+      description: Must be `pe_symbol_file`.
+      enum: [pe_symbol_file]
+      example: pe_symbol_file
+      type: string
+      x-enum-varnames:
+        - PE_SYMBOL_FILE
     PageUrgency:
       default: high
       description: On-Call Page urgency level.
@@ -51123,6 +51586,84 @@ components:
         - value
         - unit
       type: object
+    ReactNativeSourceMapEvent:
+      description: Metadata for a React Native source map upload, sent as a JSON-encoded `event` field.
+      properties:
+        build_number:
+          description: Build number (max 200 characters).
+          example: "100"
+          maxLength: 200
+          type: string
+        bundle_name:
+          description: Name of the JavaScript bundle (1-200 characters).
+          example: main.jsbundle
+          maxLength: 200
+          minLength: 1
+          type: string
+        bundle_version:
+          description: Bundle version (max 200 characters).
+          maxLength: 200
+          type: string
+        cli_version:
+          description: Version of the CLI used for upload (max 50 characters).
+          maxLength: 50
+          type: string
+        platform:
+          $ref: "#/components/schemas/SourceMapPlatform"
+        project_path:
+          description: Path to the project root (max 500 characters).
+          maxLength: 500
+          type: string
+        service:
+          description: Service name (1-200 characters).
+          example: my-mobile-app
+          maxLength: 200
+          minLength: 1
+          type: string
+        type:
+          $ref: "#/components/schemas/ReactNativeSourceMapFormDataType"
+        version:
+          description: Version of the service (1-200 characters).
+          example: "2.0.0"
+          maxLength: 200
+          minLength: 1
+          type: string
+      required:
+        - type
+        - service
+        - version
+        - platform
+        - bundle_name
+      type: object
+    ReactNativeSourceMapFormData:
+      description: Multipart form data for uploading React Native source maps for mobile applications.
+      properties:
+        event:
+          $ref: "#/components/schemas/ReactNativeSourceMapEvent"
+        minified_file:
+          description: The minified JavaScript bundle (optional).
+          format: binary
+          type: string
+        repository:
+          description: Repository metadata file (optional).
+          format: binary
+          type: string
+        source_map:
+          description: The source map file.
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - source_map
+      type: object
+    ReactNativeSourceMapFormDataType:
+      description: Must be `react_native_sourcemap`.
+      enum: [react_native_sourcemap]
+      example: react_native_sourcemap
+      type: string
+      x-enum-varnames:
+        - REACT_NATIVE_SOURCEMAP
     ReadinessGate:
       description: Used to merge multiple branches into a single branch.
       properties:
@@ -52032,6 +52573,63 @@ components:
       type: string
       x-enum-varnames:
         - RULESET
+    RepositoryEvent:
+      description: Metadata for a repository upload, sent as a JSON-encoded `event` field.
+      properties:
+        cli_version:
+          description: Version of the CLI used for upload (max 50 characters).
+          maxLength: 50
+          type: string
+        git_commit_sha:
+          description: Git commit SHA (40 lowercase hex characters).
+          example: abc123def456789012345678901234567890abcd
+          pattern: "^[a-f0-9]{40}$"
+          type: string
+        git_repository_url:
+          description: Git repository URL (max 2048 characters).
+          example: https://github.com/myorg/myrepo
+          maxLength: 2048
+          type: string
+        type:
+          $ref: "#/components/schemas/RepositoryFormDataType"
+      required:
+        - type
+        - git_commit_sha
+        - git_repository_url
+      type: object
+    RepositoryFormData:
+      description: Multipart form data for uploading repository metadata for source code linking.
+      properties:
+        event:
+          $ref: "#/components/schemas/RepositoryEvent"
+        repository:
+          description: Repository metadata file.
+          example: ""
+          format: binary
+          type: string
+      required:
+        - event
+        - repository
+      type: object
+    RepositoryFormDataType:
+      description: Must be `repository`.
+      enum: [repository]
+      example: repository
+      type: string
+      x-enum-varnames:
+        - REPOSITORY
+    RequestSchema:
+      oneOf:
+        - $ref: "#/components/schemas/JSSourceMapFormData"
+        - $ref: "#/components/schemas/ReactNativeSourceMapFormData"
+        - $ref: "#/components/schemas/JVMMappingFileFormData"
+        - $ref: "#/components/schemas/IOSSymbolsFormData"
+        - $ref: "#/components/schemas/FlutterSymbolFileFormData"
+        - $ref: "#/components/schemas/NDKSymbolFileFormData"
+        - $ref: "#/components/schemas/IL2CPPMappingFileFormData"
+        - $ref: "#/components/schemas/ELFSymbolFileFormData"
+        - $ref: "#/components/schemas/PESymbolFileFormData"
+        - $ref: "#/components/schemas/RepositoryFormData"
     ResolveVulnerableSymbolsRequest:
       description: The top-level request object for resolving vulnerable symbols in a set of packages.
       properties:
@@ -62495,6 +63093,51 @@ components:
       x-enum-varnames:
         - DESC
         - ASC
+    SourceMapPlatform:
+      description: Target platform for mobile source maps.
+      enum:
+        - android
+        - ios
+      example: android
+      type: string
+      x-enum-varnames:
+        - ANDROID
+        - IOS
+    SourceMapUploadError:
+      description: Error response for source map upload.
+      properties:
+        errors:
+          description: A list of errors.
+          items:
+            description: Error message.
+            example: "Missing required field: service"
+            type: string
+          type: array
+      type: object
+    SourceMapUploadResponse:
+      description: Response for source map upload.
+      properties:
+        data:
+          $ref: "#/components/schemas/SourceMapUploadResponseData"
+      type: object
+    SourceMapUploadResponseData:
+      description: Data envelope for source map upload response.
+      properties:
+        id:
+          description: Unique identifier for the uploaded source map.
+          example: sourcemap-upload-id
+          type: string
+        type:
+          $ref: "#/components/schemas/SourceMapUploadResponseType"
+      type: object
+    SourceMapUploadResponseType:
+      description: Type of the response.
+      enum:
+        - sourcemap_upload
+      example: sourcemap_upload
+      type: string
+      x-enum-varnames:
+        - SOURCEMAP_UPLOAD
     Span:
       description: Object description of a spans after being processed and stored by Datadog.
       properties:
@@ -104659,6 +105302,178 @@ paths:
         cursorPath: meta.page.after
         limitParam: body.data.attributes.page.limit
         resultsPath: data
+  /api/v2/srcmap:
+    post:
+      description: |-
+        Upload source maps, symbol files, and mapping files to Datadog for error deobfuscation.
+        This endpoint enables you to upload various types of debug symbols for RUM Error Tracking,
+        allowing Datadog to display readable stack traces instead of minified or obfuscated code.
+
+        **Request format:**
+
+        Each request is a `multipart/form-data` upload containing two parts:
+
+        1. `event` — a JSON-encoded string with the upload metadata (type, service, version, etc.)
+        2. One or more binary file fields (for example, `source_map`, `symbols_archive`)
+
+        **Supported upload types** (set via `event.type`):
+        - `js_sourcemap`: JavaScript source maps for browser applications
+        - `react_native_sourcemap`: React Native source maps for mobile applications
+        - `jvm_mapping_file`: ProGuard/R8 mapping files for Android crash deobfuscation
+        - `ios_symbols`: dSYM files for iOS crash symbolication
+        - `flutter_symbol_file`: Flutter symbol files
+        - `ndk_symbol_file`: Android NDK symbol files for native crashes
+        - `il2cpp_mapping_file`: IL2CPP mapping files for Unity
+        - `elf_symbol_file`: ELF symbol files for Linux/Unix
+        - `pe_symbol_file`: PE/PDB symbol files for Windows
+        - `repository`: Repository metadata for source code linking
+
+        **Limits:**
+        - Maximum file size: 500 MB
+
+        **Note:** For most use cases, Datadog recommends using the
+        [Datadog CLI (datadog-ci)](https://github.com/DataDog/datadog-ci/tree/master/src/commands/sourcemaps)
+        which provides a simplified interface for uploading source maps.
+      operationId: UploadSourceMap
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              event:
+                contentType: application/json
+            examples:
+              js_sourcemap:
+                description: Upload a JavaScript source map for browser RUM applications.
+                summary: JavaScript Source Map Upload
+                value:
+                  event:
+                    minified_url: https://example.com/static/js/main.min.js
+                    service: my-web-app
+                    type: js_sourcemap
+                    version: "1.2.3"
+              jvm_mapping_file:
+                description: Upload a ProGuard or R8 mapping file for Android crash deobfuscation.
+                summary: ProGuard/R8 Mapping File Upload
+                value:
+                  event:
+                    service: my-android-app
+                    type: jvm_mapping_file
+                    variant: release
+                    version: "3.1.0"
+              react_native_sourcemap:
+                description: Upload a React Native source map for mobile applications.
+                summary: React Native Source Map Upload
+                value:
+                  event:
+                    build_number: "100"
+                    bundle_name: main.jsbundle
+                    platform: ios
+                    service: my-mobile-app
+                    type: react_native_sourcemap
+                    version: "2.0.0"
+            schema:
+              $ref: "#/components/schemas/RequestSchema"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadResponse"
+          description: OK
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadResponse"
+          description: Accepted - the request has been accepted for processing.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Bad Request - Invalid request body or missing required fields.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Unauthorized - Invalid or missing API key.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Forbidden - Insufficient permissions.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Not Found - The requested resource was not found.
+        "408":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Request Timeout - The request took too long to complete.
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Payload Too Large - File size exceeds the 500 MB limit.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Too Many Requests - Rate limit exceeded.
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SourceMapUploadError"
+          description: Service Unavailable - The service is temporarily unavailable.
+      security:
+        - apiKeyAuth: []
+      servers:
+        - url: https://{subdomain}.{site}
+          variables:
+            site:
+              default: datadoghq.com
+              description: The regional site for customers.
+              enum:
+                - datadoghq.com
+                - us3.datadoghq.com
+                - us5.datadoghq.com
+                - ap1.datadoghq.com
+                - ap2.datadoghq.com
+                - datadoghq.eu
+                - ddog-gov.com
+            subdomain:
+              default: sourcemap-intake
+              description: The subdomain where the API is deployed.
+        - url: "{protocol}://{name}"
+          variables:
+            name:
+              default: sourcemap-intake.datadoghq.com
+              description: Full site DNS name.
+            protocol:
+              default: https
+              description: The protocol for accessing the API.
+        - url: https://{subdomain}.{site}
+          variables:
+            site:
+              default: datadoghq.com
+              description: Any Datadog deployment.
+            subdomain:
+              default: sourcemap-intake
+              description: The subdomain where the API is deployed.
+      summary: Upload source maps
+      tags:
+        - RUM
+      x-codegen-request-body-name: body
   /api/v2/static-analysis-sca/dependencies:
     post:
       operationId: CreateSCAResult

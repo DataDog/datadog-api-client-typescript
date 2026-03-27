@@ -34,6 +34,8 @@ import { RUMEventsResponse } from "./models/RUMEventsResponse";
 import { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
 import { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 import { RUMSort } from "./models/RUMSort";
+import { SourceMapUploadError } from "./models/SourceMapUploadError";
+import { SourceMapUploadResponse } from "./models/SourceMapUploadResponse";
 import { version } from "../version";
 
 export class RUMApiRequestFactory extends BaseAPIRequestFactory {
@@ -458,6 +460,38 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
     ]);
+
+    return requestContext;
+  }
+
+  public async uploadSourceMap(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/srcmap";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.uploadSourceMap",
+      RUMApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -915,6 +949,74 @@ export class RUMApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to uploadSourceMap
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async uploadSourceMap(
+    response: ResponseContext,
+  ): Promise<SourceMapUploadResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
+      const body: SourceMapUploadResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SourceMapUploadResponse",
+      ) as SourceMapUploadResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 408 ||
+      response.httpStatusCode === 413 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 503
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: SourceMapUploadError;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "SourceMapUploadError",
+        ) as SourceMapUploadError;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<SourceMapUploadError>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<SourceMapUploadError>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SourceMapUploadResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SourceMapUploadResponse",
+        "",
+      ) as SourceMapUploadResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface RUMApiAggregateRUMEventsRequest {
@@ -1004,7 +1106,38 @@ export class RUMApi {
   private responseProcessor: RUMApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "RUMApi.v2.uploadSourceMap": [
+      new ServerConfiguration<{
+        site:
+          | "datadoghq.com"
+          | "us3.datadoghq.com"
+          | "us5.datadoghq.com"
+          | "ap1.datadoghq.com"
+          | "ap2.datadoghq.com"
+          | "datadoghq.eu"
+          | "ddog-gov.com";
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "sourcemap-intake",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "sourcemap-intake.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        site: string;
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "sourcemap-intake",
+      }),
+    ],
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1303,6 +1436,51 @@ export class RUMApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateRUMApplication(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Upload source maps, symbol files, and mapping files to Datadog for error deobfuscation.
+   * This endpoint enables you to upload various types of debug symbols for RUM Error Tracking,
+   * allowing Datadog to display readable stack traces instead of minified or obfuscated code.
+   *
+   * **Request format:**
+   *
+   * Each request is a `multipart/form-data` upload containing two parts:
+   *
+   * 1. `event` — a JSON-encoded string with the upload metadata (type, service, version, etc.)
+   * 2. One or more binary file fields (for example, `source_map`, `symbols_archive`)
+   *
+   * **Supported upload types** (set via `event.type`):
+   * - `js_sourcemap`: JavaScript source maps for browser applications
+   * - `react_native_sourcemap`: React Native source maps for mobile applications
+   * - `jvm_mapping_file`: ProGuard/R8 mapping files for Android crash deobfuscation
+   * - `ios_symbols`: dSYM files for iOS crash symbolication
+   * - `flutter_symbol_file`: Flutter symbol files
+   * - `ndk_symbol_file`: Android NDK symbol files for native crashes
+   * - `il2cpp_mapping_file`: IL2CPP mapping files for Unity
+   * - `elf_symbol_file`: ELF symbol files for Linux/Unix
+   * - `pe_symbol_file`: PE/PDB symbol files for Windows
+   * - `repository`: Repository metadata for source code linking
+   *
+   * **Limits:**
+   * - Maximum file size: 500 MB
+   *
+   * **Note:** For most use cases, Datadog recommends using the
+   * [Datadog CLI (datadog-ci)](https://github.com/DataDog/datadog-ci/tree/master/src/commands/sourcemaps)
+   * which provides a simplified interface for uploading source maps.
+   * @param param The request object
+   */
+  public uploadSourceMap(
+    options?: Configuration,
+  ): Promise<SourceMapUploadResponse> {
+    const requestContextPromise = this.requestFactory.uploadSourceMap(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.uploadSourceMap(responseContext);
         });
     });
   }

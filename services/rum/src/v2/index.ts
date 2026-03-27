@@ -61,3 +61,7 @@ export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
+export { SourceMapUploadError } from "./models/SourceMapUploadError";
+export { SourceMapUploadResponse } from "./models/SourceMapUploadResponse";
+export { SourceMapUploadResponseData } from "./models/SourceMapUploadResponseData";
+export { SourceMapUploadResponseType } from "./models/SourceMapUploadResponseType";

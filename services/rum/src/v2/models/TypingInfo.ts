@@ -36,6 +36,9 @@ import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
+import { SourceMapUploadError } from "./SourceMapUploadError";
+import { SourceMapUploadResponse } from "./SourceMapUploadResponse";
+import { SourceMapUploadResponseData } from "./SourceMapUploadResponseData";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -65,6 +68,7 @@ export const TypingInfo: ModelTypingInfo = {
     RUMResponseStatus: ["done", "timeout"],
     RUMSort: ["timestamp", "-timestamp"],
     RUMSortOrder: ["asc", "desc"],
+    SourceMapUploadResponseType: ["sourcemap_upload"],
   },
   oneOfMap: {
     RUMAggregateBucketValue: [
@@ -113,5 +117,8 @@ export const TypingInfo: ModelTypingInfo = {
     RUMResponsePage: RUMResponsePage,
     RUMSearchEventsRequest: RUMSearchEventsRequest,
     RUMWarning: RUMWarning,
+    SourceMapUploadError: SourceMapUploadError,
+    SourceMapUploadResponse: SourceMapUploadResponse,
+    SourceMapUploadResponseData: SourceMapUploadResponseData,
   },
 };
