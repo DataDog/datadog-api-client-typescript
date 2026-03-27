@@ -700,6 +700,9 @@ import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificat
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
+import { CreateOrUpdateWidgetRequest } from "./CreateOrUpdateWidgetRequest";
+import { CreateOrUpdateWidgetRequestAttributes } from "./CreateOrUpdateWidgetRequestAttributes";
+import { CreateOrUpdateWidgetRequestData } from "./CreateOrUpdateWidgetRequestData";
 import { CreatePageRequest } from "./CreatePageRequest";
 import { CreatePageRequestData } from "./CreatePageRequestData";
 import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttributes";
@@ -3512,6 +3515,17 @@ import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatcherArray } from "./WatcherArray";
 import { WatcherData } from "./WatcherData";
 import { WatcherDataAttributes } from "./WatcherDataAttributes";
+import { WidgetAttributes } from "./WidgetAttributes";
+import { WidgetData } from "./WidgetData";
+import { WidgetDefinition } from "./WidgetDefinition";
+import { WidgetIncludedUser } from "./WidgetIncludedUser";
+import { WidgetIncludedUserAttributes } from "./WidgetIncludedUserAttributes";
+import { WidgetListResponse } from "./WidgetListResponse";
+import { WidgetRelationshipData } from "./WidgetRelationshipData";
+import { WidgetRelationshipItem } from "./WidgetRelationshipItem";
+import { WidgetRelationships } from "./WidgetRelationships";
+import { WidgetResponse } from "./WidgetResponse";
+import { WidgetSearchMeta } from "./WidgetSearchMeta";
 import { WorkflowData } from "./WorkflowData";
 import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
 import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
@@ -5587,6 +5601,12 @@ const enumsMap: { [key: string]: any[] } = {
     "saturday",
     "sunday",
   ],
+  WidgetExperienceType: [
+    "ccm_reports",
+    "logs_reports",
+    "csv_reports",
+    "product_analytics",
+  ],
   WidgetLiveSpan: [
     "1m",
     "5m",
@@ -5603,6 +5623,23 @@ const enumsMap: { [key: string]: any[] } = {
     "6mo",
     "1y",
     "alert",
+  ],
+  WidgetType: [
+    "bar_chart",
+    "change",
+    "cloud_cost_summary",
+    "cohort",
+    "funnel",
+    "geomap",
+    "list_stream",
+    "query_table",
+    "query_value",
+    "retention_curve",
+    "sankey",
+    "sunburst",
+    "timeseries",
+    "toplist",
+    "treemap",
   ],
   WorkflowDataType: ["workflows"],
   WorkflowUserRelationshipType: ["users"],
@@ -6442,6 +6479,9 @@ const typeMap: { [index: string]: any } = {
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
+  CreateOrUpdateWidgetRequest: CreateOrUpdateWidgetRequest,
+  CreateOrUpdateWidgetRequestAttributes: CreateOrUpdateWidgetRequestAttributes,
+  CreateOrUpdateWidgetRequestData: CreateOrUpdateWidgetRequestData,
   CreatePageRequest: CreatePageRequest,
   CreatePageRequestData: CreatePageRequestData,
   CreatePageRequestDataAttributes: CreatePageRequestDataAttributes,
@@ -9830,6 +9870,17 @@ const typeMap: { [index: string]: any } = {
   WatcherArray: WatcherArray,
   WatcherData: WatcherData,
   WatcherDataAttributes: WatcherDataAttributes,
+  WidgetAttributes: WidgetAttributes,
+  WidgetData: WidgetData,
+  WidgetDefinition: WidgetDefinition,
+  WidgetIncludedUser: WidgetIncludedUser,
+  WidgetIncludedUserAttributes: WidgetIncludedUserAttributes,
+  WidgetListResponse: WidgetListResponse,
+  WidgetRelationshipData: WidgetRelationshipData,
+  WidgetRelationshipItem: WidgetRelationshipItem,
+  WidgetRelationships: WidgetRelationships,
+  WidgetResponse: WidgetResponse,
+  WidgetSearchMeta: WidgetSearchMeta,
   WorkflowData: WorkflowData,
   WorkflowDataAttributes: WorkflowDataAttributes,
   WorkflowDataRelationships: WorkflowDataRelationships,
