@@ -91,6 +91,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof SCA_FARGATE_USAGE
   | typeof SDS_SCANNED_BYTES_USAGE
   | typeof SERVERLESS_APPS_USAGE
+  | typeof SERVERLESS_APPS_APM_USAGE
   | typeof SIEM_ANALYZED_LOGS_ADD_ON_USAGE
   | typeof SIEM_INGESTED_BYTES_USAGE
   | typeof SNMP_USAGE
@@ -189,6 +190,7 @@ export const RUM_SESSION_REPLAY_ADD_ON_USAGE =
 export const SCA_FARGATE_USAGE = "sca_fargate_usage";
 export const SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
 export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
+export const SERVERLESS_APPS_APM_USAGE = "serverless_apps_apm_usage";
 export const SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
   "siem_analyzed_logs_add_on_usage";
 export const SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage";
