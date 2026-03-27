@@ -7,8 +7,12 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.TeamsApi(configuration);
 
+const params: v2.TeamsApiListTeamConnectionsRequest = {
+  pageSize: 10,
+};
+
 apiInstance
-  .listTeamConnections()
+  .listTeamConnections(params)
   .then((data: v2.TeamConnectionsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
