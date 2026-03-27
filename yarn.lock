@@ -550,6 +550,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-data-access-controls@workspace:services/data_access_controls":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-data-access-controls@workspace:services/data_access_controls"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-data-deletion@workspace:services/data_deletion":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-data-deletion@workspace:services/data_deletion"
