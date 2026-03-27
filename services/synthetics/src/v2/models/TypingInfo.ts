@@ -24,6 +24,15 @@ import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttrib
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
 import { SuiteCreateEdit } from "./SuiteCreateEdit";
 import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
+import { SuiteJsonPatchRequest } from "./SuiteJsonPatchRequest";
+import { SuiteJsonPatchRequestData } from "./SuiteJsonPatchRequestData";
+import { SuiteJsonPatchRequestDataAttributes } from "./SuiteJsonPatchRequestDataAttributes";
+import { SyntheticsApiMultistepParentTestAttributes } from "./SyntheticsApiMultistepParentTestAttributes";
+import { SyntheticsApiMultistepParentTestData } from "./SyntheticsApiMultistepParentTestData";
+import { SyntheticsApiMultistepParentTestsResponse } from "./SyntheticsApiMultistepParentTestsResponse";
+import { SyntheticsApiMultistepSubtestAttributes } from "./SyntheticsApiMultistepSubtestAttributes";
+import { SyntheticsApiMultistepSubtestData } from "./SyntheticsApiMultistepSubtestData";
+import { SyntheticsApiMultistepSubtestsResponse } from "./SyntheticsApiMultistepSubtestsResponse";
 import { SyntheticsFastTestResult } from "./SyntheticsFastTestResult";
 import { SyntheticsFastTestResultAttributes } from "./SyntheticsFastTestResultAttributes";
 import { SyntheticsFastTestResultData } from "./SyntheticsFastTestResultData";
@@ -61,6 +70,21 @@ import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMoni
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOptionsSchedulingTimeframe";
+import { SyntheticsTestParentSuiteAttributes } from "./SyntheticsTestParentSuiteAttributes";
+import { SyntheticsTestParentSuiteData } from "./SyntheticsTestParentSuiteData";
+import { SyntheticsTestParentSuitesResponse } from "./SyntheticsTestParentSuitesResponse";
+import { SyntheticsTestVersionActionMetadata } from "./SyntheticsTestVersionActionMetadata";
+import { SyntheticsTestVersionAttributes } from "./SyntheticsTestVersionAttributes";
+import { SyntheticsTestVersionAuthor } from "./SyntheticsTestVersionAuthor";
+import { SyntheticsTestVersionChangeAttributes } from "./SyntheticsTestVersionChangeAttributes";
+import { SyntheticsTestVersionChangeData } from "./SyntheticsTestVersionChangeData";
+import { SyntheticsTestVersionChangeMetadataItem } from "./SyntheticsTestVersionChangeMetadataItem";
+import { SyntheticsTestVersionData } from "./SyntheticsTestVersionData";
+import { SyntheticsTestVersionDiffPatchDiff } from "./SyntheticsTestVersionDiffPatchDiff";
+import { SyntheticsTestVersionDiffPatches } from "./SyntheticsTestVersionDiffPatches";
+import { SyntheticsTestVersionHistoryMeta } from "./SyntheticsTestVersionHistoryMeta";
+import { SyntheticsTestVersionHistoryResponse } from "./SyntheticsTestVersionHistoryResponse";
+import { SyntheticsTestVersionResponse } from "./SyntheticsTestVersionResponse";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -72,7 +96,10 @@ export const TypingInfo: ModelTypingInfo = {
     GlobalVariableType: ["global_variables"],
     JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
     OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
+    SuiteJsonPatchType: ["suites_json_patch"],
     SuiteSearchResponseType: ["suites_search"],
+    SyntheticsApiMultistepParentTestType: ["parent_test"],
+    SyntheticsApiMultistepSubtestType: ["subtest"],
     SyntheticsFastTestResultType: ["result"],
     SyntheticsFastTestSubType: [
       "dns",
@@ -124,7 +151,10 @@ export const TypingInfo: ModelTypingInfo = {
       "show_only_snapshot",
       "hide_handles_and_footer",
     ],
+    SyntheticsTestParentSuiteType: ["parent_suite"],
     SyntheticsTestPauseStatus: ["live", "paused"],
+    SyntheticsTestVersionChangeType: ["version_metadata"],
+    SyntheticsTestVersionType: ["version"],
   },
   oneOfMap: {
     SyntheticsNetworkAssertion: [
@@ -160,6 +190,19 @@ export const TypingInfo: ModelTypingInfo = {
     OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
     SuiteCreateEdit: SuiteCreateEdit,
     SuiteCreateEditRequest: SuiteCreateEditRequest,
+    SuiteJsonPatchRequest: SuiteJsonPatchRequest,
+    SuiteJsonPatchRequestData: SuiteJsonPatchRequestData,
+    SuiteJsonPatchRequestDataAttributes: SuiteJsonPatchRequestDataAttributes,
+    SyntheticsApiMultistepParentTestAttributes:
+      SyntheticsApiMultistepParentTestAttributes,
+    SyntheticsApiMultistepParentTestData: SyntheticsApiMultistepParentTestData,
+    SyntheticsApiMultistepParentTestsResponse:
+      SyntheticsApiMultistepParentTestsResponse,
+    SyntheticsApiMultistepSubtestAttributes:
+      SyntheticsApiMultistepSubtestAttributes,
+    SyntheticsApiMultistepSubtestData: SyntheticsApiMultistepSubtestData,
+    SyntheticsApiMultistepSubtestsResponse:
+      SyntheticsApiMultistepSubtestsResponse,
     SyntheticsFastTestResult: SyntheticsFastTestResult,
     SyntheticsFastTestResultAttributes: SyntheticsFastTestResultAttributes,
     SyntheticsFastTestResultData: SyntheticsFastTestResultData,
@@ -203,6 +246,23 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsTestOptionsScheduling: SyntheticsTestOptionsScheduling,
     SyntheticsTestOptionsSchedulingTimeframe:
       SyntheticsTestOptionsSchedulingTimeframe,
+    SyntheticsTestParentSuiteAttributes: SyntheticsTestParentSuiteAttributes,
+    SyntheticsTestParentSuiteData: SyntheticsTestParentSuiteData,
+    SyntheticsTestParentSuitesResponse: SyntheticsTestParentSuitesResponse,
+    SyntheticsTestVersionActionMetadata: SyntheticsTestVersionActionMetadata,
+    SyntheticsTestVersionAttributes: SyntheticsTestVersionAttributes,
+    SyntheticsTestVersionAuthor: SyntheticsTestVersionAuthor,
+    SyntheticsTestVersionChangeAttributes:
+      SyntheticsTestVersionChangeAttributes,
+    SyntheticsTestVersionChangeData: SyntheticsTestVersionChangeData,
+    SyntheticsTestVersionChangeMetadataItem:
+      SyntheticsTestVersionChangeMetadataItem,
+    SyntheticsTestVersionData: SyntheticsTestVersionData,
+    SyntheticsTestVersionDiffPatchDiff: SyntheticsTestVersionDiffPatchDiff,
+    SyntheticsTestVersionDiffPatches: SyntheticsTestVersionDiffPatches,
+    SyntheticsTestVersionHistoryMeta: SyntheticsTestVersionHistoryMeta,
+    SyntheticsTestVersionHistoryResponse: SyntheticsTestVersionHistoryResponse,
+    SyntheticsTestVersionResponse: SyntheticsTestVersionResponse,
     SyntheticsVariableParser: SyntheticsVariableParser,
   },
 };
