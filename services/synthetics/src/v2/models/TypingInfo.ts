@@ -56,6 +56,15 @@ import { SyntheticsSuiteSearchResponse } from "./SyntheticsSuiteSearchResponse";
 import { SyntheticsSuiteSearchResponseData } from "./SyntheticsSuiteSearchResponseData";
 import { SyntheticsSuiteSearchResponseDataAttributes } from "./SyntheticsSuiteSearchResponseDataAttributes";
 import { SyntheticsSuiteTest } from "./SyntheticsSuiteTest";
+import { SyntheticsTestFileAbortMultipartUploadRequest } from "./SyntheticsTestFileAbortMultipartUploadRequest";
+import { SyntheticsTestFileCompleteMultipartUploadPart } from "./SyntheticsTestFileCompleteMultipartUploadPart";
+import { SyntheticsTestFileCompleteMultipartUploadRequest } from "./SyntheticsTestFileCompleteMultipartUploadRequest";
+import { SyntheticsTestFileDownloadRequest } from "./SyntheticsTestFileDownloadRequest";
+import { SyntheticsTestFileDownloadResponse } from "./SyntheticsTestFileDownloadResponse";
+import { SyntheticsTestFileMultipartPresignedUrlsParams } from "./SyntheticsTestFileMultipartPresignedUrlsParams";
+import { SyntheticsTestFileMultipartPresignedUrlsPart } from "./SyntheticsTestFileMultipartPresignedUrlsPart";
+import { SyntheticsTestFileMultipartPresignedUrlsRequest } from "./SyntheticsTestFileMultipartPresignedUrlsRequest";
+import { SyntheticsTestFileMultipartPresignedUrlsResponse } from "./SyntheticsTestFileMultipartPresignedUrlsResponse";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
@@ -115,6 +124,10 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsSuiteTestAlertingCriticality: ["ignore", "critical"],
     SyntheticsSuiteType: ["suite"],
     SyntheticsSuiteTypes: ["suites"],
+    SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix: [
+      "api-upload-file",
+      "browser-upload-file-step",
+    ],
     SyntheticsTestOptionsMonitorOptionsNotificationPresetName: [
       "show_all",
       "hide_all",
@@ -197,6 +210,22 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsSuiteSearchResponseDataAttributes:
       SyntheticsSuiteSearchResponseDataAttributes,
     SyntheticsSuiteTest: SyntheticsSuiteTest,
+    SyntheticsTestFileAbortMultipartUploadRequest:
+      SyntheticsTestFileAbortMultipartUploadRequest,
+    SyntheticsTestFileCompleteMultipartUploadPart:
+      SyntheticsTestFileCompleteMultipartUploadPart,
+    SyntheticsTestFileCompleteMultipartUploadRequest:
+      SyntheticsTestFileCompleteMultipartUploadRequest,
+    SyntheticsTestFileDownloadRequest: SyntheticsTestFileDownloadRequest,
+    SyntheticsTestFileDownloadResponse: SyntheticsTestFileDownloadResponse,
+    SyntheticsTestFileMultipartPresignedUrlsParams:
+      SyntheticsTestFileMultipartPresignedUrlsParams,
+    SyntheticsTestFileMultipartPresignedUrlsPart:
+      SyntheticsTestFileMultipartPresignedUrlsPart,
+    SyntheticsTestFileMultipartPresignedUrlsRequest:
+      SyntheticsTestFileMultipartPresignedUrlsRequest,
+    SyntheticsTestFileMultipartPresignedUrlsResponse:
+      SyntheticsTestFileMultipartPresignedUrlsResponse,
     SyntheticsTestOptions: SyntheticsTestOptions,
     SyntheticsTestOptionsMonitorOptions: SyntheticsTestOptionsMonitorOptions,
     SyntheticsTestOptionsRetry: SyntheticsTestOptionsRetry,

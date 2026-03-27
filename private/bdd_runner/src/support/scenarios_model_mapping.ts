@@ -11210,6 +11210,50 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsNetworkTestResponse",
   },
+  "SyntheticsApi.V2.GetTestFileDownloadUrl": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileDownloadRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestFileDownloadResponse",
+  },
+  "SyntheticsApi.V2.GetTestFileMultipartPresignedUrls": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileMultipartPresignedUrlsRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestFileMultipartPresignedUrlsResponse",
+  },
+  "SyntheticsApi.V2.AbortTestFileMultipartUpload": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileAbortMultipartUploadRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SyntheticsApi.V2.CompleteTestFileMultipartUpload": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileCompleteMultipartUploadRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "SyntheticsApi.V2.PatchGlobalVariable": {
     variableId: {
       type: "string",
@@ -11760,6 +11804,93 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "PermissionsResponse",
+  },
+  "WidgetsApi.V2.SearchWidgets": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    filterWidgetType: {
+      type: "WidgetType",
+      format: "",
+    },
+    filterCreatorHandle: {
+      type: "string",
+      format: "",
+    },
+    filterIsFavorited: {
+      type: "boolean",
+      format: "",
+    },
+    filterTitle: {
+      type: "string",
+      format: "",
+    },
+    filterTags: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "WidgetListResponse",
+  },
+  "WidgetsApi.V2.CreateWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequest",
+      format: "",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.GetWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.UpdateWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateOrUpdateWidgetRequest",
+      format: "",
+    },
+    operationResponseType: "WidgetResponse",
+  },
+  "WidgetsApi.V2.DeleteWidget": {
+    experienceType: {
+      type: "WidgetExperienceType",
+      format: "",
+    },
+    uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
   },
   "WorkflowAutomationApi.V2.CreateWorkflow": {
     body: {

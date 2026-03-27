@@ -5895,6 +5895,30 @@
       "type": "idempotent"
     }
   },
+  "GetTestFileDownloadUrl": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetTestFileMultipartPresignedUrls": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "AbortTestFileMultipartUpload": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CompleteTestFileMultipartUpload": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "PatchGlobalVariable": {
     "tag": "Synthetics",
     "undo": {
@@ -6352,6 +6376,47 @@
   },
   "GetUserMemberships": {
     "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "SearchWidgets": {
+    "tag": "Widgets",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateWidget": {
+    "tag": "Widgets",
+    "undo": {
+      "operationId": "DeleteWidget",
+      "parameters": [
+        {
+          "name": "experience_type",
+          "source": "experience_type"
+        },
+        {
+          "name": "uuid",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteWidget": {
+    "tag": "Widgets",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetWidget": {
+    "tag": "Widgets",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateWidget": {
+    "tag": "Widgets",
     "undo": {
       "type": "safe"
     }
