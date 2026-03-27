@@ -544,6 +544,7 @@ export const TypingInfo: ModelTypingInfo = {
       "none",
       "false_positive",
       "testing_or_maintenance",
+      "remediated",
       "investigated_case_opened",
       "true_positive_benign",
       "true_positive_malicious",
