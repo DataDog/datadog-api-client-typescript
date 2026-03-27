@@ -1138,6 +1138,8 @@ export {
 } from "./apis/StatusPagesApi";
 
 export {
+  SyntheticsApiAbortTestFileMultipartUploadRequest,
+  SyntheticsApiCompleteTestFileMultipartUploadRequest,
   SyntheticsApiCreateSyntheticsNetworkTestRequest,
   SyntheticsApiCreateSyntheticsSuiteRequest,
   SyntheticsApiDeleteSyntheticsSuitesRequest,
@@ -1146,6 +1148,8 @@ export {
   SyntheticsApiGetSyntheticsFastTestResultRequest,
   SyntheticsApiGetSyntheticsNetworkTestRequest,
   SyntheticsApiGetSyntheticsSuiteRequest,
+  SyntheticsApiGetTestFileDownloadUrlRequest,
+  SyntheticsApiGetTestFileMultipartPresignedUrlsRequest,
   SyntheticsApiPatchGlobalVariableRequest,
   SyntheticsApiSearchSuitesRequest,
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
@@ -1226,6 +1230,15 @@ export {
   UsersApiUpdateUserRequest,
   UsersApi,
 } from "./apis/UsersApi";
+
+export {
+  WidgetsApiCreateWidgetRequest,
+  WidgetsApiDeleteWidgetRequest,
+  WidgetsApiGetWidgetRequest,
+  WidgetsApiSearchWidgetsRequest,
+  WidgetsApiUpdateWidgetRequest,
+  WidgetsApi,
+} from "./apis/WidgetsApi";
 
 export {
   WorkflowAutomationApiCancelWorkflowInstanceRequest,
@@ -2152,6 +2165,9 @@ export { CreateOnCallNotificationRuleRequestData } from "./models/CreateOnCallNo
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
+export { CreateOrUpdateWidgetRequest } from "./models/CreateOrUpdateWidgetRequest";
+export { CreateOrUpdateWidgetRequestAttributes } from "./models/CreateOrUpdateWidgetRequestAttributes";
+export { CreateOrUpdateWidgetRequestData } from "./models/CreateOrUpdateWidgetRequestData";
 export { CreatePageRequest } from "./models/CreatePageRequest";
 export { CreatePageRequestData } from "./models/CreatePageRequestData";
 export { CreatePageRequestDataAttributes } from "./models/CreatePageRequestDataAttributes";
@@ -5454,6 +5470,16 @@ export { SyntheticsSuiteTest } from "./models/SyntheticsSuiteTest";
 export { SyntheticsSuiteTestAlertingCriticality } from "./models/SyntheticsSuiteTestAlertingCriticality";
 export { SyntheticsSuiteType } from "./models/SyntheticsSuiteType";
 export { SyntheticsSuiteTypes } from "./models/SyntheticsSuiteTypes";
+export { SyntheticsTestFileAbortMultipartUploadRequest } from "./models/SyntheticsTestFileAbortMultipartUploadRequest";
+export { SyntheticsTestFileCompleteMultipartUploadPart } from "./models/SyntheticsTestFileCompleteMultipartUploadPart";
+export { SyntheticsTestFileCompleteMultipartUploadRequest } from "./models/SyntheticsTestFileCompleteMultipartUploadRequest";
+export { SyntheticsTestFileDownloadRequest } from "./models/SyntheticsTestFileDownloadRequest";
+export { SyntheticsTestFileDownloadResponse } from "./models/SyntheticsTestFileDownloadResponse";
+export { SyntheticsTestFileMultipartPresignedUrlsParams } from "./models/SyntheticsTestFileMultipartPresignedUrlsParams";
+export { SyntheticsTestFileMultipartPresignedUrlsPart } from "./models/SyntheticsTestFileMultipartPresignedUrlsPart";
+export { SyntheticsTestFileMultipartPresignedUrlsRequest } from "./models/SyntheticsTestFileMultipartPresignedUrlsRequest";
+export { SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix } from "./models/SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix";
+export { SyntheticsTestFileMultipartPresignedUrlsResponse } from "./models/SyntheticsTestFileMultipartPresignedUrlsResponse";
 export { SyntheticsTestOptions } from "./models/SyntheticsTestOptions";
 export { SyntheticsTestOptionsMonitorOptions } from "./models/SyntheticsTestOptionsMonitorOptions";
 export { SyntheticsTestOptionsMonitorOptionsNotificationPresetName } from "./models/SyntheticsTestOptionsMonitorOptionsNotificationPresetName";
@@ -5869,7 +5895,20 @@ export { WatcherData } from "./models/WatcherData";
 export { WatcherDataAttributes } from "./models/WatcherDataAttributes";
 export { WatcherDataType } from "./models/WatcherDataType";
 export { Weekday } from "./models/Weekday";
+export { WidgetAttributes } from "./models/WidgetAttributes";
+export { WidgetData } from "./models/WidgetData";
+export { WidgetDefinition } from "./models/WidgetDefinition";
+export { WidgetExperienceType } from "./models/WidgetExperienceType";
+export { WidgetIncludedUser } from "./models/WidgetIncludedUser";
+export { WidgetIncludedUserAttributes } from "./models/WidgetIncludedUserAttributes";
+export { WidgetListResponse } from "./models/WidgetListResponse";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
+export { WidgetRelationshipData } from "./models/WidgetRelationshipData";
+export { WidgetRelationshipItem } from "./models/WidgetRelationshipItem";
+export { WidgetRelationships } from "./models/WidgetRelationships";
+export { WidgetResponse } from "./models/WidgetResponse";
+export { WidgetSearchMeta } from "./models/WidgetSearchMeta";
+export { WidgetType } from "./models/WidgetType";
 export { WorkflowData } from "./models/WorkflowData";
 export { WorkflowDataAttributes } from "./models/WorkflowDataAttributes";
 export { WorkflowDataRelationships } from "./models/WorkflowDataRelationships";
