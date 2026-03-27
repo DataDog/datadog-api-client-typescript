@@ -4,9 +4,13 @@ import { FreeTextWidgetDefinitionType } from "./FreeTextWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
 /**
- * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
+ * Free text is a widget that allows you to add headings to your dashboard. Commonly used to state the overall purpose of the dashboard.
  */
 export class FreeTextWidgetDefinition {
+  /**
+   * Background color of the widget. Supported values are `white`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray`, `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, and `transparent`.
+   */
+  "backgroundColor"?: string;
   /**
    * Color of the text.
    */
@@ -42,6 +46,10 @@ export class FreeTextWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    backgroundColor: {
+      baseName: "background_color",
+      type: "string",
+    },
     color: {
       baseName: "color",
       type: "string",

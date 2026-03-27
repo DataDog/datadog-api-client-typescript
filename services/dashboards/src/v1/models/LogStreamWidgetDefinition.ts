@@ -7,7 +7,7 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
 /**
- * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
+ * The Log Stream displays a log flow matching the defined query.
  */
 export class LogStreamWidgetDefinition {
   /**
