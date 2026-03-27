@@ -8,7 +8,7 @@ import { IFrameWidgetDefinitionType } from "./IFrameWidgetDefinitionType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
+ * The iframe widget allows you to embed a portion of any other web page on your dashboard.
  */
 export class IFrameWidgetDefinition {
   /**
