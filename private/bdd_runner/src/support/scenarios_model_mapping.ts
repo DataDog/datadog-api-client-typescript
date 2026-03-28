@@ -6354,6 +6354,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentResponse",
   },
+  "IncidentsApi.V2.ImportIncidentUserDefinedFieldValues": {
+    fieldId: {
+      type: "string",
+      format: "",
+    },
+    replaceValues: {
+      type: "string",
+      format: "",
+    },
+    file: {
+      type: "HttpFile",
+      format: "binary",
+    },
+    operationResponseType: "IncidentUserDefinedFieldResponse",
+  },
   "IncidentsApi.V2.ListGlobalIncidentHandles": {
     include: {
       type: "string",
@@ -6575,6 +6590,73 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "IncidentTypeResponse",
+  },
+  "IncidentsApi.V2.ListIncidentUserDefinedFields": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    includeDeleted: {
+      type: "boolean",
+      format: "",
+    },
+    filterIncidentType: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldListResponse",
+  },
+  "IncidentsApi.V2.CreateIncidentUserDefinedField": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentUserDefinedFieldCreateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldResponse",
+  },
+  "IncidentsApi.V2.GetIncidentUserDefinedField": {
+    fieldId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldResponse",
+  },
+  "IncidentsApi.V2.DeleteIncidentUserDefinedField": {
+    fieldId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentUserDefinedField": {
+    fieldId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentUserDefinedFieldUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldResponse",
   },
   "IncidentsApi.V2.ImportIncident": {
     include: {
