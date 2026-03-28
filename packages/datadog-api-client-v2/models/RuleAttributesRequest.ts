@@ -7,21 +7,9 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Details of a rule.
+ * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
  */
-export class RuleAttributes {
-  /**
-   * The scorecard name to which this rule must belong.
-   */
-  "category"?: string;
-  /**
-   * Creation time of the rule outcome.
-   */
-  "createdAt"?: Date;
-  /**
-   * Defines if the rule is a custom rule.
-   */
-  "custom"?: boolean;
+export class RuleAttributesRequest {
   /**
    * Explanation of the rule.
    */
@@ -34,10 +22,6 @@ export class RuleAttributes {
    * The maturity level of the rule (1, 2, or 3).
    */
   "level"?: number;
-  /**
-   * Time of the last rule outcome modification.
-   */
-  "modifiedAt"?: Date;
   /**
    * Name of the rule.
    */
@@ -71,19 +55,6 @@ export class RuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
-    },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
-    },
-    custom: {
-      baseName: "custom",
-      type: "boolean",
-    },
     description: {
       baseName: "description",
       type: "string",
@@ -95,11 +66,6 @@ export class RuleAttributes {
     level: {
       baseName: "level",
       type: "number",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
     },
     name: {
       baseName: "name",
@@ -127,7 +93,7 @@ export class RuleAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleAttributes.attributeTypeMap;
+    return RuleAttributesRequest.attributeTypeMap;
   }
 
   public constructor() {}

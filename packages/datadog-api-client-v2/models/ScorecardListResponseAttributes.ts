@@ -3,23 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * Scorecard attributes.
  */
-export class UpdateRuleRequestData {
+export class ScorecardListResponseAttributes {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * Creation time of the scorecard.
    */
-  "attributes"?: RuleAttributesRequest;
+  "createdAt": Date;
   /**
-   * The JSON:API type for scorecard rules.
+   * The description of the scorecard.
    */
-  "type"?: RuleType;
+  "description"?: string;
+  /**
+   * Time of last scorecard modification.
+   */
+  "modifiedAt": Date;
+  /**
+   * The name of the scorecard.
+   */
+  "name": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +43,26 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributesRequest",
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +74,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return ScorecardListResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}

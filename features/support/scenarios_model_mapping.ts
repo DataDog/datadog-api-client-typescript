@@ -10099,6 +10099,69 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ViewershipHistorySessionArray",
     },
+    "v2.ListScorecardCampaigns": {
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterCampaignName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCampaignStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCampaignOwner": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListCampaignsResponse",
+    },
+    "v2.CreateScorecardCampaign": {
+        "body": {
+            "type": "CreateCampaignRequest",
+            "format": "",
+            },
+        "operationResponseType": "CampaignResponse",
+    },
+    "v2.GetScorecardCampaign": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "includeMeta": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "CampaignResponse",
+    },
+    "v2.UpdateScorecardCampaign": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateCampaignRequest",
+            "format": "",
+            },
+        "operationResponseType": "CampaignResponse",
+    },
+    "v2.DeleteScorecardCampaign": {
+        "campaignId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListScorecardOutcomes": {
         "pageSize": {
             "type": "number",
@@ -10142,7 +10205,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OutcomesResponse",
     },
-    "v2.UpdateScorecardOutcomesAsync": {
+    "v2.UpdateScorecardOutcomes": {
         "body": {
             "type": "UpdateOutcomesAsyncRequest",
             "format": "",
@@ -10223,6 +10286,29 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListScorecards": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterScorecardId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterScorecardName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterScorecardDescription": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListScorecardsResponse",
     },
     "v2.GetSeatsUsers": {
         "productCode": {
