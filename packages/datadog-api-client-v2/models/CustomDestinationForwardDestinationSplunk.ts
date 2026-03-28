@@ -21,6 +21,14 @@ export class CustomDestinationForwardDestinationSplunk {
    */
   "endpoint": string;
   /**
+   * The Splunk sourcetype for the events sent to this Splunk destination.
+   *
+   * If absent, the default sourcetype `_json` is used. If set to `null`, the `sourcetype`
+   * field is omitted from the Splunk HEC payload entirely. Otherwise, the provided string
+   * value is used as the sourcetype.
+   */
+  "sourcetype"?: string;
+  /**
    * Type of the Splunk HTTP Event Collector (HEC) destination.
    */
   "type": CustomDestinationForwardDestinationSplunkType;
@@ -50,6 +58,10 @@ export class CustomDestinationForwardDestinationSplunk {
       baseName: "endpoint",
       type: "string",
       required: true,
+    },
+    sourcetype: {
+      baseName: "sourcetype",
+      type: "string",
     },
     type: {
       baseName: "type",
