@@ -1138,6 +1138,8 @@ export {
 } from "./apis/StatusPagesApi";
 
 export {
+  SyntheticsApiAbortTestFileMultipartUploadRequest,
+  SyntheticsApiCompleteTestFileMultipartUploadRequest,
   SyntheticsApiCreateSyntheticsNetworkTestRequest,
   SyntheticsApiCreateSyntheticsSuiteRequest,
   SyntheticsApiDeleteSyntheticsSuitesRequest,
@@ -1149,6 +1151,8 @@ export {
   SyntheticsApiGetSyntheticsNetworkTestRequest,
   SyntheticsApiGetSyntheticsSuiteRequest,
   SyntheticsApiGetSyntheticsTestVersionRequest,
+  SyntheticsApiGetTestFileDownloadUrlRequest,
+  SyntheticsApiGetTestFileMultipartPresignedUrlsRequest,
   SyntheticsApiGetTestParentSuitesRequest,
   SyntheticsApiListSyntheticsTestVersionsRequest,
   SyntheticsApiPatchGlobalVariableRequest,
@@ -5484,6 +5488,16 @@ export { SyntheticsSuiteTest } from "./models/SyntheticsSuiteTest";
 export { SyntheticsSuiteTestAlertingCriticality } from "./models/SyntheticsSuiteTestAlertingCriticality";
 export { SyntheticsSuiteType } from "./models/SyntheticsSuiteType";
 export { SyntheticsSuiteTypes } from "./models/SyntheticsSuiteTypes";
+export { SyntheticsTestFileAbortMultipartUploadRequest } from "./models/SyntheticsTestFileAbortMultipartUploadRequest";
+export { SyntheticsTestFileCompleteMultipartUploadPart } from "./models/SyntheticsTestFileCompleteMultipartUploadPart";
+export { SyntheticsTestFileCompleteMultipartUploadRequest } from "./models/SyntheticsTestFileCompleteMultipartUploadRequest";
+export { SyntheticsTestFileDownloadRequest } from "./models/SyntheticsTestFileDownloadRequest";
+export { SyntheticsTestFileDownloadResponse } from "./models/SyntheticsTestFileDownloadResponse";
+export { SyntheticsTestFileMultipartPresignedUrlsParams } from "./models/SyntheticsTestFileMultipartPresignedUrlsParams";
+export { SyntheticsTestFileMultipartPresignedUrlsPart } from "./models/SyntheticsTestFileMultipartPresignedUrlsPart";
+export { SyntheticsTestFileMultipartPresignedUrlsRequest } from "./models/SyntheticsTestFileMultipartPresignedUrlsRequest";
+export { SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix } from "./models/SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix";
+export { SyntheticsTestFileMultipartPresignedUrlsResponse } from "./models/SyntheticsTestFileMultipartPresignedUrlsResponse";
 export { SyntheticsTestOptions } from "./models/SyntheticsTestOptions";
 export { SyntheticsTestOptionsMonitorOptions } from "./models/SyntheticsTestOptionsMonitorOptions";
 export { SyntheticsTestOptionsMonitorOptionsNotificationPresetName } from "./models/SyntheticsTestOptionsMonitorOptionsNotificationPresetName";

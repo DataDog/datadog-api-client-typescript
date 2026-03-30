@@ -11225,6 +11225,50 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsNetworkTestResponse",
     },
+    "v2.GetTestFileDownloadUrl": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsTestFileDownloadRequest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTestFileDownloadResponse",
+    },
+    "v2.GetTestFileMultipartPresignedUrls": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsTestFileMultipartPresignedUrlsRequest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTestFileMultipartPresignedUrlsResponse",
+    },
+    "v2.AbortTestFileMultipartUpload": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsTestFileAbortMultipartUploadRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CompleteTestFileMultipartUpload": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsTestFileCompleteMultipartUploadRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetTestParentSuites": {
         "publicId": {
             "type": "string",
