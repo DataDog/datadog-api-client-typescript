@@ -11235,6 +11235,50 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsNetworkTestResponse",
   },
+  "SyntheticsApi.V2.GetTestFileDownloadUrl": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileDownloadRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestFileDownloadResponse",
+  },
+  "SyntheticsApi.V2.GetTestFileMultipartPresignedUrls": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileMultipartPresignedUrlsRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestFileMultipartPresignedUrlsResponse",
+  },
+  "SyntheticsApi.V2.AbortTestFileMultipartUpload": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileAbortMultipartUploadRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SyntheticsApi.V2.CompleteTestFileMultipartUpload": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsTestFileCompleteMultipartUploadRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "SyntheticsApi.V2.GetTestParentSuites": {
     publicId: {
       type: "string",
