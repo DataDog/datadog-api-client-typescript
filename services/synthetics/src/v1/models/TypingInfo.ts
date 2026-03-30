@@ -343,6 +343,8 @@ export const TypingInfo: ModelTypingInfo = {
       "assertPageLacks",
       "assertRequests",
       "click",
+      "drag",
+      "drop",
       "extractFromJavascript",
       "extractFromEmailBody",
       "extractVariable",
