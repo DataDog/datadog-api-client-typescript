@@ -22,6 +22,8 @@ export type SyntheticsStepType =
   | typeof ASSERT_PAGE_LACKS
   | typeof ASSERT_REQUESTS
   | typeof CLICK
+  | typeof DRAG
+  | typeof DROP
   | typeof EXTRACT_FROM_JAVASCRIPT
   | typeof EXTRACT_FROM_EMAIL_BODY
   | typeof EXTRACT_VARIABLE
@@ -50,6 +52,8 @@ export const ASSERT_PAGE_CONTAINS = "assertPageContains";
 export const ASSERT_PAGE_LACKS = "assertPageLacks";
 export const ASSERT_REQUESTS = "assertRequests";
 export const CLICK = "click";
+export const DRAG = "drag";
+export const DROP = "drop";
 export const EXTRACT_FROM_JAVASCRIPT = "extractFromJavascript";
 export const EXTRACT_FROM_EMAIL_BODY = "extractFromEmailBody";
 export const EXTRACT_VARIABLE = "extractVariable";

@@ -1648,6 +1648,8 @@ const enumsMap: { [key: string]: any[] } = {
     "assertPageLacks",
     "assertRequests",
     "click",
+    "drag",
+    "drop",
     "extractFromJavascript",
     "extractFromEmailBody",
     "extractVariable",
