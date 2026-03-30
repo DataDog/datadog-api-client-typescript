@@ -1599,6 +1599,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1667,6 +1668,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1732,6 +1734,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -8095,7 +8098,11 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as SecurityMonitoringSignalResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
