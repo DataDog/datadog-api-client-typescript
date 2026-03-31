@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Attributes for a batch rows query request.
+ */
 export class BatchRowsQueryRequestDataAttributes {
+  /**
+   * List of row identifiers to query from the reference table.
+   */
   "rowIds": Array<string>;
+  /**
+   * Unique identifier of the reference table to query.
+   */
   "tableId": string;
 
   /**

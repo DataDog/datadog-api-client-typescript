@@ -8,8 +8,17 @@ import { BatchRowsQueryResponseDataRelationships } from "./BatchRowsQueryRespons
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Data object for a batch rows query response.
+ */
 export class BatchRowsQueryResponseData {
+  /**
+   * Unique identifier of the batch query.
+   */
   "id"?: string;
+  /**
+   * Relationships of the batch rows query response data.
+   */
   "relationships"?: BatchRowsQueryResponseDataRelationships;
   /**
    * Resource type identifier for batch queries of reference table rows.

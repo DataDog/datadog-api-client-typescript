@@ -7,7 +7,13 @@ import { BatchRowsQueryResponseDataRelationshipsRows } from "./BatchRowsQueryRes
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Relationships of the batch rows query response data.
+ */
 export class BatchRowsQueryResponseDataRelationships {
+  /**
+   * Relationship data containing the list of matching rows.
+   */
   "rows"?: BatchRowsQueryResponseDataRelationshipsRows;
 
   /**

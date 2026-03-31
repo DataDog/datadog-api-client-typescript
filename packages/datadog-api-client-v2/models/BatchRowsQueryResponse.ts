@@ -7,7 +7,13 @@ import { BatchRowsQueryResponseData } from "./BatchRowsQueryResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Response object for a batch rows query against a reference table.
+ */
 export class BatchRowsQueryResponse {
+  /**
+   * Data object for a batch rows query response.
+   */
   "data"?: BatchRowsQueryResponseData;
 
   /**

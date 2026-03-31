@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Pagination metadata for environments.
  */
 export class EnvironmentsPaginationMeta {
+  /**
+   * Pagination metadata for environments list responses.
+   */
   "page"?: EnvironmentsPaginationMetaPage;
 
   /**

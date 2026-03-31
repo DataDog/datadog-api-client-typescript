@@ -11,6 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Pagination metadata for feature flags.
  */
 export class FeatureFlagsPaginationMeta {
+  /**
+   * Pagination metadata for feature flags list responses.
+   */
   "page"?: FeatureFlagsPaginationMetaPage;
 
   /**
