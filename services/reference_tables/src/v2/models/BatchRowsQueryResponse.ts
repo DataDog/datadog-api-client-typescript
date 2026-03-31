@@ -2,7 +2,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { BatchRowsQueryResponseData } from "./BatchRowsQueryResponseData";
 
+/**
+ * Response object for a batch rows query against a reference table.
+ */
 export class BatchRowsQueryResponse {
+  /**
+   * Data object for a batch rows query response.
+   */
   "data"?: BatchRowsQueryResponseData;
   /**
    * A container for additional, undeclared properties.

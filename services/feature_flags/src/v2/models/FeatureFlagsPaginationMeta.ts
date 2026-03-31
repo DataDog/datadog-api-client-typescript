@@ -6,6 +6,9 @@ import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage
  * Pagination metadata for feature flags.
  */
 export class FeatureFlagsPaginationMeta {
+  /**
+   * Pagination metadata for feature flags list responses.
+   */
   "page"?: FeatureFlagsPaginationMetaPage;
   /**
    * A container for additional, undeclared properties.
