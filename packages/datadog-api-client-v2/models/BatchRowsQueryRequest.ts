@@ -7,7 +7,13 @@ import { BatchRowsQueryRequestData } from "./BatchRowsQueryRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Request object for querying multiple rows from a reference table by their identifiers.
+ */
 export class BatchRowsQueryRequest {
+  /**
+   * Data object for a batch rows query request.
+   */
   "data"?: BatchRowsQueryRequestData;
 
   /**

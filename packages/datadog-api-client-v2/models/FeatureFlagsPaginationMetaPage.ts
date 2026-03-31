@@ -6,6 +6,9 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Pagination metadata for feature flags list responses.
+ */
 export class FeatureFlagsPaginationMetaPage {
   /**
    * Total number of items.
