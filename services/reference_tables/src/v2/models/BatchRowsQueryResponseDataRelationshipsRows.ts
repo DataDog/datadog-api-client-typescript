@@ -2,6 +2,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
 
+/**
+ * Relationship data containing the list of matching rows.
+ */
 export class BatchRowsQueryResponseDataRelationshipsRows {
   "data"?: Array<TableRowResourceIdentifier>;
   /**

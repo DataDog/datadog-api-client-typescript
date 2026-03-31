@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+/**
+ * Pagination metadata for environments list responses.
+ */
 export class EnvironmentsPaginationMetaPage {
   /**
    * Total number of items.

@@ -6,6 +6,9 @@ import { EnvironmentsPaginationMetaPage } from "./EnvironmentsPaginationMetaPage
  * Pagination metadata for environments.
  */
 export class EnvironmentsPaginationMeta {
+  /**
+   * Pagination metadata for environments list responses.
+   */
   "page"?: EnvironmentsPaginationMetaPage;
   /**
    * A container for additional, undeclared properties.
