@@ -6576,6 +6576,73 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentTypeResponse",
   },
+  "IncidentsApi.V2.ListIncidentUserDefinedFields": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    includeDeleted: {
+      type: "boolean",
+      format: "",
+    },
+    filterIncidentType: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldListResponse",
+  },
+  "IncidentsApi.V2.CreateIncidentUserDefinedField": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentUserDefinedFieldCreateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldResponse",
+  },
+  "IncidentsApi.V2.GetIncidentUserDefinedField": {
+    fieldId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldResponse",
+  },
+  "IncidentsApi.V2.DeleteIncidentUserDefinedField": {
+    fieldId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentUserDefinedField": {
+    fieldId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentUserDefinedFieldUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedFieldResponse",
+  },
   "IncidentsApi.V2.ImportIncident": {
     include: {
       type: "Array<IncidentImportRelatedObject>",
