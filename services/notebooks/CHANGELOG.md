@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-04-01
+
+### Added
+* Add description field to widget definition schemas [#3777](https://github.com/DataDog/datadog-api-client-typescript/pull/3777)
+* Add apm_metrics query support to dashboard OpenAPI spec [#3705](https://github.com/DataDog/datadog-api-client-typescript/pull/3705)
+* Timeseries Request Style supports value labels field [#3431](https://github.com/DataDog/datadog-api-client-typescript/pull/3431)
+
 ## 0.0.1-beta.5/2026-03-06
 
 ### Added

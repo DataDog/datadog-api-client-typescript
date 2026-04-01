@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-01
+
+### Changed
+* Add sample_attribute to log exclusion filter [#3761](https://github.com/DataDog/datadog-api-client-typescript/pull/3761)
+* Add tags and description fields to the logs nested pipeline type LogsPipelineProcessor [#3741](https://github.com/DataDog/datadog-api-client-typescript/pull/3741)
+
 ## 0.0.1-beta.4/2026-03-06
 
 ### Added

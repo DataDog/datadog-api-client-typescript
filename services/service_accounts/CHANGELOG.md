@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-04-01
+
+### Added
+* Add `name_aliases` field to `PermissionAttributes` for `ListPermissions` endpoint [#3611](https://github.com/DataDog/datadog-api-client-typescript/pull/3611)
+
 ## 0.0.1-beta.3/2026-03-06
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-04-01
+
+### Added
+* Add new endpoints for Test Optimization settings for service [#3753](https://github.com/DataDog/datadog-api-client-typescript/pull/3753)
+
 ## 0.0.1-beta.2/2026-02-17
 
 ### Changed

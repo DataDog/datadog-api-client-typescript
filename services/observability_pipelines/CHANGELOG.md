@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-04-01
+
+### Added
+* Make datadog agent source address configurable in Observability Pipelines [#3724](https://github.com/DataDog/datadog-api-client-typescript/pull/3724)
+* Add OpenAPI documentation for keep_unmatched field in ocsf mapper processor  [#3717](https://github.com/DataDog/datadog-api-client-typescript/pull/3717)
+* Add Observability Pipelines Amazon S3 Generic destination [#3697](https://github.com/DataDog/datadog-api-client-typescript/pull/3697)
+* [OPA-4681] Update Public API for Splunk HEC destination indexed_fields [#3689](https://github.com/DataDog/datadog-api-client-typescript/pull/3689)
+* Adds OpenTelemetry source support for metrics pipelines [#3580](https://github.com/DataDog/datadog-api-client-typescript/pull/3580)
+
+### Changed
+* Observability Pipelines - Updating descriptions and making the tags field optional not required [#3547](https://github.com/DataDog/datadog-api-client-typescript/pull/3547)
+
 ## 0.0.1-beta.6/2026-03-06
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-04-01
+
+### Fixed
+* Add pageStart extension to case management pagination [#3785](https://github.com/DataDog/datadog-api-client-typescript/pull/3785)
+
 ## 0.0.1-beta.5/2026-02-17
 
 ### Added

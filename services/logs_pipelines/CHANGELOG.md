@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-04-01
+
+### Changed
+* Add tags and description fields to the logs nested pipeline type LogsPipelineProcessor [#3741](https://github.com/DataDog/datadog-api-client-typescript/pull/3741)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

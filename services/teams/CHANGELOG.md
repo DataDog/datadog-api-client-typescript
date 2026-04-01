@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-01
+
+### Added
+* Add partial hierarchy selection to team sync endpoints [#3591](https://github.com/DataDog/datadog-api-client-typescript/pull/3591)
+
 ## 0.0.1-beta.4/2026-01-08
 
 ### Added

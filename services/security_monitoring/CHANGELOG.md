@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-04-01
+
+### Fixed
+* Fix consistency issues in security monitoring signal triage routes [#3809](https://github.com/DataDog/datadog-api-client-typescript/pull/3809)
+* Fix consistency issues in security monitoring signal triage routes [#3771](https://github.com/DataDog/datadog-api-client-typescript/pull/3771)
+
+### Deprecated
+* Deprecate appsecspans datasource in SecurityMonitoringStandardDataSource [#3713](https://github.com/DataDog/datadog-api-client-typescript/pull/3713)
+
 ## 0.0.1-beta.7/2026-03-06
 
 ### Added

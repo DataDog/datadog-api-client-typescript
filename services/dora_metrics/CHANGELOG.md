@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-01
+
+### Changed
+* Use repository_id in DORA deployment GET docs [#3608](https://github.com/DataDog/datadog-api-client-typescript/pull/3608)
+
 ## 0.0.1-beta.4/2026-02-17
 
 ### Added
