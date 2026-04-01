@@ -1,5 +1,59 @@
 # CHANGELOG
 
+## 1.54.0/2026-04-01
+
+### Added
+* Add Synthetics test file upload and download endpoints [#3825](https://github.com/DataDog/datadog-api-client-typescript/pull/3825)
+* document v2 stable mcnulty-web-py3 endpoints [#3821](https://github.com/DataDog/datadog-api-client-typescript/pull/3821)
+* document synthetics API to retrieve fast test result [#3794](https://github.com/DataDog/datadog-api-client-typescript/pull/3794)
+* Add description field to widget definition schemas [#3778](https://github.com/DataDog/datadog-api-client-typescript/pull/3778)
+* Add Widgets API v2 OpenAPI spec [#3776](https://github.com/DataDog/datadog-api-client-typescript/pull/3776)
+* Add bulk triage endpoints for security monitoring signals [#3774](https://github.com/DataDog/datadog-api-client-typescript/pull/3774)
+* Add cost_aggregation parameter to GetEstimatedCostByOrg [#3764](https://github.com/DataDog/datadog-api-client-typescript/pull/3764)
+* Add new endpoints for Test Optimization settings for service [#3754](https://github.com/DataDog/datadog-api-client-typescript/pull/3754)
+* dashboards - Add DashboardTab schema and tabs property to Dashboard spec [#3751](https://github.com/DataDog/datadog-api-client-typescript/pull/3751)
+* Add WildcardWidgetDefinition to Dashboard spec [#3746](https://github.com/DataDog/datadog-api-client-typescript/pull/3746)
+* Add feature flags public api endpoints to api spec [#3738](https://github.com/DataDog/datadog-api-client-typescript/pull/3738)
+* Use openapi-transformer split mechanism for full spec generation [#3735](https://github.com/DataDog/datadog-api-client-typescript/pull/3735)
+* Add v2 deployment gates evaluation endpoints [#3734](https://github.com/DataDog/datadog-api-client-typescript/pull/3734)
+* Make datadog agent source address configurable in Observability Pipelines [#3725](https://github.com/DataDog/datadog-api-client-typescript/pull/3725)
+* Add OpenAPI documentation for keep_unmatched field in ocsf mapper processor  [#3718](https://github.com/DataDog/datadog-api-client-typescript/pull/3718)
+* Add Batch Rows Query Endpoint to Reference Tables API spec [#3712](https://github.com/DataDog/datadog-api-client-typescript/pull/3712)
+* Add apm_metrics query support to dashboard OpenAPI spec [#3706](https://github.com/DataDog/datadog-api-client-typescript/pull/3706)
+* Add Observability Pipelines Amazon S3 Generic destination [#3698](https://github.com/DataDog/datadog-api-client-typescript/pull/3698)
+* [OPA-4681] Update Public API for Splunk HEC destination indexed_fields [#3690](https://github.com/DataDog/datadog-api-client-typescript/pull/3690)
+* RUM - simplify cross-product sampling descriptions on rum-retention-filters API docs [#3614](https://github.com/DataDog/datadog-api-client-typescript/pull/3614)
+* Add `name_aliases` field to `PermissionAttributes` for `ListPermissions` endpoint [#3612](https://github.com/DataDog/datadog-api-client-typescript/pull/3612)
+* Add audit track to list of available org connections [#3604](https://github.com/DataDog/datadog-api-client-typescript/pull/3604)
+* Add partial hierarchy selection to team sync endpoints [#3592](https://github.com/DataDog/datadog-api-client-typescript/pull/3592)
+* Add support for composite queries on monitor variables [#3587](https://github.com/DataDog/datadog-api-client-typescript/pull/3587)
+* Adds OpenTelemetry source support for metrics pipelines [#3581](https://github.com/DataDog/datadog-api-client-typescript/pull/3581)
+* Add Edge Devices Monitoring fields to usage summary API [#3573](https://github.com/DataDog/datadog-api-client-typescript/pull/3573)
+* Add Network Path fields to usage summary API [#3569](https://github.com/DataDog/datadog-api-client-typescript/pull/3569)
+* Add OCI support to Cloud Security Management Enterprise usage fields [#3546](https://github.com/DataDog/datadog-api-client-typescript/pull/3546)
+* Add bad events support in metric SLOs [#3541](https://github.com/DataDog/datadog-api-client-typescript/pull/3541)
+* dashboards - Add DashboardTab schema and tabs property to Dashboard spec [#3491](https://github.com/DataDog/datadog-api-client-typescript/pull/3491)
+* Timeseries Request Style supports value labels field [#3432](https://github.com/DataDog/datadog-api-client-typescript/pull/3432)
+* Add specs for new ccm_config endpoints [#3273](https://github.com/DataDog/datadog-api-client-typescript/pull/3273)
+* Add Sankey widget definition to Dashboards api specs [#3225](https://github.com/DataDog/datadog-api-client-typescript/pull/3225)
+
+### Fixed
+* Fix consistency issues in security monitoring signal triage routes [#3810](https://github.com/DataDog/datadog-api-client-typescript/pull/3810)
+* Add pageStart extension to case management pagination [#3786](https://github.com/DataDog/datadog-api-client-typescript/pull/3786)
+* Fix consistency issues in security monitoring signal triage routes [#3773](https://github.com/DataDog/datadog-api-client-typescript/pull/3773)
+
+### Deprecated
+* Deprecate ListVulnerabilities endpoint [#3768](https://github.com/DataDog/datadog-api-client-typescript/pull/3768)
+* Deprecate appsecspans datasource in SecurityMonitoringStandardDataSource [#3714](https://github.com/DataDog/datadog-api-client-typescript/pull/3714)
+
+### Changed
+* Add sample_attribute to log exclusion filter [#3762](https://github.com/DataDog/datadog-api-client-typescript/pull/3762)
+* Add tags and description fields to the logs nested pipeline type LogsPipelineProcessor [#3742](https://github.com/DataDog/datadog-api-client-typescript/pull/3742)
+* Update documentation for api/v2/metrics endpoint [#3723](https://github.com/DataDog/datadog-api-client-typescript/pull/3723)
+* Use repository_id in DORA deployment GET docs [#3609](https://github.com/DataDog/datadog-api-client-typescript/pull/3609)
+* Observability Pipelines - Updating descriptions and making the tags field optional not required [#3548](https://github.com/DataDog/datadog-api-client-typescript/pull/3548)
+* Fix Restriction Policies API documentation - add missing resource types [#3467](https://github.com/DataDog/datadog-api-client-typescript/pull/3467)
+
 ## 1.53.0/2026-03-06
 
 ### Added
