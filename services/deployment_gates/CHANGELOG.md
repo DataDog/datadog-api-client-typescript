@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.2/2026-04-01
+
+### Added
+* Add v2 deployment gates evaluation endpoints [#3733](https://github.com/DataDog/datadog-api-client-typescript/pull/3733)
+
 ## 0.0.1-beta.1/2025-12-17
 
 ### Security

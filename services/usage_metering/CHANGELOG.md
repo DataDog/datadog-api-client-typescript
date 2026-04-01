@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-04-01
+
+### Added
+* Add cost_aggregation parameter to GetEstimatedCostByOrg [#3763](https://github.com/DataDog/datadog-api-client-typescript/pull/3763)
+* Add Edge Devices Monitoring fields to usage summary API [#3572](https://github.com/DataDog/datadog-api-client-typescript/pull/3572)
+* Add Network Path fields to usage summary API [#3568](https://github.com/DataDog/datadog-api-client-typescript/pull/3568)
+* Add OCI support to Cloud Security Management Enterprise usage fields [#3545](https://github.com/DataDog/datadog-api-client-typescript/pull/3545)
+
 ## 0.0.1-beta.6/2026-03-06
 
 ### Added

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-04-01
+
+### Added
+* Add description field to widget definition schemas [#3777](https://github.com/DataDog/datadog-api-client-typescript/pull/3777)
+* Add WildcardWidgetDefinition to Dashboard spec [#3745](https://github.com/DataDog/datadog-api-client-typescript/pull/3745)
+* Add apm_metrics query support to dashboard OpenAPI spec [#3705](https://github.com/DataDog/datadog-api-client-typescript/pull/3705)
+* dashboards - Add DashboardTab schema and tabs property to Dashboard spec [#3490](https://github.com/DataDog/datadog-api-client-typescript/pull/3490)
+* Timeseries Request Style supports value labels field [#3431](https://github.com/DataDog/datadog-api-client-typescript/pull/3431)
+* Add Sankey widget definition to Dashboards api specs [#3224](https://github.com/DataDog/datadog-api-client-typescript/pull/3224)
+
 ## 0.0.1-beta.5/2026-03-06
 
 ### Added

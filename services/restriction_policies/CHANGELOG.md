@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-04-01
+
+### Changed
+* Fix Restriction Policies API documentation - add missing resource types [#3466](https://github.com/DataDog/datadog-api-client-typescript/pull/3466)
+
 ## 0.0.1-beta.3/2026-02-17
 
 ### Added

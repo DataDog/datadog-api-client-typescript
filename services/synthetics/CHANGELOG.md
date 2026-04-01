@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-04-01
+
+### Added
+* Add Synthetics test file upload and download endpoints [#3824](https://github.com/DataDog/datadog-api-client-typescript/pull/3824)
+* document v2 stable mcnulty-web-py3 endpoints [#3820](https://github.com/DataDog/datadog-api-client-typescript/pull/3820)
+* document synthetics API to retrieve fast test result [#3793](https://github.com/DataDog/datadog-api-client-typescript/pull/3793)
+
 ## 0.0.1-beta.6/2026-03-06
 
 ### Added

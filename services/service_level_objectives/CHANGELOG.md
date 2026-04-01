@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-04-01
+
+### Added
+* Make datadog agent source address configurable in Observability Pipelines [#3724](https://github.com/DataDog/datadog-api-client-typescript/pull/3724)
+* Add bad events support in metric SLOs [#3540](https://github.com/DataDog/datadog-api-client-typescript/pull/3540)
+
+### Changed
+* Update documentation for api/v2/metrics endpoint [#3722](https://github.com/DataDog/datadog-api-client-typescript/pull/3722)
+
 ## 0.0.1-beta.3/2026-02-17
 
 ### Added

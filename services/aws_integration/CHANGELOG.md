@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-01
+
+### Added
+* Add specs for new ccm_config endpoints [#3272](https://github.com/DataDog/datadog-api-client-typescript/pull/3272)
+
 ## 0.0.1-beta.4/2026-01-15
 
 ### Removed

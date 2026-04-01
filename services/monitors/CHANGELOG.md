@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-04-01
+
+### Added
+* Add support for composite queries on monitor variables [#3586](https://github.com/DataDog/datadog-api-client-typescript/pull/3586)
+
 ## 0.0.1-beta.5/2026-02-17
 
 ### Added

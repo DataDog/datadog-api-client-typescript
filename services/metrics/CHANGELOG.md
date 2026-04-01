@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-01
+
+### Added
+* Use openapi-transformer split mechanism for full spec generation [#3736](https://github.com/DataDog/datadog-api-client-typescript/pull/3736)
+
+### Changed
+* Update documentation for api/v2/metrics endpoint [#3722](https://github.com/DataDog/datadog-api-client-typescript/pull/3722)
+
 ## 0.0.1-beta.4/2026-03-06
 
 ### Added

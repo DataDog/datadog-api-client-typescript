@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-04-01
+
+### Changed
+* Add sample_attribute to log exclusion filter [#3761](https://github.com/DataDog/datadog-api-client-typescript/pull/3761)
+
 ## 0.0.1-beta.3/2026-02-17
 
 ### Added
