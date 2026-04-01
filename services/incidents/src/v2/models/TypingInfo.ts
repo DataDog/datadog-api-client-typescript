@@ -138,6 +138,21 @@ import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentUserAttributes } from "./IncidentUserAttributes";
 import { IncidentUserData } from "./IncidentUserData";
+import { IncidentUserDefinedFieldAttributesCreateRequest } from "./IncidentUserDefinedFieldAttributesCreateRequest";
+import { IncidentUserDefinedFieldAttributesResponse } from "./IncidentUserDefinedFieldAttributesResponse";
+import { IncidentUserDefinedFieldAttributesUpdateRequest } from "./IncidentUserDefinedFieldAttributesUpdateRequest";
+import { IncidentUserDefinedFieldCreateData } from "./IncidentUserDefinedFieldCreateData";
+import { IncidentUserDefinedFieldCreateRelationships } from "./IncidentUserDefinedFieldCreateRelationships";
+import { IncidentUserDefinedFieldCreateRequest } from "./IncidentUserDefinedFieldCreateRequest";
+import { IncidentUserDefinedFieldListMeta } from "./IncidentUserDefinedFieldListMeta";
+import { IncidentUserDefinedFieldListResponse } from "./IncidentUserDefinedFieldListResponse";
+import { IncidentUserDefinedFieldMetadata } from "./IncidentUserDefinedFieldMetadata";
+import { IncidentUserDefinedFieldRelationships } from "./IncidentUserDefinedFieldRelationships";
+import { IncidentUserDefinedFieldResponse } from "./IncidentUserDefinedFieldResponse";
+import { IncidentUserDefinedFieldResponseData } from "./IncidentUserDefinedFieldResponseData";
+import { IncidentUserDefinedFieldUpdateData } from "./IncidentUserDefinedFieldUpdateData";
+import { IncidentUserDefinedFieldUpdateRequest } from "./IncidentUserDefinedFieldUpdateRequest";
+import { IncidentUserDefinedFieldValidValue } from "./IncidentUserDefinedFieldValidValue";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
@@ -263,6 +278,14 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentTodoType: ["incident_todos"],
     IncidentType: ["incidents"],
     IncidentTypeType: ["incident_types"],
+    IncidentUserDefinedFieldCategory: ["what_happened", "why_it_happened"],
+    IncidentUserDefinedFieldCollected: [
+      "active",
+      "stable",
+      "resolved",
+      "completed",
+    ],
+    IncidentUserDefinedFieldFieldType: [1, 2, 3, 4, 5, 6, 7, 8],
     IncidentUserDefinedFieldType: ["user_defined_field"],
     OrganizationsType: ["orgs"],
     PostmortemCellType: ["markdown"],
@@ -480,6 +503,28 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentUpdateRequest: IncidentUpdateRequest,
     IncidentUserAttributes: IncidentUserAttributes,
     IncidentUserData: IncidentUserData,
+    IncidentUserDefinedFieldAttributesCreateRequest:
+      IncidentUserDefinedFieldAttributesCreateRequest,
+    IncidentUserDefinedFieldAttributesResponse:
+      IncidentUserDefinedFieldAttributesResponse,
+    IncidentUserDefinedFieldAttributesUpdateRequest:
+      IncidentUserDefinedFieldAttributesUpdateRequest,
+    IncidentUserDefinedFieldCreateData: IncidentUserDefinedFieldCreateData,
+    IncidentUserDefinedFieldCreateRelationships:
+      IncidentUserDefinedFieldCreateRelationships,
+    IncidentUserDefinedFieldCreateRequest:
+      IncidentUserDefinedFieldCreateRequest,
+    IncidentUserDefinedFieldListMeta: IncidentUserDefinedFieldListMeta,
+    IncidentUserDefinedFieldListResponse: IncidentUserDefinedFieldListResponse,
+    IncidentUserDefinedFieldMetadata: IncidentUserDefinedFieldMetadata,
+    IncidentUserDefinedFieldRelationships:
+      IncidentUserDefinedFieldRelationships,
+    IncidentUserDefinedFieldResponse: IncidentUserDefinedFieldResponse,
+    IncidentUserDefinedFieldResponseData: IncidentUserDefinedFieldResponseData,
+    IncidentUserDefinedFieldUpdateData: IncidentUserDefinedFieldUpdateData,
+    IncidentUserDefinedFieldUpdateRequest:
+      IncidentUserDefinedFieldUpdateRequest,
+    IncidentUserDefinedFieldValidValue: IncidentUserDefinedFieldValidValue,
     IncidentsResponse: IncidentsResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
