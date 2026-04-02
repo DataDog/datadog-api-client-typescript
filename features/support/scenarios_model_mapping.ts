@@ -11177,6 +11177,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Maintenance",
     },
+    "v2.PublishStatusPage": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnpublishStatusPage": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetApiMultistepSubtests": {
         "publicId": {
             "type": "string",

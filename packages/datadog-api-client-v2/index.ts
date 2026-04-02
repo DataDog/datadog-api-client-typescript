@@ -1137,6 +1137,8 @@ export {
   StatusPagesApiListDegradationsRequest,
   StatusPagesApiListMaintenancesRequest,
   StatusPagesApiListStatusPagesRequest,
+  StatusPagesApiPublishStatusPageRequest,
+  StatusPagesApiUnpublishStatusPageRequest,
   StatusPagesApiUpdateComponentRequest,
   StatusPagesApiUpdateDegradationRequest,
   StatusPagesApiUpdateMaintenanceRequest,
