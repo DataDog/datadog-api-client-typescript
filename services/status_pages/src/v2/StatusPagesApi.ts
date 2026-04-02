@@ -1011,6 +1011,96 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async publishStatusPage(
+    pageId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "publishStatusPage");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/statuspages/{page_id}/publish".replace(
+      "{page_id}",
+      encodeURIComponent(String(pageId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.publishStatusPage",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async unpublishStatusPage(
+    pageId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "unpublishStatusPage");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/statuspages/{page_id}/unpublish".replace(
+      "{page_id}",
+      encodeURIComponent(String(pageId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.unpublishStatusPage",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateComponent(
     pageId: string,
     componentId: string,
@@ -2134,6 +2224,92 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to publishStatusPage
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async publishStatusPage(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to unpublishStatusPage
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async unpublishStatusPage(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateComponent
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2626,6 +2802,22 @@ export interface StatusPagesApiListStatusPagesRequest {
   include?: string;
 }
 
+export interface StatusPagesApiPublishStatusPageRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+}
+
+export interface StatusPagesApiUnpublishStatusPageRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+}
+
 export interface StatusPagesApiUpdateComponentRequest {
   /**
    * The ID of the status page.
@@ -2815,7 +3007,7 @@ export class StatusPagesApi {
   }
 
   /**
-   * Creates a new status page.
+   * Creates a new status page. **Note**: Publishing a status page on creation via the `enabled` property will be deprecated. Use the dedicated [publish](#publish-status-page) status page endpoint after creation instead.
    * @param param The request object
    */
   public createStatusPage(
@@ -3090,6 +3282,48 @@ export class StatusPagesApi {
   }
 
   /**
+   * Publishes a status page. For pages of type `public`, makes the status page available on the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, makes the status page available under the `status-pages/$domain_prefix/view` route within the Datadog organization and requires the `status_pages_internal_page_publish` permission. The `status_pages_settings_write` permission is temporarily honored as we migrate publishing functionality from the update status page endpoint to the publish status page endpoint.
+   * @param param The request object
+   */
+  public publishStatusPage(
+    param: StatusPagesApiPublishStatusPageRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.publishStatusPage(
+      param.pageId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.publishStatusPage(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Unpublishes a status page. For pages of type `public`, removes the status page from the public internet and requires the `status_pages_public_page_publish` permission. For pages of type `internal`, removes the `status-pages/$domain_prefix/view` route from the Datadog organization and requires the `status_pages_internal_page_publish` permission. The `status_pages_settings_write` permission is temporarily honored as we migrate unpublishing functionality from the update status page endpoint to the unpublish status page endpoint.
+   * @param param The request object
+   */
+  public unpublishStatusPage(
+    param: StatusPagesApiUnpublishStatusPageRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.unpublishStatusPage(
+      param.pageId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.unpublishStatusPage(responseContext);
+        });
+    });
+  }
+
+  /**
    * Updates an existing component's attributes.
    * @param param The request object
    */
@@ -3164,7 +3398,7 @@ export class StatusPagesApi {
   }
 
   /**
-   * Updates an existing status page's attributes.
+   * Updates an existing status page's attributes. **Note**: Publishing and unpublishing via the `enabled` property will be deprecated on this endpoint. Use the dedicated [publish](#publish-status-page) and [unpublish](#unpublish-status-page) status page endpoints instead.
    * @param param The request object
    */
   public updateStatusPage(
