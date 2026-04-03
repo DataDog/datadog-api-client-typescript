@@ -32,6 +32,10 @@ export class FeatureFlagEnvironment {
    */
   "environmentName"?: string;
   /**
+   * Queries that target this environment.
+   */
+  "environmentQueries"?: Array<string>;
+  /**
    * Indicates whether the environment is production.
    */
   "isProduction"?: boolean;
@@ -101,6 +105,10 @@ export class FeatureFlagEnvironment {
     environmentName: {
       baseName: "environment_name",
       type: "string",
+    },
+    environmentQueries: {
+      baseName: "environment_queries",
+      type: "Array<string>",
     },
     isProduction: {
       baseName: "is_production",

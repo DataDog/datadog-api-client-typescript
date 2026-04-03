@@ -6272,6 +6272,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.PauseExposureSchedule": {
+        "exposureScheduleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AllocationExposureScheduleResponse",
+    },
+    "v2.ResumeExposureSchedule": {
+        "exposureScheduleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AllocationExposureScheduleResponse",
+    },
+    "v2.StartExposureSchedule": {
+        "exposureScheduleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AllocationExposureScheduleResponse",
+    },
+    "v2.StopExposureSchedule": {
+        "exposureScheduleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AllocationExposureScheduleResponse",
+    },
     "v2.GetFeatureFlag": {
         "featureFlagId": {
             "type": "string",
@@ -6296,6 +6324,36 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "operationResponseType": "FeatureFlagResponse",
+    },
+    "v2.UpdateAllocationsForFeatureFlagInEnvironment": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "OverwriteAllocationsRequest",
+            "format": "",
+            },
+        "operationResponseType": "ListAllocationsResponse",
+    },
+    "v2.CreateAllocationsForFeatureFlagInEnvironment": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "environmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CreateAllocationsRequest",
+            "format": "",
+            },
+        "operationResponseType": "AllocationResponse",
     },
     "v2.DisableFeatureFlagEnvironment": {
         "featureFlagId": {
