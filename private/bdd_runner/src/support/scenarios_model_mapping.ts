@@ -6282,6 +6282,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "FeatureFlagsApi.V2.PauseExposureSchedule": {
+    exposureScheduleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "AllocationExposureScheduleResponse",
+  },
+  "FeatureFlagsApi.V2.ResumeExposureSchedule": {
+    exposureScheduleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "AllocationExposureScheduleResponse",
+  },
+  "FeatureFlagsApi.V2.StartExposureSchedule": {
+    exposureScheduleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "AllocationExposureScheduleResponse",
+  },
+  "FeatureFlagsApi.V2.StopExposureSchedule": {
+    exposureScheduleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "AllocationExposureScheduleResponse",
+  },
   "FeatureFlagsApi.V2.GetFeatureFlag": {
     featureFlagId: {
       type: "string",
@@ -6306,6 +6334,36 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "uuid",
     },
     operationResponseType: "FeatureFlagResponse",
+  },
+  "FeatureFlagsApi.V2.UpdateAllocationsForFeatureFlagInEnvironment": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "OverwriteAllocationsRequest",
+      format: "",
+    },
+    operationResponseType: "ListAllocationsResponse",
+  },
+  "FeatureFlagsApi.V2.CreateAllocationsForFeatureFlagInEnvironment": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    environmentId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateAllocationsRequest",
+      format: "",
+    },
+    operationResponseType: "AllocationResponse",
   },
   "FeatureFlagsApi.V2.DisableFeatureFlagEnvironment": {
     featureFlagId: {
