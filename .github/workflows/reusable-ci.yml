@@ -41,6 +41,9 @@ on:
 
 jobs:
   pre-commit:
+    permissions:
+      id-token: write
+      contents: read
     uses: ./.github/workflows/reusable-pre-commit.yml
     with:
       target-branch: ${{ inputs.target-branch }}
