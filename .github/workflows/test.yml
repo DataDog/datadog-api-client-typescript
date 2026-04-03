@@ -25,6 +25,9 @@ jobs:
        !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
        !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) ||
       github.event_name == 'schedule'
+    permissions:
+      id-token: write
+      contents: read
     uses: ./.github/workflows/reusable-pre-commit.yml
     with:
       enable-commit-changes: true
