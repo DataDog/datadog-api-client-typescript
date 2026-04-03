@@ -23,12 +23,6 @@ on:
         required: false
         type: string
         default: './run-tests.sh'
-    secrets:
-      PIPELINE_GITHUB_APP_ID:
-        required: false
-      PIPELINE_GITHUB_APP_PRIVATE_KEY:
-        required: false
-
 jobs:
   test:
     strategy:

@@ -13,12 +13,6 @@ on:
         required: false
         type: boolean
         default: true
-    secrets:
-      PIPELINE_GITHUB_APP_ID:
-        required: false
-      PIPELINE_GITHUB_APP_PRIVATE_KEY:
-        required: false
-
 env:
   GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
   GIT_AUTHOR_NAME: "ci.datadog-api-spec"
@@ -26,14 +20,17 @@ env:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Get GitHub App token
         id: get_token
-        if: inputs.enable-commit-changes
-        uses: actions/create-github-app-token@v1
+        if: inputs.enable-commit-changes && github.event_name == 'pull_request'
+        uses: DataDog/dd-octo-sts-action@96a25462dbcb10ebf0bfd6e2ccc917d2ab235b9a # v1.0.4
         with:
-          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+          scope: DataDog/datadog-api-client-typescript
+          policy: self.github.pre-commit.pull-requests
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
