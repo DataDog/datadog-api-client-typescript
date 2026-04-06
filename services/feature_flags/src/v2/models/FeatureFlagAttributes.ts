@@ -53,6 +53,10 @@ export class FeatureFlagAttributes {
    */
   "requireApproval"?: boolean;
   /**
+   * Tags associated with the feature flag.
+   */
+  "tags"?: Array<string>;
+  /**
    * The timestamp when the feature flag was last updated.
    */
   "updatedAt"?: Date;
@@ -129,6 +133,10 @@ export class FeatureFlagAttributes {
     requireApproval: {
       baseName: "require_approval",
       type: "boolean",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     updatedAt: {
       baseName: "updated_at",
