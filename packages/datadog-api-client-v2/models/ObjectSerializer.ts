@@ -102,6 +102,15 @@ import { AlertEventAttributes } from "./AlertEventAttributes";
 import { AlertEventAttributesLinksItem } from "./AlertEventAttributesLinksItem";
 import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
 import { AlertEventCustomAttributesLinksItems } from "./AlertEventCustomAttributesLinksItems";
+import { Allocation } from "./Allocation";
+import { AllocationDataRequest } from "./AllocationDataRequest";
+import { AllocationDataResponse } from "./AllocationDataResponse";
+import { AllocationExposureGuardrailTrigger } from "./AllocationExposureGuardrailTrigger";
+import { AllocationExposureRolloutStep } from "./AllocationExposureRolloutStep";
+import { AllocationExposureSchedule } from "./AllocationExposureSchedule";
+import { AllocationExposureScheduleData } from "./AllocationExposureScheduleData";
+import { AllocationExposureScheduleResponse } from "./AllocationExposureScheduleResponse";
+import { AllocationResponse } from "./AllocationResponse";
 import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
@@ -555,6 +564,8 @@ import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
 import { ComponentProperties } from "./ComponentProperties";
 import { ComponentRecommendation } from "./ComponentRecommendation";
+import { Condition } from "./Condition";
+import { ConditionRequest } from "./ConditionRequest";
 import { ConfigCatIntegration } from "./ConfigCatIntegration";
 import { ConfigCatIntegrationUpdate } from "./ConfigCatIntegrationUpdate";
 import { ConfigCatSDKKey } from "./ConfigCatSDKKey";
@@ -628,6 +639,7 @@ import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
 import { Cpu } from "./Cpu";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
+import { CreateAllocationsRequest } from "./CreateAllocationsRequest";
 import { CreateAppRequest } from "./CreateAppRequest";
 import { CreateAppRequestData } from "./CreateAppRequestData";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
@@ -1157,6 +1169,8 @@ import { EventsScalarQuery } from "./EventsScalarQuery";
 import { EventsSearch } from "./EventsSearch";
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { EventsWarning } from "./EventsWarning";
+import { ExposureRolloutStepRequest } from "./ExposureRolloutStepRequest";
+import { ExposureScheduleRequest } from "./ExposureScheduleRequest";
 import { FacetInfoRequest } from "./FacetInfoRequest";
 import { FacetInfoRequestData } from "./FacetInfoRequestData";
 import { FacetInfoRequestDataAttributes } from "./FacetInfoRequestDataAttributes";
@@ -1399,6 +1413,8 @@ import { GreyNoiseAPIKeyUpdate } from "./GreyNoiseAPIKeyUpdate";
 import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
 import { GreyNoiseIntegrationUpdate } from "./GreyNoiseIntegrationUpdate";
 import { GroupScalarColumn } from "./GroupScalarColumn";
+import { GuardrailMetric } from "./GuardrailMetric";
+import { GuardrailMetricRequest } from "./GuardrailMetricRequest";
 import { HTTPBody } from "./HTTPBody";
 import { HTTPCDGatesBadRequestResponse } from "./HTTPCDGatesBadRequestResponse";
 import { HTTPCDGatesNotFoundResponse } from "./HTTPCDGatesNotFoundResponse";
@@ -1783,6 +1799,7 @@ import { ListAPIsResponseData } from "./ListAPIsResponseData";
 import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
 import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
 import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
+import { ListAllocationsResponse } from "./ListAllocationsResponse";
 import { ListAppKeyRegistrationsResponse } from "./ListAppKeyRegistrationsResponse";
 import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
@@ -2297,6 +2314,7 @@ import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseInclud
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
+import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
 import { Pagination } from "./Pagination";
 import { PaginationMeta } from "./PaginationMeta";
 import { PaginationMetaPage } from "./PaginationMetaPage";
@@ -2637,6 +2655,8 @@ import { RoleUpdateRequest } from "./RoleUpdateRequest";
 import { RoleUpdateResponse } from "./RoleUpdateResponse";
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
+import { RolloutOptions } from "./RolloutOptions";
+import { RolloutOptionsRequest } from "./RolloutOptionsRequest";
 import { RoutingRule } from "./RoutingRule";
 import { RoutingRuleAttributes } from "./RoutingRuleAttributes";
 import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
@@ -3274,6 +3294,8 @@ import { TableRowResourceArray } from "./TableRowResourceArray";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
 import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { TargetingRule } from "./TargetingRule";
+import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamConnection } from "./TeamConnection";
@@ -3496,6 +3518,7 @@ import { UpdateTenancyConfigDataAttributesRegionsConfig } from "./UpdateTenancyC
 import { UpdateTenancyConfigRequest } from "./UpdateTenancyConfigRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
+import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
 import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UrlParam } from "./UrlParam";
@@ -3549,6 +3572,8 @@ import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
 import { Variant } from "./Variant";
+import { VariantWeight } from "./VariantWeight";
+import { VariantWeightRequest } from "./VariantWeightRequest";
 import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 import { ViewershipHistorySessionArray } from "./ViewershipHistorySessionArray";
 import { ViewershipHistorySessionData } from "./ViewershipHistorySessionData";
@@ -3678,6 +3703,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
   AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
+  AllocationDataType: ["allocations"],
+  AllocationExposureScheduleDataType: ["allocation_exposure_schedules"],
+  AllocationType: ["FEATURE_GATE", "CANARY"],
   AnthropicAPIKeyType: ["AnthropicAPIKey"],
   AnthropicIntegrationType: ["Anthropic"],
   ApmRetentionFilterType: ["apm_retention_filter"],
@@ -3957,6 +3985,18 @@ const enumsMap: { [key: string]: any[] } = {
     "search",
     "container",
     "calloutValue",
+  ],
+  ConditionOperator: [
+    "LT",
+    "LTE",
+    "GT",
+    "GTE",
+    "MATCHES",
+    "NOT_MATCHES",
+    "ONE_OF",
+    "NOT_ONE_OF",
+    "IS_NULL",
+    "EQUALS",
   ],
   ConfigCatIntegrationType: ["ConfigCat"],
   ConfigCatSDKKeyType: ["ConfigCatSDKKey"],
@@ -4271,6 +4311,7 @@ const enumsMap: { [key: string]: any[] } = {
   GoogleChatOrganizationHandleType: ["google-chat-organization-handle"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
+  GuardrailTriggerAction: ["PAUSE", "ABORT"],
   HTTPIntegrationType: ["HTTP"],
   HTTPTokenAuthType: ["HTTPTokenAuth"],
   HamrOrgConnectionStatus: [0, 1, 2, 3, 4, 5],
@@ -4990,6 +5031,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
   RoutingRuleRelationshipsPolicyDataType: ["policies"],
   RoutingRuleType: ["team_routing_rules"],
   RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -5835,6 +5877,15 @@ const typeMap: { [index: string]: any } = {
   AlertEventAttributesLinksItem: AlertEventAttributesLinksItem,
   AlertEventCustomAttributes: AlertEventCustomAttributes,
   AlertEventCustomAttributesLinksItems: AlertEventCustomAttributesLinksItems,
+  Allocation: Allocation,
+  AllocationDataRequest: AllocationDataRequest,
+  AllocationDataResponse: AllocationDataResponse,
+  AllocationExposureGuardrailTrigger: AllocationExposureGuardrailTrigger,
+  AllocationExposureRolloutStep: AllocationExposureRolloutStep,
+  AllocationExposureSchedule: AllocationExposureSchedule,
+  AllocationExposureScheduleData: AllocationExposureScheduleData,
+  AllocationExposureScheduleResponse: AllocationExposureScheduleResponse,
+  AllocationResponse: AllocationResponse,
   Annotation: Annotation,
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
@@ -6388,6 +6439,8 @@ const typeMap: { [index: string]: any } = {
   ComponentGridProperties: ComponentGridProperties,
   ComponentProperties: ComponentProperties,
   ComponentRecommendation: ComponentRecommendation,
+  Condition: Condition,
+  ConditionRequest: ConditionRequest,
   ConfigCatIntegration: ConfigCatIntegration,
   ConfigCatIntegrationUpdate: ConfigCatIntegrationUpdate,
   ConfigCatSDKKey: ConfigCatSDKKey,
@@ -6465,6 +6518,7 @@ const typeMap: { [index: string]: any } = {
   Cpu: Cpu,
   CreateActionConnectionRequest: CreateActionConnectionRequest,
   CreateActionConnectionResponse: CreateActionConnectionResponse,
+  CreateAllocationsRequest: CreateAllocationsRequest,
   CreateAppRequest: CreateAppRequest,
   CreateAppRequestData: CreateAppRequestData,
   CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
@@ -7109,6 +7163,8 @@ const typeMap: { [index: string]: any } = {
   EventsSearch: EventsSearch,
   EventsTimeseriesQuery: EventsTimeseriesQuery,
   EventsWarning: EventsWarning,
+  ExposureRolloutStepRequest: ExposureRolloutStepRequest,
+  ExposureScheduleRequest: ExposureScheduleRequest,
   FacetInfoRequest: FacetInfoRequest,
   FacetInfoRequestData: FacetInfoRequestData,
   FacetInfoRequestDataAttributes: FacetInfoRequestDataAttributes,
@@ -7381,6 +7437,8 @@ const typeMap: { [index: string]: any } = {
   GreyNoiseIntegration: GreyNoiseIntegration,
   GreyNoiseIntegrationUpdate: GreyNoiseIntegrationUpdate,
   GroupScalarColumn: GroupScalarColumn,
+  GuardrailMetric: GuardrailMetric,
+  GuardrailMetricRequest: GuardrailMetricRequest,
   HTTPBody: HTTPBody,
   HTTPCDGatesBadRequestResponse: HTTPCDGatesBadRequestResponse,
   HTTPCDGatesNotFoundResponse: HTTPCDGatesNotFoundResponse,
@@ -7811,6 +7869,7 @@ const typeMap: { [index: string]: any } = {
   ListAPIsResponseDataAttributes: ListAPIsResponseDataAttributes,
   ListAPIsResponseMeta: ListAPIsResponseMeta,
   ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
+  ListAllocationsResponse: ListAllocationsResponse,
   ListAppKeyRegistrationsResponse: ListAppKeyRegistrationsResponse,
   ListAppKeyRegistrationsResponseMeta: ListAppKeyRegistrationsResponseMeta,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
@@ -8491,6 +8550,7 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponseLinks: OutcomesResponseLinks,
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
+  OverwriteAllocationsRequest: OverwriteAllocationsRequest,
   Pagination: Pagination,
   PaginationMeta: PaginationMeta,
   PaginationMetaPage: PaginationMetaPage,
@@ -8873,6 +8933,8 @@ const typeMap: { [index: string]: any } = {
   RoleUpdateResponse: RoleUpdateResponse,
   RoleUpdateResponseData: RoleUpdateResponseData,
   RolesResponse: RolesResponse,
+  RolloutOptions: RolloutOptions,
+  RolloutOptionsRequest: RolloutOptionsRequest,
   RoutingRule: RoutingRule,
   RoutingRuleAttributes: RoutingRuleAttributes,
   RoutingRuleRelationships: RoutingRuleRelationships,
@@ -9683,6 +9745,8 @@ const typeMap: { [index: string]: any } = {
   TableRowResourceData: TableRowResourceData,
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
   TableRowResourceIdentifier: TableRowResourceIdentifier,
+  TargetingRule: TargetingRule,
+  TargetingRuleRequest: TargetingRuleRequest,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamConnection: TeamConnection,
@@ -9950,6 +10014,7 @@ const typeMap: { [index: string]: any } = {
   UpdateTenancyConfigRequest: UpdateTenancyConfigRequest,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
+  UpsertAllocationRequest: UpsertAllocationRequest,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
   UpsertCatalogKindResponse: UpsertCatalogKindResponse,
   UrlParam: UrlParam,
@@ -10004,6 +10069,8 @@ const typeMap: { [index: string]: any } = {
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,
   Variant: Variant,
+  VariantWeight: VariantWeight,
+  VariantWeightRequest: VariantWeightRequest,
   VersionHistoryUpdate: VersionHistoryUpdate,
   ViewershipHistorySessionArray: ViewershipHistorySessionArray,
   ViewershipHistorySessionData: ViewershipHistorySessionData,

@@ -16,13 +16,18 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
+import { AllocationExposureScheduleResponse } from "../models/AllocationExposureScheduleResponse";
+import { AllocationResponse } from "../models/AllocationResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { CreateAllocationsRequest } from "../models/CreateAllocationsRequest";
 import { CreateEnvironmentRequest } from "../models/CreateEnvironmentRequest";
 import { CreateFeatureFlagRequest } from "../models/CreateFeatureFlagRequest";
 import { EnvironmentResponse } from "../models/EnvironmentResponse";
 import { FeatureFlagResponse } from "../models/FeatureFlagResponse";
+import { ListAllocationsResponse } from "../models/ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "../models/ListEnvironmentsResponse";
 import { ListFeatureFlagsResponse } from "../models/ListFeatureFlagsResponse";
+import { OverwriteAllocationsRequest } from "../models/OverwriteAllocationsRequest";
 import { UpdateEnvironmentRequest } from "../models/UpdateEnvironmentRequest";
 import { UpdateFeatureFlagRequest } from "../models/UpdateFeatureFlagRequest";
 
@@ -51,6 +56,73 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createAllocationsForFeatureFlagInEnvironment(
+    featureFlagId: string,
+    environmentId: string,
+    body: CreateAllocationsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'featureFlagId' is not null or undefined
+    if (featureFlagId === null || featureFlagId === undefined) {
+      throw new RequiredError(
+        "featureFlagId",
+        "createAllocationsForFeatureFlagInEnvironment"
+      );
+    }
+
+    // verify required parameter 'environmentId' is not null or undefined
+    if (environmentId === null || environmentId === undefined) {
+      throw new RequiredError(
+        "environmentId",
+        "createAllocationsForFeatureFlagInEnvironment"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createAllocationsForFeatureFlagInEnvironment"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+        .replace("{feature_flag_id}", encodeURIComponent(String(featureFlagId)))
+        .replace("{environment_id}", encodeURIComponent(String(environmentId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.FeatureFlagsApi.createAllocationsForFeatureFlagInEnvironment"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateAllocationsRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -438,6 +510,142 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async pauseExposureSchedule(
+    exposureScheduleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'exposureScheduleId' is not null or undefined
+    if (exposureScheduleId === null || exposureScheduleId === undefined) {
+      throw new RequiredError("exposureScheduleId", "pauseExposureSchedule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause".replace(
+        "{exposure_schedule_id}",
+        encodeURIComponent(String(exposureScheduleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.pauseExposureSchedule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async resumeExposureSchedule(
+    exposureScheduleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'exposureScheduleId' is not null or undefined
+    if (exposureScheduleId === null || exposureScheduleId === undefined) {
+      throw new RequiredError("exposureScheduleId", "resumeExposureSchedule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume".replace(
+        "{exposure_schedule_id}",
+        encodeURIComponent(String(exposureScheduleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.resumeExposureSchedule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async startExposureSchedule(
+    exposureScheduleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'exposureScheduleId' is not null or undefined
+    if (exposureScheduleId === null || exposureScheduleId === undefined) {
+      throw new RequiredError("exposureScheduleId", "startExposureSchedule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start".replace(
+        "{exposure_schedule_id}",
+        encodeURIComponent(String(exposureScheduleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.startExposureSchedule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async stopExposureSchedule(
+    exposureScheduleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'exposureScheduleId' is not null or undefined
+    if (exposureScheduleId === null || exposureScheduleId === undefined) {
+      throw new RequiredError("exposureScheduleId", "stopExposureSchedule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop".replace(
+        "{exposure_schedule_id}",
+        encodeURIComponent(String(exposureScheduleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.stopExposureSchedule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async unarchiveFeatureFlag(
     featureFlagId: string,
     _options?: Configuration
@@ -462,6 +670,73 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateAllocationsForFeatureFlagInEnvironment(
+    featureFlagId: string,
+    environmentId: string,
+    body: OverwriteAllocationsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'featureFlagId' is not null or undefined
+    if (featureFlagId === null || featureFlagId === undefined) {
+      throw new RequiredError(
+        "featureFlagId",
+        "updateAllocationsForFeatureFlagInEnvironment"
+      );
+    }
+
+    // verify required parameter 'environmentId' is not null or undefined
+    if (environmentId === null || environmentId === undefined) {
+      throw new RequiredError(
+        "environmentId",
+        "updateAllocationsForFeatureFlagInEnvironment"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateAllocationsForFeatureFlagInEnvironment"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+        .replace("{feature_flag_id}", encodeURIComponent(String(featureFlagId)))
+        .replace("{environment_id}", encodeURIComponent(String(environmentId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "OverwriteAllocationsRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -628,6 +903,70 @@ export class FeatureFlagsApiResponseProcessor {
         "FeatureFlagResponse",
         ""
       ) as FeatureFlagResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createAllocationsForFeatureFlagInEnvironment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createAllocationsForFeatureFlagInEnvironment(
+    response: ResponseContext
+  ): Promise<AllocationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201 || response.httpStatusCode === 202) {
+      const body: AllocationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AllocationResponse"
+      ) as AllocationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AllocationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AllocationResponse",
+        ""
+      ) as AllocationResponse;
       return body;
     }
 
@@ -1167,6 +1506,270 @@ export class FeatureFlagsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to pauseExposureSchedule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async pauseExposureSchedule(
+    response: ResponseContext
+  ): Promise<AllocationExposureScheduleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse"
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse",
+          ""
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to resumeExposureSchedule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async resumeExposureSchedule(
+    response: ResponseContext
+  ): Promise<AllocationExposureScheduleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse"
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse",
+          ""
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to startExposureSchedule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async startExposureSchedule(
+    response: ResponseContext
+  ): Promise<AllocationExposureScheduleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse"
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse",
+          ""
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to stopExposureSchedule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async stopExposureSchedule(
+    response: ResponseContext
+  ): Promise<AllocationExposureScheduleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse"
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AllocationExposureScheduleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AllocationExposureScheduleResponse",
+          ""
+        ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to unarchiveFeatureFlag
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1216,6 +1819,70 @@ export class FeatureFlagsApiResponseProcessor {
         "FeatureFlagResponse",
         ""
       ) as FeatureFlagResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateAllocationsForFeatureFlagInEnvironment
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAllocationsForFeatureFlagInEnvironment(
+    response: ResponseContext
+  ): Promise<ListAllocationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
+      const body: ListAllocationsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListAllocationsResponse"
+      ) as ListAllocationsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListAllocationsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListAllocationsResponse",
+        ""
+      ) as ListAllocationsResponse;
       return body;
     }
 
@@ -1361,6 +2028,23 @@ export interface FeatureFlagsApiArchiveFeatureFlagRequest {
   featureFlagId: string;
 }
 
+export interface FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest {
+  /**
+   * The ID of the feature flag.
+   * @type string
+   */
+  featureFlagId: string;
+  /**
+   * The ID of the environment.
+   * @type string
+   */
+  environmentId: string;
+  /**
+   * @type CreateAllocationsRequest
+   */
+  body: CreateAllocationsRequest;
+}
+
 export interface FeatureFlagsApiCreateFeatureFlagRequest {
   /**
    * @type CreateFeatureFlagRequest
@@ -1471,12 +2155,61 @@ export interface FeatureFlagsApiListFeatureFlagsEnvironmentsRequest {
   offset?: number;
 }
 
+export interface FeatureFlagsApiPauseExposureScheduleRequest {
+  /**
+   * The ID of the exposure schedule.
+   * @type string
+   */
+  exposureScheduleId: string;
+}
+
+export interface FeatureFlagsApiResumeExposureScheduleRequest {
+  /**
+   * The ID of the exposure schedule.
+   * @type string
+   */
+  exposureScheduleId: string;
+}
+
+export interface FeatureFlagsApiStartExposureScheduleRequest {
+  /**
+   * The ID of the exposure schedule.
+   * @type string
+   */
+  exposureScheduleId: string;
+}
+
+export interface FeatureFlagsApiStopExposureScheduleRequest {
+  /**
+   * The ID of the exposure schedule.
+   * @type string
+   */
+  exposureScheduleId: string;
+}
+
 export interface FeatureFlagsApiUnarchiveFeatureFlagRequest {
   /**
    * The ID of the feature flag.
    * @type string
    */
   featureFlagId: string;
+}
+
+export interface FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequest {
+  /**
+   * The ID of the feature flag.
+   * @type string
+   */
+  featureFlagId: string;
+  /**
+   * The ID of the environment.
+   * @type string
+   */
+  environmentId: string;
+  /**
+   * @type OverwriteAllocationsRequest
+   */
+  body: OverwriteAllocationsRequest;
 }
 
 export interface FeatureFlagsApiUpdateFeatureFlagRequest {
@@ -1538,6 +2271,32 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.archiveFeatureFlag(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Creates a new targeting rule (allocation) for a specific feature flag in a specific environment.
+   * @param param The request object
+   */
+  public createAllocationsForFeatureFlagInEnvironment(
+    param: FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest,
+    options?: Configuration
+  ): Promise<AllocationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createAllocationsForFeatureFlagInEnvironment(
+        param.featureFlagId,
+        param.environmentId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAllocationsForFeatureFlagInEnvironment(
+            responseContext
+          );
         });
     });
   }
@@ -1758,6 +2517,90 @@ export class FeatureFlagsApi {
   }
 
   /**
+   * Pauses a progressive rollout while preserving rollout state.
+   * @param param The request object
+   */
+  public pauseExposureSchedule(
+    param: FeatureFlagsApiPauseExposureScheduleRequest,
+    options?: Configuration
+  ): Promise<AllocationExposureScheduleResponse> {
+    const requestContextPromise = this.requestFactory.pauseExposureSchedule(
+      param.exposureScheduleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.pauseExposureSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Resumes progression for a previously paused progressive rollout.
+   * @param param The request object
+   */
+  public resumeExposureSchedule(
+    param: FeatureFlagsApiResumeExposureScheduleRequest,
+    options?: Configuration
+  ): Promise<AllocationExposureScheduleResponse> {
+    const requestContextPromise = this.requestFactory.resumeExposureSchedule(
+      param.exposureScheduleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.resumeExposureSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Starts a progressive rollout and begins progression.
+   * @param param The request object
+   */
+  public startExposureSchedule(
+    param: FeatureFlagsApiStartExposureScheduleRequest,
+    options?: Configuration
+  ): Promise<AllocationExposureScheduleResponse> {
+    const requestContextPromise = this.requestFactory.startExposureSchedule(
+      param.exposureScheduleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.startExposureSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Stops a progressive rollout and marks it as aborted.
+   * @param param The request object
+   */
+  public stopExposureSchedule(
+    param: FeatureFlagsApiStopExposureScheduleRequest,
+    options?: Configuration
+  ): Promise<AllocationExposureScheduleResponse> {
+    const requestContextPromise = this.requestFactory.stopExposureSchedule(
+      param.exposureScheduleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.stopExposureSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
    * Unarchives a previously archived feature flag,
    * making it visible in the main list again.
    * @param param The request object
@@ -1775,6 +2618,33 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.unarchiveFeatureFlag(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Updates targeting rules (allocations) for a specific feature flag in a specific environment.
+   * This operation replaces the existing allocation set with the request payload.
+   * @param param The request object
+   */
+  public updateAllocationsForFeatureFlagInEnvironment(
+    param: FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequest,
+    options?: Configuration
+  ): Promise<ListAllocationsResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateAllocationsForFeatureFlagInEnvironment(
+        param.featureFlagId,
+        param.environmentId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAllocationsForFeatureFlagInEnvironment(
+            responseContext
+          );
         });
     });
   }

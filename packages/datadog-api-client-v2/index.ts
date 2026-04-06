@@ -405,6 +405,7 @@ export {
 
 export {
   FeatureFlagsApiArchiveFeatureFlagRequest,
+  FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiCreateFeatureFlagRequest,
   FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest,
   FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest,
@@ -414,7 +415,12 @@ export {
   FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
   FeatureFlagsApiListFeatureFlagsRequest,
   FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
+  FeatureFlagsApiPauseExposureScheduleRequest,
+  FeatureFlagsApiResumeExposureScheduleRequest,
+  FeatureFlagsApiStartExposureScheduleRequest,
+  FeatureFlagsApiStopExposureScheduleRequest,
   FeatureFlagsApiUnarchiveFeatureFlagRequest,
+  FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiUpdateFeatureFlagRequest,
   FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest,
   FeatureFlagsApi,
@@ -1307,6 +1313,18 @@ export { AlertEventCustomAttributesLinksItems } from "./models/AlertEventCustomA
 export { AlertEventCustomAttributesLinksItemsCategory } from "./models/AlertEventCustomAttributesLinksItemsCategory";
 export { AlertEventCustomAttributesPriority } from "./models/AlertEventCustomAttributesPriority";
 export { AlertEventCustomAttributesStatus } from "./models/AlertEventCustomAttributesStatus";
+export { Allocation } from "./models/Allocation";
+export { AllocationDataRequest } from "./models/AllocationDataRequest";
+export { AllocationDataResponse } from "./models/AllocationDataResponse";
+export { AllocationDataType } from "./models/AllocationDataType";
+export { AllocationExposureGuardrailTrigger } from "./models/AllocationExposureGuardrailTrigger";
+export { AllocationExposureRolloutStep } from "./models/AllocationExposureRolloutStep";
+export { AllocationExposureSchedule } from "./models/AllocationExposureSchedule";
+export { AllocationExposureScheduleData } from "./models/AllocationExposureScheduleData";
+export { AllocationExposureScheduleDataType } from "./models/AllocationExposureScheduleDataType";
+export { AllocationExposureScheduleResponse } from "./models/AllocationExposureScheduleResponse";
+export { AllocationResponse } from "./models/AllocationResponse";
+export { AllocationType } from "./models/AllocationType";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
@@ -2005,6 +2023,9 @@ export { ComponentProperties } from "./models/ComponentProperties";
 export { ComponentPropertiesIsVisible } from "./models/ComponentPropertiesIsVisible";
 export { ComponentRecommendation } from "./models/ComponentRecommendation";
 export { ComponentType } from "./models/ComponentType";
+export { Condition } from "./models/Condition";
+export { ConditionOperator } from "./models/ConditionOperator";
+export { ConditionRequest } from "./models/ConditionRequest";
 export { ConfigCatCredentials } from "./models/ConfigCatCredentials";
 export { ConfigCatCredentialsUpdate } from "./models/ConfigCatCredentialsUpdate";
 export { ConfigCatIntegration } from "./models/ConfigCatIntegration";
@@ -2101,6 +2122,7 @@ export { CoverageSummaryType } from "./models/CoverageSummaryType";
 export { Cpu } from "./models/Cpu";
 export { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
 export { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";
+export { CreateAllocationsRequest } from "./models/CreateAllocationsRequest";
 export { CreateAppRequest } from "./models/CreateAppRequest";
 export { CreateAppRequestData } from "./models/CreateAppRequestData";
 export { CreateAppRequestDataAttributes } from "./models/CreateAppRequestDataAttributes";
@@ -2766,6 +2788,8 @@ export { EventSystemAttributes } from "./models/EventSystemAttributes";
 export { EventSystemAttributesCategory } from "./models/EventSystemAttributesCategory";
 export { EventSystemAttributesIntegrationId } from "./models/EventSystemAttributesIntegrationId";
 export { EventType } from "./models/EventType";
+export { ExposureRolloutStepRequest } from "./models/ExposureRolloutStepRequest";
+export { ExposureScheduleRequest } from "./models/ExposureScheduleRequest";
 export { FacetInfoRequest } from "./models/FacetInfoRequest";
 export { FacetInfoRequestData } from "./models/FacetInfoRequestData";
 export { FacetInfoRequestDataAttributes } from "./models/FacetInfoRequestDataAttributes";
@@ -3076,6 +3100,9 @@ export { GreyNoiseIntegration } from "./models/GreyNoiseIntegration";
 export { GreyNoiseIntegrationType } from "./models/GreyNoiseIntegrationType";
 export { GreyNoiseIntegrationUpdate } from "./models/GreyNoiseIntegrationUpdate";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
+export { GuardrailMetric } from "./models/GuardrailMetric";
+export { GuardrailMetricRequest } from "./models/GuardrailMetricRequest";
+export { GuardrailTriggerAction } from "./models/GuardrailTriggerAction";
 export { HamrOrgConnectionAttributesRequest } from "./models/HamrOrgConnectionAttributesRequest";
 export { HamrOrgConnectionAttributesResponse } from "./models/HamrOrgConnectionAttributesResponse";
 export { HamrOrgConnectionDataRequest } from "./models/HamrOrgConnectionDataRequest";
@@ -3480,6 +3507,7 @@ export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
 export { Library } from "./models/Library";
 export { Links } from "./models/Links";
+export { ListAllocationsResponse } from "./models/ListAllocationsResponse";
 export { ListAPIsResponse } from "./models/ListAPIsResponse";
 export { ListAPIsResponseData } from "./models/ListAPIsResponseData";
 export { ListAPIsResponseDataAttributes } from "./models/ListAPIsResponseDataAttributes";
@@ -4320,6 +4348,7 @@ export { OutcomeType } from "./models/OutcomeType";
 export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
+export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
 export { PageUrgency } from "./models/PageUrgency";
 export { Pagination } from "./models/Pagination";
 export { PaginationMeta } from "./models/PaginationMeta";
@@ -4679,6 +4708,9 @@ export { RoleUpdateData } from "./models/RoleUpdateData";
 export { RoleUpdateRequest } from "./models/RoleUpdateRequest";
 export { RoleUpdateResponse } from "./models/RoleUpdateResponse";
 export { RoleUpdateResponseData } from "./models/RoleUpdateResponseData";
+export { RolloutOptions } from "./models/RolloutOptions";
+export { RolloutOptionsRequest } from "./models/RolloutOptionsRequest";
+export { RolloutStrategy } from "./models/RolloutStrategy";
 export { RoutingRule } from "./models/RoutingRule";
 export { RoutingRuleAction } from "./models/RoutingRuleAction";
 export { RoutingRuleAttributes } from "./models/RoutingRuleAttributes";
@@ -5578,6 +5610,8 @@ export { TableRowResourceData } from "./models/TableRowResourceData";
 export { TableRowResourceDataAttributes } from "./models/TableRowResourceDataAttributes";
 export { TableRowResourceDataType } from "./models/TableRowResourceDataType";
 export { TableRowResourceIdentifier } from "./models/TableRowResourceIdentifier";
+export { TargetingRule } from "./models/TargetingRule";
+export { TargetingRuleRequest } from "./models/TargetingRuleRequest";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
 export { TeamConnection } from "./models/TeamConnection";
@@ -5856,6 +5890,7 @@ export { UpdateTenancyConfigDataType } from "./models/UpdateTenancyConfigDataTyp
 export { UpdateTenancyConfigRequest } from "./models/UpdateTenancyConfigRequest";
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
+export { UpsertAllocationRequest } from "./models/UpsertAllocationRequest";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
 export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
@@ -5929,6 +5964,8 @@ export { ValidationErrorMeta } from "./models/ValidationErrorMeta";
 export { ValidationResponse } from "./models/ValidationResponse";
 export { ValueType } from "./models/ValueType";
 export { Variant } from "./models/Variant";
+export { VariantWeight } from "./models/VariantWeight";
+export { VariantWeightRequest } from "./models/VariantWeightRequest";
 export { VersionHistoryUpdate } from "./models/VersionHistoryUpdate";
 export { VersionHistoryUpdateType } from "./models/VersionHistoryUpdateType";
 export { ViewershipHistorySessionArray } from "./models/ViewershipHistorySessionArray";
