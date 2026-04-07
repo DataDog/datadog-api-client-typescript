@@ -6,15 +6,17 @@
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./ObservabilityPipelineElasticsearchDestinationApiVersion";
 import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
+import { ObservabilityPipelineElasticsearchDestinationCompression } from "./ObservabilityPipelineElasticsearchDestinationCompression";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
 import { ObservabilityPipelineElasticsearchDestinationType } from "./ObservabilityPipelineElasticsearchDestinationType";
+import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+ * The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
  *
- * **Supported pipeline types:** logs
+ * **Supported pipeline types:** logs, metrics
  */
 export class ObservabilityPipelineElasticsearchDestination {
   /**
@@ -31,9 +33,13 @@ export class ObservabilityPipelineElasticsearchDestination {
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
-   * The index to write logs to in Elasticsearch.
+   * The name of the index to write events to in Elasticsearch.
    */
   "bulkIndex"?: string;
+  /**
+   * Compression configuration for the Elasticsearch destination.
+   */
+  "compression"?: ObservabilityPipelineElasticsearchDestinationCompression;
   /**
    * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
    */
@@ -47,9 +53,25 @@ export class ObservabilityPipelineElasticsearchDestination {
    */
   "id": string;
   /**
+   * The name of the field used as the document ID in Elasticsearch.
+   */
+  "idKey"?: string;
+  /**
    * A list of component IDs whose output is used as the `input` for this component.
    */
   "inputs": Array<string>;
+  /**
+   * The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+   */
+  "pipeline"?: string;
+  /**
+   * When `true`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+   */
+  "requestRetryPartial"?: boolean;
+  /**
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   */
+  "tls"?: ObservabilityPipelineTls;
   /**
    * The destination type. The value should always be `elasticsearch`.
    */
@@ -87,6 +109,10 @@ export class ObservabilityPipelineElasticsearchDestination {
       baseName: "bulk_index",
       type: "string",
     },
+    compression: {
+      baseName: "compression",
+      type: "ObservabilityPipelineElasticsearchDestinationCompression",
+    },
     dataStream: {
       baseName: "data_stream",
       type: "ObservabilityPipelineElasticsearchDestinationDataStream",
@@ -100,10 +126,26 @@ export class ObservabilityPipelineElasticsearchDestination {
       type: "string",
       required: true,
     },
+    idKey: {
+      baseName: "id_key",
+      type: "string",
+    },
     inputs: {
       baseName: "inputs",
       type: "Array<string>",
       required: true,
+    },
+    pipeline: {
+      baseName: "pipeline",
+      type: "string",
+    },
+    requestRetryPartial: {
+      baseName: "request_retry_partial",
+      type: "boolean",
+    },
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
     },
     type: {
       baseName: "type",

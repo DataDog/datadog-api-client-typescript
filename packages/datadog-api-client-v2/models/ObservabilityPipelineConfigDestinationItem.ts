@@ -35,6 +35,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type ObservabilityPipelineConfigDestinationItem =
+  | ObservabilityPipelineElasticsearchDestination
   | ObservabilityPipelineHttpClientDestination
   | ObservabilityPipelineAmazonOpenSearchDestination
   | ObservabilityPipelineAmazonS3Destination
@@ -44,7 +45,6 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineCloudPremDestination
   | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
   | ObservabilityPipelineDatadogLogsDestination
-  | ObservabilityPipelineElasticsearchDestination
   | ObservabilityPipelineGoogleChronicleDestination
   | ObservabilityPipelineGoogleCloudStorageDestination
   | ObservabilityPipelineGooglePubSubDestination

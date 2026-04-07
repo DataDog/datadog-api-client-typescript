@@ -11,17 +11,25 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineElasticsearchDestinationDataStream {
   /**
-   * The data stream dataset for your logs. This groups logs by their source or application.
+   * When `true`, automatically routes events to the appropriate data stream based on the event content.
+   */
+  "autoRouting"?: boolean;
+  /**
+   * The data stream dataset. This groups events by their source or application.
    */
   "dataset"?: string;
   /**
-   * The data stream type for your logs. This determines how logs are categorized within the data stream.
+   * The data stream type. This determines how events are categorized within the data stream.
    */
   "dtype"?: string;
   /**
-   * The data stream namespace for your logs. This separates logs into different environments or domains.
+   * The data stream namespace. This separates events into different environments or domains.
    */
   "namespace"?: string;
+  /**
+   * When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
+   */
+  "syncFields"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,6 +47,10 @@ export class ObservabilityPipelineElasticsearchDestinationDataStream {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    autoRouting: {
+      baseName: "auto_routing",
+      type: "boolean",
+    },
     dataset: {
       baseName: "dataset",
       type: "string",
@@ -50,6 +62,10 @@ export class ObservabilityPipelineElasticsearchDestinationDataStream {
     namespace: {
       baseName: "namespace",
       type: "string",
+    },
+    syncFields: {
+      baseName: "sync_fields",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
