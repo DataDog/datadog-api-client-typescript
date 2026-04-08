@@ -244,6 +244,9 @@ import { SecurityMonitoringSignalRuleResponseQuery } from "./SecurityMonitoringS
 import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
 import { SecurityMonitoringSignalStateUpdateData } from "./SecurityMonitoringSignalStateUpdateData";
 import { SecurityMonitoringSignalStateUpdateRequest } from "./SecurityMonitoringSignalStateUpdateRequest";
+import { SecurityMonitoringSignalSuggestedAction } from "./SecurityMonitoringSignalSuggestedAction";
+import { SecurityMonitoringSignalSuggestedActionAttributes } from "./SecurityMonitoringSignalSuggestedActionAttributes";
+import { SecurityMonitoringSignalSuggestedActionsResponse } from "./SecurityMonitoringSignalSuggestedActionsResponse";
 import { SecurityMonitoringSignalTriageAttributes } from "./SecurityMonitoringSignalTriageAttributes";
 import { SecurityMonitoringSignalTriageUpdateData } from "./SecurityMonitoringSignalTriageUpdateData";
 import { SecurityMonitoringSignalTriageUpdateResponse } from "./SecurityMonitoringSignalTriageUpdateResponse";
@@ -562,6 +565,10 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringSignalMetadataType: ["signal_metadata"],
     SecurityMonitoringSignalRuleType: ["signal_correlation"],
     SecurityMonitoringSignalState: ["open", "archived", "under_review"],
+    SecurityMonitoringSignalSuggestedActionType: [
+      "investigation_log_queries",
+      "recommended_blog_posts",
+    ],
     SecurityMonitoringSignalType: ["signal"],
     SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
     SecurityMonitoringStandardDataSource: [
@@ -1004,6 +1011,12 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringSignalStateUpdateData,
     SecurityMonitoringSignalStateUpdateRequest:
       SecurityMonitoringSignalStateUpdateRequest,
+    SecurityMonitoringSignalSuggestedAction:
+      SecurityMonitoringSignalSuggestedAction,
+    SecurityMonitoringSignalSuggestedActionAttributes:
+      SecurityMonitoringSignalSuggestedActionAttributes,
+    SecurityMonitoringSignalSuggestedActionsResponse:
+      SecurityMonitoringSignalSuggestedActionsResponse,
     SecurityMonitoringSignalTriageAttributes:
       SecurityMonitoringSignalTriageAttributes,
     SecurityMonitoringSignalTriageUpdateData:
