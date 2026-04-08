@@ -4642,6 +4642,12 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAmazonS3GenericDestinationType: ["amazon_s3_generic"],
   ObservabilityPipelineAmazonS3GenericEncodingJsonType: ["json"],
   ObservabilityPipelineAmazonS3GenericEncodingParquetType: ["parquet"],
+  ObservabilityPipelineAmazonS3SourceCompression: [
+    "auto",
+    "none",
+    "gzip",
+    "zstd",
+  ],
   ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
   ObservabilityPipelineAmazonSecurityLakeDestinationType: [
     "amazon_security_lake",

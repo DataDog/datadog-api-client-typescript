@@ -4005,6 +4005,7 @@ export { ObservabilityPipelineAmazonS3GenericEncodingJsonType } from "./models/O
 export { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./models/ObservabilityPipelineAmazonS3GenericEncodingParquet";
 export { ObservabilityPipelineAmazonS3GenericEncodingParquetType } from "./models/ObservabilityPipelineAmazonS3GenericEncodingParquetType";
 export { ObservabilityPipelineAmazonS3Source } from "./models/ObservabilityPipelineAmazonS3Source";
+export { ObservabilityPipelineAmazonS3SourceCompression } from "./models/ObservabilityPipelineAmazonS3SourceCompression";
 export { ObservabilityPipelineAmazonS3SourceType } from "./models/ObservabilityPipelineAmazonS3SourceType";
 export { ObservabilityPipelineAmazonSecurityLakeDestination } from "./models/ObservabilityPipelineAmazonSecurityLakeDestination";
 export { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./models/ObservabilityPipelineAmazonSecurityLakeDestinationType";
