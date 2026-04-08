@@ -4994,6 +4994,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
+    "v2.GetInvestigationLogQueriesMatchingSignal": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalSuggestedActionsResponse",
+    },
     "v2.EditSecurityMonitoringSignalState": {
         "signalId": {
             "type": "string",
@@ -5004,6 +5011,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.GetSuggestedActionsMatchingSignal": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalSuggestedActionsResponse",
     },
     "v2.ListSecurityMonitoringHistsignals": {
         "filterQuery": {
