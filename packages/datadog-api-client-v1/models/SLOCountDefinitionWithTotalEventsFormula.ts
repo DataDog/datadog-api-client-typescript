@@ -8,6 +8,9 @@ import { SLOFormula } from "./SLOFormula";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * SLO count definition using a total events formula alongside a good events formula.
+ */
 export class SLOCountDefinitionWithTotalEventsFormula {
   /**
    * A formula that specifies how to combine the results of multiple queries.

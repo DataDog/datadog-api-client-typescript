@@ -10,7 +10,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Product Analytics audience account subquery.
  */
 export class ProductAnalyticsAudienceAccountSubquery {
+  /**
+   * The name of the account subquery.
+   */
   "name"?: string;
+  /**
+   * The query string for the account subquery.
+   */
   "query"?: string;
 
   /**
