@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineAmazonS3SourceCompression } from "./ObservabilityPipelineAmazonS3SourceCompression";
 import { ObservabilityPipelineAmazonS3SourceType } from "./ObservabilityPipelineAmazonS3SourceType";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
@@ -11,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The `amazon_s3` source ingests logs from an Amazon S3 bucket.
- * It supports AWS authentication and TLS encryption.
+ * It supports AWS authentication, TLS encryption, and configurable compression.
  *
  * **Supported pipeline types:** logs
  */
@@ -21,6 +22,10 @@ export class ObservabilityPipelineAmazonS3Source {
    * If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
    */
   "auth"?: ObservabilityPipelineAwsAuth;
+  /**
+   * Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension.
+   */
+  "compression"?: ObservabilityPipelineAmazonS3SourceCompression;
   /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
    */
@@ -61,6 +66,10 @@ export class ObservabilityPipelineAmazonS3Source {
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineAwsAuth",
+    },
+    compression: {
+      baseName: "compression",
+      type: "ObservabilityPipelineAmazonS3SourceCompression",
     },
     id: {
       baseName: "id",
