@@ -10,7 +10,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Product Analytics audience segment subquery.
  */
 export class ProductAnalyticsAudienceSegmentSubquery {
+  /**
+   * The name of the segment subquery.
+   */
   "name"?: string;
+  /**
+   * The unique identifier of the segment.
+   */
   "segmentId"?: string;
 
   /**

@@ -6,8 +6,17 @@
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+/**
+ * Filter applied to occurrence counts when building a Product Analytics audience.
+ */
 export class ProductAnalyticsAudienceOccurrenceFilter {
+  /**
+   * The comparison operator used for the occurrence filter (for example: `gt`, `lt`, `eq`).
+   */
   "operator"?: string;
+  /**
+   * The threshold value to compare occurrence counts against.
+   */
   "value"?: string;
 
   /**
