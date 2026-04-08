@@ -989,6 +989,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
@@ -1000,6 +1001,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetSuggestedActionsMatchingSignalRequest,
   SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
@@ -5115,6 +5117,10 @@ export { SecurityMonitoringSignalState } from "./models/SecurityMonitoringSignal
 export { SecurityMonitoringSignalStateUpdateAttributes } from "./models/SecurityMonitoringSignalStateUpdateAttributes";
 export { SecurityMonitoringSignalStateUpdateData } from "./models/SecurityMonitoringSignalStateUpdateData";
 export { SecurityMonitoringSignalStateUpdateRequest } from "./models/SecurityMonitoringSignalStateUpdateRequest";
+export { SecurityMonitoringSignalSuggestedAction } from "./models/SecurityMonitoringSignalSuggestedAction";
+export { SecurityMonitoringSignalSuggestedActionAttributes } from "./models/SecurityMonitoringSignalSuggestedActionAttributes";
+export { SecurityMonitoringSignalSuggestedActionsResponse } from "./models/SecurityMonitoringSignalSuggestedActionsResponse";
+export { SecurityMonitoringSignalSuggestedActionType } from "./models/SecurityMonitoringSignalSuggestedActionType";
 export { SecurityMonitoringSignalTriageAttributes } from "./models/SecurityMonitoringSignalTriageAttributes";
 export { SecurityMonitoringSignalTriageUpdateData } from "./models/SecurityMonitoringSignalTriageUpdateData";
 export { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
