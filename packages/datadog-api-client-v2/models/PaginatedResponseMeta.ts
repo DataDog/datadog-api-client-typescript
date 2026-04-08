@@ -3,23 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * Metadata for scores response.
  */
-export class UpdateRuleRequestData {
+export class PaginatedResponseMeta {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * Number of entities in this response.
    */
-  "attributes"?: RuleAttributesRequest;
+  "count": number;
   /**
-   * The JSON:API type for scorecard rules.
+   * Pagination limit.
    */
-  "type"?: RuleType;
+  "limit": number;
+  /**
+   * Pagination offset.
+   */
+  "offset": number;
+  /**
+   * Total number of entities available.
+   */
+  "total": number;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +43,29 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributesRequest",
+    count: {
+      baseName: "count",
+      type: "number",
+      required: true,
+      format: "int64",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    limit: {
+      baseName: "limit",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    offset: {
+      baseName: "offset",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    total: {
+      baseName: "total",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +77,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return PaginatedResponseMeta.attributeTypeMap;
   }
 
   public constructor() {}

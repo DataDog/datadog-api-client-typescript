@@ -7,53 +7,53 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Details of a rule.
+ * Campaign attributes.
  */
-export class RuleAttributes {
+export class CampaignResponseAttributes {
   /**
-   * The scorecard name to which this rule must belong.
+   * Creation time of the campaign.
    */
-  "category"?: string;
+  "createdAt": Date;
   /**
-   * Creation time of the rule outcome.
-   */
-  "createdAt"?: Date;
-  /**
-   * Defines if the rule is a custom rule.
-   */
-  "custom"?: boolean;
-  /**
-   * Explanation of the rule.
+   * The description of the campaign.
    */
   "description"?: string;
   /**
-   * If enabled, the rule is calculated as part of the score.
+   * The due date of the campaign.
    */
-  "enabled"?: boolean;
+  "dueDate"?: Date;
   /**
-   * The maturity level of the rule (1, 2, or 3).
+   * Entity scope query to filter entities for this campaign.
    */
-  "level"?: number;
+  "entityScope"?: string;
   /**
-   * Time of the last rule outcome modification.
+   * Guidance for the campaign.
    */
-  "modifiedAt"?: Date;
+  "guidance"?: string;
   /**
-   * Name of the rule.
+   * The unique key for the campaign.
    */
-  "name"?: string;
+  "key": string;
   /**
-   * Owner of the rule.
+   * Time of last campaign modification.
    */
-  "owner"?: string;
+  "modifiedAt": Date;
   /**
-   * A query to filter which entities this rule applies to.
+   * The name of the campaign.
    */
-  "scopeQuery"?: string;
+  "name": string;
   /**
-   * The scorecard name to which this rule must belong.
+   * The UUID of the campaign owner.
    */
-  "scorecardName"?: string;
+  "owner": string;
+  /**
+   * The start date of the campaign.
+   */
+  "startDate": Date;
+  /**
+   * The status of the campaign.
+   */
+  "status": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -71,51 +71,60 @@ export class RuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
-    },
     createdAt: {
       baseName: "created_at",
       type: "Date",
+      required: true,
       format: "date-time",
-    },
-    custom: {
-      baseName: "custom",
-      type: "boolean",
     },
     description: {
       baseName: "description",
       type: "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    dueDate: {
+      baseName: "due_date",
+      type: "Date",
+      format: "date-time",
     },
-    level: {
-      baseName: "level",
-      type: "number",
+    entityScope: {
+      baseName: "entity_scope",
+      type: "string",
+    },
+    guidance: {
+      baseName: "guidance",
+      type: "string",
+    },
+    key: {
+      baseName: "key",
+      type: "string",
+      required: true,
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
+      required: true,
       format: "date-time",
     },
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     owner: {
       baseName: "owner",
       type: "string",
+      required: true,
     },
-    scopeQuery: {
-      baseName: "scope_query",
-      type: "string",
+    startDate: {
+      baseName: "start_date",
+      type: "Date",
+      required: true,
+      format: "date-time",
     },
-    scorecardName: {
-      baseName: "scorecard_name",
+    status: {
+      baseName: "status",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -127,7 +136,7 @@ export class RuleAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleAttributes.attributeTypeMap;
+    return CampaignResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}
