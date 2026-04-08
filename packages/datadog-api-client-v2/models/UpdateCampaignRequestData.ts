@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RuleAttributesRequest } from "./RuleAttributesRequest";
-import { RuleType } from "./RuleType";
+import { CampaignType } from "./CampaignType";
+import { UpdateCampaignRequestAttributes } from "./UpdateCampaignRequestAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for the request to update a scorecard rule.
+ * Data for updating a campaign.
  */
-export class UpdateRuleRequestData {
+export class UpdateCampaignRequestData {
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
+   * Attributes for updating a campaign.
    */
-  "attributes"?: RuleAttributesRequest;
+  "attributes": UpdateCampaignRequestAttributes;
   /**
-   * The JSON:API type for scorecard rules.
+   * The JSON:API type for campaigns.
    */
-  "type"?: RuleType;
+  "type": CampaignType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,11 +39,13 @@ export class UpdateRuleRequestData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "RuleAttributesRequest",
+      type: "UpdateCampaignRequestAttributes",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "RuleType",
+      type: "CampaignType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +57,7 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UpdateRuleRequestData.attributeTypeMap;
+    return UpdateCampaignRequestData.attributeTypeMap;
   }
 
   public constructor() {}
