@@ -34,6 +34,9 @@ export class SankeyRumQuery {
    * Number of steps.
    */
   "numberOfSteps"?: number;
+  /**
+   * Filter applied to occurrence counts when building a Product Analytics audience.
+   */
   "occurrences"?: ProductAnalyticsAudienceOccurrenceFilter;
   /**
    * Query string.
