@@ -14,6 +14,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ProductAnalyticsAudienceFilters {
   "accounts"?: Array<ProductAnalyticsAudienceAccountSubquery>;
+  /**
+   * An optional filter condition applied to the audience subquery.
+   */
   "filterCondition"?: string;
   "segments"?: Array<ProductAnalyticsAudienceSegmentSubquery>;
   "users"?: Array<ProductAnalyticsAudienceUserSubquery>;
