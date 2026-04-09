@@ -29,6 +29,7 @@ import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelin
  * A destination for the pipeline.
  */
 export type ObservabilityPipelineConfigDestinationItem =
+  | ObservabilityPipelineElasticsearchDestination
   | ObservabilityPipelineHttpClientDestination
   | ObservabilityPipelineAmazonOpenSearchDestination
   | ObservabilityPipelineAmazonS3Destination
@@ -38,7 +39,6 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineCloudPremDestination
   | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
   | ObservabilityPipelineDatadogLogsDestination
-  | ObservabilityPipelineElasticsearchDestination
   | ObservabilityPipelineGoogleChronicleDestination
   | ObservabilityPipelineGoogleCloudStorageDestination
   | ObservabilityPipelineGooglePubSubDestination
