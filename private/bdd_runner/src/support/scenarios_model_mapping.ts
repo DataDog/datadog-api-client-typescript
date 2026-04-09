@@ -7769,6 +7769,71 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IPAllowlistResponse",
   },
+  "LLMObservabilityApi.V2.ListLLMObsAnnotationQueues": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    queueIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotationQueuesResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsAnnotationQueue": {
+    body: {
+      type: "LLMObsAnnotationQueueRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotationQueueResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsAnnotationQueue": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsAnnotationQueue": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsAnnotationQueueUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotationQueueResponse",
+  },
+  "LLMObservabilityApi.V2.GetLLMObsAnnotatedInteractions": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotatedInteractionsResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsAnnotationQueueInteractions": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsAnnotationQueueInteractionsRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotationQueueInteractionsResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsAnnotationQueueInteractions": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDeleteAnnotationQueueInteractionsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "LLMObservabilityApi.V2.ListLLMObsExperiments": {
     filterProjectId: {
       type: "string",

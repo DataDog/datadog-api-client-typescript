@@ -24,6 +24,13 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { LLMObsAnnotatedInteractionsResponse } from "./models/LLMObsAnnotatedInteractionsResponse";
+import { LLMObsAnnotationQueueInteractionsRequest } from "./models/LLMObsAnnotationQueueInteractionsRequest";
+import { LLMObsAnnotationQueueInteractionsResponse } from "./models/LLMObsAnnotationQueueInteractionsResponse";
+import { LLMObsAnnotationQueueRequest } from "./models/LLMObsAnnotationQueueRequest";
+import { LLMObsAnnotationQueueResponse } from "./models/LLMObsAnnotationQueueResponse";
+import { LLMObsAnnotationQueuesResponse } from "./models/LLMObsAnnotationQueuesResponse";
+import { LLMObsAnnotationQueueUpdateRequest } from "./models/LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsDatasetRecordsListResponse } from "./models/LLMObsDatasetRecordsListResponse";
 import { LLMObsDatasetRecordsMutationResponse } from "./models/LLMObsDatasetRecordsMutationResponse";
 import { LLMObsDatasetRecordsRequest } from "./models/LLMObsDatasetRecordsRequest";
@@ -32,6 +39,7 @@ import { LLMObsDatasetRequest } from "./models/LLMObsDatasetRequest";
 import { LLMObsDatasetResponse } from "./models/LLMObsDatasetResponse";
 import { LLMObsDatasetsResponse } from "./models/LLMObsDatasetsResponse";
 import { LLMObsDatasetUpdateRequest } from "./models/LLMObsDatasetUpdateRequest";
+import { LLMObsDeleteAnnotationQueueInteractionsRequest } from "./models/LLMObsDeleteAnnotationQueueInteractionsRequest";
 import { LLMObsDeleteDatasetRecordsRequest } from "./models/LLMObsDeleteDatasetRecordsRequest";
 import { LLMObsDeleteDatasetsRequest } from "./models/LLMObsDeleteDatasetsRequest";
 import { LLMObsDeleteExperimentsRequest } from "./models/LLMObsDeleteExperimentsRequest";
@@ -56,6 +64,147 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("llm-observability", version);
     }
   }
+  public async createLLMObsAnnotationQueue(
+    body: LLMObsAnnotationQueueRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.createLLMObsAnnotationQueue"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsAnnotationQueue'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createLLMObsAnnotationQueue");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.createLLMObsAnnotationQueue",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsAnnotationQueueRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createLLMObsAnnotationQueueInteractions(
+    queueId: string,
+    body: LLMObsAnnotationQueueInteractionsRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createLLMObsAnnotationQueueInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions'] = true`",
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError(
+        "queueId",
+        "createLLMObsAnnotationQueueInteractions",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createLLMObsAnnotationQueueInteractions",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions".replace(
+        "{queue_id}",
+        encodeURIComponent(String(queueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "LLMObsAnnotationQueueInteractionsRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createLLMObsDataset(
     projectId: string,
     body: LLMObsDatasetRequest,
@@ -386,6 +535,142 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteLLMObsAnnotationQueue(
+    queueId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue'] = true`",
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError("queueId", "deleteLLMObsAnnotationQueue");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}".replace(
+        "{queue_id}",
+        encodeURIComponent(String(queueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteLLMObsAnnotationQueueInteractions(
+    queueId: string,
+    body: LLMObsDeleteAnnotationQueueInteractionsRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteLLMObsAnnotationQueueInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions'] = true`",
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError(
+        "queueId",
+        "deleteLLMObsAnnotationQueueInteractions",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "deleteLLMObsAnnotationQueueInteractions",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions/delete".replace(
+        "{queue_id}",
+        encodeURIComponent(String(queueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "LLMObsDeleteAnnotationQueueInteractionsRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteLLMObsDatasetRecords(
     projectId: string,
     datasetId: string,
@@ -637,6 +922,124 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsAnnotatedInteractions(
+    queueId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getLLMObsAnnotatedInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions'] = true`",
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError("queueId", "getLLMObsAnnotatedInteractions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions".replace(
+        "{queue_id}",
+        encodeURIComponent(String(queueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsAnnotationQueues(
+    projectId?: string,
+    queueIds?: Array<string>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsAnnotationQueues"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsAnnotationQueues' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsAnnotationQueues'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsAnnotationQueues",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (projectId !== undefined) {
+      requestContext.setQueryParam(
+        "projectId",
+        serialize(projectId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (queueIds !== undefined) {
+      requestContext.setQueryParam(
+        "queueIds",
+        serialize(queueIds, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -983,6 +1386,76 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateLLMObsAnnotationQueue(
+    queueId: string,
+    body: LLMObsAnnotationQueueUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.updateLLMObsAnnotationQueue"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsAnnotationQueue'] = true`",
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError("queueId", "updateLLMObsAnnotationQueue");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateLLMObsAnnotationQueue");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}".replace(
+        "{queue_id}",
+        encodeURIComponent(String(queueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.updateLLMObsAnnotationQueue",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsAnnotationQueueUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateLLMObsDataset(
     projectId: string,
     datasetId: string,
@@ -1269,6 +1742,169 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class LLMObservabilityApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createLLMObsAnnotationQueue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createLLMObsAnnotationQueue(
+    response: ResponseContext,
+  ): Promise<LLMObsAnnotationQueueResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: LLMObsAnnotationQueueResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueResponse",
+      ) as LLMObsAnnotationQueueResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotationQueueResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueResponse",
+        "",
+      ) as LLMObsAnnotationQueueResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createLLMObsAnnotationQueueInteractions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createLLMObsAnnotationQueueInteractions(
+    response: ResponseContext,
+  ): Promise<LLMObsAnnotationQueueInteractionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: LLMObsAnnotationQueueInteractionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueInteractionsResponse",
+      ) as LLMObsAnnotationQueueInteractionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotationQueueInteractionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueInteractionsResponse",
+        "",
+      ) as LLMObsAnnotationQueueInteractionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1670,6 +2306,147 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteLLMObsAnnotationQueue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLLMObsAnnotationQueue(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteLLMObsAnnotationQueueInteractions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLLMObsAnnotationQueueInteractions(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteLLMObsDatasetRecords
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1935,6 +2712,169 @@ export class LLMObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getLLMObsAnnotatedInteractions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsAnnotatedInteractions(
+    response: ResponseContext,
+  ): Promise<LLMObsAnnotatedInteractionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsAnnotatedInteractionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotatedInteractionsResponse",
+      ) as LLMObsAnnotatedInteractionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotatedInteractionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotatedInteractionsResponse",
+        "",
+      ) as LLMObsAnnotatedInteractionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsAnnotationQueues
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsAnnotationQueues(
+    response: ResponseContext,
+  ): Promise<LLMObsAnnotationQueuesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsAnnotationQueuesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueuesResponse",
+      ) as LLMObsAnnotationQueuesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotationQueuesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueuesResponse",
+        "",
+      ) as LLMObsAnnotationQueuesResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -2274,6 +3214,88 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateLLMObsAnnotationQueue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLLMObsAnnotationQueue(
+    response: ResponseContext,
+  ): Promise<LLMObsAnnotationQueueResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsAnnotationQueueResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueResponse",
+      ) as LLMObsAnnotationQueueResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotationQueueResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueResponse",
+        "",
+      ) as LLMObsAnnotationQueueResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateLLMObsDataset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2599,6 +3621,27 @@ export class LLMObservabilityApiResponseProcessor {
   }
 }
 
+export interface LLMObservabilityApiCreateLLMObsAnnotationQueueRequest {
+  /**
+   * Create annotation queue payload.
+   * @type LLMObsAnnotationQueueRequest
+   */
+  body: LLMObsAnnotationQueueRequest;
+}
+
+export interface LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest {
+  /**
+   * The ID of the LLM Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+  /**
+   * Add interactions payload.
+   * @type LLMObsAnnotationQueueInteractionsRequest
+   */
+  body: LLMObsAnnotationQueueInteractionsRequest;
+}
+
 export interface LLMObservabilityApiCreateLLMObsDatasetRequest {
   /**
    * The ID of the LLM Observability project.
@@ -2659,6 +3702,27 @@ export interface LLMObservabilityApiCreateLLMObsProjectRequest {
   body: LLMObsProjectRequest;
 }
 
+export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest {
+  /**
+   * The ID of the LLM Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+}
+
+export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest {
+  /**
+   * The ID of the LLM Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+  /**
+   * Delete interactions payload.
+   * @type LLMObsDeleteAnnotationQueueInteractionsRequest
+   */
+  body: LLMObsDeleteAnnotationQueueInteractionsRequest;
+}
+
 export interface LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest {
   /**
    * The ID of the LLM Observability project.
@@ -2704,6 +3768,27 @@ export interface LLMObservabilityApiDeleteLLMObsProjectsRequest {
    * @type LLMObsDeleteProjectsRequest
    */
   body: LLMObsDeleteProjectsRequest;
+}
+
+export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest {
+  /**
+   * The ID of the LLM Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+}
+
+export interface LLMObservabilityApiListLLMObsAnnotationQueuesRequest {
+  /**
+   * Filter annotation queues by project ID. Cannot be used together with `queueIds`.
+   * @type string
+   */
+  projectId?: string;
+  /**
+   * Filter annotation queues by queue IDs (comma-separated). Cannot be used together with `projectId`.
+   * @type Array<string>
+   */
+  queueIds?: Array<string>;
 }
 
 export interface LLMObservabilityApiListLLMObsDatasetRecordsRequest {
@@ -2813,6 +3898,19 @@ export interface LLMObservabilityApiListLLMObsProjectsRequest {
   pageLimit?: number;
 }
 
+export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest {
+  /**
+   * The ID of the LLM Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+  /**
+   * Update annotation queue payload.
+   * @type LLMObsAnnotationQueueUpdateRequest
+   */
+  body: LLMObsAnnotationQueueUpdateRequest;
+}
+
 export interface LLMObservabilityApiUpdateLLMObsDatasetRequest {
   /**
    * The ID of the LLM Observability project.
@@ -2893,6 +3991,54 @@ export class LLMObservabilityApi {
       new LLMObservabilityApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LLMObservabilityApiResponseProcessor();
+  }
+
+  /**
+   * Create a new annotation queue. Only `name`, `project_id`, and `description` are accepted.
+   * Fields such as `created_by`, `owned_by`, `created_at`, `modified_by`, and `modified_at` are inferred by the backend.
+   * @param param The request object
+   */
+  public createLLMObsAnnotationQueue(
+    param: LLMObservabilityApiCreateLLMObsAnnotationQueueRequest,
+    options?: Configuration,
+  ): Promise<LLMObsAnnotationQueueResponse> {
+    const requestContextPromise =
+      this.requestFactory.createLLMObsAnnotationQueue(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLLMObsAnnotationQueue(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Add one or more interactions (traces) to an annotation queue.
+   * At least one interaction must be provided.
+   * @param param The request object
+   */
+  public createLLMObsAnnotationQueueInteractions(
+    param: LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsAnnotationQueueInteractionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.createLLMObsAnnotationQueueInteractions(
+        param.queueId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLLMObsAnnotationQueueInteractions(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**
@@ -3011,6 +4157,52 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Delete an annotation queue by its ID.
+   * @param param The request object
+   */
+  public deleteLLMObsAnnotationQueue(
+    param: LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteLLMObsAnnotationQueue(param.queueId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLLMObsAnnotationQueue(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete one or more interactions from an annotation queue.
+   * @param param The request object
+   */
+  public deleteLLMObsAnnotationQueueInteractions(
+    param: LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteLLMObsAnnotationQueueInteractions(
+        param.queueId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLLMObsAnnotationQueueInteractions(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete one or more records from an LLM Observability dataset.
    * @param param The request object
    */
@@ -3098,6 +4290,56 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsProjects(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve all interactions and their annotations for a given annotation queue.
+   * @param param The request object
+   */
+  public getLLMObsAnnotatedInteractions(
+    param: LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsAnnotatedInteractionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getLLMObsAnnotatedInteractions(
+        param.queueId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsAnnotatedInteractions(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List annotation queues. Optionally filter by project ID or queue IDs. These parameters are mutually exclusive.
+   * If neither is provided, all queues in the organization are returned.
+   * @param param The request object
+   */
+  public listLLMObsAnnotationQueues(
+    param: LLMObservabilityApiListLLMObsAnnotationQueuesRequest = {},
+    options?: Configuration,
+  ): Promise<LLMObsAnnotationQueuesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsAnnotationQueues(
+        param.projectId,
+        param.queueIds,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsAnnotationQueues(
+            responseContext,
+          );
         });
     });
   }
@@ -3199,6 +4441,31 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsProjects(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Partially update an annotation queue. Only `name` and `description` can be updated.
+   * @param param The request object
+   */
+  public updateLLMObsAnnotationQueue(
+    param: LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
+    options?: Configuration,
+  ): Promise<LLMObsAnnotationQueueResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateLLMObsAnnotationQueue(
+        param.queueId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLLMObsAnnotationQueue(
+            responseContext,
+          );
         });
     });
   }
