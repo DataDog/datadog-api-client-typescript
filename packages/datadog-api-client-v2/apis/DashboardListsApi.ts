@@ -19,9 +19,9 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DashboardListAddItemsRequest } from "../models/DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "../models/DashboardListAddItemsResponse";
-import { DashboardListDeleteItemsRequest } from "../models/DashboardListDeleteItemsRequest";
 import { DashboardListDeleteItemsResponse } from "../models/DashboardListDeleteItemsResponse";
 import { DashboardListItems } from "../models/DashboardListItems";
+import { DashboardListRemoveItemsRequest } from "../models/DashboardListRemoveItemsRequest";
 import { DashboardListUpdateItemsRequest } from "../models/DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "../models/DashboardListUpdateItemsResponse";
 
@@ -79,7 +79,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async deleteDashboardListItems(
     dashboardListId: number,
-    body: DashboardListDeleteItemsRequest,
+    body: DashboardListRemoveItemsRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -114,7 +114,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "DashboardListDeleteItemsRequest", ""),
+      ObjectSerializer.serialize(body, "DashboardListRemoveItemsRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -493,9 +493,9 @@ export interface DashboardListsApiDeleteDashboardListItemsRequest {
   dashboardListId: number;
   /**
    * Dashboards to delete from the dashboard list.
-   * @type DashboardListDeleteItemsRequest
+   * @type DashboardListRemoveItemsRequest
    */
-  body: DashboardListDeleteItemsRequest;
+  body: DashboardListRemoveItemsRequest;
 }
 
 export interface DashboardListsApiGetDashboardListItemsRequest {

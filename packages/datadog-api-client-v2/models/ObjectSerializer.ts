@@ -893,12 +893,12 @@ import { DORAListFailuresRequestAttributes } from "./DORAListFailuresRequestAttr
 import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
-import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
 import { DashboardListDeleteItemsResponse } from "./DashboardListDeleteItemsResponse";
 import { DashboardListItem } from "./DashboardListItem";
 import { DashboardListItemRequest } from "./DashboardListItemRequest";
 import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
+import { DashboardListRemoveItemsRequest } from "./DashboardListRemoveItemsRequest";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
 import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
@@ -6866,12 +6866,12 @@ const typeMap: { [index: string]: any } = {
   DORAListFailuresRequestData: DORAListFailuresRequestData,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
-  DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
   DashboardListDeleteItemsResponse: DashboardListDeleteItemsResponse,
   DashboardListItem: DashboardListItem,
   DashboardListItemRequest: DashboardListItemRequest,
   DashboardListItemResponse: DashboardListItemResponse,
   DashboardListItems: DashboardListItems,
+  DashboardListRemoveItemsRequest: DashboardListRemoveItemsRequest,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
   DashboardTriggerWrapper: DashboardTriggerWrapper,

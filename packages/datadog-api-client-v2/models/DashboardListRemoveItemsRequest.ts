@@ -8,9 +8,9 @@ import { DashboardListItemRequest } from "./DashboardListItemRequest";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request containing a list of dashboards to delete.
+ * Request containing a list of dashboards to remove.
  */
-export class DashboardListDeleteItemsRequest {
+export class DashboardListRemoveItemsRequest {
   /**
    * List of dashboards to delete from the dashboard list.
    */
@@ -46,7 +46,7 @@ export class DashboardListDeleteItemsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListDeleteItemsRequest.attributeTypeMap;
+    return DashboardListRemoveItemsRequest.attributeTypeMap;
   }
 
   public constructor() {}
