@@ -1226,9 +1226,11 @@ export {
 
 export {
   TestOptimizationApiDeleteTestOptimizationServiceSettingsRequest,
+  TestOptimizationApiGetFlakyTestsManagementPoliciesRequest,
   TestOptimizationApiGetTestOptimizationServiceSettingsRequest,
   TestOptimizationApiSearchFlakyTestsRequest,
   TestOptimizationApiUpdateFlakyTestsRequest,
+  TestOptimizationApiUpdateFlakyTestsManagementPoliciesRequest,
   TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest,
   TestOptimizationApi,
 } from "./apis/TestOptimizationApi";
@@ -5776,6 +5778,26 @@ export { TestOptimizationDeleteServiceSettingsRequest } from "./models/TestOptim
 export { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./models/TestOptimizationDeleteServiceSettingsRequestAttributes";
 export { TestOptimizationDeleteServiceSettingsRequestData } from "./models/TestOptimizationDeleteServiceSettingsRequestData";
 export { TestOptimizationDeleteServiceSettingsRequestDataType } from "./models/TestOptimizationDeleteServiceSettingsRequestDataType";
+export { TestOptimizationFlakyTestsManagementPoliciesAttemptToFix } from "./models/TestOptimizationFlakyTestsManagementPoliciesAttemptToFix";
+export { TestOptimizationFlakyTestsManagementPoliciesAttributes } from "./models/TestOptimizationFlakyTestsManagementPoliciesAttributes";
+export { TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule";
+export { TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule";
+export { TestOptimizationFlakyTestsManagementPoliciesBranchRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesBranchRule";
+export { TestOptimizationFlakyTestsManagementPoliciesData } from "./models/TestOptimizationFlakyTestsManagementPoliciesData";
+export { TestOptimizationFlakyTestsManagementPoliciesDisabled } from "./models/TestOptimizationFlakyTestsManagementPoliciesDisabled";
+export { TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule";
+export { TestOptimizationFlakyTestsManagementPoliciesDisabledStatus } from "./models/TestOptimizationFlakyTestsManagementPoliciesDisabledStatus";
+export { TestOptimizationFlakyTestsManagementPoliciesGetRequest } from "./models/TestOptimizationFlakyTestsManagementPoliciesGetRequest";
+export { TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes } from "./models/TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes";
+export { TestOptimizationFlakyTestsManagementPoliciesGetRequestData } from "./models/TestOptimizationFlakyTestsManagementPoliciesGetRequestData";
+export { TestOptimizationFlakyTestsManagementPoliciesQuarantined } from "./models/TestOptimizationFlakyTestsManagementPoliciesQuarantined";
+export { TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule";
+export { TestOptimizationFlakyTestsManagementPoliciesResponse } from "./models/TestOptimizationFlakyTestsManagementPoliciesResponse";
+export { TestOptimizationFlakyTestsManagementPoliciesType } from "./models/TestOptimizationFlakyTestsManagementPoliciesType";
+export { TestOptimizationFlakyTestsManagementPoliciesUpdateRequest } from "./models/TestOptimizationFlakyTestsManagementPoliciesUpdateRequest";
+export { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes } from "./models/TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes";
+export { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData } from "./models/TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData";
+export { TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType } from "./models/TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType";
 export { TestOptimizationGetServiceSettingsRequest } from "./models/TestOptimizationGetServiceSettingsRequest";
 export { TestOptimizationGetServiceSettingsRequestAttributes } from "./models/TestOptimizationGetServiceSettingsRequestAttributes";
 export { TestOptimizationGetServiceSettingsRequestData } from "./models/TestOptimizationGetServiceSettingsRequestData";
@@ -5784,6 +5806,7 @@ export { TestOptimizationServiceSettingsAttributes } from "./models/TestOptimiza
 export { TestOptimizationServiceSettingsData } from "./models/TestOptimizationServiceSettingsData";
 export { TestOptimizationServiceSettingsResponse } from "./models/TestOptimizationServiceSettingsResponse";
 export { TestOptimizationServiceSettingsType } from "./models/TestOptimizationServiceSettingsType";
+export { TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType } from "./models/TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType";
 export { TestOptimizationUpdateServiceSettingsRequest } from "./models/TestOptimizationUpdateServiceSettingsRequest";
 export { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./models/TestOptimizationUpdateServiceSettingsRequestAttributes";
 export { TestOptimizationUpdateServiceSettingsRequestData } from "./models/TestOptimizationUpdateServiceSettingsRequestData";
