@@ -2136,6 +2136,9 @@ import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineD
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
+import { ObservabilityPipelineEnrichmentTableFieldEventLookup } from "./ObservabilityPipelineEnrichmentTableFieldEventLookup";
+import { ObservabilityPipelineEnrichmentTableFieldSecretLookup } from "./ObservabilityPipelineEnrichmentTableFieldSecretLookup";
+import { ObservabilityPipelineEnrichmentTableFieldVrlLookup } from "./ObservabilityPipelineEnrichmentTableFieldVrlLookup";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
 import { ObservabilityPipelineEnrichmentTableFileKeyItems } from "./ObservabilityPipelineEnrichmentTableFileKeyItems";
@@ -4879,6 +4882,10 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineSocketSourceType: ["socket"],
   ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
   ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
+  ObservabilityPipelineSplunkHecDestinationTokenStrategy: [
+    "custom",
+    "from_source",
+  ],
   ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
   ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
   ObservabilityPipelineSplunkTcpSourceType: ["splunk_tcp"],
@@ -8321,6 +8328,12 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineElasticsearchDestinationAuth,
   ObservabilityPipelineElasticsearchDestinationDataStream:
     ObservabilityPipelineElasticsearchDestinationDataStream,
+  ObservabilityPipelineEnrichmentTableFieldEventLookup:
+    ObservabilityPipelineEnrichmentTableFieldEventLookup,
+  ObservabilityPipelineEnrichmentTableFieldSecretLookup:
+    ObservabilityPipelineEnrichmentTableFieldSecretLookup,
+  ObservabilityPipelineEnrichmentTableFieldVrlLookup:
+    ObservabilityPipelineEnrichmentTableFieldVrlLookup,
   ObservabilityPipelineEnrichmentTableFile:
     ObservabilityPipelineEnrichmentTableFile,
   ObservabilityPipelineEnrichmentTableFileEncoding:
@@ -10595,6 +10608,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSumoLogicSource",
     "ObservabilityPipelineSyslogNgSource",
     "ObservabilityPipelineOpentelemetrySource",
+  ],
+  ObservabilityPipelineEnrichmentTableFileKeyItemField: [
+    "string",
+    "ObservabilityPipelineEnrichmentTableFieldEventLookup",
+    "ObservabilityPipelineEnrichmentTableFieldVrlLookup",
+    "ObservabilityPipelineEnrichmentTableFieldSecretLookup",
   ],
   ObservabilityPipelineMetricValue: [
     "ObservabilityPipelineGeneratedMetricIncrementByOne",
