@@ -378,6 +378,7 @@ apiInstance
 | CSM Coverage Analysis | @datadog/datadog-api-client-csm-coverage-analysis | [README.md](../../services/csm-coverage-analysis/README.md) |
 | CSM Threats | @datadog/datadog-api-client-csm-threats | [README.md](../../services/csm-threats/README.md) |
 | Dashboard Lists | @datadog/datadog-api-client-dashboard-lists | [README.md](../../services/dashboard-lists/README.md) |
+| Dashboard Secure Embed | @datadog/datadog-api-client-dashboard-secure-embed | [README.md](../../services/dashboard-secure-embed/README.md) |
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |

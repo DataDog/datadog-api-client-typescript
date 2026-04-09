@@ -5778,6 +5778,54 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DashboardListDeleteItemsResponse",
   },
+  "DashboardSecureEmbedApi.V2.CreateDashboardSecureEmbed": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SecureEmbedCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SecureEmbedCreateResponse",
+  },
+  "DashboardSecureEmbedApi.V2.GetDashboardSecureEmbed": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    token: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecureEmbedGetResponse",
+  },
+  "DashboardSecureEmbedApi.V2.DeleteDashboardSecureEmbed": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    token: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DashboardSecureEmbedApi.V2.UpdateDashboardSecureEmbed": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    token: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SecureEmbedUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "SecureEmbedUpdateResponse",
+  },
   "DatasetsApi.V2.GetAllDatasets": {
     operationResponseType: "DatasetResponseMulti",
   },
