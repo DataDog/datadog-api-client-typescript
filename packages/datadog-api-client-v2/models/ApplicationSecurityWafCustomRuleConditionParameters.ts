@@ -5,6 +5,7 @@
  */
 import { ApplicationSecurityWafCustomRuleConditionInput } from "./ApplicationSecurityWafCustomRuleConditionInput";
 import { ApplicationSecurityWafCustomRuleConditionOptions } from "./ApplicationSecurityWafCustomRuleConditionOptions";
+import { ApplicationSecurityWafCustomRuleConditionParametersType } from "./ApplicationSecurityWafCustomRuleConditionParametersType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -33,6 +34,10 @@ export class ApplicationSecurityWafCustomRuleConditionParameters {
    * Regex to use with the condition. Only used with match_regex and !match_regex operator.
    */
   "regex"?: string;
+  /**
+   * The type of the value to compare against. Only used with the equals and !equals operator.
+   */
+  "type"?: ApplicationSecurityWafCustomRuleConditionParametersType;
   /**
    * Store the captured value in the specified tag name. Only used with the capture_data operator.
    */
@@ -74,6 +79,10 @@ export class ApplicationSecurityWafCustomRuleConditionParameters {
     regex: {
       baseName: "regex",
       type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "ApplicationSecurityWafCustomRuleConditionParametersType",
     },
     value: {
       baseName: "value",

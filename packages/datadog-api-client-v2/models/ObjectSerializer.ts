@@ -3810,6 +3810,17 @@ const enumsMap: { [key: string]: any[] } = {
     "ip_match",
     "!ip_match",
     "capture_data",
+    "exists",
+    "!exists",
+    "equals",
+    "!equals",
+  ],
+  ApplicationSecurityWafCustomRuleConditionParametersType: [
+    "boolean",
+    "signed",
+    "unsigned",
+    "float",
+    "string",
   ],
   ApplicationSecurityWafCustomRuleTagsCategory: [
     "attack_attempt",

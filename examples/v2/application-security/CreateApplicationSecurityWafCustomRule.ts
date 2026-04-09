@@ -37,6 +37,7 @@ const params: v2.ApplicationSecurityApiCreateApplicationSecurityWafCustomRuleReq
                   minLength: 0,
                 },
                 regex: "path.*",
+                type: "string",
                 value: "custom_tag",
               },
             },
