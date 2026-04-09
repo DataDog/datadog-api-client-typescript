@@ -21,6 +21,7 @@ export { ApplicationSecurityWafCustomRuleConditionInputAddress } from "./models/
 export { ApplicationSecurityWafCustomRuleConditionOperator } from "./models/ApplicationSecurityWafCustomRuleConditionOperator";
 export { ApplicationSecurityWafCustomRuleConditionOptions } from "./models/ApplicationSecurityWafCustomRuleConditionOptions";
 export { ApplicationSecurityWafCustomRuleConditionParameters } from "./models/ApplicationSecurityWafCustomRuleConditionParameters";
+export { ApplicationSecurityWafCustomRuleConditionParametersType } from "./models/ApplicationSecurityWafCustomRuleConditionParametersType";
 export { ApplicationSecurityWafCustomRuleCreateAttributes } from "./models/ApplicationSecurityWafCustomRuleCreateAttributes";
 export { ApplicationSecurityWafCustomRuleCreateData } from "./models/ApplicationSecurityWafCustomRuleCreateData";
 export { ApplicationSecurityWafCustomRuleCreateRequest } from "./models/ApplicationSecurityWafCustomRuleCreateRequest";

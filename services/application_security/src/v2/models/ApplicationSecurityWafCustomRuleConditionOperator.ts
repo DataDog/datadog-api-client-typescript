@@ -15,6 +15,10 @@ export type ApplicationSecurityWafCustomRuleConditionOperator =
   | typeof IP_MATCH
   | typeof NOT_IP_MATCH
   | typeof CAPTURE_DATA
+  | typeof EXISTS
+  | typeof NOT_EXISTS
+  | typeof EQUALS
+  | typeof NOT_EQUALS
   | UnparsedObject;
 export const MATCH_REGEX = "match_regex";
 export const NOT_MATCH_REGEX = "!match_regex";
@@ -27,3 +31,7 @@ export const NOT_EXACT_MATCH = "!exact_match";
 export const IP_MATCH = "ip_match";
 export const NOT_IP_MATCH = "!ip_match";
 export const CAPTURE_DATA = "capture_data";
+export const EXISTS = "exists";
+export const NOT_EXISTS = "!exists";
+export const EQUALS = "equals";
+export const NOT_EQUALS = "!equals";
