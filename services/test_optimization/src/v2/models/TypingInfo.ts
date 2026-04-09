@@ -18,6 +18,23 @@ import { FlakyTestsSearchResponseMeta } from "./FlakyTestsSearchResponseMeta";
 import { TestOptimizationDeleteServiceSettingsRequest } from "./TestOptimizationDeleteServiceSettingsRequest";
 import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
 import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
+import { TestOptimizationFlakyTestsManagementPoliciesAttemptToFix } from "./TestOptimizationFlakyTestsManagementPoliciesAttemptToFix";
+import { TestOptimizationFlakyTestsManagementPoliciesAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesAttributes";
+import { TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule } from "./TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule";
+import { TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule } from "./TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule";
+import { TestOptimizationFlakyTestsManagementPoliciesBranchRule } from "./TestOptimizationFlakyTestsManagementPoliciesBranchRule";
+import { TestOptimizationFlakyTestsManagementPoliciesData } from "./TestOptimizationFlakyTestsManagementPoliciesData";
+import { TestOptimizationFlakyTestsManagementPoliciesDisabled } from "./TestOptimizationFlakyTestsManagementPoliciesDisabled";
+import { TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule } from "./TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule";
+import { TestOptimizationFlakyTestsManagementPoliciesGetRequest } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequest";
+import { TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes";
+import { TestOptimizationFlakyTestsManagementPoliciesGetRequestData } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequestData";
+import { TestOptimizationFlakyTestsManagementPoliciesQuarantined } from "./TestOptimizationFlakyTestsManagementPoliciesQuarantined";
+import { TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule } from "./TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule";
+import { TestOptimizationFlakyTestsManagementPoliciesResponse } from "./TestOptimizationFlakyTestsManagementPoliciesResponse";
+import { TestOptimizationFlakyTestsManagementPoliciesUpdateRequest } from "./TestOptimizationFlakyTestsManagementPoliciesUpdateRequest";
+import { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes";
+import { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData } from "./TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData";
 import { TestOptimizationGetServiceSettingsRequest } from "./TestOptimizationGetServiceSettingsRequest";
 import { TestOptimizationGetServiceSettingsRequestAttributes } from "./TestOptimizationGetServiceSettingsRequestAttributes";
 import { TestOptimizationGetServiceSettingsRequestData } from "./TestOptimizationGetServiceSettingsRequestData";
@@ -63,10 +80,23 @@ export const TypingInfo: ModelTypingInfo = {
     TestOptimizationDeleteServiceSettingsRequestDataType: [
       "test_optimization_delete_service_settings_request",
     ],
+    TestOptimizationFlakyTestsManagementPoliciesDisabledStatus: [
+      "active",
+      "quarantined",
+    ],
+    TestOptimizationFlakyTestsManagementPoliciesType: [
+      "test_optimization_flaky_tests_management_policies",
+    ],
+    TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType: [
+      "test_optimization_get_flaky_tests_management_policies_request",
+    ],
     TestOptimizationGetServiceSettingsRequestDataType: [
       "test_optimization_get_service_settings_request",
     ],
     TestOptimizationServiceSettingsType: ["test_optimization_service_settings"],
+    TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType: [
+      "test_optimization_update_flaky_tests_management_policies_request",
+    ],
     TestOptimizationUpdateServiceSettingsRequestDataType: [
       "test_optimization_update_service_settings_request",
     ],
@@ -102,6 +132,40 @@ export const TypingInfo: ModelTypingInfo = {
       TestOptimizationDeleteServiceSettingsRequestAttributes,
     TestOptimizationDeleteServiceSettingsRequestData:
       TestOptimizationDeleteServiceSettingsRequestData,
+    TestOptimizationFlakyTestsManagementPoliciesAttemptToFix:
+      TestOptimizationFlakyTestsManagementPoliciesAttemptToFix,
+    TestOptimizationFlakyTestsManagementPoliciesAttributes:
+      TestOptimizationFlakyTestsManagementPoliciesAttributes,
+    TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule:
+      TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule,
+    TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule:
+      TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule,
+    TestOptimizationFlakyTestsManagementPoliciesBranchRule:
+      TestOptimizationFlakyTestsManagementPoliciesBranchRule,
+    TestOptimizationFlakyTestsManagementPoliciesData:
+      TestOptimizationFlakyTestsManagementPoliciesData,
+    TestOptimizationFlakyTestsManagementPoliciesDisabled:
+      TestOptimizationFlakyTestsManagementPoliciesDisabled,
+    TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule:
+      TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule,
+    TestOptimizationFlakyTestsManagementPoliciesGetRequest:
+      TestOptimizationFlakyTestsManagementPoliciesGetRequest,
+    TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes:
+      TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes,
+    TestOptimizationFlakyTestsManagementPoliciesGetRequestData:
+      TestOptimizationFlakyTestsManagementPoliciesGetRequestData,
+    TestOptimizationFlakyTestsManagementPoliciesQuarantined:
+      TestOptimizationFlakyTestsManagementPoliciesQuarantined,
+    TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule:
+      TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule,
+    TestOptimizationFlakyTestsManagementPoliciesResponse:
+      TestOptimizationFlakyTestsManagementPoliciesResponse,
+    TestOptimizationFlakyTestsManagementPoliciesUpdateRequest:
+      TestOptimizationFlakyTestsManagementPoliciesUpdateRequest,
+    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes:
+      TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes,
+    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData:
+      TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData,
     TestOptimizationGetServiceSettingsRequest:
       TestOptimizationGetServiceSettingsRequest,
     TestOptimizationGetServiceSettingsRequestAttributes:
