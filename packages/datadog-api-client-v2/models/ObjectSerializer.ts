@@ -2161,6 +2161,7 @@ import { ObservabilityPipelineDedupeProcessorCache } from "./ObservabilityPipeli
 import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
+import { ObservabilityPipelineElasticsearchDestinationCompression } from "./ObservabilityPipelineElasticsearchDestinationCompression";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
@@ -4713,6 +4714,13 @@ const enumsMap: { [key: string]: any[] } = {
     "v6",
     "v7",
     "v8",
+  ],
+  ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm: [
+    "none",
+    "gzip",
+    "zlib",
+    "zstd",
+    "snappy",
   ],
   ObservabilityPipelineElasticsearchDestinationType: ["elasticsearch"],
   ObservabilityPipelineEnrichmentTableFileEncodingType: ["csv"],
@@ -8391,6 +8399,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineElasticsearchDestination,
   ObservabilityPipelineElasticsearchDestinationAuth:
     ObservabilityPipelineElasticsearchDestinationAuth,
+  ObservabilityPipelineElasticsearchDestinationCompression:
+    ObservabilityPipelineElasticsearchDestinationCompression,
   ObservabilityPipelineElasticsearchDestinationDataStream:
     ObservabilityPipelineElasticsearchDestinationDataStream,
   ObservabilityPipelineEnrichmentTableFile:
@@ -10600,6 +10610,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineMemoryBufferSizeOptions",
   ],
   ObservabilityPipelineConfigDestinationItem: [
+    "ObservabilityPipelineElasticsearchDestination",
     "ObservabilityPipelineHttpClientDestination",
     "ObservabilityPipelineAmazonOpenSearchDestination",
     "ObservabilityPipelineAmazonS3Destination",
@@ -10609,7 +10620,6 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineCloudPremDestination",
     "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
     "ObservabilityPipelineDatadogLogsDestination",
-    "ObservabilityPipelineElasticsearchDestination",
     "ObservabilityPipelineGoogleChronicleDestination",
     "ObservabilityPipelineGoogleCloudStorageDestination",
     "ObservabilityPipelineGooglePubSubDestination",

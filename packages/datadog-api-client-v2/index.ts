@@ -4089,6 +4089,8 @@ export { ObservabilityPipelineDiskBufferOptions } from "./models/ObservabilityPi
 export { ObservabilityPipelineElasticsearchDestination } from "./models/ObservabilityPipelineElasticsearchDestination";
 export { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./models/ObservabilityPipelineElasticsearchDestinationApiVersion";
 export { ObservabilityPipelineElasticsearchDestinationAuth } from "./models/ObservabilityPipelineElasticsearchDestinationAuth";
+export { ObservabilityPipelineElasticsearchDestinationCompression } from "./models/ObservabilityPipelineElasticsearchDestinationCompression";
+export { ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm } from "./models/ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm";
 export { ObservabilityPipelineElasticsearchDestinationDataStream } from "./models/ObservabilityPipelineElasticsearchDestinationDataStream";
 export { ObservabilityPipelineElasticsearchDestinationType } from "./models/ObservabilityPipelineElasticsearchDestinationType";
 export { ObservabilityPipelineEnrichmentTableFile } from "./models/ObservabilityPipelineEnrichmentTableFile";
