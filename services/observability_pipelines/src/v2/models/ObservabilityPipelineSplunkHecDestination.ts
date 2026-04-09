@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineSplunkHecDestinationEncoding } from "./ObservabilityPipelineSplunkHecDestinationEncoding";
+import { ObservabilityPipelineSplunkHecDestinationTokenStrategy } from "./ObservabilityPipelineSplunkHecDestinationTokenStrategy";
 import { ObservabilityPipelineSplunkHecDestinationType } from "./ObservabilityPipelineSplunkHecDestinationType";
 
 /**
@@ -51,6 +52,10 @@ export class ObservabilityPipelineSplunkHecDestination {
    * Name of the environment variable or secret that holds the Splunk HEC token.
    */
   "tokenKey"?: string;
+  /**
+   * Controls how the Splunk HEC token is supplied. Use `custom` to provide a token with `token_key`, or `from_source` to forward the token received from an upstream Splunk HEC source.
+   */
+  "tokenStrategy"?: ObservabilityPipelineSplunkHecDestinationTokenStrategy;
   /**
    * The destination type. Always `splunk_hec`.
    */
@@ -111,6 +116,10 @@ export class ObservabilityPipelineSplunkHecDestination {
     tokenKey: {
       baseName: "token_key",
       type: "string",
+    },
+    tokenStrategy: {
+      baseName: "token_strategy",
+      type: "ObservabilityPipelineSplunkHecDestinationTokenStrategy",
     },
     type: {
       baseName: "type",
