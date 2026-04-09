@@ -25,9 +25,9 @@ import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { DashboardListAddItemsRequest } from "./models/DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./models/DashboardListAddItemsResponse";
-import { DashboardListDeleteItemsRequest } from "./models/DashboardListDeleteItemsRequest";
 import { DashboardListDeleteItemsResponse } from "./models/DashboardListDeleteItemsResponse";
 import { DashboardListItems } from "./models/DashboardListItems";
+import { DashboardListRemoveItemsRequest } from "./models/DashboardListRemoveItemsRequest";
 import { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 import { version } from "../version";
@@ -103,7 +103,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async deleteDashboardListItems(
     dashboardListId: number,
-    body: DashboardListDeleteItemsRequest,
+    body: DashboardListRemoveItemsRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -147,7 +147,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "DashboardListDeleteItemsRequest", ""),
+      serialize(body, TypingInfo, "DashboardListRemoveItemsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -534,9 +534,9 @@ export interface DashboardListsApiDeleteDashboardListItemsRequest {
   dashboardListId: number;
   /**
    * Dashboards to delete from the dashboard list.
-   * @type DashboardListDeleteItemsRequest
+   * @type DashboardListRemoveItemsRequest
    */
-  body: DashboardListDeleteItemsRequest;
+  body: DashboardListRemoveItemsRequest;
 }
 
 export interface DashboardListsApiGetDashboardListItemsRequest {

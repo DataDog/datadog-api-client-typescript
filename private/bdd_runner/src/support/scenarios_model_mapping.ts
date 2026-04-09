@@ -5773,7 +5773,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int64",
     },
     body: {
-      type: "DashboardListDeleteItemsRequest",
+      type: "DashboardListRemoveItemsRequest",
       format: "",
     },
     operationResponseType: "DashboardListDeleteItemsResponse",
