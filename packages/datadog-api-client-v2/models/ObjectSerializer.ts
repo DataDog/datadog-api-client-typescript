@@ -1723,6 +1723,29 @@ import { KindData } from "./KindData";
 import { KindMetadata } from "./KindMetadata";
 import { KindObj } from "./KindObj";
 import { KindResponseMeta } from "./KindResponseMeta";
+import { LLMObsAnnotatedInteractionItem } from "./LLMObsAnnotatedInteractionItem";
+import { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./LLMObsAnnotatedInteractionsDataAttributesResponse";
+import { LLMObsAnnotatedInteractionsDataResponse } from "./LLMObsAnnotatedInteractionsDataResponse";
+import { LLMObsAnnotatedInteractionsResponse } from "./LLMObsAnnotatedInteractionsResponse";
+import { LLMObsAnnotationItem } from "./LLMObsAnnotationItem";
+import { LLMObsAnnotationQueueDataAttributesRequest } from "./LLMObsAnnotationQueueDataAttributesRequest";
+import { LLMObsAnnotationQueueDataAttributesResponse } from "./LLMObsAnnotationQueueDataAttributesResponse";
+import { LLMObsAnnotationQueueDataRequest } from "./LLMObsAnnotationQueueDataRequest";
+import { LLMObsAnnotationQueueDataResponse } from "./LLMObsAnnotationQueueDataResponse";
+import { LLMObsAnnotationQueueInteractionItem } from "./LLMObsAnnotationQueueInteractionItem";
+import { LLMObsAnnotationQueueInteractionResponseItem } from "./LLMObsAnnotationQueueInteractionResponseItem";
+import { LLMObsAnnotationQueueInteractionsDataAttributesRequest } from "./LLMObsAnnotationQueueInteractionsDataAttributesRequest";
+import { LLMObsAnnotationQueueInteractionsDataAttributesResponse } from "./LLMObsAnnotationQueueInteractionsDataAttributesResponse";
+import { LLMObsAnnotationQueueInteractionsDataRequest } from "./LLMObsAnnotationQueueInteractionsDataRequest";
+import { LLMObsAnnotationQueueInteractionsDataResponse } from "./LLMObsAnnotationQueueInteractionsDataResponse";
+import { LLMObsAnnotationQueueInteractionsRequest } from "./LLMObsAnnotationQueueInteractionsRequest";
+import { LLMObsAnnotationQueueInteractionsResponse } from "./LLMObsAnnotationQueueInteractionsResponse";
+import { LLMObsAnnotationQueueRequest } from "./LLMObsAnnotationQueueRequest";
+import { LLMObsAnnotationQueueResponse } from "./LLMObsAnnotationQueueResponse";
+import { LLMObsAnnotationQueueUpdateDataAttributesRequest } from "./LLMObsAnnotationQueueUpdateDataAttributesRequest";
+import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueUpdateDataRequest";
+import { LLMObsAnnotationQueueUpdateRequest } from "./LLMObsAnnotationQueueUpdateRequest";
+import { LLMObsAnnotationQueuesResponse } from "./LLMObsAnnotationQueuesResponse";
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsDatasetDataAttributesRequest } from "./LLMObsDatasetDataAttributesRequest";
 import { LLMObsDatasetDataAttributesResponse } from "./LLMObsDatasetDataAttributesResponse";
@@ -1746,6 +1769,9 @@ import { LLMObsDatasetUpdateDataAttributesRequest } from "./LLMObsDatasetUpdateD
 import { LLMObsDatasetUpdateDataRequest } from "./LLMObsDatasetUpdateDataRequest";
 import { LLMObsDatasetUpdateRequest } from "./LLMObsDatasetUpdateRequest";
 import { LLMObsDatasetsResponse } from "./LLMObsDatasetsResponse";
+import { LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest";
+import { LLMObsDeleteAnnotationQueueInteractionsDataRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataRequest";
+import { LLMObsDeleteAnnotationQueueInteractionsRequest } from "./LLMObsDeleteAnnotationQueueInteractionsRequest";
 import { LLMObsDeleteDatasetRecordsDataAttributesRequest } from "./LLMObsDeleteDatasetRecordsDataAttributesRequest";
 import { LLMObsDeleteDatasetRecordsDataRequest } from "./LLMObsDeleteDatasetRecordsDataRequest";
 import { LLMObsDeleteDatasetRecordsRequest } from "./LLMObsDeleteDatasetRecordsRequest";
@@ -4490,10 +4516,14 @@ const enumsMap: { [key: string]: any[] } = {
   JiraIssueTemplateType: ["jira-issue-template"],
   JiraIssuesDataType: ["jira_issues"],
   JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
+  LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
+  LLMObsAnnotationQueueInteractionsType: ["interactions"],
+  LLMObsAnnotationQueueType: ["queues"],
   LLMObsDatasetType: ["datasets"],
   LLMObsEventType: ["events"],
   LLMObsExperimentSpanStatus: ["ok", "error"],
   LLMObsExperimentType: ["experiments"],
+  LLMObsInteractionType: ["trace", "experiment_trace"],
   LLMObsMetricAssessment: ["pass", "fail"],
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
   LLMObsProjectType: ["projects"],
@@ -7813,6 +7843,42 @@ const typeMap: { [index: string]: any } = {
   KindMetadata: KindMetadata,
   KindObj: KindObj,
   KindResponseMeta: KindResponseMeta,
+  LLMObsAnnotatedInteractionItem: LLMObsAnnotatedInteractionItem,
+  LLMObsAnnotatedInteractionsDataAttributesResponse:
+    LLMObsAnnotatedInteractionsDataAttributesResponse,
+  LLMObsAnnotatedInteractionsDataResponse:
+    LLMObsAnnotatedInteractionsDataResponse,
+  LLMObsAnnotatedInteractionsResponse: LLMObsAnnotatedInteractionsResponse,
+  LLMObsAnnotationItem: LLMObsAnnotationItem,
+  LLMObsAnnotationQueueDataAttributesRequest:
+    LLMObsAnnotationQueueDataAttributesRequest,
+  LLMObsAnnotationQueueDataAttributesResponse:
+    LLMObsAnnotationQueueDataAttributesResponse,
+  LLMObsAnnotationQueueDataRequest: LLMObsAnnotationQueueDataRequest,
+  LLMObsAnnotationQueueDataResponse: LLMObsAnnotationQueueDataResponse,
+  LLMObsAnnotationQueueInteractionItem: LLMObsAnnotationQueueInteractionItem,
+  LLMObsAnnotationQueueInteractionResponseItem:
+    LLMObsAnnotationQueueInteractionResponseItem,
+  LLMObsAnnotationQueueInteractionsDataAttributesRequest:
+    LLMObsAnnotationQueueInteractionsDataAttributesRequest,
+  LLMObsAnnotationQueueInteractionsDataAttributesResponse:
+    LLMObsAnnotationQueueInteractionsDataAttributesResponse,
+  LLMObsAnnotationQueueInteractionsDataRequest:
+    LLMObsAnnotationQueueInteractionsDataRequest,
+  LLMObsAnnotationQueueInteractionsDataResponse:
+    LLMObsAnnotationQueueInteractionsDataResponse,
+  LLMObsAnnotationQueueInteractionsRequest:
+    LLMObsAnnotationQueueInteractionsRequest,
+  LLMObsAnnotationQueueInteractionsResponse:
+    LLMObsAnnotationQueueInteractionsResponse,
+  LLMObsAnnotationQueueRequest: LLMObsAnnotationQueueRequest,
+  LLMObsAnnotationQueueResponse: LLMObsAnnotationQueueResponse,
+  LLMObsAnnotationQueueUpdateDataAttributesRequest:
+    LLMObsAnnotationQueueUpdateDataAttributesRequest,
+  LLMObsAnnotationQueueUpdateDataRequest:
+    LLMObsAnnotationQueueUpdateDataRequest,
+  LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
+  LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
   LLMObsCursorMeta: LLMObsCursorMeta,
   LLMObsDatasetDataAttributesRequest: LLMObsDatasetDataAttributesRequest,
   LLMObsDatasetDataAttributesResponse: LLMObsDatasetDataAttributesResponse,
@@ -7839,6 +7905,12 @@ const typeMap: { [index: string]: any } = {
   LLMObsDatasetUpdateDataRequest: LLMObsDatasetUpdateDataRequest,
   LLMObsDatasetUpdateRequest: LLMObsDatasetUpdateRequest,
   LLMObsDatasetsResponse: LLMObsDatasetsResponse,
+  LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest:
+    LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest,
+  LLMObsDeleteAnnotationQueueInteractionsDataRequest:
+    LLMObsDeleteAnnotationQueueInteractionsDataRequest,
+  LLMObsDeleteAnnotationQueueInteractionsRequest:
+    LLMObsDeleteAnnotationQueueInteractionsRequest,
   LLMObsDeleteDatasetRecordsDataAttributesRequest:
     LLMObsDeleteDatasetRecordsDataAttributesRequest,
   LLMObsDeleteDatasetRecordsDataRequest: LLMObsDeleteDatasetRecordsDataRequest,

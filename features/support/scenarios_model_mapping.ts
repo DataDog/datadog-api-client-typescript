@@ -7759,6 +7759,71 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IPAllowlistResponse",
     },
+    "v2.ListLLMObsAnnotationQueues": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "queueIds": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsAnnotationQueuesResponse",
+    },
+    "v2.CreateLLMObsAnnotationQueue": {
+        "body": {
+            "type": "LLMObsAnnotationQueueRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsAnnotationQueueResponse",
+    },
+    "v2.DeleteLLMObsAnnotationQueue": {
+        "queueId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateLLMObsAnnotationQueue": {
+        "queueId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsAnnotationQueueUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsAnnotationQueueResponse",
+    },
+    "v2.GetLLMObsAnnotatedInteractions": {
+        "queueId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsAnnotatedInteractionsResponse",
+    },
+    "v2.CreateLLMObsAnnotationQueueInteractions": {
+        "queueId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsAnnotationQueueInteractionsRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsAnnotationQueueInteractionsResponse",
+    },
+    "v2.DeleteLLMObsAnnotationQueueInteractions": {
+        "queueId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDeleteAnnotationQueueInteractionsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListLLMObsExperiments": {
         "filterProjectId": {
             "type": "string",
