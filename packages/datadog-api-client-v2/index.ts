@@ -4093,9 +4093,13 @@ export { ObservabilityPipelineElasticsearchDestinationCompression } from "./mode
 export { ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm } from "./models/ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm";
 export { ObservabilityPipelineElasticsearchDestinationDataStream } from "./models/ObservabilityPipelineElasticsearchDestinationDataStream";
 export { ObservabilityPipelineElasticsearchDestinationType } from "./models/ObservabilityPipelineElasticsearchDestinationType";
+export { ObservabilityPipelineEnrichmentTableFieldEventLookup } from "./models/ObservabilityPipelineEnrichmentTableFieldEventLookup";
+export { ObservabilityPipelineEnrichmentTableFieldSecretLookup } from "./models/ObservabilityPipelineEnrichmentTableFieldSecretLookup";
+export { ObservabilityPipelineEnrichmentTableFieldVrlLookup } from "./models/ObservabilityPipelineEnrichmentTableFieldVrlLookup";
 export { ObservabilityPipelineEnrichmentTableFile } from "./models/ObservabilityPipelineEnrichmentTableFile";
 export { ObservabilityPipelineEnrichmentTableFileEncoding } from "./models/ObservabilityPipelineEnrichmentTableFileEncoding";
 export { ObservabilityPipelineEnrichmentTableFileEncodingType } from "./models/ObservabilityPipelineEnrichmentTableFileEncodingType";
+export { ObservabilityPipelineEnrichmentTableFileKeyItemField } from "./models/ObservabilityPipelineEnrichmentTableFileKeyItemField";
 export { ObservabilityPipelineEnrichmentTableFileKeyItems } from "./models/ObservabilityPipelineEnrichmentTableFileKeyItems";
 export { ObservabilityPipelineEnrichmentTableFileKeyItemsComparison } from "./models/ObservabilityPipelineEnrichmentTableFileKeyItemsComparison";
 export { ObservabilityPipelineEnrichmentTableFileSchemaItems } from "./models/ObservabilityPipelineEnrichmentTableFileSchemaItems";
@@ -4276,6 +4280,7 @@ export { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./models/Ob
 export { ObservabilityPipelineSplitArrayProcessorType } from "./models/ObservabilityPipelineSplitArrayProcessorType";
 export { ObservabilityPipelineSplunkHecDestination } from "./models/ObservabilityPipelineSplunkHecDestination";
 export { ObservabilityPipelineSplunkHecDestinationEncoding } from "./models/ObservabilityPipelineSplunkHecDestinationEncoding";
+export { ObservabilityPipelineSplunkHecDestinationTokenStrategy } from "./models/ObservabilityPipelineSplunkHecDestinationTokenStrategy";
 export { ObservabilityPipelineSplunkHecDestinationType } from "./models/ObservabilityPipelineSplunkHecDestinationType";
 export { ObservabilityPipelineSplunkHecSource } from "./models/ObservabilityPipelineSplunkHecSource";
 export { ObservabilityPipelineSplunkHecSourceType } from "./models/ObservabilityPipelineSplunkHecSourceType";

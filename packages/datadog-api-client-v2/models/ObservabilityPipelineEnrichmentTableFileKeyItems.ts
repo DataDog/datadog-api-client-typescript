@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineEnrichmentTableFileKeyItemField } from "./ObservabilityPipelineEnrichmentTableFileKeyItemField";
 import { ObservabilityPipelineEnrichmentTableFileKeyItemsComparison } from "./ObservabilityPipelineEnrichmentTableFileKeyItemsComparison";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,9 +21,10 @@ export class ObservabilityPipelineEnrichmentTableFileKeyItems {
    */
   "comparison": ObservabilityPipelineEnrichmentTableFileKeyItemsComparison;
   /**
-   * The `items` `field`.
+   * Specifies the source of the key value used for enrichment table lookups.
+   * Can be a plain field path string or an object specifying `event`, `vrl`, or `secret`.
    */
-  "field": string;
+  "field": ObservabilityPipelineEnrichmentTableFileKeyItemField;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,7 +54,7 @@ export class ObservabilityPipelineEnrichmentTableFileKeyItems {
     },
     field: {
       baseName: "field",
-      type: "string",
+      type: "ObservabilityPipelineEnrichmentTableFileKeyItemField",
       required: true,
     },
     additionalProperties: {
