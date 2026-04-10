@@ -1,15 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TestOptimizationFlakyTestsManagementPoliciesData } from "./TestOptimizationFlakyTestsManagementPoliciesData";
-
 /**
- * Response object containing Flaky Tests Management policies for a repository.
+ * Pagination metadata.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesResponse {
+export class ListInvestigationsResponseMetaPage {
   /**
-   * Data object for Flaky Tests Management policies response.
+   * Maximum number of results per page.
    */
-  "data"?: TestOptimizationFlakyTestsManagementPoliciesData;
+  "limit": number;
+  /**
+   * Offset of the current page.
+   */
+  "offset": number;
+  /**
+   * Total number of investigations.
+   */
+  "total": number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +31,23 @@ export class TestOptimizationFlakyTestsManagementPoliciesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TestOptimizationFlakyTestsManagementPoliciesData",
+    limit: {
+      baseName: "limit",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    offset: {
+      baseName: "offset",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    total: {
+      baseName: "total",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +59,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesResponse.attributeTypeMap;
+    return ListInvestigationsResponseMetaPage.attributeTypeMap;
   }
 
   public constructor() {}
