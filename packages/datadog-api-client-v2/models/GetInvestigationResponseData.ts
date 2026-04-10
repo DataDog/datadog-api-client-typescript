@@ -3,28 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TestOptimizationFlakyTestsManagementPoliciesAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesAttributes";
-import { TestOptimizationFlakyTestsManagementPoliciesType } from "./TestOptimizationFlakyTestsManagementPoliciesType";
+import { GetInvestigationResponseDataAttributes } from "./GetInvestigationResponseDataAttributes";
+import { InvestigationType } from "./InvestigationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for Flaky Tests Management policies response.
+ * Data for the get investigation response.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesData {
+export class GetInvestigationResponseData {
   /**
-   * Attributes of the Flaky Tests Management policies for a repository.
+   * Attributes of the investigation.
    */
-  "attributes"?: TestOptimizationFlakyTestsManagementPoliciesAttributes;
+  "attributes": GetInvestigationResponseDataAttributes;
   /**
-   * The repository identifier used as the resource ID.
+   * The unique identifier of the investigation.
    */
-  "id"?: string;
+  "id": string;
   /**
-   * JSON:API type for Flaky Tests Management policies response.
-   * The value must always be `test_optimization_flaky_tests_management_policies`.
+   * The resource type for investigations.
    */
-  "type"?: TestOptimizationFlakyTestsManagementPoliciesType;
+  "type": InvestigationType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,15 +43,18 @@ export class TestOptimizationFlakyTestsManagementPoliciesData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "TestOptimizationFlakyTestsManagementPoliciesAttributes",
+      type: "GetInvestigationResponseDataAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "TestOptimizationFlakyTestsManagementPoliciesType",
+      type: "InvestigationType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +66,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesData.attributeTypeMap;
+    return GetInvestigationResponseData.attributeTypeMap;
   }
 
   public constructor() {}

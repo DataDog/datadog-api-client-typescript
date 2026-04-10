@@ -118,6 +118,13 @@ export {
 } from "./apis/AuthNMappingsApi";
 
 export {
+  BitsAIApiGetInvestigationRequest,
+  BitsAIApiListInvestigationsRequest,
+  BitsAIApiTriggerInvestigationRequest,
+  BitsAIApi,
+} from "./apis/BitsAIApi";
+
+export {
   CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,
   CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest,
   CIVisibilityPipelinesApiListCIAppPipelineEventsRequest,
@@ -1233,11 +1240,9 @@ export {
 
 export {
   TestOptimizationApiDeleteTestOptimizationServiceSettingsRequest,
-  TestOptimizationApiGetFlakyTestsManagementPoliciesRequest,
   TestOptimizationApiGetTestOptimizationServiceSettingsRequest,
   TestOptimizationApiSearchFlakyTestsRequest,
   TestOptimizationApiUpdateFlakyTestsRequest,
-  TestOptimizationApiUpdateFlakyTestsManagementPoliciesRequest,
   TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest,
   TestOptimizationApi,
 } from "./apis/TestOptimizationApi";
@@ -3042,6 +3047,10 @@ export { GetDeviceResponse } from "./models/GetDeviceResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
+export { GetInvestigationResponse } from "./models/GetInvestigationResponse";
+export { GetInvestigationResponseData } from "./models/GetInvestigationResponseData";
+export { GetInvestigationResponseDataAttributes } from "./models/GetInvestigationResponseDataAttributes";
+export { GetInvestigationResponseLinks } from "./models/GetInvestigationResponseLinks";
 export { GetIssueIncludeQueryParameterItem } from "./models/GetIssueIncludeQueryParameterItem";
 export { GetMappingResponse } from "./models/GetMappingResponse";
 export { GetMappingResponseData } from "./models/GetMappingResponseData";
@@ -3398,6 +3407,8 @@ export { IntegrationServiceNowSyncConfigPriority } from "./models/IntegrationSer
 export { IntegrationType } from "./models/IntegrationType";
 export { InterfaceAttributes } from "./models/InterfaceAttributes";
 export { InterfaceAttributesStatus } from "./models/InterfaceAttributesStatus";
+export { InvestigationConclusion } from "./models/InvestigationConclusion";
+export { InvestigationType } from "./models/InvestigationType";
 export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
 export { IPAllowlistData } from "./models/IPAllowlistData";
 export { IPAllowlistEntry } from "./models/IPAllowlistEntry";
@@ -3573,6 +3584,12 @@ export { ListFindingsResponse } from "./models/ListFindingsResponse";
 export { ListIntegrationsResponse } from "./models/ListIntegrationsResponse";
 export { ListInterfaceTagsResponse } from "./models/ListInterfaceTagsResponse";
 export { ListInterfaceTagsResponseData } from "./models/ListInterfaceTagsResponseData";
+export { ListInvestigationsResponse } from "./models/ListInvestigationsResponse";
+export { ListInvestigationsResponseData } from "./models/ListInvestigationsResponseData";
+export { ListInvestigationsResponseDataAttributes } from "./models/ListInvestigationsResponseDataAttributes";
+export { ListInvestigationsResponseLinks } from "./models/ListInvestigationsResponseLinks";
+export { ListInvestigationsResponseMeta } from "./models/ListInvestigationsResponseMeta";
+export { ListInvestigationsResponseMetaPage } from "./models/ListInvestigationsResponseMetaPage";
 export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 export { ListNotificationChannelsResponse } from "./models/ListNotificationChannelsResponse";
 export { ListOnCallNotificationRulesResponse } from "./models/ListOnCallNotificationRulesResponse";
@@ -3915,6 +3932,7 @@ export { MicrosoftTeamsWorkflowsWebhookHandleResponseData } from "./models/Micro
 export { MicrosoftTeamsWorkflowsWebhookHandlesResponse } from "./models/MicrosoftTeamsWorkflowsWebhookHandlesResponse";
 export { MicrosoftTeamsWorkflowsWebhookHandleType } from "./models/MicrosoftTeamsWorkflowsWebhookHandleType";
 export { MicrosoftTeamsWorkflowsWebhookResponseAttributes } from "./models/MicrosoftTeamsWorkflowsWebhookResponseAttributes";
+export { MonitorAlertTriggerAttributes } from "./models/MonitorAlertTriggerAttributes";
 export { MonitorConfigPolicyAttributeCreateRequest } from "./models/MonitorConfigPolicyAttributeCreateRequest";
 export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigPolicyAttributeEditRequest";
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";
@@ -5822,26 +5840,6 @@ export { TestOptimizationDeleteServiceSettingsRequest } from "./models/TestOptim
 export { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./models/TestOptimizationDeleteServiceSettingsRequestAttributes";
 export { TestOptimizationDeleteServiceSettingsRequestData } from "./models/TestOptimizationDeleteServiceSettingsRequestData";
 export { TestOptimizationDeleteServiceSettingsRequestDataType } from "./models/TestOptimizationDeleteServiceSettingsRequestDataType";
-export { TestOptimizationFlakyTestsManagementPoliciesAttemptToFix } from "./models/TestOptimizationFlakyTestsManagementPoliciesAttemptToFix";
-export { TestOptimizationFlakyTestsManagementPoliciesAttributes } from "./models/TestOptimizationFlakyTestsManagementPoliciesAttributes";
-export { TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule";
-export { TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule";
-export { TestOptimizationFlakyTestsManagementPoliciesBranchRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesBranchRule";
-export { TestOptimizationFlakyTestsManagementPoliciesData } from "./models/TestOptimizationFlakyTestsManagementPoliciesData";
-export { TestOptimizationFlakyTestsManagementPoliciesDisabled } from "./models/TestOptimizationFlakyTestsManagementPoliciesDisabled";
-export { TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule";
-export { TestOptimizationFlakyTestsManagementPoliciesDisabledStatus } from "./models/TestOptimizationFlakyTestsManagementPoliciesDisabledStatus";
-export { TestOptimizationFlakyTestsManagementPoliciesGetRequest } from "./models/TestOptimizationFlakyTestsManagementPoliciesGetRequest";
-export { TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes } from "./models/TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes";
-export { TestOptimizationFlakyTestsManagementPoliciesGetRequestData } from "./models/TestOptimizationFlakyTestsManagementPoliciesGetRequestData";
-export { TestOptimizationFlakyTestsManagementPoliciesQuarantined } from "./models/TestOptimizationFlakyTestsManagementPoliciesQuarantined";
-export { TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule } from "./models/TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule";
-export { TestOptimizationFlakyTestsManagementPoliciesResponse } from "./models/TestOptimizationFlakyTestsManagementPoliciesResponse";
-export { TestOptimizationFlakyTestsManagementPoliciesType } from "./models/TestOptimizationFlakyTestsManagementPoliciesType";
-export { TestOptimizationFlakyTestsManagementPoliciesUpdateRequest } from "./models/TestOptimizationFlakyTestsManagementPoliciesUpdateRequest";
-export { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes } from "./models/TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes";
-export { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData } from "./models/TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData";
-export { TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType } from "./models/TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType";
 export { TestOptimizationGetServiceSettingsRequest } from "./models/TestOptimizationGetServiceSettingsRequest";
 export { TestOptimizationGetServiceSettingsRequestAttributes } from "./models/TestOptimizationGetServiceSettingsRequestAttributes";
 export { TestOptimizationGetServiceSettingsRequestData } from "./models/TestOptimizationGetServiceSettingsRequestData";
@@ -5850,7 +5848,6 @@ export { TestOptimizationServiceSettingsAttributes } from "./models/TestOptimiza
 export { TestOptimizationServiceSettingsData } from "./models/TestOptimizationServiceSettingsData";
 export { TestOptimizationServiceSettingsResponse } from "./models/TestOptimizationServiceSettingsResponse";
 export { TestOptimizationServiceSettingsType } from "./models/TestOptimizationServiceSettingsType";
-export { TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType } from "./models/TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType";
 export { TestOptimizationUpdateServiceSettingsRequest } from "./models/TestOptimizationUpdateServiceSettingsRequest";
 export { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./models/TestOptimizationUpdateServiceSettingsRequestAttributes";
 export { TestOptimizationUpdateServiceSettingsRequestData } from "./models/TestOptimizationUpdateServiceSettingsRequestData";
@@ -5887,8 +5884,18 @@ export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttribu
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
 export { TokenType } from "./models/TokenType";
 export { Trigger } from "./models/Trigger";
+export { TriggerAttributes } from "./models/TriggerAttributes";
+export { TriggerInvestigationRequest } from "./models/TriggerInvestigationRequest";
+export { TriggerInvestigationRequestData } from "./models/TriggerInvestigationRequestData";
+export { TriggerInvestigationRequestDataAttributes } from "./models/TriggerInvestigationRequestDataAttributes";
+export { TriggerInvestigationRequestType } from "./models/TriggerInvestigationRequestType";
+export { TriggerInvestigationResponse } from "./models/TriggerInvestigationResponse";
+export { TriggerInvestigationResponseData } from "./models/TriggerInvestigationResponseData";
+export { TriggerInvestigationResponseDataAttributes } from "./models/TriggerInvestigationResponseDataAttributes";
+export { TriggerInvestigationResponseType } from "./models/TriggerInvestigationResponseType";
 export { TriggerRateLimit } from "./models/TriggerRateLimit";
 export { TriggerSource } from "./models/TriggerSource";
+export { TriggerType } from "./models/TriggerType";
 export { UCConfigPair } from "./models/UCConfigPair";
 export { UCConfigPairData } from "./models/UCConfigPairData";
 export { UCConfigPairDataAttributes } from "./models/UCConfigPairDataAttributes";

@@ -3,27 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TestOptimizationFlakyTestsManagementPoliciesDisabledStatus } from "./TestOptimizationFlakyTestsManagementPoliciesDisabledStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Automatic disable triggering rule based on a time window and test status.
+ * Attributes for a monitor alert trigger.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule {
+export class MonitorAlertTriggerAttributes {
   /**
-   * Whether this auto-disable rule is enabled.
+   * The event ID associated with the monitor alert.
    */
-  "enabled"?: boolean;
+  "eventId": string;
   /**
-   * Test status that the disable policy applies to.
-   * Must be either `active` or `quarantined`.
+   * The timestamp of the event in Unix milliseconds.
    */
-  "status"?: TestOptimizationFlakyTestsManagementPoliciesDisabledStatus;
+  "eventTs": number;
   /**
-   * Time window in seconds over which flakiness is evaluated. Must be greater than 0.
+   * The monitor ID that triggered the alert.
    */
-  "windowSeconds"?: number;
+  "monitorId": number;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +39,21 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    eventId: {
+      baseName: "event_id",
+      type: "string",
+      required: true,
     },
-    status: {
-      baseName: "status",
-      type: "TestOptimizationFlakyTestsManagementPoliciesDisabledStatus",
-    },
-    windowSeconds: {
-      baseName: "window_seconds",
+    eventTs: {
+      baseName: "event_ts",
       type: "number",
+      required: true,
+      format: "int64",
+    },
+    monitorId: {
+      baseName: "monitor_id",
+      type: "number",
+      required: true,
       format: "int64",
     },
     additionalProperties: {
@@ -64,7 +66,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule.attributeTypeMap;
+    return MonitorAlertTriggerAttributes.attributeTypeMap;
   }
 
   public constructor() {}

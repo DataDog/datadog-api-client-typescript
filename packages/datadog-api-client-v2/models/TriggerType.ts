@@ -7,13 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Test status that the disable policy applies to.
- * Must be either `active` or `quarantined`.
+ * The type of trigger for the investigation.
  */
 
-export type TestOptimizationFlakyTestsManagementPoliciesDisabledStatus =
-  | typeof ACTIVE
-  | typeof QUARANTINED
-  | UnparsedObject;
-export const ACTIVE = "active";
-export const QUARANTINED = "quarantined";
+export type TriggerType = typeof MONITOR_ALERT_TRIGGER | UnparsedObject;
+export const MONITOR_ALERT_TRIGGER = "monitor_alert_trigger";

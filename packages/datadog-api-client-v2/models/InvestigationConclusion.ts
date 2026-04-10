@@ -7,17 +7,21 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Automatic quarantine triggering rule based on a time window.
+ * A full explanation of the finding, including root cause analysis and supporting evidence.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
+export class InvestigationConclusion {
   /**
-   * Whether this auto-quarantine rule is enabled.
+   * A full explanation of the finding, including root cause analysis and supporting evidence.
    */
-  "enabled"?: boolean;
+  "description": string;
   /**
-   * Time window in seconds over which flakiness is evaluated. Must be greater than 0.
+   * A summary of the finding, including affected components and timeframe.
    */
-  "windowSeconds"?: number;
+  "summary": string;
+  /**
+   * The title of the conclusion.
+   */
+  "title": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,14 +39,20 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    description: {
+      baseName: "description",
+      type: "string",
+      required: true,
     },
-    windowSeconds: {
-      baseName: "window_seconds",
-      type: "number",
-      format: "int64",
+    summary: {
+      baseName: "summary",
+      type: "string",
+      required: true,
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +64,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.attributeTypeMap;
+    return InvestigationConclusion.attributeTypeMap;
   }
 
   public constructor() {}

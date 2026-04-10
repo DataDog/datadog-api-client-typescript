@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TestOptimizationFlakyTestsManagementPoliciesData } from "./TestOptimizationFlakyTestsManagementPoliciesData";
+import { TriggerInvestigationRequestData } from "./TriggerInvestigationRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object containing Flaky Tests Management policies for a repository.
+ * Request to trigger a new investigation.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesResponse {
+export class TriggerInvestigationRequest {
   /**
-   * Data object for Flaky Tests Management policies response.
+   * Data for the trigger investigation request.
    */
-  "data"?: TestOptimizationFlakyTestsManagementPoliciesData;
+  "data": TriggerInvestigationRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,8 @@ export class TestOptimizationFlakyTestsManagementPoliciesResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TestOptimizationFlakyTestsManagementPoliciesData",
+      type: "TriggerInvestigationRequestData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +47,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesResponse.attributeTypeMap;
+    return TriggerInvestigationRequest.attributeTypeMap;
   }
 
   public constructor() {}
