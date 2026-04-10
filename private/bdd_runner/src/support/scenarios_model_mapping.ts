@@ -3954,6 +3954,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CIAppPipelineEventsResponse",
   },
+  "TestOptimizationApi.V2.GetFlakyTestsManagementPolicies": {
+    body: {
+      type: "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
+      format: "",
+    },
+    operationResponseType:
+      "TestOptimizationFlakyTestsManagementPoliciesResponse",
+  },
+  "TestOptimizationApi.V2.UpdateFlakyTestsManagementPolicies": {
+    body: {
+      type: "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
+      format: "",
+    },
+    operationResponseType:
+      "TestOptimizationFlakyTestsManagementPoliciesResponse",
+  },
   "TestOptimizationApi.V2.GetTestOptimizationServiceSettings": {
     body: {
       type: "TestOptimizationGetServiceSettingsRequest",
