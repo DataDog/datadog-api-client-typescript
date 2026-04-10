@@ -3,17 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TriggerInvestigationRequestDataAttributes } from "./TriggerInvestigationRequestDataAttributes";
+import { TriggerInvestigationRequestType } from "./TriggerInvestigationRequestType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Configuration for the attempt-to-fix Flaky Tests Management policy.
+ * Data for the trigger investigation request.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
+export class TriggerInvestigationRequestData {
   /**
-   * Number of retries when attempting to fix a flaky test. Must be greater than 0.
+   * Attributes for the trigger investigation request.
    */
-  "retries"?: number;
+  "attributes": TriggerInvestigationRequestDataAttributes;
+  /**
+   * The resource type for trigger investigation requests.
+   */
+  "type": TriggerInvestigationRequestType;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,10 +37,15 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    retries: {
-      baseName: "retries",
-      type: "number",
-      format: "int64",
+    attributes: {
+      baseName: "attributes",
+      type: "TriggerInvestigationRequestDataAttributes",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "TriggerInvestigationRequestType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +57,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesAttemptToFix.attributeTypeMap;
+    return TriggerInvestigationRequestData.attributeTypeMap;
   }
 
   public constructor() {}

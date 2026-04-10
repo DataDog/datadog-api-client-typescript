@@ -1358,6 +1358,10 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
+import { GetInvestigationResponse } from "./GetInvestigationResponse";
+import { GetInvestigationResponseData } from "./GetInvestigationResponseData";
+import { GetInvestigationResponseDataAttributes } from "./GetInvestigationResponseDataAttributes";
+import { GetInvestigationResponseLinks } from "./GetInvestigationResponseLinks";
 import { GetMappingResponse } from "./GetMappingResponse";
 import { GetMappingResponseData } from "./GetMappingResponseData";
 import { GetMappingResponseDataAttributes } from "./GetMappingResponseDataAttributes";
@@ -1641,6 +1645,7 @@ import { IntegrationServiceNowSyncConfig } from "./IntegrationServiceNowSyncConf
 import { IntegrationServiceNowSyncConfig139772721534496 } from "./IntegrationServiceNowSyncConfig139772721534496";
 import { IntegrationServiceNowSyncConfigPriority } from "./IntegrationServiceNowSyncConfigPriority";
 import { InterfaceAttributes } from "./InterfaceAttributes";
+import { InvestigationConclusion } from "./InvestigationConclusion";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueAttributes } from "./IssueAttributes";
@@ -1864,6 +1869,12 @@ import { ListFindingsResponse } from "./ListFindingsResponse";
 import { ListIntegrationsResponse } from "./ListIntegrationsResponse";
 import { ListInterfaceTagsResponse } from "./ListInterfaceTagsResponse";
 import { ListInterfaceTagsResponseData } from "./ListInterfaceTagsResponseData";
+import { ListInvestigationsResponse } from "./ListInvestigationsResponse";
+import { ListInvestigationsResponseData } from "./ListInvestigationsResponseData";
+import { ListInvestigationsResponseDataAttributes } from "./ListInvestigationsResponseDataAttributes";
+import { ListInvestigationsResponseLinks } from "./ListInvestigationsResponseLinks";
+import { ListInvestigationsResponseMeta } from "./ListInvestigationsResponseMeta";
+import { ListInvestigationsResponseMetaPage } from "./ListInvestigationsResponseMetaPage";
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListNotificationChannelsResponse } from "./ListNotificationChannelsResponse";
 import { ListOnCallNotificationRulesResponse } from "./ListOnCallNotificationRulesResponse";
@@ -2050,6 +2061,7 @@ import { MicrosoftTeamsWorkflowsWebhookHandleResponse } from "./MicrosoftTeamsWo
 import { MicrosoftTeamsWorkflowsWebhookHandleResponseData } from "./MicrosoftTeamsWorkflowsWebhookHandleResponseData";
 import { MicrosoftTeamsWorkflowsWebhookHandlesResponse } from "./MicrosoftTeamsWorkflowsWebhookHandlesResponse";
 import { MicrosoftTeamsWorkflowsWebhookResponseAttributes } from "./MicrosoftTeamsWorkflowsWebhookResponseAttributes";
+import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
@@ -3447,23 +3459,6 @@ import { TenancyProductsList } from "./TenancyProductsList";
 import { TestOptimizationDeleteServiceSettingsRequest } from "./TestOptimizationDeleteServiceSettingsRequest";
 import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
 import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
-import { TestOptimizationFlakyTestsManagementPoliciesAttemptToFix } from "./TestOptimizationFlakyTestsManagementPoliciesAttemptToFix";
-import { TestOptimizationFlakyTestsManagementPoliciesAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesAttributes";
-import { TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule } from "./TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule";
-import { TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule } from "./TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule";
-import { TestOptimizationFlakyTestsManagementPoliciesBranchRule } from "./TestOptimizationFlakyTestsManagementPoliciesBranchRule";
-import { TestOptimizationFlakyTestsManagementPoliciesData } from "./TestOptimizationFlakyTestsManagementPoliciesData";
-import { TestOptimizationFlakyTestsManagementPoliciesDisabled } from "./TestOptimizationFlakyTestsManagementPoliciesDisabled";
-import { TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule } from "./TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule";
-import { TestOptimizationFlakyTestsManagementPoliciesGetRequest } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequest";
-import { TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes";
-import { TestOptimizationFlakyTestsManagementPoliciesGetRequestData } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequestData";
-import { TestOptimizationFlakyTestsManagementPoliciesQuarantined } from "./TestOptimizationFlakyTestsManagementPoliciesQuarantined";
-import { TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule } from "./TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule";
-import { TestOptimizationFlakyTestsManagementPoliciesResponse } from "./TestOptimizationFlakyTestsManagementPoliciesResponse";
-import { TestOptimizationFlakyTestsManagementPoliciesUpdateRequest } from "./TestOptimizationFlakyTestsManagementPoliciesUpdateRequest";
-import { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes";
-import { TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData } from "./TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData";
 import { TestOptimizationGetServiceSettingsRequest } from "./TestOptimizationGetServiceSettingsRequest";
 import { TestOptimizationGetServiceSettingsRequestAttributes } from "./TestOptimizationGetServiceSettingsRequestAttributes";
 import { TestOptimizationGetServiceSettingsRequestData } from "./TestOptimizationGetServiceSettingsRequestData";
@@ -3494,6 +3489,13 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { TriggerAttributes } from "./TriggerAttributes";
+import { TriggerInvestigationRequest } from "./TriggerInvestigationRequest";
+import { TriggerInvestigationRequestData } from "./TriggerInvestigationRequestData";
+import { TriggerInvestigationRequestDataAttributes } from "./TriggerInvestigationRequestDataAttributes";
+import { TriggerInvestigationResponse } from "./TriggerInvestigationResponse";
+import { TriggerInvestigationResponseData } from "./TriggerInvestigationResponseData";
+import { TriggerInvestigationResponseDataAttributes } from "./TriggerInvestigationResponseDataAttributes";
 import { TriggerRateLimit } from "./TriggerRateLimit";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
@@ -4471,6 +4473,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IntegrationType: ["integration"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
+  InvestigationType: ["investigation"],
   IssueCaseResourceType: ["case"],
   IssueLanguage: [
     "BRIGHTSCRIPT",
@@ -5673,23 +5676,10 @@ const enumsMap: { [key: string]: any[] } = {
   TestOptimizationDeleteServiceSettingsRequestDataType: [
     "test_optimization_delete_service_settings_request",
   ],
-  TestOptimizationFlakyTestsManagementPoliciesDisabledStatus: [
-    "active",
-    "quarantined",
-  ],
-  TestOptimizationFlakyTestsManagementPoliciesType: [
-    "test_optimization_flaky_tests_management_policies",
-  ],
-  TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType: [
-    "test_optimization_get_flaky_tests_management_policies_request",
-  ],
   TestOptimizationGetServiceSettingsRequestDataType: [
     "test_optimization_get_service_settings_request",
   ],
   TestOptimizationServiceSettingsType: ["test_optimization_service_settings"],
-  TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType: [
-    "test_optimization_update_flaky_tests_management_policies_request",
-  ],
   TestOptimizationUpdateServiceSettingsRequestDataType: [
     "test_optimization_update_service_settings_request",
   ],
@@ -5700,7 +5690,10 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
+  TriggerInvestigationRequestType: ["trigger_investigation_request"],
+  TriggerInvestigationResponseType: ["trigger_investigation_response"],
   TriggerSource: ["security_findings", "security_signals"],
+  TriggerType: ["monitor_alert_trigger"],
   UCConfigPairDataType: ["azure_uc_configs"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateConnectionRequestDataType: ["connection_id"],
@@ -7466,6 +7459,11 @@ const typeMap: { [index: string]: any } = {
   GetFindingResponse: GetFindingResponse,
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
+  GetInvestigationResponse: GetInvestigationResponse,
+  GetInvestigationResponseData: GetInvestigationResponseData,
+  GetInvestigationResponseDataAttributes:
+    GetInvestigationResponseDataAttributes,
+  GetInvestigationResponseLinks: GetInvestigationResponseLinks,
   GetMappingResponse: GetMappingResponse,
   GetMappingResponseData: GetMappingResponseData,
   GetMappingResponseDataAttributes: GetMappingResponseDataAttributes,
@@ -7803,6 +7801,7 @@ const typeMap: { [index: string]: any } = {
   IntegrationServiceNowSyncConfigPriority:
     IntegrationServiceNowSyncConfigPriority,
   InterfaceAttributes: InterfaceAttributes,
+  InvestigationConclusion: InvestigationConclusion,
   Issue: Issue,
   IssueAssigneeRelationship: IssueAssigneeRelationship,
   IssueAttributes: IssueAttributes,
@@ -8060,6 +8059,13 @@ const typeMap: { [index: string]: any } = {
   ListIntegrationsResponse: ListIntegrationsResponse,
   ListInterfaceTagsResponse: ListInterfaceTagsResponse,
   ListInterfaceTagsResponseData: ListInterfaceTagsResponseData,
+  ListInvestigationsResponse: ListInvestigationsResponse,
+  ListInvestigationsResponseData: ListInvestigationsResponseData,
+  ListInvestigationsResponseDataAttributes:
+    ListInvestigationsResponseDataAttributes,
+  ListInvestigationsResponseLinks: ListInvestigationsResponseLinks,
+  ListInvestigationsResponseMeta: ListInvestigationsResponseMeta,
+  ListInvestigationsResponseMetaPage: ListInvestigationsResponseMetaPage,
   ListKindCatalogResponse: ListKindCatalogResponse,
   ListNotificationChannelsResponse: ListNotificationChannelsResponse,
   ListOnCallNotificationRulesResponse: ListOnCallNotificationRulesResponse,
@@ -8283,6 +8289,7 @@ const typeMap: { [index: string]: any } = {
     MicrosoftTeamsWorkflowsWebhookHandlesResponse,
   MicrosoftTeamsWorkflowsWebhookResponseAttributes:
     MicrosoftTeamsWorkflowsWebhookResponseAttributes,
+  MonitorAlertTriggerAttributes: MonitorAlertTriggerAttributes,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
   MonitorConfigPolicyAttributeEditRequest:
@@ -10041,40 +10048,6 @@ const typeMap: { [index: string]: any } = {
     TestOptimizationDeleteServiceSettingsRequestAttributes,
   TestOptimizationDeleteServiceSettingsRequestData:
     TestOptimizationDeleteServiceSettingsRequestData,
-  TestOptimizationFlakyTestsManagementPoliciesAttemptToFix:
-    TestOptimizationFlakyTestsManagementPoliciesAttemptToFix,
-  TestOptimizationFlakyTestsManagementPoliciesAttributes:
-    TestOptimizationFlakyTestsManagementPoliciesAttributes,
-  TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule:
-    TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule,
-  TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule:
-    TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule,
-  TestOptimizationFlakyTestsManagementPoliciesBranchRule:
-    TestOptimizationFlakyTestsManagementPoliciesBranchRule,
-  TestOptimizationFlakyTestsManagementPoliciesData:
-    TestOptimizationFlakyTestsManagementPoliciesData,
-  TestOptimizationFlakyTestsManagementPoliciesDisabled:
-    TestOptimizationFlakyTestsManagementPoliciesDisabled,
-  TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule:
-    TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule,
-  TestOptimizationFlakyTestsManagementPoliciesGetRequest:
-    TestOptimizationFlakyTestsManagementPoliciesGetRequest,
-  TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes:
-    TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes,
-  TestOptimizationFlakyTestsManagementPoliciesGetRequestData:
-    TestOptimizationFlakyTestsManagementPoliciesGetRequestData,
-  TestOptimizationFlakyTestsManagementPoliciesQuarantined:
-    TestOptimizationFlakyTestsManagementPoliciesQuarantined,
-  TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule:
-    TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule,
-  TestOptimizationFlakyTestsManagementPoliciesResponse:
-    TestOptimizationFlakyTestsManagementPoliciesResponse,
-  TestOptimizationFlakyTestsManagementPoliciesUpdateRequest:
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequest,
-  TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes:
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes,
-  TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData:
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData,
   TestOptimizationGetServiceSettingsRequest:
     TestOptimizationGetServiceSettingsRequest,
   TestOptimizationGetServiceSettingsRequestAttributes:
@@ -10113,6 +10086,15 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
+  TriggerAttributes: TriggerAttributes,
+  TriggerInvestigationRequest: TriggerInvestigationRequest,
+  TriggerInvestigationRequestData: TriggerInvestigationRequestData,
+  TriggerInvestigationRequestDataAttributes:
+    TriggerInvestigationRequestDataAttributes,
+  TriggerInvestigationResponse: TriggerInvestigationResponse,
+  TriggerInvestigationResponseData: TriggerInvestigationResponseData,
+  TriggerInvestigationResponseDataAttributes:
+    TriggerInvestigationResponseDataAttributes,
   TriggerRateLimit: TriggerRateLimit,
   UCConfigPair: UCConfigPair,
   UCConfigPairData: UCConfigPairData,

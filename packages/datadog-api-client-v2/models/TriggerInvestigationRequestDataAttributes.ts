@@ -3,29 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TriggerAttributes } from "./TriggerAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Branch filtering rule for a Flaky Tests Management policy.
+ * Attributes for the trigger investigation request.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesBranchRule {
+export class TriggerInvestigationRequestDataAttributes {
   /**
-   * List of branches to which the policy applies.
+   * The trigger definition for starting an investigation.
    */
-  "branches"?: Array<string>;
-  /**
-   * Whether this branch rule is enabled.
-   */
-  "enabled"?: boolean;
-  /**
-   * List of branches excluded from the policy.
-   */
-  "excludedBranches"?: Array<string>;
-  /**
-   * List of test services excluded from the policy.
-   */
-  "excludedTestServices"?: Array<string>;
+  "trigger": TriggerAttributes;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,21 +32,10 @@ export class TestOptimizationFlakyTestsManagementPoliciesBranchRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branches: {
-      baseName: "branches",
-      type: "Array<string>",
-    },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-    },
-    excludedBranches: {
-      baseName: "excluded_branches",
-      type: "Array<string>",
-    },
-    excludedTestServices: {
-      baseName: "excluded_test_services",
-      type: "Array<string>",
+    trigger: {
+      baseName: "trigger",
+      type: "TriggerAttributes",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,7 +47,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesBranchRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesBranchRule.attributeTypeMap;
+    return TriggerInvestigationRequestDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

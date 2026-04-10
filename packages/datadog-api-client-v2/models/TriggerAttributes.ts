@@ -3,29 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
+import { TriggerType } from "./TriggerType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Failure-rate-based rule for the quarantined policy.
+ * The trigger definition for starting an investigation.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule {
+export class TriggerAttributes {
   /**
-   * List of branches to which this rule applies.
+   * Attributes for a monitor alert trigger.
    */
-  "branches"?: Array<string>;
+  "monitorAlertTrigger": MonitorAlertTriggerAttributes;
   /**
-   * Whether this failure rate rule is enabled.
+   * The type of trigger for the investigation.
    */
-  "enabled"?: boolean;
-  /**
-   * Minimum number of runs required before the rule is evaluated. Must be greater than or equal to 0.
-   */
-  "minRuns"?: number;
-  /**
-   * Failure rate threshold (0.0–1.0) above which the rule triggers.
-   */
-  "threshold"?: number;
+  "type": TriggerType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,23 +37,15 @@ export class TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateR
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branches: {
-      baseName: "branches",
-      type: "Array<string>",
+    monitorAlertTrigger: {
+      baseName: "monitor_alert_trigger",
+      type: "MonitorAlertTriggerAttributes",
+      required: true,
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-    },
-    minRuns: {
-      baseName: "min_runs",
-      type: "number",
-      format: "int64",
-    },
-    threshold: {
-      baseName: "threshold",
-      type: "number",
-      format: "double",
+    type: {
+      baseName: "type",
+      type: "TriggerType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,7 +57,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateR
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule.attributeTypeMap;
+    return TriggerAttributes.attributeTypeMap;
   }
 
   public constructor() {}

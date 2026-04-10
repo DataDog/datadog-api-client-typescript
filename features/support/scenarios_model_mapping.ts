@@ -3292,6 +3292,35 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AuthNMappingResponse",
     },
+    "v2.ListInvestigations": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterMonitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListInvestigationsResponse",
+    },
+    "v2.TriggerInvestigation": {
+        "body": {
+            "type": "TriggerInvestigationRequest",
+            "format": "",
+            },
+        "operationResponseType": "TriggerInvestigationResponse",
+    },
+    "v2.GetInvestigation": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetInvestigationResponse",
+    },
     "v2.SearchCases": {
         "pageSize": {
             "type": "number",
@@ -3914,20 +3943,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CIAppPipelineEventsResponse",
-    },
-    "v2.GetFlakyTestsManagementPolicies": {
-        "body": {
-            "type": "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
-            "format": "",
-            },
-        "operationResponseType": "TestOptimizationFlakyTestsManagementPoliciesResponse",
-    },
-    "v2.UpdateFlakyTestsManagementPolicies": {
-        "body": {
-            "type": "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "TestOptimizationFlakyTestsManagementPoliciesResponse",
     },
     "v2.GetTestOptimizationServiceSettings": {
         "body": {

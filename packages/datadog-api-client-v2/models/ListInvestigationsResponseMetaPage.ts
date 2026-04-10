@@ -3,18 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TestOptimizationFlakyTestsManagementPoliciesGetRequestData } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request object for getting Flaky Tests Management policies.
+ * Pagination metadata.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
+export class ListInvestigationsResponseMetaPage {
   /**
-   * Data object for get Flaky Tests Management policies request.
+   * Maximum number of results per page.
    */
-  "data": TestOptimizationFlakyTestsManagementPoliciesGetRequestData;
+  "limit": number;
+  /**
+   * Offset of the current page.
+   */
+  "offset": number;
+  /**
+   * Total number of investigations.
+   */
+  "total": number;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +39,23 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TestOptimizationFlakyTestsManagementPoliciesGetRequestData",
+    limit: {
+      baseName: "limit",
+      type: "number",
       required: true,
+      format: "int64",
+    },
+    offset: {
+      baseName: "offset",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    total: {
+      baseName: "total",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +67,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesGetRequest.attributeTypeMap;
+    return ListInvestigationsResponseMetaPage.attributeTypeMap;
   }
 
   public constructor() {}

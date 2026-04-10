@@ -3,17 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TriggerInvestigationResponseDataAttributes } from "./TriggerInvestigationResponseDataAttributes";
+import { TriggerInvestigationResponseType } from "./TriggerInvestigationResponseType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for requesting Flaky Tests Management policies.
+ * Data for the trigger investigation response.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
+export class TriggerInvestigationResponseData {
   /**
-   * The repository identifier.
+   * Attributes for the trigger investigation response.
    */
-  "repositoryId": string;
+  "attributes": TriggerInvestigationResponseDataAttributes;
+  /**
+   * Unique identifier for the trigger response.
+   */
+  "id": string;
+  /**
+   * The resource type for trigger investigation responses.
+   */
+  "type": TriggerInvestigationResponseType;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,9 +41,19 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    repositoryId: {
-      baseName: "repository_id",
+    attributes: {
+      baseName: "attributes",
+      type: "TriggerInvestigationResponseDataAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
       type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "TriggerInvestigationResponseType",
       required: true,
     },
     additionalProperties: {
@@ -46,7 +66,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes.attributeTypeMap;
+    return TriggerInvestigationResponseData.attributeTypeMap;
   }
 
   public constructor() {}
