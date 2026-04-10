@@ -1,17 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
+import { TriggerType } from "./TriggerType";
+
 /**
- * Automatic quarantine triggering rule based on a time window.
+ * The trigger definition for starting an investigation.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
+export class TriggerAttributes {
   /**
-   * Whether this auto-quarantine rule is enabled.
+   * Attributes for a monitor alert trigger.
    */
-  "enabled"?: boolean;
+  "monitorAlertTrigger": MonitorAlertTriggerAttributes;
   /**
-   * Time window in seconds over which flakiness is evaluated. Must be greater than 0.
+   * The type of trigger for the investigation.
    */
-  "windowSeconds"?: number;
+  "type": TriggerType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,14 +30,15 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    monitorAlertTrigger: {
+      baseName: "monitor_alert_trigger",
+      type: "MonitorAlertTriggerAttributes",
+      required: true,
     },
-    windowSeconds: {
-      baseName: "window_seconds",
-      type: "number",
-      format: "int64",
+    type: {
+      baseName: "type",
+      type: "TriggerType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +50,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.attributeTypeMap;
+    return TriggerAttributes.attributeTypeMap;
   }
 
   public constructor() {}

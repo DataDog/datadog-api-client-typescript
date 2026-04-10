@@ -1,15 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TestOptimizationFlakyTestsManagementPoliciesGetRequestData } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequestData";
-
 /**
- * Request object for getting Flaky Tests Management policies.
+ * Attributes of an investigation list item.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
+export class ListInvestigationsResponseDataAttributes {
   /**
-   * Data object for get Flaky Tests Management policies request.
+   * The current status of the investigation.
    */
-  "data": TestOptimizationFlakyTestsManagementPoliciesGetRequestData;
+  "status": string;
+  /**
+   * The title of the investigation.
+   */
+  "title": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +27,14 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TestOptimizationFlakyTestsManagementPoliciesGetRequestData",
+    status: {
+      baseName: "status",
+      type: "string",
+      required: true,
+    },
+    title: {
+      baseName: "title",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +47,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesGetRequest.attributeTypeMap;
+    return ListInvestigationsResponseDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

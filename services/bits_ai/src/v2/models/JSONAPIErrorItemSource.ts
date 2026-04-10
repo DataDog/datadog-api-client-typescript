@@ -1,13 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Configuration for the attempt-to-fix Flaky Tests Management policy.
+ * References to the source of the error.
  */
-export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
+export class JSONAPIErrorItemSource {
   /**
-   * Number of retries when attempting to fix a flaky test. Must be greater than 0.
+   * A string indicating the name of a single request header which caused the error.
    */
-  "retries"?: number;
+  "header"?: string;
+  /**
+   * A string indicating which URI query parameter caused the error.
+   */
+  "parameter"?: string;
+  /**
+   * A JSON pointer to the value in the request document that caused the error.
+   */
+  "pointer"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -23,10 +31,17 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    retries: {
-      baseName: "retries",
-      type: "number",
-      format: "int64",
+    header: {
+      baseName: "header",
+      type: "string",
+    },
+    parameter: {
+      baseName: "parameter",
+      type: "string",
+    },
+    pointer: {
+      baseName: "pointer",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -38,7 +53,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TestOptimizationFlakyTestsManagementPoliciesAttemptToFix.attributeTypeMap;
+    return JSONAPIErrorItemSource.attributeTypeMap;
   }
 
   public constructor() {}

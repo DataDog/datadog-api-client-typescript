@@ -360,6 +360,7 @@ apiInstance
 | AWS Integration | @datadog/datadog-api-client-aws-integration | [README.md](../../services/aws-integration/README.md) |
 | AWS Logs Integration | @datadog/datadog-api-client-aws-logs-integration | [README.md](../../services/aws-logs-integration/README.md) |
 | Azure Integration | @datadog/datadog-api-client-azure-integration | [README.md](../../services/azure-integration/README.md) |
+| Bits AI | @datadog/datadog-api-client-bits-ai | [README.md](../../services/bits-ai/README.md) |
 | Case Management | @datadog/datadog-api-client-case-management | [README.md](../../services/case-management/README.md) |
 | Case Management Attribute | @datadog/datadog-api-client-case-management-attribute | [README.md](../../services/case-management-attribute/README.md) |
 | Case Management Type | @datadog/datadog-api-client-case-management-type | [README.md](../../services/case-management-type/README.md) |
