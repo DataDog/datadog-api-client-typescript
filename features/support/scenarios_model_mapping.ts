@@ -3944,6 +3944,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CIAppPipelineEventsResponse",
     },
+    "v2.GetFlakyTestsManagementPolicies": {
+        "body": {
+            "type": "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
+            "format": "",
+            },
+        "operationResponseType": "TestOptimizationFlakyTestsManagementPoliciesResponse",
+    },
+    "v2.UpdateFlakyTestsManagementPolicies": {
+        "body": {
+            "type": "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TestOptimizationFlakyTestsManagementPoliciesResponse",
+    },
     "v2.GetTestOptimizationServiceSettings": {
         "body": {
             "type": "TestOptimizationGetServiceSettingsRequest",
