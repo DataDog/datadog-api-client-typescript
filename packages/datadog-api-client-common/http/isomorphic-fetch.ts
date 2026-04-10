@@ -4,11 +4,12 @@ import {
   ResponseContext,
   ZstdCompressorCallback,
 } from "./http";
-import { fetch as crossFetch } from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
 import { isBrowser, isNode } from "../util";
 import { logger } from "../../../logger";
+
+let cachedCrossFetch: any;
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
@@ -61,6 +62,10 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     return this.executeRequest(request, body, 0, headers);
   }
 
+  private async importCrossFetch(): Promise<any> {
+    return cachedCrossFetch ?? (cachedCrossFetch = (await import("cross-fetch")).fetch);
+  }
+
   private async executeRequest(
     request: RequestContext,
     body: any,
@@ -80,7 +85,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         // `cross-fetch` incorrectly assumes all browsers have XHR available.
         // See https://github.com/lquixada/cross-fetch/issues/78
         // TODO: Remove once once above issue is resolved.
-        (!isNode && typeof fetch === "function" ? fetch : crossFetch);
+        (!isNode && typeof fetch === "function" ? fetch : this.importCrossFetch());
 
       const resp = await fetchFunction(request.getUrl(), fetchOptions);
       const responseHeaders: { [name: string]: string } = {};
