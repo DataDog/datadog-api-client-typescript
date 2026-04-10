@@ -451,6 +451,12 @@ def get_response_type(schema, version):
             name = simple_type(nested_schema)
         api_response_type = f"{name}[]"
     else:
+        primitive = simple_type(response_schema)
         name = schema_name(response_schema)
-        api_response_type = f"{version}.{name}" if name else simple_type(response_schema)
+        if name and not primitive:
+            api_response_type = f"{version}.{name}"
+        else:
+            # Named primitive schemas (e.g. type: string) don't produce a class —
+            # use the primitive type directly.
+            api_response_type = primitive
     return api_response_type
