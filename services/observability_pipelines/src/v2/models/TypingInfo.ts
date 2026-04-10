@@ -45,6 +45,9 @@ import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPi
 import { ObservabilityPipelineElasticsearchDestinationAuth } from "./ObservabilityPipelineElasticsearchDestinationAuth";
 import { ObservabilityPipelineElasticsearchDestinationCompression } from "./ObservabilityPipelineElasticsearchDestinationCompression";
 import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./ObservabilityPipelineElasticsearchDestinationDataStream";
+import { ObservabilityPipelineEnrichmentTableFieldEventLookup } from "./ObservabilityPipelineEnrichmentTableFieldEventLookup";
+import { ObservabilityPipelineEnrichmentTableFieldSecretLookup } from "./ObservabilityPipelineEnrichmentTableFieldSecretLookup";
+import { ObservabilityPipelineEnrichmentTableFieldVrlLookup } from "./ObservabilityPipelineEnrichmentTableFieldVrlLookup";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
 import { ObservabilityPipelineEnrichmentTableFileKeyItems } from "./ObservabilityPipelineEnrichmentTableFileKeyItems";
@@ -429,6 +432,10 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineSocketSourceType: ["socket"],
     ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
     ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
+    ObservabilityPipelineSplunkHecDestinationTokenStrategy: [
+      "custom",
+      "from_source",
+    ],
     ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
     ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
     ObservabilityPipelineSplunkTcpSourceType: ["splunk_tcp"],
@@ -527,6 +534,12 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSumoLogicSource",
       "ObservabilityPipelineSyslogNgSource",
       "ObservabilityPipelineOpentelemetrySource",
+    ],
+    ObservabilityPipelineEnrichmentTableFileKeyItemField: [
+      "string",
+      "ObservabilityPipelineEnrichmentTableFieldEventLookup",
+      "ObservabilityPipelineEnrichmentTableFieldVrlLookup",
+      "ObservabilityPipelineEnrichmentTableFieldSecretLookup",
     ],
     ObservabilityPipelineMetricValue: [
       "ObservabilityPipelineGeneratedMetricIncrementByOne",
@@ -641,6 +654,12 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineElasticsearchDestinationCompression,
     ObservabilityPipelineElasticsearchDestinationDataStream:
       ObservabilityPipelineElasticsearchDestinationDataStream,
+    ObservabilityPipelineEnrichmentTableFieldEventLookup:
+      ObservabilityPipelineEnrichmentTableFieldEventLookup,
+    ObservabilityPipelineEnrichmentTableFieldSecretLookup:
+      ObservabilityPipelineEnrichmentTableFieldSecretLookup,
+    ObservabilityPipelineEnrichmentTableFieldVrlLookup:
+      ObservabilityPipelineEnrichmentTableFieldVrlLookup,
     ObservabilityPipelineEnrichmentTableFile:
       ObservabilityPipelineEnrichmentTableFile,
     ObservabilityPipelineEnrichmentTableFileEncoding:
