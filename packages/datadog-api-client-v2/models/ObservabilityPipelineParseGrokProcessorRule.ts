@@ -19,7 +19,7 @@ export class ObservabilityPipelineParseGrokProcessorRule {
    */
   "matchRules": Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>;
   /**
-   * The name of the field in the log event to apply the Grok rules to.
+   * The value of the source field in log events to be processed by the Grok rules.
    */
   "source": string;
   /**
