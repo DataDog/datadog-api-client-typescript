@@ -9302,6 +9302,204 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OrgConnectionResponse",
   },
+  "OrgGroupsApi.V2.ListOrgGroupMemberships": {
+    filterOrgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterOrgUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "OrgGroupMembershipSortOption",
+      format: "",
+    },
+    operationResponseType: "OrgGroupMembershipListResponse",
+  },
+  "OrgGroupsApi.V2.BulkUpdateOrgGroupMemberships": {
+    body: {
+      type: "OrgGroupMembershipBulkUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupMembershipListResponse",
+  },
+  "OrgGroupsApi.V2.GetOrgGroupMembership": {
+    orgGroupMembershipId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "OrgGroupMembershipResponse",
+  },
+  "OrgGroupsApi.V2.UpdateOrgGroupMembership": {
+    orgGroupMembershipId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "OrgGroupMembershipUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupMembershipResponse",
+  },
+  "OrgGroupsApi.V2.ListOrgGroupPolicies": {
+    filterOrgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterPolicyName: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "OrgGroupPolicySortOption",
+      format: "",
+    },
+    operationResponseType: "OrgGroupPolicyListResponse",
+  },
+  "OrgGroupsApi.V2.CreateOrgGroupPolicy": {
+    body: {
+      type: "OrgGroupPolicyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupPolicyResponse",
+  },
+  "OrgGroupsApi.V2.DeleteOrgGroupPolicy": {
+    orgGroupPolicyId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OrgGroupsApi.V2.UpdateOrgGroupPolicy": {
+    orgGroupPolicyId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "OrgGroupPolicyUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupPolicyResponse",
+  },
+  "OrgGroupsApi.V2.ListOrgGroupPolicyConfigs": {
+    operationResponseType: "OrgGroupPolicyConfigListResponse",
+  },
+  "OrgGroupsApi.V2.ListOrgGroupPolicyOverrides": {
+    filterOrgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterPolicyId: {
+      type: "string",
+      format: "uuid",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "OrgGroupPolicyOverrideSortOption",
+      format: "",
+    },
+    operationResponseType: "OrgGroupPolicyOverrideListResponse",
+  },
+  "OrgGroupsApi.V2.CreateOrgGroupPolicyOverride": {
+    body: {
+      type: "OrgGroupPolicyOverrideCreateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupPolicyOverrideResponse",
+  },
+  "OrgGroupsApi.V2.DeleteOrgGroupPolicyOverride": {
+    orgGroupPolicyOverrideId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OrgGroupsApi.V2.UpdateOrgGroupPolicyOverride": {
+    orgGroupPolicyOverrideId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "OrgGroupPolicyOverrideUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupPolicyOverrideResponse",
+  },
+  "OrgGroupsApi.V2.ListOrgGroups": {
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "OrgGroupSortOption",
+      format: "",
+    },
+    include: {
+      type: "Array<OrgGroupIncludeOption>",
+      format: "",
+    },
+    operationResponseType: "OrgGroupListResponse",
+  },
+  "OrgGroupsApi.V2.CreateOrgGroup": {
+    body: {
+      type: "OrgGroupCreateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupResponse",
+  },
+  "OrgGroupsApi.V2.GetOrgGroup": {
+    orgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "OrgGroupResponse",
+  },
+  "OrgGroupsApi.V2.DeleteOrgGroup": {
+    orgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OrgGroupsApi.V2.UpdateOrgGroup": {
+    orgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "OrgGroupUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "OrgGroupResponse",
+  },
   "RolesApi.V2.ListPermissions": {
     operationResponseType: "PermissionsResponse",
   },
