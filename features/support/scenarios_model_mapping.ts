@@ -9290,6 +9290,204 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OrgConnectionResponse",
     },
+    "v2.ListOrgGroupMemberships": {
+        "filterOrgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterOrgUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "OrgGroupMembershipSortOption",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupMembershipListResponse",
+    },
+    "v2.BulkUpdateOrgGroupMemberships": {
+        "body": {
+            "type": "OrgGroupMembershipBulkUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupMembershipListResponse",
+    },
+    "v2.GetOrgGroupMembership": {
+        "orgGroupMembershipId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OrgGroupMembershipResponse",
+    },
+    "v2.UpdateOrgGroupMembership": {
+        "orgGroupMembershipId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "OrgGroupMembershipUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupMembershipResponse",
+    },
+    "v2.ListOrgGroupPolicies": {
+        "filterOrgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterPolicyName": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "OrgGroupPolicySortOption",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupPolicyListResponse",
+    },
+    "v2.CreateOrgGroupPolicy": {
+        "body": {
+            "type": "OrgGroupPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupPolicyResponse",
+    },
+    "v2.DeleteOrgGroupPolicy": {
+        "orgGroupPolicyId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOrgGroupPolicy": {
+        "orgGroupPolicyId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "OrgGroupPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupPolicyResponse",
+    },
+    "v2.ListOrgGroupPolicyConfigs": {
+        "operationResponseType": "OrgGroupPolicyConfigListResponse",
+    },
+    "v2.ListOrgGroupPolicyOverrides": {
+        "filterOrgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterPolicyId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "OrgGroupPolicyOverrideSortOption",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupPolicyOverrideListResponse",
+    },
+    "v2.CreateOrgGroupPolicyOverride": {
+        "body": {
+            "type": "OrgGroupPolicyOverrideCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupPolicyOverrideResponse",
+    },
+    "v2.DeleteOrgGroupPolicyOverride": {
+        "orgGroupPolicyOverrideId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOrgGroupPolicyOverride": {
+        "orgGroupPolicyOverrideId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "OrgGroupPolicyOverrideUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupPolicyOverrideResponse",
+    },
+    "v2.ListOrgGroups": {
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "OrgGroupSortOption",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<OrgGroupIncludeOption>",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupListResponse",
+    },
+    "v2.CreateOrgGroup": {
+        "body": {
+            "type": "OrgGroupCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupResponse",
+    },
+    "v2.GetOrgGroup": {
+        "orgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OrgGroupResponse",
+    },
+    "v2.DeleteOrgGroup": {
+        "orgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOrgGroup": {
+        "orgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "OrgGroupUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgGroupResponse",
+    },
     "v2.ListPermissions": {
         "operationResponseType": "PermissionsResponse",
     },
