@@ -5424,7 +5424,6 @@ const enumsMap: { [key: string]: any[] } = {
     "security_runtime",
     "network",
     "events",
-    "security_signals",
   ],
   SecurityMonitoringSuppressionSort: [
     "name",
