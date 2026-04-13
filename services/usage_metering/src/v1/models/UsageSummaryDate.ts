@@ -91,6 +91,58 @@ export class UsageSummaryDate {
    */
   "browserRumUnitsSum"?: number;
   /**
+   * Shows the last value of Anthropic cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmAnthropicSpendLast"?: number;
+  /**
+   * Shows the last value of AWS cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmAwsSpendLast"?: number;
+  /**
+   * Shows the last value of Azure cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmAzureSpendLast"?: number;
+  /**
+   * Shows the last value of Confluent cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmConfluentSpendLast"?: number;
+  /**
+   * Shows the last value of Databricks cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmDatabricksSpendLast"?: number;
+  /**
+   * Shows the last value of Elastic cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmElasticSpendLast"?: number;
+  /**
+   * Shows the last value of Fastly cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmFastlySpendLast"?: number;
+  /**
+   * Shows the last value of GCP cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmGcpSpendLast"?: number;
+  /**
+   * Shows the last value of GitHub cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmGithubSpendLast"?: number;
+  /**
+   * Shows the last value of MongoDB cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmMongodbSpendLast"?: number;
+  /**
+   * Shows the last value of OCI cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmOciSpendLast"?: number;
+  /**
+   * Shows the last value of OpenAI cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmOpenaiSpendLast"?: number;
+  /**
+   * Shows the last value of Snowflake cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmSnowflakeSpendLast"?: number;
+  /**
    * Shows the last value of the amount of cloud spend monitored for Enterprise over all hours in the current date for all organizations.
    */
   "ccmSpendMonitoredEntLast"?: number;
@@ -98,6 +150,10 @@ export class UsageSummaryDate {
    * Shows the last value of the amount of cloud spend monitored for Pro over all hours in the current date for all organizations.
    */
   "ccmSpendMonitoredProLast"?: number;
+  /**
+   * Shows the last value of Twilio cloud spend monitored over all hours in the current date for all organizations.
+   */
+  "ccmTwilioSpendLast"?: number;
   /**
    * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.
    */
@@ -990,6 +1046,71 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    ccmAnthropicSpendLast: {
+      baseName: "ccm_anthropic_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmAwsSpendLast: {
+      baseName: "ccm_aws_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmAzureSpendLast: {
+      baseName: "ccm_azure_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmConfluentSpendLast: {
+      baseName: "ccm_confluent_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmDatabricksSpendLast: {
+      baseName: "ccm_databricks_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmElasticSpendLast: {
+      baseName: "ccm_elastic_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmFastlySpendLast: {
+      baseName: "ccm_fastly_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmGcpSpendLast: {
+      baseName: "ccm_gcp_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmGithubSpendLast: {
+      baseName: "ccm_github_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmMongodbSpendLast: {
+      baseName: "ccm_mongodb_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmOciSpendLast: {
+      baseName: "ccm_oci_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmOpenaiSpendLast: {
+      baseName: "ccm_openai_spend_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmSnowflakeSpendLast: {
+      baseName: "ccm_snowflake_spend_last",
+      type: "number",
+      format: "int64",
+    },
     ccmSpendMonitoredEntLast: {
       baseName: "ccm_spend_monitored_ent_last",
       type: "number",
@@ -997,6 +1118,11 @@ export class UsageSummaryDate {
     },
     ccmSpendMonitoredProLast: {
       baseName: "ccm_spend_monitored_pro_last",
+      type: "number",
+      format: "int64",
+    },
+    ccmTwilioSpendLast: {
+      baseName: "ccm_twilio_spend_last",
       type: "number",
       format: "int64",
     },
