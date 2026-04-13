@@ -21,7 +21,7 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "customQueryExtension"?: string;
   /**
-   * Source of events, either logs, audit trail, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
+   * Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
    */
   "dataSource"?: SecurityMonitoringStandardDataSource;
   /**
