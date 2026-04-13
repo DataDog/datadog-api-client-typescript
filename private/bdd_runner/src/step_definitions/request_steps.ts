@@ -322,9 +322,8 @@ Then(
 Then(
   "the response {string} does not have field {string}",
   function (this: World, responsePath: string, field: string) {
-    expect(
-      pathLookup(this.response, responsePath)[field.toAttributeName()],
-    ).to.be.undefined;
+    expect(pathLookup(this.response, responsePath)[field.toAttributeName()]).to
+      .be.undefined;
   },
 );
 

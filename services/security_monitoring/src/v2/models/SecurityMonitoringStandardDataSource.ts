@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
+ * Source of events, either logs, audit trail, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
  */
 export type SecurityMonitoringStandardDataSource =
   | typeof LOGS
@@ -11,7 +11,6 @@ export type SecurityMonitoringStandardDataSource =
   | typeof SECURITY_RUNTIME
   | typeof NETWORK
   | typeof EVENTS
-  | typeof SECURITY_SIGNALS
   | UnparsedObject;
 export const LOGS = "logs";
 export const AUDIT = "audit";
@@ -20,4 +19,3 @@ export const SPANS = "spans";
 export const SECURITY_RUNTIME = "security_runtime";
 export const NETWORK = "network";
 export const EVENTS = "events";
-export const SECURITY_SIGNALS = "security_signals";
