@@ -579,6 +579,7 @@ export const TypingInfo: ModelTypingInfo = {
       "security_runtime",
       "network",
       "events",
+      "security_signals",
     ],
     SecurityMonitoringSuppressionSort: [
       "name",
