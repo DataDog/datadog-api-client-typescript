@@ -13,9 +13,12 @@ import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
+import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
+import { ListPersonalAccessTokensResponse } from "./ListPersonalAccessTokensResponse";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
@@ -23,6 +26,16 @@ import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttribut
 import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
+import { PersonalAccessToken } from "./PersonalAccessToken";
+import { PersonalAccessTokenAttributes } from "./PersonalAccessTokenAttributes";
+import { PersonalAccessTokenCreateResponse } from "./PersonalAccessTokenCreateResponse";
+import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelationships";
+import { PersonalAccessTokenResponse } from "./PersonalAccessTokenResponse";
+import { PersonalAccessTokenResponseMeta } from "./PersonalAccessTokenResponseMeta";
+import { PersonalAccessTokenResponseMetaPage } from "./PersonalAccessTokenResponseMetaPage";
+import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
+import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
+import { PersonalAccessTokenUpdateRequest } from "./PersonalAccessTokenUpdateRequest";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -36,6 +49,9 @@ import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
+import { ServiceAccountAccessTokenCreateAttributes } from "./ServiceAccountAccessTokenCreateAttributes";
+import { ServiceAccountAccessTokenCreateData } from "./ServiceAccountAccessTokenCreateData";
+import { ServiceAccountAccessTokenCreateRequest } from "./ServiceAccountAccessTokenCreateRequest";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
@@ -59,6 +75,15 @@ export const TypingInfo: ModelTypingInfo = {
     LeakedKeyType: ["leaked_keys"],
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
+    PersonalAccessTokensSort: [
+      "name",
+      "-name",
+      "created_at",
+      "-created_at",
+      "expires_at",
+      "-expires_at",
+    ],
+    PersonalAccessTokensType: ["personal_access_tokens"],
     RolesType: ["roles"],
     UsersType: ["users"],
   },
@@ -80,9 +105,12 @@ export const TypingInfo: ModelTypingInfo = {
     ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
     FullApplicationKey: FullApplicationKey,
     FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+    FullPersonalAccessToken: FullPersonalAccessToken,
+    FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
     LeakedKey: LeakedKey,
     LeakedKeyAttributes: LeakedKeyAttributes,
     ListApplicationKeysResponse: ListApplicationKeysResponse,
+    ListPersonalAccessTokensResponse: ListPersonalAccessTokensResponse,
     Organization: Organization,
     OrganizationAttributes: OrganizationAttributes,
     PartialApplicationKey: PartialApplicationKey,
@@ -90,6 +118,16 @@ export const TypingInfo: ModelTypingInfo = {
     PartialApplicationKeyResponse: PartialApplicationKeyResponse,
     Permission: Permission,
     PermissionAttributes: PermissionAttributes,
+    PersonalAccessToken: PersonalAccessToken,
+    PersonalAccessTokenAttributes: PersonalAccessTokenAttributes,
+    PersonalAccessTokenCreateResponse: PersonalAccessTokenCreateResponse,
+    PersonalAccessTokenRelationships: PersonalAccessTokenRelationships,
+    PersonalAccessTokenResponse: PersonalAccessTokenResponse,
+    PersonalAccessTokenResponseMeta: PersonalAccessTokenResponseMeta,
+    PersonalAccessTokenResponseMetaPage: PersonalAccessTokenResponseMetaPage,
+    PersonalAccessTokenUpdateAttributes: PersonalAccessTokenUpdateAttributes,
+    PersonalAccessTokenUpdateData: PersonalAccessTokenUpdateData,
+    PersonalAccessTokenUpdateRequest: PersonalAccessTokenUpdateRequest,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
@@ -103,6 +141,11 @@ export const TypingInfo: ModelTypingInfo = {
     Role: Role,
     RoleAttributes: RoleAttributes,
     RoleResponseRelationships: RoleResponseRelationships,
+    ServiceAccountAccessTokenCreateAttributes:
+      ServiceAccountAccessTokenCreateAttributes,
+    ServiceAccountAccessTokenCreateData: ServiceAccountAccessTokenCreateData,
+    ServiceAccountAccessTokenCreateRequest:
+      ServiceAccountAccessTokenCreateRequest,
     ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
     ServiceAccountCreateData: ServiceAccountCreateData,
     ServiceAccountCreateRequest: ServiceAccountCreateRequest,

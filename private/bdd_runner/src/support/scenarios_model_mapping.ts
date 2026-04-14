@@ -2978,6 +2978,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ApplicationKeyResponse",
   },
+  "KeyManagementApi.V2.ListPersonalAccessTokens": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "PersonalAccessTokensSort",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    filterOwnerUuid: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "ListPersonalAccessTokensResponse",
+  },
+  "KeyManagementApi.V2.CreatePersonalAccessToken": {
+    body: {
+      type: "PersonalAccessTokenCreateRequest",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenCreateResponse",
+  },
+  "KeyManagementApi.V2.GetPersonalAccessToken": {
+    patUuid: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenResponse",
+  },
+  "KeyManagementApi.V2.RevokePersonalAccessToken": {
+    patUuid: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "KeyManagementApi.V2.UpdatePersonalAccessToken": {
+    patUuid: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PersonalAccessTokenUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenResponse",
+  },
   "APIManagementApi.V2.ListAPIs": {
     query: {
       type: "string",
@@ -10970,6 +11025,77 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "UserResponse",
+  },
+  "ServiceAccountsApi.V2.ListServiceAccountAccessTokens": {
+    serviceAccountId: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "PersonalAccessTokensSort",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListPersonalAccessTokensResponse",
+  },
+  "ServiceAccountsApi.V2.CreateServiceAccountAccessToken": {
+    serviceAccountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ServiceAccountAccessTokenCreateRequest",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenCreateResponse",
+  },
+  "ServiceAccountsApi.V2.GetServiceAccountAccessToken": {
+    serviceAccountId: {
+      type: "string",
+      format: "",
+    },
+    patUuid: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenResponse",
+  },
+  "ServiceAccountsApi.V2.RevokeServiceAccountAccessToken": {
+    serviceAccountId: {
+      type: "string",
+      format: "",
+    },
+    patUuid: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ServiceAccountsApi.V2.UpdateServiceAccountAccessToken": {
+    serviceAccountId: {
+      type: "string",
+      format: "",
+    },
+    patUuid: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PersonalAccessTokenUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "PersonalAccessTokenResponse",
   },
   "ServiceAccountsApi.V2.ListServiceAccountApplicationKeys": {
     serviceAccountId: {

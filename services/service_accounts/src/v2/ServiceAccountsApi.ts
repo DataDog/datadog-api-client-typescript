@@ -28,7 +28,13 @@ import { ApplicationKeyResponse } from "./models/ApplicationKeyResponse";
 import { ApplicationKeysSort } from "./models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+import { ListPersonalAccessTokensResponse } from "./models/ListPersonalAccessTokensResponse";
 import { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
+import { PersonalAccessTokenCreateResponse } from "./models/PersonalAccessTokenCreateResponse";
+import { PersonalAccessTokenResponse } from "./models/PersonalAccessTokenResponse";
+import { PersonalAccessTokensSort } from "./models/PersonalAccessTokensSort";
+import { PersonalAccessTokenUpdateRequest } from "./models/PersonalAccessTokenUpdateRequest";
+import { ServiceAccountAccessTokenCreateRequest } from "./models/ServiceAccountAccessTokenCreateRequest";
 import { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
 import { UserResponse } from "./models/UserResponse";
 import { version } from "../version";
@@ -79,6 +85,69 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceAccountCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createServiceAccountAccessToken(
+    serviceAccountId: string,
+    body: ServiceAccountAccessTokenCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'serviceAccountId' is not null or undefined
+    if (serviceAccountId === null || serviceAccountId === undefined) {
+      throw new RequiredError(
+        "serviceAccountId",
+        "createServiceAccountAccessToken",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createServiceAccountAccessToken");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/access_tokens".replace(
+        "{service_account_id}",
+        encodeURIComponent(String(serviceAccountId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.createServiceAccountAccessToken",
+      ServiceAccountsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ServiceAccountAccessTokenCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -211,6 +280,62 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getServiceAccountAccessToken(
+    serviceAccountId: string,
+    patUuid: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'serviceAccountId' is not null or undefined
+    if (serviceAccountId === null || serviceAccountId === undefined) {
+      throw new RequiredError(
+        "serviceAccountId",
+        "getServiceAccountAccessToken",
+      );
+    }
+
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "getServiceAccountAccessToken");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+        .replace(
+          "{service_account_id}",
+          encodeURIComponent(String(serviceAccountId)),
+        )
+        .replace("{pat_uuid}", encodeURIComponent(String(patUuid)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.getServiceAccountAccessToken",
+      ServiceAccountsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,
@@ -256,6 +381,88 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listServiceAccountAccessTokens(
+    serviceAccountId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: PersonalAccessTokensSort,
+    filter?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'serviceAccountId' is not null or undefined
+    if (serviceAccountId === null || serviceAccountId === undefined) {
+      throw new RequiredError(
+        "serviceAccountId",
+        "listServiceAccountAccessTokens",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/access_tokens".replace(
+        "{service_account_id}",
+        encodeURIComponent(String(serviceAccountId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.listServiceAccountAccessTokens",
+      ServiceAccountsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "PersonalAccessTokensSort", ""),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -355,6 +562,133 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         "",
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async revokeServiceAccountAccessToken(
+    serviceAccountId: string,
+    patUuid: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'serviceAccountId' is not null or undefined
+    if (serviceAccountId === null || serviceAccountId === undefined) {
+      throw new RequiredError(
+        "serviceAccountId",
+        "revokeServiceAccountAccessToken",
+      );
+    }
+
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "revokeServiceAccountAccessToken");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+        .replace(
+          "{service_account_id}",
+          encodeURIComponent(String(serviceAccountId)),
+        )
+        .replace("{pat_uuid}", encodeURIComponent(String(patUuid)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.revokeServiceAccountAccessToken",
+      ServiceAccountsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateServiceAccountAccessToken(
+    serviceAccountId: string,
+    patUuid: string,
+    body: PersonalAccessTokenUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'serviceAccountId' is not null or undefined
+    if (serviceAccountId === null || serviceAccountId === undefined) {
+      throw new RequiredError(
+        "serviceAccountId",
+        "updateServiceAccountAccessToken",
+      );
+    }
+
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "updateServiceAccountAccessToken");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateServiceAccountAccessToken");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+        .replace(
+          "{service_account_id}",
+          encodeURIComponent(String(serviceAccountId)),
+        )
+        .replace("{pat_uuid}", encodeURIComponent(String(patUuid)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.updateServiceAccountAccessToken",
+      ServiceAccountsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PersonalAccessTokenUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -502,6 +836,67 @@ export class ServiceAccountsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createServiceAccountAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createServiceAccountAccessToken(
+    response: ResponseContext,
+  ): Promise<PersonalAccessTokenCreateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: PersonalAccessTokenCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenCreateResponse",
+      ) as PersonalAccessTokenCreateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PersonalAccessTokenCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenCreateResponse",
+        "",
+      ) as PersonalAccessTokenCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createServiceAccountApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -611,6 +1006,66 @@ export class ServiceAccountsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getServiceAccountAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getServiceAccountAccessToken(
+    response: ResponseContext,
+  ): Promise<PersonalAccessTokenResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+      ) as PersonalAccessTokenResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+        "",
+      ) as PersonalAccessTokenResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getServiceAccountApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -657,6 +1112,67 @@ export class ServiceAccountsApiResponseProcessor {
         "PartialApplicationKeyResponse",
         "",
       ) as PartialApplicationKeyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listServiceAccountAccessTokens
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listServiceAccountAccessTokens(
+    response: ResponseContext,
+  ): Promise<ListPersonalAccessTokensResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ListPersonalAccessTokensResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPersonalAccessTokensResponse",
+      ) as ListPersonalAccessTokensResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListPersonalAccessTokensResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPersonalAccessTokensResponse",
+        "",
+      ) as ListPersonalAccessTokensResponse;
       return body;
     }
 
@@ -718,6 +1234,116 @@ export class ServiceAccountsApiResponseProcessor {
         "ListApplicationKeysResponse",
         "",
       ) as ListApplicationKeysResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to revokeServiceAccountAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async revokeServiceAccountAccessToken(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateServiceAccountAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateServiceAccountAccessToken(
+    response: ResponseContext,
+  ): Promise<PersonalAccessTokenResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+      ) as PersonalAccessTokenResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+        "",
+      ) as PersonalAccessTokenResponse;
       return body;
     }
 
@@ -797,6 +1423,18 @@ export interface ServiceAccountsApiCreateServiceAccountRequest {
   body: ServiceAccountCreateRequest;
 }
 
+export interface ServiceAccountsApiCreateServiceAccountAccessTokenRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * @type ServiceAccountAccessTokenCreateRequest
+   */
+  body: ServiceAccountAccessTokenCreateRequest;
+}
+
 export interface ServiceAccountsApiCreateServiceAccountApplicationKeyRequest {
   /**
    * The ID of the service account.
@@ -822,6 +1460,19 @@ export interface ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest {
   appKeyId: string;
 }
 
+export interface ServiceAccountsApiGetServiceAccountAccessTokenRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * The UUID of the personal access token.
+   * @type string
+   */
+  patUuid: string;
+}
+
 export interface ServiceAccountsApiGetServiceAccountApplicationKeyRequest {
   /**
    * The ID of the service account.
@@ -833,6 +1484,36 @@ export interface ServiceAccountsApiGetServiceAccountApplicationKeyRequest {
    * @type string
    */
   appKeyId: string;
+}
+
+export interface ServiceAccountsApiListServiceAccountAccessTokensRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Personal access token attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
+   * @type PersonalAccessTokensSort
+   */
+  sort?: PersonalAccessTokensSort;
+  /**
+   * Filter personal access tokens by the specified string.
+   * @type string
+   */
+  filter?: string;
 }
 
 export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
@@ -873,6 +1554,36 @@ export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
    * @type string
    */
   filterCreatedAtEnd?: string;
+}
+
+export interface ServiceAccountsApiRevokeServiceAccountAccessTokenRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * The UUID of the personal access token.
+   * @type string
+   */
+  patUuid: string;
+}
+
+export interface ServiceAccountsApiUpdateServiceAccountAccessTokenRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * The UUID of the personal access token.
+   * @type string
+   */
+  patUuid: string;
+  /**
+   * @type PersonalAccessTokenUpdateRequest
+   */
+  body: PersonalAccessTokenUpdateRequest;
 }
 
 export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
@@ -934,6 +1645,31 @@ export class ServiceAccountsApi {
   }
 
   /**
+   * Create an access token for a service account.
+   * @param param The request object
+   */
+  public createServiceAccountAccessToken(
+    param: ServiceAccountsApiCreateServiceAccountAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<PersonalAccessTokenCreateResponse> {
+    const requestContextPromise =
+      this.requestFactory.createServiceAccountAccessToken(
+        param.serviceAccountId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createServiceAccountAccessToken(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create an application key for this service account.
    * @param param The request object
    */
@@ -984,6 +1720,31 @@ export class ServiceAccountsApi {
   }
 
   /**
+   * Get a specific access token for a service account by its UUID.
+   * @param param The request object
+   */
+  public getServiceAccountAccessToken(
+    param: ServiceAccountsApiGetServiceAccountAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<PersonalAccessTokenResponse> {
+    const requestContextPromise =
+      this.requestFactory.getServiceAccountAccessToken(
+        param.serviceAccountId,
+        param.patUuid,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getServiceAccountAccessToken(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get an application key owned by this service account.
    * @param param The request object
    */
@@ -1002,6 +1763,34 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getServiceAccountApplicationKey(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List all access tokens for a specific service account.
+   * @param param The request object
+   */
+  public listServiceAccountAccessTokens(
+    param: ServiceAccountsApiListServiceAccountAccessTokensRequest,
+    options?: Configuration,
+  ): Promise<ListPersonalAccessTokensResponse> {
+    const requestContextPromise =
+      this.requestFactory.listServiceAccountAccessTokens(
+        param.serviceAccountId,
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filter,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listServiceAccountAccessTokens(
             responseContext,
           );
         });
@@ -1032,6 +1821,57 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listServiceAccountApplicationKeys(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Revoke a specific access token for a service account.
+   * @param param The request object
+   */
+  public revokeServiceAccountAccessToken(
+    param: ServiceAccountsApiRevokeServiceAccountAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.revokeServiceAccountAccessToken(
+        param.serviceAccountId,
+        param.patUuid,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.revokeServiceAccountAccessToken(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a specific access token for a service account.
+   * @param param The request object
+   */
+  public updateServiceAccountAccessToken(
+    param: ServiceAccountsApiUpdateServiceAccountAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<PersonalAccessTokenResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateServiceAccountAccessToken(
+        param.serviceAccountId,
+        param.patUuid,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateServiceAccountAccessToken(
             responseContext,
           );
         });

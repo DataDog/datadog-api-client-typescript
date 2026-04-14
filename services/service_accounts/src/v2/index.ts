@@ -1,9 +1,14 @@
 export {
   ServiceAccountsApiCreateServiceAccountRequest,
+  ServiceAccountsApiCreateServiceAccountAccessTokenRequest,
   ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
   ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest,
+  ServiceAccountsApiGetServiceAccountAccessTokenRequest,
   ServiceAccountsApiGetServiceAccountApplicationKeyRequest,
+  ServiceAccountsApiListServiceAccountAccessTokensRequest,
   ServiceAccountsApiListServiceAccountApplicationKeysRequest,
+  ServiceAccountsApiRevokeServiceAccountAccessTokenRequest,
+  ServiceAccountsApiUpdateServiceAccountAccessTokenRequest,
   ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest,
   ServiceAccountsApi,
 } from "./ServiceAccountsApi";
@@ -24,10 +29,13 @@ export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { FullPersonalAccessToken } from "./models/FullPersonalAccessToken";
+export { FullPersonalAccessTokenAttributes } from "./models/FullPersonalAccessTokenAttributes";
 export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+export { ListPersonalAccessTokensResponse } from "./models/ListPersonalAccessTokensResponse";
 export { Organization } from "./models/Organization";
 export { OrganizationAttributes } from "./models/OrganizationAttributes";
 export { OrganizationsType } from "./models/OrganizationsType";
@@ -37,6 +45,18 @@ export { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyRes
 export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsType } from "./models/PermissionsType";
+export { PersonalAccessToken } from "./models/PersonalAccessToken";
+export { PersonalAccessTokenAttributes } from "./models/PersonalAccessTokenAttributes";
+export { PersonalAccessTokenCreateResponse } from "./models/PersonalAccessTokenCreateResponse";
+export { PersonalAccessTokenRelationships } from "./models/PersonalAccessTokenRelationships";
+export { PersonalAccessTokenResponse } from "./models/PersonalAccessTokenResponse";
+export { PersonalAccessTokenResponseMeta } from "./models/PersonalAccessTokenResponseMeta";
+export { PersonalAccessTokenResponseMetaPage } from "./models/PersonalAccessTokenResponseMetaPage";
+export { PersonalAccessTokensSort } from "./models/PersonalAccessTokensSort";
+export { PersonalAccessTokensType } from "./models/PersonalAccessTokensType";
+export { PersonalAccessTokenUpdateAttributes } from "./models/PersonalAccessTokenUpdateAttributes";
+export { PersonalAccessTokenUpdateData } from "./models/PersonalAccessTokenUpdateData";
+export { PersonalAccessTokenUpdateRequest } from "./models/PersonalAccessTokenUpdateRequest";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
 export { RelationshipToOrganizations } from "./models/RelationshipToOrganizations";
@@ -51,6 +71,9 @@ export { Role } from "./models/Role";
 export { RoleAttributes } from "./models/RoleAttributes";
 export { RoleResponseRelationships } from "./models/RoleResponseRelationships";
 export { RolesType } from "./models/RolesType";
+export { ServiceAccountAccessTokenCreateAttributes } from "./models/ServiceAccountAccessTokenCreateAttributes";
+export { ServiceAccountAccessTokenCreateData } from "./models/ServiceAccountAccessTokenCreateData";
+export { ServiceAccountAccessTokenCreateRequest } from "./models/ServiceAccountAccessTokenCreateRequest";
 export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAttributes";
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";

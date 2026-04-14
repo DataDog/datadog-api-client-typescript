@@ -33,6 +33,12 @@ import { ApplicationKeyResponse } from "./models/ApplicationKeyResponse";
 import { ApplicationKeysSort } from "./models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+import { ListPersonalAccessTokensResponse } from "./models/ListPersonalAccessTokensResponse";
+import { PersonalAccessTokenCreateRequest } from "./models/PersonalAccessTokenCreateRequest";
+import { PersonalAccessTokenCreateResponse } from "./models/PersonalAccessTokenCreateResponse";
+import { PersonalAccessTokenResponse } from "./models/PersonalAccessTokenResponse";
+import { PersonalAccessTokensSort } from "./models/PersonalAccessTokensSort";
+import { PersonalAccessTokenUpdateRequest } from "./models/PersonalAccessTokenUpdateRequest";
 import { version } from "../version";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -131,6 +137,56 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKeyCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createPersonalAccessToken(
+    body: PersonalAccessTokenCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPersonalAccessToken");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/personal_access_tokens";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v2.createPersonalAccessToken",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PersonalAccessTokenCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -406,6 +462,50 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.getCurrentUserApplicationKey",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getPersonalAccessToken(
+    patUuid: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "getPersonalAccessToken");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/personal_access_tokens/{pat_uuid}".replace(
+      "{pat_uuid}",
+      encodeURIComponent(String(patUuid)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v2.getPersonalAccessToken",
       KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -741,6 +841,127 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listPersonalAccessTokens(
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: PersonalAccessTokensSort,
+    filter?: string,
+    filterOwnerUuid?: Array<string>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/personal_access_tokens";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v2.listPersonalAccessTokens",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "PersonalAccessTokensSort", ""),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterOwnerUuid !== undefined) {
+      requestContext.setQueryParam(
+        "filter[owner_uuid]",
+        serialize(filterOwnerUuid, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async revokePersonalAccessToken(
+    patUuid: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "revokePersonalAccessToken");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/personal_access_tokens/{pat_uuid}".replace(
+      "{pat_uuid}",
+      encodeURIComponent(String(patUuid)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v2.revokePersonalAccessToken",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateAPIKey(
     apiKeyId: string,
     body: APIKeyUpdateRequest,
@@ -918,6 +1139,65 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updatePersonalAccessToken(
+    patUuid: string,
+    body: PersonalAccessTokenUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "updatePersonalAccessToken");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updatePersonalAccessToken");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/personal_access_tokens/{pat_uuid}".replace(
+      "{pat_uuid}",
+      encodeURIComponent(String(patUuid)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "KeyManagementApi.v2.updatePersonalAccessToken",
+      KeyManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PersonalAccessTokenUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class KeyManagementApiResponseProcessor {
@@ -1031,6 +1311,66 @@ export class KeyManagementApiResponseProcessor {
         "ApplicationKeyResponse",
         "",
       ) as ApplicationKeyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createPersonalAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPersonalAccessToken(
+    response: ResponseContext,
+  ): Promise<PersonalAccessTokenCreateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: PersonalAccessTokenCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenCreateResponse",
+      ) as PersonalAccessTokenCreateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PersonalAccessTokenCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenCreateResponse",
+        "",
+      ) as PersonalAccessTokenCreateResponse;
       return body;
     }
 
@@ -1367,6 +1707,66 @@ export class KeyManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getPersonalAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getPersonalAccessToken(
+    response: ResponseContext,
+  ): Promise<PersonalAccessTokenResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+      ) as PersonalAccessTokenResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+        "",
+      ) as PersonalAccessTokenResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAPIKeys
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1536,6 +1936,115 @@ export class KeyManagementApiResponseProcessor {
         "",
       ) as ListApplicationKeysResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listPersonalAccessTokens
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listPersonalAccessTokens(
+    response: ResponseContext,
+  ): Promise<ListPersonalAccessTokensResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ListPersonalAccessTokensResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPersonalAccessTokensResponse",
+      ) as ListPersonalAccessTokensResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListPersonalAccessTokensResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPersonalAccessTokensResponse",
+        "",
+      ) as ListPersonalAccessTokensResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to revokePersonalAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async revokePersonalAccessToken(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -1727,6 +2236,67 @@ export class KeyManagementApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updatePersonalAccessToken
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updatePersonalAccessToken(
+    response: ResponseContext,
+  ): Promise<PersonalAccessTokenResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+      ) as PersonalAccessTokenResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PersonalAccessTokenResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "PersonalAccessTokenResponse",
+        "",
+      ) as PersonalAccessTokenResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface KeyManagementApiCreateAPIKeyRequest {
@@ -1741,6 +2311,13 @@ export interface KeyManagementApiCreateCurrentUserApplicationKeyRequest {
    * @type ApplicationKeyCreateRequest
    */
   body: ApplicationKeyCreateRequest;
+}
+
+export interface KeyManagementApiCreatePersonalAccessTokenRequest {
+  /**
+   * @type PersonalAccessTokenCreateRequest
+   */
+  body: PersonalAccessTokenCreateRequest;
 }
 
 export interface KeyManagementApiDeleteAPIKeyRequest {
@@ -1799,6 +2376,14 @@ export interface KeyManagementApiGetCurrentUserApplicationKeyRequest {
    * @type string
    */
   appKeyId: string;
+}
+
+export interface KeyManagementApiGetPersonalAccessTokenRequest {
+  /**
+   * The UUID of the personal access token.
+   * @type string
+   */
+  patUuid: string;
 }
 
 export interface KeyManagementApiListAPIKeysRequest {
@@ -1941,6 +2526,44 @@ export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
   include?: string;
 }
 
+export interface KeyManagementApiListPersonalAccessTokensRequest {
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Personal access token attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
+   * @type PersonalAccessTokensSort
+   */
+  sort?: PersonalAccessTokensSort;
+  /**
+   * Filter personal access tokens by the specified string.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Filter personal access tokens by the owner's UUID. Supports multiple values.
+   * @type Array<string>
+   */
+  filterOwnerUuid?: Array<string>;
+}
+
+export interface KeyManagementApiRevokePersonalAccessTokenRequest {
+  /**
+   * The UUID of the personal access token.
+   * @type string
+   */
+  patUuid: string;
+}
+
 export interface KeyManagementApiUpdateAPIKeyRequest {
   /**
    * The ID of the API key.
@@ -1975,6 +2598,18 @@ export interface KeyManagementApiUpdateCurrentUserApplicationKeyRequest {
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;
+}
+
+export interface KeyManagementApiUpdatePersonalAccessTokenRequest {
+  /**
+   * The UUID of the personal access token.
+   * @type string
+   */
+  patUuid: string;
+  /**
+   * @type PersonalAccessTokenUpdateRequest
+   */
+  body: PersonalAccessTokenUpdateRequest;
 }
 
 export class KeyManagementApi {
@@ -2032,6 +2667,29 @@ export class KeyManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createCurrentUserApplicationKey(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a personal access token for the current user.
+   * @param param The request object
+   */
+  public createPersonalAccessToken(
+    param: KeyManagementApiCreatePersonalAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<PersonalAccessTokenCreateResponse> {
+    const requestContextPromise = this.requestFactory.createPersonalAccessToken(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPersonalAccessToken(
             responseContext,
           );
         });
@@ -2171,6 +2829,27 @@ export class KeyManagementApi {
   }
 
   /**
+   * Get a specific personal access token by its UUID.
+   * @param param The request object
+   */
+  public getPersonalAccessToken(
+    param: KeyManagementApiGetPersonalAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<PersonalAccessTokenResponse> {
+    const requestContextPromise = this.requestFactory.getPersonalAccessToken(
+      param.patUuid,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getPersonalAccessToken(responseContext);
+        });
+    });
+  }
+
+  /**
    * List all API keys available for your account.
    * @param param The request object
    */
@@ -2259,6 +2938,56 @@ export class KeyManagementApi {
   }
 
   /**
+   * List all personal access tokens for the organization.
+   * @param param The request object
+   */
+  public listPersonalAccessTokens(
+    param: KeyManagementApiListPersonalAccessTokensRequest = {},
+    options?: Configuration,
+  ): Promise<ListPersonalAccessTokensResponse> {
+    const requestContextPromise = this.requestFactory.listPersonalAccessTokens(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      param.filterOwnerUuid,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listPersonalAccessTokens(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Revoke a specific personal access token.
+   * @param param The request object
+   */
+  public revokePersonalAccessToken(
+    param: KeyManagementApiRevokePersonalAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.revokePersonalAccessToken(
+      param.patUuid,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.revokePersonalAccessToken(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Update an API key.
    * @param param The request object
    */
@@ -2322,6 +3051,30 @@ export class KeyManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateCurrentUserApplicationKey(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a specific personal access token.
+   * @param param The request object
+   */
+  public updatePersonalAccessToken(
+    param: KeyManagementApiUpdatePersonalAccessTokenRequest,
+    options?: Configuration,
+  ): Promise<PersonalAccessTokenResponse> {
+    const requestContextPromise = this.requestFactory.updatePersonalAccessToken(
+      param.patUuid,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updatePersonalAccessToken(
             responseContext,
           );
         });
