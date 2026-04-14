@@ -952,6 +952,7 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
   public async listStatusPages(
     pageOffset?: number,
     pageLimit?: number,
+    filterDomainPrefix?: string,
     include?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -990,6 +991,13 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[limit]",
         serialize(pageLimit, TypingInfo, "number", ""),
+        "",
+      );
+    }
+    if (filterDomainPrefix !== undefined) {
+      requestContext.setQueryParam(
+        "filter[domain_prefix]",
+        serialize(filterDomainPrefix, TypingInfo, "string", ""),
         "",
       );
     }
@@ -2796,6 +2804,11 @@ export interface StatusPagesApiListStatusPagesRequest {
    */
   pageLimit?: number;
   /**
+   * Filter status pages by exact domain prefix match. Returns at most one result.
+   * @type string
+   */
+  filterDomainPrefix?: string;
+  /**
    * Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user.
    * @type string
    */
@@ -3269,6 +3282,7 @@ export class StatusPagesApi {
     const requestContextPromise = this.requestFactory.listStatusPages(
       param.pageOffset,
       param.pageLimit,
+      param.filterDomainPrefix,
       param.include,
       options,
     );
