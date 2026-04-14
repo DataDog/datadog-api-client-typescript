@@ -26,15 +26,31 @@ import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
+import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
+import { ListPersonalAccessTokensResponse } from "./ListPersonalAccessTokensResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
+import { PersonalAccessToken } from "./PersonalAccessToken";
+import { PersonalAccessTokenAttributes } from "./PersonalAccessTokenAttributes";
+import { PersonalAccessTokenCreateAttributes } from "./PersonalAccessTokenCreateAttributes";
+import { PersonalAccessTokenCreateData } from "./PersonalAccessTokenCreateData";
+import { PersonalAccessTokenCreateRequest } from "./PersonalAccessTokenCreateRequest";
+import { PersonalAccessTokenCreateResponse } from "./PersonalAccessTokenCreateResponse";
+import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelationships";
+import { PersonalAccessTokenResponse } from "./PersonalAccessTokenResponse";
+import { PersonalAccessTokenResponseMeta } from "./PersonalAccessTokenResponseMeta";
+import { PersonalAccessTokenResponseMetaPage } from "./PersonalAccessTokenResponseMetaPage";
+import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
+import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
+import { PersonalAccessTokenUpdateRequest } from "./PersonalAccessTokenUpdateRequest";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -77,6 +93,15 @@ export const TypingInfo: ModelTypingInfo = {
     LeakedKeyType: ["leaked_keys"],
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
+    PersonalAccessTokensSort: [
+      "name",
+      "-name",
+      "created_at",
+      "-created_at",
+      "expires_at",
+      "-expires_at",
+    ],
+    PersonalAccessTokensType: ["personal_access_tokens"],
     RolesType: ["roles"],
     UsersType: ["users"],
   },
@@ -111,15 +136,31 @@ export const TypingInfo: ModelTypingInfo = {
     FullAPIKeyAttributes: FullAPIKeyAttributes,
     FullApplicationKey: FullApplicationKey,
     FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+    FullPersonalAccessToken: FullPersonalAccessToken,
+    FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
     LeakedKey: LeakedKey,
     LeakedKeyAttributes: LeakedKeyAttributes,
     ListApplicationKeysResponse: ListApplicationKeysResponse,
+    ListPersonalAccessTokensResponse: ListPersonalAccessTokensResponse,
     NullableRelationshipToUser: NullableRelationshipToUser,
     NullableRelationshipToUserData: NullableRelationshipToUserData,
     PartialAPIKey: PartialAPIKey,
     PartialAPIKeyAttributes: PartialAPIKeyAttributes,
     PartialApplicationKey: PartialApplicationKey,
     PartialApplicationKeyAttributes: PartialApplicationKeyAttributes,
+    PersonalAccessToken: PersonalAccessToken,
+    PersonalAccessTokenAttributes: PersonalAccessTokenAttributes,
+    PersonalAccessTokenCreateAttributes: PersonalAccessTokenCreateAttributes,
+    PersonalAccessTokenCreateData: PersonalAccessTokenCreateData,
+    PersonalAccessTokenCreateRequest: PersonalAccessTokenCreateRequest,
+    PersonalAccessTokenCreateResponse: PersonalAccessTokenCreateResponse,
+    PersonalAccessTokenRelationships: PersonalAccessTokenRelationships,
+    PersonalAccessTokenResponse: PersonalAccessTokenResponse,
+    PersonalAccessTokenResponseMeta: PersonalAccessTokenResponseMeta,
+    PersonalAccessTokenResponseMetaPage: PersonalAccessTokenResponseMetaPage,
+    PersonalAccessTokenUpdateAttributes: PersonalAccessTokenUpdateAttributes,
+    PersonalAccessTokenUpdateData: PersonalAccessTokenUpdateData,
+    PersonalAccessTokenUpdateRequest: PersonalAccessTokenUpdateRequest,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
