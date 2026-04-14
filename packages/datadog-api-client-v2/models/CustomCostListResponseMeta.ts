@@ -11,6 +11,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CustomCostListResponseMeta {
   /**
+   * Number of Custom Costs files per status.
+   */
+  "countByStatus"?: { [key: string]: number };
+  /**
+   * List of available providers.
+   */
+  "providers"?: Array<string>;
+  /**
    * Number of Custom Costs files returned by the List Custom Costs endpoint
    */
   "totalFilteredCount"?: number;
@@ -35,6 +43,14 @@ export class CustomCostListResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    countByStatus: {
+      baseName: "count_by_status",
+      type: "{ [key: string]: number; }",
+    },
+    providers: {
+      baseName: "providers",
+      type: "Array<string>",
+    },
     totalFilteredCount: {
       baseName: "total_filtered_count",
       type: "number",
