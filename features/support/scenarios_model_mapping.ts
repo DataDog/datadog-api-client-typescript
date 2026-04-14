@@ -11385,6 +11385,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "",
             },
+        "filterDomainPrefix": {
+            "type": "string",
+            "format": "",
+            },
         "include": {
             "type": "string",
             "format": "",
