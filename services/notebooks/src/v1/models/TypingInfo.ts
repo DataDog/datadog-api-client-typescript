@@ -3,6 +3,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
 import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
+import { CalendarInterval } from "./CalendarInterval";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
 import { DistributionWidgetXAxis } from "./DistributionWidgetXAxis";
@@ -20,7 +21,10 @@ import { FormulaAndFunctionEventQueryGroupByFields } from "./FormulaAndFunctionE
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { FormulaAndFunctionProductAnalyticsExtendedQueryDefinition } from "./FormulaAndFunctionProductAnalyticsExtendedQueryDefinition";
+import { FormulaAndFunctionRetentionQueryDefinition } from "./FormulaAndFunctionRetentionQueryDefinition";
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
+import { FormulaAndFunctionUserJourneyQueryDefinition } from "./FormulaAndFunctionUserJourneyQueryDefinition";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
 import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
@@ -63,6 +67,21 @@ import { NumberFormatUnitCanonical } from "./NumberFormatUnitCanonical";
 import { NumberFormatUnitCustom } from "./NumberFormatUnitCustom";
 import { NumberFormatUnitScale } from "./NumberFormatUnitScale";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { ProductAnalyticsAudienceAccountSubquery } from "./ProductAnalyticsAudienceAccountSubquery";
+import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
+import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
+import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
+import { ProductAnalyticsExtendedCompute } from "./ProductAnalyticsExtendedCompute";
+import { ProductAnalyticsExtendedGroupBy } from "./ProductAnalyticsExtendedGroupBy";
+import { RetentionCohortCriteria } from "./RetentionCohortCriteria";
+import { RetentionCohortCriteriaTimeInterval } from "./RetentionCohortCriteriaTimeInterval";
+import { RetentionCompute } from "./RetentionCompute";
+import { RetentionFilters } from "./RetentionFilters";
+import { RetentionGroupBy } from "./RetentionGroupBy";
+import { RetentionGroupBySort } from "./RetentionGroupBySort";
+import { RetentionReturnCriteria } from "./RetentionReturnCriteria";
+import { RetentionReturnCriteriaTimeInterval } from "./RetentionReturnCriteriaTimeInterval";
+import { RetentionSearch } from "./RetentionSearch";
 import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
@@ -72,6 +91,13 @@ import { ToplistWidgetFlat } from "./ToplistWidgetFlat";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
 import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
 import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
+import { UserJourneyFormulaCompute } from "./UserJourneyFormulaCompute";
+import { UserJourneyFormulaGroupBy } from "./UserJourneyFormulaGroupBy";
+import { UserJourneyJoinKeys } from "./UserJourneyJoinKeys";
+import { UserJourneySearch } from "./UserJourneySearch";
+import { UserJourneySearchFilters } from "./UserJourneySearchFilters";
+import { UserJourneySearchGraphFilter } from "./UserJourneySearchGraphFilter";
+import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 import { WidgetAxis } from "./WidgetAxis";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetCustomLink } from "./WidgetCustomLink";
@@ -95,7 +121,29 @@ import { WidgetStyle } from "./WidgetStyle";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ApmStatsQueryRowType: ["service", "resource", "span"],
+    CalendarIntervalType: [
+      "day",
+      "week",
+      "month",
+      "year",
+      "quarter",
+      "minute",
+      "hour",
+    ],
     DistributionWidgetDefinitionType: ["distribution"],
+    EventsAggregationValue: [
+      "avg",
+      "cardinality",
+      "count",
+      "delta",
+      "earliest",
+      "latest",
+      "max",
+      "median",
+      "min",
+      "most_frequent",
+      "sum",
+    ],
     FormulaAndFunctionApmDependencyStatName: [
       "avg_duration",
       "avg_root_duration",
@@ -189,6 +237,12 @@ export const TypingInfo: ModelTypingInfo = {
     FormulaAndFunctionMetricDataSource: ["metrics"],
     FormulaAndFunctionMetricSemanticMode: ["combined", "native"],
     FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
+    FormulaAndFunctionProductAnalyticsExtendedDataSource: [
+      "product_analytics_extended",
+    ],
+    FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems: [
+      "*",
+    ],
     FormulaAndFunctionResponseFormat: ["timeseries", "scalar", "event_list"],
     FormulaAndFunctionSLODataSource: ["slo"],
     FormulaAndFunctionSLOGroupMode: ["overall", "components"],
@@ -221,7 +275,16 @@ export const TypingInfo: ModelTypingInfo = {
     NotebookStatus: ["published"],
     NumberFormatUnitCustomType: ["custom_unit_label"],
     NumberFormatUnitScaleType: ["canonical_unit"],
+    ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
     QuerySortOrder: ["asc", "desc"],
+    RetentionCohortCriteriaTimeIntervalType: ["calendar"],
+    RetentionComputeMetric: ["__dd.retention", "__dd.retention_rate"],
+    RetentionDataSource: ["product_analytics_retention"],
+    RetentionEntity: ["@usr.id", "@account.id"],
+    RetentionGroupByTarget: ["cohort", "return_period"],
+    RetentionReturnCondition: ["conversion_on", "conversion_on_or_after"],
+    RetentionReturnCriteriaTimeIntervalType: ["fixed"],
+    RetentionReturnCriteriaTimeIntervalUnit: ["day", "week", "month"],
     TableWidgetCellDisplayMode: ["number", "bar", "trend"],
     TimeseriesWidgetDefinitionType: ["timeseries"],
     TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
@@ -231,6 +294,11 @@ export const TypingInfo: ModelTypingInfo = {
     ToplistWidgetLegend: ["automatic", "inline", "none"],
     ToplistWidgetScaling: ["absolute", "relative"],
     ToplistWidgetStackedType: ["stacked"],
+    UserJourneyFormulaComputeMetric: [
+      "__dd.conversion",
+      "__dd.conversion_rate",
+      "__dd.time_to_convert",
+    ],
     WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
     WidgetComparator: ["=", ">", ">=", "<", "<="],
     WidgetDisplayType: ["area", "bars", "line", "overlay"],
@@ -293,6 +361,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionEventQueryDefinition",
       "FormulaAndFunctionApmResourceStatsQueryDefinition",
     ],
+    EventsAggregation: ["EventsAggregationValue", "string"],
     FormulaAndFunctionEventQueryGroupByConfig: [
       "Array<FormulaAndFunctionEventQueryGroupBy>",
       "FormulaAndFunctionEventQueryGroupByFields",
@@ -306,6 +375,9 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionApmMetricsQueryDefinition",
       "FormulaAndFunctionSLOQueryDefinition",
       "FormulaAndFunctionCloudCostQueryDefinition",
+      "FormulaAndFunctionProductAnalyticsExtendedQueryDefinition",
+      "FormulaAndFunctionUserJourneyQueryDefinition",
+      "FormulaAndFunctionRetentionQueryDefinition",
     ],
     NotebookCellCreateRequestAttributes: [
       "NotebookMarkdownCellAttributes",
@@ -350,6 +422,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     ApmStatsQueryColumnType: ApmStatsQueryColumnType,
     ApmStatsQueryDefinition: ApmStatsQueryDefinition,
+    CalendarInterval: CalendarInterval,
     DistributionWidgetDefinition: DistributionWidgetDefinition,
     DistributionWidgetRequest: DistributionWidgetRequest,
     DistributionWidgetXAxis: DistributionWidgetXAxis,
@@ -378,7 +451,13 @@ export const TypingInfo: ModelTypingInfo = {
       FormulaAndFunctionMetricQueryDefinition,
     FormulaAndFunctionProcessQueryDefinition:
       FormulaAndFunctionProcessQueryDefinition,
+    FormulaAndFunctionProductAnalyticsExtendedQueryDefinition:
+      FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,
+    FormulaAndFunctionRetentionQueryDefinition:
+      FormulaAndFunctionRetentionQueryDefinition,
     FormulaAndFunctionSLOQueryDefinition: FormulaAndFunctionSLOQueryDefinition,
+    FormulaAndFunctionUserJourneyQueryDefinition:
+      FormulaAndFunctionUserJourneyQueryDefinition,
     HeatMapWidgetDefinition: HeatMapWidgetDefinition,
     HeatMapWidgetRequest: HeatMapWidgetRequest,
     HeatMapWidgetXAxis: HeatMapWidgetXAxis,
@@ -421,6 +500,23 @@ export const TypingInfo: ModelTypingInfo = {
     NumberFormatUnitCustom: NumberFormatUnitCustom,
     NumberFormatUnitScale: NumberFormatUnitScale,
     ProcessQueryDefinition: ProcessQueryDefinition,
+    ProductAnalyticsAudienceAccountSubquery:
+      ProductAnalyticsAudienceAccountSubquery,
+    ProductAnalyticsAudienceFilters: ProductAnalyticsAudienceFilters,
+    ProductAnalyticsAudienceSegmentSubquery:
+      ProductAnalyticsAudienceSegmentSubquery,
+    ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
+    ProductAnalyticsExtendedCompute: ProductAnalyticsExtendedCompute,
+    ProductAnalyticsExtendedGroupBy: ProductAnalyticsExtendedGroupBy,
+    RetentionCohortCriteria: RetentionCohortCriteria,
+    RetentionCohortCriteriaTimeInterval: RetentionCohortCriteriaTimeInterval,
+    RetentionCompute: RetentionCompute,
+    RetentionFilters: RetentionFilters,
+    RetentionGroupBy: RetentionGroupBy,
+    RetentionGroupBySort: RetentionGroupBySort,
+    RetentionReturnCriteria: RetentionReturnCriteria,
+    RetentionReturnCriteriaTimeInterval: RetentionReturnCriteriaTimeInterval,
+    RetentionSearch: RetentionSearch,
     TimeseriesRequestStyle: TimeseriesRequestStyle,
     TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
     TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
@@ -430,6 +526,13 @@ export const TypingInfo: ModelTypingInfo = {
     ToplistWidgetRequest: ToplistWidgetRequest,
     ToplistWidgetStacked: ToplistWidgetStacked,
     ToplistWidgetStyle: ToplistWidgetStyle,
+    UserJourneyFormulaCompute: UserJourneyFormulaCompute,
+    UserJourneyFormulaGroupBy: UserJourneyFormulaGroupBy,
+    UserJourneyJoinKeys: UserJourneyJoinKeys,
+    UserJourneySearch: UserJourneySearch,
+    UserJourneySearchFilters: UserJourneySearchFilters,
+    UserJourneySearchGraphFilter: UserJourneySearchGraphFilter,
+    UserJourneySearchTarget: UserJourneySearchTarget,
     WidgetAxis: WidgetAxis,
     WidgetConditionalFormat: WidgetConditionalFormat,
     WidgetCustomLink: WidgetCustomLink,

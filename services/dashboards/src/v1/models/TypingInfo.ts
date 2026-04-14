@@ -10,9 +10,11 @@ import { BarChartWidgetFlat } from "./BarChartWidgetFlat";
 import { BarChartWidgetRequest } from "./BarChartWidgetRequest";
 import { BarChartWidgetStacked } from "./BarChartWidgetStacked";
 import { BarChartWidgetStyle } from "./BarChartWidgetStyle";
+import { CalendarInterval } from "./CalendarInterval";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
@@ -45,8 +47,13 @@ import { FormulaAndFunctionEventQueryGroupByFields } from "./FormulaAndFunctionE
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { FormulaAndFunctionProductAnalyticsExtendedQueryDefinition } from "./FormulaAndFunctionProductAnalyticsExtendedQueryDefinition";
+import { FormulaAndFunctionRetentionQueryDefinition } from "./FormulaAndFunctionRetentionQueryDefinition";
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
+import { FormulaAndFunctionUserJourneyQueryDefinition } from "./FormulaAndFunctionUserJourneyQueryDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
+import { FunnelComparisonCustomTimeframe } from "./FunnelComparisonCustomTimeframe";
+import { FunnelComparisonDuration } from "./FunnelComparisonDuration";
 import { FunnelQuery } from "./FunnelQuery";
 import { FunnelStep } from "./FunnelStep";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
@@ -92,8 +99,30 @@ import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilte
 import { ProductAnalyticsAudienceOccurrenceFilter } from "./ProductAnalyticsAudienceOccurrenceFilter";
 import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
 import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
+import { ProductAnalyticsExtendedCompute } from "./ProductAnalyticsExtendedCompute";
+import { ProductAnalyticsExtendedGroupBy } from "./ProductAnalyticsExtendedGroupBy";
+import { ProductAnalyticsFunnelCompute } from "./ProductAnalyticsFunnelCompute";
+import { ProductAnalyticsFunnelGroupBy } from "./ProductAnalyticsFunnelGroupBy";
+import { ProductAnalyticsFunnelGroupBySort } from "./ProductAnalyticsFunnelGroupBySort";
+import { ProductAnalyticsFunnelQuery } from "./ProductAnalyticsFunnelQuery";
+import { ProductAnalyticsFunnelRequest } from "./ProductAnalyticsFunnelRequest";
+import { ProductAnalyticsFunnelWidgetDefinition } from "./ProductAnalyticsFunnelWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { RetentionCohortCriteria } from "./RetentionCohortCriteria";
+import { RetentionCohortCriteriaTimeInterval } from "./RetentionCohortCriteriaTimeInterval";
+import { RetentionCompute } from "./RetentionCompute";
+import { RetentionCurveStyle } from "./RetentionCurveStyle";
+import { RetentionCurveWidgetDefinition } from "./RetentionCurveWidgetDefinition";
+import { RetentionCurveWidgetRequest } from "./RetentionCurveWidgetRequest";
+import { RetentionFilters } from "./RetentionFilters";
+import { RetentionGridRequest } from "./RetentionGridRequest";
+import { RetentionGroupBy } from "./RetentionGroupBy";
+import { RetentionGroupBySort } from "./RetentionGroupBySort";
+import { RetentionQuery } from "./RetentionQuery";
+import { RetentionReturnCriteria } from "./RetentionReturnCriteria";
+import { RetentionReturnCriteriaTimeInterval } from "./RetentionReturnCriteriaTimeInterval";
+import { RetentionSearch } from "./RetentionSearch";
 import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
 import { RunWorkflowWidgetInput } from "./RunWorkflowWidgetInput";
 import { SLOListWidgetDefinition } from "./SLOListWidgetDefinition";
@@ -157,6 +186,13 @@ import { TopologyQuery } from "./TopologyQuery";
 import { TopologyRequest } from "./TopologyRequest";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
+import { UserJourneyFormulaCompute } from "./UserJourneyFormulaCompute";
+import { UserJourneyFormulaGroupBy } from "./UserJourneyFormulaGroupBy";
+import { UserJourneyJoinKeys } from "./UserJourneyJoinKeys";
+import { UserJourneySearch } from "./UserJourneySearch";
+import { UserJourneySearchFilters } from "./UserJourneySearchFilters";
+import { UserJourneySearchGraphFilter } from "./UserJourneySearchGraphFilter";
+import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 import { ViewingPreferences } from "./ViewingPreferences";
 import { Widget } from "./Widget";
 import { WidgetAxis } from "./WidgetAxis";
@@ -192,8 +228,18 @@ export const TypingInfo: ModelTypingInfo = {
     BarChartWidgetLegend: ["automatic", "inline", "none"],
     BarChartWidgetScaling: ["absolute", "relative"],
     BarChartWidgetStackedType: ["stacked"],
+    CalendarIntervalType: [
+      "day",
+      "week",
+      "month",
+      "year",
+      "quarter",
+      "minute",
+      "hour",
+    ],
     ChangeWidgetDefinitionType: ["change"],
     CheckStatusWidgetDefinitionType: ["check_status"],
+    CohortWidgetDefinitionType: ["cohort"],
     DashboardGlobalTimeLiveSpan: [
       "15m",
       "1h",
@@ -319,6 +365,12 @@ export const TypingInfo: ModelTypingInfo = {
     FormulaAndFunctionMetricDataSource: ["metrics"],
     FormulaAndFunctionMetricSemanticMode: ["combined", "native"],
     FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
+    FormulaAndFunctionProductAnalyticsExtendedDataSource: [
+      "product_analytics_extended",
+    ],
+    FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems: [
+      "*",
+    ],
     FormulaAndFunctionResponseFormat: ["timeseries", "scalar", "event_list"],
     FormulaAndFunctionSLODataSource: ["slo"],
     FormulaAndFunctionSLOGroupMode: ["overall", "components"],
@@ -335,6 +387,14 @@ export const TypingInfo: ModelTypingInfo = {
     FormulaAndFunctionSLOQueryType: ["metric", "monitor", "time_slice"],
     FormulaType: ["formula"],
     FreeTextWidgetDefinitionType: ["free_text"],
+    FunnelComparisonDurationType: [
+      "previous_timeframe",
+      "custom_timeframe",
+      "previous_day",
+      "previous_week",
+      "previous_month",
+    ],
+    FunnelGroupedDisplay: ["stacked", "side_by_side"],
     FunnelRequestType: ["funnel"],
     FunnelSource: ["rum"],
     FunnelWidgetDefinitionType: ["funnel"],
@@ -386,8 +446,26 @@ export const TypingInfo: ModelTypingInfo = {
     NumberFormatUnitCustomType: ["custom_unit_label"],
     NumberFormatUnitScaleType: ["canonical_unit"],
     PowerpackWidgetDefinitionType: ["powerpack"],
+    ProductAnalyticsFunnelComputeAggregation: ["cardinality", "count"],
+    ProductAnalyticsFunnelComputeMetric: [
+      "__dd.conversion",
+      "__dd.conversion_rate",
+    ],
+    ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
+    ProductAnalyticsFunnelRequestType: ["user_journey_funnel"],
     QuerySortOrder: ["asc", "desc"],
     QueryValueWidgetDefinitionType: ["query_value"],
+    RetentionCohortCriteriaTimeIntervalType: ["calendar"],
+    RetentionComputeMetric: ["__dd.retention", "__dd.retention_rate"],
+    RetentionCurveRequestType: ["retention_curve"],
+    RetentionCurveWidgetDefinitionType: ["retention_curve"],
+    RetentionDataSource: ["product_analytics_retention"],
+    RetentionEntity: ["@usr.id", "@account.id"],
+    RetentionGridRequestType: ["retention_grid"],
+    RetentionGroupByTarget: ["cohort", "return_period"],
+    RetentionReturnCondition: ["conversion_on", "conversion_on_or_after"],
+    RetentionReturnCriteriaTimeIntervalType: ["fixed"],
+    RetentionReturnCriteriaTimeIntervalUnit: ["day", "week", "month"],
     RunWorkflowWidgetDefinitionType: ["run_workflow"],
     SLOListWidgetDefinitionType: ["slo_list"],
     SLOListWidgetRequestType: ["slo_list"],
@@ -451,6 +529,11 @@ export const TypingInfo: ModelTypingInfo = {
     TreeMapGroupBy: ["user", "family", "process"],
     TreeMapSizeBy: ["pct_cpu", "pct_mem"],
     TreeMapWidgetDefinitionType: ["treemap"],
+    UserJourneyFormulaComputeMetric: [
+      "__dd.conversion",
+      "__dd.conversion_rate",
+      "__dd.time_to_convert",
+    ],
     ViewingPreferencesTheme: ["system", "light", "dark"],
     WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
     WidgetChangeType: ["absolute", "relative"],
@@ -597,6 +680,9 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionApmMetricsQueryDefinition",
       "FormulaAndFunctionSLOQueryDefinition",
       "FormulaAndFunctionCloudCostQueryDefinition",
+      "FormulaAndFunctionProductAnalyticsExtendedQueryDefinition",
+      "FormulaAndFunctionUserJourneyQueryDefinition",
+      "FormulaAndFunctionRetentionQueryDefinition",
     ],
     NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
     SankeyWidgetRequest: ["SankeyRumRequest", "SankeyNetworkRequest"],
@@ -631,11 +717,13 @@ export const TypingInfo: ModelTypingInfo = {
       "BarChartWidgetDefinition",
       "ChangeWidgetDefinition",
       "CheckStatusWidgetDefinition",
+      "CohortWidgetDefinition",
       "DistributionWidgetDefinition",
       "EventStreamWidgetDefinition",
       "EventTimelineWidgetDefinition",
       "FreeTextWidgetDefinition",
       "FunnelWidgetDefinition",
+      "ProductAnalyticsFunnelWidgetDefinition",
       "GeomapWidgetDefinition",
       "GroupWidgetDefinition",
       "HeatMapWidgetDefinition",
@@ -648,6 +736,7 @@ export const TypingInfo: ModelTypingInfo = {
       "NoteWidgetDefinition",
       "PowerpackWidgetDefinition",
       "QueryValueWidgetDefinition",
+      "RetentionCurveWidgetDefinition",
       "RunWorkflowWidgetDefinition",
       "SLOListWidgetDefinition",
       "SLOWidgetDefinition",
@@ -688,9 +777,11 @@ export const TypingInfo: ModelTypingInfo = {
     BarChartWidgetRequest: BarChartWidgetRequest,
     BarChartWidgetStacked: BarChartWidgetStacked,
     BarChartWidgetStyle: BarChartWidgetStyle,
+    CalendarInterval: CalendarInterval,
     ChangeWidgetDefinition: ChangeWidgetDefinition,
     ChangeWidgetRequest: ChangeWidgetRequest,
     CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
+    CohortWidgetDefinition: CohortWidgetDefinition,
     Dashboard: Dashboard,
     DashboardBulkActionData: DashboardBulkActionData,
     DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
@@ -734,8 +825,16 @@ export const TypingInfo: ModelTypingInfo = {
       FormulaAndFunctionMetricQueryDefinition,
     FormulaAndFunctionProcessQueryDefinition:
       FormulaAndFunctionProcessQueryDefinition,
+    FormulaAndFunctionProductAnalyticsExtendedQueryDefinition:
+      FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,
+    FormulaAndFunctionRetentionQueryDefinition:
+      FormulaAndFunctionRetentionQueryDefinition,
     FormulaAndFunctionSLOQueryDefinition: FormulaAndFunctionSLOQueryDefinition,
+    FormulaAndFunctionUserJourneyQueryDefinition:
+      FormulaAndFunctionUserJourneyQueryDefinition,
     FreeTextWidgetDefinition: FreeTextWidgetDefinition,
+    FunnelComparisonCustomTimeframe: FunnelComparisonCustomTimeframe,
+    FunnelComparisonDuration: FunnelComparisonDuration,
     FunnelQuery: FunnelQuery,
     FunnelStep: FunnelStep,
     FunnelWidgetDefinition: FunnelWidgetDefinition,
@@ -784,8 +883,31 @@ export const TypingInfo: ModelTypingInfo = {
     ProductAnalyticsAudienceSegmentSubquery:
       ProductAnalyticsAudienceSegmentSubquery,
     ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
+    ProductAnalyticsExtendedCompute: ProductAnalyticsExtendedCompute,
+    ProductAnalyticsExtendedGroupBy: ProductAnalyticsExtendedGroupBy,
+    ProductAnalyticsFunnelCompute: ProductAnalyticsFunnelCompute,
+    ProductAnalyticsFunnelGroupBy: ProductAnalyticsFunnelGroupBy,
+    ProductAnalyticsFunnelGroupBySort: ProductAnalyticsFunnelGroupBySort,
+    ProductAnalyticsFunnelQuery: ProductAnalyticsFunnelQuery,
+    ProductAnalyticsFunnelRequest: ProductAnalyticsFunnelRequest,
+    ProductAnalyticsFunnelWidgetDefinition:
+      ProductAnalyticsFunnelWidgetDefinition,
     QueryValueWidgetDefinition: QueryValueWidgetDefinition,
     QueryValueWidgetRequest: QueryValueWidgetRequest,
+    RetentionCohortCriteria: RetentionCohortCriteria,
+    RetentionCohortCriteriaTimeInterval: RetentionCohortCriteriaTimeInterval,
+    RetentionCompute: RetentionCompute,
+    RetentionCurveStyle: RetentionCurveStyle,
+    RetentionCurveWidgetDefinition: RetentionCurveWidgetDefinition,
+    RetentionCurveWidgetRequest: RetentionCurveWidgetRequest,
+    RetentionFilters: RetentionFilters,
+    RetentionGridRequest: RetentionGridRequest,
+    RetentionGroupBy: RetentionGroupBy,
+    RetentionGroupBySort: RetentionGroupBySort,
+    RetentionQuery: RetentionQuery,
+    RetentionReturnCriteria: RetentionReturnCriteria,
+    RetentionReturnCriteriaTimeInterval: RetentionReturnCriteriaTimeInterval,
+    RetentionSearch: RetentionSearch,
     RunWorkflowWidgetDefinition: RunWorkflowWidgetDefinition,
     RunWorkflowWidgetInput: RunWorkflowWidgetInput,
     SLOListWidgetDefinition: SLOListWidgetDefinition,
@@ -852,6 +974,13 @@ export const TypingInfo: ModelTypingInfo = {
     TopologyRequest: TopologyRequest,
     TreeMapWidgetDefinition: TreeMapWidgetDefinition,
     TreeMapWidgetRequest: TreeMapWidgetRequest,
+    UserJourneyFormulaCompute: UserJourneyFormulaCompute,
+    UserJourneyFormulaGroupBy: UserJourneyFormulaGroupBy,
+    UserJourneyJoinKeys: UserJourneyJoinKeys,
+    UserJourneySearch: UserJourneySearch,
+    UserJourneySearchFilters: UserJourneySearchFilters,
+    UserJourneySearchGraphFilter: UserJourneySearchGraphFilter,
+    UserJourneySearchTarget: UserJourneySearchTarget,
     ViewingPreferences: ViewingPreferences,
     Widget: Widget,
     WidgetAxis: WidgetAxis,
