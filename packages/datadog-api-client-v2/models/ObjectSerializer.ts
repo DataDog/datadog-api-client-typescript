@@ -1303,6 +1303,8 @@ import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
+import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
+import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
 import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
@@ -1879,6 +1881,7 @@ import { ListInvestigationsResponseMetaPage } from "./ListInvestigationsResponse
 import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListNotificationChannelsResponse } from "./ListNotificationChannelsResponse";
 import { ListOnCallNotificationRulesResponse } from "./ListOnCallNotificationRulesResponse";
+import { ListPersonalAccessTokensResponse } from "./ListPersonalAccessTokensResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
@@ -2470,6 +2473,19 @@ import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRe
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { PersonalAccessToken } from "./PersonalAccessToken";
+import { PersonalAccessTokenAttributes } from "./PersonalAccessTokenAttributes";
+import { PersonalAccessTokenCreateAttributes } from "./PersonalAccessTokenCreateAttributes";
+import { PersonalAccessTokenCreateData } from "./PersonalAccessTokenCreateData";
+import { PersonalAccessTokenCreateRequest } from "./PersonalAccessTokenCreateRequest";
+import { PersonalAccessTokenCreateResponse } from "./PersonalAccessTokenCreateResponse";
+import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelationships";
+import { PersonalAccessTokenResponse } from "./PersonalAccessTokenResponse";
+import { PersonalAccessTokenResponseMeta } from "./PersonalAccessTokenResponseMeta";
+import { PersonalAccessTokenResponseMetaPage } from "./PersonalAccessTokenResponseMetaPage";
+import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
+import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
+import { PersonalAccessTokenUpdateRequest } from "./PersonalAccessTokenUpdateRequest";
 import { Playlist } from "./Playlist";
 import { PlaylistArray } from "./PlaylistArray";
 import { PlaylistData } from "./PlaylistData";
@@ -3119,6 +3135,9 @@ import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDat
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
+import { ServiceAccountAccessTokenCreateAttributes } from "./ServiceAccountAccessTokenCreateAttributes";
+import { ServiceAccountAccessTokenCreateData } from "./ServiceAccountAccessTokenCreateData";
+import { ServiceAccountAccessTokenCreateRequest } from "./ServiceAccountAccessTokenCreateRequest";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
@@ -5121,6 +5140,15 @@ const enumsMap: { [key: string]: any[] } = {
   PatchMaintenanceRequestDataType: ["maintenances"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
+  PersonalAccessTokensSort: [
+    "name",
+    "-name",
+    "created_at",
+    "-created_at",
+    "expires_at",
+    "-expires_at",
+  ],
+  PersonalAccessTokensType: ["personal_access_tokens"],
   PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
   PostmortemTemplateType: ["postmortem_template"],
@@ -7549,6 +7577,8 @@ const typeMap: { [index: string]: any } = {
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
   FullCustomFrameworkData: FullCustomFrameworkData,
   FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
+  FullPersonalAccessToken: FullPersonalAccessToken,
+  FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
   GCPIntegration: GCPIntegration,
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
@@ -8218,6 +8248,7 @@ const typeMap: { [index: string]: any } = {
   ListKindCatalogResponse: ListKindCatalogResponse,
   ListNotificationChannelsResponse: ListNotificationChannelsResponse,
   ListOnCallNotificationRulesResponse: ListOnCallNotificationRulesResponse,
+  ListPersonalAccessTokensResponse: ListPersonalAccessTokensResponse,
   ListPipelinesResponse: ListPipelinesResponse,
   ListPipelinesResponseMeta: ListPipelinesResponseMeta,
   ListPowerpacksResponse: ListPowerpacksResponse,
@@ -8992,6 +9023,19 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  PersonalAccessToken: PersonalAccessToken,
+  PersonalAccessTokenAttributes: PersonalAccessTokenAttributes,
+  PersonalAccessTokenCreateAttributes: PersonalAccessTokenCreateAttributes,
+  PersonalAccessTokenCreateData: PersonalAccessTokenCreateData,
+  PersonalAccessTokenCreateRequest: PersonalAccessTokenCreateRequest,
+  PersonalAccessTokenCreateResponse: PersonalAccessTokenCreateResponse,
+  PersonalAccessTokenRelationships: PersonalAccessTokenRelationships,
+  PersonalAccessTokenResponse: PersonalAccessTokenResponse,
+  PersonalAccessTokenResponseMeta: PersonalAccessTokenResponseMeta,
+  PersonalAccessTokenResponseMetaPage: PersonalAccessTokenResponseMetaPage,
+  PersonalAccessTokenUpdateAttributes: PersonalAccessTokenUpdateAttributes,
+  PersonalAccessTokenUpdateData: PersonalAccessTokenUpdateData,
+  PersonalAccessTokenUpdateRequest: PersonalAccessTokenUpdateRequest,
   Playlist: Playlist,
   PlaylistArray: PlaylistArray,
   PlaylistData: PlaylistData,
@@ -9782,6 +9826,11 @@ const typeMap: { [index: string]: any } = {
     SensitiveDataScannerStandardPatternsResponseItem,
   SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
   SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
+  ServiceAccountAccessTokenCreateAttributes:
+    ServiceAccountAccessTokenCreateAttributes,
+  ServiceAccountAccessTokenCreateData: ServiceAccountAccessTokenCreateData,
+  ServiceAccountAccessTokenCreateRequest:
+    ServiceAccountAccessTokenCreateRequest,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
