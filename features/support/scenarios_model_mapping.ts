@@ -2968,6 +2968,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
+    "v2.ListPersonalAccessTokens": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "PersonalAccessTokensSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOwnerUuid": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "ListPersonalAccessTokensResponse",
+    },
+    "v2.CreatePersonalAccessToken": {
+        "body": {
+            "type": "PersonalAccessTokenCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenCreateResponse",
+    },
+    "v2.GetPersonalAccessToken": {
+        "patUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenResponse",
+    },
+    "v2.RevokePersonalAccessToken": {
+        "patUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdatePersonalAccessToken": {
+        "patUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PersonalAccessTokenUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenResponse",
+    },
     "v2.ListAPIs": {
         "query": {
             "type": "string",
@@ -10958,6 +11013,77 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UserResponse",
+    },
+    "v2.ListServiceAccountAccessTokens": {
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "PersonalAccessTokensSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListPersonalAccessTokensResponse",
+    },
+    "v2.CreateServiceAccountAccessToken": {
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ServiceAccountAccessTokenCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenCreateResponse",
+    },
+    "v2.GetServiceAccountAccessToken": {
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "patUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenResponse",
+    },
+    "v2.RevokeServiceAccountAccessToken": {
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "patUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateServiceAccountAccessToken": {
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "patUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PersonalAccessTokenUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "PersonalAccessTokenResponse",
     },
     "v2.ListServiceAccountApplicationKeys": {
         "serviceAccountId": {

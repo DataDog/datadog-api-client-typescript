@@ -574,18 +574,23 @@ export {
 export {
   KeyManagementApiCreateAPIKeyRequest,
   KeyManagementApiCreateCurrentUserApplicationKeyRequest,
+  KeyManagementApiCreatePersonalAccessTokenRequest,
   KeyManagementApiDeleteAPIKeyRequest,
   KeyManagementApiDeleteApplicationKeyRequest,
   KeyManagementApiDeleteCurrentUserApplicationKeyRequest,
   KeyManagementApiGetAPIKeyRequest,
   KeyManagementApiGetApplicationKeyRequest,
   KeyManagementApiGetCurrentUserApplicationKeyRequest,
+  KeyManagementApiGetPersonalAccessTokenRequest,
   KeyManagementApiListAPIKeysRequest,
   KeyManagementApiListApplicationKeysRequest,
   KeyManagementApiListCurrentUserApplicationKeysRequest,
+  KeyManagementApiListPersonalAccessTokensRequest,
+  KeyManagementApiRevokePersonalAccessTokenRequest,
   KeyManagementApiUpdateAPIKeyRequest,
   KeyManagementApiUpdateApplicationKeyRequest,
   KeyManagementApiUpdateCurrentUserApplicationKeyRequest,
+  KeyManagementApiUpdatePersonalAccessTokenRequest,
   KeyManagementApi,
 } from "./apis/KeyManagementApi";
 
@@ -1095,10 +1100,15 @@ export {
 
 export {
   ServiceAccountsApiCreateServiceAccountRequest,
+  ServiceAccountsApiCreateServiceAccountAccessTokenRequest,
   ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
   ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest,
+  ServiceAccountsApiGetServiceAccountAccessTokenRequest,
   ServiceAccountsApiGetServiceAccountApplicationKeyRequest,
+  ServiceAccountsApiListServiceAccountAccessTokensRequest,
   ServiceAccountsApiListServiceAccountApplicationKeysRequest,
+  ServiceAccountsApiRevokeServiceAccountAccessTokenRequest,
+  ServiceAccountsApiUpdateServiceAccountAccessTokenRequest,
   ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest,
   ServiceAccountsApi,
 } from "./apis/ServiceAccountsApi";
@@ -3007,6 +3017,8 @@ export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
 export { FullCustomFrameworkData } from "./models/FullCustomFrameworkData";
 export { FullCustomFrameworkDataAttributes } from "./models/FullCustomFrameworkDataAttributes";
+export { FullPersonalAccessToken } from "./models/FullPersonalAccessToken";
+export { FullPersonalAccessTokenAttributes } from "./models/FullPersonalAccessTokenAttributes";
 export { GCPCredentials } from "./models/GCPCredentials";
 export { GCPCredentialsUpdate } from "./models/GCPCredentialsUpdate";
 export { GCPIntegration } from "./models/GCPIntegration";
@@ -3626,6 +3638,7 @@ export { ListInvestigationsResponseMetaPage } from "./models/ListInvestigationsR
 export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 export { ListNotificationChannelsResponse } from "./models/ListNotificationChannelsResponse";
 export { ListOnCallNotificationRulesResponse } from "./models/ListOnCallNotificationRulesResponse";
+export { ListPersonalAccessTokensResponse } from "./models/ListPersonalAccessTokensResponse";
 export { ListPipelinesResponse } from "./models/ListPipelinesResponse";
 export { ListPipelinesResponseMeta } from "./models/ListPipelinesResponseMeta";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
@@ -4589,6 +4602,21 @@ export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
 export { PermissionsType } from "./models/PermissionsType";
+export { PersonalAccessToken } from "./models/PersonalAccessToken";
+export { PersonalAccessTokenAttributes } from "./models/PersonalAccessTokenAttributes";
+export { PersonalAccessTokenCreateAttributes } from "./models/PersonalAccessTokenCreateAttributes";
+export { PersonalAccessTokenCreateData } from "./models/PersonalAccessTokenCreateData";
+export { PersonalAccessTokenCreateRequest } from "./models/PersonalAccessTokenCreateRequest";
+export { PersonalAccessTokenCreateResponse } from "./models/PersonalAccessTokenCreateResponse";
+export { PersonalAccessTokenRelationships } from "./models/PersonalAccessTokenRelationships";
+export { PersonalAccessTokenResponse } from "./models/PersonalAccessTokenResponse";
+export { PersonalAccessTokenResponseMeta } from "./models/PersonalAccessTokenResponseMeta";
+export { PersonalAccessTokenResponseMetaPage } from "./models/PersonalAccessTokenResponseMetaPage";
+export { PersonalAccessTokensSort } from "./models/PersonalAccessTokensSort";
+export { PersonalAccessTokensType } from "./models/PersonalAccessTokensType";
+export { PersonalAccessTokenUpdateAttributes } from "./models/PersonalAccessTokenUpdateAttributes";
+export { PersonalAccessTokenUpdateData } from "./models/PersonalAccessTokenUpdateData";
+export { PersonalAccessTokenUpdateRequest } from "./models/PersonalAccessTokenUpdateRequest";
 export { Playlist } from "./models/Playlist";
 export { PlaylistArray } from "./models/PlaylistArray";
 export { PlaylistData } from "./models/PlaylistData";
@@ -5410,6 +5438,9 @@ export { SensitiveDataScannerStandardPatternType } from "./models/SensitiveDataS
 export { SensitiveDataScannerSuppressions } from "./models/SensitiveDataScannerSuppressions";
 export { SensitiveDataScannerTextReplacement } from "./models/SensitiveDataScannerTextReplacement";
 export { SensitiveDataScannerTextReplacementType } from "./models/SensitiveDataScannerTextReplacementType";
+export { ServiceAccountAccessTokenCreateAttributes } from "./models/ServiceAccountAccessTokenCreateAttributes";
+export { ServiceAccountAccessTokenCreateData } from "./models/ServiceAccountAccessTokenCreateData";
+export { ServiceAccountAccessTokenCreateRequest } from "./models/ServiceAccountAccessTokenCreateRequest";
 export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAttributes";
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
