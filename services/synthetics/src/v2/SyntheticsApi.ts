@@ -2976,6 +2976,9 @@ export class SyntheticsApi {
   }
 
   /**
+   * Create a Network Path test.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site.
    * @param param The request object
    */
   public createSyntheticsNetworkTest(
@@ -3166,6 +3169,9 @@ export class SyntheticsApi {
   }
 
   /**
+   * Get a Network Path test.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site.
    * @param param The request object
    */
   public getSyntheticsNetworkTest(
@@ -3435,6 +3441,9 @@ export class SyntheticsApi {
   }
 
   /**
+   * Edit a Network Path test.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site.
    * @param param The request object
    */
   public updateSyntheticsNetworkTest(
