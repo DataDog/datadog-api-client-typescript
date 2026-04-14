@@ -3,36 +3,31 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FunnelGroupedDisplay } from "./FunnelGroupedDisplay";
-import { FunnelWidgetDefinitionType } from "./FunnelWidgetDefinitionType";
-import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
+import { RetentionCurveWidgetDefinitionType } from "./RetentionCurveWidgetDefinitionType";
+import { RetentionCurveWidgetRequest } from "./RetentionCurveWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.
+ * The retention curve widget visualizes user retention rates over time.
  */
-export class FunnelWidgetDefinition {
+export class RetentionCurveWidgetDefinition {
   /**
    * The description of the widget.
    */
   "description"?: string;
   /**
-   * Display mode for grouped funnel results.
+   * List of Retention Curve widget requests.
    */
-  "groupedDisplay"?: FunnelGroupedDisplay;
-  /**
-   * Request payload used to query items.
-   */
-  "requests": Array<FunnelWidgetRequest>;
+  "requests": Array<RetentionCurveWidgetRequest>;
   /**
    * Time setting for the widget.
    */
   "time"?: WidgetTime;
   /**
-   * The title of the widget.
+   * Title of your widget.
    */
   "title"?: string;
   /**
@@ -40,20 +35,13 @@ export class FunnelWidgetDefinition {
    */
   "titleAlign"?: WidgetTextAlign;
   /**
-   * The size of the title.
+   * Size of the title.
    */
   "titleSize"?: string;
   /**
-   * Type of funnel widget.
+   * Type of the Retention Curve widget.
    */
-  "type": FunnelWidgetDefinitionType;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
+  "type": RetentionCurveWidgetDefinitionType;
 
   /**
    * @ignore
@@ -68,13 +56,9 @@ export class FunnelWidgetDefinition {
       baseName: "description",
       type: "string",
     },
-    groupedDisplay: {
-      baseName: "grouped_display",
-      type: "FunnelGroupedDisplay",
-    },
     requests: {
       baseName: "requests",
-      type: "Array<FunnelWidgetRequest>",
+      type: "Array<RetentionCurveWidgetRequest>",
       required: true,
     },
     time: {
@@ -95,12 +79,8 @@ export class FunnelWidgetDefinition {
     },
     type: {
       baseName: "type",
-      type: "FunnelWidgetDefinitionType",
+      type: "RetentionCurveWidgetDefinitionType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 
@@ -108,7 +88,7 @@ export class FunnelWidgetDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelWidgetDefinition.attributeTypeMap;
+    return RetentionCurveWidgetDefinition.attributeTypeMap;
   }
 
   public constructor() {}

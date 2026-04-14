@@ -10,7 +10,10 @@ import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunction
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { FormulaAndFunctionProductAnalyticsExtendedQueryDefinition } from "./FormulaAndFunctionProductAnalyticsExtendedQueryDefinition";
+import { FormulaAndFunctionRetentionQueryDefinition } from "./FormulaAndFunctionRetentionQueryDefinition";
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
+import { FormulaAndFunctionUserJourneyQueryDefinition } from "./FormulaAndFunctionUserJourneyQueryDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -27,4 +30,7 @@ export type FormulaAndFunctionQueryDefinition =
   | FormulaAndFunctionApmMetricsQueryDefinition
   | FormulaAndFunctionSLOQueryDefinition
   | FormulaAndFunctionCloudCostQueryDefinition
+  | FormulaAndFunctionProductAnalyticsExtendedQueryDefinition
+  | FormulaAndFunctionUserJourneyQueryDefinition
+  | FormulaAndFunctionRetentionQueryDefinition
   | UnparsedObject;

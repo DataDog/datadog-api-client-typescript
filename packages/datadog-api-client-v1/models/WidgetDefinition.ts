@@ -8,6 +8,7 @@ import { AlertValueWidgetDefinition } from "./AlertValueWidgetDefinition";
 import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
@@ -24,7 +25,9 @@ import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition";
 import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
 import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
+import { ProductAnalyticsFunnelWidgetDefinition } from "./ProductAnalyticsFunnelWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
+import { RetentionCurveWidgetDefinition } from "./RetentionCurveWidgetDefinition";
 import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
 import { SankeyWidgetDefinition } from "./SankeyWidgetDefinition";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
@@ -53,11 +56,13 @@ export type WidgetDefinition =
   | BarChartWidgetDefinition
   | ChangeWidgetDefinition
   | CheckStatusWidgetDefinition
+  | CohortWidgetDefinition
   | DistributionWidgetDefinition
   | EventStreamWidgetDefinition
   | EventTimelineWidgetDefinition
   | FreeTextWidgetDefinition
   | FunnelWidgetDefinition
+  | ProductAnalyticsFunnelWidgetDefinition
   | GeomapWidgetDefinition
   | GroupWidgetDefinition
   | HeatMapWidgetDefinition
@@ -70,6 +75,7 @@ export type WidgetDefinition =
   | NoteWidgetDefinition
   | PowerpackWidgetDefinition
   | QueryValueWidgetDefinition
+  | RetentionCurveWidgetDefinition
   | RunWorkflowWidgetDefinition
   | SLOListWidgetDefinition
   | SLOWidgetDefinition
