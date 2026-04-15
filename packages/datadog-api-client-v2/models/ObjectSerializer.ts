@@ -1231,6 +1231,8 @@ import { Findings } from "./Findings";
 import { FlakyTest } from "./FlakyTest";
 import { FlakyTestAttributes } from "./FlakyTestAttributes";
 import { FlakyTestHistory } from "./FlakyTestHistory";
+import { FlakyTestHistoryPolicyMeta } from "./FlakyTestHistoryPolicyMeta";
+import { FlakyTestHistoryPolicyMetaConfig } from "./FlakyTestHistoryPolicyMetaConfig";
 import { FlakyTestPipelineStats } from "./FlakyTestPipelineStats";
 import { FlakyTestRunMetadata } from "./FlakyTestRunMetadata";
 import { FlakyTestStats } from "./FlakyTestStats";
@@ -4434,6 +4436,17 @@ const enumsMap: { [key: string]: any[] } = {
     "api_security",
   ],
   FlakyTestAttributesFlakyState: ["active", "fixed", "quarantined", "disabled"],
+  FlakyTestHistoryPolicyId: [
+    "ftm_policy.manual",
+    "ftm_policy.fixed",
+    "ftm_policy.disable.failure_rate",
+    "ftm_policy.disable.branch_flake",
+    "ftm_policy.disable.days_active",
+    "ftm_policy.quarantine.failure_rate",
+    "ftm_policy.quarantine.branch_flake",
+    "ftm_policy.quarantine.days_active",
+    "unknown",
+  ],
   FlakyTestType: ["flaky_test"],
   FlakyTestsSearchRequestDataType: ["search_flaky_tests_request"],
   FlakyTestsSearchSort: [
@@ -7503,6 +7516,8 @@ const typeMap: { [index: string]: any } = {
   FlakyTest: FlakyTest,
   FlakyTestAttributes: FlakyTestAttributes,
   FlakyTestHistory: FlakyTestHistory,
+  FlakyTestHistoryPolicyMeta: FlakyTestHistoryPolicyMeta,
+  FlakyTestHistoryPolicyMetaConfig: FlakyTestHistoryPolicyMetaConfig,
   FlakyTestPipelineStats: FlakyTestPipelineStats,
   FlakyTestRunMetadata: FlakyTestRunMetadata,
   FlakyTestStats: FlakyTestStats,
