@@ -450,8 +450,12 @@ export {
   FleetAutomationApiGetFleetAgentInfoRequest,
   FleetAutomationApiGetFleetDeploymentRequest,
   FleetAutomationApiGetFleetScheduleRequest,
+  FleetAutomationApiListFleetAgentTracersRequest,
   FleetAutomationApiListFleetAgentsRequest,
+  FleetAutomationApiListFleetClustersRequest,
   FleetAutomationApiListFleetDeploymentsRequest,
+  FleetAutomationApiListFleetInstrumentedPodsRequest,
+  FleetAutomationApiListFleetTracersRequest,
   FleetAutomationApiTriggerFleetScheduleRequest,
   FleetAutomationApiUpdateFleetScheduleRequest,
   FleetAutomationApi,
@@ -2964,6 +2968,11 @@ export { FleetAgentVersion } from "./models/FleetAgentVersion";
 export { FleetAgentVersionAttributes } from "./models/FleetAgentVersionAttributes";
 export { FleetAgentVersionResourceType } from "./models/FleetAgentVersionResourceType";
 export { FleetAgentVersionsResponse } from "./models/FleetAgentVersionsResponse";
+export { FleetClusterAttributes } from "./models/FleetClusterAttributes";
+export { FleetClustersResponse } from "./models/FleetClustersResponse";
+export { FleetClustersResponseData } from "./models/FleetClustersResponseData";
+export { FleetClustersResponseDataAttributes } from "./models/FleetClustersResponseDataAttributes";
+export { FleetClustersResponseMeta } from "./models/FleetClustersResponseMeta";
 export { FleetConfigurationFile } from "./models/FleetConfigurationFile";
 export { FleetConfigurationLayer } from "./models/FleetConfigurationLayer";
 export { FleetDeployment } from "./models/FleetDeployment";
@@ -2987,6 +2996,10 @@ export { FleetDeploymentsPage } from "./models/FleetDeploymentsPage";
 export { FleetDeploymentsResponse } from "./models/FleetDeploymentsResponse";
 export { FleetDeploymentsResponseMeta } from "./models/FleetDeploymentsResponseMeta";
 export { FleetDetectedIntegration } from "./models/FleetDetectedIntegration";
+export { FleetInstrumentedPodGroupAttributes } from "./models/FleetInstrumentedPodGroupAttributes";
+export { FleetInstrumentedPodsResponse } from "./models/FleetInstrumentedPodsResponse";
+export { FleetInstrumentedPodsResponseData } from "./models/FleetInstrumentedPodsResponseData";
+export { FleetInstrumentedPodsResponseDataAttributes } from "./models/FleetInstrumentedPodsResponseDataAttributes";
 export { FleetIntegrationDetails } from "./models/FleetIntegrationDetails";
 export { FleetIntegrationsByStatus } from "./models/FleetIntegrationsByStatus";
 export { FleetSchedule } from "./models/FleetSchedule";
@@ -3002,6 +3015,11 @@ export { FleetScheduleResourceType } from "./models/FleetScheduleResourceType";
 export { FleetScheduleResponse } from "./models/FleetScheduleResponse";
 export { FleetSchedulesResponse } from "./models/FleetSchedulesResponse";
 export { FleetScheduleStatus } from "./models/FleetScheduleStatus";
+export { FleetTracerAttributes } from "./models/FleetTracerAttributes";
+export { FleetTracersResponse } from "./models/FleetTracersResponse";
+export { FleetTracersResponseData } from "./models/FleetTracersResponseData";
+export { FleetTracersResponseDataAttributes } from "./models/FleetTracersResponseDataAttributes";
+export { FleetTracersResponseMeta } from "./models/FleetTracersResponseMeta";
 export { FormTrigger } from "./models/FormTrigger";
 export { FormTriggerWrapper } from "./models/FormTriggerWrapper";
 export { FormulaLimit } from "./models/FormulaLimit";
