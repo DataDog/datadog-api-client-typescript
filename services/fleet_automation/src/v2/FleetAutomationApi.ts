@@ -26,14 +26,17 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { FleetAgentInfoResponse } from "./models/FleetAgentInfoResponse";
 import { FleetAgentsResponse } from "./models/FleetAgentsResponse";
 import { FleetAgentVersionsResponse } from "./models/FleetAgentVersionsResponse";
+import { FleetClustersResponse } from "./models/FleetClustersResponse";
 import { FleetDeploymentConfigureCreateRequest } from "./models/FleetDeploymentConfigureCreateRequest";
 import { FleetDeploymentPackageUpgradeCreateRequest } from "./models/FleetDeploymentPackageUpgradeCreateRequest";
 import { FleetDeploymentResponse } from "./models/FleetDeploymentResponse";
 import { FleetDeploymentsResponse } from "./models/FleetDeploymentsResponse";
+import { FleetInstrumentedPodsResponse } from "./models/FleetInstrumentedPodsResponse";
 import { FleetScheduleCreateRequest } from "./models/FleetScheduleCreateRequest";
 import { FleetSchedulePatchRequest } from "./models/FleetSchedulePatchRequest";
 import { FleetScheduleResponse } from "./models/FleetScheduleResponse";
 import { FleetSchedulesResponse } from "./models/FleetSchedulesResponse";
+import { FleetTracersResponse } from "./models/FleetTracersResponse";
 import { version } from "../version";
 
 export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
@@ -597,6 +600,93 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listFleetAgentTracers(
+    agentKey: string,
+    pageNumber?: number,
+    pageSize?: number,
+    sortAttribute?: string,
+    sortDescending?: boolean,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["FleetAutomationApi.v2.listFleetAgentTracers"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listFleetAgentTracers' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgentTracers'] = true`",
+      );
+    }
+
+    // verify required parameter 'agentKey' is not null or undefined
+    if (agentKey === null || agentKey === undefined) {
+      throw new RequiredError("agentKey", "listFleetAgentTracers");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/unstable/fleet/agents/{agent_key}/tracers".replace(
+        "{agent_key}",
+        encodeURIComponent(String(agentKey)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.listFleetAgentTracers",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page_number",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page_size",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sortAttribute !== undefined) {
+      requestContext.setQueryParam(
+        "sort_attribute",
+        serialize(sortAttribute, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sortDescending !== undefined) {
+      requestContext.setQueryParam(
+        "sort_descending",
+        serialize(sortDescending, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listFleetAgentVersions(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -631,6 +721,99 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listFleetClusters(
+    pageNumber?: number,
+    pageSize?: number,
+    sortAttribute?: string,
+    sortDescending?: boolean,
+    filter?: string,
+    tags?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["FleetAutomationApi.v2.listFleetClusters"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listFleetClusters' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetClusters'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/unstable/fleet/clusters";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.listFleetClusters",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page_number",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page_size",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sortAttribute !== undefined) {
+      requestContext.setQueryParam(
+        "sort_attribute",
+        serialize(sortAttribute, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sortDescending !== undefined) {
+      requestContext.setQueryParam(
+        "sort_descending",
+        serialize(sortDescending, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        serialize(tags, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -703,6 +886,61 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listFleetInstrumentedPods(
+    clusterName: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "FleetAutomationApi.v2.listFleetInstrumentedPods"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listFleetInstrumentedPods' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetInstrumentedPods'] = true`",
+      );
+    }
+
+    // verify required parameter 'clusterName' is not null or undefined
+    if (clusterName === null || clusterName === undefined) {
+      throw new RequiredError("clusterName", "listFleetInstrumentedPods");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/unstable/fleet/clusters/{cluster_name}/instrumented_pods".replace(
+        "{cluster_name}",
+        encodeURIComponent(String(clusterName)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.listFleetInstrumentedPods",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listFleetSchedules(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -735,6 +973,89 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listFleetTracers(
+    pageNumber?: number,
+    pageSize?: number,
+    sortAttribute?: string,
+    sortDescending?: boolean,
+    filter?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetTracers"]) {
+      throw new Error(
+        "Unstable operation 'listFleetTracers' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetTracers'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/unstable/fleet/tracers";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FleetAutomationApi.v2.listFleetTracers",
+      FleetAutomationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page_number",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page_size",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sortAttribute !== undefined) {
+      requestContext.setQueryParam(
+        "sort_attribute",
+        serialize(sortAttribute, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sortDescending !== undefined) {
+      requestContext.setQueryParam(
+        "sort_descending",
+        serialize(sortDescending, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -1401,6 +1722,68 @@ export class FleetAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listFleetAgentTracers
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFleetAgentTracers(
+    response: ResponseContext,
+  ): Promise<FleetTracersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetTracersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetTracersResponse",
+      ) as FleetTracersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetTracersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetTracersResponse",
+        "",
+      ) as FleetTracersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listFleetAgentVersions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1449,6 +1832,68 @@ export class FleetAutomationApiResponseProcessor {
         "FleetAgentVersionsResponse",
         "",
       ) as FleetAgentVersionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listFleetClusters
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFleetClusters(
+    response: ResponseContext,
+  ): Promise<FleetClustersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetClustersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetClustersResponse",
+      ) as FleetClustersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetClustersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetClustersResponse",
+        "",
+      ) as FleetClustersResponse;
       return body;
     }
 
@@ -1524,6 +1969,68 @@ export class FleetAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listFleetInstrumentedPods
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFleetInstrumentedPods(
+    response: ResponseContext,
+  ): Promise<FleetInstrumentedPodsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetInstrumentedPodsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetInstrumentedPodsResponse",
+      ) as FleetInstrumentedPodsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetInstrumentedPodsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetInstrumentedPodsResponse",
+        "",
+      ) as FleetInstrumentedPodsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listFleetSchedules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1571,6 +2078,68 @@ export class FleetAutomationApiResponseProcessor {
         "FleetSchedulesResponse",
         "",
       ) as FleetSchedulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listFleetTracers
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFleetTracers(
+    response: ResponseContext,
+  ): Promise<FleetTracersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FleetTracersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetTracersResponse",
+      ) as FleetTracersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetTracersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FleetTracersResponse",
+        "",
+      ) as FleetTracersResponse;
       return body;
     }
 
@@ -1813,6 +2382,67 @@ export interface FleetAutomationApiListFleetAgentsRequest {
   filter?: string;
 }
 
+export interface FleetAutomationApiListFleetAgentTracersRequest {
+  /**
+   * The unique identifier (agent key) for the Datadog Agent.
+   * @type string
+   */
+  agentKey: string;
+  /**
+   * Page number for pagination (starts at 0).
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Number of results per page (must be greater than 0 and less than or equal to 100).
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Attribute to sort by.
+   * @type string
+   */
+  sortAttribute?: string;
+  /**
+   * Sort order (true for descending, false for ascending).
+   * @type boolean
+   */
+  sortDescending?: boolean;
+}
+
+export interface FleetAutomationApiListFleetClustersRequest {
+  /**
+   * Page number for pagination (starts at 0).
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Number of results per page (must be greater than 0 and less than or equal to 100).
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Attribute to sort by.
+   * @type string
+   */
+  sortAttribute?: string;
+  /**
+   * Sort order (true for descending, false for ascending).
+   * @type boolean
+   */
+  sortDescending?: boolean;
+  /**
+   * Filter string for narrowing down cluster results.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Comma-separated list of tags to filter clusters.
+   * @type string
+   */
+  tags?: string;
+}
+
 export interface FleetAutomationApiListFleetDeploymentsRequest {
   /**
    * Number of deployments to return per page. Maximum value is 100.
@@ -1824,6 +2454,42 @@ export interface FleetAutomationApiListFleetDeploymentsRequest {
    * @type number
    */
   pageOffset?: number;
+}
+
+export interface FleetAutomationApiListFleetInstrumentedPodsRequest {
+  /**
+   * The name of the Kubernetes cluster.
+   * @type string
+   */
+  clusterName: string;
+}
+
+export interface FleetAutomationApiListFleetTracersRequest {
+  /**
+   * Page number for pagination (starts at 0).
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Number of results per page (must be greater than 0 and less than or equal to 100).
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Attribute to sort by.
+   * @type string
+   */
+  sortAttribute?: string;
+  /**
+   * Sort order (true for descending, false for ascending).
+   * @type boolean
+   */
+  sortDescending?: boolean;
+  /**
+   * Filter string for narrowing down tracer results.
+   * @type string
+   */
+  filter?: string;
 }
 
 export interface FleetAutomationApiTriggerFleetScheduleRequest {
@@ -2140,6 +2806,34 @@ export class FleetAutomationApi {
   }
 
   /**
+   * Retrieve a paginated list of tracers for a specific agent.
+   *
+   * This endpoint returns tracers associated with a given agent key, identified by the
+   * agent's hostname. Use this to discover telemetry-derived service names for a particular host.
+   * @param param The request object
+   */
+  public listFleetAgentTracers(
+    param: FleetAutomationApiListFleetAgentTracersRequest,
+    options?: Configuration,
+  ): Promise<FleetTracersResponse> {
+    const requestContextPromise = this.requestFactory.listFleetAgentTracers(
+      param.agentKey,
+      param.pageNumber,
+      param.pageSize,
+      param.sortAttribute,
+      param.sortDescending,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFleetAgentTracers(responseContext);
+        });
+    });
+  }
+
+  /**
    * Retrieve a list of all available Datadog Agent versions.
    *
    * This endpoint returns the available Agent versions that can be deployed to your fleet.
@@ -2157,6 +2851,36 @@ export class FleetAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listFleetAgentVersions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve a paginated list of Kubernetes clusters in the fleet.
+   *
+   * This endpoint returns clusters with metadata including node counts, agent versions,
+   * enabled products, and associated services. Use the `page_number` and `page_size`
+   * query parameters to paginate through results.
+   * @param param The request object
+   */
+  public listFleetClusters(
+    param: FleetAutomationApiListFleetClustersRequest = {},
+    options?: Configuration,
+  ): Promise<FleetClustersResponse> {
+    const requestContextPromise = this.requestFactory.listFleetClusters(
+      param.pageNumber,
+      param.pageSize,
+      param.sortAttribute,
+      param.sortDescending,
+      param.filter,
+      param.tags,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFleetClusters(responseContext);
         });
     });
   }
@@ -2185,6 +2909,34 @@ export class FleetAutomationApi {
   }
 
   /**
+   * Retrieve the list of pods targeted for Single Step Instrumentation (SSI) injection
+   * in a specific Kubernetes cluster.
+   *
+   * This endpoint returns pod groups organized by owner reference (deployment, statefulset, etc.)
+   * with their injection annotations and applied targets. Use the clusters list endpoint
+   * to discover available cluster names.
+   * @param param The request object
+   */
+  public listFleetInstrumentedPods(
+    param: FleetAutomationApiListFleetInstrumentedPodsRequest,
+    options?: Configuration,
+  ): Promise<FleetInstrumentedPodsResponse> {
+    const requestContextPromise = this.requestFactory.listFleetInstrumentedPods(
+      param.clusterName,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFleetInstrumentedPods(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Retrieve a list of all schedules for automated fleet deployments.
    *
    * Schedules allow you to automate package upgrades by defining maintenance windows
@@ -2202,6 +2954,36 @@ export class FleetAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listFleetSchedules(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve a paginated list of all fleet tracers.
+   *
+   * This endpoint returns telemetry-derived service names from the SDK telemetry pipeline.
+   * These names may differ from span-derived names in APM and are useful for querying
+   * service library configurations.
+   * Use the `page_number` and `page_size` query parameters to paginate through results.
+   * @param param The request object
+   */
+  public listFleetTracers(
+    param: FleetAutomationApiListFleetTracersRequest = {},
+    options?: Configuration,
+  ): Promise<FleetTracersResponse> {
+    const requestContextPromise = this.requestFactory.listFleetTracers(
+      param.pageNumber,
+      param.pageSize,
+      param.sortAttribute,
+      param.sortDescending,
+      param.filter,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFleetTracers(responseContext);
         });
     });
   }

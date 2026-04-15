@@ -14,6 +14,11 @@ import { FleetAgentsResponse } from "./FleetAgentsResponse";
 import { FleetAgentsResponseData } from "./FleetAgentsResponseData";
 import { FleetAgentsResponseDataAttributes } from "./FleetAgentsResponseDataAttributes";
 import { FleetAgentsResponseMeta } from "./FleetAgentsResponseMeta";
+import { FleetClusterAttributes } from "./FleetClusterAttributes";
+import { FleetClustersResponse } from "./FleetClustersResponse";
+import { FleetClustersResponseData } from "./FleetClustersResponseData";
+import { FleetClustersResponseDataAttributes } from "./FleetClustersResponseDataAttributes";
+import { FleetClustersResponseMeta } from "./FleetClustersResponseMeta";
 import { FleetConfigurationFile } from "./FleetConfigurationFile";
 import { FleetConfigurationLayer } from "./FleetConfigurationLayer";
 import { FleetDeployment } from "./FleetDeployment";
@@ -35,6 +40,10 @@ import { FleetDeploymentsPage } from "./FleetDeploymentsPage";
 import { FleetDeploymentsResponse } from "./FleetDeploymentsResponse";
 import { FleetDeploymentsResponseMeta } from "./FleetDeploymentsResponseMeta";
 import { FleetDetectedIntegration } from "./FleetDetectedIntegration";
+import { FleetInstrumentedPodGroupAttributes } from "./FleetInstrumentedPodGroupAttributes";
+import { FleetInstrumentedPodsResponse } from "./FleetInstrumentedPodsResponse";
+import { FleetInstrumentedPodsResponseData } from "./FleetInstrumentedPodsResponseData";
+import { FleetInstrumentedPodsResponseDataAttributes } from "./FleetInstrumentedPodsResponseDataAttributes";
 import { FleetIntegrationDetails } from "./FleetIntegrationDetails";
 import { FleetIntegrationsByStatus } from "./FleetIntegrationsByStatus";
 import { FleetSchedule } from "./FleetSchedule";
@@ -48,6 +57,11 @@ import { FleetSchedulePatchRequest } from "./FleetSchedulePatchRequest";
 import { FleetScheduleRecurrenceRule } from "./FleetScheduleRecurrenceRule";
 import { FleetScheduleResponse } from "./FleetScheduleResponse";
 import { FleetSchedulesResponse } from "./FleetSchedulesResponse";
+import { FleetTracerAttributes } from "./FleetTracerAttributes";
+import { FleetTracersResponse } from "./FleetTracersResponse";
+import { FleetTracersResponseData } from "./FleetTracersResponseData";
+import { FleetTracersResponseDataAttributes } from "./FleetTracersResponseDataAttributes";
+import { FleetTracersResponseMeta } from "./FleetTracersResponseMeta";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -74,6 +88,11 @@ export const TypingInfo: ModelTypingInfo = {
     FleetAgentsResponseData: FleetAgentsResponseData,
     FleetAgentsResponseDataAttributes: FleetAgentsResponseDataAttributes,
     FleetAgentsResponseMeta: FleetAgentsResponseMeta,
+    FleetClusterAttributes: FleetClusterAttributes,
+    FleetClustersResponse: FleetClustersResponse,
+    FleetClustersResponseData: FleetClustersResponseData,
+    FleetClustersResponseDataAttributes: FleetClustersResponseDataAttributes,
+    FleetClustersResponseMeta: FleetClustersResponseMeta,
     FleetConfigurationFile: FleetConfigurationFile,
     FleetConfigurationLayer: FleetConfigurationLayer,
     FleetDeployment: FleetDeployment,
@@ -98,6 +117,11 @@ export const TypingInfo: ModelTypingInfo = {
     FleetDeploymentsResponse: FleetDeploymentsResponse,
     FleetDeploymentsResponseMeta: FleetDeploymentsResponseMeta,
     FleetDetectedIntegration: FleetDetectedIntegration,
+    FleetInstrumentedPodGroupAttributes: FleetInstrumentedPodGroupAttributes,
+    FleetInstrumentedPodsResponse: FleetInstrumentedPodsResponse,
+    FleetInstrumentedPodsResponseData: FleetInstrumentedPodsResponseData,
+    FleetInstrumentedPodsResponseDataAttributes:
+      FleetInstrumentedPodsResponseDataAttributes,
     FleetIntegrationDetails: FleetIntegrationDetails,
     FleetIntegrationsByStatus: FleetIntegrationsByStatus,
     FleetSchedule: FleetSchedule,
@@ -111,5 +135,10 @@ export const TypingInfo: ModelTypingInfo = {
     FleetScheduleRecurrenceRule: FleetScheduleRecurrenceRule,
     FleetScheduleResponse: FleetScheduleResponse,
     FleetSchedulesResponse: FleetSchedulesResponse,
+    FleetTracerAttributes: FleetTracerAttributes,
+    FleetTracersResponse: FleetTracersResponse,
+    FleetTracersResponseData: FleetTracersResponseData,
+    FleetTracersResponseDataAttributes: FleetTracersResponseDataAttributes,
+    FleetTracersResponseMeta: FleetTracersResponseMeta,
   },
 };
