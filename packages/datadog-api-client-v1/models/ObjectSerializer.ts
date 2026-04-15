@@ -39,6 +39,7 @@ import { BarChartWidgetFlat } from "./BarChartWidgetFlat";
 import { BarChartWidgetRequest } from "./BarChartWidgetRequest";
 import { BarChartWidgetStacked } from "./BarChartWidgetStacked";
 import { BarChartWidgetStyle } from "./BarChartWidgetStyle";
+import { CalendarInterval } from "./CalendarInterval";
 import { CancelDowntimesByScopeRequest } from "./CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "./CanceledDowntimesIds";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
@@ -48,6 +49,7 @@ import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorRespon
 import { CheckCanDeleteSLOResponse } from "./CheckCanDeleteSLOResponse";
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
@@ -95,8 +97,13 @@ import { FormulaAndFunctionEventQueryGroupByFields } from "./FormulaAndFunctionE
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { FormulaAndFunctionProductAnalyticsExtendedQueryDefinition } from "./FormulaAndFunctionProductAnalyticsExtendedQueryDefinition";
+import { FormulaAndFunctionRetentionQueryDefinition } from "./FormulaAndFunctionRetentionQueryDefinition";
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
+import { FormulaAndFunctionUserJourneyQueryDefinition } from "./FormulaAndFunctionUserJourneyQueryDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
+import { FunnelComparisonCustomTimeframe } from "./FunnelComparisonCustomTimeframe";
+import { FunnelComparisonDuration } from "./FunnelComparisonDuration";
 import { FunnelQuery } from "./FunnelQuery";
 import { FunnelStep } from "./FunnelStep";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
@@ -325,11 +332,33 @@ import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilte
 import { ProductAnalyticsAudienceOccurrenceFilter } from "./ProductAnalyticsAudienceOccurrenceFilter";
 import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
 import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
+import { ProductAnalyticsExtendedCompute } from "./ProductAnalyticsExtendedCompute";
+import { ProductAnalyticsExtendedGroupBy } from "./ProductAnalyticsExtendedGroupBy";
+import { ProductAnalyticsFunnelCompute } from "./ProductAnalyticsFunnelCompute";
+import { ProductAnalyticsFunnelGroupBy } from "./ProductAnalyticsFunnelGroupBy";
+import { ProductAnalyticsFunnelGroupBySort } from "./ProductAnalyticsFunnelGroupBySort";
+import { ProductAnalyticsFunnelQuery } from "./ProductAnalyticsFunnelQuery";
+import { ProductAnalyticsFunnelRequest } from "./ProductAnalyticsFunnelRequest";
+import { ProductAnalyticsFunnelWidgetDefinition } from "./ProductAnalyticsFunnelWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
 import { ResourceProviderConfig } from "./ResourceProviderConfig";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
+import { RetentionCohortCriteria } from "./RetentionCohortCriteria";
+import { RetentionCohortCriteriaTimeInterval } from "./RetentionCohortCriteriaTimeInterval";
+import { RetentionCompute } from "./RetentionCompute";
+import { RetentionCurveStyle } from "./RetentionCurveStyle";
+import { RetentionCurveWidgetDefinition } from "./RetentionCurveWidgetDefinition";
+import { RetentionCurveWidgetRequest } from "./RetentionCurveWidgetRequest";
+import { RetentionFilters } from "./RetentionFilters";
+import { RetentionGridRequest } from "./RetentionGridRequest";
+import { RetentionGroupBy } from "./RetentionGroupBy";
+import { RetentionGroupBySort } from "./RetentionGroupBySort";
+import { RetentionQuery } from "./RetentionQuery";
+import { RetentionReturnCriteria } from "./RetentionReturnCriteria";
+import { RetentionReturnCriteriaTimeInterval } from "./RetentionReturnCriteriaTimeInterval";
+import { RetentionSearch } from "./RetentionSearch";
 import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
 import { RunWorkflowWidgetInput } from "./RunWorkflowWidgetInput";
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
@@ -660,6 +689,13 @@ import { UsageTopAvgMetricsPagination } from "./UsageTopAvgMetricsPagination";
 import { UsageTopAvgMetricsResponse } from "./UsageTopAvgMetricsResponse";
 import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
+import { UserJourneyFormulaCompute } from "./UserJourneyFormulaCompute";
+import { UserJourneyFormulaGroupBy } from "./UserJourneyFormulaGroupBy";
+import { UserJourneyJoinKeys } from "./UserJourneyJoinKeys";
+import { UserJourneySearch } from "./UserJourneySearch";
+import { UserJourneySearchFilters } from "./UserJourneySearchFilters";
+import { UserJourneySearchGraphFilter } from "./UserJourneySearchGraphFilter";
+import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 import { UserListResponse } from "./UserListResponse";
 import { UserResponse } from "./UserResponse";
 import { ViewingPreferences } from "./ViewingPreferences";
@@ -740,8 +776,18 @@ const enumsMap: { [key: string]: any[] } = {
   BarChartWidgetLegend: ["automatic", "inline", "none"],
   BarChartWidgetScaling: ["absolute", "relative"],
   BarChartWidgetStackedType: ["stacked"],
+  CalendarIntervalType: [
+    "day",
+    "week",
+    "month",
+    "year",
+    "quarter",
+    "minute",
+    "hour",
+  ],
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
+  CohortWidgetDefinitionType: ["cohort"],
   ContentEncoding: ["gzip", "deflate"],
   DashboardGlobalTimeLiveSpan: [
     "15m",
@@ -880,6 +926,10 @@ const enumsMap: { [key: string]: any[] } = {
   FormulaAndFunctionMetricDataSource: ["metrics"],
   FormulaAndFunctionMetricSemanticMode: ["combined", "native"],
   FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
+  FormulaAndFunctionProductAnalyticsExtendedDataSource: [
+    "product_analytics_extended",
+  ],
+  FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems: ["*"],
   FormulaAndFunctionResponseFormat: ["timeseries", "scalar", "event_list"],
   FormulaAndFunctionSLODataSource: ["slo"],
   FormulaAndFunctionSLOGroupMode: ["overall", "components"],
@@ -896,6 +946,14 @@ const enumsMap: { [key: string]: any[] } = {
   FormulaAndFunctionSLOQueryType: ["metric", "monitor", "time_slice"],
   FormulaType: ["formula"],
   FreeTextWidgetDefinitionType: ["free_text"],
+  FunnelComparisonDurationType: [
+    "previous_timeframe",
+    "custom_timeframe",
+    "previous_day",
+    "previous_week",
+    "previous_month",
+  ],
+  FunnelGroupedDisplay: ["stacked", "side_by_side"],
   FunnelRequestType: ["funnel"],
   FunnelSource: ["rum"],
   FunnelWidgetDefinitionType: ["funnel"],
@@ -1385,8 +1443,26 @@ const enumsMap: { [key: string]: any[] } = {
     "resolve",
   ],
   PowerpackWidgetDefinitionType: ["powerpack"],
+  ProductAnalyticsFunnelComputeAggregation: ["cardinality", "count"],
+  ProductAnalyticsFunnelComputeMetric: [
+    "__dd.conversion",
+    "__dd.conversion_rate",
+  ],
+  ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
+  ProductAnalyticsFunnelRequestType: ["user_journey_funnel"],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetDefinitionType: ["query_value"],
+  RetentionCohortCriteriaTimeIntervalType: ["calendar"],
+  RetentionComputeMetric: ["__dd.retention", "__dd.retention_rate"],
+  RetentionCurveRequestType: ["retention_curve"],
+  RetentionCurveWidgetDefinitionType: ["retention_curve"],
+  RetentionDataSource: ["product_analytics_retention"],
+  RetentionEntity: ["@usr.id", "@account.id"],
+  RetentionGridRequestType: ["retention_grid"],
+  RetentionGroupByTarget: ["cohort", "return_period"],
+  RetentionReturnCondition: ["conversion_on", "conversion_on_or_after"],
+  RetentionReturnCriteriaTimeIntervalType: ["fixed"],
+  RetentionReturnCriteriaTimeIntervalUnit: ["day", "week", "month"],
   RunWorkflowWidgetDefinitionType: ["run_workflow"],
   SLOCorrectionCategory: [
     "Scheduled Maintenance",
@@ -1761,6 +1837,11 @@ const enumsMap: { [key: string]: any[] } = {
   UsageReportsType: ["reports"],
   UsageSort: ["computed_on", "size", "start_date", "end_date"],
   UsageSortDirection: ["desc", "asc"],
+  UserJourneyFormulaComputeMetric: [
+    "__dd.conversion",
+    "__dd.conversion_rate",
+    "__dd.time_to_convert",
+  ],
   ViewingPreferencesTheme: ["system", "light", "dark"],
   WebhooksIntegrationEncoding: ["json", "form"],
   WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
@@ -1925,6 +2006,7 @@ const typeMap: { [index: string]: any } = {
   BarChartWidgetRequest: BarChartWidgetRequest,
   BarChartWidgetStacked: BarChartWidgetStacked,
   BarChartWidgetStyle: BarChartWidgetStyle,
+  CalendarInterval: CalendarInterval,
   CancelDowntimesByScopeRequest: CancelDowntimesByScopeRequest,
   CanceledDowntimesIds: CanceledDowntimesIds,
   ChangeWidgetDefinition: ChangeWidgetDefinition,
@@ -1934,6 +2016,7 @@ const typeMap: { [index: string]: any } = {
   CheckCanDeleteSLOResponse: CheckCanDeleteSLOResponse,
   CheckCanDeleteSLOResponseData: CheckCanDeleteSLOResponseData,
   CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
+  CohortWidgetDefinition: CohortWidgetDefinition,
   Creator: Creator,
   Dashboard: Dashboard,
   DashboardBulkActionData: DashboardBulkActionData,
@@ -1992,8 +2075,16 @@ const typeMap: { [index: string]: any } = {
     FormulaAndFunctionMetricQueryDefinition,
   FormulaAndFunctionProcessQueryDefinition:
     FormulaAndFunctionProcessQueryDefinition,
+  FormulaAndFunctionProductAnalyticsExtendedQueryDefinition:
+    FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,
+  FormulaAndFunctionRetentionQueryDefinition:
+    FormulaAndFunctionRetentionQueryDefinition,
   FormulaAndFunctionSLOQueryDefinition: FormulaAndFunctionSLOQueryDefinition,
+  FormulaAndFunctionUserJourneyQueryDefinition:
+    FormulaAndFunctionUserJourneyQueryDefinition,
   FreeTextWidgetDefinition: FreeTextWidgetDefinition,
+  FunnelComparisonCustomTimeframe: FunnelComparisonCustomTimeframe,
+  FunnelComparisonDuration: FunnelComparisonDuration,
   FunnelQuery: FunnelQuery,
   FunnelStep: FunnelStep,
   FunnelWidgetDefinition: FunnelWidgetDefinition,
@@ -2244,11 +2335,34 @@ const typeMap: { [index: string]: any } = {
   ProductAnalyticsAudienceSegmentSubquery:
     ProductAnalyticsAudienceSegmentSubquery,
   ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
+  ProductAnalyticsExtendedCompute: ProductAnalyticsExtendedCompute,
+  ProductAnalyticsExtendedGroupBy: ProductAnalyticsExtendedGroupBy,
+  ProductAnalyticsFunnelCompute: ProductAnalyticsFunnelCompute,
+  ProductAnalyticsFunnelGroupBy: ProductAnalyticsFunnelGroupBy,
+  ProductAnalyticsFunnelGroupBySort: ProductAnalyticsFunnelGroupBySort,
+  ProductAnalyticsFunnelQuery: ProductAnalyticsFunnelQuery,
+  ProductAnalyticsFunnelRequest: ProductAnalyticsFunnelRequest,
+  ProductAnalyticsFunnelWidgetDefinition:
+    ProductAnalyticsFunnelWidgetDefinition,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
   ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
   ResourceProviderConfig: ResourceProviderConfig,
   ResponseMetaAttributes: ResponseMetaAttributes,
+  RetentionCohortCriteria: RetentionCohortCriteria,
+  RetentionCohortCriteriaTimeInterval: RetentionCohortCriteriaTimeInterval,
+  RetentionCompute: RetentionCompute,
+  RetentionCurveStyle: RetentionCurveStyle,
+  RetentionCurveWidgetDefinition: RetentionCurveWidgetDefinition,
+  RetentionCurveWidgetRequest: RetentionCurveWidgetRequest,
+  RetentionFilters: RetentionFilters,
+  RetentionGridRequest: RetentionGridRequest,
+  RetentionGroupBy: RetentionGroupBy,
+  RetentionGroupBySort: RetentionGroupBySort,
+  RetentionQuery: RetentionQuery,
+  RetentionReturnCriteria: RetentionReturnCriteria,
+  RetentionReturnCriteriaTimeInterval: RetentionReturnCriteriaTimeInterval,
+  RetentionSearch: RetentionSearch,
   RunWorkflowWidgetDefinition: RunWorkflowWidgetDefinition,
   RunWorkflowWidgetInput: RunWorkflowWidgetInput,
   SLOBulkDeleteError: SLOBulkDeleteError,
@@ -2607,6 +2721,13 @@ const typeMap: { [index: string]: any } = {
   UsageTopAvgMetricsResponse: UsageTopAvgMetricsResponse,
   User: User,
   UserDisableResponse: UserDisableResponse,
+  UserJourneyFormulaCompute: UserJourneyFormulaCompute,
+  UserJourneyFormulaGroupBy: UserJourneyFormulaGroupBy,
+  UserJourneyJoinKeys: UserJourneyJoinKeys,
+  UserJourneySearch: UserJourneySearch,
+  UserJourneySearchFilters: UserJourneySearchFilters,
+  UserJourneySearchGraphFilter: UserJourneySearchGraphFilter,
+  UserJourneySearchTarget: UserJourneySearchTarget,
   UserListResponse: UserListResponse,
   UserResponse: UserResponse,
   ViewingPreferences: ViewingPreferences,
@@ -2664,6 +2785,9 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionApmMetricsQueryDefinition",
     "FormulaAndFunctionSLOQueryDefinition",
     "FormulaAndFunctionCloudCostQueryDefinition",
+    "FormulaAndFunctionProductAnalyticsExtendedQueryDefinition",
+    "FormulaAndFunctionUserJourneyQueryDefinition",
+    "FormulaAndFunctionRetentionQueryDefinition",
   ],
   LogsArrayProcessorOperation: [
     "LogsArrayProcessorOperationAppend",
@@ -2806,11 +2930,13 @@ const oneOfMap: { [index: string]: string[] } = {
     "BarChartWidgetDefinition",
     "ChangeWidgetDefinition",
     "CheckStatusWidgetDefinition",
+    "CohortWidgetDefinition",
     "DistributionWidgetDefinition",
     "EventStreamWidgetDefinition",
     "EventTimelineWidgetDefinition",
     "FreeTextWidgetDefinition",
     "FunnelWidgetDefinition",
+    "ProductAnalyticsFunnelWidgetDefinition",
     "GeomapWidgetDefinition",
     "GroupWidgetDefinition",
     "HeatMapWidgetDefinition",
@@ -2823,6 +2949,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "NoteWidgetDefinition",
     "PowerpackWidgetDefinition",
     "QueryValueWidgetDefinition",
+    "RetentionCurveWidgetDefinition",
     "RunWorkflowWidgetDefinition",
     "SLOListWidgetDefinition",
     "SLOWidgetDefinition",
