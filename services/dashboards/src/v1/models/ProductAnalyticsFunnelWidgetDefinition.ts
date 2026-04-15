@@ -2,14 +2,14 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FunnelGroupedDisplay } from "./FunnelGroupedDisplay";
 import { FunnelWidgetDefinitionType } from "./FunnelWidgetDefinitionType";
-import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
+import { ProductAnalyticsFunnelRequest } from "./ProductAnalyticsFunnelRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
 /**
- * The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.
+ * The user journey funnel visualization displays conversion funnels based on user journey data from Product Analytics.
  */
-export class FunnelWidgetDefinition {
+export class ProductAnalyticsFunnelWidgetDefinition {
   /**
    * The description of the widget.
    */
@@ -21,7 +21,7 @@ export class FunnelWidgetDefinition {
   /**
    * Request payload used to query items.
    */
-  "requests": Array<FunnelWidgetRequest>;
+  "requests": Array<ProductAnalyticsFunnelRequest>;
   /**
    * Time setting for the widget.
    */
@@ -43,12 +43,6 @@ export class FunnelWidgetDefinition {
    */
   "type": FunnelWidgetDefinitionType;
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
-  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -67,7 +61,7 @@ export class FunnelWidgetDefinition {
     },
     requests: {
       baseName: "requests",
-      type: "Array<FunnelWidgetRequest>",
+      type: "Array<ProductAnalyticsFunnelRequest>",
       required: true,
     },
     time: {
@@ -91,17 +85,13 @@ export class FunnelWidgetDefinition {
       type: "FunnelWidgetDefinitionType",
       required: true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
-    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelWidgetDefinition.attributeTypeMap;
+    return ProductAnalyticsFunnelWidgetDefinition.attributeTypeMap;
   }
 
   public constructor() {}

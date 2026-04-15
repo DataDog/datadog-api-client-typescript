@@ -39,7 +39,7 @@ export class SankeyRumQuery {
    */
   "occurrences"?: ProductAnalyticsAudienceOccurrenceFilter;
   /**
-   * Query string.
+   * RUM event search query used to filter views or actions.
    */
   "queryString": string;
   /**
