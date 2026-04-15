@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { FlakyTestHistoryPolicyId } from "./FlakyTestHistoryPolicyId";
+import { FlakyTestHistoryPolicyMeta } from "./FlakyTestHistoryPolicyMeta";
+
 /**
  * A single history entry representing a status change for a flaky test.
  */
@@ -8,6 +11,14 @@ export class FlakyTestHistory {
    * The commit SHA associated with this status change. Will be an empty string if the commit SHA is not available.
    */
   "commitSha": string;
+  /**
+   * The policy that triggered this status change.
+   */
+  "policyId"?: FlakyTestHistoryPolicyId;
+  /**
+   * Metadata about the policy that triggered this status change.
+   */
+  "policyMeta"?: FlakyTestHistoryPolicyMeta;
   /**
    * The test status at this point in history.
    */
@@ -35,6 +46,14 @@ export class FlakyTestHistory {
       baseName: "commit_sha",
       type: "string",
       required: true,
+    },
+    policyId: {
+      baseName: "policy_id",
+      type: "FlakyTestHistoryPolicyId",
+    },
+    policyMeta: {
+      baseName: "policy_meta",
+      type: "FlakyTestHistoryPolicyMeta",
     },
     status: {
       baseName: "status",
