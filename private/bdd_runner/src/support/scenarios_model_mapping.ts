@@ -2391,6 +2391,63 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FleetAgentInfoResponse",
   },
+  "FleetAutomationApi.V2.ListFleetAgentTracers": {
+    agentKey: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sortAttribute: {
+      type: "string",
+      format: "",
+    },
+    sortDescending: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "FleetTracersResponse",
+  },
+  "FleetAutomationApi.V2.ListFleetClusters": {
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sortAttribute: {
+      type: "string",
+      format: "",
+    },
+    sortDescending: {
+      type: "boolean",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    tags: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetClustersResponse",
+  },
+  "FleetAutomationApi.V2.ListFleetInstrumentedPods": {
+    clusterName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetInstrumentedPodsResponse",
+  },
   "FleetAutomationApi.V2.ListFleetDeployments": {
     pageSize: {
       type: "number",
@@ -2479,6 +2536,29 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "FleetDeploymentResponse",
+  },
+  "FleetAutomationApi.V2.ListFleetTracers": {
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    sortAttribute: {
+      type: "string",
+      format: "",
+    },
+    sortDescending: {
+      type: "boolean",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetTracersResponse",
   },
   "ActionsDatastoresApi.V2.ListDatastores": {
     operationResponseType: "DatastoreArray",
