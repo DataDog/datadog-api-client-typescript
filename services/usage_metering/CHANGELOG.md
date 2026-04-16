@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-04-16
+
+### Added
+* Add CCM spend usage type breakdown fields [#3898](https://github.com/DataDog/datadog-api-client-typescript/pull/3898)
+* Allow monitor notification rule on restriction policy [#3822](https://github.com/DataDog/datadog-api-client-typescript/pull/3822)
+
 ## 0.0.1-beta.7/2026-04-01
 
 ### Added

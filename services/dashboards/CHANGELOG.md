@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-04-16
+
+### Added
+* Add Product Analytics widget definitions [#3906](https://github.com/DataDog/datadog-api-client-typescript/pull/3906)
+
 ## 0.0.1-beta.6/2026-04-01
 
 ### Added
