@@ -1380,6 +1380,9 @@ import { GetInvestigationResponse } from "./GetInvestigationResponse";
 import { GetInvestigationResponseData } from "./GetInvestigationResponseData";
 import { GetInvestigationResponseDataAttributes } from "./GetInvestigationResponseDataAttributes";
 import { GetInvestigationResponseLinks } from "./GetInvestigationResponseLinks";
+import { GetIoCIndicatorResponse } from "./GetIoCIndicatorResponse";
+import { GetIoCIndicatorResponseAttributes } from "./GetIoCIndicatorResponseAttributes";
+import { GetIoCIndicatorResponseData } from "./GetIoCIndicatorResponseData";
 import { GetMappingResponse } from "./GetMappingResponse";
 import { GetMappingResponseData } from "./GetMappingResponseData";
 import { GetMappingResponseDataAttributes } from "./GetMappingResponseDataAttributes";
@@ -1665,6 +1668,16 @@ import { IntegrationServiceNowSyncConfig139772721534496 } from "./IntegrationSer
 import { IntegrationServiceNowSyncConfigPriority } from "./IntegrationServiceNowSyncConfigPriority";
 import { InterfaceAttributes } from "./InterfaceAttributes";
 import { InvestigationConclusion } from "./InvestigationConclusion";
+import { IoCExplorerListResponse } from "./IoCExplorerListResponse";
+import { IoCExplorerListResponseAttributes } from "./IoCExplorerListResponseAttributes";
+import { IoCExplorerListResponseData } from "./IoCExplorerListResponseData";
+import { IoCExplorerListResponseMetadata } from "./IoCExplorerListResponseMetadata";
+import { IoCExplorerListResponsePaging } from "./IoCExplorerListResponsePaging";
+import { IoCGeoLocation } from "./IoCGeoLocation";
+import { IoCIndicator } from "./IoCIndicator";
+import { IoCIndicatorDetailed } from "./IoCIndicatorDetailed";
+import { IoCSignalSeverityCount } from "./IoCSignalSeverityCount";
+import { IoCSource } from "./IoCSource";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueAttributes } from "./IssueAttributes";
@@ -4625,6 +4638,7 @@ const enumsMap: { [key: string]: any[] } = {
   IntegrationType: ["integration"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   InvestigationType: ["investigation"],
+  IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
   IssueCaseResourceType: ["case"],
   IssueLanguage: [
     "BRIGHTSCRIPT",
@@ -7686,6 +7700,9 @@ const typeMap: { [index: string]: any } = {
   GetInvestigationResponseDataAttributes:
     GetInvestigationResponseDataAttributes,
   GetInvestigationResponseLinks: GetInvestigationResponseLinks,
+  GetIoCIndicatorResponse: GetIoCIndicatorResponse,
+  GetIoCIndicatorResponseAttributes: GetIoCIndicatorResponseAttributes,
+  GetIoCIndicatorResponseData: GetIoCIndicatorResponseData,
   GetMappingResponse: GetMappingResponse,
   GetMappingResponseData: GetMappingResponseData,
   GetMappingResponseDataAttributes: GetMappingResponseDataAttributes,
@@ -8025,6 +8042,16 @@ const typeMap: { [index: string]: any } = {
     IntegrationServiceNowSyncConfigPriority,
   InterfaceAttributes: InterfaceAttributes,
   InvestigationConclusion: InvestigationConclusion,
+  IoCExplorerListResponse: IoCExplorerListResponse,
+  IoCExplorerListResponseAttributes: IoCExplorerListResponseAttributes,
+  IoCExplorerListResponseData: IoCExplorerListResponseData,
+  IoCExplorerListResponseMetadata: IoCExplorerListResponseMetadata,
+  IoCExplorerListResponsePaging: IoCExplorerListResponsePaging,
+  IoCGeoLocation: IoCGeoLocation,
+  IoCIndicator: IoCIndicator,
+  IoCIndicatorDetailed: IoCIndicatorDetailed,
+  IoCSignalSeverityCount: IoCSignalSeverityCount,
+  IoCSource: IoCSource,
   Issue: Issue,
   IssueAssigneeRelationship: IssueAssigneeRelationship,
   IssueAttributes: IssueAttributes,
