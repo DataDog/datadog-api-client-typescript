@@ -4486,6 +4486,36 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ScannedAssetsMetadata",
     },
+    "v2.ListIndicatorsOfCompromise": {
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int32",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "sortColumn": {
+            "type": "string",
+            "format": "",
+            },
+        "sortOrder": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IoCExplorerListResponse",
+    },
+    "v2.GetIndicatorOfCompromise": {
+        "indicator": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetIoCIndicatorResponse",
+    },
     "v2.GetSignalNotificationRules": {
         "operationResponseType": "NotificationRulesList",
     },

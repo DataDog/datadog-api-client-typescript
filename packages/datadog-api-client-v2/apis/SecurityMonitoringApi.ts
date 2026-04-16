@@ -40,12 +40,14 @@ import { FindingStatus } from "../models/FindingStatus";
 import { FindingVulnerabilityType } from "../models/FindingVulnerabilityType";
 import { GetCustomFrameworkResponse } from "../models/GetCustomFrameworkResponse";
 import { GetFindingResponse } from "../models/GetFindingResponse";
+import { GetIoCIndicatorResponse } from "../models/GetIoCIndicatorResponse";
 import { GetMultipleRulesetsRequest } from "../models/GetMultipleRulesetsRequest";
 import { GetMultipleRulesetsResponse } from "../models/GetMultipleRulesetsResponse";
 import { GetResourceEvaluationFiltersResponse } from "../models/GetResourceEvaluationFiltersResponse";
 import { GetRuleVersionHistoryResponse } from "../models/GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "../models/GetSBOMResponse";
 import { GetSuppressionVersionHistoryResponse } from "../models/GetSuppressionVersionHistoryResponse";
+import { IoCExplorerListResponse } from "../models/IoCExplorerListResponse";
 import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAssetsSBOMsResponse } from "../models/ListAssetsSBOMsResponse";
@@ -1681,6 +1683,53 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getIndicatorOfCompromise(
+    indicator: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getIndicatorOfCompromise'");
+    if (!_config.unstableOperations["v2.getIndicatorOfCompromise"]) {
+      throw new Error(
+        "Unstable operation 'getIndicatorOfCompromise' is disabled"
+      );
+    }
+
+    // verify required parameter 'indicator' is not null or undefined
+    if (indicator === null || indicator === undefined) {
+      throw new RequiredError("indicator", "getIndicatorOfCompromise");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/siem/ioc-explorer/indicator";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getIndicatorOfCompromise")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (indicator !== undefined) {
+      requestContext.setQueryParam(
+        "indicator",
+        ObjectSerializer.serialize(indicator, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getInvestigationLogQueriesMatchingSignal(
     signalId: string,
     _options?: Configuration
@@ -2810,6 +2859,80 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "detailed_findings",
         ObjectSerializer.serialize(detailedFindings, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIndicatorsOfCompromise(
+    limit?: number,
+    offset?: number,
+    query?: string,
+    sortColumn?: string,
+    sortOrder?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIndicatorsOfCompromise'");
+    if (!_config.unstableOperations["v2.listIndicatorsOfCompromise"]) {
+      throw new Error(
+        "Unstable operation 'listIndicatorsOfCompromise' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/siem/ioc-explorer";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listIndicatorsOfCompromise")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int32"),
+        ""
+      );
+    }
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        ObjectSerializer.serialize(offset, "number", "int32"),
+        ""
+      );
+    }
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
+      );
+    }
+    if (sortColumn !== undefined) {
+      requestContext.setQueryParam(
+        "sort[column]",
+        ObjectSerializer.serialize(sortColumn, "string", ""),
+        ""
+      );
+    }
+    if (sortOrder !== undefined) {
+      requestContext.setQueryParam(
+        "sort[order]",
+        ObjectSerializer.serialize(sortOrder, "string", ""),
         ""
       );
     }
@@ -7115,6 +7238,69 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getIndicatorOfCompromise
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIndicatorOfCompromise(
+    response: ResponseContext
+  ): Promise<GetIoCIndicatorResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetIoCIndicatorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetIoCIndicatorResponse"
+      ) as GetIoCIndicatorResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetIoCIndicatorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetIoCIndicatorResponse",
+        ""
+      ) as GetIoCIndicatorResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getInvestigationLogQueriesMatchingSignal
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8587,6 +8773,68 @@ export class SecurityMonitoringApiResponseProcessor {
         "ListFindingsResponse",
         ""
       ) as ListFindingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIndicatorsOfCompromise
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIndicatorsOfCompromise(
+    response: ResponseContext
+  ): Promise<IoCExplorerListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IoCExplorerListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IoCExplorerListResponse"
+      ) as IoCExplorerListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IoCExplorerListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IoCExplorerListResponse",
+        ""
+      ) as IoCExplorerListResponse;
       return body;
     }
 
@@ -10827,6 +11075,14 @@ export interface SecurityMonitoringApiGetFindingRequest {
   snapshotTimestamp?: number;
 }
 
+export interface SecurityMonitoringApiGetIndicatorOfCompromiseRequest {
+  /**
+   * The indicator value to look up (for example, an IP address or domain).
+   * @type string
+   */
+  indicator: string;
+}
+
 export interface SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest {
   /**
    * The ID of the signal.
@@ -11164,6 +11420,34 @@ export interface SecurityMonitoringApiListFindingsRequest {
    * @type boolean
    */
   detailedFindings?: boolean;
+}
+
+export interface SecurityMonitoringApiListIndicatorsOfCompromiseRequest {
+  /**
+   * Number of results per page.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * Pagination offset.
+   * @type number
+   */
+  offset?: number;
+  /**
+   * Search/filter query (supports field:value syntax).
+   * @type string
+   */
+  query?: string;
+  /**
+   * Sort column: score, first_seen_ts_epoch, last_seen_ts_epoch, indicator, indicator_type, signal_count, log_count, category, as_type.
+   * @type string
+   */
+  sortColumn?: string;
+  /**
+   * Sort order: asc or desc.
+   * @type string
+   */
+  sortOrder?: string;
 }
 
 export interface SecurityMonitoringApiListMultipleRulesetsRequest {
@@ -12698,6 +12982,29 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get detailed information about a specific indicator of compromise (IoC).
+   * @param param The request object
+   */
+  public getIndicatorOfCompromise(
+    param: SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
+    options?: Configuration
+  ): Promise<GetIoCIndicatorResponse> {
+    const requestContextPromise = this.requestFactory.getIndicatorOfCompromise(
+      param.indicator,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIndicatorOfCompromise(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the list of investigation log queries available for a given security signal.
    * @param param The request object
    */
@@ -13361,6 +13668,34 @@ export class SecurityMonitoringApi {
 
       param.pageCursor = cursorMetaPageCursor;
     }
+  }
+
+  /**
+   * Get a list of indicators of compromise (IoCs) matching the specified filters.
+   * @param param The request object
+   */
+  public listIndicatorsOfCompromise(
+    param: SecurityMonitoringApiListIndicatorsOfCompromiseRequest = {},
+    options?: Configuration
+  ): Promise<IoCExplorerListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listIndicatorsOfCompromise(
+        param.limit,
+        param.offset,
+        param.query,
+        param.sortColumn,
+        param.sortOrder,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIndicatorsOfCompromise(
+            responseContext
+          );
+        });
+    });
   }
 
   /**

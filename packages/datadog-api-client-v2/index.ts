@@ -1041,6 +1041,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
   SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
@@ -1061,6 +1062,7 @@ export {
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
+  SecurityMonitoringApiListIndicatorsOfCompromiseRequest,
   SecurityMonitoringApiListMultipleRulesetsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
@@ -3116,6 +3118,9 @@ export { GetInvestigationResponse } from "./models/GetInvestigationResponse";
 export { GetInvestigationResponseData } from "./models/GetInvestigationResponseData";
 export { GetInvestigationResponseDataAttributes } from "./models/GetInvestigationResponseDataAttributes";
 export { GetInvestigationResponseLinks } from "./models/GetInvestigationResponseLinks";
+export { GetIoCIndicatorResponse } from "./models/GetIoCIndicatorResponse";
+export { GetIoCIndicatorResponseAttributes } from "./models/GetIoCIndicatorResponseAttributes";
+export { GetIoCIndicatorResponseData } from "./models/GetIoCIndicatorResponseData";
 export { GetIssueIncludeQueryParameterItem } from "./models/GetIssueIncludeQueryParameterItem";
 export { GetMappingResponse } from "./models/GetMappingResponse";
 export { GetMappingResponseData } from "./models/GetMappingResponseData";
@@ -3475,6 +3480,17 @@ export { InterfaceAttributes } from "./models/InterfaceAttributes";
 export { InterfaceAttributesStatus } from "./models/InterfaceAttributesStatus";
 export { InvestigationConclusion } from "./models/InvestigationConclusion";
 export { InvestigationType } from "./models/InvestigationType";
+export { IoCExplorerListResponse } from "./models/IoCExplorerListResponse";
+export { IoCExplorerListResponseAttributes } from "./models/IoCExplorerListResponseAttributes";
+export { IoCExplorerListResponseData } from "./models/IoCExplorerListResponseData";
+export { IoCExplorerListResponseMetadata } from "./models/IoCExplorerListResponseMetadata";
+export { IoCExplorerListResponsePaging } from "./models/IoCExplorerListResponsePaging";
+export { IoCGeoLocation } from "./models/IoCGeoLocation";
+export { IoCIndicator } from "./models/IoCIndicator";
+export { IoCIndicatorDetailed } from "./models/IoCIndicatorDetailed";
+export { IoCScoreEffect } from "./models/IoCScoreEffect";
+export { IoCSignalSeverityCount } from "./models/IoCSignalSeverityCount";
+export { IoCSource } from "./models/IoCSource";
 export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
 export { IPAllowlistData } from "./models/IPAllowlistData";
 export { IPAllowlistEntry } from "./models/IPAllowlistEntry";
