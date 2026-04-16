@@ -34,6 +34,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
   SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
@@ -54,6 +55,7 @@ export {
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
+  SecurityMonitoringApiListIndicatorsOfCompromiseRequest,
   SecurityMonitoringApiListMultipleRulesetsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
@@ -184,6 +186,9 @@ export { FullCustomFrameworkData } from "./models/FullCustomFrameworkData";
 export { FullCustomFrameworkDataAttributes } from "./models/FullCustomFrameworkDataAttributes";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
+export { GetIoCIndicatorResponse } from "./models/GetIoCIndicatorResponse";
+export { GetIoCIndicatorResponseAttributes } from "./models/GetIoCIndicatorResponseAttributes";
+export { GetIoCIndicatorResponseData } from "./models/GetIoCIndicatorResponseData";
 export { GetMultipleRulesetsRequest } from "./models/GetMultipleRulesetsRequest";
 export { GetMultipleRulesetsRequestData } from "./models/GetMultipleRulesetsRequestData";
 export { GetMultipleRulesetsRequestDataAttributes } from "./models/GetMultipleRulesetsRequestDataAttributes";
@@ -209,6 +214,17 @@ export { GetSBOMResponse } from "./models/GetSBOMResponse";
 export { GetSuppressionVersionHistoryData } from "./models/GetSuppressionVersionHistoryData";
 export { GetSuppressionVersionHistoryDataType } from "./models/GetSuppressionVersionHistoryDataType";
 export { GetSuppressionVersionHistoryResponse } from "./models/GetSuppressionVersionHistoryResponse";
+export { IoCExplorerListResponse } from "./models/IoCExplorerListResponse";
+export { IoCExplorerListResponseAttributes } from "./models/IoCExplorerListResponseAttributes";
+export { IoCExplorerListResponseData } from "./models/IoCExplorerListResponseData";
+export { IoCExplorerListResponseMetadata } from "./models/IoCExplorerListResponseMetadata";
+export { IoCExplorerListResponsePaging } from "./models/IoCExplorerListResponsePaging";
+export { IoCGeoLocation } from "./models/IoCGeoLocation";
+export { IoCIndicator } from "./models/IoCIndicator";
+export { IoCIndicatorDetailed } from "./models/IoCIndicatorDetailed";
+export { IoCScoreEffect } from "./models/IoCScoreEffect";
+export { IoCSignalSeverityCount } from "./models/IoCSignalSeverityCount";
+export { IoCSource } from "./models/IoCSource";
 export { JiraIssuesDataType } from "./models/JiraIssuesDataType";
 export { JobCreateResponse } from "./models/JobCreateResponse";
 export { JobCreateResponseData } from "./models/JobCreateResponseData";

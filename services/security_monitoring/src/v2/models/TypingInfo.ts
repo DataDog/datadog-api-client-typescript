@@ -84,6 +84,9 @@ import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
+import { GetIoCIndicatorResponse } from "./GetIoCIndicatorResponse";
+import { GetIoCIndicatorResponseAttributes } from "./GetIoCIndicatorResponseAttributes";
+import { GetIoCIndicatorResponseData } from "./GetIoCIndicatorResponseData";
 import { GetMultipleRulesetsRequest } from "./GetMultipleRulesetsRequest";
 import { GetMultipleRulesetsRequestData } from "./GetMultipleRulesetsRequestData";
 import { GetMultipleRulesetsRequestDataAttributes } from "./GetMultipleRulesetsRequestDataAttributes";
@@ -103,6 +106,16 @@ import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
 import { GetSuppressionVersionHistoryResponse } from "./GetSuppressionVersionHistoryResponse";
+import { IoCExplorerListResponse } from "./IoCExplorerListResponse";
+import { IoCExplorerListResponseAttributes } from "./IoCExplorerListResponseAttributes";
+import { IoCExplorerListResponseData } from "./IoCExplorerListResponseData";
+import { IoCExplorerListResponseMetadata } from "./IoCExplorerListResponseMetadata";
+import { IoCExplorerListResponsePaging } from "./IoCExplorerListResponsePaging";
+import { IoCGeoLocation } from "./IoCGeoLocation";
+import { IoCIndicator } from "./IoCIndicator";
+import { IoCIndicatorDetailed } from "./IoCIndicatorDetailed";
+import { IoCSignalSeverityCount } from "./IoCSignalSeverityCount";
+import { IoCSource } from "./IoCSource";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -354,6 +367,7 @@ export const TypingInfo: ModelTypingInfo = {
     GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
     GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
+    IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
     JiraIssuesDataType: ["jira_issues"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
@@ -798,6 +812,9 @@ export const TypingInfo: ModelTypingInfo = {
     FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
     GetCustomFrameworkResponse: GetCustomFrameworkResponse,
     GetFindingResponse: GetFindingResponse,
+    GetIoCIndicatorResponse: GetIoCIndicatorResponse,
+    GetIoCIndicatorResponseAttributes: GetIoCIndicatorResponseAttributes,
+    GetIoCIndicatorResponseData: GetIoCIndicatorResponseData,
     GetMultipleRulesetsRequest: GetMultipleRulesetsRequest,
     GetMultipleRulesetsRequestData: GetMultipleRulesetsRequestData,
     GetMultipleRulesetsRequestDataAttributes:
@@ -826,6 +843,16 @@ export const TypingInfo: ModelTypingInfo = {
     GetSBOMResponse: GetSBOMResponse,
     GetSuppressionVersionHistoryData: GetSuppressionVersionHistoryData,
     GetSuppressionVersionHistoryResponse: GetSuppressionVersionHistoryResponse,
+    IoCExplorerListResponse: IoCExplorerListResponse,
+    IoCExplorerListResponseAttributes: IoCExplorerListResponseAttributes,
+    IoCExplorerListResponseData: IoCExplorerListResponseData,
+    IoCExplorerListResponseMetadata: IoCExplorerListResponseMetadata,
+    IoCExplorerListResponsePaging: IoCExplorerListResponsePaging,
+    IoCGeoLocation: IoCGeoLocation,
+    IoCIndicator: IoCIndicator,
+    IoCIndicatorDetailed: IoCIndicatorDetailed,
+    IoCSignalSeverityCount: IoCSignalSeverityCount,
+    IoCSource: IoCSource,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
