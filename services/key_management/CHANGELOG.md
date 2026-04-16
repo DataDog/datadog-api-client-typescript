@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-16
+
+### Added
+* Add PAT/SAT management API endpoints [#3857](https://github.com/DataDog/datadog-api-client-typescript/pull/3857)
+
 ## 0.0.1-beta.4/2026-04-16
 
 ### Added

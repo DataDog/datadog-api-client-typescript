@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-04-16
+
+### Added
+* Add team and assignee filters for Search Error Tracking Issues API [#3912](https://github.com/DataDog/datadog-api-client-typescript/pull/3912)
+
 ## 0.0.1-beta.3/2026-04-16
 
 ### Added

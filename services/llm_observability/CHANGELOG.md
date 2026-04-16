@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-04-16
+
+### Added
+* Add Annotations endpoints [#3881](https://github.com/DataDog/datadog-api-client-typescript/pull/3881)
+
 ## 0.0.1-beta.2/2026-04-16
 
 ### Added

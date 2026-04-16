@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-04-16
+
+### Added
+* Allow monitor notification rule on restriction policy [#3822](https://github.com/DataDog/datadog-api-client-typescript/pull/3822)
+
 ## 0.0.1-beta.5/2026-04-16
 
 ### Added
