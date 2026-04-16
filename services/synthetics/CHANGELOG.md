@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-04-16
+
+### Added
+* feat: add drag and drop as new synthetics browser step type  [#3830](https://github.com/DataDog/datadog-api-client-typescript/pull/3830)
+
 ## 0.0.1-beta.7/2026-04-01
 
 ### Added
