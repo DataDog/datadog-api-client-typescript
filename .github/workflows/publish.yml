@@ -2,6 +2,7 @@ name: Publish package on NPM
 
 permissions:
   contents: write
+  id-token: write # Required for OIDC trusted publishing
 
 on:
   release:
@@ -15,9 +16,10 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 1
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
+          registry-url: 'https://registry.npmjs.org'
       - name: Releasing tag ${{ github.event.release.tag_name }}
         run: |
           corepack enable; yarn
@@ -29,24 +31,10 @@ jobs:
             cd $(echo $tag_name | rev | cut -d'/' -f2- | rev)
           fi
 
-          yarn_major_version=$(yarn --version | cut -d'.' -f1)
-          if [ "$yarn_major_version" -ge 2 ] && [ "$yarn_major_version" -le 4 ]; then
-            cmd="yarn npm publish --access public"
-          elif [ "$yarn_major_version" -eq 1 ]; then
-            cmd="yarn publish --access public"
-          else
-            echo "Unsupported Yarn version: $yarn_major_version"
-            exit 1
-          fi
-
           if [ "${{ github.event.release.prerelease }}" == "true" ]; then
-            cmd+=" --tag=beta"
+            npm publish --provenance --access public --tag beta
           else
-            cmd+=" --tag=latest"
+            npm publish --provenance --access public --tag latest
           fi
-
-          eval $cmd
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
           COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
