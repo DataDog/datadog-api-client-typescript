@@ -869,6 +869,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     pageNumber?: number,
     pageSize?: number,
     filterStatus?: string,
+    filterName?: string,
+    filterProvider?: Array<string>,
     sort?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -904,6 +906,20 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
         "filter[status]",
         ObjectSerializer.serialize(filterStatus, "string", ""),
         ""
+      );
+    }
+    if (filterName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[name]",
+        ObjectSerializer.serialize(filterName, "string", ""),
+        ""
+      );
+    }
+    if (filterProvider !== undefined) {
+      requestContext.setQueryParam(
+        "filter[provider]",
+        ObjectSerializer.serialize(filterProvider, "Array<string>", ""),
+        "multi"
       );
     }
     if (sort !== undefined) {
@@ -3817,6 +3833,16 @@ export interface CloudCostManagementApiListCustomCostsFilesRequest {
    */
   filterStatus?: string;
   /**
+   * Filter files by name with case-insensitive substring matching.
+   * @type string
+   */
+  filterName?: string;
+  /**
+   * Filter by provider.
+   * @type Array<string>
+   */
+  filterProvider?: Array<string>;
+  /**
    * Sort key with optional descending prefix
    * @type string
    */
@@ -4471,6 +4497,8 @@ export class CloudCostManagementApi {
       param.pageNumber,
       param.pageSize,
       param.filterStatus,
+      param.filterName,
+      param.filterProvider,
       param.sort,
       options
     );
