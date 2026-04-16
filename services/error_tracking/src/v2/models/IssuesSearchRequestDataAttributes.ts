@@ -9,6 +9,10 @@ import { IssuesSearchRequestDataAttributesTrack } from "./IssuesSearchRequestDat
  */
 export class IssuesSearchRequestDataAttributes {
   /**
+   * Filter issues by assignee IDs. Multiple values are combined with OR logic.
+   */
+  "assigneeIds"?: Array<string>;
+  /**
    * Start date (inclusive) of the query in milliseconds since the Unix epoch.
    */
   "from": number;
@@ -24,6 +28,10 @@ export class IssuesSearchRequestDataAttributes {
    * Search query following the event search syntax.
    */
   "query": string;
+  /**
+   * Filter issues by team IDs. Multiple values are combined with OR logic.
+   */
+  "teamIds"?: Array<string>;
   /**
    * End date (exclusive) of the query in milliseconds since the Unix epoch.
    */
@@ -47,6 +55,11 @@ export class IssuesSearchRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    assigneeIds: {
+      baseName: "assignee_ids",
+      type: "Array<string>",
+      format: "uuid",
+    },
     from: {
       baseName: "from",
       type: "number",
@@ -65,6 +78,11 @@ export class IssuesSearchRequestDataAttributes {
       baseName: "query",
       type: "string",
       required: true,
+    },
+    teamIds: {
+      baseName: "team_ids",
+      type: "Array<string>",
+      format: "uuid",
     },
     to: {
       baseName: "to",
