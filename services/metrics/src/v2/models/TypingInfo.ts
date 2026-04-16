@@ -1,6 +1,11 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { ApmDependencyStatsQuery } from "./ApmDependencyStatsQuery";
+import { ApmMetricsQuery } from "./ApmMetricsQuery";
+import { ApmResourceStatsQuery } from "./ApmResourceStatsQuery";
+import { ContainerScalarQuery } from "./ContainerScalarQuery";
+import { ContainerTimeseriesQuery } from "./ContainerTimeseriesQuery";
 import { DataScalarColumn } from "./DataScalarColumn";
 import { EventsCompute } from "./EventsCompute";
 import { EventsGroupBy } from "./EventsGroupBy";
@@ -81,6 +86,8 @@ import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTag
 import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
+import { ProcessScalarQuery } from "./ProcessScalarQuery";
+import { ProcessTimeseriesQuery } from "./ProcessTimeseriesQuery";
 import { QueryFormula } from "./QueryFormula";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
@@ -89,6 +96,7 @@ import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
+import { SloQuery } from "./SloQuery";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -100,6 +108,58 @@ import { Unit } from "./Unit";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    ApmDependencyStatName: [
+      "avg_duration",
+      "avg_root_duration",
+      "avg_spans_per_trace",
+      "error_rate",
+      "pct_exec_time",
+      "pct_of_traces",
+      "total_traces_count",
+    ],
+    ApmDependencyStatsDataSource: ["apm_dependency_stats"],
+    ApmMetricsDataSource: ["apm_metrics"],
+    ApmMetricsSpanKind: [
+      "consumer",
+      "server",
+      "client",
+      "producer",
+      "internal",
+    ],
+    ApmMetricsStat: [
+      "error_rate",
+      "errors",
+      "errors_per_second",
+      "hits",
+      "hits_per_second",
+      "apdex",
+      "latency_avg",
+      "latency_max",
+      "latency_p50",
+      "latency_p75",
+      "latency_p90",
+      "latency_p95",
+      "latency_p99",
+      "latency_p999",
+      "latency_distribution",
+      "total_time",
+    ],
+    ApmResourceStatName: [
+      "error_rate",
+      "errors",
+      "hits",
+      "latency_avg",
+      "latency_max",
+      "latency_p50",
+      "latency_p75",
+      "latency_p90",
+      "latency_p95",
+      "latency_p99",
+      "latency_distribution",
+      "total_time",
+    ],
+    ApmResourceStatsDataSource: ["apm_resource_stats"],
+    ContainerDataSource: ["container"],
     EventsAggregation: [
       "count",
       "cardinality",
@@ -113,7 +173,22 @@ export const TypingInfo: ModelTypingInfo = {
       "max",
       "avg",
     ],
-    EventsDataSource: ["logs", "rum", "dora"],
+    EventsDataSource: [
+      "logs",
+      "spans",
+      "network",
+      "rum",
+      "security_signals",
+      "profiles",
+      "audit",
+      "events",
+      "ci_tests",
+      "ci_pipelines",
+      "incident_analytics",
+      "product_analytics",
+      "on_call_events",
+      "dora",
+    ],
     EventsSortType: ["alphabetical", "measure"],
     MetricActiveConfigurationType: ["actively_queried_configurations"],
     MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
@@ -154,11 +229,27 @@ export const TypingInfo: ModelTypingInfo = {
       "area",
     ],
     MetricsDataSource: ["metrics", "cloud_cost"],
+    ProcessDataSource: ["process"],
     QuerySortOrder: ["asc", "desc"],
     ScalarColumnTypeGroup: ["group"],
     ScalarColumnTypeNumber: ["number"],
     ScalarFormulaRequestType: ["scalar_request"],
     ScalarFormulaResponseType: ["scalar_response"],
+    SloDataSource: ["slo"],
+    SlosGroupMode: ["overall", "components"],
+    SlosMeasure: [
+      "good_events",
+      "bad_events",
+      "slo_status",
+      "error_budget_remaining",
+      "error_budget_remaining_history",
+      "error_budget_burndown",
+      "burn_rate",
+      "slo_status_history",
+      "good_minutes",
+      "bad_minutes",
+    ],
+    SlosQueryType: ["metric", "time_slice", "monitor"],
     TimeseriesFormulaRequestType: ["timeseries_request"],
     TimeseriesFormulaResponseType: ["timeseries_response"],
   },
@@ -172,11 +263,34 @@ export const TypingInfo: ModelTypingInfo = {
     MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
     MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
     ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
-    ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
-    TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
+    ScalarQuery: [
+      "MetricsScalarQuery",
+      "EventsScalarQuery",
+      "ApmResourceStatsQuery",
+      "ApmMetricsQuery",
+      "ApmDependencyStatsQuery",
+      "SloQuery",
+      "ProcessScalarQuery",
+      "ContainerScalarQuery",
+    ],
+    TimeseriesQuery: [
+      "MetricsTimeseriesQuery",
+      "EventsTimeseriesQuery",
+      "ApmResourceStatsQuery",
+      "ApmMetricsQuery",
+      "ApmDependencyStatsQuery",
+      "SloQuery",
+      "ProcessTimeseriesQuery",
+      "ContainerTimeseriesQuery",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    ApmDependencyStatsQuery: ApmDependencyStatsQuery,
+    ApmMetricsQuery: ApmMetricsQuery,
+    ApmResourceStatsQuery: ApmResourceStatsQuery,
+    ContainerScalarQuery: ContainerScalarQuery,
+    ContainerTimeseriesQuery: ContainerTimeseriesQuery,
     DataScalarColumn: DataScalarColumn,
     EventsCompute: EventsCompute,
     EventsGroupBy: EventsGroupBy,
@@ -262,6 +376,8 @@ export const TypingInfo: ModelTypingInfo = {
     MetricsListResponseLinks: MetricsListResponseLinks,
     MetricsScalarQuery: MetricsScalarQuery,
     MetricsTimeseriesQuery: MetricsTimeseriesQuery,
+    ProcessScalarQuery: ProcessScalarQuery,
+    ProcessTimeseriesQuery: ProcessTimeseriesQuery,
     QueryFormula: QueryFormula,
     ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
     ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
@@ -270,6 +386,7 @@ export const TypingInfo: ModelTypingInfo = {
     ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
     ScalarMeta: ScalarMeta,
     ScalarResponse: ScalarResponse,
+    SloQuery: SloQuery,
     TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
     TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
     TimeseriesFormulaRequest: TimeseriesFormulaRequest,

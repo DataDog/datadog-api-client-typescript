@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { MetricsDataSource } from "./MetricsDataSource";
 
 /**
- * An individual timeseries metrics query.
+ * A query against Datadog custom metrics or Cloud Cost data sources.
  */
 export class MetricsTimeseriesQuery {
   /**

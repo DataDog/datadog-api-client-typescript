@@ -4,7 +4,7 @@ import { MetricsAggregator } from "./MetricsAggregator";
 import { MetricsDataSource } from "./MetricsDataSource";
 
 /**
- * An individual scalar metrics query.
+ * A query against Datadog custom metrics or Cloud Cost data sources.
  */
 export class MetricsScalarQuery {
   /**

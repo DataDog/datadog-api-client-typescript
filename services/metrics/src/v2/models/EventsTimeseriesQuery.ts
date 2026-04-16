@@ -6,7 +6,7 @@ import { EventsGroupBy } from "./EventsGroupBy";
 import { EventsSearch } from "./EventsSearch";
 
 /**
- * An individual timeseries events query.
+ * An individual timeseries query for logs, RUM, traces, CI pipelines, security signals, and other event-based data sources. Use this query type for any data source powered by the Events Platform. See the data_source field for the full list of supported sources.
  */
 export class EventsTimeseriesQuery {
   /**
