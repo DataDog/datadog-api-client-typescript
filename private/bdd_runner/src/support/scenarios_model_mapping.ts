@@ -5564,6 +5564,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterName: {
+      type: "string",
+      format: "",
+    },
+    filterProvider: {
+      type: "Array<string>",
+      format: "",
+    },
     sort: {
       type: "string",
       format: "",
