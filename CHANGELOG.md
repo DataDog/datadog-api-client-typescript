@@ -1,5 +1,38 @@
 # CHANGELOG
 
+## 1.56.0/2026-04-16
+
+### Added
+* Add domain prefix filter query parameter to list status pages API [#3932](https://github.com/DataDog/datadog-api-client-typescript/pull/3932)
+* Add OpenAPI spec for Bits AI SRE investigations [#3919](https://github.com/DataDog/datadog-api-client-typescript/pull/3919)
+* Add team and assignee filters for Search Error Tracking Issues API [#3913](https://github.com/DataDog/datadog-api-client-typescript/pull/3913)
+* Add Product Analytics widget definitions [#3907](https://github.com/DataDog/datadog-api-client-typescript/pull/3907)
+* Add OpenAPI spec for Dashboard Secure Embed endpoints [#3905](https://github.com/DataDog/datadog-api-client-typescript/pull/3905)
+* Add fleet tracers, clusters, and instrumented pods endpoints [#3903](https://github.com/DataDog/datadog-api-client-typescript/pull/3903)
+* Add public POST/PATCH endpoints for Flaky Tests Management policies [#3901](https://github.com/DataDog/datadog-api-client-typescript/pull/3901)
+* Add CCM spend usage type breakdown fields [#3899](https://github.com/DataDog/datadog-api-client-typescript/pull/3899)
+* Adding all Observability Pipeline new hec_token related features into the api [#3895](https://github.com/DataDog/datadog-api-client-typescript/pull/3895)
+* Adding compression optional field to Amazon S3 source [#3887](https://github.com/DataDog/datadog-api-client-typescript/pull/3887)
+* Add Annotations endpoints [#3882](https://github.com/DataDog/datadog-api-client-typescript/pull/3882)
+* Add Org Groups API specification [#3880](https://github.com/DataDog/datadog-api-client-typescript/pull/3880)
+* Add Obs Pipelines Elasticsearch metrics destination and new fields [#3865](https://github.com/DataDog/datadog-api-client-typescript/pull/3865)
+* Add OpenAPI spec for Bits AI SRE investigations [#3863](https://github.com/DataDog/datadog-api-client-typescript/pull/3863)
+* Add PAT/SAT management API endpoints [#3858](https://github.com/DataDog/datadog-api-client-typescript/pull/3858)
+* Add OpenAPI documentation for signal investigation queries and suggested actions endpoints [#3852](https://github.com/DataDog/datadog-api-client-typescript/pull/3852)
+* add api spec for feature flags allocations and exposure schedules endpoints [#3843](https://github.com/DataDog/datadog-api-client-typescript/pull/3843)
+* Add Publish and Unpublish API documentation for Status Pages [#3838](https://github.com/DataDog/datadog-api-client-typescript/pull/3838)
+* feat: add drag and drop as new synthetics browser step type  [#3831](https://github.com/DataDog/datadog-api-client-typescript/pull/3831)
+* Allow monitor notification rule on restriction policy [#3823](https://github.com/DataDog/datadog-api-client-typescript/pull/3823)
+* Add support for configuring Splunk sourcetype in Custom Destinations [#3803](https://github.com/DataDog/datadog-api-client-typescript/pull/3803)
+* Add OpenAPI documentation for scorecards endpoints [#3434](https://github.com/DataDog/datadog-api-client-typescript/pull/3434)
+
+### Fixed
+* fix(formatter): use primitive type instead of schema name in get_response_type (AAWF-1199) [#3916](https://github.com/DataDog/datadog-api-client-typescript/pull/3916)
+* Add security_signals to SecurityMonitoringStandardDataSource [#3884](https://github.com/DataDog/datadog-api-client-typescript/pull/3884)
+
+### Changed
+* Update SearchFlakyTests endpoint documentation [#3868](https://github.com/DataDog/datadog-api-client-typescript/pull/3868)
+
 ## 1.55.0/2026-04-16
 
 ### Added
