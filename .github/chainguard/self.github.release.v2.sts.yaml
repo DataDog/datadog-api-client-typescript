@@ -1,0 +1,14 @@
+# Trust policy for creating releases on v2 branch
+# Restricted to v2 branch (protected ref) for security
+# Will be called in release.yml
+issuer: https://token.actions.githubusercontent.com
+subject: repo:DataDog/datadog-api-client-typescript:pull_request
+
+claim_pattern:
+  event_name: pull_request
+  job_workflow_ref: DataDog/datadog-api-client-typescript/\.github/workflows/release\.yml@refs/heads/v2
+  repository: DataDog/datadog-api-client-typescript
+  ref: refs/heads/v2
+
+permissions:
+  contents: write
