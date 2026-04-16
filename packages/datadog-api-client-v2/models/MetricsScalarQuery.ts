@@ -9,7 +9,7 @@ import { MetricsDataSource } from "./MetricsDataSource";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * An individual scalar metrics query.
+ * A query against Datadog custom metrics or Cloud Cost data sources.
  */
 export class MetricsScalarQuery {
   /**

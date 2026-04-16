@@ -1,0 +1,52 @@
+/**
+ * Scalar cross product query with apm_dependency_stats data source returns "OK" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration();
+const apiInstance = new v2.MetricsApi(configuration);
+
+const params: v2.MetricsApiQueryScalarDataRequest = {
+  body: {
+    data: {
+      attributes: {
+        formulas: [
+          {
+            formula: "a",
+            limit: {
+              count: 10,
+              order: "desc",
+            },
+          },
+        ],
+        from: 1636625471000,
+        queries: [
+          {
+            dataSource: "apm_dependency_stats",
+            name: "a",
+            env: "ci",
+            service: "cassandra",
+            stat: "avg_duration",
+            operationName: "cassandra.query",
+            resourceName:
+              "DELETE FROM monitor_history.monitor_state_change_history WHERE org_id = ? AND monitor_id IN ? AND group = ?",
+            primaryTagName: "datacenter",
+            primaryTagValue: "edge-eu1.prod.dog",
+          },
+        ],
+        to: 1636629071000,
+      },
+      type: "scalar_request",
+    },
+  },
+};
+
+apiInstance
+  .queryScalarData(params)
+  .then((data: v2.ScalarFormulaQueryResponse) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
