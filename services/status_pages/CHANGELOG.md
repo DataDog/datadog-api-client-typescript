@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-04-16
+
+### Added
+* Add domain prefix filter query parameter to list status pages API [#3931](https://github.com/DataDog/datadog-api-client-typescript/pull/3931)
+* Add Publish and Unpublish API documentation for Status Pages [#3837](https://github.com/DataDog/datadog-api-client-typescript/pull/3837)
+
 ## 0.0.1-beta.3/2026-04-16
 
 ### Added

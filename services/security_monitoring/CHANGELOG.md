@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-04-16
+
+### Fixed
+* Add security_signals to SecurityMonitoringStandardDataSource [#3883](https://github.com/DataDog/datadog-api-client-typescript/pull/3883)
+
+### Added
+* Add OpenAPI documentation for signal investigation queries and suggested actions endpoints [#3851](https://github.com/DataDog/datadog-api-client-typescript/pull/3851)
+
 ## 0.0.1-beta.9/2026-04-16
 
 ### Fixed

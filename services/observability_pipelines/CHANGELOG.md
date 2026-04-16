@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-04-16
+
+### Added
+* Add OpenAPI spec for Dashboard Secure Embed endpoints [#3904](https://github.com/DataDog/datadog-api-client-typescript/pull/3904)
+* Adding all Observability Pipeline new hec_token related features into the api [#3894](https://github.com/DataDog/datadog-api-client-typescript/pull/3894)
+* Adding compression optional field to Amazon S3 source [#3886](https://github.com/DataDog/datadog-api-client-typescript/pull/3886)
+* Add Obs Pipelines Elasticsearch metrics destination and new fields [#3864](https://github.com/DataDog/datadog-api-client-typescript/pull/3864)
+
 ## 0.0.1-beta.8/2026-04-16
 
 ### Added
