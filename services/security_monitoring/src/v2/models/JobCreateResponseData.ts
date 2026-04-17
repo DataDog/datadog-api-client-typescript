@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ThreatHuntingJobDataType } from "./ThreatHuntingJobDataType";
+import { HistoricalJobDataType } from "./HistoricalJobDataType";
 
 /**
  * The definition of `JobCreateResponseData` object.
@@ -13,7 +13,7 @@ export class JobCreateResponseData {
   /**
    * Type of payload.
    */
-  "type"?: ThreatHuntingJobDataType;
+  "type"?: HistoricalJobDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,7 +35,7 @@ export class JobCreateResponseData {
     },
     type: {
       baseName: "type",
-      type: "ThreatHuntingJobDataType",
+      type: "HistoricalJobDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
