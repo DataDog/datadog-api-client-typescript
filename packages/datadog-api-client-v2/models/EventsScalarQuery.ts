@@ -11,7 +11,7 @@ import { EventsSearch } from "./EventsSearch";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * An individual scalar events query.
+ * An individual scalar query for logs, RUM, traces, CI pipelines, security signals, and other event-based data sources. Use this query type for any data source powered by the Events Platform. See the data_source field for the full list of supported sources.
  */
 export class EventsScalarQuery {
   /**

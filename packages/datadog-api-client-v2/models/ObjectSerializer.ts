@@ -119,6 +119,9 @@ import { AnthropicAPIKey } from "./AnthropicAPIKey";
 import { AnthropicAPIKeyUpdate } from "./AnthropicAPIKeyUpdate";
 import { AnthropicIntegration } from "./AnthropicIntegration";
 import { AnthropicIntegrationUpdate } from "./AnthropicIntegrationUpdate";
+import { ApmDependencyStatsQuery } from "./ApmDependencyStatsQuery";
+import { ApmMetricsQuery } from "./ApmMetricsQuery";
+import { ApmResourceStatsQuery } from "./ApmResourceStatsQuery";
 import { AppBuilderEvent } from "./AppBuilderEvent";
 import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { AppMeta } from "./AppMeta";
@@ -625,6 +628,8 @@ import { ContainerImagesResponse } from "./ContainerImagesResponse";
 import { ContainerImagesResponseLinks } from "./ContainerImagesResponseLinks";
 import { ContainerMeta } from "./ContainerMeta";
 import { ContainerMetaPage } from "./ContainerMetaPage";
+import { ContainerScalarQuery } from "./ContainerScalarQuery";
+import { ContainerTimeseriesQuery } from "./ContainerTimeseriesQuery";
 import { ContainersResponse } from "./ContainersResponse";
 import { ContainersResponseLinks } from "./ContainersResponseLinks";
 import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
@@ -2552,11 +2557,13 @@ import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
 import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
 import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
 import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
+import { ProcessScalarQuery } from "./ProcessScalarQuery";
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { ProcessTimeseriesQuery } from "./ProcessTimeseriesQuery";
 import { ProductAnalyticsAnalyticsQuery } from "./ProductAnalyticsAnalyticsQuery";
 import { ProductAnalyticsAnalyticsRequest } from "./ProductAnalyticsAnalyticsRequest";
 import { ProductAnalyticsAnalyticsRequestAttributes } from "./ProductAnalyticsAnalyticsRequestAttributes";
@@ -3261,6 +3268,7 @@ import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleA
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
+import { SloQuery } from "./SloQuery";
 import { SloReportCreateRequest } from "./SloReportCreateRequest";
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
 import { SloReportCreateRequestData } from "./SloReportCreateRequestData";
@@ -3917,6 +3925,51 @@ const enumsMap: { [key: string]: any[] } = {
   AllocationType: ["FEATURE_GATE", "CANARY"],
   AnthropicAPIKeyType: ["AnthropicAPIKey"],
   AnthropicIntegrationType: ["Anthropic"],
+  ApmDependencyStatName: [
+    "avg_duration",
+    "avg_root_duration",
+    "avg_spans_per_trace",
+    "error_rate",
+    "pct_exec_time",
+    "pct_of_traces",
+    "total_traces_count",
+  ],
+  ApmDependencyStatsDataSource: ["apm_dependency_stats"],
+  ApmMetricsDataSource: ["apm_metrics"],
+  ApmMetricsSpanKind: ["consumer", "server", "client", "producer", "internal"],
+  ApmMetricsStat: [
+    "error_rate",
+    "errors",
+    "errors_per_second",
+    "hits",
+    "hits_per_second",
+    "apdex",
+    "latency_avg",
+    "latency_max",
+    "latency_p50",
+    "latency_p75",
+    "latency_p90",
+    "latency_p95",
+    "latency_p99",
+    "latency_p999",
+    "latency_distribution",
+    "total_time",
+  ],
+  ApmResourceStatName: [
+    "error_rate",
+    "errors",
+    "hits",
+    "latency_avg",
+    "latency_max",
+    "latency_p50",
+    "latency_p75",
+    "latency_p90",
+    "latency_p95",
+    "latency_p99",
+    "latency_distribution",
+    "total_time",
+  ],
+  ApmResourceStatsDataSource: ["apm_resource_stats"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   AppBuilderEventName: [
     "pageChange",
@@ -4227,6 +4280,7 @@ const enumsMap: { [key: string]: any[] } = {
   ConfluentResourceType: ["confluent-cloud-resources"],
   ConnectedTeamRefDataType: ["github_team"],
   ConnectionEnvEnv: ["default"],
+  ContainerDataSource: ["container"],
   ContainerGroupType: ["container_group"],
   ContainerImageGroupType: ["container_image_group"],
   ContainerImageMetaPageType: ["cursor_limit"],
@@ -4433,7 +4487,22 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "avg",
   ],
-  EventsDataSource: ["logs", "rum", "dora"],
+  EventsDataSource: [
+    "logs",
+    "spans",
+    "network",
+    "rum",
+    "security_signals",
+    "profiles",
+    "audit",
+    "events",
+    "ci_tests",
+    "ci_pipelines",
+    "incident_analytics",
+    "product_analytics",
+    "on_call_events",
+    "dora",
+  ],
   EventsSort: ["timestamp", "-timestamp"],
   EventsSortType: ["alphabetical", "measure"],
   FacetInfoRequestDataType: ["users_facet_info_request"],
@@ -5193,6 +5262,7 @@ const enumsMap: { [key: string]: any[] } = {
   PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
   PostmortemTemplateType: ["postmortem_template"],
+  ProcessDataSource: ["process"],
   ProcessSummaryType: ["process"],
   ProductAnalyticsAnalyticsRequestType: ["formula_analytics_extended_request"],
   ProductAnalyticsEventQueryDataSource: ["product_analytics"],
@@ -5702,7 +5772,22 @@ const enumsMap: { [key: string]: any[] } = {
   ShiftDataType: ["shifts"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
+  SloDataSource: ["slo"],
   SloStatusType: ["slo_status"],
+  SlosGroupMode: ["overall", "components"],
+  SlosMeasure: [
+    "good_events",
+    "bad_events",
+    "slo_status",
+    "error_budget_remaining",
+    "error_budget_remaining_history",
+    "error_budget_burndown",
+    "burn_rate",
+    "slo_status_history",
+    "good_minutes",
+    "bad_minutes",
+  ],
+  SlosQueryType: ["metric", "time_slice", "monitor"],
   SnapshotUpdateRequestDataType: ["snapshots"],
   SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
@@ -6212,6 +6297,9 @@ const typeMap: { [index: string]: any } = {
   AnthropicAPIKeyUpdate: AnthropicAPIKeyUpdate,
   AnthropicIntegration: AnthropicIntegration,
   AnthropicIntegrationUpdate: AnthropicIntegrationUpdate,
+  ApmDependencyStatsQuery: ApmDependencyStatsQuery,
+  ApmMetricsQuery: ApmMetricsQuery,
+  ApmResourceStatsQuery: ApmResourceStatsQuery,
   AppBuilderEvent: AppBuilderEvent,
   AppKeyRegistrationData: AppKeyRegistrationData,
   AppMeta: AppMeta,
@@ -6822,6 +6910,8 @@ const typeMap: { [index: string]: any } = {
   ContainerImagesResponseLinks: ContainerImagesResponseLinks,
   ContainerMeta: ContainerMeta,
   ContainerMetaPage: ContainerMetaPage,
+  ContainerScalarQuery: ContainerScalarQuery,
+  ContainerTimeseriesQuery: ContainerTimeseriesQuery,
   ContainersResponse: ContainersResponse,
   ContainersResponseLinks: ContainersResponseLinks,
   ConvertJobResultsToSignalsAttributes: ConvertJobResultsToSignalsAttributes,
@@ -9146,11 +9236,13 @@ const typeMap: { [index: string]: any } = {
   PowerpacksResponseMeta: PowerpacksResponseMeta,
   PowerpacksResponseMetaPagination: PowerpacksResponseMetaPagination,
   PreviewEntityResponseData: PreviewEntityResponseData,
+  ProcessScalarQuery: ProcessScalarQuery,
   ProcessSummariesMeta: ProcessSummariesMeta,
   ProcessSummariesMetaPage: ProcessSummariesMetaPage,
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  ProcessTimeseriesQuery: ProcessTimeseriesQuery,
   ProductAnalyticsAnalyticsQuery: ProductAnalyticsAnalyticsQuery,
   ProductAnalyticsAnalyticsRequest: ProductAnalyticsAnalyticsRequest,
   ProductAnalyticsAnalyticsRequestAttributes:
@@ -10007,6 +10099,7 @@ const typeMap: { [index: string]: any } = {
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,
+  SloQuery: SloQuery,
   SloReportCreateRequest: SloReportCreateRequest,
   SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
   SloReportCreateRequestData: SloReportCreateRequestData,
@@ -11190,7 +11283,16 @@ const oneOfMap: { [index: string]: string[] } = {
   RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
   RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
-  ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
+  ScalarQuery: [
+    "MetricsScalarQuery",
+    "EventsScalarQuery",
+    "ApmResourceStatsQuery",
+    "ApmMetricsQuery",
+    "ApmDependencyStatsQuery",
+    "SloQuery",
+    "ProcessScalarQuery",
+    "ContainerScalarQuery",
+  ],
   ScheduleDataIncludedItem: [
     "TeamReference",
     "Layer",
@@ -11279,7 +11381,16 @@ const oneOfMap: { [index: string]: string[] } = {
   TeamRoutingRulesIncluded: ["RoutingRule"],
   TimelineCellAuthor: ["TimelineCellAuthorUser"],
   TimelineCellContent: ["TimelineCellContentComment"],
-  TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
+  TimeseriesQuery: [
+    "MetricsTimeseriesQuery",
+    "EventsTimeseriesQuery",
+    "ApmResourceStatsQuery",
+    "ApmMetricsQuery",
+    "ApmDependencyStatsQuery",
+    "SloQuery",
+    "ProcessTimeseriesQuery",
+    "ContainerTimeseriesQuery",
+  ],
   Trigger: [
     "APITriggerWrapper",
     "AppTriggerWrapper",
