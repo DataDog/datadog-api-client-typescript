@@ -1475,6 +1475,12 @@ import { HamrOrgConnectionDataRequest } from "./HamrOrgConnectionDataRequest";
 import { HamrOrgConnectionDataResponse } from "./HamrOrgConnectionDataResponse";
 import { HamrOrgConnectionRequest } from "./HamrOrgConnectionRequest";
 import { HamrOrgConnectionResponse } from "./HamrOrgConnectionResponse";
+import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
+import { HistoricalJobOptions } from "./HistoricalJobOptions";
+import { HistoricalJobQuery } from "./HistoricalJobQuery";
+import { HistoricalJobResponse } from "./HistoricalJobResponse";
+import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
+import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
 import { HourlyUsage } from "./HourlyUsage";
 import { HourlyUsageAttributes } from "./HourlyUsageAttributes";
 import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
@@ -1903,6 +1909,7 @@ import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
+import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
 import { ListIntegrationsResponse } from "./ListIntegrationsResponse";
 import { ListInterfaceTagsResponse } from "./ListInterfaceTagsResponse";
 import { ListInterfaceTagsResponseData } from "./ListInterfaceTagsResponseData";
@@ -1929,7 +1936,6 @@ import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
-import { ListThreatHuntingJobsResponse } from "./ListThreatHuntingJobsResponse";
 import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
 import { Log } from "./Log";
@@ -2882,9 +2888,9 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
-import { RunThreatHuntingJobRequest } from "./RunThreatHuntingJobRequest";
-import { RunThreatHuntingJobRequestAttributes } from "./RunThreatHuntingJobRequestAttributes";
-import { RunThreatHuntingJobRequestData } from "./RunThreatHuntingJobRequestData";
+import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
+import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
+import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SBOM } from "./SBOM";
@@ -3627,12 +3633,6 @@ import { TestOptimizationServiceSettingsResponse } from "./TestOptimizationServi
 import { TestOptimizationUpdateServiceSettingsRequest } from "./TestOptimizationUpdateServiceSettingsRequest";
 import { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./TestOptimizationUpdateServiceSettingsRequestAttributes";
 import { TestOptimizationUpdateServiceSettingsRequestData } from "./TestOptimizationUpdateServiceSettingsRequestData";
-import { ThreatHuntingJobListMeta } from "./ThreatHuntingJobListMeta";
-import { ThreatHuntingJobOptions } from "./ThreatHuntingJobOptions";
-import { ThreatHuntingJobQuery } from "./ThreatHuntingJobQuery";
-import { ThreatHuntingJobResponse } from "./ThreatHuntingJobResponse";
-import { ThreatHuntingJobResponseAttributes } from "./ThreatHuntingJobResponseAttributes";
-import { ThreatHuntingJobResponseData } from "./ThreatHuntingJobResponseData";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
 import { TimelineCell } from "./TimelineCell";
@@ -4627,6 +4627,7 @@ const enumsMap: { [key: string]: any[] } = {
   HTTPTokenAuthType: ["HTTPTokenAuth"],
   HamrOrgConnectionStatus: [0, 1, 2, 3, 4, 5],
   HamrOrgConnectionType: ["hamr_org_connections"],
+  HistoricalJobDataType: ["historicalDetectionsJob"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -5435,7 +5436,7 @@ const enumsMap: { [key: string]: any[] } = {
     "vital",
   ],
   RumRetentionFilterType: ["retention_filters"],
-  RunThreatHuntingJobRequestDataType: ["historicalDetectionsJobCreate"],
+  RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SBOMComponentLicenseType: [
     "network_strong_copyleft",
@@ -5997,7 +5998,6 @@ const enumsMap: { [key: string]: any[] } = {
   TestOptimizationUpdateServiceSettingsRequestDataType: [
     "test_optimization_update_service_settings_request",
   ],
-  ThreatHuntingJobDataType: ["historicalDetectionsJob"],
   TimelineCellAuthorUserType: ["USER"],
   TimelineCellResourceType: ["timeline_cell"],
   TimelineCellType: ["COMMENT"],
@@ -7914,6 +7914,12 @@ const typeMap: { [index: string]: any } = {
   HamrOrgConnectionDataResponse: HamrOrgConnectionDataResponse,
   HamrOrgConnectionRequest: HamrOrgConnectionRequest,
   HamrOrgConnectionResponse: HamrOrgConnectionResponse,
+  HistoricalJobListMeta: HistoricalJobListMeta,
+  HistoricalJobOptions: HistoricalJobOptions,
+  HistoricalJobQuery: HistoricalJobQuery,
+  HistoricalJobResponse: HistoricalJobResponse,
+  HistoricalJobResponseAttributes: HistoricalJobResponseAttributes,
+  HistoricalJobResponseData: HistoricalJobResponseData,
   HourlyUsage: HourlyUsage,
   HourlyUsageAttributes: HourlyUsageAttributes,
   HourlyUsageMeasurement: HourlyUsageMeasurement,
@@ -8408,6 +8414,7 @@ const typeMap: { [index: string]: any } = {
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
+  ListHistoricalJobsResponse: ListHistoricalJobsResponse,
   ListIntegrationsResponse: ListIntegrationsResponse,
   ListInterfaceTagsResponse: ListInterfaceTagsResponse,
   ListInterfaceTagsResponseData: ListInterfaceTagsResponseData,
@@ -8435,7 +8442,6 @@ const typeMap: { [index: string]: any } = {
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
   ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
-  ListThreatHuntingJobsResponse: ListThreatHuntingJobsResponse,
   ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
   ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
   Log: Log,
@@ -9607,9 +9613,9 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
-  RunThreatHuntingJobRequest: RunThreatHuntingJobRequest,
-  RunThreatHuntingJobRequestAttributes: RunThreatHuntingJobRequestAttributes,
-  RunThreatHuntingJobRequestData: RunThreatHuntingJobRequestData,
+  RunHistoricalJobRequest: RunHistoricalJobRequest,
+  RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
+  RunHistoricalJobRequestData: RunHistoricalJobRequestData,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   SBOM: SBOM,
@@ -10571,12 +10577,6 @@ const typeMap: { [index: string]: any } = {
     TestOptimizationUpdateServiceSettingsRequestAttributes,
   TestOptimizationUpdateServiceSettingsRequestData:
     TestOptimizationUpdateServiceSettingsRequestData,
-  ThreatHuntingJobListMeta: ThreatHuntingJobListMeta,
-  ThreatHuntingJobOptions: ThreatHuntingJobOptions,
-  ThreatHuntingJobQuery: ThreatHuntingJobQuery,
-  ThreatHuntingJobResponse: ThreatHuntingJobResponse,
-  ThreatHuntingJobResponseAttributes: ThreatHuntingJobResponseAttributes,
-  ThreatHuntingJobResponseData: ThreatHuntingJobResponseData,
   TimeRestriction: TimeRestriction,
   TimeRestrictions: TimeRestrictions,
   TimelineCell: TimelineCell,

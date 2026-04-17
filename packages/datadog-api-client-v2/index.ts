@@ -1013,7 +1013,7 @@ export {
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsStateRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringTerraformResourcesRequest,
-  SecurityMonitoringApiCancelThreatHuntingJobRequest,
+  SecurityMonitoringApiCancelHistoricalJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
@@ -1029,12 +1029,12 @@ export {
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeactivateContentPackRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
+  SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
-  SecurityMonitoringApiDeleteThreatHuntingJobRequest,
   SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDetachCaseRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
@@ -1044,6 +1044,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
   SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
@@ -1061,10 +1062,10 @@ export {
   SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
-  SecurityMonitoringApiGetThreatHuntingJobRequest,
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
+  SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListIndicatorsOfCompromiseRequest,
   SecurityMonitoringApiListMultipleRulesetsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
@@ -1073,13 +1074,12 @@ export {
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest,
-  SecurityMonitoringApiListThreatHuntingJobsRequest,
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
-  SecurityMonitoringApiRunThreatHuntingJobRequest,
+  SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
@@ -3232,6 +3232,13 @@ export { HamrOrgConnectionRequest } from "./models/HamrOrgConnectionRequest";
 export { HamrOrgConnectionResponse } from "./models/HamrOrgConnectionResponse";
 export { HamrOrgConnectionStatus } from "./models/HamrOrgConnectionStatus";
 export { HamrOrgConnectionType } from "./models/HamrOrgConnectionType";
+export { HistoricalJobDataType } from "./models/HistoricalJobDataType";
+export { HistoricalJobListMeta } from "./models/HistoricalJobListMeta";
+export { HistoricalJobOptions } from "./models/HistoricalJobOptions";
+export { HistoricalJobQuery } from "./models/HistoricalJobQuery";
+export { HistoricalJobResponse } from "./models/HistoricalJobResponse";
+export { HistoricalJobResponseAttributes } from "./models/HistoricalJobResponseAttributes";
+export { HistoricalJobResponseData } from "./models/HistoricalJobResponseData";
 export { HourlyUsage } from "./models/HourlyUsage";
 export { HourlyUsageAttributes } from "./models/HourlyUsageAttributes";
 export { HourlyUsageMeasurement } from "./models/HourlyUsageMeasurement";
@@ -3679,6 +3686,7 @@ export { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
+export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse";
 export { ListIntegrationsResponse } from "./models/ListIntegrationsResponse";
 export { ListInterfaceTagsResponse } from "./models/ListInterfaceTagsResponse";
 export { ListInterfaceTagsResponseData } from "./models/ListInterfaceTagsResponseData";
@@ -3707,7 +3715,6 @@ export { ListTagsResponseData } from "./models/ListTagsResponseData";
 export { ListTagsResponseDataAttributes } from "./models/ListTagsResponseDataAttributes";
 export { ListTeamsInclude } from "./models/ListTeamsInclude";
 export { ListTeamsSort } from "./models/ListTeamsSort";
-export { ListThreatHuntingJobsResponse } from "./models/ListThreatHuntingJobsResponse";
 export { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
 export { ListVulnerableAssetsResponse } from "./models/ListVulnerableAssetsResponse";
 export { LLMObsAnnotatedInteractionItem } from "./models/LLMObsAnnotatedInteractionItem";
@@ -5110,10 +5117,10 @@ export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
-export { RunThreatHuntingJobRequest } from "./models/RunThreatHuntingJobRequest";
-export { RunThreatHuntingJobRequestAttributes } from "./models/RunThreatHuntingJobRequestAttributes";
-export { RunThreatHuntingJobRequestData } from "./models/RunThreatHuntingJobRequestData";
-export { RunThreatHuntingJobRequestDataType } from "./models/RunThreatHuntingJobRequestDataType";
+export { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
+export { RunHistoricalJobRequestAttributes } from "./models/RunHistoricalJobRequestAttributes";
+export { RunHistoricalJobRequestData } from "./models/RunHistoricalJobRequestData";
+export { RunHistoricalJobRequestDataType } from "./models/RunHistoricalJobRequestDataType";
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
@@ -6104,13 +6111,6 @@ export { TestOptimizationUpdateServiceSettingsRequest } from "./models/TestOptim
 export { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./models/TestOptimizationUpdateServiceSettingsRequestAttributes";
 export { TestOptimizationUpdateServiceSettingsRequestData } from "./models/TestOptimizationUpdateServiceSettingsRequestData";
 export { TestOptimizationUpdateServiceSettingsRequestDataType } from "./models/TestOptimizationUpdateServiceSettingsRequestDataType";
-export { ThreatHuntingJobDataType } from "./models/ThreatHuntingJobDataType";
-export { ThreatHuntingJobListMeta } from "./models/ThreatHuntingJobListMeta";
-export { ThreatHuntingJobOptions } from "./models/ThreatHuntingJobOptions";
-export { ThreatHuntingJobQuery } from "./models/ThreatHuntingJobQuery";
-export { ThreatHuntingJobResponse } from "./models/ThreatHuntingJobResponse";
-export { ThreatHuntingJobResponseAttributes } from "./models/ThreatHuntingJobResponseAttributes";
-export { ThreatHuntingJobResponseData } from "./models/ThreatHuntingJobResponseData";
 export { TimelineCell } from "./models/TimelineCell";
 export { TimelineCellAuthor } from "./models/TimelineCellAuthor";
 export { TimelineCellAuthorUser } from "./models/TimelineCellAuthorUser";
