@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ThreatHuntingJobDataType } from "./ThreatHuntingJobDataType";
+import { HistoricalJobDataType } from "./HistoricalJobDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -18,7 +18,7 @@ export class JobCreateResponseData {
   /**
    * Type of payload.
    */
-  "type"?: ThreatHuntingJobDataType;
+  "type"?: HistoricalJobDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,7 +42,7 @@ export class JobCreateResponseData {
     },
     type: {
       baseName: "type",
-      type: "ThreatHuntingJobDataType",
+      type: "HistoricalJobDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

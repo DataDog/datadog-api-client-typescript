@@ -5301,7 +5301,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalResponse",
     },
-    "v2.ListThreatHuntingJobs": {
+    "v2.ListHistoricalJobs": {
         "pageSize": {
             "type": "number",
             "format": "int64",
@@ -5318,11 +5318,11 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "ListThreatHuntingJobsResponse",
+        "operationResponseType": "ListHistoricalJobsResponse",
     },
-    "v2.RunThreatHuntingJob": {
+    "v2.RunHistoricalJob": {
         "body": {
-            "type": "RunThreatHuntingJobRequest",
+            "type": "RunHistoricalJobRequest",
             "format": "",
             },
         "operationResponseType": "JobCreateResponse",
@@ -5334,21 +5334,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
-    "v2.GetThreatHuntingJob": {
+    "v2.GetHistoricalJob": {
         "jobId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "ThreatHuntingJobResponse",
+        "operationResponseType": "HistoricalJobResponse",
     },
-    "v2.DeleteThreatHuntingJob": {
+    "v2.DeleteHistoricalJob": {
         "jobId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "{}",
     },
-    "v2.CancelThreatHuntingJob": {
+    "v2.CancelHistoricalJob": {
         "jobId": {
             "type": "string",
             "format": "",
