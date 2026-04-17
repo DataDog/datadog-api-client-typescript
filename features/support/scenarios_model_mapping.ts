@@ -5227,6 +5227,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalSuggestedActionsResponse",
     },
+    "v2.BulkExportSecurityMonitoringTerraformResources": {
+        "resourceType": {
+            "type": "SecurityMonitoringTerraformResourceType",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringTerraformBulkExportRequest",
+            "format": "",
+            },
+        "operationResponseType": "HttpFile",
+    },
+    "v2.ConvertSecurityMonitoringTerraformResource": {
+        "resourceType": {
+            "type": "SecurityMonitoringTerraformResourceType",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringTerraformConvertRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringTerraformExportResponse",
+    },
+    "v2.ExportSecurityMonitoringTerraformResource": {
+        "resourceType": {
+            "type": "SecurityMonitoringTerraformResourceType",
+            "format": "",
+            },
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringTerraformExportResponse",
+    },
     "v2.ListSecurityMonitoringHistsignals": {
         "filterQuery": {
             "type": "string",
