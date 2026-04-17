@@ -116,6 +116,10 @@ import { SecurityMonitoringSuppressionResponse } from "./models/SecurityMonitori
 import { SecurityMonitoringSuppressionSort } from "./models/SecurityMonitoringSuppressionSort";
 import { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "./models/SecurityMonitoringSuppressionUpdateRequest";
+import { SecurityMonitoringTerraformBulkExportRequest } from "./models/SecurityMonitoringTerraformBulkExportRequest";
+import { SecurityMonitoringTerraformConvertRequest } from "./models/SecurityMonitoringTerraformConvertRequest";
+import { SecurityMonitoringTerraformExportResponse } from "./models/SecurityMonitoringTerraformExportResponse";
+import { SecurityMonitoringTerraformResourceType } from "./models/SecurityMonitoringTerraformResourceType";
 import { ThreatHuntingJobResponse } from "./models/ThreatHuntingJobResponse";
 import { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
@@ -475,6 +479,91 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async bulkExportSecurityMonitoringTerraformResources(
+    resourceType: SecurityMonitoringTerraformResourceType,
+    body: SecurityMonitoringTerraformBulkExportRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.bulkExportSecurityMonitoringTerraformResources"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'bulkExportSecurityMonitoringTerraformResources' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.bulkExportSecurityMonitoringTerraformResources'] = true`",
+      );
+    }
+
+    // verify required parameter 'resourceType' is not null or undefined
+    if (resourceType === null || resourceType === undefined) {
+      throw new RequiredError(
+        "resourceType",
+        "bulkExportSecurityMonitoringTerraformResources",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "bulkExportSecurityMonitoringTerraformResources",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/terraform/{resource_type}/bulk".replace(
+        "{resource_type}",
+        encodeURIComponent(String(resourceType)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.bulkExportSecurityMonitoringTerraformResources",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/zip, application/json",
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringTerraformBulkExportRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async cancelThreatHuntingJob(
     jobId: string,
     _options?: Configuration,
@@ -680,6 +769,88 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SecurityMonitoringRuleConvertPayload", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async convertSecurityMonitoringTerraformResource(
+    resourceType: SecurityMonitoringTerraformResourceType,
+    body: SecurityMonitoringTerraformConvertRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.convertSecurityMonitoringTerraformResource"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'convertSecurityMonitoringTerraformResource' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.convertSecurityMonitoringTerraformResource'] = true`",
+      );
+    }
+
+    // verify required parameter 'resourceType' is not null or undefined
+    if (resourceType === null || resourceType === undefined) {
+      throw new RequiredError(
+        "resourceType",
+        "convertSecurityMonitoringTerraformResource",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "convertSecurityMonitoringTerraformResource",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/terraform/{resource_type}/convert".replace(
+        "{resource_type}",
+        encodeURIComponent(String(resourceType)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.convertSecurityMonitoringTerraformResource",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringTerraformConvertRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1848,6 +2019,73 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async exportSecurityMonitoringTerraformResource(
+    resourceType: SecurityMonitoringTerraformResourceType,
+    resourceId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.exportSecurityMonitoringTerraformResource"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'exportSecurityMonitoringTerraformResource' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.exportSecurityMonitoringTerraformResource'] = true`",
+      );
+    }
+
+    // verify required parameter 'resourceType' is not null or undefined
+    if (resourceType === null || resourceType === undefined) {
+      throw new RequiredError(
+        "resourceType",
+        "exportSecurityMonitoringTerraformResource",
+      );
+    }
+
+    // verify required parameter 'resourceId' is not null or undefined
+    if (resourceId === null || resourceId === undefined) {
+      throw new RequiredError(
+        "resourceId",
+        "exportSecurityMonitoringTerraformResource",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/terraform/{resource_type}/{resource_id}"
+        .replace("{resource_type}", encodeURIComponent(String(resourceType)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.exportSecurityMonitoringTerraformResource",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -6321,6 +6559,59 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to bulkExportSecurityMonitoringTerraformResources
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async bulkExportSecurityMonitoringTerraformResources(
+    response: ResponseContext,
+  ): Promise<HttpFile> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: HttpFile =
+        (await response.getBodyAsFile()) as any as HttpFile;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to cancelThreatHuntingJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6533,6 +6824,66 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityMonitoringRuleConvertResponse",
         "",
       ) as SecurityMonitoringRuleConvertResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to convertSecurityMonitoringTerraformResource
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async convertSecurityMonitoringTerraformResource(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringTerraformExportResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringTerraformExportResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringTerraformExportResponse",
+      ) as SecurityMonitoringTerraformExportResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringTerraformExportResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringTerraformExportResponse",
+        "",
+      ) as SecurityMonitoringTerraformExportResponse;
       return body;
     }
 
@@ -7775,6 +8126,66 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityMonitoringSignalTriageUpdateResponse",
         "",
       ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to exportSecurityMonitoringTerraformResource
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async exportSecurityMonitoringTerraformResource(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringTerraformExportResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringTerraformExportResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringTerraformExportResponse",
+      ) as SecurityMonitoringTerraformExportResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringTerraformExportResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringTerraformExportResponse",
+        "",
+      ) as SecurityMonitoringTerraformExportResponse;
       return body;
     }
 
@@ -11462,6 +11873,19 @@ export interface SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest {
   body: SecurityMonitoringRuleBulkExportPayload;
 }
 
+export interface SecurityMonitoringApiBulkExportSecurityMonitoringTerraformResourcesRequest {
+  /**
+   * The type of security monitoring resource to export.
+   * @type SecurityMonitoringTerraformResourceType
+   */
+  resourceType: SecurityMonitoringTerraformResourceType;
+  /**
+   * The resource IDs to export.
+   * @type SecurityMonitoringTerraformBulkExportRequest
+   */
+  body: SecurityMonitoringTerraformBulkExportRequest;
+}
+
 export interface SecurityMonitoringApiCancelThreatHuntingJobRequest {
   /**
    * The ID of the job.
@@ -11490,6 +11914,19 @@ export interface SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTer
    * @type SecurityMonitoringRuleConvertPayload
    */
   body: SecurityMonitoringRuleConvertPayload;
+}
+
+export interface SecurityMonitoringApiConvertSecurityMonitoringTerraformResourceRequest {
+  /**
+   * The type of security monitoring resource to export.
+   * @type SecurityMonitoringTerraformResourceType
+   */
+  resourceType: SecurityMonitoringTerraformResourceType;
+  /**
+   * The resource JSON to convert.
+   * @type SecurityMonitoringTerraformConvertRequest
+   */
+  body: SecurityMonitoringTerraformConvertRequest;
 }
 
 export interface SecurityMonitoringApiCreateCasesRequest {
@@ -11683,6 +12120,19 @@ export interface SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest {
    * @type SecurityMonitoringSignalStateUpdateRequest
    */
   body: SecurityMonitoringSignalStateUpdateRequest;
+}
+
+export interface SecurityMonitoringApiExportSecurityMonitoringTerraformResourceRequest {
+  /**
+   * The type of security monitoring resource to export.
+   * @type SecurityMonitoringTerraformResourceType
+   */
+  resourceType: SecurityMonitoringTerraformResourceType;
+  /**
+   * The ID of the security monitoring resource to export.
+   * @type string
+   */
+  resourceId: string;
 }
 
 export interface SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest {
@@ -12940,6 +13390,34 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Export multiple security monitoring resources to Terraform, packaged as a zip archive.
+   * The `resource_type` path parameter specifies the type of resources to export
+   * and must be one of `suppressions` or `critical_assets`.
+   * A maximum of 1000 resources can be exported in a single request.
+   * @param param The request object
+   */
+  public bulkExportSecurityMonitoringTerraformResources(
+    param: SecurityMonitoringApiBulkExportSecurityMonitoringTerraformResourcesRequest,
+    options?: Configuration,
+  ): Promise<HttpFile> {
+    const requestContextPromise =
+      this.requestFactory.bulkExportSecurityMonitoringTerraformResources(
+        param.resourceType,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.bulkExportSecurityMonitoringTerraformResources(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Cancel a threat hunting job.
    * @param param The request object
    */
@@ -13037,6 +13515,33 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.convertSecurityMonitoringRuleFromJSONToTerraform(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Convert a security monitoring resource that doesn't (yet) exist from JSON to Terraform.
+   * The `resource_type` path parameter specifies the type of resource to convert
+   * and must be one of `suppressions` or `critical_assets`.
+   * @param param The request object
+   */
+  public convertSecurityMonitoringTerraformResource(
+    param: SecurityMonitoringApiConvertSecurityMonitoringTerraformResourceRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringTerraformExportResponse> {
+    const requestContextPromise =
+      this.requestFactory.convertSecurityMonitoringTerraformResource(
+        param.resourceType,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.convertSecurityMonitoringTerraformResource(
             responseContext,
           );
         });
@@ -13537,6 +14042,33 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.editSecurityMonitoringSignalState(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Export a security monitoring resource to a Terraform configuration.
+   * The `resource_type` path parameter specifies the type of resource to export
+   * and must be one of `suppressions` or `critical_assets`.
+   * @param param The request object
+   */
+  public exportSecurityMonitoringTerraformResource(
+    param: SecurityMonitoringApiExportSecurityMonitoringTerraformResourceRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringTerraformExportResponse> {
+    const requestContextPromise =
+      this.requestFactory.exportSecurityMonitoringTerraformResource(
+        param.resourceType,
+        param.resourceId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.exportSecurityMonitoringTerraformResource(
             responseContext,
           );
         });
