@@ -5,10 +5,12 @@ export {
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsAssigneeRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsStateRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
+  SecurityMonitoringApiBulkExportSecurityMonitoringTerraformResourcesRequest,
   SecurityMonitoringApiCancelThreatHuntingJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+  SecurityMonitoringApiConvertSecurityMonitoringTerraformResourceRequest,
   SecurityMonitoringApiCreateCasesRequest,
   SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
@@ -31,6 +33,7 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
+  SecurityMonitoringApiExportSecurityMonitoringTerraformResourceRequest,
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
@@ -464,6 +467,16 @@ export { SecurityMonitoringSuppressionType } from "./models/SecurityMonitoringSu
 export { SecurityMonitoringSuppressionUpdateAttributes } from "./models/SecurityMonitoringSuppressionUpdateAttributes";
 export { SecurityMonitoringSuppressionUpdateData } from "./models/SecurityMonitoringSuppressionUpdateData";
 export { SecurityMonitoringSuppressionUpdateRequest } from "./models/SecurityMonitoringSuppressionUpdateRequest";
+export { SecurityMonitoringTerraformBulkExportAttributes } from "./models/SecurityMonitoringTerraformBulkExportAttributes";
+export { SecurityMonitoringTerraformBulkExportData } from "./models/SecurityMonitoringTerraformBulkExportData";
+export { SecurityMonitoringTerraformBulkExportRequest } from "./models/SecurityMonitoringTerraformBulkExportRequest";
+export { SecurityMonitoringTerraformConvertAttributes } from "./models/SecurityMonitoringTerraformConvertAttributes";
+export { SecurityMonitoringTerraformConvertData } from "./models/SecurityMonitoringTerraformConvertData";
+export { SecurityMonitoringTerraformConvertRequest } from "./models/SecurityMonitoringTerraformConvertRequest";
+export { SecurityMonitoringTerraformExportAttributes } from "./models/SecurityMonitoringTerraformExportAttributes";
+export { SecurityMonitoringTerraformExportData } from "./models/SecurityMonitoringTerraformExportData";
+export { SecurityMonitoringTerraformExportResponse } from "./models/SecurityMonitoringTerraformExportResponse";
+export { SecurityMonitoringTerraformResourceType } from "./models/SecurityMonitoringTerraformResourceType";
 export { SecurityMonitoringThirdPartyRootQuery } from "./models/SecurityMonitoringThirdPartyRootQuery";
 export { SecurityMonitoringThirdPartyRuleCase } from "./models/SecurityMonitoringThirdPartyRuleCase";
 export { SecurityMonitoringThirdPartyRuleCaseCreate } from "./models/SecurityMonitoringThirdPartyRuleCaseCreate";
