@@ -19,6 +19,10 @@ export class IPAllowlistEntryAttributes {
    */
   "createdAt"?: Date;
   /**
+   * A label for the IP allowlist entry.
+   */
+  "label"?: string;
+  /**
    * Time of last entry modification.
    */
   "modifiedAt"?: Date;
@@ -51,6 +55,10 @@ export class IPAllowlistEntryAttributes {
       baseName: "created_at",
       type: "Date",
       format: "date-time",
+    },
+    label: {
+      baseName: "label",
+      type: "string",
     },
     modifiedAt: {
       baseName: "modified_at",
