@@ -6623,6 +6623,42 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AllocationExposureScheduleResponse",
   },
+  "FeatureFlagsApi.V2.GetFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "FlagSuggestionResponse",
+  },
+  "FeatureFlagsApi.V2.DeleteFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "FeatureFlagsApi.V2.ApproveFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ReviewFlagSuggestionRequest",
+      format: "",
+    },
+    operationResponseType: "FlagSuggestionResponse",
+  },
+  "FeatureFlagsApi.V2.RejectFlagSuggestion": {
+    suggestionId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ReviewFlagSuggestionRequest",
+      format: "",
+    },
+    operationResponseType: "FlagSuggestionResponse",
+  },
   "FeatureFlagsApi.V2.GetFeatureFlag": {
     featureFlagId: {
       type: "string",
@@ -6699,6 +6735,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "uuid",
     },
     operationResponseType: "{}",
+  },
+  "FeatureFlagsApi.V2.CreateFlagSuggestion": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateFlagSuggestionRequest",
+      format: "",
+    },
+    operationResponseType: "FlagSuggestionResponse",
   },
   "FeatureFlagsApi.V2.UnarchiveFeatureFlag": {
     featureFlagId: {
