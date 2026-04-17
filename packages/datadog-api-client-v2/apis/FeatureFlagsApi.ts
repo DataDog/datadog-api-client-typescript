@@ -22,16 +22,70 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateAllocationsRequest } from "../models/CreateAllocationsRequest";
 import { CreateEnvironmentRequest } from "../models/CreateEnvironmentRequest";
 import { CreateFeatureFlagRequest } from "../models/CreateFeatureFlagRequest";
+import { CreateFlagSuggestionRequest } from "../models/CreateFlagSuggestionRequest";
 import { EnvironmentResponse } from "../models/EnvironmentResponse";
 import { FeatureFlagResponse } from "../models/FeatureFlagResponse";
+import { FlagSuggestionResponse } from "../models/FlagSuggestionResponse";
 import { ListAllocationsResponse } from "../models/ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "../models/ListEnvironmentsResponse";
 import { ListFeatureFlagsResponse } from "../models/ListFeatureFlagsResponse";
 import { OverwriteAllocationsRequest } from "../models/OverwriteAllocationsRequest";
+import { ReviewFlagSuggestionRequest } from "../models/ReviewFlagSuggestionRequest";
 import { UpdateEnvironmentRequest } from "../models/UpdateEnvironmentRequest";
 import { UpdateFeatureFlagRequest } from "../models/UpdateFeatureFlagRequest";
 
 export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
+  public async approveFlagSuggestion(
+    suggestionId: string,
+    body: ReviewFlagSuggestionRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'suggestionId' is not null or undefined
+    if (suggestionId === null || suggestionId === undefined) {
+      throw new RequiredError("suggestionId", "approveFlagSuggestion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "approveFlagSuggestion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/suggestions/{suggestion_id}/approve".replace(
+        "{suggestion_id}",
+        encodeURIComponent(String(suggestionId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.approveFlagSuggestion")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ReviewFlagSuggestionRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async archiveFeatureFlag(
     featureFlagId: string,
     _options?: Configuration
@@ -215,6 +269,57 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createFlagSuggestion(
+    featureFlagId: string,
+    body: CreateFlagSuggestionRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'featureFlagId' is not null or undefined
+    if (featureFlagId === null || featureFlagId === undefined) {
+      throw new RequiredError("featureFlagId", "createFlagSuggestion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createFlagSuggestion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/{feature_flag_id}/suggestions".replace(
+        "{feature_flag_id}",
+        encodeURIComponent(String(featureFlagId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.createFlagSuggestion")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateFlagSuggestionRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteFeatureFlagsEnvironment(
     environmentId: string,
     _options?: Configuration
@@ -236,6 +341,40 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.FeatureFlagsApi.deleteFeatureFlagsEnvironment")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteFlagSuggestion(
+    suggestionId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'suggestionId' is not null or undefined
+    if (suggestionId === null || suggestionId === undefined) {
+      throw new RequiredError("suggestionId", "deleteFlagSuggestion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/suggestions/{suggestion_id}".replace(
+        "{suggestion_id}",
+        encodeURIComponent(String(suggestionId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.deleteFlagSuggestion")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -394,6 +533,40 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getFlagSuggestion(
+    suggestionId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'suggestionId' is not null or undefined
+    if (suggestionId === null || suggestionId === undefined) {
+      throw new RequiredError("suggestionId", "getFlagSuggestion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/suggestions/{suggestion_id}".replace(
+        "{suggestion_id}",
+        encodeURIComponent(String(suggestionId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.getFlagSuggestion")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listFeatureFlags(
     key?: string,
     isArchived?: boolean,
@@ -534,6 +707,57 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async rejectFlagSuggestion(
+    suggestionId: string,
+    body: ReviewFlagSuggestionRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'suggestionId' is not null or undefined
+    if (suggestionId === null || suggestionId === undefined) {
+      throw new RequiredError("suggestionId", "rejectFlagSuggestion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "rejectFlagSuggestion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/suggestions/{suggestion_id}/reject".replace(
+        "{suggestion_id}",
+        encodeURIComponent(String(suggestionId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FeatureFlagsApi.rejectFlagSuggestion")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ReviewFlagSuggestionRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -854,6 +1078,69 @@ export class FeatureFlagsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to approveFlagSuggestion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async approveFlagSuggestion(
+    response: ResponseContext
+  ): Promise<FlagSuggestionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse"
+      ) as FlagSuggestionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse",
+        ""
+      ) as FlagSuggestionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to archiveFeatureFlag
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1107,6 +1394,70 @@ export class FeatureFlagsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createFlagSuggestion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createFlagSuggestion(
+    response: ResponseContext
+  ): Promise<FlagSuggestionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse"
+      ) as FlagSuggestionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse",
+        ""
+      ) as FlagSuggestionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteFeatureFlagsEnvironment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1120,6 +1471,58 @@ export class FeatureFlagsApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteFlagSuggestion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteFlagSuggestion(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -1390,6 +1793,69 @@ export class FeatureFlagsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getFlagSuggestion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getFlagSuggestion(
+    response: ResponseContext
+  ): Promise<FlagSuggestionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse"
+      ) as FlagSuggestionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse",
+        ""
+      ) as FlagSuggestionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listFeatureFlags
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1558,6 +2024,69 @@ export class FeatureFlagsApiResponseProcessor {
           "AllocationExposureScheduleResponse",
           ""
         ) as AllocationExposureScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to rejectFlagSuggestion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async rejectFlagSuggestion(
+    response: ResponseContext
+  ): Promise<FlagSuggestionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse"
+      ) as FlagSuggestionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FlagSuggestionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FlagSuggestionResponse",
+        ""
+      ) as FlagSuggestionResponse;
       return body;
     }
 
@@ -2020,6 +2549,18 @@ export class FeatureFlagsApiResponseProcessor {
   }
 }
 
+export interface FeatureFlagsApiApproveFlagSuggestionRequest {
+  /**
+   * The ID of the flag suggestion.
+   * @type string
+   */
+  suggestionId: string;
+  /**
+   * @type ReviewFlagSuggestionRequest
+   */
+  body: ReviewFlagSuggestionRequest;
+}
+
 export interface FeatureFlagsApiArchiveFeatureFlagRequest {
   /**
    * The ID of the feature flag.
@@ -2059,12 +2600,32 @@ export interface FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest {
   body: CreateEnvironmentRequest;
 }
 
+export interface FeatureFlagsApiCreateFlagSuggestionRequest {
+  /**
+   * The ID of the feature flag.
+   * @type string
+   */
+  featureFlagId: string;
+  /**
+   * @type CreateFlagSuggestionRequest
+   */
+  body: CreateFlagSuggestionRequest;
+}
+
 export interface FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest {
   /**
    * The ID of the environment.
    * @type string
    */
   environmentId: string;
+}
+
+export interface FeatureFlagsApiDeleteFlagSuggestionRequest {
+  /**
+   * The ID of the flag suggestion.
+   * @type string
+   */
+  suggestionId: string;
 }
 
 export interface FeatureFlagsApiDisableFeatureFlagEnvironmentRequest {
@@ -2107,6 +2668,14 @@ export interface FeatureFlagsApiGetFeatureFlagsEnvironmentRequest {
    * @type string
    */
   environmentId: string;
+}
+
+export interface FeatureFlagsApiGetFlagSuggestionRequest {
+  /**
+   * The ID of the flag suggestion.
+   * @type string
+   */
+  suggestionId: string;
 }
 
 export interface FeatureFlagsApiListFeatureFlagsRequest {
@@ -2161,6 +2730,18 @@ export interface FeatureFlagsApiPauseExposureScheduleRequest {
    * @type string
    */
   exposureScheduleId: string;
+}
+
+export interface FeatureFlagsApiRejectFlagSuggestionRequest {
+  /**
+   * The ID of the flag suggestion.
+   * @type string
+   */
+  suggestionId: string;
+  /**
+   * @type ReviewFlagSuggestionRequest
+   */
+  body: ReviewFlagSuggestionRequest;
 }
 
 export interface FeatureFlagsApiResumeExposureScheduleRequest {
@@ -2254,6 +2835,29 @@ export class FeatureFlagsApi {
   }
 
   /**
+   * Approve a pending flag change suggestion. The change is applied immediately
+   * upon approval. A user cannot approve their own suggestion.
+   * @param param The request object
+   */
+  public approveFlagSuggestion(
+    param: FeatureFlagsApiApproveFlagSuggestionRequest,
+    options?: Configuration
+  ): Promise<FlagSuggestionResponse> {
+    const requestContextPromise = this.requestFactory.approveFlagSuggestion(
+      param.suggestionId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.approveFlagSuggestion(responseContext);
+        });
+    });
+  }
+
+  /**
    * Archives a feature flag. Archived flags are
    * hidden from the main list but remain accessible and can be unarchived.
    * @param param The request object
@@ -2344,6 +2948,30 @@ export class FeatureFlagsApi {
   }
 
   /**
+   * Create a change suggestion for a feature flag. Suggestions require approval
+   * before the change is applied. The request must include at least one
+   * notification_rule_targets handle to receive approval or rejection notifications.
+   * @param param The request object
+   */
+  public createFlagSuggestion(
+    param: FeatureFlagsApiCreateFlagSuggestionRequest,
+    options?: Configuration
+  ): Promise<FlagSuggestionResponse> {
+    const requestContextPromise = this.requestFactory.createFlagSuggestion(
+      param.featureFlagId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createFlagSuggestion(responseContext);
+        });
+    });
+  }
+
+  /**
    * Deletes an environment. This operation cannot be undone.
    * @param param The request object
    */
@@ -2363,6 +2991,27 @@ export class FeatureFlagsApi {
           return this.responseProcessor.deleteFeatureFlagsEnvironment(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Delete a pending flag change suggestion. Approved suggestions cannot be deleted.
+   * @param param The request object
+   */
+  public deleteFlagSuggestion(
+    param: FeatureFlagsApiDeleteFlagSuggestionRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteFlagSuggestion(
+      param.suggestionId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteFlagSuggestion(responseContext);
         });
     });
   }
@@ -2464,6 +3113,27 @@ export class FeatureFlagsApi {
   }
 
   /**
+   * Get a flag change suggestion by ID.
+   * @param param The request object
+   */
+  public getFlagSuggestion(
+    param: FeatureFlagsApiGetFlagSuggestionRequest,
+    options?: Configuration
+  ): Promise<FlagSuggestionResponse> {
+    const requestContextPromise = this.requestFactory.getFlagSuggestion(
+      param.suggestionId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getFlagSuggestion(responseContext);
+        });
+    });
+  }
+
+  /**
    * Returns a list of feature flags for the organization.
    * Supports filtering by key and archived status.
    * @param param The request object
@@ -2533,6 +3203,28 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.pauseExposureSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Reject a pending flag change suggestion. The suggested change is not applied.
+   * @param param The request object
+   */
+  public rejectFlagSuggestion(
+    param: FeatureFlagsApiRejectFlagSuggestionRequest,
+    options?: Configuration
+  ): Promise<FlagSuggestionResponse> {
+    const requestContextPromise = this.requestFactory.rejectFlagSuggestion(
+      param.suggestionId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.rejectFlagSuggestion(responseContext);
         });
     });
   }

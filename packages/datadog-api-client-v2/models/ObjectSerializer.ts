@@ -703,6 +703,9 @@ import { CreateEnvironmentRequest } from "./CreateEnvironmentRequest";
 import { CreateFeatureFlagAttributes } from "./CreateFeatureFlagAttributes";
 import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
 import { CreateFeatureFlagRequest } from "./CreateFeatureFlagRequest";
+import { CreateFlagSuggestionAttributes } from "./CreateFlagSuggestionAttributes";
+import { CreateFlagSuggestionData } from "./CreateFlagSuggestionData";
+import { CreateFlagSuggestionRequest } from "./CreateFlagSuggestionRequest";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
@@ -1233,6 +1236,9 @@ import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { Findings } from "./Findings";
+import { FlagSuggestion } from "./FlagSuggestion";
+import { FlagSuggestionAttributes } from "./FlagSuggestionAttributes";
+import { FlagSuggestionResponse } from "./FlagSuggestionResponse";
 import { FlakyTest } from "./FlakyTest";
 import { FlakyTestAttributes } from "./FlakyTestAttributes";
 import { FlakyTestHistory } from "./FlakyTestHistory";
@@ -2801,6 +2807,9 @@ import { RetryStrategyLinear } from "./RetryStrategyLinear";
 import { RevertCustomRuleRevisionRequest } from "./RevertCustomRuleRevisionRequest";
 import { RevertCustomRuleRevisionRequestData } from "./RevertCustomRuleRevisionRequestData";
 import { RevertCustomRuleRevisionRequestDataAttributes } from "./RevertCustomRuleRevisionRequestDataAttributes";
+import { ReviewFlagSuggestionAttributes } from "./ReviewFlagSuggestionAttributes";
+import { ReviewFlagSuggestionData } from "./ReviewFlagSuggestionData";
+import { ReviewFlagSuggestionRequest } from "./ReviewFlagSuggestionRequest";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleClone } from "./RoleClone";
@@ -3407,6 +3416,7 @@ import { StatusPagesUserAttributes } from "./StatusPagesUserAttributes";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
+import { SuggestionMetadata } from "./SuggestionMetadata";
 import { SuiteCreateEdit } from "./SuiteCreateEdit";
 import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
 import { SuiteJsonPatchRequest } from "./SuiteJsonPatchRequest";
@@ -4540,6 +4550,35 @@ const enumsMap: { [key: string]: any[] } = {
     "identity_risk",
     "api_security",
   ],
+  FlagSuggestionAction: [
+    "created",
+    "updated",
+    "deleted",
+    "archived",
+    "unarchived",
+    "started",
+    "stopped",
+    "paused",
+    "unpaused",
+  ],
+  FlagSuggestionDataType: ["flag-suggestions"],
+  FlagSuggestionEventDataType: ["flag-suggestion-events"],
+  FlagSuggestionProperty: [
+    "FLAG",
+    "FLAG_NAME",
+    "FLAG_DESCRIPTION",
+    "JSON_SCHEMA",
+    "DISTRIBUTION_CHANNEL",
+    "VARIANT",
+    "VARIANT_NAME",
+    "VARIANT_VALUE",
+    "ALLOCATIONS",
+    "ROLLOUT",
+    "ENVIRONMENT_STATUS",
+    "DEFAULT_VARIANT",
+    "OVERRIDE_VARIANT",
+  ],
+  FlagSuggestionStatus: ["pending", "rejected", "approved"],
   FlakyTestAttributesFlakyState: ["active", "fixed", "quarantined", "disabled"],
   FlakyTestHistoryPolicyId: [
     "ftm_policy.manual",
@@ -7007,6 +7046,9 @@ const typeMap: { [index: string]: any } = {
   CreateFeatureFlagAttributes: CreateFeatureFlagAttributes,
   CreateFeatureFlagData: CreateFeatureFlagData,
   CreateFeatureFlagRequest: CreateFeatureFlagRequest,
+  CreateFlagSuggestionAttributes: CreateFlagSuggestionAttributes,
+  CreateFlagSuggestionData: CreateFlagSuggestionData,
+  CreateFlagSuggestionRequest: CreateFlagSuggestionRequest,
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
@@ -7643,6 +7685,9 @@ const typeMap: { [index: string]: any } = {
   FindingMute: FindingMute,
   FindingRule: FindingRule,
   Findings: Findings,
+  FlagSuggestion: FlagSuggestion,
+  FlagSuggestionAttributes: FlagSuggestionAttributes,
+  FlagSuggestionResponse: FlagSuggestionResponse,
   FlakyTest: FlakyTest,
   FlakyTestAttributes: FlakyTestAttributes,
   FlakyTestHistory: FlakyTestHistory,
@@ -9520,6 +9565,9 @@ const typeMap: { [index: string]: any } = {
   RevertCustomRuleRevisionRequestData: RevertCustomRuleRevisionRequestData,
   RevertCustomRuleRevisionRequestDataAttributes:
     RevertCustomRuleRevisionRequestDataAttributes,
+  ReviewFlagSuggestionAttributes: ReviewFlagSuggestionAttributes,
+  ReviewFlagSuggestionData: ReviewFlagSuggestionData,
+  ReviewFlagSuggestionRequest: ReviewFlagSuggestionRequest,
   Role: Role,
   RoleAttributes: RoleAttributes,
   RoleClone: RoleClone,
@@ -10288,6 +10336,7 @@ const typeMap: { [index: string]: any } = {
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
+  SuggestionMetadata: SuggestionMetadata,
   SuiteCreateEdit: SuiteCreateEdit,
   SuiteCreateEditRequest: SuiteCreateEditRequest,
   SuiteJsonPatchRequest: SuiteJsonPatchRequest,
