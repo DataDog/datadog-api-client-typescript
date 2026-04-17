@@ -3110,6 +3110,15 @@ import { SecurityMonitoringSuppressionUpdateRequest } from "./SecurityMonitoring
 import { SecurityMonitoringSuppressionsMeta } from "./SecurityMonitoringSuppressionsMeta";
 import { SecurityMonitoringSuppressionsPageMeta } from "./SecurityMonitoringSuppressionsPageMeta";
 import { SecurityMonitoringSuppressionsResponse } from "./SecurityMonitoringSuppressionsResponse";
+import { SecurityMonitoringTerraformBulkExportAttributes } from "./SecurityMonitoringTerraformBulkExportAttributes";
+import { SecurityMonitoringTerraformBulkExportData } from "./SecurityMonitoringTerraformBulkExportData";
+import { SecurityMonitoringTerraformBulkExportRequest } from "./SecurityMonitoringTerraformBulkExportRequest";
+import { SecurityMonitoringTerraformConvertAttributes } from "./SecurityMonitoringTerraformConvertAttributes";
+import { SecurityMonitoringTerraformConvertData } from "./SecurityMonitoringTerraformConvertData";
+import { SecurityMonitoringTerraformConvertRequest } from "./SecurityMonitoringTerraformConvertRequest";
+import { SecurityMonitoringTerraformExportAttributes } from "./SecurityMonitoringTerraformExportAttributes";
+import { SecurityMonitoringTerraformExportData } from "./SecurityMonitoringTerraformExportData";
+import { SecurityMonitoringTerraformExportResponse } from "./SecurityMonitoringTerraformExportResponse";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
@@ -5698,6 +5707,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-enabled",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
+  SecurityMonitoringTerraformResourceType: ["suppressions", "critical_assets"],
   SendSlackMessageActionType: ["send_slack_message"],
   SendTeamsMessageActionType: ["send_teams_message"],
   SensitiveDataScannerConfigurationType: [
@@ -9911,6 +9921,23 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSuppressionsPageMeta,
   SecurityMonitoringSuppressionsResponse:
     SecurityMonitoringSuppressionsResponse,
+  SecurityMonitoringTerraformBulkExportAttributes:
+    SecurityMonitoringTerraformBulkExportAttributes,
+  SecurityMonitoringTerraformBulkExportData:
+    SecurityMonitoringTerraformBulkExportData,
+  SecurityMonitoringTerraformBulkExportRequest:
+    SecurityMonitoringTerraformBulkExportRequest,
+  SecurityMonitoringTerraformConvertAttributes:
+    SecurityMonitoringTerraformConvertAttributes,
+  SecurityMonitoringTerraformConvertData:
+    SecurityMonitoringTerraformConvertData,
+  SecurityMonitoringTerraformConvertRequest:
+    SecurityMonitoringTerraformConvertRequest,
+  SecurityMonitoringTerraformExportAttributes:
+    SecurityMonitoringTerraformExportAttributes,
+  SecurityMonitoringTerraformExportData: SecurityMonitoringTerraformExportData,
+  SecurityMonitoringTerraformExportResponse:
+    SecurityMonitoringTerraformExportResponse,
   SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
   SecurityMonitoringThirdPartyRuleCase: SecurityMonitoringThirdPartyRuleCase,
   SecurityMonitoringThirdPartyRuleCaseCreate:
