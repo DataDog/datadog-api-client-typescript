@@ -21,12 +21,12 @@ const params: v2.OCIIntegrationApiUpdateTenancyConfigRequest = {
         logsConfig: {
           compartmentTagFilters: ["datadog:true", "env:prod"],
           enabled: true,
-          enabledServices: ["service_1", "service_1"],
+          enabledServices: ["service_1", "service_2"],
         },
         metricsConfig: {
           compartmentTagFilters: ["datadog:true", "env:prod"],
           enabled: true,
-          excludedServices: ["service_1", "service_1"],
+          excludedServices: ["service_1", "service_2"],
         },
         regionsConfig: {
           available: ["us-ashburn-1", "us-phoenix-1"],
