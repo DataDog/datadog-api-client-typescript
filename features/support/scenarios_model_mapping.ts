@@ -5487,6 +5487,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalsBulkTriageUpdateResponse",
     },
+    "v2.BulkEditSecurityMonitoringSignals": {
+        "body": {
+            "type": "SecurityMonitoringSignalsBulkUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsBulkTriageUpdateResponse",
+    },
     "v2.SearchSecurityMonitoringSignals": {
         "body": {
             "type": "SecurityMonitoringSignalListRequest",
@@ -5547,6 +5554,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalSuggestedActionsResponse",
+    },
+    "v2.EditSecurityMonitoringSignal": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
     "v2.BulkExportSecurityMonitoringTerraformResources": {
         "resourceType": {

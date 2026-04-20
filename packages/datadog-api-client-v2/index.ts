@@ -1012,6 +1012,7 @@ export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiBulkEditSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsAssigneeRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsStateRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
@@ -1040,6 +1041,7 @@ export {
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
   SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDetachCaseRequest,
+  SecurityMonitoringApiEditSecurityMonitoringSignalRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
@@ -5419,6 +5421,8 @@ export { SecurityMonitoringSignalsBulkTriageEvent } from "./models/SecurityMonit
 export { SecurityMonitoringSignalsBulkTriageEventAttributes } from "./models/SecurityMonitoringSignalsBulkTriageEventAttributes";
 export { SecurityMonitoringSignalsBulkTriageUpdateResponse } from "./models/SecurityMonitoringSignalsBulkTriageUpdateResponse";
 export { SecurityMonitoringSignalsBulkTriageUpdateResult } from "./models/SecurityMonitoringSignalsBulkTriageUpdateResult";
+export { SecurityMonitoringSignalsBulkUpdateData } from "./models/SecurityMonitoringSignalsBulkUpdateData";
+export { SecurityMonitoringSignalsBulkUpdateRequest } from "./models/SecurityMonitoringSignalsBulkUpdateRequest";
 export { SecurityMonitoringSignalsListResponse } from "./models/SecurityMonitoringSignalsListResponse";
 export { SecurityMonitoringSignalsListResponseLinks } from "./models/SecurityMonitoringSignalsListResponseLinks";
 export { SecurityMonitoringSignalsListResponseMeta } from "./models/SecurityMonitoringSignalsListResponseMeta";
@@ -5436,6 +5440,9 @@ export { SecurityMonitoringSignalTriageAttributes } from "./models/SecurityMonit
 export { SecurityMonitoringSignalTriageUpdateData } from "./models/SecurityMonitoringSignalTriageUpdateData";
 export { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalType";
+export { SecurityMonitoringSignalUpdateAttributes } from "./models/SecurityMonitoringSignalUpdateAttributes";
+export { SecurityMonitoringSignalUpdateData } from "./models/SecurityMonitoringSignalUpdateData";
+export { SecurityMonitoringSignalUpdateRequest } from "./models/SecurityMonitoringSignalUpdateRequest";
 export { SecurityMonitoringSKU } from "./models/SecurityMonitoringSKU";
 export { SecurityMonitoringStandardDataSource } from "./models/SecurityMonitoringStandardDataSource";
 export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
