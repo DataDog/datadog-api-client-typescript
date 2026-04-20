@@ -3105,6 +3105,9 @@ import { SecurityMonitoringSignalSuggestedActionsResponse } from "./SecurityMoni
 import { SecurityMonitoringSignalTriageAttributes } from "./SecurityMonitoringSignalTriageAttributes";
 import { SecurityMonitoringSignalTriageUpdateData } from "./SecurityMonitoringSignalTriageUpdateData";
 import { SecurityMonitoringSignalTriageUpdateResponse } from "./SecurityMonitoringSignalTriageUpdateResponse";
+import { SecurityMonitoringSignalUpdateAttributes } from "./SecurityMonitoringSignalUpdateAttributes";
+import { SecurityMonitoringSignalUpdateData } from "./SecurityMonitoringSignalUpdateData";
+import { SecurityMonitoringSignalUpdateRequest } from "./SecurityMonitoringSignalUpdateRequest";
 import { SecurityMonitoringSignalsBulkAssigneeUpdateAttributes } from "./SecurityMonitoringSignalsBulkAssigneeUpdateAttributes";
 import { SecurityMonitoringSignalsBulkAssigneeUpdateData } from "./SecurityMonitoringSignalsBulkAssigneeUpdateData";
 import { SecurityMonitoringSignalsBulkAssigneeUpdateRequest } from "./SecurityMonitoringSignalsBulkAssigneeUpdateRequest";
@@ -3114,6 +3117,8 @@ import { SecurityMonitoringSignalsBulkTriageEvent } from "./SecurityMonitoringSi
 import { SecurityMonitoringSignalsBulkTriageEventAttributes } from "./SecurityMonitoringSignalsBulkTriageEventAttributes";
 import { SecurityMonitoringSignalsBulkTriageUpdateResponse } from "./SecurityMonitoringSignalsBulkTriageUpdateResponse";
 import { SecurityMonitoringSignalsBulkTriageUpdateResult } from "./SecurityMonitoringSignalsBulkTriageUpdateResult";
+import { SecurityMonitoringSignalsBulkUpdateData } from "./SecurityMonitoringSignalsBulkUpdateData";
+import { SecurityMonitoringSignalsBulkUpdateRequest } from "./SecurityMonitoringSignalsBulkUpdateRequest";
 import { SecurityMonitoringSignalsListResponse } from "./SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
@@ -9926,6 +9931,10 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalTriageUpdateData,
   SecurityMonitoringSignalTriageUpdateResponse:
     SecurityMonitoringSignalTriageUpdateResponse,
+  SecurityMonitoringSignalUpdateAttributes:
+    SecurityMonitoringSignalUpdateAttributes,
+  SecurityMonitoringSignalUpdateData: SecurityMonitoringSignalUpdateData,
+  SecurityMonitoringSignalUpdateRequest: SecurityMonitoringSignalUpdateRequest,
   SecurityMonitoringSignalsBulkAssigneeUpdateAttributes:
     SecurityMonitoringSignalsBulkAssigneeUpdateAttributes,
   SecurityMonitoringSignalsBulkAssigneeUpdateData:
@@ -9944,6 +9953,10 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalsBulkTriageUpdateResponse,
   SecurityMonitoringSignalsBulkTriageUpdateResult:
     SecurityMonitoringSignalsBulkTriageUpdateResult,
+  SecurityMonitoringSignalsBulkUpdateData:
+    SecurityMonitoringSignalsBulkUpdateData,
+  SecurityMonitoringSignalsBulkUpdateRequest:
+    SecurityMonitoringSignalsBulkUpdateRequest,
   SecurityMonitoringSignalsListResponse: SecurityMonitoringSignalsListResponse,
   SecurityMonitoringSignalsListResponseLinks:
     SecurityMonitoringSignalsListResponseLinks,
