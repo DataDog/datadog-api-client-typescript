@@ -608,17 +608,20 @@ export {
   LLMObservabilityApiCreateLLMObsProjectRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
+  LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest,
   LLMObservabilityApiDeleteLLMObsDatasetsRequest,
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
   LLMObservabilityApiDeleteLLMObsProjectsRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
+  LLMObservabilityApiGetLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiListLLMObsAnnotationQueuesRequest,
   LLMObservabilityApiListLLMObsDatasetRecordsRequest,
   LLMObservabilityApiListLLMObsDatasetsRequest,
   LLMObservabilityApiListLLMObsExperimentsRequest,
   LLMObservabilityApiListLLMObsProjectsRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
+  LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiUpdateLLMObsDatasetRequest,
   LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest,
   LLMObservabilityApiUpdateLLMObsExperimentRequest,
@@ -3744,6 +3747,29 @@ export { LLMObsAnnotationQueueUpdateDataAttributesRequest } from "./models/LLMOb
 export { LLMObsAnnotationQueueUpdateDataRequest } from "./models/LLMObsAnnotationQueueUpdateDataRequest";
 export { LLMObsAnnotationQueueUpdateRequest } from "./models/LLMObsAnnotationQueueUpdateRequest";
 export { LLMObsCursorMeta } from "./models/LLMObsCursorMeta";
+export { LLMObsCustomEvalConfigAssessmentCriteria } from "./models/LLMObsCustomEvalConfigAssessmentCriteria";
+export { LLMObsCustomEvalConfigAttributes } from "./models/LLMObsCustomEvalConfigAttributes";
+export { LLMObsCustomEvalConfigBedrockOptions } from "./models/LLMObsCustomEvalConfigBedrockOptions";
+export { LLMObsCustomEvalConfigData } from "./models/LLMObsCustomEvalConfigData";
+export { LLMObsCustomEvalConfigEvalScope } from "./models/LLMObsCustomEvalConfigEvalScope";
+export { LLMObsCustomEvalConfigInferenceParams } from "./models/LLMObsCustomEvalConfigInferenceParams";
+export { LLMObsCustomEvalConfigIntegrationProvider } from "./models/LLMObsCustomEvalConfigIntegrationProvider";
+export { LLMObsCustomEvalConfigLLMJudgeConfig } from "./models/LLMObsCustomEvalConfigLLMJudgeConfig";
+export { LLMObsCustomEvalConfigLLMProvider } from "./models/LLMObsCustomEvalConfigLLMProvider";
+export { LLMObsCustomEvalConfigParsingType } from "./models/LLMObsCustomEvalConfigParsingType";
+export { LLMObsCustomEvalConfigPromptContent } from "./models/LLMObsCustomEvalConfigPromptContent";
+export { LLMObsCustomEvalConfigPromptContentValue } from "./models/LLMObsCustomEvalConfigPromptContentValue";
+export { LLMObsCustomEvalConfigPromptMessage } from "./models/LLMObsCustomEvalConfigPromptMessage";
+export { LLMObsCustomEvalConfigPromptToolCall } from "./models/LLMObsCustomEvalConfigPromptToolCall";
+export { LLMObsCustomEvalConfigPromptToolResult } from "./models/LLMObsCustomEvalConfigPromptToolResult";
+export { LLMObsCustomEvalConfigResponse } from "./models/LLMObsCustomEvalConfigResponse";
+export { LLMObsCustomEvalConfigTarget } from "./models/LLMObsCustomEvalConfigTarget";
+export { LLMObsCustomEvalConfigType } from "./models/LLMObsCustomEvalConfigType";
+export { LLMObsCustomEvalConfigUpdateAttributes } from "./models/LLMObsCustomEvalConfigUpdateAttributes";
+export { LLMObsCustomEvalConfigUpdateData } from "./models/LLMObsCustomEvalConfigUpdateData";
+export { LLMObsCustomEvalConfigUpdateRequest } from "./models/LLMObsCustomEvalConfigUpdateRequest";
+export { LLMObsCustomEvalConfigUser } from "./models/LLMObsCustomEvalConfigUser";
+export { LLMObsCustomEvalConfigVertexAIOptions } from "./models/LLMObsCustomEvalConfigVertexAIOptions";
 export { LLMObsDatasetDataAttributesRequest } from "./models/LLMObsDatasetDataAttributesRequest";
 export { LLMObsDatasetDataAttributesResponse } from "./models/LLMObsDatasetDataAttributesResponse";
 export { LLMObsDatasetDataRequest } from "./models/LLMObsDatasetDataRequest";
