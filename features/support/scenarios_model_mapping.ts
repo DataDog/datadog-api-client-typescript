@@ -3163,6 +3163,100 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AwsOnDemandResponse",
     },
+    "v2.AnonymizeUsers": {
+        "body": {
+            "type": "AnonymizeUsersRequest",
+            "format": "",
+            },
+        "operationResponseType": "AnonymizeUsersResponse",
+    },
+    "v2.SendInvitations": {
+        "body": {
+            "type": "UserInvitationsRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserInvitationsResponse",
+    },
+    "v2.GetInvitation": {
+        "userInvitationUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserInvitationResponse",
+    },
+    "v2.ListUsers": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "sortDir": {
+            "type": "QuerySortOrder",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
+    },
+    "v2.CreateUser": {
+        "body": {
+            "type": "UserCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
+    },
+    "v2.GetUser": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
+    },
+    "v2.DisableUser": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateUser": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UserUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
+    },
+    "v2.ListUserOrganizations": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
+    },
+    "v2.ListUserPermissions": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
+    },
     "v2.ListAPIKeys": {
         "pageSize": {
             "type": "number",
@@ -12686,93 +12780,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
-    },
-    "v2.SendInvitations": {
-        "body": {
-            "type": "UserInvitationsRequest",
-            "format": "",
-            },
-        "operationResponseType": "UserInvitationsResponse",
-    },
-    "v2.GetInvitation": {
-        "userInvitationUuid": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UserInvitationResponse",
-    },
-    "v2.ListUsers": {
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "sort": {
-            "type": "string",
-            "format": "",
-            },
-        "sortDir": {
-            "type": "QuerySortOrder",
-            "format": "",
-            },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
-        "filterStatus": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UsersResponse",
-    },
-    "v2.CreateUser": {
-        "body": {
-            "type": "UserCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "UserResponse",
-    },
-    "v2.GetUser": {
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UserResponse",
-    },
-    "v2.DisableUser": {
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.UpdateUser": {
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "UserUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "UserResponse",
-    },
-    "v2.ListUserOrganizations": {
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UserResponse",
-    },
-    "v2.ListUserPermissions": {
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "PermissionsResponse",
     },
     "v2.SearchWidgets": {
         "experienceType": {
