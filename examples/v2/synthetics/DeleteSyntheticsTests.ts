@@ -11,7 +11,7 @@ const params: v2.SyntheticsApiDeleteSyntheticsTestsRequest = {
   body: {
     data: {
       attributes: {
-        publicIds: [""],
+        publicIds: ["abc-def-123"],
       },
       type: "delete_tests_request",
     },
