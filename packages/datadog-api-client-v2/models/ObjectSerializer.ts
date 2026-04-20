@@ -1795,6 +1795,25 @@ import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueU
 import { LLMObsAnnotationQueueUpdateRequest } from "./LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsAnnotationQueuesResponse } from "./LLMObsAnnotationQueuesResponse";
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
+import { LLMObsCustomEvalConfigAssessmentCriteria } from "./LLMObsCustomEvalConfigAssessmentCriteria";
+import { LLMObsCustomEvalConfigAttributes } from "./LLMObsCustomEvalConfigAttributes";
+import { LLMObsCustomEvalConfigBedrockOptions } from "./LLMObsCustomEvalConfigBedrockOptions";
+import { LLMObsCustomEvalConfigData } from "./LLMObsCustomEvalConfigData";
+import { LLMObsCustomEvalConfigInferenceParams } from "./LLMObsCustomEvalConfigInferenceParams";
+import { LLMObsCustomEvalConfigLLMJudgeConfig } from "./LLMObsCustomEvalConfigLLMJudgeConfig";
+import { LLMObsCustomEvalConfigLLMProvider } from "./LLMObsCustomEvalConfigLLMProvider";
+import { LLMObsCustomEvalConfigPromptContent } from "./LLMObsCustomEvalConfigPromptContent";
+import { LLMObsCustomEvalConfigPromptContentValue } from "./LLMObsCustomEvalConfigPromptContentValue";
+import { LLMObsCustomEvalConfigPromptMessage } from "./LLMObsCustomEvalConfigPromptMessage";
+import { LLMObsCustomEvalConfigPromptToolCall } from "./LLMObsCustomEvalConfigPromptToolCall";
+import { LLMObsCustomEvalConfigPromptToolResult } from "./LLMObsCustomEvalConfigPromptToolResult";
+import { LLMObsCustomEvalConfigResponse } from "./LLMObsCustomEvalConfigResponse";
+import { LLMObsCustomEvalConfigTarget } from "./LLMObsCustomEvalConfigTarget";
+import { LLMObsCustomEvalConfigUpdateAttributes } from "./LLMObsCustomEvalConfigUpdateAttributes";
+import { LLMObsCustomEvalConfigUpdateData } from "./LLMObsCustomEvalConfigUpdateData";
+import { LLMObsCustomEvalConfigUpdateRequest } from "./LLMObsCustomEvalConfigUpdateRequest";
+import { LLMObsCustomEvalConfigUser } from "./LLMObsCustomEvalConfigUser";
+import { LLMObsCustomEvalConfigVertexAIOptions } from "./LLMObsCustomEvalConfigVertexAIOptions";
 import { LLMObsDatasetDataAttributesRequest } from "./LLMObsDatasetDataAttributesRequest";
 import { LLMObsDatasetDataAttributesResponse } from "./LLMObsDatasetDataAttributesResponse";
 import { LLMObsDatasetDataRequest } from "./LLMObsDatasetDataRequest";
@@ -4787,6 +4806,17 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
   LLMObsAnnotationQueueInteractionsType: ["interactions"],
   LLMObsAnnotationQueueType: ["queues"],
+  LLMObsCustomEvalConfigEvalScope: ["span", "trace", "session"],
+  LLMObsCustomEvalConfigIntegrationProvider: [
+    "openai",
+    "amazon-bedrock",
+    "anthropic",
+    "azure-openai",
+    "vertex-ai",
+    "llm-proxy",
+  ],
+  LLMObsCustomEvalConfigParsingType: ["structured_output", "json"],
+  LLMObsCustomEvalConfigType: ["evaluator_config"],
   LLMObsDatasetType: ["datasets"],
   LLMObsEventType: ["events"],
   LLMObsExperimentSpanStatus: ["ok", "error"],
@@ -8282,6 +8312,29 @@ const typeMap: { [index: string]: any } = {
   LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
   LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
   LLMObsCursorMeta: LLMObsCursorMeta,
+  LLMObsCustomEvalConfigAssessmentCriteria:
+    LLMObsCustomEvalConfigAssessmentCriteria,
+  LLMObsCustomEvalConfigAttributes: LLMObsCustomEvalConfigAttributes,
+  LLMObsCustomEvalConfigBedrockOptions: LLMObsCustomEvalConfigBedrockOptions,
+  LLMObsCustomEvalConfigData: LLMObsCustomEvalConfigData,
+  LLMObsCustomEvalConfigInferenceParams: LLMObsCustomEvalConfigInferenceParams,
+  LLMObsCustomEvalConfigLLMJudgeConfig: LLMObsCustomEvalConfigLLMJudgeConfig,
+  LLMObsCustomEvalConfigLLMProvider: LLMObsCustomEvalConfigLLMProvider,
+  LLMObsCustomEvalConfigPromptContent: LLMObsCustomEvalConfigPromptContent,
+  LLMObsCustomEvalConfigPromptContentValue:
+    LLMObsCustomEvalConfigPromptContentValue,
+  LLMObsCustomEvalConfigPromptMessage: LLMObsCustomEvalConfigPromptMessage,
+  LLMObsCustomEvalConfigPromptToolCall: LLMObsCustomEvalConfigPromptToolCall,
+  LLMObsCustomEvalConfigPromptToolResult:
+    LLMObsCustomEvalConfigPromptToolResult,
+  LLMObsCustomEvalConfigResponse: LLMObsCustomEvalConfigResponse,
+  LLMObsCustomEvalConfigTarget: LLMObsCustomEvalConfigTarget,
+  LLMObsCustomEvalConfigUpdateAttributes:
+    LLMObsCustomEvalConfigUpdateAttributes,
+  LLMObsCustomEvalConfigUpdateData: LLMObsCustomEvalConfigUpdateData,
+  LLMObsCustomEvalConfigUpdateRequest: LLMObsCustomEvalConfigUpdateRequest,
+  LLMObsCustomEvalConfigUser: LLMObsCustomEvalConfigUser,
+  LLMObsCustomEvalConfigVertexAIOptions: LLMObsCustomEvalConfigVertexAIOptions,
   LLMObsDatasetDataAttributesRequest: LLMObsDatasetDataAttributesRequest,
   LLMObsDatasetDataAttributesResponse: LLMObsDatasetDataAttributesResponse,
   LLMObsDatasetDataRequest: LLMObsDatasetDataRequest,

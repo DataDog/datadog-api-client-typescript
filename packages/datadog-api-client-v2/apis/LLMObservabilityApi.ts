@@ -25,6 +25,8 @@ import { LLMObsAnnotationQueueRequest } from "../models/LLMObsAnnotationQueueReq
 import { LLMObsAnnotationQueueResponse } from "../models/LLMObsAnnotationQueueResponse";
 import { LLMObsAnnotationQueuesResponse } from "../models/LLMObsAnnotationQueuesResponse";
 import { LLMObsAnnotationQueueUpdateRequest } from "../models/LLMObsAnnotationQueueUpdateRequest";
+import { LLMObsCustomEvalConfigResponse } from "../models/LLMObsCustomEvalConfigResponse";
+import { LLMObsCustomEvalConfigUpdateRequest } from "../models/LLMObsCustomEvalConfigUpdateRequest";
 import { LLMObsDatasetRecordsListResponse } from "../models/LLMObsDatasetRecordsListResponse";
 import { LLMObsDatasetRecordsMutationResponse } from "../models/LLMObsDatasetRecordsMutationResponse";
 import { LLMObsDatasetRecordsRequest } from "../models/LLMObsDatasetRecordsRequest";
@@ -556,6 +558,47 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteLLMObsCustomEvalConfig(
+    evalName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteLLMObsCustomEvalConfig'");
+    if (!_config.unstableOperations["v2.deleteLLMObsCustomEvalConfig"]) {
+      throw new Error(
+        "Unstable operation 'deleteLLMObsCustomEvalConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'evalName' is not null or undefined
+    if (evalName === null || evalName === undefined) {
+      throw new RequiredError("evalName", "deleteLLMObsCustomEvalConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
+        "{eval_name}",
+        encodeURIComponent(String(evalName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.deleteLLMObsCustomEvalConfig")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteLLMObsDatasetRecords(
     projectId: string,
     datasetId: string,
@@ -797,6 +840,47 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.LLMObservabilityApi.getLLMObsAnnotatedInteractions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsCustomEvalConfig(
+    evalName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getLLMObsCustomEvalConfig'");
+    if (!_config.unstableOperations["v2.getLLMObsCustomEvalConfig"]) {
+      throw new Error(
+        "Unstable operation 'getLLMObsCustomEvalConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'evalName' is not null or undefined
+    if (evalName === null || evalName === undefined) {
+      throw new RequiredError("evalName", "getLLMObsCustomEvalConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
+        "{eval_name}",
+        encodeURIComponent(String(evalName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.getLLMObsCustomEvalConfig")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1184,6 +1268,68 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       ObjectSerializer.serialize(
         body,
         "LLMObsAnnotationQueueUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateLLMObsCustomEvalConfig(
+    evalName: string,
+    body: LLMObsCustomEvalConfigUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateLLMObsCustomEvalConfig'");
+    if (!_config.unstableOperations["v2.updateLLMObsCustomEvalConfig"]) {
+      throw new Error(
+        "Unstable operation 'updateLLMObsCustomEvalConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'evalName' is not null or undefined
+    if (evalName === null || evalName === undefined) {
+      throw new RequiredError("evalName", "updateLLMObsCustomEvalConfig");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateLLMObsCustomEvalConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
+        "{eval_name}",
+        encodeURIComponent(String(evalName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.updateLLMObsCustomEvalConfig")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "LLMObsCustomEvalConfigUpdateRequest",
         ""
       ),
       contentType
@@ -2188,6 +2334,83 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteLLMObsCustomEvalConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLLMObsCustomEvalConfig(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteLLMObsDatasetRecords
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2564,6 +2787,92 @@ export class LLMObservabilityApiResponseProcessor {
           "LLMObsAnnotatedInteractionsResponse",
           ""
         ) as LLMObsAnnotatedInteractionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getLLMObsCustomEvalConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsCustomEvalConfig(
+    response: ResponseContext
+  ): Promise<LLMObsCustomEvalConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsCustomEvalConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsCustomEvalConfigResponse"
+      ) as LLMObsCustomEvalConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsCustomEvalConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsCustomEvalConfigResponse",
+        ""
+      ) as LLMObsCustomEvalConfigResponse;
       return body;
     }
 
@@ -3093,6 +3402,84 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateLLMObsCustomEvalConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLLMObsCustomEvalConfig(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateLLMObsDataset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3538,6 +3925,14 @@ export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsReque
   body: LLMObsDeleteAnnotationQueueInteractionsRequest;
 }
 
+export interface LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest {
+  /**
+   * The name of the custom LLM Observability evaluator configuration.
+   * @type string
+   */
+  evalName: string;
+}
+
 export interface LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest {
   /**
    * The ID of the LLM Observability project.
@@ -3591,6 +3986,14 @@ export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest {
    * @type string
    */
   queueId: string;
+}
+
+export interface LLMObservabilityApiGetLLMObsCustomEvalConfigRequest {
+  /**
+   * The name of the custom LLM Observability evaluator configuration.
+   * @type string
+   */
+  evalName: string;
 }
 
 export interface LLMObservabilityApiListLLMObsAnnotationQueuesRequest {
@@ -3724,6 +4127,19 @@ export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest {
    * @type LLMObsAnnotationQueueUpdateRequest
    */
   body: LLMObsAnnotationQueueUpdateRequest;
+}
+
+export interface LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest {
+  /**
+   * The name of the custom LLM Observability evaluator configuration.
+   * @type string
+   */
+  evalName: string;
+  /**
+   * Custom evaluator configuration payload.
+   * @type LLMObsCustomEvalConfigUpdateRequest
+   */
+  body: LLMObsCustomEvalConfigUpdateRequest;
 }
 
 export interface LLMObservabilityApiUpdateLLMObsDatasetRequest {
@@ -4015,6 +4431,27 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Delete a custom LLM Observability evaluator configuration by its name.
+   * @param param The request object
+   */
+  public deleteLLMObsCustomEvalConfig(
+    param: LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteLLMObsCustomEvalConfig(param.evalName, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLLMObsCustomEvalConfig(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete one or more records from an LLM Observability dataset.
    * @param param The request object
    */
@@ -4124,6 +4561,29 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsAnnotatedInteractions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve a custom LLM Observability evaluator configuration by its name.
+   * @param param The request object
+   */
+  public getLLMObsCustomEvalConfig(
+    param: LLMObservabilityApiGetLLMObsCustomEvalConfigRequest,
+    options?: Configuration
+  ): Promise<LLMObsCustomEvalConfigResponse> {
+    const requestContextPromise = this.requestFactory.getLLMObsCustomEvalConfig(
+      param.evalName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsCustomEvalConfig(
             responseContext
           );
         });
@@ -4276,6 +4736,31 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsAnnotationQueue(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create or update a custom LLM Observability evaluator configuration by its name.
+   * @param param The request object
+   */
+  public updateLLMObsCustomEvalConfig(
+    param: LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateLLMObsCustomEvalConfig(
+        param.evalName,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLLMObsCustomEvalConfig(
             responseContext
           );
         });
