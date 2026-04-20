@@ -1,6 +1,13 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { AnonymizeUserError } from "./AnonymizeUserError";
+import { AnonymizeUsersRequest } from "./AnonymizeUsersRequest";
+import { AnonymizeUsersRequestAttributes } from "./AnonymizeUsersRequestAttributes";
+import { AnonymizeUsersRequestData } from "./AnonymizeUsersRequestData";
+import { AnonymizeUsersResponse } from "./AnonymizeUsersResponse";
+import { AnonymizeUsersResponseAttributes } from "./AnonymizeUsersResponseAttributes";
+import { AnonymizeUsersResponseData } from "./AnonymizeUsersResponseData";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { Pagination } from "./Pagination";
@@ -43,6 +50,8 @@ import { UsersResponse } from "./UsersResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    AnonymizeUsersRequestType: ["anonymize_users_request"],
+    AnonymizeUsersResponseType: ["anonymize_users_response"],
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
     QuerySortOrder: ["asc", "desc"],
@@ -55,6 +64,13 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    AnonymizeUserError: AnonymizeUserError,
+    AnonymizeUsersRequest: AnonymizeUsersRequest,
+    AnonymizeUsersRequestAttributes: AnonymizeUsersRequestAttributes,
+    AnonymizeUsersRequestData: AnonymizeUsersRequestData,
+    AnonymizeUsersResponse: AnonymizeUsersResponse,
+    AnonymizeUsersResponseAttributes: AnonymizeUsersResponseAttributes,
+    AnonymizeUsersResponseData: AnonymizeUsersResponseData,
     Organization: Organization,
     OrganizationAttributes: OrganizationAttributes,
     Pagination: Pagination,

@@ -3173,6 +3173,100 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
+  "UsersApi.V2.AnonymizeUsers": {
+    body: {
+      type: "AnonymizeUsersRequest",
+      format: "",
+    },
+    operationResponseType: "AnonymizeUsersResponse",
+  },
+  "UsersApi.V2.SendInvitations": {
+    body: {
+      type: "UserInvitationsRequest",
+      format: "",
+    },
+    operationResponseType: "UserInvitationsResponse",
+  },
+  "UsersApi.V2.GetInvitation": {
+    userInvitationUuid: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "UserInvitationResponse",
+  },
+  "UsersApi.V2.ListUsers": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    sortDir: {
+      type: "QuerySortOrder",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    filterStatus: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "UsersResponse",
+  },
+  "UsersApi.V2.CreateUser": {
+    body: {
+      type: "UserCreateRequest",
+      format: "",
+    },
+    operationResponseType: "UserResponse",
+  },
+  "UsersApi.V2.GetUser": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "UserResponse",
+  },
+  "UsersApi.V2.DisableUser": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "UsersApi.V2.UpdateUser": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UserUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "UserResponse",
+  },
+  "UsersApi.V2.ListUserOrganizations": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "UserResponse",
+  },
+  "UsersApi.V2.ListUserPermissions": {
+    userId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "PermissionsResponse",
+  },
   "KeyManagementApi.V2.ListAPIKeys": {
     pageSize: {
       type: "number",
@@ -12698,93 +12792,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "IncidentTeamResponse",
-  },
-  "UsersApi.V2.SendInvitations": {
-    body: {
-      type: "UserInvitationsRequest",
-      format: "",
-    },
-    operationResponseType: "UserInvitationsResponse",
-  },
-  "UsersApi.V2.GetInvitation": {
-    userInvitationUuid: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "UserInvitationResponse",
-  },
-  "UsersApi.V2.ListUsers": {
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    sort: {
-      type: "string",
-      format: "",
-    },
-    sortDir: {
-      type: "QuerySortOrder",
-      format: "",
-    },
-    filter: {
-      type: "string",
-      format: "",
-    },
-    filterStatus: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "UsersResponse",
-  },
-  "UsersApi.V2.CreateUser": {
-    body: {
-      type: "UserCreateRequest",
-      format: "",
-    },
-    operationResponseType: "UserResponse",
-  },
-  "UsersApi.V2.GetUser": {
-    userId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "UserResponse",
-  },
-  "UsersApi.V2.DisableUser": {
-    userId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "UsersApi.V2.UpdateUser": {
-    userId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "UserUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "UserResponse",
-  },
-  "UsersApi.V2.ListUserOrganizations": {
-    userId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "UserResponse",
-  },
-  "UsersApi.V2.ListUserPermissions": {
-    userId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "PermissionsResponse",
   },
   "WidgetsApi.V2.SearchWidgets": {
     experienceType: {

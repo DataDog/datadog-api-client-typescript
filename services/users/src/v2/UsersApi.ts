@@ -22,6 +22,8 @@ import {
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
+import { AnonymizeUsersRequest } from "./models/AnonymizeUsersRequest";
+import { AnonymizeUsersResponse } from "./models/AnonymizeUsersResponse";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { PermissionsResponse } from "./models/PermissionsResponse";
 import { QuerySortOrder } from "./models/QuerySortOrder";
@@ -44,6 +46,63 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("users", version);
     }
   }
+  public async anonymizeUsers(
+    body: AnonymizeUsersRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["UsersApi.v2.anonymizeUsers"]) {
+      throw new Error(
+        "Unstable operation 'anonymizeUsers' is disabled. Enable it by setting `configuration.unstableOperations['UsersApi.v2.anonymizeUsers'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "anonymizeUsers");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/anonymize_users";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsersApi.v2.anonymizeUsers",
+      UsersApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AnonymizeUsersRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createUser(
     body: UserCreateRequest,
     _options?: Configuration,
@@ -520,6 +579,66 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class UsersApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to anonymizeUsers
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async anonymizeUsers(
+    response: ResponseContext,
+  ): Promise<AnonymizeUsersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AnonymizeUsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AnonymizeUsersResponse",
+      ) as AnonymizeUsersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AnonymizeUsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AnonymizeUsersResponse",
+        "",
+      ) as AnonymizeUsersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1042,6 +1161,13 @@ export class UsersApiResponseProcessor {
   }
 }
 
+export interface UsersApiAnonymizeUsersRequest {
+  /**
+   * @type AnonymizeUsersRequest
+   */
+  body: AnonymizeUsersRequest;
+}
+
 export interface UsersApiCreateUserRequest {
   /**
    * @type UserCreateRequest
@@ -1163,6 +1289,28 @@ export class UsersApi {
       requestFactory || new UsersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
+  }
+
+  /**
+   * Anonymize a list of users, removing their personal data. This operation is irreversible.
+   * Requires the `user_access_manage` permission.
+   * @param param The request object
+   */
+  public anonymizeUsers(
+    param: UsersApiAnonymizeUsersRequest,
+    options?: Configuration,
+  ): Promise<AnonymizeUsersResponse> {
+    const requestContextPromise = this.requestFactory.anonymizeUsers(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.anonymizeUsers(responseContext);
+        });
+    });
   }
 
   /**
