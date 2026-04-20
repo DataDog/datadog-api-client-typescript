@@ -160,6 +160,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1168,6 +1169,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1773,6 +1775,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -11173,7 +11176,7 @@ export class SecurityMonitoringApiResponseProcessor {
 
 export interface SecurityMonitoringApiActivateContentPackRequest {
   /**
-   * The ID of the content pack to activate.
+   * The ID of the content pack to activate (for example, `aws-cloudtrail`).
    * @type string
    */
   contentPackId: string;
@@ -11349,7 +11352,7 @@ export interface SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest
 
 export interface SecurityMonitoringApiDeactivateContentPackRequest {
   /**
-   * The ID of the content pack to deactivate.
+   * The ID of the content pack to deactivate (for example, `aws-cloudtrail`).
    * @type string
    */
   contentPackId: string;
@@ -12591,7 +12594,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Activate a security monitoring content pack. This operation configures the necessary
+   * Activate a Cloud SIEM content pack. This operation configures the necessary
    * log filters or security filters depending on the pricing model and updates the content
    * pack activation state.
    * @param param The request object
@@ -13097,7 +13100,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Deactivate a security monitoring content pack. This operation removes the content pack's
+   * Deactivate a Cloud SIEM content pack. This operation removes the content pack's
    * configuration from log filters or security filters and updates the content pack activation state.
    * @param param The request object
    */
@@ -13421,9 +13424,8 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Get the activation and configuration states for all security monitoring content packs.
-   * This endpoint returns status information about each content pack including activation state,
-   * integration status, and log collection status.
+   * Get the activation state, integration status, and log collection status
+   * for all Cloud SIEM content packs.
    * @param param The request object
    */
   public getContentPacksStates(
