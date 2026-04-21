@@ -4452,7 +4452,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Add one or more interactions (traces) to an annotation queue.
+   * Add one or more interactions (traces or sessions) to an annotation queue.
    * At least one interaction must be provided.
    * @param param The request object
    */
@@ -4752,7 +4752,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Retrieve all interactions and their annotations for a given annotation queue.
+   * Retrieve all interactions (traces and sessions) and their annotations for a given annotation queue.
    * @param param The request object
    */
   public getLLMObsAnnotatedInteractions(

@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Timestamp bucket indicating when logs were last collected.
+ * Timestamp bucket indicating when logs were last collected
  */
 export type SecurityMonitoringContentPackTimestampBucket =
   | typeof NOT_SEEN

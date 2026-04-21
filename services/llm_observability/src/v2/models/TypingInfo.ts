@@ -133,7 +133,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsEventType: ["events"],
     LLMObsExperimentSpanStatus: ["ok", "error"],
     LLMObsExperimentType: ["experiments"],
-    LLMObsInteractionType: ["trace", "experiment_trace"],
+    LLMObsInteractionType: ["trace", "experiment_trace", "session"],
     LLMObsMetricAssessment: ["pass", "fail"],
     LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
     LLMObsProjectType: ["projects"],
