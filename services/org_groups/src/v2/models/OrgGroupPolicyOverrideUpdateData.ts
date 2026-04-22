@@ -8,7 +8,7 @@ import { OrgGroupPolicyOverrideUpdateAttributes } from "./OrgGroupPolicyOverride
  */
 export class OrgGroupPolicyOverrideUpdateData {
   /**
-   * Attributes for updating a policy override. The `org_uuid` and `org_site` fields must match the existing override and cannot be changed.
+   * Attributes for updating a policy override.
    */
   "attributes": OrgGroupPolicyOverrideUpdateAttributes;
   /**

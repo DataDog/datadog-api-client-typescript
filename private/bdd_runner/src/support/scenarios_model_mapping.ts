@@ -3504,21 +3504,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "PersonalAccessTokenCreateResponse",
   },
   "KeyManagementApi.V2.GetPersonalAccessToken": {
-    patId: {
+    patUuid: {
       type: "string",
       format: "",
     },
     operationResponseType: "PersonalAccessTokenResponse",
   },
   "KeyManagementApi.V2.RevokePersonalAccessToken": {
-    patId: {
+    patUuid: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
   "KeyManagementApi.V2.UpdatePersonalAccessToken": {
-    patId: {
+    patUuid: {
       type: "string",
       format: "",
     },
@@ -9771,13 +9771,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OrgGroupPolicyResponse",
   },
-  "OrgGroupsApi.V2.GetOrgGroupPolicy": {
-    orgGroupPolicyId: {
-      type: "string",
-      format: "uuid",
-    },
-    operationResponseType: "OrgGroupPolicyResponse",
-  },
   "OrgGroupsApi.V2.DeleteOrgGroupPolicy": {
     orgGroupPolicyId: {
       type: "string",
@@ -9826,13 +9819,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     body: {
       type: "OrgGroupPolicyOverrideCreateRequest",
       format: "",
-    },
-    operationResponseType: "OrgGroupPolicyOverrideResponse",
-  },
-  "OrgGroupsApi.V2.GetOrgGroupPolicyOverride": {
-    orgGroupPolicyOverrideId: {
-      type: "string",
-      format: "uuid",
     },
     operationResponseType: "OrgGroupPolicyOverrideResponse",
   },
@@ -11367,7 +11353,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    patId: {
+    patUuid: {
       type: "string",
       format: "",
     },
@@ -11378,7 +11364,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    patId: {
+    patUuid: {
       type: "string",
       format: "",
     },
@@ -11389,7 +11375,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    patId: {
+    patUuid: {
       type: "string",
       format: "",
     },

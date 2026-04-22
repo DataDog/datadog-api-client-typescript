@@ -1,8 +1,5 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { OrgGroupPolicyEnforcementTier } from "./OrgGroupPolicyEnforcementTier";
-import { OrgGroupPolicyPolicyType } from "./OrgGroupPolicyPolicyType";
-
 /**
  * Attributes of an org group policy.
  */
@@ -12,9 +9,9 @@ export class OrgGroupPolicyAttributes {
    */
   "content"?: { [key: string]: any };
   /**
-   * The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
+   * Timestamp when the policy was enforced.
    */
-  "enforcementTier": OrgGroupPolicyEnforcementTier;
+  "enforcedAt": Date;
   /**
    * Timestamp when the policy was last modified.
    */
@@ -23,10 +20,6 @@ export class OrgGroupPolicyAttributes {
    * The name of the policy.
    */
   "policyName": string;
-  /**
-   * The type of the policy. Only `org_config` is supported, indicating a policy backed by an organization configuration setting.
-   */
-  "policyType": OrgGroupPolicyPolicyType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -46,10 +39,11 @@ export class OrgGroupPolicyAttributes {
       baseName: "content",
       type: "{ [key: string]: any; }",
     },
-    enforcementTier: {
-      baseName: "enforcement_tier",
-      type: "OrgGroupPolicyEnforcementTier",
+    enforcedAt: {
+      baseName: "enforced_at",
+      type: "Date",
       required: true,
+      format: "date-time",
     },
     modifiedAt: {
       baseName: "modified_at",
@@ -60,11 +54,6 @@ export class OrgGroupPolicyAttributes {
     policyName: {
       baseName: "policy_name",
       type: "string",
-      required: true,
-    },
-    policyType: {
-      baseName: "policy_type",
-      type: "OrgGroupPolicyPolicyType",
       required: true,
     },
     additionalProperties: {

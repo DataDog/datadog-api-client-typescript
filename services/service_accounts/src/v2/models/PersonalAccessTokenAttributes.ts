@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class PersonalAccessTokenAttributes {
   /**
+   * The alias (short identifier) of the personal access token.
+   */
+  "alias"?: string;
+  /**
    * Creation date of the personal access token.
    */
   "createdAt"?: Date;
@@ -47,6 +51,10 @@ export class PersonalAccessTokenAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    alias: {
+      baseName: "alias",
+      type: "string",
+    },
     createdAt: {
       baseName: "created_at",
       type: "Date",

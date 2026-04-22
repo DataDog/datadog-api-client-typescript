@@ -1,7 +1,5 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { OrgGroupPolicyEnforcementTier } from "./OrgGroupPolicyEnforcementTier";
-
 /**
  * Attributes for updating an org group policy.
  */
@@ -10,10 +8,6 @@ export class OrgGroupPolicyUpdateAttributes {
    * The policy content as key-value pairs.
    */
   "content"?: { [key: string]: any };
-  /**
-   * The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
-   */
-  "enforcementTier"?: OrgGroupPolicyEnforcementTier;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,10 +26,6 @@ export class OrgGroupPolicyUpdateAttributes {
     content: {
       baseName: "content",
       type: "{ [key: string]: any; }",
-    },
-    enforcementTier: {
-      baseName: "enforcement_tier",
-      type: "OrgGroupPolicyEnforcementTier",
     },
     additionalProperties: {
       baseName: "additionalProperties",
