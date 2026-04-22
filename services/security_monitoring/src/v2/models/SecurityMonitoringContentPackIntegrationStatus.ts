@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The installation status of the related integration
+ * The installation status of the related integration.
  */
 export type SecurityMonitoringContentPackIntegrationStatus =
   | typeof INSTALLED

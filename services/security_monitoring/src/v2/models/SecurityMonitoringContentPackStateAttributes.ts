@@ -14,27 +14,28 @@ export class SecurityMonitoringContentPackStateAttributes {
    */
   "cloudSiemIndexIncorrect": boolean;
   /**
-   * The activation status of a content pack
+   * The activation status of a content pack.
    */
   "cpActivation": SecurityMonitoringContentPackActivation;
   /**
-   * Whether filters (Security Filters or Index Query depending on the pricing model) are configured for logs
+   * Whether filters (Security Filters or Index Query depending on the pricing model) are
+   * present and correctly configured to route logs into Cloud SIEM.
    */
   "filtersConfiguredForLogs": boolean;
   /**
-   * The installation status of the related integration
+   * The installation status of the related integration.
    */
   "integrationInstalledStatus"?: SecurityMonitoringContentPackIntegrationStatus;
   /**
-   * Timestamp bucket indicating when logs were last collected
+   * Timestamp bucket indicating when logs were last collected.
    */
   "logsLastCollected": SecurityMonitoringContentPackTimestampBucket;
   /**
-   * Whether logs have been seen from any index
+   * Whether logs for this content pack have been seen in any Datadog index within the last 72 hours.
    */
   "logsSeenFromAnyIndex": boolean;
   /**
-   * The current status of a content pack
+   * The current operational status of a content pack.
    */
   "state": SecurityMonitoringContentPackStatus;
   /**
