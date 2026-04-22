@@ -14,7 +14,7 @@ const params: v2.OrgGroupsApiBulkUpdateOrgGroupMembershipsRequest = {
       attributes: {
         orgs: [
           {
-            orgSite: "datadoghq.com",
+            orgSite: "us1",
             orgUuid: "c3d4e5f6-a7b8-9012-cdef-012345678901",
           },
         ],
