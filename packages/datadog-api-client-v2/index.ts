@@ -831,8 +831,6 @@ export {
   OrgGroupsApiDeleteOrgGroupPolicyOverrideRequest,
   OrgGroupsApiGetOrgGroupRequest,
   OrgGroupsApiGetOrgGroupMembershipRequest,
-  OrgGroupsApiGetOrgGroupPolicyRequest,
-  OrgGroupsApiGetOrgGroupPolicyOverrideRequest,
   OrgGroupsApiListOrgGroupMembershipsRequest,
   OrgGroupsApiListOrgGroupPoliciesRequest,
   OrgGroupsApiListOrgGroupPolicyOverridesRequest,
@@ -4595,7 +4593,6 @@ export { OrgGroupPolicyCreateData } from "./models/OrgGroupPolicyCreateData";
 export { OrgGroupPolicyCreateRelationships } from "./models/OrgGroupPolicyCreateRelationships";
 export { OrgGroupPolicyCreateRequest } from "./models/OrgGroupPolicyCreateRequest";
 export { OrgGroupPolicyData } from "./models/OrgGroupPolicyData";
-export { OrgGroupPolicyEnforcementTier } from "./models/OrgGroupPolicyEnforcementTier";
 export { OrgGroupPolicyListResponse } from "./models/OrgGroupPolicyListResponse";
 export { OrgGroupPolicyOverrideAttributes } from "./models/OrgGroupPolicyOverrideAttributes";
 export { OrgGroupPolicyOverrideCreateAttributes } from "./models/OrgGroupPolicyOverrideCreateAttributes";
@@ -4611,7 +4608,6 @@ export { OrgGroupPolicyOverrideType } from "./models/OrgGroupPolicyOverrideType"
 export { OrgGroupPolicyOverrideUpdateAttributes } from "./models/OrgGroupPolicyOverrideUpdateAttributes";
 export { OrgGroupPolicyOverrideUpdateData } from "./models/OrgGroupPolicyOverrideUpdateData";
 export { OrgGroupPolicyOverrideUpdateRequest } from "./models/OrgGroupPolicyOverrideUpdateRequest";
-export { OrgGroupPolicyPolicyType } from "./models/OrgGroupPolicyPolicyType";
 export { OrgGroupPolicyRelationships } from "./models/OrgGroupPolicyRelationships";
 export { OrgGroupPolicyRelationshipToOne } from "./models/OrgGroupPolicyRelationshipToOne";
 export { OrgGroupPolicyRelationshipToOneData } from "./models/OrgGroupPolicyRelationshipToOneData";

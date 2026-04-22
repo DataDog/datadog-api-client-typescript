@@ -379,20 +379,20 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getPersonalAccessToken(
-    patId: string,
+    patUuid: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'patId' is not null or undefined
-    if (patId === null || patId === undefined) {
-      throw new RequiredError("patId", "getPersonalAccessToken");
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "getPersonalAccessToken");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/personal_access_tokens/{pat_id}".replace(
-      "{pat_id}",
-      encodeURIComponent(String(patId))
+    const localVarPath = "/api/v2/personal_access_tokens/{pat_uuid}".replace(
+      "{pat_uuid}",
+      encodeURIComponent(String(patUuid))
     );
 
     // Make Request Context
@@ -760,20 +760,20 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async revokePersonalAccessToken(
-    patId: string,
+    patUuid: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'patId' is not null or undefined
-    if (patId === null || patId === undefined) {
-      throw new RequiredError("patId", "revokePersonalAccessToken");
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "revokePersonalAccessToken");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/personal_access_tokens/{pat_id}".replace(
-      "{pat_id}",
-      encodeURIComponent(String(patId))
+    const localVarPath = "/api/v2/personal_access_tokens/{pat_uuid}".replace(
+      "{pat_uuid}",
+      encodeURIComponent(String(patUuid))
     );
 
     // Make Request Context
@@ -944,15 +944,15 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async updatePersonalAccessToken(
-    patId: string,
+    patUuid: string,
     body: PersonalAccessTokenUpdateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'patId' is not null or undefined
-    if (patId === null || patId === undefined) {
-      throw new RequiredError("patId", "updatePersonalAccessToken");
+    // verify required parameter 'patUuid' is not null or undefined
+    if (patUuid === null || patUuid === undefined) {
+      throw new RequiredError("patUuid", "updatePersonalAccessToken");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -961,9 +961,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/personal_access_tokens/{pat_id}".replace(
-      "{pat_id}",
-      encodeURIComponent(String(patId))
+    const localVarPath = "/api/v2/personal_access_tokens/{pat_uuid}".replace(
+      "{pat_uuid}",
+      encodeURIComponent(String(patUuid))
     );
 
     // Make Request Context
@@ -2224,10 +2224,10 @@ export interface KeyManagementApiGetCurrentUserApplicationKeyRequest {
 
 export interface KeyManagementApiGetPersonalAccessTokenRequest {
   /**
-   * The ID of the personal access token.
+   * The UUID of the personal access token.
    * @type string
    */
-  patId: string;
+  patUuid: string;
 }
 
 export interface KeyManagementApiListAPIKeysRequest {
@@ -2402,10 +2402,10 @@ export interface KeyManagementApiListPersonalAccessTokensRequest {
 
 export interface KeyManagementApiRevokePersonalAccessTokenRequest {
   /**
-   * The ID of the personal access token.
+   * The UUID of the personal access token.
    * @type string
    */
-  patId: string;
+  patUuid: string;
 }
 
 export interface KeyManagementApiUpdateAPIKeyRequest {
@@ -2446,10 +2446,10 @@ export interface KeyManagementApiUpdateCurrentUserApplicationKeyRequest {
 
 export interface KeyManagementApiUpdatePersonalAccessTokenRequest {
   /**
-   * The ID of the personal access token.
+   * The UUID of the personal access token.
    * @type string
    */
-  patId: string;
+  patUuid: string;
   /**
    * @type PersonalAccessTokenUpdateRequest
    */
@@ -2679,7 +2679,7 @@ export class KeyManagementApi {
     options?: Configuration
   ): Promise<PersonalAccessTokenResponse> {
     const requestContextPromise = this.requestFactory.getPersonalAccessToken(
-      param.patId,
+      param.patUuid,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -2815,7 +2815,7 @@ export class KeyManagementApi {
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.revokePersonalAccessToken(
-      param.patId,
+      param.patUuid,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -2908,7 +2908,7 @@ export class KeyManagementApi {
     options?: Configuration
   ): Promise<PersonalAccessTokenResponse> {
     const requestContextPromise = this.requestFactory.updatePersonalAccessToken(
-      param.patId,
+      param.patUuid,
       param.body,
       options
     );

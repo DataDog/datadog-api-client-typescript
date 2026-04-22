@@ -12,7 +12,7 @@ const params: v2.OrgGroupsApiUpdateOrgGroupPolicyOverrideRequest = {
   body: {
     data: {
       attributes: {
-        orgSite: "us1",
+        orgSite: "datadoghq.com",
         orgUuid: "c3d4e5f6-a7b8-9012-cdef-012345678901",
       },
       id: "9f8e7d6c-5b4a-3210-fedc-ba0987654321",

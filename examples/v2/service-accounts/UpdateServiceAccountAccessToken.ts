@@ -26,7 +26,7 @@ const params: v2.ServiceAccountsApiUpdateServiceAccountAccessTokenRequest = {
     },
   },
   serviceAccountId: SERVICE_ACCOUNT_USER_DATA_ID,
-  patId: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
+  patUuid: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
 };
 
 apiInstance

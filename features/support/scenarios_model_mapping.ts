@@ -3494,21 +3494,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "PersonalAccessTokenCreateResponse",
     },
     "v2.GetPersonalAccessToken": {
-        "patId": {
+        "patUuid": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "PersonalAccessTokenResponse",
     },
     "v2.RevokePersonalAccessToken": {
-        "patId": {
+        "patUuid": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "{}",
     },
     "v2.UpdatePersonalAccessToken": {
-        "patId": {
+        "patUuid": {
             "type": "string",
             "format": "",
             },
@@ -9759,13 +9759,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OrgGroupPolicyResponse",
     },
-    "v2.GetOrgGroupPolicy": {
-        "orgGroupPolicyId": {
-            "type": "string",
-            "format": "uuid",
-            },
-        "operationResponseType": "OrgGroupPolicyResponse",
-    },
     "v2.DeleteOrgGroupPolicy": {
         "orgGroupPolicyId": {
             "type": "string",
@@ -9814,13 +9807,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "body": {
             "type": "OrgGroupPolicyOverrideCreateRequest",
             "format": "",
-            },
-        "operationResponseType": "OrgGroupPolicyOverrideResponse",
-    },
-    "v2.GetOrgGroupPolicyOverride": {
-        "orgGroupPolicyOverrideId": {
-            "type": "string",
-            "format": "uuid",
             },
         "operationResponseType": "OrgGroupPolicyOverrideResponse",
     },
@@ -11355,7 +11341,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "patId": {
+        "patUuid": {
             "type": "string",
             "format": "",
             },
@@ -11366,7 +11352,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "patId": {
+        "patUuid": {
             "type": "string",
             "format": "",
             },
@@ -11377,7 +11363,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "patId": {
+        "patUuid": {
             "type": "string",
             "format": "",
             },

@@ -448,8 +448,6 @@ export function createConfiguration(
       "v2.deleteOrgGroupPolicyOverride": false,
       "v2.getOrgGroup": false,
       "v2.getOrgGroupMembership": false,
-      "v2.getOrgGroupPolicy": false,
-      "v2.getOrgGroupPolicyOverride": false,
       "v2.listOrgGroupMemberships": false,
       "v2.listOrgGroupPolicies": false,
       "v2.listOrgGroupPolicyConfigs": false,
