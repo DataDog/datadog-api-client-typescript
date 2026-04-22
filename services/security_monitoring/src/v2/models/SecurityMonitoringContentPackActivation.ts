@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The activation status of a content pack.
+ * The activation status of a content pack
  */
 export type SecurityMonitoringContentPackActivation =
   | typeof NEVER_ACTIVATED

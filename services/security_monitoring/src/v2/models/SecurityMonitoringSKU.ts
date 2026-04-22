@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The Cloud SIEM pricing model (SKU) for the organization.
+ * The SIEM pricing model (SKU) for the organization
  */
 export type SecurityMonitoringSKU =
   | typeof PER_GB_ANALYZED
