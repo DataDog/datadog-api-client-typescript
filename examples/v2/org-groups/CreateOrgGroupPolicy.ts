@@ -15,7 +15,9 @@ const params: v2.OrgGroupsApiCreateOrgGroupPolicyRequest = {
         content: {
           value: "UTC",
         },
+        enforcementTier: "DEFAULT",
         policyName: "monitor_timezone",
+        policyType: "org_config",
       },
       relationships: {
         orgGroup: {
