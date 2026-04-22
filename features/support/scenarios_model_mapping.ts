@@ -3400,21 +3400,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "PersonalAccessTokenCreateResponse",
     },
     "v2.GetPersonalAccessToken": {
-        "patUuid": {
+        "patId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "PersonalAccessTokenResponse",
     },
     "v2.RevokePersonalAccessToken": {
-        "patUuid": {
+        "patId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "{}",
     },
     "v2.UpdatePersonalAccessToken": {
-        "patUuid": {
+        "patId": {
             "type": "string",
             "format": "",
             },
@@ -11247,7 +11247,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "patUuid": {
+        "patId": {
             "type": "string",
             "format": "",
             },
@@ -11258,7 +11258,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "patUuid": {
+        "patId": {
             "type": "string",
             "format": "",
             },
@@ -11269,7 +11269,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "patUuid": {
+        "patId": {
             "type": "string",
             "format": "",
             },

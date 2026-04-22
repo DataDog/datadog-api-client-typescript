@@ -16,7 +16,7 @@ export class SecurityMonitoringContentPackStateMeta {
    */
   "cloudSiemIndexIncorrect": boolean;
   /**
-   * The SIEM pricing model (SKU) for the organization
+   * The Cloud SIEM pricing model (SKU) for the organization.
    */
   "sku": SecurityMonitoringSKU;
 
