@@ -59,6 +59,10 @@ export class UserAttributes {
    */
   "title"?: string;
   /**
+   * UUID of the user.
+   */
+  "uuid"?: string;
+  /**
    * Whether the user is verified.
    */
   "verified"?: boolean;
@@ -128,6 +132,10 @@ export class UserAttributes {
     },
     title: {
       baseName: "title",
+      type: "string",
+    },
+    uuid: {
+      baseName: "uuid",
       type: "string",
     },
     verified: {
