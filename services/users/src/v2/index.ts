@@ -1,4 +1,5 @@
 export {
+  UsersApiAnonymizeUsersRequest,
   UsersApiCreateUserRequest,
   UsersApiDisableUserRequest,
   UsersApiGetInvitationRequest,
@@ -11,6 +12,15 @@ export {
   UsersApi,
 } from "./UsersApi";
 
+export { AnonymizeUserError } from "./models/AnonymizeUserError";
+export { AnonymizeUsersRequest } from "./models/AnonymizeUsersRequest";
+export { AnonymizeUsersRequestAttributes } from "./models/AnonymizeUsersRequestAttributes";
+export { AnonymizeUsersRequestData } from "./models/AnonymizeUsersRequestData";
+export { AnonymizeUsersRequestType } from "./models/AnonymizeUsersRequestType";
+export { AnonymizeUsersResponse } from "./models/AnonymizeUsersResponse";
+export { AnonymizeUsersResponseAttributes } from "./models/AnonymizeUsersResponseAttributes";
+export { AnonymizeUsersResponseData } from "./models/AnonymizeUsersResponseData";
+export { AnonymizeUsersResponseType } from "./models/AnonymizeUsersResponseType";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { Organization } from "./models/Organization";
 export { OrganizationAttributes } from "./models/OrganizationAttributes";

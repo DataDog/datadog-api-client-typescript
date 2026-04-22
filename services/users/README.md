@@ -25,10 +25,18 @@ import { UsersApiV2 } from "@datadog/datadog-api-client-users";
 import { v2 } from "@datadog/datadog-api-client-users";
 
 const configuration = createConfiguration();
+// Enable unstable operations
+const configurationOpts = {
+    unstableOperations: {
+        "UsersApi.v2.anonymizeUsers": true
+    }
+}
+
+const configuration = createConfiguration(configurationOpts);
 const apiInstance = new UsersApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.sendInvitations(params).then((data) => {
+apiInstance.anonymizeUsers(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
