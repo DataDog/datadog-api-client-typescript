@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The activation status of a content pack.
+ * The activation status of a content pack
  */
 
 export type SecurityMonitoringContentPackActivation =
