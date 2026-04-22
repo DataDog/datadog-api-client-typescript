@@ -115,6 +115,13 @@ import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
 import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
+import { AnonymizeUserError } from "./AnonymizeUserError";
+import { AnonymizeUsersRequest } from "./AnonymizeUsersRequest";
+import { AnonymizeUsersRequestAttributes } from "./AnonymizeUsersRequestAttributes";
+import { AnonymizeUsersRequestData } from "./AnonymizeUsersRequestData";
+import { AnonymizeUsersResponse } from "./AnonymizeUsersResponse";
+import { AnonymizeUsersResponseAttributes } from "./AnonymizeUsersResponseAttributes";
+import { AnonymizeUsersResponseData } from "./AnonymizeUsersResponseData";
 import { AnthropicAPIKey } from "./AnthropicAPIKey";
 import { AnthropicAPIKeyUpdate } from "./AnthropicAPIKeyUpdate";
 import { AnthropicIntegration } from "./AnthropicIntegration";
@@ -3956,6 +3963,8 @@ const enumsMap: { [key: string]: any[] } = {
   AllocationDataType: ["allocations"],
   AllocationExposureScheduleDataType: ["allocation_exposure_schedules"],
   AllocationType: ["FEATURE_GATE", "CANARY"],
+  AnonymizeUsersRequestType: ["anonymize_users_request"],
+  AnonymizeUsersResponseType: ["anonymize_users_response"],
   AnthropicAPIKeyType: ["AnthropicAPIKey"],
   AnthropicIntegrationType: ["Anthropic"],
   ApmDependencyStatName: [
@@ -6340,6 +6349,13 @@ const typeMap: { [index: string]: any } = {
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
   AnnotationMarkdownTextAnnotation: AnnotationMarkdownTextAnnotation,
+  AnonymizeUserError: AnonymizeUserError,
+  AnonymizeUsersRequest: AnonymizeUsersRequest,
+  AnonymizeUsersRequestAttributes: AnonymizeUsersRequestAttributes,
+  AnonymizeUsersRequestData: AnonymizeUsersRequestData,
+  AnonymizeUsersResponse: AnonymizeUsersResponse,
+  AnonymizeUsersResponseAttributes: AnonymizeUsersResponseAttributes,
+  AnonymizeUsersResponseData: AnonymizeUsersResponseData,
   AnthropicAPIKey: AnthropicAPIKey,
   AnthropicAPIKeyUpdate: AnthropicAPIKeyUpdate,
   AnthropicIntegration: AnthropicIntegration,

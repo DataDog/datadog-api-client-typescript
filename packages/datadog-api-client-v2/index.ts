@@ -1319,6 +1319,7 @@ export {
 } from "./apis/UsageMeteringApi";
 
 export {
+  UsersApiAnonymizeUsersRequest,
   UsersApiCreateUserRequest,
   UsersApiDisableUserRequest,
   UsersApiGetInvitationRequest,
@@ -1408,6 +1409,15 @@ export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
 export { AnnotationMarkdownTextAnnotation } from "./models/AnnotationMarkdownTextAnnotation";
+export { AnonymizeUserError } from "./models/AnonymizeUserError";
+export { AnonymizeUsersRequest } from "./models/AnonymizeUsersRequest";
+export { AnonymizeUsersRequestAttributes } from "./models/AnonymizeUsersRequestAttributes";
+export { AnonymizeUsersRequestData } from "./models/AnonymizeUsersRequestData";
+export { AnonymizeUsersRequestType } from "./models/AnonymizeUsersRequestType";
+export { AnonymizeUsersResponse } from "./models/AnonymizeUsersResponse";
+export { AnonymizeUsersResponseAttributes } from "./models/AnonymizeUsersResponseAttributes";
+export { AnonymizeUsersResponseData } from "./models/AnonymizeUsersResponseData";
+export { AnonymizeUsersResponseType } from "./models/AnonymizeUsersResponseType";
 export { AnthropicAPIKey } from "./models/AnthropicAPIKey";
 export { AnthropicAPIKeyType } from "./models/AnthropicAPIKeyType";
 export { AnthropicAPIKeyUpdate } from "./models/AnthropicAPIKeyUpdate";
