@@ -282,7 +282,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getServiceAccountAccessToken(
     serviceAccountId: string,
-    patUuid: string,
+    patId: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -295,19 +295,19 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // verify required parameter 'patUuid' is not null or undefined
-    if (patUuid === null || patUuid === undefined) {
-      throw new RequiredError("patUuid", "getServiceAccountAccessToken");
+    // verify required parameter 'patId' is not null or undefined
+    if (patId === null || patId === undefined) {
+      throw new RequiredError("patId", "getServiceAccountAccessToken");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}"
         .replace(
           "{service_account_id}",
           encodeURIComponent(String(serviceAccountId)),
         )
-        .replace("{pat_uuid}", encodeURIComponent(String(patUuid)));
+        .replace("{pat_id}", encodeURIComponent(String(patId)));
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -574,7 +574,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async revokeServiceAccountAccessToken(
     serviceAccountId: string,
-    patUuid: string,
+    patId: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -587,19 +587,19 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // verify required parameter 'patUuid' is not null or undefined
-    if (patUuid === null || patUuid === undefined) {
-      throw new RequiredError("patUuid", "revokeServiceAccountAccessToken");
+    // verify required parameter 'patId' is not null or undefined
+    if (patId === null || patId === undefined) {
+      throw new RequiredError("patId", "revokeServiceAccountAccessToken");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}"
         .replace(
           "{service_account_id}",
           encodeURIComponent(String(serviceAccountId)),
         )
-        .replace("{pat_uuid}", encodeURIComponent(String(patUuid)));
+        .replace("{pat_id}", encodeURIComponent(String(patId)));
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -630,7 +630,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async updateServiceAccountAccessToken(
     serviceAccountId: string,
-    patUuid: string,
+    patId: string,
     body: PersonalAccessTokenUpdateRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -644,9 +644,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // verify required parameter 'patUuid' is not null or undefined
-    if (patUuid === null || patUuid === undefined) {
-      throw new RequiredError("patUuid", "updateServiceAccountAccessToken");
+    // verify required parameter 'patId' is not null or undefined
+    if (patId === null || patId === undefined) {
+      throw new RequiredError("patId", "updateServiceAccountAccessToken");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -656,12 +656,12 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}"
         .replace(
           "{service_account_id}",
           encodeURIComponent(String(serviceAccountId)),
         )
-        .replace("{pat_uuid}", encodeURIComponent(String(patUuid)));
+        .replace("{pat_id}", encodeURIComponent(String(patId)));
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -1467,10 +1467,10 @@ export interface ServiceAccountsApiGetServiceAccountAccessTokenRequest {
    */
   serviceAccountId: string;
   /**
-   * The UUID of the personal access token.
+   * The ID of the personal access token.
    * @type string
    */
-  patUuid: string;
+  patId: string;
 }
 
 export interface ServiceAccountsApiGetServiceAccountApplicationKeyRequest {
@@ -1563,10 +1563,10 @@ export interface ServiceAccountsApiRevokeServiceAccountAccessTokenRequest {
    */
   serviceAccountId: string;
   /**
-   * The UUID of the personal access token.
+   * The ID of the personal access token.
    * @type string
    */
-  patUuid: string;
+  patId: string;
 }
 
 export interface ServiceAccountsApiUpdateServiceAccountAccessTokenRequest {
@@ -1576,10 +1576,10 @@ export interface ServiceAccountsApiUpdateServiceAccountAccessTokenRequest {
    */
   serviceAccountId: string;
   /**
-   * The UUID of the personal access token.
+   * The ID of the personal access token.
    * @type string
    */
-  patUuid: string;
+  patId: string;
   /**
    * @type PersonalAccessTokenUpdateRequest
    */
@@ -1730,7 +1730,7 @@ export class ServiceAccountsApi {
     const requestContextPromise =
       this.requestFactory.getServiceAccountAccessToken(
         param.serviceAccountId,
-        param.patUuid,
+        param.patId,
         options,
       );
     return requestContextPromise.then((requestContext) => {
@@ -1838,7 +1838,7 @@ export class ServiceAccountsApi {
     const requestContextPromise =
       this.requestFactory.revokeServiceAccountAccessToken(
         param.serviceAccountId,
-        param.patUuid,
+        param.patId,
         options,
       );
     return requestContextPromise.then((requestContext) => {
@@ -1863,7 +1863,7 @@ export class ServiceAccountsApi {
     const requestContextPromise =
       this.requestFactory.updateServiceAccountAccessToken(
         param.serviceAccountId,
-        param.patUuid,
+        param.patId,
         param.body,
         options,
       );
