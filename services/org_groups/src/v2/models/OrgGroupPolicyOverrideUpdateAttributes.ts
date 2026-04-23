@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes for updating a policy override. The `org_uuid` and `org_site` fields must match the existing override and cannot be changed.
+ * Attributes for updating a policy override.
  */
 export class OrgGroupPolicyOverrideUpdateAttributes {
   /**
