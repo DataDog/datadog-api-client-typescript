@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class OrgGroupPolicyCreateData {
   /**
-   * Attributes for creating an org group policy. If `policy_type` or `enforcement_tier` are not provided, they default to `org_config` and `DEFAULT` respectively.
+   * Attributes for creating an org group policy.
    */
   "attributes": OrgGroupPolicyCreateAttributes;
   /**

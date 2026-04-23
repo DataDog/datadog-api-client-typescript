@@ -21,7 +21,7 @@ const params: v2.KeyManagementApiUpdatePersonalAccessTokenRequest = {
       },
     },
   },
-  patId: PERSONAL_ACCESS_TOKEN_DATA_ID,
+  patUuid: PERSONAL_ACCESS_TOKEN_DATA_ID,
 };
 
 apiInstance
