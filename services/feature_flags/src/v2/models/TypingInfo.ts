@@ -30,6 +30,9 @@ import { ExposureScheduleRequest } from "./ExposureScheduleRequest";
 import { FeatureFlag } from "./FeatureFlag";
 import { FeatureFlagAttributes } from "./FeatureFlagAttributes";
 import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
+import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
+import { FeatureFlagListItem } from "./FeatureFlagListItem";
+import { FeatureFlagListItemAttributes } from "./FeatureFlagListItemAttributes";
 import { FeatureFlagResponse } from "./FeatureFlagResponse";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
@@ -112,6 +115,9 @@ export const TypingInfo: ModelTypingInfo = {
     FeatureFlag: FeatureFlag,
     FeatureFlagAttributes: FeatureFlagAttributes,
     FeatureFlagEnvironment: FeatureFlagEnvironment,
+    FeatureFlagEnvironmentListItem: FeatureFlagEnvironmentListItem,
+    FeatureFlagListItem: FeatureFlagListItem,
+    FeatureFlagListItemAttributes: FeatureFlagListItemAttributes,
     FeatureFlagResponse: FeatureFlagResponse,
     FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
     FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
