@@ -9,11 +9,11 @@ export class CreateMaintenanceRequestDataAttributes {
   /**
    * Timestamp of when the maintenance was completed.
    */
-  "completedDate"?: Date;
+  "completedDate": Date;
   /**
    * The description shown when the maintenance is completed.
    */
-  "completedDescription"?: string;
+  "completedDescription": string;
   /**
    * The components affected by the maintenance.
    */
@@ -21,15 +21,15 @@ export class CreateMaintenanceRequestDataAttributes {
   /**
    * The description shown while the maintenance is in progress.
    */
-  "inProgressDescription"?: string;
+  "inProgressDescription": string;
   /**
    * The description shown when the maintenance is scheduled.
    */
-  "scheduledDescription"?: string;
+  "scheduledDescription": string;
   /**
    * Timestamp of when the maintenance is scheduled to start.
    */
-  "startDate"?: Date;
+  "startDate": Date;
   /**
    * The title of the maintenance.
    */
@@ -52,11 +52,13 @@ export class CreateMaintenanceRequestDataAttributes {
     completedDate: {
       baseName: "completed_date",
       type: "Date",
+      required: true,
       format: "date-time",
     },
     completedDescription: {
       baseName: "completed_description",
       type: "string",
+      required: true,
     },
     componentsAffected: {
       baseName: "components_affected",
@@ -66,14 +68,17 @@ export class CreateMaintenanceRequestDataAttributes {
     inProgressDescription: {
       baseName: "in_progress_description",
       type: "string",
+      required: true,
     },
     scheduledDescription: {
       baseName: "scheduled_description",
       type: "string",
+      required: true,
     },
     startDate: {
       baseName: "start_date",
       type: "Date",
+      required: true,
       format: "date-time",
     },
     title: {
