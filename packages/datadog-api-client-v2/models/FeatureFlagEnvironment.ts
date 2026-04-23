@@ -56,14 +56,6 @@ export class FeatureFlagEnvironment {
    */
   "requireFeatureFlagApproval"?: boolean;
   /**
-   * Rollout percentage for this environment.
-   */
-  "rolloutPercentage"?: number;
-  /**
-   * Environment targeting rules for this feature flag.
-   */
-  "rules"?: Array<{ [key: string]: any }>;
-  /**
    * The status of a feature flag in an environment.
    */
   "status": FeatureFlagStatus;
@@ -129,15 +121,6 @@ export class FeatureFlagEnvironment {
     requireFeatureFlagApproval: {
       baseName: "require_feature_flag_approval",
       type: "boolean",
-    },
-    rolloutPercentage: {
-      baseName: "rollout_percentage",
-      type: "number",
-      format: "int64",
-    },
-    rules: {
-      baseName: "rules",
-      type: "Array<{ [key: string]: any; }>",
     },
     status: {
       baseName: "status",

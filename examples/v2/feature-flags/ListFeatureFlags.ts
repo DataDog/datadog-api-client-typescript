@@ -7,8 +7,12 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.FeatureFlagsApi(configuration);
 
+const params: v2.FeatureFlagsApiListFeatureFlagsRequest = {
+  limit: 10,
+};
+
 apiInstance
-  .listFeatureFlags()
+  .listFeatureFlags(params)
   .then((data: v2.ListFeatureFlagsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
