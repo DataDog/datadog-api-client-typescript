@@ -1,21 +1,25 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Destination endpoint of a network path measurement.
+ * Location from which the fast test was executed.
  */
-export class SyntheticsTestResultNetpathDestination {
+export class SyntheticsFastTestResultLocation {
   /**
-   * Hostname of the destination.
+   * ID of the location.
    */
-  "hostname"?: string;
+  "id"?: string;
   /**
-   * IP address of the destination.
+   * Display name of the location.
    */
-  "ipAddress"?: string;
+  "name"?: string;
   /**
-   * Port of the destination service.
+   * Agent version running at this location.
    */
-  "port"?: number;
+  "version"?: string;
+  /**
+   * Identifier of the specific worker that ran the test.
+   */
+  "workerId"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,18 +35,21 @@ export class SyntheticsTestResultNetpathDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hostname: {
-      baseName: "hostname",
+    id: {
+      baseName: "id",
       type: "string",
     },
-    ipAddress: {
-      baseName: "ip_address",
+    name: {
+      baseName: "name",
       type: "string",
     },
-    port: {
-      baseName: "port",
-      type: "number",
-      format: "int64",
+    version: {
+      baseName: "version",
+      type: "string",
+    },
+    workerId: {
+      baseName: "worker_id",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +61,7 @@ export class SyntheticsTestResultNetpathDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestResultNetpathDestination.attributeTypeMap;
+    return SyntheticsFastTestResultLocation.attributeTypeMap;
   }
 
   public constructor() {}

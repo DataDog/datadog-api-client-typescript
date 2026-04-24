@@ -38,7 +38,6 @@ import { SyntheticsApiMultistepSubtestsResponse } from "./models/SyntheticsApiMu
 import { SyntheticsFastTestResult } from "./models/SyntheticsFastTestResult";
 import { SyntheticsNetworkTestEditRequest } from "./models/SyntheticsNetworkTestEditRequest";
 import { SyntheticsNetworkTestResponse } from "./models/SyntheticsNetworkTestResponse";
-import { SyntheticsPollTestResultsResponse } from "./models/SyntheticsPollTestResultsResponse";
 import { SyntheticsSuiteResponse } from "./models/SyntheticsSuiteResponse";
 import { SyntheticsSuiteSearchResponse } from "./models/SyntheticsSuiteSearchResponse";
 import { SyntheticsTestFileAbortMultipartUploadRequest } from "./models/SyntheticsTestFileAbortMultipartUploadRequest";
@@ -47,11 +46,7 @@ import { SyntheticsTestFileDownloadRequest } from "./models/SyntheticsTestFileDo
 import { SyntheticsTestFileDownloadResponse } from "./models/SyntheticsTestFileDownloadResponse";
 import { SyntheticsTestFileMultipartPresignedUrlsRequest } from "./models/SyntheticsTestFileMultipartPresignedUrlsRequest";
 import { SyntheticsTestFileMultipartPresignedUrlsResponse } from "./models/SyntheticsTestFileMultipartPresignedUrlsResponse";
-import { SyntheticsTestLatestResultsResponse } from "./models/SyntheticsTestLatestResultsResponse";
 import { SyntheticsTestParentSuitesResponse } from "./models/SyntheticsTestParentSuitesResponse";
-import { SyntheticsTestResultResponse } from "./models/SyntheticsTestResultResponse";
-import { SyntheticsTestResultRunType } from "./models/SyntheticsTestResultRunType";
-import { SyntheticsTestResultStatus } from "./models/SyntheticsTestResultStatus";
 import { SyntheticsTestVersionHistoryResponse } from "./models/SyntheticsTestVersionHistoryResponse";
 import { SyntheticsTestVersionResponse } from "./models/SyntheticsTestVersionResponse";
 import { version } from "../version";
@@ -589,75 +584,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getSyntheticsBrowserTestResult(
-    publicId: string,
-    resultId: string,
-    eventId?: string,
-    timestamp?: number,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'publicId' is not null or undefined
-    if (publicId === null || publicId === undefined) {
-      throw new RequiredError("publicId", "getSyntheticsBrowserTestResult");
-    }
-
-    // verify required parameter 'resultId' is not null or undefined
-    if (resultId === null || resultId === undefined) {
-      throw new RequiredError("resultId", "getSyntheticsBrowserTestResult");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/browser/{public_id}/results/{result_id}"
-        .replace("{public_id}", encodeURIComponent(String(publicId)))
-        .replace("{result_id}", encodeURIComponent(String(resultId)));
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsBrowserTestResult",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Query Params
-    if (eventId !== undefined) {
-      requestContext.setQueryParam(
-        "event_id",
-        serialize(eventId, TypingInfo, "string", ""),
-        "",
-      );
-    }
-    if (timestamp !== undefined) {
-      requestContext.setQueryParam(
-        "timestamp",
-        serialize(timestamp, TypingInfo, "number", "int64"),
-        "",
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async getSyntheticsFastTestResult(
     id: string,
     _options?: Configuration,
@@ -781,75 +707,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getSyntheticsTestResult(
-    publicId: string,
-    resultId: string,
-    eventId?: string,
-    timestamp?: number,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'publicId' is not null or undefined
-    if (publicId === null || publicId === undefined) {
-      throw new RequiredError("publicId", "getSyntheticsTestResult");
-    }
-
-    // verify required parameter 'resultId' is not null or undefined
-    if (resultId === null || resultId === undefined) {
-      throw new RequiredError("resultId", "getSyntheticsTestResult");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/results/{result_id}"
-        .replace("{public_id}", encodeURIComponent(String(publicId)))
-        .replace("{result_id}", encodeURIComponent(String(resultId)));
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsTestResult",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Query Params
-    if (eventId !== undefined) {
-      requestContext.setQueryParam(
-        "event_id",
-        serialize(eventId, TypingInfo, "string", ""),
-        "",
-      );
-    }
-    if (timestamp !== undefined) {
-      requestContext.setQueryParam(
-        "timestamp",
-        serialize(timestamp, TypingInfo, "number", "int64"),
-        "",
-      );
     }
 
     // Apply auth methods
@@ -1104,200 +961,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listSyntheticsBrowserTestLatestResults(
-    publicId: string,
-    fromTs?: number,
-    toTs?: number,
-    status?: SyntheticsTestResultStatus,
-    runType?: SyntheticsTestResultRunType,
-    probeDc?: Array<string>,
-    deviceId?: Array<string>,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'publicId' is not null or undefined
-    if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "publicId",
-        "listSyntheticsBrowserTestLatestResults",
-      );
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/browser/{public_id}/results".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.listSyntheticsBrowserTestLatestResults",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Query Params
-    if (fromTs !== undefined) {
-      requestContext.setQueryParam(
-        "from_ts",
-        serialize(fromTs, TypingInfo, "number", "int64"),
-        "",
-      );
-    }
-    if (toTs !== undefined) {
-      requestContext.setQueryParam(
-        "to_ts",
-        serialize(toTs, TypingInfo, "number", "int64"),
-        "",
-      );
-    }
-    if (status !== undefined) {
-      requestContext.setQueryParam(
-        "status",
-        serialize(status, TypingInfo, "SyntheticsTestResultStatus", ""),
-        "",
-      );
-    }
-    if (runType !== undefined) {
-      requestContext.setQueryParam(
-        "runType",
-        serialize(runType, TypingInfo, "SyntheticsTestResultRunType", ""),
-        "",
-      );
-    }
-    if (probeDc !== undefined) {
-      requestContext.setQueryParam(
-        "probe_dc",
-        serialize(probeDc, TypingInfo, "Array<string>", ""),
-        "multi",
-      );
-    }
-    if (deviceId !== undefined) {
-      requestContext.setQueryParam(
-        "device_id",
-        serialize(deviceId, TypingInfo, "Array<string>", ""),
-        "multi",
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listSyntheticsTestLatestResults(
-    publicId: string,
-    fromTs?: number,
-    toTs?: number,
-    status?: SyntheticsTestResultStatus,
-    runType?: SyntheticsTestResultRunType,
-    probeDc?: Array<string>,
-    deviceId?: Array<string>,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'publicId' is not null or undefined
-    if (publicId === null || publicId === undefined) {
-      throw new RequiredError("publicId", "listSyntheticsTestLatestResults");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/synthetics/tests/{public_id}/results".replace(
-      "{public_id}",
-      encodeURIComponent(String(publicId)),
-    );
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.listSyntheticsTestLatestResults",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Query Params
-    if (fromTs !== undefined) {
-      requestContext.setQueryParam(
-        "from_ts",
-        serialize(fromTs, TypingInfo, "number", "int64"),
-        "",
-      );
-    }
-    if (toTs !== undefined) {
-      requestContext.setQueryParam(
-        "to_ts",
-        serialize(toTs, TypingInfo, "number", "int64"),
-        "",
-      );
-    }
-    if (status !== undefined) {
-      requestContext.setQueryParam(
-        "status",
-        serialize(status, TypingInfo, "SyntheticsTestResultStatus", ""),
-        "",
-      );
-    }
-    if (runType !== undefined) {
-      requestContext.setQueryParam(
-        "runType",
-        serialize(runType, TypingInfo, "SyntheticsTestResultRunType", ""),
-        "",
-      );
-    }
-    if (probeDc !== undefined) {
-      requestContext.setQueryParam(
-        "probe_dc",
-        serialize(probeDc, TypingInfo, "Array<string>", ""),
-        "multi",
-      );
-    }
-    if (deviceId !== undefined) {
-      requestContext.setQueryParam(
-        "device_id",
-        serialize(deviceId, TypingInfo, "Array<string>", ""),
-        "multi",
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
   public async listSyntheticsTestVersions(
     publicId: string,
     lastVersionNumber?: number,
@@ -1472,57 +1135,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async pollSyntheticsTestResults(
-    resultIds: string,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'resultIds' is not null or undefined
-    if (resultIds === null || resultIds === undefined) {
-      throw new RequiredError("resultIds", "pollSyntheticsTestResults");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/synthetics/tests/poll_results";
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.pollSyntheticsTestResults",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Query Params
-    if (resultIds !== undefined) {
-      requestContext.setQueryParam(
-        "result_ids",
-        serialize(resultIds, TypingInfo, "string", ""),
-        "",
-      );
-    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2281,66 +1893,6 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getSyntheticsBrowserTestResult
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getSyntheticsBrowserTestResult(
-    response: ResponseContext,
-  ): Promise<SyntheticsTestResultResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: SyntheticsTestResultResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestResultResponse",
-      ) as SyntheticsTestResultResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsTestResultResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestResultResponse",
-        "",
-      ) as SyntheticsTestResultResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to getSyntheticsFastTestResult
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2503,66 +2055,6 @@ export class SyntheticsApiResponseProcessor {
         "SyntheticsSuiteResponse",
         "",
       ) as SyntheticsSuiteResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getSyntheticsTestResult
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getSyntheticsTestResult(
-    response: ResponseContext,
-  ): Promise<SyntheticsTestResultResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: SyntheticsTestResultResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestResultResponse",
-      ) as SyntheticsTestResultResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsTestResultResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestResultResponse",
-        "",
-      ) as SyntheticsTestResultResponse;
       return body;
     }
 
@@ -2813,126 +2305,6 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listSyntheticsBrowserTestLatestResults
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listSyntheticsBrowserTestLatestResults(
-    response: ResponseContext,
-  ): Promise<SyntheticsTestLatestResultsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: SyntheticsTestLatestResultsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestLatestResultsResponse",
-      ) as SyntheticsTestLatestResultsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsTestLatestResultsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestLatestResultsResponse",
-        "",
-      ) as SyntheticsTestLatestResultsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to listSyntheticsTestLatestResults
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listSyntheticsTestLatestResults(
-    response: ResponseContext,
-  ): Promise<SyntheticsTestLatestResultsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: SyntheticsTestLatestResultsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestLatestResultsResponse",
-      ) as SyntheticsTestLatestResultsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsTestLatestResultsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsTestLatestResultsResponse",
-        "",
-      ) as SyntheticsTestLatestResultsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to listSyntheticsTestVersions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3095,66 +2467,6 @@ export class SyntheticsApiResponseProcessor {
         "SyntheticsSuiteResponse",
         "",
       ) as SyntheticsSuiteResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to pollSyntheticsTestResults
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async pollSyntheticsTestResults(
-    response: ResponseContext,
-  ): Promise<SyntheticsPollTestResultsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: SyntheticsPollTestResultsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsPollTestResultsResponse",
-      ) as SyntheticsPollTestResultsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsPollTestResultsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "SyntheticsPollTestResultsResponse",
-        "",
-      ) as SyntheticsPollTestResultsResponse;
       return body;
     }
 
@@ -3419,29 +2731,6 @@ export interface SyntheticsApiGetApiMultistepSubtestsRequest {
   publicId: string;
 }
 
-export interface SyntheticsApiGetSyntheticsBrowserTestResultRequest {
-  /**
-   * The public ID of the Synthetic browser test to which the target result belongs.
-   * @type string
-   */
-  publicId: string;
-  /**
-   * The ID of the result to get.
-   * @type string
-   */
-  resultId: string;
-  /**
-   * The event ID used to look up the result in the event store.
-   * @type string
-   */
-  eventId?: string;
-  /**
-   * Timestamp in seconds to look up the result.
-   * @type number
-   */
-  timestamp?: number;
-}
-
 export interface SyntheticsApiGetSyntheticsFastTestResultRequest {
   /**
    * The UUID of the fast test to retrieve the result for.
@@ -3464,29 +2753,6 @@ export interface SyntheticsApiGetSyntheticsSuiteRequest {
    * @type string
    */
   publicId: string;
-}
-
-export interface SyntheticsApiGetSyntheticsTestResultRequest {
-  /**
-   * The public ID of the Synthetic test to which the target result belongs.
-   * @type string
-   */
-  publicId: string;
-  /**
-   * The ID of the result to get.
-   * @type string
-   */
-  resultId: string;
-  /**
-   * The event ID used to look up the result in the event store.
-   * @type string
-   */
-  eventId?: string;
-  /**
-   * Timestamp in seconds to look up the result.
-   * @type number
-   */
-  timestamp?: number;
 }
 
 export interface SyntheticsApiGetSyntheticsTestVersionRequest {
@@ -3545,82 +2811,6 @@ export interface SyntheticsApiGetTestParentSuitesRequest {
   publicId: string;
 }
 
-export interface SyntheticsApiListSyntheticsBrowserTestLatestResultsRequest {
-  /**
-   * The public ID of the Synthetic browser test for which to search results.
-   * @type string
-   */
-  publicId: string;
-  /**
-   * Timestamp in milliseconds from which to start querying results.
-   * @type number
-   */
-  fromTs?: number;
-  /**
-   * Timestamp in milliseconds up to which to query results.
-   * @type number
-   */
-  toTs?: number;
-  /**
-   * Filter results by status.
-   * @type SyntheticsTestResultStatus
-   */
-  status?: SyntheticsTestResultStatus;
-  /**
-   * Filter results by run type.
-   * @type SyntheticsTestResultRunType
-   */
-  runType?: SyntheticsTestResultRunType;
-  /**
-   * Locations for which to query results.
-   * @type Array<string>
-   */
-  probeDc?: Array<string>;
-  /**
-   * Device IDs for which to query results.
-   * @type Array<string>
-   */
-  deviceId?: Array<string>;
-}
-
-export interface SyntheticsApiListSyntheticsTestLatestResultsRequest {
-  /**
-   * The public ID of the Synthetic test for which to search results.
-   * @type string
-   */
-  publicId: string;
-  /**
-   * Timestamp in milliseconds from which to start querying results.
-   * @type number
-   */
-  fromTs?: number;
-  /**
-   * Timestamp in milliseconds up to which to query results.
-   * @type number
-   */
-  toTs?: number;
-  /**
-   * Filter results by status.
-   * @type SyntheticsTestResultStatus
-   */
-  status?: SyntheticsTestResultStatus;
-  /**
-   * Filter results by run type.
-   * @type SyntheticsTestResultRunType
-   */
-  runType?: SyntheticsTestResultRunType;
-  /**
-   * Locations for which to query results.
-   * @type Array<string>
-   */
-  probeDc?: Array<string>;
-  /**
-   * Device IDs for which to query results.
-   * @type Array<string>
-   */
-  deviceId?: Array<string>;
-}
-
 export interface SyntheticsApiListSyntheticsTestVersionsRequest {
   /**
    * The public ID of the Synthetic test.
@@ -3663,14 +2853,6 @@ export interface SyntheticsApiPatchTestSuiteRequest {
    * @type SuiteJsonPatchRequest
    */
   body: SuiteJsonPatchRequest;
-}
-
-export interface SyntheticsApiPollSyntheticsTestResultsRequest {
-  /**
-   * A JSON-encoded array of result IDs to poll for.
-   * @type string
-   */
-  resultIds: string;
 }
 
 export interface SyntheticsApiSearchSuitesRequest {
@@ -3964,33 +3146,6 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get a specific full result from a given Synthetic browser test.
-   * @param param The request object
-   */
-  public getSyntheticsBrowserTestResult(
-    param: SyntheticsApiGetSyntheticsBrowserTestResultRequest,
-    options?: Configuration,
-  ): Promise<SyntheticsTestResultResponse> {
-    const requestContextPromise =
-      this.requestFactory.getSyntheticsBrowserTestResult(
-        param.publicId,
-        param.resultId,
-        param.eventId,
-        param.timestamp,
-        options,
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsBrowserTestResult(
-            responseContext,
-          );
-        });
-    });
-  }
-
-  /**
    * @param param The request object
    */
   public getSyntheticsFastTestResult(
@@ -4048,32 +3203,6 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSyntheticsSuite(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get a specific full result from a given Synthetic test.
-   * @param param The request object
-   */
-  public getSyntheticsTestResult(
-    param: SyntheticsApiGetSyntheticsTestResultRequest,
-    options?: Configuration,
-  ): Promise<SyntheticsTestResultResponse> {
-    const requestContextPromise = this.requestFactory.getSyntheticsTestResult(
-      param.publicId,
-      param.resultId,
-      param.eventId,
-      param.timestamp,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsTestResult(
-            responseContext,
-          );
         });
     });
   }
@@ -4175,66 +3304,6 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the latest result summaries for a given Synthetic browser test.
-   * @param param The request object
-   */
-  public listSyntheticsBrowserTestLatestResults(
-    param: SyntheticsApiListSyntheticsBrowserTestLatestResultsRequest,
-    options?: Configuration,
-  ): Promise<SyntheticsTestLatestResultsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSyntheticsBrowserTestLatestResults(
-        param.publicId,
-        param.fromTs,
-        param.toTs,
-        param.status,
-        param.runType,
-        param.probeDc,
-        param.deviceId,
-        options,
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listSyntheticsBrowserTestLatestResults(
-            responseContext,
-          );
-        });
-    });
-  }
-
-  /**
-   * Get the latest result summaries for a given Synthetic test.
-   * @param param The request object
-   */
-  public listSyntheticsTestLatestResults(
-    param: SyntheticsApiListSyntheticsTestLatestResultsRequest,
-    options?: Configuration,
-  ): Promise<SyntheticsTestLatestResultsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSyntheticsTestLatestResults(
-        param.publicId,
-        param.fromTs,
-        param.toTs,
-        param.status,
-        param.runType,
-        param.probeDc,
-        param.deviceId,
-        options,
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listSyntheticsTestLatestResults(
-            responseContext,
-          );
-        });
-    });
-  }
-
-  /**
    * Get the paginated version history for a Synthetic test.
    * @param param The request object
    */
@@ -4313,30 +3382,6 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchTestSuite(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Poll for test results given a list of result IDs. This is typically used after
-   * triggering tests with CI/CD to retrieve results once they are available.
-   * @param param The request object
-   */
-  public pollSyntheticsTestResults(
-    param: SyntheticsApiPollSyntheticsTestResultsRequest,
-    options?: Configuration,
-  ): Promise<SyntheticsPollTestResultsResponse> {
-    const requestContextPromise = this.requestFactory.pollSyntheticsTestResults(
-      param.resultIds,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.pollSyntheticsTestResults(
-            responseContext,
-          );
         });
     });
   }

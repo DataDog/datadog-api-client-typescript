@@ -1,21 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * A Git user (author or committer).
+ * Failure details if the fast test did not pass.
  */
-export class SyntheticsTestResultGitUser {
+export class SyntheticsFastTestResultFailure {
   /**
-   * Timestamp of the commit action for this user.
+   * Error code identifying the failure type.
    */
-  "date"?: string;
+  "code"?: string;
   /**
-   * Email address of the Git user.
+   * Human-readable description of the failure.
    */
-  "email"?: string;
-  /**
-   * Name of the Git user.
-   */
-  "name"?: string;
+  "message"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,16 +27,12 @@ export class SyntheticsTestResultGitUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    date: {
-      baseName: "date",
+    code: {
+      baseName: "code",
       type: "string",
     },
-    email: {
-      baseName: "email",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
+    message: {
+      baseName: "message",
       type: "string",
     },
     additionalProperties: {
@@ -53,7 +45,7 @@ export class SyntheticsTestResultGitUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestResultGitUser.attributeTypeMap;
+    return SyntheticsFastTestResultFailure.attributeTypeMap;
   }
 
   public constructor() {}
