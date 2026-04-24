@@ -1,6 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SyntheticsFastTestResultFailure } from "./SyntheticsFastTestResultFailure";
+import { SyntheticsTestResultAssertionResult } from "./SyntheticsTestResultAssertionResult";
+import { SyntheticsTestResultCertificate } from "./SyntheticsTestResultCertificate";
+import { SyntheticsTestResultFailure } from "./SyntheticsTestResultFailure";
+import { SyntheticsTestResultRequestInfo } from "./SyntheticsTestResultRequestInfo";
+import { SyntheticsTestResultResponseInfo } from "./SyntheticsTestResultResponseInfo";
+import { SyntheticsTestResultRunType } from "./SyntheticsTestResultRunType";
+import { SyntheticsTestResultStep } from "./SyntheticsTestResultStep";
+import { SyntheticsTestResultTracerouteHop } from "./SyntheticsTestResultTracerouteHop";
 
 /**
  * Detailed result data for the fast test run. The exact shape of nested fields
@@ -10,23 +17,23 @@ export class SyntheticsFastTestResultDetail {
   /**
    * Results of each assertion evaluated during the test.
    */
-  "assertions"?: Array<{ [key: string]: any }>;
+  "assertions"?: Array<SyntheticsTestResultAssertionResult>;
   /**
    * gRPC call type (for example, `unary`, `healthCheck`, or `reflection`).
    */
   "callType"?: string;
   /**
-   * TLS certificate details, present for SSL tests.
+   * SSL/TLS certificate information returned from an SSL test.
    */
-  "cert"?: { [key: string]: any };
+  "cert"?: SyntheticsTestResultCertificate;
   /**
    * Total duration of the test in milliseconds.
    */
   "duration"?: number;
   /**
-   * Failure details if the fast test did not pass.
+   * Details about the failure of a Synthetic test.
    */
-  "failure"?: SyntheticsFastTestResultFailure;
+  "failure"?: SyntheticsTestResultFailure;
   /**
    * Unix timestamp (ms) of when the test finished.
    */
@@ -40,21 +47,21 @@ export class SyntheticsFastTestResultDetail {
    */
   "isFastRetry"?: boolean;
   /**
-   * Details of the outgoing request made during the test.
+   * Details of the outgoing request made during the test execution.
    */
-  "request"?: { [key: string]: any };
+  "request"?: SyntheticsTestResultRequestInfo;
   /**
    * IP address resolved for the target host.
    */
   "resolvedIp"?: string;
   /**
-   * Details of the response received during the test.
+   * Details of the response received during the test execution.
    */
-  "response"?: { [key: string]: any };
+  "response"?: SyntheticsTestResultResponseInfo;
   /**
-   * Run type indicating how this test was triggered (for example, `fast`).
+   * The type of run for a Synthetic test result.
    */
-  "runType"?: string;
+  "runType"?: SyntheticsTestResultRunType;
   /**
    * Unix timestamp (ms) of when the test started.
    */
@@ -66,7 +73,7 @@ export class SyntheticsFastTestResultDetail {
   /**
    * Step results for multistep API tests.
    */
-  "steps"?: Array<{ [key: string]: any }>;
+  "steps"?: Array<SyntheticsTestResultStep>;
   /**
    * Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).
    */
@@ -74,7 +81,7 @@ export class SyntheticsFastTestResultDetail {
   /**
    * Traceroute hop results, present for ICMP and TCP tests.
    */
-  "traceroute"?: Array<{ [key: string]: any }>;
+  "traceroute"?: Array<SyntheticsTestResultTracerouteHop>;
   /**
    * Unix timestamp (ms) of when the test was triggered.
    */
@@ -100,7 +107,7 @@ export class SyntheticsFastTestResultDetail {
   static readonly attributeTypeMap: AttributeTypeMap = {
     assertions: {
       baseName: "assertions",
-      type: "Array<{ [key: string]: any; }>",
+      type: "Array<SyntheticsTestResultAssertionResult>",
     },
     callType: {
       baseName: "call_type",
@@ -108,7 +115,7 @@ export class SyntheticsFastTestResultDetail {
     },
     cert: {
       baseName: "cert",
-      type: "{ [key: string]: any; }",
+      type: "SyntheticsTestResultCertificate",
     },
     duration: {
       baseName: "duration",
@@ -117,7 +124,7 @@ export class SyntheticsFastTestResultDetail {
     },
     failure: {
       baseName: "failure",
-      type: "SyntheticsFastTestResultFailure",
+      type: "SyntheticsTestResultFailure",
     },
     finishedAt: {
       baseName: "finished_at",
@@ -134,7 +141,7 @@ export class SyntheticsFastTestResultDetail {
     },
     request: {
       baseName: "request",
-      type: "{ [key: string]: any; }",
+      type: "SyntheticsTestResultRequestInfo",
     },
     resolvedIp: {
       baseName: "resolved_ip",
@@ -142,11 +149,11 @@ export class SyntheticsFastTestResultDetail {
     },
     response: {
       baseName: "response",
-      type: "{ [key: string]: any; }",
+      type: "SyntheticsTestResultResponseInfo",
     },
     runType: {
       baseName: "run_type",
-      type: "string",
+      type: "SyntheticsTestResultRunType",
     },
     startedAt: {
       baseName: "started_at",
@@ -159,7 +166,7 @@ export class SyntheticsFastTestResultDetail {
     },
     steps: {
       baseName: "steps",
-      type: "Array<{ [key: string]: any; }>",
+      type: "Array<SyntheticsTestResultStep>",
     },
     timings: {
       baseName: "timings",
@@ -167,7 +174,7 @@ export class SyntheticsFastTestResultDetail {
     },
     traceroute: {
       baseName: "traceroute",
-      type: "Array<{ [key: string]: any; }>",
+      type: "Array<SyntheticsTestResultTracerouteHop>",
     },
     triggeredAt: {
       baseName: "triggered_at",

@@ -12237,6 +12237,56 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsSuiteResponse",
   },
+  "SyntheticsApi.V2.ListSyntheticsBrowserTestLatestResults": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    fromTs: {
+      type: "number",
+      format: "int64",
+    },
+    toTs: {
+      type: "number",
+      format: "int64",
+    },
+    status: {
+      type: "SyntheticsTestResultStatus",
+      format: "",
+    },
+    runType: {
+      type: "SyntheticsTestResultRunType",
+      format: "",
+    },
+    probeDc: {
+      type: "Array<string>",
+      format: "",
+    },
+    deviceId: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestLatestResultsResponse",
+  },
+  "SyntheticsApi.V2.GetSyntheticsBrowserTestResult": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    resultId: {
+      type: "string",
+      format: "",
+    },
+    eventId: {
+      type: "string",
+      format: "",
+    },
+    timestamp: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SyntheticsTestResultResponse",
+  },
   "SyntheticsApi.V2.DeleteSyntheticsTests": {
     body: {
       type: "DeletedTestsRequestDeleteRequest",
@@ -12275,6 +12325,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "SyntheticsNetworkTestResponse",
+  },
+  "SyntheticsApi.V2.PollSyntheticsTestResults": {
+    resultIds: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsPollTestResultsResponse",
   },
   "SyntheticsApi.V2.GetTestFileDownloadUrl": {
     publicId: {
@@ -12326,6 +12383,56 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "SyntheticsTestParentSuitesResponse",
+  },
+  "SyntheticsApi.V2.ListSyntheticsTestLatestResults": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    fromTs: {
+      type: "number",
+      format: "int64",
+    },
+    toTs: {
+      type: "number",
+      format: "int64",
+    },
+    status: {
+      type: "SyntheticsTestResultStatus",
+      format: "",
+    },
+    runType: {
+      type: "SyntheticsTestResultRunType",
+      format: "",
+    },
+    probeDc: {
+      type: "Array<string>",
+      format: "",
+    },
+    deviceId: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "SyntheticsTestLatestResultsResponse",
+  },
+  "SyntheticsApi.V2.GetSyntheticsTestResult": {
+    publicId: {
+      type: "string",
+      format: "",
+    },
+    resultId: {
+      type: "string",
+      format: "",
+    },
+    eventId: {
+      type: "string",
+      format: "",
+    },
+    timestamp: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SyntheticsTestResultResponse",
   },
   "SyntheticsApi.V2.ListSyntheticsTestVersions": {
     publicId: {
