@@ -7,33 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A browser error captured during a browser test step.
+ * Device information for browser-based fast tests.
  */
-export class SyntheticsTestResultBrowserError {
+export class SyntheticsFastTestResultDevice {
   /**
-   * Error description.
+   * Device identifier.
    */
-  "description"?: string;
+  "id"?: string;
   /**
-   * HTTP method associated with the error (for network errors).
-   */
-  "method"?: string;
-  /**
-   * Error name.
+   * Display name of the device.
    */
   "name"?: string;
-  /**
-   * HTTP status code associated with the error (for network errors).
-   */
-  "status"?: number;
-  /**
-   * Type of the browser error.
-   */
-  "type"?: string;
-  /**
-   * URL associated with the error.
-   */
-  "url"?: { [key: string]: any };
 
   /**
    * A container for additional, undeclared properties.
@@ -51,30 +35,13 @@ export class SyntheticsTestResultBrowserError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    method: {
-      baseName: "method",
+    id: {
+      baseName: "id",
       type: "string",
     },
     name: {
       baseName: "name",
       type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "number",
-      format: "int64",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
-    },
-    url: {
-      baseName: "url",
-      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -86,7 +53,7 @@ export class SyntheticsTestResultBrowserError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestResultBrowserError.attributeTypeMap;
+    return SyntheticsFastTestResultDevice.attributeTypeMap;
   }
 
   public constructor() {}

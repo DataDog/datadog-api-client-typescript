@@ -4,10 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsFastTestResultDetail } from "./SyntheticsFastTestResultDetail";
+import { SyntheticsFastTestResultDevice } from "./SyntheticsFastTestResultDevice";
+import { SyntheticsFastTestResultLocation } from "./SyntheticsFastTestResultLocation";
 import { SyntheticsFastTestSubType } from "./SyntheticsFastTestSubType";
-import { SyntheticsFastTestType } from "./SyntheticsFastTestType";
-import { SyntheticsTestResultDevice } from "./SyntheticsTestResultDevice";
-import { SyntheticsTestResultLocation } from "./SyntheticsTestResultLocation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -16,13 +15,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsFastTestResultAttributes {
   /**
-   * Device information for the test result (browser and mobile tests).
+   * Device information for browser-based fast tests.
    */
-  "device"?: SyntheticsTestResultDevice;
+  "device"?: SyntheticsFastTestResultDevice;
   /**
-   * Location information for a Synthetic test result.
+   * Location from which the fast test was executed.
    */
-  "location"?: SyntheticsTestResultLocation;
+  "location"?: SyntheticsFastTestResultLocation;
   /**
    * Detailed result data for the fast test run. The exact shape of nested fields
    * (`request`, `response`, `assertions`, etc.) depends on the test subtype.
@@ -33,9 +32,9 @@ export class SyntheticsFastTestResultAttributes {
    */
   "testSubType"?: SyntheticsFastTestSubType;
   /**
-   * Type of the Synthetic fast test that produced this result.
+   * The type of the Synthetic test that produced this result (for example, `api` or `browser`).
    */
-  "testType"?: SyntheticsFastTestType;
+  "testType"?: string;
   /**
    * Version of the test at the time the fast test was triggered.
    */
@@ -59,11 +58,11 @@ export class SyntheticsFastTestResultAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
-      type: "SyntheticsTestResultDevice",
+      type: "SyntheticsFastTestResultDevice",
     },
     location: {
       baseName: "location",
-      type: "SyntheticsTestResultLocation",
+      type: "SyntheticsFastTestResultLocation",
     },
     result: {
       baseName: "result",
@@ -75,7 +74,7 @@ export class SyntheticsFastTestResultAttributes {
     },
     testType: {
       baseName: "test_type",
-      type: "SyntheticsFastTestType",
+      type: "string",
     },
     testVersion: {
       baseName: "test_version",

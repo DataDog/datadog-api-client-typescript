@@ -3457,6 +3457,9 @@ import { SyntheticsFastTestResult } from "./SyntheticsFastTestResult";
 import { SyntheticsFastTestResultAttributes } from "./SyntheticsFastTestResultAttributes";
 import { SyntheticsFastTestResultData } from "./SyntheticsFastTestResultData";
 import { SyntheticsFastTestResultDetail } from "./SyntheticsFastTestResultDetail";
+import { SyntheticsFastTestResultDevice } from "./SyntheticsFastTestResultDevice";
+import { SyntheticsFastTestResultFailure } from "./SyntheticsFastTestResultFailure";
+import { SyntheticsFastTestResultLocation } from "./SyntheticsFastTestResultLocation";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
 import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
@@ -3474,7 +3477,6 @@ import { SyntheticsNetworkTestEditRequest } from "./SyntheticsNetworkTestEditReq
 import { SyntheticsNetworkTestRequest } from "./SyntheticsNetworkTestRequest";
 import { SyntheticsNetworkTestResponse } from "./SyntheticsNetworkTestResponse";
 import { SyntheticsNetworkTestResponseData } from "./SyntheticsNetworkTestResponseData";
-import { SyntheticsPollTestResultsResponse } from "./SyntheticsPollTestResultsResponse";
 import { SyntheticsSuite } from "./SyntheticsSuite";
 import { SyntheticsSuiteOptions } from "./SyntheticsSuiteOptions";
 import { SyntheticsSuiteResponse } from "./SyntheticsSuiteResponse";
@@ -3492,7 +3494,6 @@ import { SyntheticsTestFileMultipartPresignedUrlsParams } from "./SyntheticsTest
 import { SyntheticsTestFileMultipartPresignedUrlsPart } from "./SyntheticsTestFileMultipartPresignedUrlsPart";
 import { SyntheticsTestFileMultipartPresignedUrlsRequest } from "./SyntheticsTestFileMultipartPresignedUrlsRequest";
 import { SyntheticsTestFileMultipartPresignedUrlsResponse } from "./SyntheticsTestFileMultipartPresignedUrlsResponse";
-import { SyntheticsTestLatestResultsResponse } from "./SyntheticsTestLatestResultsResponse";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
@@ -3501,79 +3502,6 @@ import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOption
 import { SyntheticsTestParentSuiteAttributes } from "./SyntheticsTestParentSuiteAttributes";
 import { SyntheticsTestParentSuiteData } from "./SyntheticsTestParentSuiteData";
 import { SyntheticsTestParentSuitesResponse } from "./SyntheticsTestParentSuitesResponse";
-import { SyntheticsTestResultAssertionResult } from "./SyntheticsTestResultAssertionResult";
-import { SyntheticsTestResultAttributes } from "./SyntheticsTestResultAttributes";
-import { SyntheticsTestResultBatch } from "./SyntheticsTestResultBatch";
-import { SyntheticsTestResultBounds } from "./SyntheticsTestResultBounds";
-import { SyntheticsTestResultBrowserError } from "./SyntheticsTestResultBrowserError";
-import { SyntheticsTestResultBucketKeys } from "./SyntheticsTestResultBucketKeys";
-import { SyntheticsTestResultCI } from "./SyntheticsTestResultCI";
-import { SyntheticsTestResultCIPipeline } from "./SyntheticsTestResultCIPipeline";
-import { SyntheticsTestResultCIProvider } from "./SyntheticsTestResultCIProvider";
-import { SyntheticsTestResultCIStage } from "./SyntheticsTestResultCIStage";
-import { SyntheticsTestResultCdnCacheStatus } from "./SyntheticsTestResultCdnCacheStatus";
-import { SyntheticsTestResultCdnProviderInfo } from "./SyntheticsTestResultCdnProviderInfo";
-import { SyntheticsTestResultCdnResource } from "./SyntheticsTestResultCdnResource";
-import { SyntheticsTestResultCertificate } from "./SyntheticsTestResultCertificate";
-import { SyntheticsTestResultCertificateValidity } from "./SyntheticsTestResultCertificateValidity";
-import { SyntheticsTestResultData } from "./SyntheticsTestResultData";
-import { SyntheticsTestResultDetail } from "./SyntheticsTestResultDetail";
-import { SyntheticsTestResultDevice } from "./SyntheticsTestResultDevice";
-import { SyntheticsTestResultDeviceBrowser } from "./SyntheticsTestResultDeviceBrowser";
-import { SyntheticsTestResultDevicePlatform } from "./SyntheticsTestResultDevicePlatform";
-import { SyntheticsTestResultDeviceResolution } from "./SyntheticsTestResultDeviceResolution";
-import { SyntheticsTestResultDnsRecord } from "./SyntheticsTestResultDnsRecord";
-import { SyntheticsTestResultDnsResolution } from "./SyntheticsTestResultDnsResolution";
-import { SyntheticsTestResultDuration } from "./SyntheticsTestResultDuration";
-import { SyntheticsTestResultExecutionInfo } from "./SyntheticsTestResultExecutionInfo";
-import { SyntheticsTestResultFailure } from "./SyntheticsTestResultFailure";
-import { SyntheticsTestResultFileRef } from "./SyntheticsTestResultFileRef";
-import { SyntheticsTestResultGit } from "./SyntheticsTestResultGit";
-import { SyntheticsTestResultGitCommit } from "./SyntheticsTestResultGitCommit";
-import { SyntheticsTestResultGitUser } from "./SyntheticsTestResultGitUser";
-import { SyntheticsTestResultHandshake } from "./SyntheticsTestResultHandshake";
-import { SyntheticsTestResultHealthCheck } from "./SyntheticsTestResultHealthCheck";
-import { SyntheticsTestResultIncludedItem } from "./SyntheticsTestResultIncludedItem";
-import { SyntheticsTestResultLocation } from "./SyntheticsTestResultLocation";
-import { SyntheticsTestResultNetpath } from "./SyntheticsTestResultNetpath";
-import { SyntheticsTestResultNetpathDestination } from "./SyntheticsTestResultNetpathDestination";
-import { SyntheticsTestResultNetpathEndpoint } from "./SyntheticsTestResultNetpathEndpoint";
-import { SyntheticsTestResultNetpathHop } from "./SyntheticsTestResultNetpathHop";
-import { SyntheticsTestResultNetstats } from "./SyntheticsTestResultNetstats";
-import { SyntheticsTestResultNetstatsHops } from "./SyntheticsTestResultNetstatsHops";
-import { SyntheticsTestResultNetworkLatency } from "./SyntheticsTestResultNetworkLatency";
-import { SyntheticsTestResultOCSPCertificate } from "./SyntheticsTestResultOCSPCertificate";
-import { SyntheticsTestResultOCSPResponse } from "./SyntheticsTestResultOCSPResponse";
-import { SyntheticsTestResultOCSPUpdates } from "./SyntheticsTestResultOCSPUpdates";
-import { SyntheticsTestResultParentStep } from "./SyntheticsTestResultParentStep";
-import { SyntheticsTestResultParentTest } from "./SyntheticsTestResultParentTest";
-import { SyntheticsTestResultRedirect } from "./SyntheticsTestResultRedirect";
-import { SyntheticsTestResultRelationshipTest } from "./SyntheticsTestResultRelationshipTest";
-import { SyntheticsTestResultRelationshipTestData } from "./SyntheticsTestResultRelationshipTestData";
-import { SyntheticsTestResultRelationships } from "./SyntheticsTestResultRelationships";
-import { SyntheticsTestResultRequestInfo } from "./SyntheticsTestResultRequestInfo";
-import { SyntheticsTestResultResponse } from "./SyntheticsTestResultResponse";
-import { SyntheticsTestResultResponseInfo } from "./SyntheticsTestResultResponseInfo";
-import { SyntheticsTestResultRouter } from "./SyntheticsTestResultRouter";
-import { SyntheticsTestResultRumContext } from "./SyntheticsTestResultRumContext";
-import { SyntheticsTestResultStep } from "./SyntheticsTestResultStep";
-import { SyntheticsTestResultStepAssertionResult } from "./SyntheticsTestResultStepAssertionResult";
-import { SyntheticsTestResultStepElementUpdates } from "./SyntheticsTestResultStepElementUpdates";
-import { SyntheticsTestResultStepsInfo } from "./SyntheticsTestResultStepsInfo";
-import { SyntheticsTestResultSubStep } from "./SyntheticsTestResultSubStep";
-import { SyntheticsTestResultSubTest } from "./SyntheticsTestResultSubTest";
-import { SyntheticsTestResultSummaryAttributes } from "./SyntheticsTestResultSummaryAttributes";
-import { SyntheticsTestResultSummaryData } from "./SyntheticsTestResultSummaryData";
-import { SyntheticsTestResultTab } from "./SyntheticsTestResultTab";
-import { SyntheticsTestResultTrace } from "./SyntheticsTestResultTrace";
-import { SyntheticsTestResultTracerouteHop } from "./SyntheticsTestResultTracerouteHop";
-import { SyntheticsTestResultTurn } from "./SyntheticsTestResultTurn";
-import { SyntheticsTestResultTurnStep } from "./SyntheticsTestResultTurnStep";
-import { SyntheticsTestResultVariable } from "./SyntheticsTestResultVariable";
-import { SyntheticsTestResultVariables } from "./SyntheticsTestResultVariables";
-import { SyntheticsTestResultVitalsMetrics } from "./SyntheticsTestResultVitalsMetrics";
-import { SyntheticsTestResultWarning } from "./SyntheticsTestResultWarning";
-import { SyntheticsTestResultWebSocketClose } from "./SyntheticsTestResultWebSocketClose";
 import { SyntheticsTestVersionActionMetadata } from "./SyntheticsTestVersionActionMetadata";
 import { SyntheticsTestVersionAttributes } from "./SyntheticsTestVersionAttributes";
 import { SyntheticsTestVersionAuthor } from "./SyntheticsTestVersionAuthor";
@@ -5984,7 +5912,6 @@ const enumsMap: { [key: string]: any[] } = {
     "udp",
     "websocket",
   ],
-  SyntheticsFastTestType: ["fast-api", "fast-browser"],
   SyntheticsGlobalVariableParseTestOptionsType: [
     "http_body",
     "http_header",
@@ -6027,23 +5954,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SyntheticsTestParentSuiteType: ["parent_suite"],
   SyntheticsTestPauseStatus: ["live", "paused"],
-  SyntheticsTestResultRunType: ["scheduled", "fast", "ci", "triggered"],
-  SyntheticsTestResultStatus: ["passed", "failed", "no_data"],
-  SyntheticsTestResultSummaryType: ["result_summary"],
-  SyntheticsTestResultType: ["result"],
-  SyntheticsTestSubType: [
-    "dns",
-    "grpc",
-    "http",
-    "icmp",
-    "mcp",
-    "multi",
-    "ssl",
-    "tcp",
-    "udp",
-    "websocket",
-  ],
-  SyntheticsTestType: ["api", "browser", "mobile", "network"],
   SyntheticsTestVersionChangeType: ["version_metadata"],
   SyntheticsTestVersionType: ["version"],
   TableResultV2DataAttributesFileMetadataCloudStorageErrorType: [
@@ -10483,6 +10393,9 @@ const typeMap: { [index: string]: any } = {
   SyntheticsFastTestResultAttributes: SyntheticsFastTestResultAttributes,
   SyntheticsFastTestResultData: SyntheticsFastTestResultData,
   SyntheticsFastTestResultDetail: SyntheticsFastTestResultDetail,
+  SyntheticsFastTestResultDevice: SyntheticsFastTestResultDevice,
+  SyntheticsFastTestResultFailure: SyntheticsFastTestResultFailure,
+  SyntheticsFastTestResultLocation: SyntheticsFastTestResultLocation,
   SyntheticsGlobalVariable: SyntheticsGlobalVariable,
   SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
   SyntheticsGlobalVariableOptions: SyntheticsGlobalVariableOptions,
@@ -10504,7 +10417,6 @@ const typeMap: { [index: string]: any } = {
   SyntheticsNetworkTestRequest: SyntheticsNetworkTestRequest,
   SyntheticsNetworkTestResponse: SyntheticsNetworkTestResponse,
   SyntheticsNetworkTestResponseData: SyntheticsNetworkTestResponseData,
-  SyntheticsPollTestResultsResponse: SyntheticsPollTestResultsResponse,
   SyntheticsSuite: SyntheticsSuite,
   SyntheticsSuiteOptions: SyntheticsSuiteOptions,
   SyntheticsSuiteResponse: SyntheticsSuiteResponse,
@@ -10530,7 +10442,6 @@ const typeMap: { [index: string]: any } = {
     SyntheticsTestFileMultipartPresignedUrlsRequest,
   SyntheticsTestFileMultipartPresignedUrlsResponse:
     SyntheticsTestFileMultipartPresignedUrlsResponse,
-  SyntheticsTestLatestResultsResponse: SyntheticsTestLatestResultsResponse,
   SyntheticsTestOptions: SyntheticsTestOptions,
   SyntheticsTestOptionsMonitorOptions: SyntheticsTestOptionsMonitorOptions,
   SyntheticsTestOptionsRetry: SyntheticsTestOptionsRetry,
@@ -10540,84 +10451,6 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestParentSuiteAttributes: SyntheticsTestParentSuiteAttributes,
   SyntheticsTestParentSuiteData: SyntheticsTestParentSuiteData,
   SyntheticsTestParentSuitesResponse: SyntheticsTestParentSuitesResponse,
-  SyntheticsTestResultAssertionResult: SyntheticsTestResultAssertionResult,
-  SyntheticsTestResultAttributes: SyntheticsTestResultAttributes,
-  SyntheticsTestResultBatch: SyntheticsTestResultBatch,
-  SyntheticsTestResultBounds: SyntheticsTestResultBounds,
-  SyntheticsTestResultBrowserError: SyntheticsTestResultBrowserError,
-  SyntheticsTestResultBucketKeys: SyntheticsTestResultBucketKeys,
-  SyntheticsTestResultCI: SyntheticsTestResultCI,
-  SyntheticsTestResultCIPipeline: SyntheticsTestResultCIPipeline,
-  SyntheticsTestResultCIProvider: SyntheticsTestResultCIProvider,
-  SyntheticsTestResultCIStage: SyntheticsTestResultCIStage,
-  SyntheticsTestResultCdnCacheStatus: SyntheticsTestResultCdnCacheStatus,
-  SyntheticsTestResultCdnProviderInfo: SyntheticsTestResultCdnProviderInfo,
-  SyntheticsTestResultCdnResource: SyntheticsTestResultCdnResource,
-  SyntheticsTestResultCertificate: SyntheticsTestResultCertificate,
-  SyntheticsTestResultCertificateValidity:
-    SyntheticsTestResultCertificateValidity,
-  SyntheticsTestResultData: SyntheticsTestResultData,
-  SyntheticsTestResultDetail: SyntheticsTestResultDetail,
-  SyntheticsTestResultDevice: SyntheticsTestResultDevice,
-  SyntheticsTestResultDeviceBrowser: SyntheticsTestResultDeviceBrowser,
-  SyntheticsTestResultDevicePlatform: SyntheticsTestResultDevicePlatform,
-  SyntheticsTestResultDeviceResolution: SyntheticsTestResultDeviceResolution,
-  SyntheticsTestResultDnsRecord: SyntheticsTestResultDnsRecord,
-  SyntheticsTestResultDnsResolution: SyntheticsTestResultDnsResolution,
-  SyntheticsTestResultDuration: SyntheticsTestResultDuration,
-  SyntheticsTestResultExecutionInfo: SyntheticsTestResultExecutionInfo,
-  SyntheticsTestResultFailure: SyntheticsTestResultFailure,
-  SyntheticsTestResultFileRef: SyntheticsTestResultFileRef,
-  SyntheticsTestResultGit: SyntheticsTestResultGit,
-  SyntheticsTestResultGitCommit: SyntheticsTestResultGitCommit,
-  SyntheticsTestResultGitUser: SyntheticsTestResultGitUser,
-  SyntheticsTestResultHandshake: SyntheticsTestResultHandshake,
-  SyntheticsTestResultHealthCheck: SyntheticsTestResultHealthCheck,
-  SyntheticsTestResultIncludedItem: SyntheticsTestResultIncludedItem,
-  SyntheticsTestResultLocation: SyntheticsTestResultLocation,
-  SyntheticsTestResultNetpath: SyntheticsTestResultNetpath,
-  SyntheticsTestResultNetpathDestination:
-    SyntheticsTestResultNetpathDestination,
-  SyntheticsTestResultNetpathEndpoint: SyntheticsTestResultNetpathEndpoint,
-  SyntheticsTestResultNetpathHop: SyntheticsTestResultNetpathHop,
-  SyntheticsTestResultNetstats: SyntheticsTestResultNetstats,
-  SyntheticsTestResultNetstatsHops: SyntheticsTestResultNetstatsHops,
-  SyntheticsTestResultNetworkLatency: SyntheticsTestResultNetworkLatency,
-  SyntheticsTestResultOCSPCertificate: SyntheticsTestResultOCSPCertificate,
-  SyntheticsTestResultOCSPResponse: SyntheticsTestResultOCSPResponse,
-  SyntheticsTestResultOCSPUpdates: SyntheticsTestResultOCSPUpdates,
-  SyntheticsTestResultParentStep: SyntheticsTestResultParentStep,
-  SyntheticsTestResultParentTest: SyntheticsTestResultParentTest,
-  SyntheticsTestResultRedirect: SyntheticsTestResultRedirect,
-  SyntheticsTestResultRelationshipTest: SyntheticsTestResultRelationshipTest,
-  SyntheticsTestResultRelationshipTestData:
-    SyntheticsTestResultRelationshipTestData,
-  SyntheticsTestResultRelationships: SyntheticsTestResultRelationships,
-  SyntheticsTestResultRequestInfo: SyntheticsTestResultRequestInfo,
-  SyntheticsTestResultResponse: SyntheticsTestResultResponse,
-  SyntheticsTestResultResponseInfo: SyntheticsTestResultResponseInfo,
-  SyntheticsTestResultRouter: SyntheticsTestResultRouter,
-  SyntheticsTestResultRumContext: SyntheticsTestResultRumContext,
-  SyntheticsTestResultStep: SyntheticsTestResultStep,
-  SyntheticsTestResultStepAssertionResult:
-    SyntheticsTestResultStepAssertionResult,
-  SyntheticsTestResultStepElementUpdates:
-    SyntheticsTestResultStepElementUpdates,
-  SyntheticsTestResultStepsInfo: SyntheticsTestResultStepsInfo,
-  SyntheticsTestResultSubStep: SyntheticsTestResultSubStep,
-  SyntheticsTestResultSubTest: SyntheticsTestResultSubTest,
-  SyntheticsTestResultSummaryAttributes: SyntheticsTestResultSummaryAttributes,
-  SyntheticsTestResultSummaryData: SyntheticsTestResultSummaryData,
-  SyntheticsTestResultTab: SyntheticsTestResultTab,
-  SyntheticsTestResultTrace: SyntheticsTestResultTrace,
-  SyntheticsTestResultTracerouteHop: SyntheticsTestResultTracerouteHop,
-  SyntheticsTestResultTurn: SyntheticsTestResultTurn,
-  SyntheticsTestResultTurnStep: SyntheticsTestResultTurnStep,
-  SyntheticsTestResultVariable: SyntheticsTestResultVariable,
-  SyntheticsTestResultVariables: SyntheticsTestResultVariables,
-  SyntheticsTestResultVitalsMetrics: SyntheticsTestResultVitalsMetrics,
-  SyntheticsTestResultWarning: SyntheticsTestResultWarning,
-  SyntheticsTestResultWebSocketClose: SyntheticsTestResultWebSocketClose,
   SyntheticsTestVersionActionMetadata: SyntheticsTestVersionActionMetadata,
   SyntheticsTestVersionAttributes: SyntheticsTestVersionAttributes,
   SyntheticsTestVersionAuthor: SyntheticsTestVersionAuthor,
