@@ -3,22 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsTestResultCdnCacheStatus } from "./SyntheticsTestResultCdnCacheStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * CDN provider details inferred from response headers.
+ * Failure details if the fast test did not pass.
  */
-export class SyntheticsTestResultCdnProviderInfo {
+export class SyntheticsFastTestResultFailure {
   /**
-   * Cache status reported by the CDN for the response.
+   * Error code identifying the failure type.
    */
-  "cache"?: SyntheticsTestResultCdnCacheStatus;
+  "code"?: string;
   /**
-   * Name of the CDN provider.
+   * Human-readable description of the failure.
    */
-  "provider"?: string;
+  "message"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,12 +35,12 @@ export class SyntheticsTestResultCdnProviderInfo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cache: {
-      baseName: "cache",
-      type: "SyntheticsTestResultCdnCacheStatus",
+    code: {
+      baseName: "code",
+      type: "string",
     },
-    provider: {
-      baseName: "provider",
+    message: {
+      baseName: "message",
       type: "string",
     },
     additionalProperties: {
@@ -54,7 +53,7 @@ export class SyntheticsTestResultCdnProviderInfo {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestResultCdnProviderInfo.attributeTypeMap;
+    return SyntheticsFastTestResultFailure.attributeTypeMap;
   }
 
   public constructor() {}

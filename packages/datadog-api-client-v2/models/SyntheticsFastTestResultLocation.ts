@@ -3,23 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsTestResultData } from "./SyntheticsTestResultData";
-import { SyntheticsTestResultIncludedItem } from "./SyntheticsTestResultIncludedItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object for a Synthetic test result.
+ * Location from which the fast test was executed.
  */
-export class SyntheticsTestResultResponse {
+export class SyntheticsFastTestResultLocation {
   /**
-   * Wrapper object for a Synthetic test result.
+   * ID of the location.
    */
-  "data"?: SyntheticsTestResultData;
+  "id"?: string;
   /**
-   * Array of included related resources, such as the test definition.
+   * Display name of the location.
    */
-  "included"?: Array<SyntheticsTestResultIncludedItem>;
+  "name"?: string;
+  /**
+   * Agent version running at this location.
+   */
+  "version"?: string;
+  /**
+   * Identifier of the specific worker that ran the test.
+   */
+  "workerId"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +43,21 @@ export class SyntheticsTestResultResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SyntheticsTestResultData",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    included: {
-      baseName: "included",
-      type: "Array<SyntheticsTestResultIncludedItem>",
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    version: {
+      baseName: "version",
+      type: "string",
+    },
+    workerId: {
+      baseName: "worker_id",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +69,7 @@ export class SyntheticsTestResultResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestResultResponse.attributeTypeMap;
+    return SyntheticsFastTestResultLocation.attributeTypeMap;
   }
 
   public constructor() {}
