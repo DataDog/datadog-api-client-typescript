@@ -439,6 +439,92 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getOrgGroupPolicy(
+    orgGroupPolicyId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOrgGroupPolicy'");
+    if (!_config.unstableOperations["v2.getOrgGroupPolicy"]) {
+      throw new Error("Unstable operation 'getOrgGroupPolicy' is disabled");
+    }
+
+    // verify required parameter 'orgGroupPolicyId' is not null or undefined
+    if (orgGroupPolicyId === null || orgGroupPolicyId === undefined) {
+      throw new RequiredError("orgGroupPolicyId", "getOrgGroupPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policies/{org_group_policy_id}".replace(
+        "{org_group_policy_id}",
+        encodeURIComponent(String(orgGroupPolicyId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrgGroupsApi.getOrgGroupPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOrgGroupPolicyOverride(
+    orgGroupPolicyOverrideId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOrgGroupPolicyOverride'");
+    if (!_config.unstableOperations["v2.getOrgGroupPolicyOverride"]) {
+      throw new Error(
+        "Unstable operation 'getOrgGroupPolicyOverride' is disabled"
+      );
+    }
+
+    // verify required parameter 'orgGroupPolicyOverrideId' is not null or undefined
+    if (
+      orgGroupPolicyOverrideId === null ||
+      orgGroupPolicyOverrideId === undefined
+    ) {
+      throw new RequiredError(
+        "orgGroupPolicyOverrideId",
+        "getOrgGroupPolicyOverride"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
+        "{org_group_policy_override_id}",
+        encodeURIComponent(String(orgGroupPolicyOverrideId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrgGroupsApi.getOrgGroupPolicyOverride")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listOrgGroupMemberships(
     filterOrgGroupId?: string,
     filterOrgUuid?: string,
@@ -1756,6 +1842,178 @@ export class OrgGroupsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getOrgGroupPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOrgGroupPolicy(
+    response: ResponseContext
+  ): Promise<OrgGroupPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgGroupPolicyResponse"
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgGroupPolicyResponse",
+        ""
+      ) as OrgGroupPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOrgGroupPolicyOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOrgGroupPolicyOverride(
+    response: ResponseContext
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgGroupPolicyOverrideResponse"
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicyOverrideResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgGroupPolicyOverrideResponse",
+        ""
+      ) as OrgGroupPolicyOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listOrgGroupMemberships
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2590,6 +2848,22 @@ export interface OrgGroupsApiGetOrgGroupMembershipRequest {
   orgGroupMembershipId: string;
 }
 
+export interface OrgGroupsApiGetOrgGroupPolicyRequest {
+  /**
+   * The ID of the org group policy.
+   * @type string
+   */
+  orgGroupPolicyId: string;
+}
+
+export interface OrgGroupsApiGetOrgGroupPolicyOverrideRequest {
+  /**
+   * The ID of the org group policy override.
+   * @type string
+   */
+  orgGroupPolicyOverrideId: string;
+}
+
 export interface OrgGroupsApiListOrgGroupMembershipsRequest {
   /**
    * Filter memberships by org group ID. Required when `filter[org_uuid]` is not provided.
@@ -2955,6 +3229,50 @@ export class OrgGroupsApi {
   }
 
   /**
+   * Get a specific organization group policy by its ID.
+   * @param param The request object
+   */
+  public getOrgGroupPolicy(
+    param: OrgGroupsApiGetOrgGroupPolicyRequest,
+    options?: Configuration
+  ): Promise<OrgGroupPolicyResponse> {
+    const requestContextPromise = this.requestFactory.getOrgGroupPolicy(
+      param.orgGroupPolicyId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrgGroupPolicy(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific organization group policy override by its ID.
+   * @param param The request object
+   */
+  public getOrgGroupPolicyOverride(
+    param: OrgGroupsApiGetOrgGroupPolicyOverrideRequest,
+    options?: Configuration
+  ): Promise<OrgGroupPolicyOverrideResponse> {
+    const requestContextPromise = this.requestFactory.getOrgGroupPolicyOverride(
+      param.orgGroupPolicyOverrideId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrgGroupPolicyOverride(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List organization group memberships. Filter by org group ID or org UUID. At least one of `filter[org_group_id]` or `filter[org_uuid]` must be provided. When filtering by org UUID, returns a single-item list with the membership for that org.
    * @param param The request object
    */
@@ -3125,7 +3443,7 @@ export class OrgGroupsApi {
   }
 
   /**
-   * Update the content of an existing organization group policy.
+   * Update an existing organization group policy.
    * @param param The request object
    */
   public updateOrgGroupPolicy(

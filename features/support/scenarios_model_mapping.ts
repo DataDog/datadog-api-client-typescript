@@ -9759,6 +9759,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OrgGroupPolicyResponse",
     },
+    "v2.GetOrgGroupPolicy": {
+        "orgGroupPolicyId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OrgGroupPolicyResponse",
+    },
     "v2.DeleteOrgGroupPolicy": {
         "orgGroupPolicyId": {
             "type": "string",
@@ -9807,6 +9814,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "body": {
             "type": "OrgGroupPolicyOverrideCreateRequest",
             "format": "",
+            },
+        "operationResponseType": "OrgGroupPolicyOverrideResponse",
+    },
+    "v2.GetOrgGroupPolicyOverride": {
+        "orgGroupPolicyOverrideId": {
+            "type": "string",
+            "format": "uuid",
             },
         "operationResponseType": "OrgGroupPolicyOverrideResponse",
     },
@@ -12211,56 +12225,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsSuiteResponse",
     },
-    "v2.ListSyntheticsBrowserTestLatestResults": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "fromTs": {
-            "type": "number",
-            "format": "int64",
-            },
-        "toTs": {
-            "type": "number",
-            "format": "int64",
-            },
-        "status": {
-            "type": "SyntheticsTestResultStatus",
-            "format": "",
-            },
-        "runType": {
-            "type": "SyntheticsTestResultRunType",
-            "format": "",
-            },
-        "probeDc": {
-            "type": "Array<string>",
-            "format": "",
-            },
-        "deviceId": {
-            "type": "Array<string>",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsTestLatestResultsResponse",
-    },
-    "v2.GetSyntheticsBrowserTestResult": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "resultId": {
-            "type": "string",
-            "format": "",
-            },
-        "eventId": {
-            "type": "string",
-            "format": "",
-            },
-        "timestamp": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "SyntheticsTestResultResponse",
-    },
     "v2.DeleteSyntheticsTests": {
         "body": {
             "type": "DeletedTestsRequestDeleteRequest",
@@ -12299,13 +12263,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SyntheticsNetworkTestResponse",
-    },
-    "v2.PollSyntheticsTestResults": {
-        "resultIds": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsPollTestResultsResponse",
     },
     "v2.GetTestFileDownloadUrl": {
         "publicId": {
@@ -12357,56 +12314,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SyntheticsTestParentSuitesResponse",
-    },
-    "v2.ListSyntheticsTestLatestResults": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "fromTs": {
-            "type": "number",
-            "format": "int64",
-            },
-        "toTs": {
-            "type": "number",
-            "format": "int64",
-            },
-        "status": {
-            "type": "SyntheticsTestResultStatus",
-            "format": "",
-            },
-        "runType": {
-            "type": "SyntheticsTestResultRunType",
-            "format": "",
-            },
-        "probeDc": {
-            "type": "Array<string>",
-            "format": "",
-            },
-        "deviceId": {
-            "type": "Array<string>",
-            "format": "",
-            },
-        "operationResponseType": "SyntheticsTestLatestResultsResponse",
-    },
-    "v2.GetSyntheticsTestResult": {
-        "publicId": {
-            "type": "string",
-            "format": "",
-            },
-        "resultId": {
-            "type": "string",
-            "format": "",
-            },
-        "eventId": {
-            "type": "string",
-            "format": "",
-            },
-        "timestamp": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "SyntheticsTestResultResponse",
     },
     "v2.ListSyntheticsTestVersions": {
         "publicId": {
