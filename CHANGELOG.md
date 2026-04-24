@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 1.57.0/2026-04-24
+
+### Changed
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#4000](https://github.com/DataDog/datadog-api-client-typescript/pull/4000)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3989](https://github.com/DataDog/datadog-api-client-typescript/pull/3989)
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#3962](https://github.com/DataDog/datadog-api-client-typescript/pull/3962)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3948](https://github.com/DataDog/datadog-api-client-typescript/pull/3948)
+* Security Monitoring - Revert rename of historical job API endpoints to threat hunting [#3921](https://github.com/DataDog/datadog-api-client-typescript/pull/3921)
+
+### Removed
+* Remove unsupported operators from CCM Custom Allocation Rules feature [#3985](https://github.com/DataDog/datadog-api-client-typescript/pull/3985)
+
+### Added
+* Add us2.ddog-gov.com. [#3979](https://github.com/DataDog/datadog-api-client-typescript/pull/3979)
+* Add OpenAPI documentation for LLM Observability eval config CRUD endpoints [#3971](https://github.com/DataDog/datadog-api-client-typescript/pull/3971)
+* Add OpenAPI spec for v2 Synthetics test result endpoints [#3970](https://github.com/DataDog/datadog-api-client-typescript/pull/3970)
+* Document signals triage update endpoints [#3968](https://github.com/DataDog/datadog-api-client-typescript/pull/3968)
+* Security notifications - Add SAST and secret rule types [#3954](https://github.com/DataDog/datadog-api-client-typescript/pull/3954)
+* Add OpenAPI documentation for list and get indicators of compromise endpoints [#3944](https://github.com/DataDog/datadog-api-client-typescript/pull/3944)
+* Cloud SIEM - Document content packs SIEM endpoints [#3940](https://github.com/DataDog/datadog-api-client-typescript/pull/3940)
+* Add API spec for security monitoring terraform export endpoints [#3915](https://github.com/DataDog/datadog-api-client-typescript/pull/3915)
+* Add missing params to ListCustomCostsFiles [#3909](https://github.com/DataDog/datadog-api-client-typescript/pull/3909)
+* Add unstable PUT /api/v2/anonymize_users endpoint [#3878](https://github.com/DataDog/datadog-api-client-typescript/pull/3878)
+* Add query type schemas for timeseries-query data sources [#3853](https://github.com/DataDog/datadog-api-client-typescript/pull/3853)
+
 ## 1.56.0/2026-04-16
 
 ### Added
