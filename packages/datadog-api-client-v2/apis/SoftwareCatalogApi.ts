@@ -1202,13 +1202,11 @@ export class SoftwareCatalogApi {
         param.includeDiscovered,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCatalogEntity(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listCatalogEntity(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1272,13 +1270,11 @@ export class SoftwareCatalogApi {
         param.filterName,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCatalogKind(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listCatalogKind(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1348,13 +1344,11 @@ export class SoftwareCatalogApi {
         param.includeDiscovered,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCatalogRelation(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listCatalogRelation(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

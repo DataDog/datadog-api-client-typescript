@@ -658,9 +658,8 @@ export class EventsApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listEvents(responseContext);
       const responseData = response.data;
@@ -738,13 +737,11 @@ export class EventsApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchEvents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

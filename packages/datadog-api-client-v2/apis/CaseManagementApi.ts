@@ -4595,13 +4595,11 @@ export class CaseManagementApi {
         param.sortAsc,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchCases(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchCases(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

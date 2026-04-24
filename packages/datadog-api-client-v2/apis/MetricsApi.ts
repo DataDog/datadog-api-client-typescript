@@ -2417,13 +2417,11 @@ export class MetricsApi {
         param.pageCursor,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listTagConfigurations(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listTagConfigurations(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

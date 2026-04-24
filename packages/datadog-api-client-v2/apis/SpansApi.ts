@@ -525,9 +525,8 @@ export class SpansApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listSpans(responseContext);
       const responseData = response.data;
@@ -612,13 +611,11 @@ export class SpansApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listSpansGet(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listSpansGet(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

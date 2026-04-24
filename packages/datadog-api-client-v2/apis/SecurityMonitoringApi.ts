@@ -14506,13 +14506,11 @@ export class SecurityMonitoringApi {
         param.detailedFindings,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listFindings(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listFindings(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -14753,13 +14751,11 @@ export class SecurityMonitoringApi {
         param.sort,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listSecurityFindings(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listSecurityFindings(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -14918,9 +14914,8 @@ export class SecurityMonitoringApi {
           param.pageLimit,
           options
         );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response =
         await this.responseProcessor.listSecurityMonitoringSignals(
@@ -15328,13 +15323,11 @@ export class SecurityMonitoringApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchSecurityFindings(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchSecurityFindings(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -15434,9 +15427,8 @@ export class SecurityMonitoringApi {
           param.body,
           options
         );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response =
         await this.responseProcessor.searchSecurityMonitoringSignals(

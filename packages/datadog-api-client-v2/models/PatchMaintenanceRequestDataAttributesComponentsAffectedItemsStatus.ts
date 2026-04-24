@@ -11,6 +11,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus =
-  typeof OPERATIONAL | typeof MAINTENANCE | UnparsedObject;
+  | typeof OPERATIONAL
+  | typeof MAINTENANCE
+  | UnparsedObject;
 export const OPERATIONAL = "operational";
 export const MAINTENANCE = "maintenance";

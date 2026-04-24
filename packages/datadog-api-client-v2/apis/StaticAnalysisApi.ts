@@ -1963,13 +1963,11 @@ export class StaticAnalysisApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCustomRuleRevisions(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listCustomRuleRevisions(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

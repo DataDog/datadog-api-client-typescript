@@ -368,13 +368,11 @@ export class AuditApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listAuditLogs(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listAuditLogs(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -452,13 +450,11 @@ export class AuditApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchAuditLogs(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchAuditLogs(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

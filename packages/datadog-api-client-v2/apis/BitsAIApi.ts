@@ -527,13 +527,11 @@ export class BitsAIApi {
         param.filterMonitorId,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listInvestigations(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listInvestigations(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

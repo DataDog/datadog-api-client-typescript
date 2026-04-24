@@ -1906,13 +1906,11 @@ export class DashboardsApi {
         param.start,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listDashboards(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listDashboards(responseContext);
       const responseDashboards = response.dashboards;
       if (responseDashboards === undefined) {
         break;

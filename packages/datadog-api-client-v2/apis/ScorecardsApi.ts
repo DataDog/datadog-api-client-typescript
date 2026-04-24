@@ -2173,13 +2173,11 @@ export class ScorecardsApi {
         param.filterRuleName,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listScorecardOutcomes(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listScorecardOutcomes(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -2255,13 +2253,11 @@ export class ScorecardsApi {
         param.fieldsScorecard,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listScorecardRules(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listScorecardRules(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

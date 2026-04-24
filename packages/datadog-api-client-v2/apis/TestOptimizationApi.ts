@@ -1039,13 +1039,11 @@ export class TestOptimizationApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchFlakyTests(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchFlakyTests(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

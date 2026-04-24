@@ -11,5 +11,6 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction =
-  typeof HASH | UnparsedObject;
+  | typeof HASH
+  | UnparsedObject;
 export const HASH = "hash";
