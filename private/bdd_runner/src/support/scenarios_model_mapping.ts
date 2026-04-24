@@ -9771,6 +9771,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OrgGroupPolicyResponse",
   },
+  "OrgGroupsApi.V2.GetOrgGroupPolicy": {
+    orgGroupPolicyId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "OrgGroupPolicyResponse",
+  },
   "OrgGroupsApi.V2.DeleteOrgGroupPolicy": {
     orgGroupPolicyId: {
       type: "string",
@@ -9819,6 +9826,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     body: {
       type: "OrgGroupPolicyOverrideCreateRequest",
       format: "",
+    },
+    operationResponseType: "OrgGroupPolicyOverrideResponse",
+  },
+  "OrgGroupsApi.V2.GetOrgGroupPolicyOverride": {
+    orgGroupPolicyOverrideId: {
+      type: "string",
+      format: "uuid",
     },
     operationResponseType: "OrgGroupPolicyOverrideResponse",
   },
