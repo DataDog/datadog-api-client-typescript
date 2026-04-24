@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-04-24
+
+### Added
+* Add OpenAPI documentation for LLM Observability eval config CRUD endpoints [#3928](https://github.com/DataDog/datadog-api-client-typescript/pull/3928)
+
 ## 0.0.1-beta.3/2026-04-16
 
 ### Added

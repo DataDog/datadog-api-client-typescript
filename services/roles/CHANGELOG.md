@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-24
+
+### Changed
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3988](https://github.com/DataDog/datadog-api-client-typescript/pull/3988)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3947](https://github.com/DataDog/datadog-api-client-typescript/pull/3947)
+
 ## 0.0.1-beta.4/2026-04-01
 
 ### Added

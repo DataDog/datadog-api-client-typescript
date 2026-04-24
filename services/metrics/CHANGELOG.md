@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-04-24
+
+### Added
+* Add query type schemas for timeseries-query data sources [#3834](https://github.com/DataDog/datadog-api-client-typescript/pull/3834)
+
 ## 0.0.1-beta.5/2026-04-01
 
 ### Added
