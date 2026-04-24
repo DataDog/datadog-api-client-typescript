@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-04-24
+
+### Added
+* Document signals triage update endpoints [#3967](https://github.com/DataDog/datadog-api-client-typescript/pull/3967)
+* Security notifications - Add SAST and secret rule types [#3953](https://github.com/DataDog/datadog-api-client-typescript/pull/3953)
+* Add OpenAPI documentation for list and get indicators of compromise endpoints [#3943](https://github.com/DataDog/datadog-api-client-typescript/pull/3943)
+* Cloud SIEM - Document content packs SIEM endpoints [#3939](https://github.com/DataDog/datadog-api-client-typescript/pull/3939)
+* Add API spec for security monitoring terraform export endpoints [#3914](https://github.com/DataDog/datadog-api-client-typescript/pull/3914)
+
+### Changed
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#3961](https://github.com/DataDog/datadog-api-client-typescript/pull/3961)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3947](https://github.com/DataDog/datadog-api-client-typescript/pull/3947)
+* Security Monitoring - Revert rename of historical job API endpoints to threat hunting [#3920](https://github.com/DataDog/datadog-api-client-typescript/pull/3920)
+
 ## 0.0.1-beta.10/2026-04-16
 
 ### Fixed

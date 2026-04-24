@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-04-24
+
+### Removed
+* Remove unsupported operators from CCM Custom Allocation Rules feature [#3984](https://github.com/DataDog/datadog-api-client-typescript/pull/3984)
+
 ## 0.0.1-beta.4/2026-04-16
 
 ### Added

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-04-24
+
+### Changed
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#3999](https://github.com/DataDog/datadog-api-client-typescript/pull/3999)
+
+### Removed
+* Remove unsupported operators from CCM Custom Allocation Rules feature [#3984](https://github.com/DataDog/datadog-api-client-typescript/pull/3984)
+
+### Added
+* Add OpenAPI spec for v2 Synthetics test result endpoints [#3969](https://github.com/DataDog/datadog-api-client-typescript/pull/3969)
+
 ## 0.0.1-beta.9/2026-04-16
 
 ### Added
