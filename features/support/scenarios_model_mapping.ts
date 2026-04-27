@@ -3243,6 +3243,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserResponse",
     },
+    "v2.DeleteUserInvitations": {
+        "userId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListUserOrganizations": {
         "userId": {
             "type": "string",
@@ -9608,6 +9615,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListOrgs": {
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ManagedOrgsResponse",
     },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",

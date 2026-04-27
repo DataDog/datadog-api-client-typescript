@@ -2035,6 +2035,11 @@ import { MaintenanceDataRelationshipsLastModifiedByUser } from "./MaintenanceDat
 import { MaintenanceDataRelationshipsLastModifiedByUserData } from "./MaintenanceDataRelationshipsLastModifiedByUserData";
 import { MaintenanceDataRelationshipsStatusPage } from "./MaintenanceDataRelationshipsStatusPage";
 import { MaintenanceDataRelationshipsStatusPageData } from "./MaintenanceDataRelationshipsStatusPageData";
+import { ManagedOrgsData } from "./ManagedOrgsData";
+import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
+import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
+import { ManagedOrgsRelationships } from "./ManagedOrgsRelationships";
+import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
 import { MemberTeam } from "./MemberTeam";
 import { Metadata } from "./Metadata";
 import { Metric } from "./Metric";
@@ -2392,6 +2397,7 @@ import { OpsgenieServiceUpdateAttributes } from "./OpsgenieServiceUpdateAttribut
 import { OpsgenieServiceUpdateData } from "./OpsgenieServiceUpdateData";
 import { OpsgenieServiceUpdateRequest } from "./OpsgenieServiceUpdateRequest";
 import { OpsgenieServicesResponse } from "./OpsgenieServicesResponse";
+import { OrgAttributes } from "./OrgAttributes";
 import { OrgConfigGetResponse } from "./OrgConfigGetResponse";
 import { OrgConfigListResponse } from "./OrgConfigListResponse";
 import { OrgConfigRead } from "./OrgConfigRead";
@@ -2417,6 +2423,7 @@ import { OrgConnectionUpdateAttributes } from "./OrgConnectionUpdateAttributes";
 import { OrgConnectionUpdateRequest } from "./OrgConnectionUpdateRequest";
 import { OrgConnectionUserRelationship } from "./OrgConnectionUserRelationship";
 import { OrgConnectionUserRelationshipData } from "./OrgConnectionUserRelationshipData";
+import { OrgData } from "./OrgData";
 import { OrgGroupAttributes } from "./OrgGroupAttributes";
 import { OrgGroupCreateAttributes } from "./OrgGroupCreateAttributes";
 import { OrgGroupCreateData } from "./OrgGroupCreateData";
@@ -2475,6 +2482,7 @@ import { OrgGroupResponse } from "./OrgGroupResponse";
 import { OrgGroupUpdateAttributes } from "./OrgGroupUpdateAttributes";
 import { OrgGroupUpdateData } from "./OrgGroupUpdateData";
 import { OrgGroupUpdateRequest } from "./OrgGroupUpdateRequest";
+import { OrgRelationshipData } from "./OrgRelationshipData";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OutboundEdge } from "./OutboundEdge";
@@ -4973,6 +4981,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
   MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
+  ManagedOrgsType: ["managed_orgs"],
   MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
@@ -5349,6 +5358,7 @@ const enumsMap: { [key: string]: any[] } = {
   OrgGroupPolicyType: ["org_group_policies"],
   OrgGroupSortOption: ["name", "-name", "uuid", "-uuid"],
   OrgGroupType: ["org_groups"],
+  OrgResourceType: ["orgs"],
   OrganizationsType: ["orgs"],
   OutcomeType: ["outcome"],
   OutcomesBatchType: ["batched-outcome"],
@@ -8690,6 +8700,11 @@ const typeMap: { [index: string]: any } = {
     MaintenanceDataRelationshipsStatusPage,
   MaintenanceDataRelationshipsStatusPageData:
     MaintenanceDataRelationshipsStatusPageData,
+  ManagedOrgsData: ManagedOrgsData,
+  ManagedOrgsRelationshipToOrg: ManagedOrgsRelationshipToOrg,
+  ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
+  ManagedOrgsRelationships: ManagedOrgsRelationships,
+  ManagedOrgsResponse: ManagedOrgsResponse,
   MemberTeam: MemberTeam,
   Metadata: Metadata,
   Metric: Metric,
@@ -9203,6 +9218,7 @@ const typeMap: { [index: string]: any } = {
   OpsgenieServiceUpdateData: OpsgenieServiceUpdateData,
   OpsgenieServiceUpdateRequest: OpsgenieServiceUpdateRequest,
   OpsgenieServicesResponse: OpsgenieServicesResponse,
+  OrgAttributes: OrgAttributes,
   OrgConfigGetResponse: OrgConfigGetResponse,
   OrgConfigListResponse: OrgConfigListResponse,
   OrgConfigRead: OrgConfigRead,
@@ -9228,6 +9244,7 @@ const typeMap: { [index: string]: any } = {
   OrgConnectionUpdateRequest: OrgConnectionUpdateRequest,
   OrgConnectionUserRelationship: OrgConnectionUserRelationship,
   OrgConnectionUserRelationshipData: OrgConnectionUserRelationshipData,
+  OrgData: OrgData,
   OrgGroupAttributes: OrgGroupAttributes,
   OrgGroupCreateAttributes: OrgGroupCreateAttributes,
   OrgGroupCreateData: OrgGroupCreateData,
@@ -9291,6 +9308,7 @@ const typeMap: { [index: string]: any } = {
   OrgGroupUpdateAttributes: OrgGroupUpdateAttributes,
   OrgGroupUpdateData: OrgGroupUpdateData,
   OrgGroupUpdateRequest: OrgGroupUpdateRequest,
+  OrgRelationshipData: OrgRelationshipData,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   OutboundEdge: OutboundEdge,
