@@ -846,6 +846,7 @@ export {
 
 export {
   OrganizationsApiGetOrgConfigRequest,
+  OrganizationsApiListOrgsRequest,
   OrganizationsApiUpdateOrgConfigRequest,
   OrganizationsApiUploadIdPMetadataRequest,
   OrganizationsApi,
@@ -1326,6 +1327,7 @@ export {
 export {
   UsersApiAnonymizeUsersRequest,
   UsersApiCreateUserRequest,
+  UsersApiDeleteUserInvitationsRequest,
   UsersApiDisableUserRequest,
   UsersApiGetInvitationRequest,
   UsersApiGetUserRequest,
@@ -3957,6 +3959,12 @@ export { MaintenanceDataRelationshipsLastModifiedByUser } from "./models/Mainten
 export { MaintenanceDataRelationshipsLastModifiedByUserData } from "./models/MaintenanceDataRelationshipsLastModifiedByUserData";
 export { MaintenanceDataRelationshipsStatusPage } from "./models/MaintenanceDataRelationshipsStatusPage";
 export { MaintenanceDataRelationshipsStatusPageData } from "./models/MaintenanceDataRelationshipsStatusPageData";
+export { ManagedOrgsData } from "./models/ManagedOrgsData";
+export { ManagedOrgsRelationships } from "./models/ManagedOrgsRelationships";
+export { ManagedOrgsRelationshipToOrg } from "./models/ManagedOrgsRelationshipToOrg";
+export { ManagedOrgsRelationshipToOrgs } from "./models/ManagedOrgsRelationshipToOrgs";
+export { ManagedOrgsResponse } from "./models/ManagedOrgsResponse";
+export { ManagedOrgsType } from "./models/ManagedOrgsType";
 export { MemberTeam } from "./models/MemberTeam";
 export { MemberTeamType } from "./models/MemberTeamType";
 export { Metadata } from "./models/Metadata";
@@ -4534,6 +4542,7 @@ export { OrderDirection } from "./models/OrderDirection";
 export { Organization } from "./models/Organization";
 export { OrganizationAttributes } from "./models/OrganizationAttributes";
 export { OrganizationsType } from "./models/OrganizationsType";
+export { OrgAttributes } from "./models/OrgAttributes";
 export { OrgConfigGetResponse } from "./models/OrgConfigGetResponse";
 export { OrgConfigListResponse } from "./models/OrgConfigListResponse";
 export { OrgConfigRead } from "./models/OrgConfigRead";
@@ -4564,6 +4573,7 @@ export { OrgConnectionUpdateRequest } from "./models/OrgConnectionUpdateRequest"
 export { OrgConnectionUserRelationship } from "./models/OrgConnectionUserRelationship";
 export { OrgConnectionUserRelationshipData } from "./models/OrgConnectionUserRelationshipData";
 export { OrgConnectionUserRelationshipDataType } from "./models/OrgConnectionUserRelationshipDataType";
+export { OrgData } from "./models/OrgData";
 export { OrgGroupAttributes } from "./models/OrgGroupAttributes";
 export { OrgGroupCreateAttributes } from "./models/OrgGroupCreateAttributes";
 export { OrgGroupCreateData } from "./models/OrgGroupCreateData";
@@ -4635,6 +4645,8 @@ export { OrgGroupType } from "./models/OrgGroupType";
 export { OrgGroupUpdateAttributes } from "./models/OrgGroupUpdateAttributes";
 export { OrgGroupUpdateData } from "./models/OrgGroupUpdateData";
 export { OrgGroupUpdateRequest } from "./models/OrgGroupUpdateRequest";
+export { OrgRelationshipData } from "./models/OrgRelationshipData";
+export { OrgResourceType } from "./models/OrgResourceType";
 export { OutboundEdge } from "./models/OutboundEdge";
 export { OutcomesBatchAttributes } from "./models/OutcomesBatchAttributes";
 export { OutcomesBatchRequest } from "./models/OutcomesBatchRequest";

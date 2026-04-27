@@ -20,6 +20,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { ManagedOrgsResponse } from "../models/ManagedOrgsResponse";
 import { OrgConfigGetResponse } from "../models/OrgConfigGetResponse";
 import { OrgConfigListResponse } from "../models/OrgConfigListResponse";
 import { OrgConfigWriteRequest } from "../models/OrgConfigWriteRequest";
@@ -77,6 +78,41 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgs(
+    filterName?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/org";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrganizationsApi.listOrgs")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[name]",
+        ObjectSerializer.serialize(filterName, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -298,6 +334,68 @@ export class OrganizationsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listOrgs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgs(
+    response: ResponseContext
+  ): Promise<ManagedOrgsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ManagedOrgsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ManagedOrgsResponse"
+      ) as ManagedOrgsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ManagedOrgsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ManagedOrgsResponse",
+        ""
+      ) as ManagedOrgsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateOrgConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -418,6 +516,14 @@ export interface OrganizationsApiGetOrgConfigRequest {
   orgConfigName: string;
 }
 
+export interface OrganizationsApiListOrgsRequest {
+  /**
+   * Filter managed organizations by name.
+   * @type string
+   */
+  filterName?: string;
+}
+
 export interface OrganizationsApiUpdateOrgConfigRequest {
   /**
    * The name of an Org Config.
@@ -489,6 +595,27 @@ export class OrganizationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOrgConfigs(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns the current organization and its managed organizations in JSON:API format.
+   * @param param The request object
+   */
+  public listOrgs(
+    param: OrganizationsApiListOrgsRequest = {},
+    options?: Configuration
+  ): Promise<ManagedOrgsResponse> {
+    const requestContextPromise = this.requestFactory.listOrgs(
+      param.filterName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgs(responseContext);
         });
     });
   }
