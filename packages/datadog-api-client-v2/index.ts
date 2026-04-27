@@ -1231,15 +1231,19 @@ export {
 
 export {
   SyntheticsApiAbortTestFileMultipartUploadRequest,
+  SyntheticsApiAddTestToSyntheticsDowntimeRequest,
   SyntheticsApiCompleteTestFileMultipartUploadRequest,
+  SyntheticsApiCreateSyntheticsDowntimeRequest,
   SyntheticsApiCreateSyntheticsNetworkTestRequest,
   SyntheticsApiCreateSyntheticsSuiteRequest,
+  SyntheticsApiDeleteSyntheticsDowntimeRequest,
   SyntheticsApiDeleteSyntheticsSuitesRequest,
   SyntheticsApiDeleteSyntheticsTestsRequest,
   SyntheticsApiEditSyntheticsSuiteRequest,
   SyntheticsApiGetApiMultistepSubtestParentsRequest,
   SyntheticsApiGetApiMultistepSubtestsRequest,
   SyntheticsApiGetSyntheticsBrowserTestResultRequest,
+  SyntheticsApiGetSyntheticsDowntimeRequest,
   SyntheticsApiGetSyntheticsFastTestResultRequest,
   SyntheticsApiGetSyntheticsNetworkTestRequest,
   SyntheticsApiGetSyntheticsSuiteRequest,
@@ -1249,13 +1253,16 @@ export {
   SyntheticsApiGetTestFileMultipartPresignedUrlsRequest,
   SyntheticsApiGetTestParentSuitesRequest,
   SyntheticsApiListSyntheticsBrowserTestLatestResultsRequest,
+  SyntheticsApiListSyntheticsDowntimesRequest,
   SyntheticsApiListSyntheticsTestLatestResultsRequest,
   SyntheticsApiListSyntheticsTestVersionsRequest,
   SyntheticsApiPatchGlobalVariableRequest,
   SyntheticsApiPatchTestSuiteRequest,
   SyntheticsApiPollSyntheticsTestResultsRequest,
+  SyntheticsApiRemoveTestFromSyntheticsDowntimeRequest,
   SyntheticsApiSearchSuitesRequest,
   SyntheticsApiSetOnDemandConcurrencyCapRequest,
+  SyntheticsApiUpdateSyntheticsDowntimeRequest,
   SyntheticsApiUpdateSyntheticsNetworkTestRequest,
   SyntheticsApi,
 } from "./apis/SyntheticsApi";
@@ -5888,6 +5895,21 @@ export { SyntheticsApiMultistepSubtestAttributes } from "./models/SyntheticsApiM
 export { SyntheticsApiMultistepSubtestData } from "./models/SyntheticsApiMultistepSubtestData";
 export { SyntheticsApiMultistepSubtestsResponse } from "./models/SyntheticsApiMultistepSubtestsResponse";
 export { SyntheticsApiMultistepSubtestType } from "./models/SyntheticsApiMultistepSubtestType";
+export { SyntheticsDowntimeData } from "./models/SyntheticsDowntimeData";
+export { SyntheticsDowntimeDataAttributesRequest } from "./models/SyntheticsDowntimeDataAttributesRequest";
+export { SyntheticsDowntimeDataAttributesResponse } from "./models/SyntheticsDowntimeDataAttributesResponse";
+export { SyntheticsDowntimeDataRequest } from "./models/SyntheticsDowntimeDataRequest";
+export { SyntheticsDowntimeFrequency } from "./models/SyntheticsDowntimeFrequency";
+export { SyntheticsDowntimeRequest } from "./models/SyntheticsDowntimeRequest";
+export { SyntheticsDowntimeResourceType } from "./models/SyntheticsDowntimeResourceType";
+export { SyntheticsDowntimeResponse } from "./models/SyntheticsDowntimeResponse";
+export { SyntheticsDowntimesResponse } from "./models/SyntheticsDowntimesResponse";
+export { SyntheticsDowntimeTimeSlotDate } from "./models/SyntheticsDowntimeTimeSlotDate";
+export { SyntheticsDowntimeTimeSlotRecurrenceRequest } from "./models/SyntheticsDowntimeTimeSlotRecurrenceRequest";
+export { SyntheticsDowntimeTimeSlotRecurrenceResponse } from "./models/SyntheticsDowntimeTimeSlotRecurrenceResponse";
+export { SyntheticsDowntimeTimeSlotRequest } from "./models/SyntheticsDowntimeTimeSlotRequest";
+export { SyntheticsDowntimeTimeSlotResponse } from "./models/SyntheticsDowntimeTimeSlotResponse";
+export { SyntheticsDowntimeWeekday } from "./models/SyntheticsDowntimeWeekday";
 export { SyntheticsFastTestResult } from "./models/SyntheticsFastTestResult";
 export { SyntheticsFastTestResultAttributes } from "./models/SyntheticsFastTestResultAttributes";
 export { SyntheticsFastTestResultData } from "./models/SyntheticsFastTestResultData";

@@ -23,12 +23,16 @@ import { DeletedTestsRequestDeleteRequest } from "../models/DeletedTestsRequestD
 import { DeletedTestsResponse } from "../models/DeletedTestsResponse";
 import { GlobalVariableJsonPatchRequest } from "../models/GlobalVariableJsonPatchRequest";
 import { GlobalVariableResponse } from "../models/GlobalVariableResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { OnDemandConcurrencyCapAttributes } from "../models/OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "../models/OnDemandConcurrencyCapResponse";
 import { SuiteCreateEditRequest } from "../models/SuiteCreateEditRequest";
 import { SuiteJsonPatchRequest } from "../models/SuiteJsonPatchRequest";
 import { SyntheticsApiMultistepParentTestsResponse } from "../models/SyntheticsApiMultistepParentTestsResponse";
 import { SyntheticsApiMultistepSubtestsResponse } from "../models/SyntheticsApiMultistepSubtestsResponse";
+import { SyntheticsDowntimeRequest } from "../models/SyntheticsDowntimeRequest";
+import { SyntheticsDowntimeResponse } from "../models/SyntheticsDowntimeResponse";
+import { SyntheticsDowntimesResponse } from "../models/SyntheticsDowntimesResponse";
 import { SyntheticsFastTestResult } from "../models/SyntheticsFastTestResult";
 import { SyntheticsNetworkTestEditRequest } from "../models/SyntheticsNetworkTestEditRequest";
 import { SyntheticsNetworkTestResponse } from "../models/SyntheticsNetworkTestResponse";
@@ -106,6 +110,45 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async addTestToSyntheticsDowntime(
+    downtimeId: string,
+    testId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'downtimeId' is not null or undefined
+    if (downtimeId === null || downtimeId === undefined) {
+      throw new RequiredError("downtimeId", "addTestToSyntheticsDowntime");
+    }
+
+    // verify required parameter 'testId' is not null or undefined
+    if (testId === null || testId === undefined) {
+      throw new RequiredError("testId", "addTestToSyntheticsDowntime");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
+        .replace("{downtime_id}", encodeURIComponent(String(downtimeId)))
+        .replace("{test_id}", encodeURIComponent(String(testId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.addTestToSyntheticsDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async completeTestFileMultipartUpload(
     publicId: string,
     body: SyntheticsTestFileCompleteMultipartUploadRequest,
@@ -157,6 +200,47 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSyntheticsDowntime(
+    body: SyntheticsDowntimeRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSyntheticsDowntime");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/downtimes";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.createSyntheticsDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SyntheticsDowntimeRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -241,6 +325,39 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSyntheticsDowntime(
+    downtimeId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'downtimeId' is not null or undefined
+    if (downtimeId === null || downtimeId === undefined) {
+      throw new RequiredError("downtimeId", "deleteSyntheticsDowntime");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/downtimes/{downtime_id}".replace(
+      "{downtime_id}",
+      encodeURIComponent(String(downtimeId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.deleteSyntheticsDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -529,6 +646,39 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSyntheticsDowntime(
+    downtimeId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'downtimeId' is not null or undefined
+    if (downtimeId === null || downtimeId === undefined) {
+      throw new RequiredError("downtimeId", "getSyntheticsDowntime");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/downtimes/{downtime_id}".replace(
+      "{downtime_id}",
+      encodeURIComponent(String(downtimeId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getSyntheticsDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -983,6 +1133,48 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSyntheticsDowntimes(
+    filterTestIds?: string,
+    filterActive?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/downtimes";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.listSyntheticsDowntimes")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterTestIds !== undefined) {
+      requestContext.setQueryParam(
+        "filter[test_ids]",
+        ObjectSerializer.serialize(filterTestIds, "string", ""),
+        ""
+      );
+    }
+    if (filterActive !== undefined) {
+      requestContext.setQueryParam(
+        "filter[active]",
+        ObjectSerializer.serialize(filterActive, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSyntheticsTestLatestResults(
     publicId: string,
     fromTs?: number,
@@ -1263,6 +1455,45 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async removeTestFromSyntheticsDowntime(
+    downtimeId: string,
+    testId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'downtimeId' is not null or undefined
+    if (downtimeId === null || downtimeId === undefined) {
+      throw new RequiredError("downtimeId", "removeTestFromSyntheticsDowntime");
+    }
+
+    // verify required parameter 'testId' is not null or undefined
+    if (testId === null || testId === undefined) {
+      throw new RequiredError("testId", "removeTestFromSyntheticsDowntime");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
+        .replace("{downtime_id}", encodeURIComponent(String(downtimeId)))
+        .replace("{test_id}", encodeURIComponent(String(testId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.removeTestFromSyntheticsDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async searchSuites(
     query?: string,
     sort?: string,
@@ -1359,6 +1590,56 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OnDemandConcurrencyCapAttributes", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSyntheticsDowntime(
+    downtimeId: string,
+    body: SyntheticsDowntimeRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'downtimeId' is not null or undefined
+    if (downtimeId === null || downtimeId === undefined) {
+      throw new RequiredError("downtimeId", "updateSyntheticsDowntime");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSyntheticsDowntime");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/synthetics/downtimes/{downtime_id}".replace(
+      "{downtime_id}",
+      encodeURIComponent(String(downtimeId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.updateSyntheticsDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SyntheticsDowntimeRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1483,6 +1764,91 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to addTestToSyntheticsDowntime
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async addTestToSyntheticsDowntime(
+    response: ResponseContext
+  ): Promise<SyntheticsDowntimeResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse"
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse",
+        ""
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to completeTestFileMultipartUpload
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1524,6 +1890,87 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createSyntheticsDowntime
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSyntheticsDowntime(
+    response: ResponseContext
+  ): Promise<SyntheticsDowntimeResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse"
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse",
+        ""
+      ) as SyntheticsDowntimeResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1640,6 +2087,82 @@ export class SyntheticsApiResponseProcessor {
         ""
       ) as SyntheticsSuiteResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSyntheticsDowntime
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSyntheticsDowntime(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -2057,6 +2580,91 @@ export class SyntheticsApiResponseProcessor {
         "SyntheticsTestResultResponse",
         ""
       ) as SyntheticsTestResultResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSyntheticsDowntime
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSyntheticsDowntime(
+    response: ResponseContext
+  ): Promise<SyntheticsDowntimeResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse"
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse",
+        ""
+      ) as SyntheticsDowntimeResponse;
       return body;
     }
 
@@ -2627,6 +3235,87 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSyntheticsDowntimes
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSyntheticsDowntimes(
+    response: ResponseContext
+  ): Promise<SyntheticsDowntimesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsDowntimesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimesResponse"
+      ) as SyntheticsDowntimesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsDowntimesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimesResponse",
+        ""
+      ) as SyntheticsDowntimesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSyntheticsTestLatestResults
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2939,6 +3628,91 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to removeTestFromSyntheticsDowntime
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removeTestFromSyntheticsDowntime(
+    response: ResponseContext
+  ): Promise<SyntheticsDowntimeResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse"
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse",
+        ""
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchSuites
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3055,6 +3829,91 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSyntheticsDowntime
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSyntheticsDowntime(
+    response: ResponseContext
+  ): Promise<SyntheticsDowntimeResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse"
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsDowntimeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsDowntimeResponse",
+        ""
+      ) as SyntheticsDowntimeResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSyntheticsNetworkTest
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3126,6 +3985,19 @@ export interface SyntheticsApiAbortTestFileMultipartUploadRequest {
   body: SyntheticsTestFileAbortMultipartUploadRequest;
 }
 
+export interface SyntheticsApiAddTestToSyntheticsDowntimeRequest {
+  /**
+   * The ID of the downtime.
+   * @type string
+   */
+  downtimeId: string;
+  /**
+   * The public ID of the Synthetics test to associate with the downtime.
+   * @type string
+   */
+  testId: string;
+}
+
 export interface SyntheticsApiCompleteTestFileMultipartUploadRequest {
   /**
    * The public ID of the Synthetic test.
@@ -3136,6 +4008,13 @@ export interface SyntheticsApiCompleteTestFileMultipartUploadRequest {
    * @type SyntheticsTestFileCompleteMultipartUploadRequest
    */
   body: SyntheticsTestFileCompleteMultipartUploadRequest;
+}
+
+export interface SyntheticsApiCreateSyntheticsDowntimeRequest {
+  /**
+   * @type SyntheticsDowntimeRequest
+   */
+  body: SyntheticsDowntimeRequest;
 }
 
 export interface SyntheticsApiCreateSyntheticsNetworkTestRequest {
@@ -3150,6 +4029,14 @@ export interface SyntheticsApiCreateSyntheticsSuiteRequest {
    * @type SuiteCreateEditRequest
    */
   body: SuiteCreateEditRequest;
+}
+
+export interface SyntheticsApiDeleteSyntheticsDowntimeRequest {
+  /**
+   * The ID of the downtime to delete.
+   * @type string
+   */
+  downtimeId: string;
 }
 
 export interface SyntheticsApiDeleteSyntheticsSuitesRequest {
@@ -3216,6 +4103,14 @@ export interface SyntheticsApiGetSyntheticsBrowserTestResultRequest {
    * @type number
    */
   timestamp?: number;
+}
+
+export interface SyntheticsApiGetSyntheticsDowntimeRequest {
+  /**
+   * The ID of the downtime to retrieve.
+   * @type string
+   */
+  downtimeId: string;
 }
 
 export interface SyntheticsApiGetSyntheticsFastTestResultRequest {
@@ -3359,6 +4254,19 @@ export interface SyntheticsApiListSyntheticsBrowserTestLatestResultsRequest {
   deviceId?: Array<string>;
 }
 
+export interface SyntheticsApiListSyntheticsDowntimesRequest {
+  /**
+   * Comma-separated list of Synthetics test public IDs to filter downtimes by.
+   * @type string
+   */
+  filterTestIds?: string;
+  /**
+   * If set to `true`, return only downtimes that are currently active.
+   * @type string
+   */
+  filterActive?: string;
+}
+
 export interface SyntheticsApiListSyntheticsTestLatestResultsRequest {
   /**
    * The public ID of the Synthetic test for which to search results.
@@ -3449,6 +4357,19 @@ export interface SyntheticsApiPollSyntheticsTestResultsRequest {
   resultIds: string;
 }
 
+export interface SyntheticsApiRemoveTestFromSyntheticsDowntimeRequest {
+  /**
+   * The ID of the downtime.
+   * @type string
+   */
+  downtimeId: string;
+  /**
+   * The public ID of the Synthetics test to disassociate from the downtime.
+   * @type string
+   */
+  testId: string;
+}
+
 export interface SyntheticsApiSearchSuitesRequest {
   /**
    * The search query.
@@ -3483,6 +4404,18 @@ export interface SyntheticsApiSetOnDemandConcurrencyCapRequest {
    * @type OnDemandConcurrencyCapAttributes
    */
   body: OnDemandConcurrencyCapAttributes;
+}
+
+export interface SyntheticsApiUpdateSyntheticsDowntimeRequest {
+  /**
+   * The ID of the downtime to update.
+   * @type string
+   */
+  downtimeId: string;
+  /**
+   * @type SyntheticsDowntimeRequest
+   */
+  body: SyntheticsDowntimeRequest;
 }
 
 export interface SyntheticsApiUpdateSyntheticsNetworkTestRequest {
@@ -3542,6 +4475,31 @@ export class SyntheticsApi {
   }
 
   /**
+   * Associate a Synthetics test with a downtime.
+   * @param param The request object
+   */
+  public addTestToSyntheticsDowntime(
+    param: SyntheticsApiAddTestToSyntheticsDowntimeRequest,
+    options?: Configuration
+  ): Promise<SyntheticsDowntimeResponse> {
+    const requestContextPromise =
+      this.requestFactory.addTestToSyntheticsDowntime(
+        param.downtimeId,
+        param.testId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addTestToSyntheticsDowntime(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Complete a multipart file upload for a Synthetic test. Call this endpoint after all parts
    * have been uploaded using the presigned URLs obtained from the multipart presigned URLs endpoint.
    * @param param The request object
@@ -3561,6 +4519,29 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.completeTestFileMultipartUpload(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new Synthetics downtime.
+   * @param param The request object
+   */
+  public createSyntheticsDowntime(
+    param: SyntheticsApiCreateSyntheticsDowntimeRequest,
+    options?: Configuration
+  ): Promise<SyntheticsDowntimeResponse> {
+    const requestContextPromise = this.requestFactory.createSyntheticsDowntime(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSyntheticsDowntime(
             responseContext
           );
         });
@@ -3603,6 +4584,29 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSyntheticsSuite(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a Synthetics downtime by its ID.
+   * @param param The request object
+   */
+  public deleteSyntheticsDowntime(
+    param: SyntheticsApiDeleteSyntheticsDowntimeRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteSyntheticsDowntime(
+      param.downtimeId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSyntheticsDowntime(
+            responseContext
+          );
         });
     });
   }
@@ -3760,6 +4764,27 @@ export class SyntheticsApi {
           return this.responseProcessor.getSyntheticsBrowserTestResult(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get a Synthetics downtime by its ID.
+   * @param param The request object
+   */
+  public getSyntheticsDowntime(
+    param: SyntheticsApiGetSyntheticsDowntimeRequest,
+    options?: Configuration
+  ): Promise<SyntheticsDowntimeResponse> {
+    const requestContextPromise = this.requestFactory.getSyntheticsDowntime(
+      param.downtimeId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSyntheticsDowntime(responseContext);
         });
     });
   }
@@ -3979,6 +5004,30 @@ export class SyntheticsApi {
   }
 
   /**
+   * Get a list of all Synthetics downtimes for your organization.
+   * @param param The request object
+   */
+  public listSyntheticsDowntimes(
+    param: SyntheticsApiListSyntheticsDowntimesRequest = {},
+    options?: Configuration
+  ): Promise<SyntheticsDowntimesResponse> {
+    const requestContextPromise = this.requestFactory.listSyntheticsDowntimes(
+      param.filterTestIds,
+      param.filterActive,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSyntheticsDowntimes(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the latest result summaries for a given Synthetic test.
    * @param param The request object
    */
@@ -4116,6 +5165,31 @@ export class SyntheticsApi {
   }
 
   /**
+   * Disassociate a Synthetics test from a downtime.
+   * @param param The request object
+   */
+  public removeTestFromSyntheticsDowntime(
+    param: SyntheticsApiRemoveTestFromSyntheticsDowntimeRequest,
+    options?: Configuration
+  ): Promise<SyntheticsDowntimeResponse> {
+    const requestContextPromise =
+      this.requestFactory.removeTestFromSyntheticsDowntime(
+        param.downtimeId,
+        param.testId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeTestFromSyntheticsDowntime(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Search for test suites.
    * @param param The request object
    */
@@ -4157,6 +5231,30 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.setOnDemandConcurrencyCap(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a Synthetics downtime by its ID.
+   * @param param The request object
+   */
+  public updateSyntheticsDowntime(
+    param: SyntheticsApiUpdateSyntheticsDowntimeRequest,
+    options?: Configuration
+  ): Promise<SyntheticsDowntimeResponse> {
+    const requestContextPromise = this.requestFactory.updateSyntheticsDowntime(
+      param.downtimeId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSyntheticsDowntime(
             responseContext
           );
         });
