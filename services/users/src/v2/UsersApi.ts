@@ -154,6 +154,51 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteUserInvitations(
+    userId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "deleteUserInvitations");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/users/{user_id}/invitations".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsersApi.v2.deleteUserInvitations",
+      UsersApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async disableUser(
     userId: string,
     _options?: Configuration,
@@ -701,6 +746,53 @@ export class UsersApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteUserInvitations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteUserInvitations(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to disableUser
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1175,6 +1267,14 @@ export interface UsersApiCreateUserRequest {
   body: UserCreateRequest;
 }
 
+export interface UsersApiDeleteUserInvitationsRequest {
+  /**
+   * The UUID of the user whose pending invitations should be canceled.
+   * @type string
+   */
+  userId: string;
+}
+
 export interface UsersApiDisableUserRequest {
   /**
    * The ID of the user.
@@ -1330,6 +1430,28 @@ export class UsersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Cancel all pending invitations for a specified user.
+   * Requires the `user_access_invite` permission.
+   * @param param The request object
+   */
+  public deleteUserInvitations(
+    param: UsersApiDeleteUserInvitationsRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteUserInvitations(
+      param.userId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteUserInvitations(responseContext);
         });
     });
   }

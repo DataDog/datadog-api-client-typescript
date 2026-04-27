@@ -1,6 +1,7 @@
 export {
   UsersApiAnonymizeUsersRequest,
   UsersApiCreateUserRequest,
+  UsersApiDeleteUserInvitationsRequest,
   UsersApiDisableUserRequest,
   UsersApiGetInvitationRequest,
   UsersApiGetUserRequest,
