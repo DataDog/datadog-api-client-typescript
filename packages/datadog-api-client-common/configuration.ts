@@ -325,7 +325,6 @@ export function createConfiguration(
       "v2.listVulnerabilities": false,
       "v2.listVulnerableAssets": false,
       "v2.muteFindings": false,
-      "v2.muteSecurityFindings": false,
       "v2.runHistoricalJob": false,
       "v2.searchSecurityMonitoringHistsignals": false,
       "v2.getCodeCoverageBranchSummary": false,
