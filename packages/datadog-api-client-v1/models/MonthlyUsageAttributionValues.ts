@@ -307,6 +307,14 @@ export class MonthlyUsageAttributionValues {
    */
   "indexedSpansUsage"?: number;
   /**
+   * The percentage of infrastructure host Basic tier usage by tag(s).
+   */
+  "infraHostBasicPercentage"?: number;
+  /**
+   * The infrastructure host Basic tier usage by tag(s).
+   */
+  "infraHostBasicUsage"?: number;
+  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -1050,6 +1058,16 @@ export class MonthlyUsageAttributionValues {
     },
     indexedSpansUsage: {
       baseName: "indexed_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    infraHostBasicPercentage: {
+      baseName: "infra_host_basic_percentage",
+      type: "number",
+      format: "double",
+    },
+    infraHostBasicUsage: {
+      baseName: "infra_host_basic_usage",
       type: "number",
       format: "double",
     },

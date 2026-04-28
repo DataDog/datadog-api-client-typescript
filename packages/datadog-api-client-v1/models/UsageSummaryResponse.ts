@@ -365,6 +365,18 @@ export class UsageSummaryResponse {
    */
   "ephInfraHostAzureAggSum"?: number;
   /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic tier over all hours in the current month for all organizations.
+   */
+  "ephInfraHostBasicAggSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "ephInfraHostBasicInfraBasicAgentAggSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic tier on vSphere over all hours in the current month for all organizations.
+   */
+  "ephInfraHostBasicInfraBasicVsphereAggSum"?: number;
+  /**
    * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current month for all organizations.
    */
   "ephInfraHostEntAggSum"?: number;
@@ -512,6 +524,18 @@ export class UsageSummaryResponse {
    * Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current month for all organizations.
    */
   "infraEdgeMonitoringDevicesTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "infraHostBasicInfraBasicAgentTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier on vSphere over all hours in the current month for all organizations.
+   */
+  "infraHostBasicInfraBasicVsphereTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier over all hours in the current month for all organizations.
+   */
+  "infraHostBasicTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current month for all organizations.
    */
@@ -1433,6 +1457,21 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    ephInfraHostBasicAggSum: {
+      baseName: "eph_infra_host_basic_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostBasicInfraBasicAgentAggSum: {
+      baseName: "eph_infra_host_basic_infra_basic_agent_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostBasicInfraBasicVsphereAggSum: {
+      baseName: "eph_infra_host_basic_infra_basic_vsphere_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     ephInfraHostEntAggSum: {
       baseName: "eph_infra_host_ent_agg_sum",
       type: "number",
@@ -1616,6 +1655,21 @@ export class UsageSummaryResponse {
     },
     infraEdgeMonitoringDevicesTop99pSum: {
       baseName: "infra_edge_monitoring_devices_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraHostBasicInfraBasicAgentTop99pSum: {
+      baseName: "infra_host_basic_infra_basic_agent_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraHostBasicInfraBasicVsphereTop99pSum: {
+      baseName: "infra_host_basic_infra_basic_vsphere_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraHostBasicTop99pSum: {
+      baseName: "infra_host_basic_top99p_sum",
       type: "number",
       format: "int64",
     },

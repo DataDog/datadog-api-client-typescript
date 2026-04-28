@@ -80,6 +80,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE
   | typeof INFRA_HOST_USAGE
   | typeof INFRA_HOST_PERCENTAGE
+  | typeof INFRA_HOST_BASIC_USAGE
+  | typeof INFRA_HOST_BASIC_PERCENTAGE
   | typeof INVOCATIONS_USAGE
   | typeof INVOCATIONS_PERCENTAGE
   | typeof LAMBDA_TRACED_INVOCATIONS_USAGE
@@ -258,6 +260,8 @@ export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE =
   "incident_management_monthly_active_users_percentage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INFRA_HOST_PERCENTAGE = "infra_host_percentage";
+export const INFRA_HOST_BASIC_USAGE = "infra_host_basic_usage";
+export const INFRA_HOST_BASIC_PERCENTAGE = "infra_host_basic_percentage";
 export const INVOCATIONS_USAGE = "invocations_usage";
 export const INVOCATIONS_PERCENTAGE = "invocations_percentage";
 export const LAMBDA_TRACED_INVOCATIONS_USAGE =
