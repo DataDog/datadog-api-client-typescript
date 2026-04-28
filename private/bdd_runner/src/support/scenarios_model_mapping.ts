@@ -12175,6 +12175,71 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsApiMultistepParentTestsResponse",
   },
+  "SyntheticsApi.V2.ListSyntheticsDowntimes": {
+    filterTestIds: {
+      type: "string",
+      format: "",
+    },
+    filterActive: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsDowntimesResponse",
+  },
+  "SyntheticsApi.V2.CreateSyntheticsDowntime": {
+    body: {
+      type: "SyntheticsDowntimeRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsDowntimeResponse",
+  },
+  "SyntheticsApi.V2.GetSyntheticsDowntime": {
+    downtimeId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsDowntimeResponse",
+  },
+  "SyntheticsApi.V2.UpdateSyntheticsDowntime": {
+    downtimeId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SyntheticsDowntimeRequest",
+      format: "",
+    },
+    operationResponseType: "SyntheticsDowntimeResponse",
+  },
+  "SyntheticsApi.V2.DeleteSyntheticsDowntime": {
+    downtimeId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SyntheticsApi.V2.AddTestToSyntheticsDowntime": {
+    downtimeId: {
+      type: "string",
+      format: "",
+    },
+    testId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsDowntimeResponse",
+  },
+  "SyntheticsApi.V2.RemoveTestFromSyntheticsDowntime": {
+    downtimeId: {
+      type: "string",
+      format: "",
+    },
+    testId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsDowntimeResponse",
+  },
   "SyntheticsApi.V2.GetOnDemandConcurrencyCap": {
     operationResponseType: "OnDemandConcurrencyCapResponse",
   },
