@@ -363,6 +363,18 @@ export class UsageSummaryDateOrg {
    */
   "ephInfraHostAzureSum"?: number;
   /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current date for the given org.
+   */
+  "ephInfraHostBasicInfraBasicAgentSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic tier on vSphere over all hours in the current date for the given org.
+   */
+  "ephInfraHostBasicInfraBasicVsphereSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic tier over all hours in the current date for the given org.
+   */
+  "ephInfraHostBasicSum"?: number;
+  /**
    * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for the given org.
    */
   "ephInfraHostEntSum"?: number;
@@ -514,6 +526,18 @@ export class UsageSummaryDateOrg {
    * Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current date for the given org.
    */
   "infraEdgeMonitoringDevicesTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current date for the given org.
+   */
+  "infraHostBasicInfraBasicAgentTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier on vSphere over all hours in the current date for the given org.
+   */
+  "infraHostBasicInfraBasicVsphereTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier over all hours in the current date for the given org.
+   */
+  "infraHostBasicTop99p"?: number;
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for the given org.
    */
@@ -1409,6 +1433,21 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    ephInfraHostBasicInfraBasicAgentSum: {
+      baseName: "eph_infra_host_basic_infra_basic_agent_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostBasicInfraBasicVsphereSum: {
+      baseName: "eph_infra_host_basic_infra_basic_vsphere_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostBasicSum: {
+      baseName: "eph_infra_host_basic_sum",
+      type: "number",
+      format: "int64",
+    },
     ephInfraHostEntSum: {
       baseName: "eph_infra_host_ent_sum",
       type: "number",
@@ -1595,6 +1634,21 @@ export class UsageSummaryDateOrg {
     },
     infraEdgeMonitoringDevicesTop99p: {
       baseName: "infra_edge_monitoring_devices_top99p",
+      type: "number",
+      format: "int64",
+    },
+    infraHostBasicInfraBasicAgentTop99p: {
+      baseName: "infra_host_basic_infra_basic_agent_top99p",
+      type: "number",
+      format: "int64",
+    },
+    infraHostBasicInfraBasicVsphereTop99p: {
+      baseName: "infra_host_basic_infra_basic_vsphere_top99p",
+      type: "number",
+      format: "int64",
+    },
+    infraHostBasicTop99p: {
+      baseName: "infra_host_basic_top99p",
       type: "number",
       format: "int64",
     },

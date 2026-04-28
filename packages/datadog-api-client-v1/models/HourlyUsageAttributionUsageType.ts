@@ -54,6 +54,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE
   | typeof INDEXED_SPANS_USAGE
   | typeof INFRA_HOST_USAGE
+  | typeof INFRA_HOST_BASIC_USAGE
   | typeof INGESTED_LOGS_BYTES_USAGE
   | typeof INGESTED_SPANS_BYTES_USAGE
   | typeof INVOCATIONS_USAGE
@@ -148,6 +149,7 @@ export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
   "incident_management_monthly_active_users_usage";
 export const INDEXED_SPANS_USAGE = "indexed_spans_usage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
+export const INFRA_HOST_BASIC_USAGE = "infra_host_basic_usage";
 export const INGESTED_LOGS_BYTES_USAGE = "ingested_logs_bytes_usage";
 export const INGESTED_SPANS_BYTES_USAGE = "ingested_spans_bytes_usage";
 export const INVOCATIONS_USAGE = "invocations_usage";
