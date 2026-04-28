@@ -2189,6 +2189,13 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
+import { MuteFindingsMuteAttributes } from "./MuteFindingsMuteAttributes";
+import { MuteFindingsRequest } from "./MuteFindingsRequest";
+import { MuteFindingsRequestData } from "./MuteFindingsRequestData";
+import { MuteFindingsRequestDataAttributes } from "./MuteFindingsRequestDataAttributes";
+import { MuteFindingsRequestDataRelationships } from "./MuteFindingsRequestDataRelationships";
+import { MuteFindingsResponse } from "./MuteFindingsResponse";
+import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
 import { NotebookCreateData } from "./NotebookCreateData";
 import { NotebookCreateRequest } from "./NotebookCreateRequest";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
@@ -5029,6 +5036,18 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   MonitorUserTemplateResourceType: ["monitor-user-template"],
+  MuteDataType: ["mute"],
+  MuteFindingsReason: [
+    "PENDING_FIX",
+    "FALSE_POSITIVE",
+    "OTHER",
+    "NO_FIX",
+    "DUPLICATE",
+    "RISK_ACCEPTED",
+    "NO_PENDING_FIX",
+    "HUMAN_ERROR",
+    "NO_LONGER_ACCEPTED_RISK",
+  ],
   NotebookResourceType: ["notebook"],
   NotificationChannelEmailConfigType: ["email"],
   NotificationChannelEmailFormatType: ["html", "text"],
@@ -8894,6 +8913,13 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
+  MuteFindingsMuteAttributes: MuteFindingsMuteAttributes,
+  MuteFindingsRequest: MuteFindingsRequest,
+  MuteFindingsRequestData: MuteFindingsRequestData,
+  MuteFindingsRequestDataAttributes: MuteFindingsRequestDataAttributes,
+  MuteFindingsRequestDataRelationships: MuteFindingsRequestDataRelationships,
+  MuteFindingsResponse: MuteFindingsResponse,
+  MuteFindingsResponseData: MuteFindingsResponseData,
   NotebookCreateData: NotebookCreateData,
   NotebookCreateRequest: NotebookCreateRequest,
   NotebookTriggerWrapper: NotebookTriggerWrapper,

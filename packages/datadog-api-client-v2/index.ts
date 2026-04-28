@@ -1085,6 +1085,7 @@ export {
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
+  SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
@@ -4155,6 +4156,15 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
+export { MuteDataType } from "./models/MuteDataType";
+export { MuteFindingsMuteAttributes } from "./models/MuteFindingsMuteAttributes";
+export { MuteFindingsReason } from "./models/MuteFindingsReason";
+export { MuteFindingsRequest } from "./models/MuteFindingsRequest";
+export { MuteFindingsRequestData } from "./models/MuteFindingsRequestData";
+export { MuteFindingsRequestDataAttributes } from "./models/MuteFindingsRequestDataAttributes";
+export { MuteFindingsRequestDataRelationships } from "./models/MuteFindingsRequestDataRelationships";
+export { MuteFindingsResponse } from "./models/MuteFindingsResponse";
+export { MuteFindingsResponseData } from "./models/MuteFindingsResponseData";
 export { NotebookCreateData } from "./models/NotebookCreateData";
 export { NotebookCreateRequest } from "./models/NotebookCreateRequest";
 export { NotebookResourceType } from "./models/NotebookResourceType";
