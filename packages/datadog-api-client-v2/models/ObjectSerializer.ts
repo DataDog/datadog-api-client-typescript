@@ -3461,6 +3461,18 @@ import { SyntheticsApiMultistepParentTestsResponse } from "./SyntheticsApiMultis
 import { SyntheticsApiMultistepSubtestAttributes } from "./SyntheticsApiMultistepSubtestAttributes";
 import { SyntheticsApiMultistepSubtestData } from "./SyntheticsApiMultistepSubtestData";
 import { SyntheticsApiMultistepSubtestsResponse } from "./SyntheticsApiMultistepSubtestsResponse";
+import { SyntheticsDowntimeData } from "./SyntheticsDowntimeData";
+import { SyntheticsDowntimeDataAttributesRequest } from "./SyntheticsDowntimeDataAttributesRequest";
+import { SyntheticsDowntimeDataAttributesResponse } from "./SyntheticsDowntimeDataAttributesResponse";
+import { SyntheticsDowntimeDataRequest } from "./SyntheticsDowntimeDataRequest";
+import { SyntheticsDowntimeRequest } from "./SyntheticsDowntimeRequest";
+import { SyntheticsDowntimeResponse } from "./SyntheticsDowntimeResponse";
+import { SyntheticsDowntimeTimeSlotDate } from "./SyntheticsDowntimeTimeSlotDate";
+import { SyntheticsDowntimeTimeSlotRecurrenceRequest } from "./SyntheticsDowntimeTimeSlotRecurrenceRequest";
+import { SyntheticsDowntimeTimeSlotRecurrenceResponse } from "./SyntheticsDowntimeTimeSlotRecurrenceResponse";
+import { SyntheticsDowntimeTimeSlotRequest } from "./SyntheticsDowntimeTimeSlotRequest";
+import { SyntheticsDowntimeTimeSlotResponse } from "./SyntheticsDowntimeTimeSlotResponse";
+import { SyntheticsDowntimesResponse } from "./SyntheticsDowntimesResponse";
 import { SyntheticsFastTestResult } from "./SyntheticsFastTestResult";
 import { SyntheticsFastTestResultAttributes } from "./SyntheticsFastTestResultAttributes";
 import { SyntheticsFastTestResultData } from "./SyntheticsFastTestResultData";
@@ -5983,6 +5995,9 @@ const enumsMap: { [key: string]: any[] } = {
   SuiteSearchResponseType: ["suites_search"],
   SyntheticsApiMultistepParentTestType: ["parent_test"],
   SyntheticsApiMultistepSubtestType: ["subtest"],
+  SyntheticsDowntimeFrequency: ["DAILY", "WEEKLY", "MONTHLY", "YEARLY"],
+  SyntheticsDowntimeResourceType: ["downtime"],
+  SyntheticsDowntimeWeekday: ["MO", "TU", "WE", "TH", "FR", "SA", "SU"],
   SyntheticsFastTestResultType: ["result"],
   SyntheticsFastTestSubType: [
     "dns",
@@ -10499,6 +10514,22 @@ const typeMap: { [index: string]: any } = {
   SyntheticsApiMultistepSubtestData: SyntheticsApiMultistepSubtestData,
   SyntheticsApiMultistepSubtestsResponse:
     SyntheticsApiMultistepSubtestsResponse,
+  SyntheticsDowntimeData: SyntheticsDowntimeData,
+  SyntheticsDowntimeDataAttributesRequest:
+    SyntheticsDowntimeDataAttributesRequest,
+  SyntheticsDowntimeDataAttributesResponse:
+    SyntheticsDowntimeDataAttributesResponse,
+  SyntheticsDowntimeDataRequest: SyntheticsDowntimeDataRequest,
+  SyntheticsDowntimeRequest: SyntheticsDowntimeRequest,
+  SyntheticsDowntimeResponse: SyntheticsDowntimeResponse,
+  SyntheticsDowntimeTimeSlotDate: SyntheticsDowntimeTimeSlotDate,
+  SyntheticsDowntimeTimeSlotRecurrenceRequest:
+    SyntheticsDowntimeTimeSlotRecurrenceRequest,
+  SyntheticsDowntimeTimeSlotRecurrenceResponse:
+    SyntheticsDowntimeTimeSlotRecurrenceResponse,
+  SyntheticsDowntimeTimeSlotRequest: SyntheticsDowntimeTimeSlotRequest,
+  SyntheticsDowntimeTimeSlotResponse: SyntheticsDowntimeTimeSlotResponse,
+  SyntheticsDowntimesResponse: SyntheticsDowntimesResponse,
   SyntheticsFastTestResult: SyntheticsFastTestResult,
   SyntheticsFastTestResultAttributes: SyntheticsFastTestResultAttributes,
   SyntheticsFastTestResultData: SyntheticsFastTestResultData,

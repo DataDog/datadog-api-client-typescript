@@ -12163,6 +12163,71 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsApiMultistepParentTestsResponse",
     },
+    "v2.ListSyntheticsDowntimes": {
+        "filterTestIds": {
+            "type": "string",
+            "format": "",
+            },
+        "filterActive": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsDowntimesResponse",
+    },
+    "v2.CreateSyntheticsDowntime": {
+        "body": {
+            "type": "SyntheticsDowntimeRequest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsDowntimeResponse",
+    },
+    "v2.GetSyntheticsDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsDowntimeResponse",
+    },
+    "v2.UpdateSyntheticsDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsDowntimeRequest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsDowntimeResponse",
+    },
+    "v2.DeleteSyntheticsDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.AddTestToSyntheticsDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "testId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsDowntimeResponse",
+    },
+    "v2.RemoveTestFromSyntheticsDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "testId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsDowntimeResponse",
+    },
     "v2.GetOnDemandConcurrencyCap": {
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
