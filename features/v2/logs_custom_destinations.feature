@@ -16,12 +16,12 @@ Feature: Logs Custom Destinations
   @team:DataDog/logs-backend @team:DataDog/logs-forwarding
   Scenario: Create a Basic HTTP custom destination returns "OK" response
     Given new "CreateLogsCustomDestination" request
-    And body with value {"data": {"attributes": {"enabled": false, "forward_tags": false, "forward_tags_restriction_list": ["datacenter", "host"], "forward_tags_restriction_list_type": "ALLOW_LIST", "forwarder_destination": {"auth": {"password": "datadog-custom-destination-password", "type": "basic", "username": "datadog-custom-destination-username"}, "endpoint": "https://example.com", "type": "http"}, "name": "Nginx logs", "query": "source:nginx"}, "type": "custom_destination"}}
+    And body with value {"data": {"attributes": {"enabled": false, "forward_tags": false, "forward_tags_restriction_list": ["datacenter", "host"], "forward_tags_restriction_list_type": "ALLOW_LIST", "forwarder_destination": {"auth": {"password": "datadog-custom-destination-password", "type": "basic", "username": "datadog-custom-destination-username"}, "endpoint": "https://example.com", "type": "http"}, "name": "{{ unique }}", "query": "source:nginx"}, "type": "custom_destination"}}
     When the request is sent
     Then the response status is 200 OK
     And the response "data.type" is equal to "custom_destination"
     And the response "data" has field "id"
-    And the response "data.attributes.name" is equal to "Nginx logs"
+    And the response "data.attributes.name" is equal to "{{ unique }}"
     And the response "data.attributes.query" is equal to "source:nginx"
     And the response "data.attributes.forwarder_destination.type" is equal to "http"
     And the response "data.attributes.forwarder_destination.endpoint" is equal to "https://example.com"
@@ -38,12 +38,12 @@ Feature: Logs Custom Destinations
   @team:DataDog/logs-backend @team:DataDog/logs-forwarding
   Scenario: Create a Custom Header HTTP custom destination returns "OK" response
     Given new "CreateLogsCustomDestination" request
-    And body with value {"data": {"attributes": {"enabled": false, "forward_tags": false, "forward_tags_restriction_list": ["datacenter", "host"], "forward_tags_restriction_list_type": "ALLOW_LIST", "forwarder_destination": {"auth": {"header_value": "my-secret", "type": "custom_header", "header_name": "MY-AUTHENTICATION-HEADER"}, "endpoint": "https://example.com", "type": "http"}, "name": "Nginx logs", "query": "source:nginx"}, "type": "custom_destination"}}
+    And body with value {"data": {"attributes": {"enabled": false, "forward_tags": false, "forward_tags_restriction_list": ["datacenter", "host"], "forward_tags_restriction_list_type": "ALLOW_LIST", "forwarder_destination": {"auth": {"header_value": "my-secret", "type": "custom_header", "header_name": "MY-AUTHENTICATION-HEADER"}, "endpoint": "https://example.com", "type": "http"}, "name": "{{ unique }}", "query": "source:nginx"}, "type": "custom_destination"}}
     When the request is sent
     Then the response status is 200 OK
     And the response "data.type" is equal to "custom_destination"
     And the response "data" has field "id"
-    And the response "data.attributes.name" is equal to "Nginx logs"
+    And the response "data.attributes.name" is equal to "{{ unique }}"
     And the response "data.attributes.query" is equal to "source:nginx"
     And the response "data.attributes.forwarder_destination.type" is equal to "http"
     And the response "data.attributes.forwarder_destination.endpoint" is equal to "https://example.com"
