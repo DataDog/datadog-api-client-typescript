@@ -72,7 +72,6 @@ export {
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
-  SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
@@ -257,15 +256,6 @@ export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsRespo
 export { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
 export { ListVulnerableAssetsResponse } from "./models/ListVulnerableAssetsResponse";
 export { Metadata } from "./models/Metadata";
-export { MuteDataType } from "./models/MuteDataType";
-export { MuteFindingsMuteAttributes } from "./models/MuteFindingsMuteAttributes";
-export { MuteFindingsReason } from "./models/MuteFindingsReason";
-export { MuteFindingsRequest } from "./models/MuteFindingsRequest";
-export { MuteFindingsRequestData } from "./models/MuteFindingsRequestData";
-export { MuteFindingsRequestDataAttributes } from "./models/MuteFindingsRequestDataAttributes";
-export { MuteFindingsRequestDataRelationships } from "./models/MuteFindingsRequestDataRelationships";
-export { MuteFindingsResponse } from "./models/MuteFindingsResponse";
-export { MuteFindingsResponseData } from "./models/MuteFindingsResponseData";
 export { NotificationRule } from "./models/NotificationRule";
 export { NotificationRuleAttributes } from "./models/NotificationRuleAttributes";
 export { NotificationRuleResponse } from "./models/NotificationRuleResponse";

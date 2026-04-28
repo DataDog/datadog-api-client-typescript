@@ -63,8 +63,6 @@ import { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse"
 import { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 import { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./models/ListVulnerableAssetsResponse";
-import { MuteFindingsRequest } from "./models/MuteFindingsRequest";
-import { MuteFindingsResponse } from "./models/MuteFindingsResponse";
 import { NotificationRuleResponse } from "./models/NotificationRuleResponse";
 import { NotificationRulesList } from "./models/NotificationRulesList";
 import { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
@@ -5337,67 +5335,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "BulkMuteFindingsRequest", ""),
-      contentType,
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async muteSecurityFindings(
-    body: MuteFindingsRequest,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "SecurityMonitoringApi.v2.muteSecurityFindings"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'muteSecurityFindings' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.muteSecurityFindings'] = true`",
-      );
-    }
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "muteSecurityFindings");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/security/findings/mute";
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SecurityMonitoringApi.v2.muteSecurityFindings",
-      SecurityMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = stringify(
-      serialize(body, TypingInfo, "MuteFindingsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -11168,88 +11105,6 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to muteSecurityFindings
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async muteSecurityFindings(
-    response: ResponseContext,
-  ): Promise<MuteFindingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 202) {
-      const body: MuteFindingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "MuteFindingsResponse",
-      ) as MuteFindingsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-    if (response.httpStatusCode === 422) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: JSONAPIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "JSONAPIErrorResponse",
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MuteFindingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "MuteFindingsResponse",
-        "",
-      ) as MuteFindingsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to patchSignalNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -13505,13 +13360,6 @@ export interface SecurityMonitoringApiMuteFindingsRequest {
    * @type BulkMuteFindingsRequest
    */
   body: BulkMuteFindingsRequest;
-}
-
-export interface SecurityMonitoringApiMuteSecurityFindingsRequest {
-  /**
-   * @type MuteFindingsRequest
-   */
-  body: MuteFindingsRequest;
 }
 
 export interface SecurityMonitoringApiPatchSignalNotificationRuleRequest {
@@ -15999,30 +15847,6 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.muteFindings(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Mute or unmute security findings.
-   * You can mute or unmute up to 100 security findings per request. The request body must include `is_muted` and `reason` attributes. The allowed reasons depend on whether the finding is being muted or unmuted:
-   *   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `OTHER`, `NO_FIX`, `DUPLICATE`, `RISK_ACCEPTED`.
-   *   - To unmute a finding: `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.
-   * @param param The request object
-   */
-  public muteSecurityFindings(
-    param: SecurityMonitoringApiMuteSecurityFindingsRequest,
-    options?: Configuration,
-  ): Promise<MuteFindingsResponse> {
-    const requestContextPromise = this.requestFactory.muteSecurityFindings(
-      param.body,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.muteSecurityFindings(responseContext);
         });
     });
   }

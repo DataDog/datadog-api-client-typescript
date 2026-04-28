@@ -140,13 +140,6 @@ import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
 import { Metadata } from "./Metadata";
-import { MuteFindingsMuteAttributes } from "./MuteFindingsMuteAttributes";
-import { MuteFindingsRequest } from "./MuteFindingsRequest";
-import { MuteFindingsRequestData } from "./MuteFindingsRequestData";
-import { MuteFindingsRequestDataAttributes } from "./MuteFindingsRequestDataAttributes";
-import { MuteFindingsRequestDataRelationships } from "./MuteFindingsRequestDataRelationships";
-import { MuteFindingsResponse } from "./MuteFindingsResponse";
-import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
@@ -391,18 +384,6 @@ export const TypingInfo: ModelTypingInfo = {
     HistoricalJobDataType: ["historicalDetectionsJob"],
     IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
     JiraIssuesDataType: ["jira_issues"],
-    MuteDataType: ["mute"],
-    MuteFindingsReason: [
-      "PENDING_FIX",
-      "FALSE_POSITIVE",
-      "OTHER",
-      "NO_FIX",
-      "DUPLICATE",
-      "RISK_ACCEPTED",
-      "NO_PENDING_FIX",
-      "HUMAN_ERROR",
-      "NO_LONGER_ACCEPTED_RISK",
-    ],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -916,13 +897,6 @@ export const TypingInfo: ModelTypingInfo = {
     ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
     ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
     Metadata: Metadata,
-    MuteFindingsMuteAttributes: MuteFindingsMuteAttributes,
-    MuteFindingsRequest: MuteFindingsRequest,
-    MuteFindingsRequestData: MuteFindingsRequestData,
-    MuteFindingsRequestDataAttributes: MuteFindingsRequestDataAttributes,
-    MuteFindingsRequestDataRelationships: MuteFindingsRequestDataRelationships,
-    MuteFindingsResponse: MuteFindingsResponse,
-    MuteFindingsResponseData: MuteFindingsResponseData,
     NotificationRule: NotificationRule,
     NotificationRuleAttributes: NotificationRuleAttributes,
     NotificationRuleResponse: NotificationRuleResponse,
