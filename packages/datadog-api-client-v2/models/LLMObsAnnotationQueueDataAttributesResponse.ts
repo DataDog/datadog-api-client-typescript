@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -10,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes of an LLM Observability annotation queue.
  */
 export class LLMObsAnnotationQueueDataAttributesResponse {
+  /**
+   * Schema defining the labels for an annotation queue.
+   */
+  "annotationSchema"?: LLMObsAnnotationSchema;
   /**
    * Timestamp when the queue was created.
    */
@@ -59,6 +64,10 @@ export class LLMObsAnnotationQueueDataAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    annotationSchema: {
+      baseName: "annotation_schema",
+      type: "LLMObsAnnotationSchema",
+    },
     createdAt: {
       baseName: "created_at",
       type: "Date",

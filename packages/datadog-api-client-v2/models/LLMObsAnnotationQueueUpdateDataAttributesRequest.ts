@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -10,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes for updating an LLM Observability annotation queue. All fields are optional.
  */
 export class LLMObsAnnotationQueueUpdateDataAttributesRequest {
+  /**
+   * Schema defining the labels for an annotation queue.
+   */
+  "annotationSchema"?: LLMObsAnnotationSchema;
   /**
    * Updated description of the annotation queue.
    */
@@ -35,6 +40,10 @@ export class LLMObsAnnotationQueueUpdateDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    annotationSchema: {
+      baseName: "annotation_schema",
+      type: "LLMObsAnnotationSchema",
+    },
     description: {
       baseName: "description",
       type: "string",

@@ -614,6 +614,7 @@ export {
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
   LLMObservabilityApiDeleteLLMObsProjectsRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
+  LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
   LLMObservabilityApiGetLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiListLLMObsAnnotationQueuesRequest,
   LLMObservabilityApiListLLMObsDatasetRecordsRequest,
@@ -621,6 +622,7 @@ export {
   LLMObservabilityApiListLLMObsExperimentsRequest,
   LLMObservabilityApiListLLMObsProjectsRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
+  LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
   LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiUpdateLLMObsDatasetRequest,
   LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest,
@@ -3768,6 +3770,12 @@ export { LLMObsAnnotationQueueInteractionsDataResponse } from "./models/LLMObsAn
 export { LLMObsAnnotationQueueInteractionsRequest } from "./models/LLMObsAnnotationQueueInteractionsRequest";
 export { LLMObsAnnotationQueueInteractionsResponse } from "./models/LLMObsAnnotationQueueInteractionsResponse";
 export { LLMObsAnnotationQueueInteractionsType } from "./models/LLMObsAnnotationQueueInteractionsType";
+export { LLMObsAnnotationQueueLabelSchemaAttributes } from "./models/LLMObsAnnotationQueueLabelSchemaAttributes";
+export { LLMObsAnnotationQueueLabelSchemaData } from "./models/LLMObsAnnotationQueueLabelSchemaData";
+export { LLMObsAnnotationQueueLabelSchemaResponse } from "./models/LLMObsAnnotationQueueLabelSchemaResponse";
+export { LLMObsAnnotationQueueLabelSchemaUpdateAttributes } from "./models/LLMObsAnnotationQueueLabelSchemaUpdateAttributes";
+export { LLMObsAnnotationQueueLabelSchemaUpdateData } from "./models/LLMObsAnnotationQueueLabelSchemaUpdateData";
+export { LLMObsAnnotationQueueLabelSchemaUpdateRequest } from "./models/LLMObsAnnotationQueueLabelSchemaUpdateRequest";
 export { LLMObsAnnotationQueueRequest } from "./models/LLMObsAnnotationQueueRequest";
 export { LLMObsAnnotationQueueResponse } from "./models/LLMObsAnnotationQueueResponse";
 export { LLMObsAnnotationQueuesResponse } from "./models/LLMObsAnnotationQueuesResponse";
@@ -3775,6 +3783,7 @@ export { LLMObsAnnotationQueueType } from "./models/LLMObsAnnotationQueueType";
 export { LLMObsAnnotationQueueUpdateDataAttributesRequest } from "./models/LLMObsAnnotationQueueUpdateDataAttributesRequest";
 export { LLMObsAnnotationQueueUpdateDataRequest } from "./models/LLMObsAnnotationQueueUpdateDataRequest";
 export { LLMObsAnnotationQueueUpdateRequest } from "./models/LLMObsAnnotationQueueUpdateRequest";
+export { LLMObsAnnotationSchema } from "./models/LLMObsAnnotationSchema";
 export { LLMObsCursorMeta } from "./models/LLMObsCursorMeta";
 export { LLMObsCustomEvalConfigAssessmentCriteria } from "./models/LLMObsCustomEvalConfigAssessmentCriteria";
 export { LLMObsCustomEvalConfigAttributes } from "./models/LLMObsCustomEvalConfigAttributes";
@@ -3859,6 +3868,8 @@ export { LLMObsExperimentUpdateDataAttributesRequest } from "./models/LLMObsExpe
 export { LLMObsExperimentUpdateDataRequest } from "./models/LLMObsExperimentUpdateDataRequest";
 export { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
 export { LLMObsInteractionType } from "./models/LLMObsInteractionType";
+export { LLMObsLabelSchema } from "./models/LLMObsLabelSchema";
+export { LLMObsLabelSchemaType } from "./models/LLMObsLabelSchemaType";
 export { LLMObsMetricAssessment } from "./models/LLMObsMetricAssessment";
 export { LLMObsMetricScoreType } from "./models/LLMObsMetricScoreType";
 export { LLMObsProjectDataAttributesRequest } from "./models/LLMObsProjectDataAttributesRequest";
