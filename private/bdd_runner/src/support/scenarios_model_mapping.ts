@@ -2650,6 +2650,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "LLMObservabilityApi.V2.GetLLMObsAnnotationQueueLabelSchema": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotationQueueLabelSchemaResponse",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsAnnotationQueueLabelSchema": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsAnnotationQueueLabelSchemaUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotationQueueLabelSchemaResponse",
+  },
   "LLMObservabilityApi.V2.ListLLMObsExperiments": {
     filterProjectId: {
       type: "string",

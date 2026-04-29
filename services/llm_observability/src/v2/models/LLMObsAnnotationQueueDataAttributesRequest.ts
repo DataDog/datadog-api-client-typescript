@@ -1,9 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
+
 /**
  * Attributes for creating an LLM Observability annotation queue.
  */
 export class LLMObsAnnotationQueueDataAttributesRequest {
+  /**
+   * Schema defining the labels for an annotation queue.
+   */
+  "annotationSchema"?: LLMObsAnnotationSchema;
   /**
    * Description of the annotation queue.
    */
@@ -31,6 +37,10 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    annotationSchema: {
+      baseName: "annotation_schema",
+      type: "LLMObsAnnotationSchema",
+    },
     description: {
       baseName: "description",
       type: "string",

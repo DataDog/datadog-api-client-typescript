@@ -21,12 +21,19 @@ import { LLMObsAnnotationQueueInteractionsDataRequest } from "./LLMObsAnnotation
 import { LLMObsAnnotationQueueInteractionsDataResponse } from "./LLMObsAnnotationQueueInteractionsDataResponse";
 import { LLMObsAnnotationQueueInteractionsRequest } from "./LLMObsAnnotationQueueInteractionsRequest";
 import { LLMObsAnnotationQueueInteractionsResponse } from "./LLMObsAnnotationQueueInteractionsResponse";
+import { LLMObsAnnotationQueueLabelSchemaAttributes } from "./LLMObsAnnotationQueueLabelSchemaAttributes";
+import { LLMObsAnnotationQueueLabelSchemaData } from "./LLMObsAnnotationQueueLabelSchemaData";
+import { LLMObsAnnotationQueueLabelSchemaResponse } from "./LLMObsAnnotationQueueLabelSchemaResponse";
+import { LLMObsAnnotationQueueLabelSchemaUpdateAttributes } from "./LLMObsAnnotationQueueLabelSchemaUpdateAttributes";
+import { LLMObsAnnotationQueueLabelSchemaUpdateData } from "./LLMObsAnnotationQueueLabelSchemaUpdateData";
+import { LLMObsAnnotationQueueLabelSchemaUpdateRequest } from "./LLMObsAnnotationQueueLabelSchemaUpdateRequest";
 import { LLMObsAnnotationQueueRequest } from "./LLMObsAnnotationQueueRequest";
 import { LLMObsAnnotationQueueResponse } from "./LLMObsAnnotationQueueResponse";
 import { LLMObsAnnotationQueueUpdateDataAttributesRequest } from "./LLMObsAnnotationQueueUpdateDataAttributesRequest";
 import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueUpdateDataRequest";
 import { LLMObsAnnotationQueueUpdateRequest } from "./LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsAnnotationQueuesResponse } from "./LLMObsAnnotationQueuesResponse";
+import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsCustomEvalConfigAssessmentCriteria } from "./LLMObsCustomEvalConfigAssessmentCriteria";
 import { LLMObsCustomEvalConfigAttributes } from "./LLMObsCustomEvalConfigAttributes";
@@ -102,6 +109,7 @@ import { LLMObsExperimentUpdateDataAttributesRequest } from "./LLMObsExperimentU
 import { LLMObsExperimentUpdateDataRequest } from "./LLMObsExperimentUpdateDataRequest";
 import { LLMObsExperimentUpdateRequest } from "./LLMObsExperimentUpdateRequest";
 import { LLMObsExperimentsResponse } from "./LLMObsExperimentsResponse";
+import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
 import { LLMObsProjectDataAttributesRequest } from "./LLMObsProjectDataAttributesRequest";
 import { LLMObsProjectDataAttributesResponse } from "./LLMObsProjectDataAttributesResponse";
 import { LLMObsProjectDataRequest } from "./LLMObsProjectDataRequest";
@@ -134,6 +142,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsExperimentSpanStatus: ["ok", "error"],
     LLMObsExperimentType: ["experiments"],
     LLMObsInteractionType: ["trace", "experiment_trace"],
+    LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
     LLMObsMetricAssessment: ["pass", "fail"],
     LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
     LLMObsProjectType: ["projects"],
@@ -182,6 +191,17 @@ export const TypingInfo: ModelTypingInfo = {
       LLMObsAnnotationQueueInteractionsRequest,
     LLMObsAnnotationQueueInteractionsResponse:
       LLMObsAnnotationQueueInteractionsResponse,
+    LLMObsAnnotationQueueLabelSchemaAttributes:
+      LLMObsAnnotationQueueLabelSchemaAttributes,
+    LLMObsAnnotationQueueLabelSchemaData: LLMObsAnnotationQueueLabelSchemaData,
+    LLMObsAnnotationQueueLabelSchemaResponse:
+      LLMObsAnnotationQueueLabelSchemaResponse,
+    LLMObsAnnotationQueueLabelSchemaUpdateAttributes:
+      LLMObsAnnotationQueueLabelSchemaUpdateAttributes,
+    LLMObsAnnotationQueueLabelSchemaUpdateData:
+      LLMObsAnnotationQueueLabelSchemaUpdateData,
+    LLMObsAnnotationQueueLabelSchemaUpdateRequest:
+      LLMObsAnnotationQueueLabelSchemaUpdateRequest,
     LLMObsAnnotationQueueRequest: LLMObsAnnotationQueueRequest,
     LLMObsAnnotationQueueResponse: LLMObsAnnotationQueueResponse,
     LLMObsAnnotationQueueUpdateDataAttributesRequest:
@@ -190,6 +210,7 @@ export const TypingInfo: ModelTypingInfo = {
       LLMObsAnnotationQueueUpdateDataRequest,
     LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
     LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
+    LLMObsAnnotationSchema: LLMObsAnnotationSchema,
     LLMObsCursorMeta: LLMObsCursorMeta,
     LLMObsCustomEvalConfigAssessmentCriteria:
       LLMObsCustomEvalConfigAssessmentCriteria,
@@ -287,6 +308,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsExperimentUpdateDataRequest: LLMObsExperimentUpdateDataRequest,
     LLMObsExperimentUpdateRequest: LLMObsExperimentUpdateRequest,
     LLMObsExperimentsResponse: LLMObsExperimentsResponse,
+    LLMObsLabelSchema: LLMObsLabelSchema,
     LLMObsProjectDataAttributesRequest: LLMObsProjectDataAttributesRequest,
     LLMObsProjectDataAttributesResponse: LLMObsProjectDataAttributesResponse,
     LLMObsProjectDataRequest: LLMObsProjectDataRequest,
