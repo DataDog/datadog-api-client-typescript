@@ -33,6 +33,8 @@ import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCus
 import { ObservabilityPipelineCustomProcessorRemap } from "./ObservabilityPipelineCustomProcessorRemap";
 import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
+import { ObservabilityPipelineDatabricksZerobusDestination } from "./ObservabilityPipelineDatabricksZerobusDestination";
+import { ObservabilityPipelineDatabricksZerobusDestinationAuth } from "./ObservabilityPipelineDatabricksZerobusDestinationAuth";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./ObservabilityPipelineDatadogLogsDestinationRoute";
@@ -211,6 +213,9 @@ export const TypingInfo: ModelTypingInfo = {
       "crowdstrike_next_gen_siem",
     ],
     ObservabilityPipelineCustomProcessorType: ["custom_processor"],
+    ObservabilityPipelineDatabricksZerobusDestinationType: [
+      "databricks_zerobus",
+    ],
     ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
     ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
     ObservabilityPipelineDatadogMetricsDestinationType: ["datadog_metrics"],
@@ -490,6 +495,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSplunkHecDestination",
       "ObservabilityPipelineSumoLogicDestination",
       "ObservabilityPipelineSyslogNgDestination",
+      "ObservabilityPipelineDatabricksZerobusDestination",
       "ObservabilityPipelineDatadogMetricsDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
@@ -631,6 +637,10 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineCustomProcessorRemap,
     ObservabilityPipelineData: ObservabilityPipelineData,
     ObservabilityPipelineDataAttributes: ObservabilityPipelineDataAttributes,
+    ObservabilityPipelineDatabricksZerobusDestination:
+      ObservabilityPipelineDatabricksZerobusDestination,
+    ObservabilityPipelineDatabricksZerobusDestinationAuth:
+      ObservabilityPipelineDatabricksZerobusDestinationAuth,
     ObservabilityPipelineDatadogAgentSource:
       ObservabilityPipelineDatadogAgentSource,
     ObservabilityPipelineDatadogLogsDestination:
