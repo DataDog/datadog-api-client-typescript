@@ -12,6 +12,24 @@ const params: v2.LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest = {
   body: {
     data: {
       attributes: {
+        annotationSchema: {
+          labelSchemas: [
+            {
+              description: "Rating of the response quality.",
+              hasAssessment: false,
+              hasReasoning: false,
+              id: "ab12cd34",
+              isAssessment: false,
+              isInteger: false,
+              isRequired: true,
+              max: 5.0,
+              min: 0.0,
+              name: "quality",
+              type: "score",
+              values: ["good", "bad", "neutral"],
+            },
+          ],
+        },
         description: "Updated description",
         name: "Updated queue name",
       },
