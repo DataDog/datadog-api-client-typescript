@@ -25,14 +25,6 @@ import { TestOptimizationApiV2 } from "@datadog/datadog-api-client-test-optimiza
 import { v2 } from "@datadog/datadog-api-client-test-optimization";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "TestOptimizationApi.v2.getFlakyTestsManagementPolicies": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new TestOptimizationApiV2(configuration);
 const params = {/* parameters */};
 
