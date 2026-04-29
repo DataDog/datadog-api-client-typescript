@@ -40,17 +40,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'deleteTestOptimizationServiceSettings'"
-    );
-    if (
-      !_config.unstableOperations["v2.deleteTestOptimizationServiceSettings"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteTestOptimizationServiceSettings' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "deleteTestOptimizationServiceSettings");
@@ -96,13 +85,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getFlakyTestsManagementPolicies'");
-    if (!_config.unstableOperations["v2.getFlakyTestsManagementPolicies"]) {
-      throw new Error(
-        "Unstable operation 'getFlakyTestsManagementPolicies' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -150,15 +132,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'getTestOptimizationServiceSettings'"
-    );
-    if (!_config.unstableOperations["v2.getTestOptimizationServiceSettings"]) {
-      throw new Error(
-        "Unstable operation 'getTestOptimizationServiceSettings' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "getTestOptimizationServiceSettings");
@@ -205,11 +178,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'searchFlakyTests'");
-    if (!_config.unstableOperations["v2.searchFlakyTests"]) {
-      throw new Error("Unstable operation 'searchFlakyTests' is disabled");
-    }
-
     // Path Params
     const localVarPath = "/api/v2/test/flaky-test-management/tests";
 
@@ -246,11 +214,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'updateFlakyTests'");
-    if (!_config.unstableOperations["v2.updateFlakyTests"]) {
-      throw new Error("Unstable operation 'updateFlakyTests' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -293,15 +256,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn(
-      "Using unstable operation 'updateFlakyTestsManagementPolicies'"
-    );
-    if (!_config.unstableOperations["v2.updateFlakyTestsManagementPolicies"]) {
-      throw new Error(
-        "Unstable operation 'updateFlakyTestsManagementPolicies' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -348,17 +302,6 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn(
-      "Using unstable operation 'updateTestOptimizationServiceSettings'"
-    );
-    if (
-      !_config.unstableOperations["v2.updateTestOptimizationServiceSettings"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateTestOptimizationServiceSettings' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {

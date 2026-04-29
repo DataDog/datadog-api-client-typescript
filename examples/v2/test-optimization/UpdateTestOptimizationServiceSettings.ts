@@ -5,8 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.updateTestOptimizationServiceSettings"] =
-  true;
 const apiInstance = new v2.TestOptimizationApi(configuration);
 
 const params: v2.TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest =
