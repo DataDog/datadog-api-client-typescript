@@ -1,0 +1,47 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
+
+/**
+ * Schema defining the labels for an annotation queue.
+ */
+export class LLMObsAnnotationSchema {
+  /**
+   * List of label schema definitions.
+   */
+  "labelSchemas": Array<LLMObsLabelSchema>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    labelSchemas: {
+      baseName: "label_schemas",
+      type: "Array<LLMObsLabelSchema>",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return LLMObsAnnotationSchema.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

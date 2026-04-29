@@ -27,6 +27,8 @@ import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "./models/LLMObsAnnotatedInteractionsResponse";
 import { LLMObsAnnotationQueueInteractionsRequest } from "./models/LLMObsAnnotationQueueInteractionsRequest";
 import { LLMObsAnnotationQueueInteractionsResponse } from "./models/LLMObsAnnotationQueueInteractionsResponse";
+import { LLMObsAnnotationQueueLabelSchemaResponse } from "./models/LLMObsAnnotationQueueLabelSchemaResponse";
+import { LLMObsAnnotationQueueLabelSchemaUpdateRequest } from "./models/LLMObsAnnotationQueueLabelSchemaUpdateRequest";
 import { LLMObsAnnotationQueueRequest } from "./models/LLMObsAnnotationQueueRequest";
 import { LLMObsAnnotationQueueResponse } from "./models/LLMObsAnnotationQueueResponse";
 import { LLMObsAnnotationQueuesResponse } from "./models/LLMObsAnnotationQueuesResponse";
@@ -1044,6 +1046,61 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getLLMObsAnnotationQueueLabelSchema(
+    queueId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getLLMObsAnnotationQueueLabelSchema' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema'] = true`",
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError("queueId", "getLLMObsAnnotationQueueLabelSchema");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema".replace(
+        "{queue_id}",
+        encodeURIComponent(String(queueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getLLMObsCustomEvalConfig(
     evalName: string,
     _options?: Configuration,
@@ -1555,6 +1612,84 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsAnnotationQueueUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateLLMObsAnnotationQueueLabelSchema(
+    queueId: string,
+    body: LLMObsAnnotationQueueLabelSchemaUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateLLMObsAnnotationQueueLabelSchema' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema'] = true`",
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError(
+        "queueId",
+        "updateLLMObsAnnotationQueueLabelSchema",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateLLMObsAnnotationQueueLabelSchema");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema".replace(
+        "{queue_id}",
+        encodeURIComponent(String(queueId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "LLMObsAnnotationQueueLabelSchemaUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -3060,6 +3195,88 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getLLMObsAnnotationQueueLabelSchema
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsAnnotationQueueLabelSchema(
+    response: ResponseContext,
+  ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsAnnotationQueueLabelSchemaResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueLabelSchemaResponse",
+      ) as LLMObsAnnotationQueueLabelSchemaResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotationQueueLabelSchemaResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueLabelSchemaResponse",
+        "",
+      ) as LLMObsAnnotationQueueLabelSchemaResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getLLMObsCustomEvalConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3617,6 +3834,89 @@ export class LLMObservabilityApiResponseProcessor {
         "LLMObsAnnotationQueueResponse",
         "",
       ) as LLMObsAnnotationQueueResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateLLMObsAnnotationQueueLabelSchema
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLLMObsAnnotationQueueLabelSchema(
+    response: ResponseContext,
+  ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsAnnotationQueueLabelSchemaResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueLabelSchemaResponse",
+      ) as LLMObsAnnotationQueueLabelSchemaResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotationQueueLabelSchemaResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsAnnotationQueueLabelSchemaResponse",
+        "",
+      ) as LLMObsAnnotationQueueLabelSchemaResponse;
       return body;
     }
 
@@ -4193,6 +4493,14 @@ export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest {
   queueId: string;
 }
 
+export interface LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest {
+  /**
+   * The ID of the LLM Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+}
+
 export interface LLMObservabilityApiGetLLMObsCustomEvalConfigRequest {
   /**
    * The name of the custom LLM Observability evaluator configuration.
@@ -4334,6 +4642,19 @@ export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest {
   body: LLMObsAnnotationQueueUpdateRequest;
 }
 
+export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest {
+  /**
+   * The ID of the LLM Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+  /**
+   * Update label schema payload.
+   * @type LLMObsAnnotationQueueLabelSchemaUpdateRequest
+   */
+  body: LLMObsAnnotationQueueLabelSchemaUpdateRequest;
+}
+
 export interface LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest {
   /**
    * The name of the custom LLM Observability evaluator configuration.
@@ -4430,8 +4751,10 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Create a new annotation queue. Only `name`, `project_id`, and `description` are accepted.
-   * Fields such as `created_by`, `owned_by`, `created_at`, `modified_by`, and `modified_at` are inferred by the backend.
+   * Create an annotation queue. The `name` and `project_id` fields are required.
+   * An optional `annotation_schema` can be provided to define the labels for the queue.
+   * Fields such as `created_by`, `owned_by`, `created_at`, `modified_by`,
+   * and `modified_at` are inferred by the backend.
    * @param param The request object
    */
   public createLLMObsAnnotationQueue(
@@ -4776,6 +5099,30 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Retrieve the label schema for a given annotation queue.
+   * @param param The request object
+   */
+  public getLLMObsAnnotationQueueLabelSchema(
+    param: LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
+    options?: Configuration,
+  ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
+    const requestContextPromise =
+      this.requestFactory.getLLMObsAnnotationQueueLabelSchema(
+        param.queueId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsAnnotationQueueLabelSchema(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Retrieve a custom LLM Observability evaluator configuration by its name.
    * @param param The request object
    */
@@ -4926,7 +5273,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Partially update an annotation queue. Only `name` and `description` can be updated.
+   * Partially update an annotation queue. The `name`, `description`, and `annotation_schema` fields can be updated.
    * @param param The request object
    */
   public updateLLMObsAnnotationQueue(
@@ -4944,6 +5291,34 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsAnnotationQueue(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create or replace the label schema for a given annotation queue.
+   * The label schema defines the labels annotators can apply to interactions in the queue.
+   * Label names must be unique within the queue and match the pattern `^[a-zA-Z0-9_-]+$`.
+   * Each label must have a valid type: score, categorical, boolean, or text.
+   * @param param The request object
+   */
+  public updateLLMObsAnnotationQueueLabelSchema(
+    param: LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
+    options?: Configuration,
+  ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateLLMObsAnnotationQueueLabelSchema(
+        param.queueId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLLMObsAnnotationQueueLabelSchema(
             responseContext,
           );
         });
