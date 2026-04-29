@@ -8,6 +8,7 @@ import { ObservabilityPipelineAmazonS3GenericDestination } from "./Observability
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
+import { ObservabilityPipelineDatabricksZerobusDestination } from "./ObservabilityPipelineDatabricksZerobusDestination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
@@ -52,5 +53,6 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineSplunkHecDestination
   | ObservabilityPipelineSumoLogicDestination
   | ObservabilityPipelineSyslogNgDestination
+  | ObservabilityPipelineDatabricksZerobusDestination
   | ObservabilityPipelineDatadogMetricsDestination
   | UnparsedObject;
