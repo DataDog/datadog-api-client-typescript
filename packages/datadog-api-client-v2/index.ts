@@ -4276,6 +4276,9 @@ export { ObservabilityPipelineCustomProcessorRemap } from "./models/Observabilit
 export { ObservabilityPipelineCustomProcessorType } from "./models/ObservabilityPipelineCustomProcessorType";
 export { ObservabilityPipelineData } from "./models/ObservabilityPipelineData";
 export { ObservabilityPipelineDataAttributes } from "./models/ObservabilityPipelineDataAttributes";
+export { ObservabilityPipelineDatabricksZerobusDestination } from "./models/ObservabilityPipelineDatabricksZerobusDestination";
+export { ObservabilityPipelineDatabricksZerobusDestinationAuth } from "./models/ObservabilityPipelineDatabricksZerobusDestinationAuth";
+export { ObservabilityPipelineDatabricksZerobusDestinationType } from "./models/ObservabilityPipelineDatabricksZerobusDestinationType";
 export { ObservabilityPipelineDatadogAgentSource } from "./models/ObservabilityPipelineDatadogAgentSource";
 export { ObservabilityPipelineDatadogAgentSourceType } from "./models/ObservabilityPipelineDatadogAgentSourceType";
 export { ObservabilityPipelineDatadogLogsDestination } from "./models/ObservabilityPipelineDatadogLogsDestination";
