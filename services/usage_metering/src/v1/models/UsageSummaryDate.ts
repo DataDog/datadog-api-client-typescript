@@ -443,6 +443,10 @@ export class UsageSummaryDate {
    */
   "fargateTasksCountHwm"?: number;
   /**
+   * Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the current date for all organizations.
+   */
+  "featureFlagsConfigRequestsSum"?: number;
+  /**
    * Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for the given org.
    */
   "flexLogsComputeLargeAvg"?: number;
@@ -1507,6 +1511,11 @@ export class UsageSummaryDate {
     },
     fargateTasksCountHwm: {
       baseName: "fargate_tasks_count_hwm",
+      type: "number",
+      format: "int64",
+    },
+    featureFlagsConfigRequestsSum: {
+      baseName: "feature_flags_config_requests_sum",
       type: "number",
       format: "int64",
     },
