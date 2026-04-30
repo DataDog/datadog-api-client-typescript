@@ -456,6 +456,10 @@ export class UsageSummaryResponse {
    */
   "fargateTasksCountHwmSum"?: number;
   /**
+   * Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the current month for all organizations.
+   */
+  "featureFlagsConfigRequestsAggSum"?: number;
+  /**
    * Shows the average number of Flex Logs Compute Large Instances over all hours in the current months for all organizations.
    */
   "flexLogsComputeLargeAvgSum"?: number;
@@ -1568,6 +1572,11 @@ export class UsageSummaryResponse {
     },
     fargateTasksCountHwmSum: {
       baseName: "fargate_tasks_count_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    featureFlagsConfigRequestsAggSum: {
+      baseName: "feature_flags_config_requests_agg_sum",
       type: "number",
       format: "int64",
     },
