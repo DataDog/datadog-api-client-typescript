@@ -2926,6 +2926,17 @@ import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
 import { RumMetricUpdateData } from "./RumMetricUpdateData";
 import { RumMetricUpdateRequest } from "./RumMetricUpdateRequest";
 import { RumMetricsResponse } from "./RumMetricsResponse";
+import { RumPermanentCrossProductSampling } from "./RumPermanentCrossProductSampling";
+import { RumPermanentCrossProductSamplingEditability } from "./RumPermanentCrossProductSamplingEditability";
+import { RumPermanentCrossProductSamplingUpdate } from "./RumPermanentCrossProductSamplingUpdate";
+import { RumPermanentRetentionFilterAttributes } from "./RumPermanentRetentionFilterAttributes";
+import { RumPermanentRetentionFilterData } from "./RumPermanentRetentionFilterData";
+import { RumPermanentRetentionFilterMeta } from "./RumPermanentRetentionFilterMeta";
+import { RumPermanentRetentionFilterResponse } from "./RumPermanentRetentionFilterResponse";
+import { RumPermanentRetentionFilterUpdateAttributes } from "./RumPermanentRetentionFilterUpdateAttributes";
+import { RumPermanentRetentionFilterUpdateData } from "./RumPermanentRetentionFilterUpdateData";
+import { RumPermanentRetentionFilterUpdateRequest } from "./RumPermanentRetentionFilterUpdateRequest";
+import { RumPermanentRetentionFiltersResponse } from "./RumPermanentRetentionFiltersResponse";
 import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
 import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
@@ -5597,6 +5608,18 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RumMetricType: ["rum_metrics"],
   RumMetricUniquenessWhen: ["match", "end"],
+  RumPermanentRetentionFilterEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+    "operation",
+  ],
+  RumPermanentRetentionFilterMetaSource: ["default", "ui", "terraform"],
+  RumPermanentRetentionFilterType: ["permanent_retention_filters"],
   RumRetentionFilterEventType: [
     "session",
     "view",
@@ -9854,6 +9877,21 @@ const typeMap: { [index: string]: any } = {
   RumMetricUpdateData: RumMetricUpdateData,
   RumMetricUpdateRequest: RumMetricUpdateRequest,
   RumMetricsResponse: RumMetricsResponse,
+  RumPermanentCrossProductSampling: RumPermanentCrossProductSampling,
+  RumPermanentCrossProductSamplingEditability:
+    RumPermanentCrossProductSamplingEditability,
+  RumPermanentCrossProductSamplingUpdate:
+    RumPermanentCrossProductSamplingUpdate,
+  RumPermanentRetentionFilterAttributes: RumPermanentRetentionFilterAttributes,
+  RumPermanentRetentionFilterData: RumPermanentRetentionFilterData,
+  RumPermanentRetentionFilterMeta: RumPermanentRetentionFilterMeta,
+  RumPermanentRetentionFilterResponse: RumPermanentRetentionFilterResponse,
+  RumPermanentRetentionFilterUpdateAttributes:
+    RumPermanentRetentionFilterUpdateAttributes,
+  RumPermanentRetentionFilterUpdateData: RumPermanentRetentionFilterUpdateData,
+  RumPermanentRetentionFilterUpdateRequest:
+    RumPermanentRetentionFilterUpdateRequest,
+  RumPermanentRetentionFiltersResponse: RumPermanentRetentionFiltersResponse,
   RumRetentionFilterAttributes: RumRetentionFilterAttributes,
   RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,
   RumRetentionFilterCreateData: RumRetentionFilterCreateData,
