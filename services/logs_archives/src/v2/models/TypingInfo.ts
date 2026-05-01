@@ -31,6 +31,7 @@ import { RolesResponse } from "./RolesResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    LogsArchiveAttributesCompressionMethod: ["GZIP", "ZSTD"],
     LogsArchiveDestinationAzureType: ["azure"],
     LogsArchiveDestinationGCSType: ["gcs"],
     LogsArchiveDestinationS3Type: ["s3"],

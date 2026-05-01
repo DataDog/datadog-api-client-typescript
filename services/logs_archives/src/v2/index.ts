@@ -13,6 +13,7 @@ export {
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { LogsArchive } from "./models/LogsArchive";
 export { LogsArchiveAttributes } from "./models/LogsArchiveAttributes";
+export { LogsArchiveAttributesCompressionMethod } from "./models/LogsArchiveAttributesCompressionMethod";
 export { LogsArchiveCreateRequest } from "./models/LogsArchiveCreateRequest";
 export { LogsArchiveCreateRequestAttributes } from "./models/LogsArchiveCreateRequestAttributes";
 export { LogsArchiveCreateRequestDefinition } from "./models/LogsArchiveCreateRequestDefinition";
