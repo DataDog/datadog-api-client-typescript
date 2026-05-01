@@ -521,6 +521,12 @@ import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurat
 import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudConfigurationRulePayload } from "./CloudConfigurationRulePayload";
+import { CloudInventorySyncConfigAWSRequestAttributes } from "./CloudInventorySyncConfigAWSRequestAttributes";
+import { CloudInventorySyncConfigAttributes } from "./CloudInventorySyncConfigAttributes";
+import { CloudInventorySyncConfigAzureRequestAttributes } from "./CloudInventorySyncConfigAzureRequestAttributes";
+import { CloudInventorySyncConfigGCPRequestAttributes } from "./CloudInventorySyncConfigGCPRequestAttributes";
+import { CloudInventorySyncConfigResponse } from "./CloudInventorySyncConfigResponse";
+import { CloudInventorySyncConfigResponseData } from "./CloudInventorySyncConfigResponseData";
 import { CloudWorkloadSecurityAgentPoliciesListResponse } from "./CloudWorkloadSecurityAgentPoliciesListResponse";
 import { CloudWorkloadSecurityAgentPolicyAttributes } from "./CloudWorkloadSecurityAgentPolicyAttributes";
 import { CloudWorkloadSecurityAgentPolicyCreateAttributes } from "./CloudWorkloadSecurityAgentPolicyCreateAttributes";
@@ -3887,6 +3893,9 @@ import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
 import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
+import { UpsertCloudInventorySyncConfigRequest } from "./UpsertCloudInventorySyncConfigRequest";
+import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudInventorySyncConfigRequestAttributes";
+import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
@@ -4368,6 +4377,9 @@ const enumsMap: { [key: string]: any[] } = {
   ClickupIntegrationType: ["Clickup"],
   CloudAssetType: ["Host", "HostImage", "Image"],
   CloudConfigurationRuleType: ["cloud_configuration"],
+  CloudInventoryCloudProviderId: ["aws", "gcp", "azure"],
+  CloudInventoryCloudProviderRequestType: ["cloud_provider"],
+  CloudInventorySyncConfigResourceType: ["sync_configs"],
   CloudWorkloadSecurityAgentPolicyType: ["policy"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAPITokenType: ["CloudflareAPIToken"],
@@ -6973,6 +6985,15 @@ const typeMap: { [index: string]: any } = {
   CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
   CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
   CloudConfigurationRulePayload: CloudConfigurationRulePayload,
+  CloudInventorySyncConfigAWSRequestAttributes:
+    CloudInventorySyncConfigAWSRequestAttributes,
+  CloudInventorySyncConfigAttributes: CloudInventorySyncConfigAttributes,
+  CloudInventorySyncConfigAzureRequestAttributes:
+    CloudInventorySyncConfigAzureRequestAttributes,
+  CloudInventorySyncConfigGCPRequestAttributes:
+    CloudInventorySyncConfigGCPRequestAttributes,
+  CloudInventorySyncConfigResponse: CloudInventorySyncConfigResponse,
+  CloudInventorySyncConfigResponseData: CloudInventorySyncConfigResponseData,
   CloudWorkloadSecurityAgentPoliciesListResponse:
     CloudWorkloadSecurityAgentPoliciesListResponse,
   CloudWorkloadSecurityAgentPolicyAttributes:
@@ -11071,6 +11092,11 @@ const typeMap: { [index: string]: any } = {
   UpsertAllocationRequest: UpsertAllocationRequest,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
   UpsertCatalogKindResponse: UpsertCatalogKindResponse,
+  UpsertCloudInventorySyncConfigRequest: UpsertCloudInventorySyncConfigRequest,
+  UpsertCloudInventorySyncConfigRequestAttributes:
+    UpsertCloudInventorySyncConfigRequestAttributes,
+  UpsertCloudInventorySyncConfigRequestData:
+    UpsertCloudInventorySyncConfigRequestData,
   UrlParam: UrlParam,
   UrlParamUpdate: UrlParamUpdate,
   UsageApplicationSecurityMonitoringResponse:

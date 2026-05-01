@@ -5861,6 +5861,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetSecretsRules": {
         "operationResponseType": "SecretRuleArray",
     },
+    "v2.UpsertSyncConfig": {
+        "body": {
+            "type": "UpsertCloudInventorySyncConfigRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudInventorySyncConfigResponse",
+    },
     "v2.GetCodeCoverageBranchSummary": {
         "body": {
             "type": "BranchCoverageSummaryRequest",

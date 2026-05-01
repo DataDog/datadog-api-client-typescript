@@ -265,6 +265,11 @@ export {
 } from "./apis/CloudCostManagementApi";
 
 export {
+  CloudInventorySyncConfigsApiUpsertSyncConfigRequest,
+  CloudInventorySyncConfigsApi,
+} from "./apis/CloudInventorySyncConfigsApi";
+
+export {
   CloudNetworkMonitoringApiGetAggregatedConnectionsRequest,
   CloudNetworkMonitoringApiGetAggregatedDnsRequest,
   CloudNetworkMonitoringApi,
@@ -2096,6 +2101,15 @@ export { CloudflareGlobalAPITokenUpdate } from "./models/CloudflareGlobalAPIToke
 export { CloudflareIntegration } from "./models/CloudflareIntegration";
 export { CloudflareIntegrationType } from "./models/CloudflareIntegrationType";
 export { CloudflareIntegrationUpdate } from "./models/CloudflareIntegrationUpdate";
+export { CloudInventoryCloudProviderId } from "./models/CloudInventoryCloudProviderId";
+export { CloudInventoryCloudProviderRequestType } from "./models/CloudInventoryCloudProviderRequestType";
+export { CloudInventorySyncConfigAttributes } from "./models/CloudInventorySyncConfigAttributes";
+export { CloudInventorySyncConfigAWSRequestAttributes } from "./models/CloudInventorySyncConfigAWSRequestAttributes";
+export { CloudInventorySyncConfigAzureRequestAttributes } from "./models/CloudInventorySyncConfigAzureRequestAttributes";
+export { CloudInventorySyncConfigGCPRequestAttributes } from "./models/CloudInventorySyncConfigGCPRequestAttributes";
+export { CloudInventorySyncConfigResourceType } from "./models/CloudInventorySyncConfigResourceType";
+export { CloudInventorySyncConfigResponse } from "./models/CloudInventorySyncConfigResponse";
+export { CloudInventorySyncConfigResponseData } from "./models/CloudInventorySyncConfigResponseData";
 export { CloudWorkloadSecurityAgentPoliciesListResponse } from "./models/CloudWorkloadSecurityAgentPoliciesListResponse";
 export { CloudWorkloadSecurityAgentPolicyAttributes } from "./models/CloudWorkloadSecurityAgentPolicyAttributes";
 export { CloudWorkloadSecurityAgentPolicyCreateAttributes } from "./models/CloudWorkloadSecurityAgentPolicyCreateAttributes";
@@ -6442,6 +6456,9 @@ export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityRespons
 export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
 export { UpsertCatalogKindRequest } from "./models/UpsertCatalogKindRequest";
 export { UpsertCatalogKindResponse } from "./models/UpsertCatalogKindResponse";
+export { UpsertCloudInventorySyncConfigRequest } from "./models/UpsertCloudInventorySyncConfigRequest";
+export { UpsertCloudInventorySyncConfigRequestAttributes } from "./models/UpsertCloudInventorySyncConfigRequestAttributes";
+export { UpsertCloudInventorySyncConfigRequestData } from "./models/UpsertCloudInventorySyncConfigRequestData";
 export { Urgency } from "./models/Urgency";
 export { UrlParam } from "./models/UrlParam";
 export { UrlParamUpdate } from "./models/UrlParamUpdate";
