@@ -1,13 +1,41 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Page-based pagination details.
+ * Page-based pagination details for org group list responses.
  */
 export class OrgGroupPaginationMetaPage {
   /**
-   * The total number of items.
+   * First page number.
    */
-  "totalCount": number;
+  "firstNumber"?: number;
+  /**
+   * Last page number.
+   */
+  "lastNumber"?: number;
+  /**
+   * Next page number.
+   */
+  "nextNumber"?: number;
+  /**
+   * Page number.
+   */
+  "number"?: number;
+  /**
+   * Previous page number.
+   */
+  "prevNumber"?: number;
+  /**
+   * Page size.
+   */
+  "size"?: number;
+  /**
+   * Total number of results.
+   */
+  "total"?: number;
+  /**
+   * Pagination type.
+   */
+  "type"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -23,11 +51,44 @@ export class OrgGroupPaginationMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "total_count",
+    firstNumber: {
+      baseName: "first_number",
       type: "number",
-      required: true,
       format: "int64",
+    },
+    lastNumber: {
+      baseName: "last_number",
+      type: "number",
+      format: "int64",
+    },
+    nextNumber: {
+      baseName: "next_number",
+      type: "number",
+      format: "int64",
+    },
+    number: {
+      baseName: "number",
+      type: "number",
+      format: "int64",
+    },
+    prevNumber: {
+      baseName: "prev_number",
+      type: "number",
+      format: "int64",
+    },
+    size: {
+      baseName: "size",
+      type: "number",
+      format: "int64",
+    },
+    total: {
+      baseName: "total",
+      type: "number",
+      format: "int64",
+    },
+    type: {
+      baseName: "type",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

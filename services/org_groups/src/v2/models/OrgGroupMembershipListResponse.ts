@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { OrgGroupMembershipData } from "./OrgGroupMembershipData";
+import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
 import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
 
 /**
@@ -12,7 +13,11 @@ export class OrgGroupMembershipListResponse {
    */
   "data": Array<OrgGroupMembershipData>;
   /**
-   * Pagination metadata.
+   * Pagination links for navigating between pages of an org group list response.
+   */
+  "links"?: OrgGroupPaginationLinks;
+  /**
+   * Pagination metadata for org group list responses.
    */
   "meta"?: OrgGroupPaginationMeta;
   /**
@@ -34,6 +39,10 @@ export class OrgGroupMembershipListResponse {
       baseName: "data",
       type: "Array<OrgGroupMembershipData>",
       required: true,
+    },
+    links: {
+      baseName: "links",
+      type: "OrgGroupPaginationLinks",
     },
     meta: {
       baseName: "meta",
