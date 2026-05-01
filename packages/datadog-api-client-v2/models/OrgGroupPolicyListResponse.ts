@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
 import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
 import { OrgGroupPolicyData } from "./OrgGroupPolicyData";
 
@@ -17,7 +18,11 @@ export class OrgGroupPolicyListResponse {
    */
   "data": Array<OrgGroupPolicyData>;
   /**
-   * Pagination metadata.
+   * Pagination links for navigating between pages of an org group list response.
+   */
+  "links"?: OrgGroupPaginationLinks;
+  /**
+   * Pagination metadata for org group list responses.
    */
   "meta"?: OrgGroupPaginationMeta;
 
@@ -41,6 +46,10 @@ export class OrgGroupPolicyListResponse {
       baseName: "data",
       type: "Array<OrgGroupPolicyData>",
       required: true,
+    },
+    links: {
+      baseName: "links",
+      type: "OrgGroupPaginationLinks",
     },
     meta: {
       baseName: "meta",

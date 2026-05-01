@@ -8,13 +8,13 @@ import { OrgGroupPaginationMetaPage } from "./OrgGroupPaginationMetaPage";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Pagination metadata.
+ * Pagination metadata for org group list responses.
  */
 export class OrgGroupPaginationMeta {
   /**
-   * Page-based pagination details.
+   * Page-based pagination details for org group list responses.
    */
-  "page": OrgGroupPaginationMetaPage;
+  "page"?: OrgGroupPaginationMetaPage;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,7 +35,6 @@ export class OrgGroupPaginationMeta {
     page: {
       baseName: "page",
       type: "OrgGroupPaginationMetaPage",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

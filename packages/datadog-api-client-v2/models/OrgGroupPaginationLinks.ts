@@ -3,28 +3,33 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { OrgGroupMembershipData } from "./OrgGroupMembershipData";
-import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
-import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a list of org group memberships.
+ * Pagination links for navigating between pages of an org group list response.
  */
-export class OrgGroupMembershipListResponse {
+export class OrgGroupPaginationLinks {
   /**
-   * An array of org group memberships.
+   * Link to the first page.
    */
-  "data": Array<OrgGroupMembershipData>;
+  "first"?: string;
   /**
-   * Pagination links for navigating between pages of an org group list response.
+   * Link to the last page.
    */
-  "links"?: OrgGroupPaginationLinks;
+  "last"?: string;
   /**
-   * Pagination metadata for org group list responses.
+   * Link to the next page.
    */
-  "meta"?: OrgGroupPaginationMeta;
+  "next"?: string;
+  /**
+   * Link to the previous page.
+   */
+  "prev"?: string;
+  /**
+   * Link to the current page.
+   */
+  "self"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,18 +47,25 @@ export class OrgGroupMembershipListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<OrgGroupMembershipData>",
-      required: true,
+    first: {
+      baseName: "first",
+      type: "string",
     },
-    links: {
-      baseName: "links",
-      type: "OrgGroupPaginationLinks",
+    last: {
+      baseName: "last",
+      type: "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "OrgGroupPaginationMeta",
+    next: {
+      baseName: "next",
+      type: "string",
+    },
+    prev: {
+      baseName: "prev",
+      type: "string",
+    },
+    self: {
+      baseName: "self",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +77,7 @@ export class OrgGroupMembershipListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return OrgGroupMembershipListResponse.attributeTypeMap;
+    return OrgGroupPaginationLinks.attributeTypeMap;
   }
 
   public constructor() {}

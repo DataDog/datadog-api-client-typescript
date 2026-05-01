@@ -4629,6 +4629,7 @@ export { OrgGroupMembershipType } from "./models/OrgGroupMembershipType";
 export { OrgGroupMembershipUpdateData } from "./models/OrgGroupMembershipUpdateData";
 export { OrgGroupMembershipUpdateRelationships } from "./models/OrgGroupMembershipUpdateRelationships";
 export { OrgGroupMembershipUpdateRequest } from "./models/OrgGroupMembershipUpdateRequest";
+export { OrgGroupPaginationLinks } from "./models/OrgGroupPaginationLinks";
 export { OrgGroupPaginationMeta } from "./models/OrgGroupPaginationMeta";
 export { OrgGroupPaginationMetaPage } from "./models/OrgGroupPaginationMetaPage";
 export { OrgGroupPolicyAttributes } from "./models/OrgGroupPolicyAttributes";
