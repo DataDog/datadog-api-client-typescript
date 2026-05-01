@@ -11,6 +11,7 @@ const params: v2.LogsArchivesApiUpdateLogsArchiveRequest = {
   body: {
     data: {
       attributes: {
+        compressionMethod: "GZIP",
         destination: {
           container: "container-name",
           integration: {
