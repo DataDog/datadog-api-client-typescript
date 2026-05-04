@@ -2231,6 +2231,9 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { OCIConfig } from "./OCIConfig";
+import { OCIConfigAttributes } from "./OCIConfigAttributes";
+import { OCIConfigsResponse } from "./OCIConfigsResponse";
 import { ObservabilityPipeline } from "./ObservabilityPipeline";
 import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
 import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./ObservabilityPipelineAddEnvVarsProcessorVariable";
@@ -5092,6 +5095,7 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
+  OCIConfigType: ["oci_config"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
   ObservabilityPipelineAddHostnameProcessorType: ["add_hostname"],
@@ -9002,6 +9006,9 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  OCIConfig: OCIConfig,
+  OCIConfigAttributes: OCIConfigAttributes,
+  OCIConfigsResponse: OCIConfigsResponse,
   ObservabilityPipeline: ObservabilityPipeline,
   ObservabilityPipelineAddEnvVarsProcessor:
     ObservabilityPipelineAddEnvVarsProcessor,
