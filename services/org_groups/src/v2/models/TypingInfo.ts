@@ -25,6 +25,7 @@ import { OrgGroupMembershipUpdateData } from "./OrgGroupMembershipUpdateData";
 import { OrgGroupMembershipUpdateRelationships } from "./OrgGroupMembershipUpdateRelationships";
 import { OrgGroupMembershipUpdateRequest } from "./OrgGroupMembershipUpdateRequest";
 import { OrgGroupMembershipsRelationship } from "./OrgGroupMembershipsRelationship";
+import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
 import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
 import { OrgGroupPaginationMetaPage } from "./OrgGroupPaginationMetaPage";
 import { OrgGroupPolicyAttributes } from "./OrgGroupPolicyAttributes";
@@ -110,6 +111,7 @@ export const TypingInfo: ModelTypingInfo = {
       OrgGroupMembershipUpdateRelationships,
     OrgGroupMembershipUpdateRequest: OrgGroupMembershipUpdateRequest,
     OrgGroupMembershipsRelationship: OrgGroupMembershipsRelationship,
+    OrgGroupPaginationLinks: OrgGroupPaginationLinks,
     OrgGroupPaginationMeta: OrgGroupPaginationMeta,
     OrgGroupPaginationMetaPage: OrgGroupPaginationMetaPage,
     OrgGroupPolicyAttributes: OrgGroupPolicyAttributes,
