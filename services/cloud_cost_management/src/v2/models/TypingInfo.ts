@@ -97,6 +97,9 @@ import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
 import { GcpUcConfigResponse } from "./GcpUcConfigResponse";
 import { GcpUcConfigResponseData } from "./GcpUcConfigResponseData";
 import { GcpUcConfigResponseDataAttributes } from "./GcpUcConfigResponseDataAttributes";
+import { OCIConfig } from "./OCIConfig";
+import { OCIConfigAttributes } from "./OCIConfigAttributes";
+import { OCIConfigsResponse } from "./OCIConfigsResponse";
 import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
 import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
@@ -153,6 +156,7 @@ export const TypingInfo: ModelTypingInfo = {
     GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
     GCPUsageCostConfigType: ["gcp_uc_config"],
     GcpUcConfigResponseDataType: ["gcp_uc_config"],
+    OCIConfigType: ["oci_config"],
     ReorderRuleResourceDataType: ["arbitrary_rule"],
     ReorderRulesetResourceDataType: ["ruleset"],
     RulesValidateQueryRequestDataType: ["validate_query"],
@@ -287,6 +291,9 @@ export const TypingInfo: ModelTypingInfo = {
     GcpUcConfigResponse: GcpUcConfigResponse,
     GcpUcConfigResponseData: GcpUcConfigResponseData,
     GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,
+    OCIConfig: OCIConfig,
+    OCIConfigAttributes: OCIConfigAttributes,
+    OCIConfigsResponse: OCIConfigsResponse,
     ReorderRuleResourceArray: ReorderRuleResourceArray,
     ReorderRuleResourceData: ReorderRuleResourceData,
     ReorderRulesetResourceArray: ReorderRulesetResourceArray,

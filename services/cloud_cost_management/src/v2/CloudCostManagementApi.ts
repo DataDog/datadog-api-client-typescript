@@ -48,6 +48,7 @@ import { GCPUsageCostConfigPatchRequest } from "./models/GCPUsageCostConfigPatch
 import { GCPUsageCostConfigPostRequest } from "./models/GCPUsageCostConfigPostRequest";
 import { GCPUsageCostConfigResponse } from "./models/GCPUsageCostConfigResponse";
 import { GCPUsageCostConfigsResponse } from "./models/GCPUsageCostConfigsResponse";
+import { OCIConfigsResponse } from "./models/OCIConfigsResponse";
 import { ReorderRuleResourceArray } from "./models/ReorderRuleResourceArray";
 import { ReorderRulesetResourceArray } from "./models/ReorderRulesetResourceArray";
 import { RulesetResp } from "./models/RulesetResp";
@@ -1073,6 +1074,42 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listCostGCPUsageCostConfigs",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostOCIConfigs(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/oci_config";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostOCIConfigs",
       CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -3135,6 +3172,62 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCostOCIConfigs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostOCIConfigs(
+    response: ResponseContext,
+  ): Promise<OCIConfigsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OCIConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OCIConfigsResponse",
+      ) as OCIConfigsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OCIConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OCIConfigsResponse",
+        "",
+      ) as OCIConfigsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listCustomAllocationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4771,6 +4864,24 @@ export class CloudCostManagementApi {
           return this.responseProcessor.listCostGCPUsageCostConfigs(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * List the OCI configs.
+   * @param param The request object
+   */
+  public listCostOCIConfigs(
+    options?: Configuration,
+  ): Promise<OCIConfigsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCostOCIConfigs(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostOCIConfigs(responseContext);
         });
     });
   }

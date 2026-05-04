@@ -147,6 +147,10 @@ export { GCPUsageCostConfigPostRequestType } from "./models/GCPUsageCostConfigPo
 export { GCPUsageCostConfigResponse } from "./models/GCPUsageCostConfigResponse";
 export { GCPUsageCostConfigsResponse } from "./models/GCPUsageCostConfigsResponse";
 export { GCPUsageCostConfigType } from "./models/GCPUsageCostConfigType";
+export { OCIConfig } from "./models/OCIConfig";
+export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
+export { OCIConfigsResponse } from "./models/OCIConfigsResponse";
+export { OCIConfigType } from "./models/OCIConfigType";
 export { ReorderRuleResourceArray } from "./models/ReorderRuleResourceArray";
 export { ReorderRuleResourceData } from "./models/ReorderRuleResourceData";
 export { ReorderRuleResourceDataType } from "./models/ReorderRuleResourceDataType";
