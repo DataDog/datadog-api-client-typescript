@@ -25,7 +25,6 @@ const params: v2.StatusPagesApiCreateStatusPageRequest = {
             position: 1,
           },
         ],
-        enabled: true,
         type: "internal",
         visualizationType: "bars_and_uptime_percentage",
       },
