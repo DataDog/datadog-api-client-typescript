@@ -6169,6 +6169,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GCPUsageCostConfigResponse",
   },
+  "CloudCostManagementApi.V2.ListCostOCIConfigs": {
+    operationResponseType: "OCIConfigsResponse",
+  },
   "CloudCostManagementApi.V2.ListTagPipelinesRulesets": {
     operationResponseType: "RulesetRespArray",
   },
