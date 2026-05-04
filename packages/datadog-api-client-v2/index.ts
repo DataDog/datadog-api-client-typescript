@@ -4524,6 +4524,10 @@ export { ObservabilityPipelineSyslogSourceMode } from "./models/ObservabilityPip
 export { ObservabilityPipelineThrottleProcessor } from "./models/ObservabilityPipelineThrottleProcessor";
 export { ObservabilityPipelineThrottleProcessorType } from "./models/ObservabilityPipelineThrottleProcessorType";
 export { ObservabilityPipelineTls } from "./models/ObservabilityPipelineTls";
+export { OCIConfig } from "./models/OCIConfig";
+export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
+export { OCIConfigsResponse } from "./models/OCIConfigsResponse";
+export { OCIConfigType } from "./models/OCIConfigType";
 export { OktaAccount } from "./models/OktaAccount";
 export { OktaAccountAttributes } from "./models/OktaAccountAttributes";
 export { OktaAccountRequest } from "./models/OktaAccountRequest";
