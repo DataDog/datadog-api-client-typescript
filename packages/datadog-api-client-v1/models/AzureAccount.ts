@@ -76,6 +76,10 @@ export class AzureAccount {
    */
   "resourceProviderConfigs"?: Array<ResourceProviderConfig>;
   /**
+   * (Preview) When enabled, Datadog authenticates with this app registration using federated workload identity credentials instead of a client secret.
+   */
+  "secretlessAuthEnabled"?: boolean;
+  /**
    * Your Azure Active Directory ID.
    */
   "tenantName"?: string;
@@ -159,6 +163,10 @@ export class AzureAccount {
     resourceProviderConfigs: {
       baseName: "resource_provider_configs",
       type: "Array<ResourceProviderConfig>",
+    },
+    secretlessAuthEnabled: {
+      baseName: "secretless_auth_enabled",
+      type: "boolean",
     },
     tenantName: {
       baseName: "tenant_name",
