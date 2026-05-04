@@ -5,6 +5,7 @@ import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFo
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
+import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
 
 /**
@@ -63,6 +64,10 @@ export class SunburstWidgetRequest {
    * The log query.
    */
   "securityQuery"?: LogQueryDefinition;
+  /**
+   * The controls for sorting the widget.
+   */
+  "sort"?: WidgetSortBy;
   /**
    * Widget style definition.
    */
@@ -133,6 +138,10 @@ export class SunburstWidgetRequest {
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
+    },
+    sort: {
+      baseName: "sort",
+      type: "WidgetSortBy",
     },
     style: {
       baseName: "style",
