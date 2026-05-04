@@ -1773,7 +1773,13 @@ export class RolesApi {
   }
 
   /**
-   * Create a new role for your organization.
+   * Create a role for your organization.
+   *
+   *
+   * **Note**: When a role is created, the following permissions are
+   * automatically added, unless specifically excluded: Dashboards Read, Notebooks Read, Monitors Read, APM Read,
+   * Vulnerability Management Read, RUM Apps Read, Incidents Read, SLOs
+   * Read, CI Visibility Read, and CD Visibility Read.
    * @param param The request object
    */
   public createRole(
