@@ -6,6 +6,8 @@
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { WidgetFormula } from "./WidgetFormula";
+import { WidgetRequestStyle } from "./WidgetRequestStyle";
+import { WidgetSortBy } from "./WidgetSortBy";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -29,6 +31,14 @@ export class TreeMapWidgetRequest {
    * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
    */
   "responseFormat"?: FormulaAndFunctionResponseFormat;
+  /**
+   * The controls for sorting the widget.
+   */
+  "sort"?: WidgetSortBy;
+  /**
+   * Define request widget style.
+   */
+  "style"?: WidgetRequestStyle;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,6 +71,14 @@ export class TreeMapWidgetRequest {
     responseFormat: {
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
+    },
+    sort: {
+      baseName: "sort",
+      type: "WidgetSortBy",
+    },
+    style: {
+      baseName: "style",
+      type: "WidgetRequestStyle",
     },
     additionalProperties: {
       baseName: "additionalProperties",
