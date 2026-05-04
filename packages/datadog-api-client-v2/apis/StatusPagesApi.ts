@@ -2840,7 +2840,7 @@ export class StatusPagesApi {
   }
 
   /**
-   * Creates a new status page. **Note**: Publishing a status page on creation via the `enabled` property will be deprecated. Use the dedicated [publish](#publish-status-page) status page endpoint after creation instead.
+   * Creates a new status page in an unpublished state. Use the dedicated [publish](#publish-status-page) status page endpoint to publish the page after creation.
    * @param param The request object
    */
   public createStatusPage(
