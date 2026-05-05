@@ -1022,6 +1022,7 @@ export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiBulkDeleteSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsAssigneeRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsStateRequest,
@@ -5428,6 +5429,11 @@ export { SecurityMonitoringRuleAnomalyDetectionOptions } from "./models/Security
 export { SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration";
 export { SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance";
 export { SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration } from "./models/SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration";
+export { SecurityMonitoringRuleBulkDeleteAttributes } from "./models/SecurityMonitoringRuleBulkDeleteAttributes";
+export { SecurityMonitoringRuleBulkDeleteData } from "./models/SecurityMonitoringRuleBulkDeleteData";
+export { SecurityMonitoringRuleBulkDeletePayload } from "./models/SecurityMonitoringRuleBulkDeletePayload";
+export { SecurityMonitoringRuleBulkDeleteRequestDataType } from "./models/SecurityMonitoringRuleBulkDeleteRequestDataType";
+export { SecurityMonitoringRuleBulkDeleteResponse } from "./models/SecurityMonitoringRuleBulkDeleteResponse";
 export { SecurityMonitoringRuleBulkExportAttributes } from "./models/SecurityMonitoringRuleBulkExportAttributes";
 export { SecurityMonitoringRuleBulkExportData } from "./models/SecurityMonitoringRuleBulkExportData";
 export { SecurityMonitoringRuleBulkExportDataType } from "./models/SecurityMonitoringRuleBulkExportDataType";

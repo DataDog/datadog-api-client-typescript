@@ -5486,6 +5486,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
+    "v2.BulkDeleteSecurityMonitoringRules": {
+        "body": {
+            "type": "SecurityMonitoringRuleBulkDeletePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleBulkDeleteResponse",
+    },
     "v2.BulkExportSecurityMonitoringRules": {
         "body": {
             "type": "SecurityMonitoringRuleBulkExportPayload",
