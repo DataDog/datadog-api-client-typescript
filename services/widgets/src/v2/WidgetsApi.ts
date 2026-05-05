@@ -668,7 +668,12 @@ export interface WidgetsApiCreateWidgetRequest {
    */
   experienceType: WidgetExperienceType;
   /**
-   * Widget request body.
+   * Widget request body. The `definition` object's required fields vary
+   * by `widget.definition.type`: every type requires `requests`, and
+   * some types require additional fields (e.g. `cloud_cost_summary`
+   * requires `graph_options`, `geomap` requires `style` and `view`).
+   * The example below shows a complete `cloud_cost_summary` payload
+   * for the `ccm_reports` experience type.
    * @type CreateOrUpdateWidgetRequest
    */
   body: CreateOrUpdateWidgetRequest;
@@ -761,7 +766,9 @@ export interface WidgetsApiUpdateWidgetRequest {
    */
   uuid: string;
   /**
-   * Widget request body.
+   * Widget request body. The `definition` object's required fields vary
+   * by `widget.definition.type`; see `CreateWidget` above for a complete
+   * worked payload. Update is a full replacement of the widget definition.
    * @type CreateOrUpdateWidgetRequest
    */
   body: CreateOrUpdateWidgetRequest;
