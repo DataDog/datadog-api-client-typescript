@@ -2033,7 +2033,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   metricName: string;
   /**
-   * Filtered tag keys that the metric is configured to query with.
+   * Comma-separated list of tag keys that the metric is configured to query with. For example: `filter[groups]=app,host`.
    * @type string
    */
   filterGroups?: string;
@@ -2124,12 +2124,12 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterQueried?: boolean;
   /**
-   * Only return metrics that have been queried or not queried in the specified window. Dependent on being sent with `filter[queried]`. The default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds (180 days), and the minimum value is 1 second.
+   * This parameter has no effect unless `filter[queried]` is also set. Only return metrics that have been queried or not queried in the specified window. The default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds (180 days), and the minimum value is 1 second. For example: `filter[queried]=true&filter[queried][window][seconds]=604800`.
    * @type number
    */
   filterQueriedWindowSeconds?: number;
   /**
-   * Only return metrics that were submitted with tags matching this expression. You can use AND, OR, IN, and wildcards (for example, service:web*).
+   * Only return metrics that were submitted with tags matching this expression. You can use AND, OR, IN, and wildcards. For example: `filter[tags]=env IN (staging,test) AND service:web*`.
    * @type string
    */
   filterTags?: string;
@@ -2144,7 +2144,7 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   windowSeconds?: number;
   /**
-   * Maximum number of results per page. Use with `page[cursor]` for pagination. The default value is 10000, the maximum value is 10000, and the minimum value is 1.
+   * Maximum number of results per page. Send `page[size]` on the first request to opt in to pagination. On each subsequent request, send `page[cursor]` set to the value of `meta.pagination.next_cursor` from the previous response. The default value is 10000, the maximum value is 10000, and the minimum value is 1.
    * @type number
    */
   pageSize?: number;
@@ -2491,6 +2491,8 @@ export class MetricsApi {
 
   /**
    * Get a list of actively reporting metrics for your organization. Pagination is optional using the `page[cursor]` and `page[size]` query parameters.
+   *
+   * Query parameters use bracket notation (for example, `filter[tags]`, `filter[queried][window][seconds]`). Pass them as standard URL query strings, URL-encoding the brackets if your client does not handle them. For example: `GET /api/v2/metrics?filter[tags]=env:prod&window[seconds]=86400&page[size]=500`.
    * @param param The request object
    */
   public listTagConfigurations(
