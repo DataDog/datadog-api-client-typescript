@@ -3543,53 +3543,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PersonalAccessTokenResponse",
     },
-    "v2.ListAPIs": {
-        "query": {
-            "type": "string",
-            "format": "",
-            },
-        "pageLimit": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageOffset": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "ListAPIsResponse",
-    },
-    "v2.DeleteOpenAPI": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.GetOpenAPI": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "HttpFile",
-    },
-    "v2.UpdateOpenAPI": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "openapiSpecFile": {
-            "type": "HttpFile",
-            "format": "binary",
-            },
-        "operationResponseType": "UpdateOpenAPIResponse",
-    },
-    "v2.CreateOpenAPI": {
-        "openapiSpecFile": {
-            "type": "HttpFile",
-            "format": "binary",
-            },
-        "operationResponseType": "CreateOpenAPIResponse",
-    },
     "v2.ListSpansMetrics": {
         "operationResponseType": "SpansMetricsResponse",
     },
