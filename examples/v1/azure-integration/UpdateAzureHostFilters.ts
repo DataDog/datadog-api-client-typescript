@@ -29,6 +29,7 @@ const params: v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
         namespace: "Microsoft.Compute",
       },
     ],
+    secretlessAuthEnabled: true,
     tenantName: "testc44-1234-5678-9101-cc00736ftest",
     usageMetricsEnabled: true,
   },
