@@ -229,6 +229,10 @@ import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRul
 import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
+import { SecurityMonitoringRuleBulkDeleteAttributes } from "./SecurityMonitoringRuleBulkDeleteAttributes";
+import { SecurityMonitoringRuleBulkDeleteData } from "./SecurityMonitoringRuleBulkDeleteData";
+import { SecurityMonitoringRuleBulkDeletePayload } from "./SecurityMonitoringRuleBulkDeletePayload";
+import { SecurityMonitoringRuleBulkDeleteResponse } from "./SecurityMonitoringRuleBulkDeleteResponse";
 import { SecurityMonitoringRuleBulkExportAttributes } from "./SecurityMonitoringRuleBulkExportAttributes";
 import { SecurityMonitoringRuleBulkExportData } from "./SecurityMonitoringRuleBulkExportData";
 import { SecurityMonitoringRuleBulkExportPayload } from "./SecurityMonitoringRuleBulkExportPayload";
@@ -507,6 +511,7 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration: [
       1, 6, 12, 24, 48, 168, 336,
     ],
+    SecurityMonitoringRuleBulkDeleteRequestDataType: ["bulk_delete_rules"],
     SecurityMonitoringRuleBulkExportDataType: [
       "security_monitoring_rules_bulk_export",
     ],
@@ -1026,6 +1031,13 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
     SecurityMonitoringRuleAnomalyDetectionOptions:
       SecurityMonitoringRuleAnomalyDetectionOptions,
+    SecurityMonitoringRuleBulkDeleteAttributes:
+      SecurityMonitoringRuleBulkDeleteAttributes,
+    SecurityMonitoringRuleBulkDeleteData: SecurityMonitoringRuleBulkDeleteData,
+    SecurityMonitoringRuleBulkDeletePayload:
+      SecurityMonitoringRuleBulkDeletePayload,
+    SecurityMonitoringRuleBulkDeleteResponse:
+      SecurityMonitoringRuleBulkDeleteResponse,
     SecurityMonitoringRuleBulkExportAttributes:
       SecurityMonitoringRuleBulkExportAttributes,
     SecurityMonitoringRuleBulkExportData: SecurityMonitoringRuleBulkExportData,
