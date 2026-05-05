@@ -733,9 +733,6 @@ import { CreateNotificationRuleParametersData } from "./CreateNotificationRulePa
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
 import { CreateOnCallNotificationRuleRequest } from "./CreateOnCallNotificationRuleRequest";
 import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificationRuleRequestData";
-import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
-import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
-import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
 import { CreateOrUpdateWidgetRequest } from "./CreateOrUpdateWidgetRequest";
 import { CreateOrUpdateWidgetRequestAttributes } from "./CreateOrUpdateWidgetRequestAttributes";
 import { CreateOrUpdateWidgetRequestData } from "./CreateOrUpdateWidgetRequestData";
@@ -1914,11 +1911,6 @@ import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { Library } from "./Library";
 import { Links } from "./Links";
-import { ListAPIsResponse } from "./ListAPIsResponse";
-import { ListAPIsResponseData } from "./ListAPIsResponseData";
-import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
-import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
-import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
 import { ListAllocationsResponse } from "./ListAllocationsResponse";
 import { ListAppKeyRegistrationsResponse } from "./ListAppKeyRegistrationsResponse";
 import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
@@ -2412,7 +2404,6 @@ import { OpenAIAPIKey } from "./OpenAIAPIKey";
 import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
-import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
@@ -3862,9 +3853,6 @@ import { UpdateFlakyTestsResponseResult } from "./UpdateFlakyTestsResponseResult
 import { UpdateOnCallNotificationRuleRequest } from "./UpdateOnCallNotificationRuleRequest";
 import { UpdateOnCallNotificationRuleRequestAttributes } from "./UpdateOnCallNotificationRuleRequestAttributes";
 import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
-import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
-import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
-import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
 import { UpdateOutcomesAsyncAttributes } from "./UpdateOutcomesAsyncAttributes";
 import { UpdateOutcomesAsyncRequest } from "./UpdateOutcomesAsyncRequest";
 import { UpdateOutcomesAsyncRequestData } from "./UpdateOutcomesAsyncRequestData";
@@ -7255,9 +7243,6 @@ const typeMap: { [index: string]: any } = {
   CreateOnCallNotificationRuleRequest: CreateOnCallNotificationRuleRequest,
   CreateOnCallNotificationRuleRequestData:
     CreateOnCallNotificationRuleRequestData,
-  CreateOpenAPIResponse: CreateOpenAPIResponse,
-  CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
-  CreateOpenAPIResponseData: CreateOpenAPIResponseData,
   CreateOrUpdateWidgetRequest: CreateOrUpdateWidgetRequest,
   CreateOrUpdateWidgetRequestAttributes: CreateOrUpdateWidgetRequestAttributes,
   CreateOrUpdateWidgetRequestData: CreateOrUpdateWidgetRequestData,
@@ -8636,11 +8621,6 @@ const typeMap: { [index: string]: any } = {
   LeakedKeyAttributes: LeakedKeyAttributes,
   Library: Library,
   Links: Links,
-  ListAPIsResponse: ListAPIsResponse,
-  ListAPIsResponseData: ListAPIsResponseData,
-  ListAPIsResponseDataAttributes: ListAPIsResponseDataAttributes,
-  ListAPIsResponseMeta: ListAPIsResponseMeta,
-  ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
   ListAllocationsResponse: ListAllocationsResponse,
   ListAppKeyRegistrationsResponse: ListAppKeyRegistrationsResponse,
   ListAppKeyRegistrationsResponseMeta: ListAppKeyRegistrationsResponseMeta,
@@ -9306,7 +9286,6 @@ const typeMap: { [index: string]: any } = {
   OpenAIAPIKeyUpdate: OpenAIAPIKeyUpdate,
   OpenAIIntegration: OpenAIIntegration,
   OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
-  OpenAPIEndpoint: OpenAPIEndpoint,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
   OpsgenieServiceCreateData: OpsgenieServiceCreateData,
   OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
@@ -11053,9 +11032,6 @@ const typeMap: { [index: string]: any } = {
     UpdateOnCallNotificationRuleRequestAttributes,
   UpdateOnCallNotificationRuleRequestData:
     UpdateOnCallNotificationRuleRequestData,
-  UpdateOpenAPIResponse: UpdateOpenAPIResponse,
-  UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
-  UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
   UpdateOutcomesAsyncAttributes: UpdateOutcomesAsyncAttributes,
   UpdateOutcomesAsyncRequest: UpdateOutcomesAsyncRequest,
   UpdateOutcomesAsyncRequestData: UpdateOutcomesAsyncRequestData,
