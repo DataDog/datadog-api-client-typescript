@@ -213,6 +213,8 @@ export { TeamTarget } from "./models/TeamTarget";
 export { TeamTargetType } from "./models/TeamTargetType";
 export { TimeRestriction } from "./models/TimeRestriction";
 export { TimeRestrictions } from "./models/TimeRestrictions";
+export { TriggerWorkflowAutomationAction } from "./models/TriggerWorkflowAutomationAction";
+export { TriggerWorkflowAutomationActionType } from "./models/TriggerWorkflowAutomationActionType";
 export { UpdateOnCallNotificationRuleRequest } from "./models/UpdateOnCallNotificationRuleRequest";
 export { UpdateOnCallNotificationRuleRequestAttributes } from "./models/UpdateOnCallNotificationRuleRequestAttributes";
 export { UpdateOnCallNotificationRuleRequestData } from "./models/UpdateOnCallNotificationRuleRequestData";
