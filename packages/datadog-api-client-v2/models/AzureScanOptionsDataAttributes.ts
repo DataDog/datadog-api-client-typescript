@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AzureScanOptionsDataAttributes {
   /**
+   * Indicates whether host compliance scanning is enabled.
+   */
+  "complianceHost"?: boolean;
+  /**
    * Indicates if scanning for vulnerabilities in containers is enabled.
    */
   "vulnContainersOs"?: boolean;
@@ -35,6 +39,10 @@ export class AzureScanOptionsDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    complianceHost: {
+      baseName: "compliance_host",
+      type: "boolean",
+    },
     vulnContainersOs: {
       baseName: "vuln_containers_os",
       type: "boolean",
