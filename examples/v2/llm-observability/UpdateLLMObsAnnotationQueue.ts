@@ -18,7 +18,7 @@ const params: v2.LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest = {
               description: "Rating of the response quality.",
               hasAssessment: false,
               hasReasoning: false,
-              id: "ab12cd34",
+              id: "abc-123",
               isAssessment: false,
               isInteger: false,
               isRequired: true,
