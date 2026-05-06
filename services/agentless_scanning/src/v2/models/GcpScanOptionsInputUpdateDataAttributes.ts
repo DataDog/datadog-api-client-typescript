@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class GcpScanOptionsInputUpdateDataAttributes {
   /**
+   * Indicates whether host compliance scanning is enabled.
+   */
+  "complianceHost"?: boolean;
+  /**
    * Indicates if scanning for vulnerabilities in containers is enabled.
    */
   "vulnContainersOs"?: boolean;
@@ -27,6 +31,10 @@ export class GcpScanOptionsInputUpdateDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    complianceHost: {
+      baseName: "compliance_host",
+      type: "boolean",
+    },
     vulnContainersOs: {
       baseName: "vuln_containers_os",
       type: "boolean",
