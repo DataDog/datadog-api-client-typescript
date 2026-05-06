@@ -8,6 +8,7 @@ import { AlertValueWidgetDefinition } from "./AlertValueWidgetDefinition";
 import { BarChartWidgetDefinition } from "./BarChartWidgetDefinition";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { CloudcraftWidgetDefinition } from "./CloudcraftWidgetDefinition";
 import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
@@ -56,6 +57,7 @@ export type WidgetDefinition =
   | BarChartWidgetDefinition
   | ChangeWidgetDefinition
   | CheckStatusWidgetDefinition
+  | CloudcraftWidgetDefinition
   | CohortWidgetDefinition
   | DistributionWidgetDefinition
   | EventStreamWidgetDefinition
