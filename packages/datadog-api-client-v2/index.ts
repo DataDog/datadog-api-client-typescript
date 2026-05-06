@@ -265,11 +265,6 @@ export {
 } from "./apis/CloudCostManagementApi";
 
 export {
-  CloudInventorySyncConfigsApiUpsertSyncConfigRequest,
-  CloudInventorySyncConfigsApi,
-} from "./apis/CloudInventorySyncConfigsApi";
-
-export {
   CloudNetworkMonitoringApiGetAggregatedConnectionsRequest,
   CloudNetworkMonitoringApiGetAggregatedDnsRequest,
   CloudNetworkMonitoringApi,
@@ -1238,6 +1233,11 @@ export {
   StatusPagesApiUpdateStatusPageRequest,
   StatusPagesApi,
 } from "./apis/StatusPagesApi";
+
+export {
+  StorageManagementApiUpsertSyncConfigRequest,
+  StorageManagementApi,
+} from "./apis/StorageManagementApi";
 
 export {
   SyntheticsApiAbortTestFileMultipartUploadRequest,

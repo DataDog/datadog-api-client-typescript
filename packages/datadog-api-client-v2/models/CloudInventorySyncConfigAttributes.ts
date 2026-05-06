@@ -8,7 +8,7 @@ import { CloudInventoryCloudProviderId } from "./CloudInventoryCloudProviderId";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for a cloud inventory sync configuration. Values beyond `id` may be omitted immediately after upsert.
+ * Attributes for a Storage Management configuration. Fields other than `id` may be empty in the response immediately after a create or update; subsequent reads return the full configuration.
  */
 export class CloudInventorySyncConfigAttributes {
   /**
@@ -64,7 +64,7 @@ export class CloudInventorySyncConfigAttributes {
    */
   "gcpServiceAccountEmail": string;
   /**
-   * Object key prefix or `/` when the entire bucket is synced.
+   * Object key prefix where inventory reports are written. Returns `/` when reports are written at the bucket root.
    */
   "prefix": string;
 

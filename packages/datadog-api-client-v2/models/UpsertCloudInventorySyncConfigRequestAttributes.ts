@@ -10,11 +10,11 @@ import { CloudInventorySyncConfigGCPRequestAttributes } from "./CloudInventorySy
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Provider-specific configuration. Include the object that matches `data.id` (`aws`, `gcp`, or `azure`).
+ * Settings for the cloud provider specified in `data.id`. Include only the matching provider object (`aws`, `gcp`, or `azure`).
  */
 export class UpsertCloudInventorySyncConfigRequestAttributes {
   /**
-   * AWS settings for the customer bucket that stores inventory reports.
+   * AWS settings for the S3 bucket Storage Management reads inventory reports from.
    */
   "aws"?: CloudInventorySyncConfigAWSRequestAttributes;
   /**

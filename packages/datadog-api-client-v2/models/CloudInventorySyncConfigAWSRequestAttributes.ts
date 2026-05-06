@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS settings for the customer bucket that stores inventory reports.
+ * AWS settings for the S3 bucket Storage Management reads inventory reports from.
  */
 export class CloudInventorySyncConfigAWSRequestAttributes {
   /**
@@ -23,7 +23,7 @@ export class CloudInventorySyncConfigAWSRequestAttributes {
    */
   "destinationBucketRegion": string;
   /**
-   * Optional object key prefix for inventory files. Use `/` or omit for the entire bucket.
+   * Object key prefix where inventory reports are written. Omit or set to `/` when reports are written at the bucket root.
    */
   "destinationPrefix"?: string;
 

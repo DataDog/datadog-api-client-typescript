@@ -10,11 +10,11 @@ import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudIn
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API data envelope for an upsert sync configuration request.
+ * Storage Management configuration data for the create or update request.
  */
 export class UpsertCloudInventorySyncConfigRequestData {
   /**
-   * Provider-specific configuration. Include the object that matches `data.id` (`aws`, `gcp`, or `azure`).
+   * Settings for the cloud provider specified in `data.id`. Include only the matching provider object (`aws`, `gcp`, or `azure`).
    */
   "attributes": UpsertCloudInventorySyncConfigRequestAttributes;
   /**
@@ -22,7 +22,7 @@ export class UpsertCloudInventorySyncConfigRequestData {
    */
   "id": CloudInventoryCloudProviderId;
   /**
-   * JSON:API type for upsert sync configuration requests.
+   * Always `cloud_provider`.
    */
   "type": CloudInventoryCloudProviderRequestType;
 

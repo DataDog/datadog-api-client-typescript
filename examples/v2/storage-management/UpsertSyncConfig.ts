@@ -1,14 +1,13 @@
 /**
- * Create or update a sync configuration returns "OK" response
+ * Enable Storage Management for a bucket returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.upsertSyncConfig"] = true;
-const apiInstance = new v2.CloudInventorySyncConfigsApi(configuration);
+const apiInstance = new v2.StorageManagementApi(configuration);
 
-const params: v2.CloudInventorySyncConfigsApiUpsertSyncConfigRequest = {
+const params: v2.StorageManagementApiUpsertSyncConfigRequest = {
   body: {
     data: {
       attributes: {
