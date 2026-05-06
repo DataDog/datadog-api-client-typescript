@@ -6363,6 +6363,8 @@ export { TriggerInvestigationResponseType } from "./models/TriggerInvestigationR
 export { TriggerRateLimit } from "./models/TriggerRateLimit";
 export { TriggerSource } from "./models/TriggerSource";
 export { TriggerType } from "./models/TriggerType";
+export { TriggerWorkflowAutomationAction } from "./models/TriggerWorkflowAutomationAction";
+export { TriggerWorkflowAutomationActionType } from "./models/TriggerWorkflowAutomationActionType";
 export { UCConfigPair } from "./models/UCConfigPair";
 export { UCConfigPairData } from "./models/UCConfigPairData";
 export { UCConfigPairDataAttributes } from "./models/UCConfigPairDataAttributes";
