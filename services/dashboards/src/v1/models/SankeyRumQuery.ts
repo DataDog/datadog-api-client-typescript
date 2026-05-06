@@ -7,7 +7,7 @@ import { SankeyRumDataSource } from "./SankeyRumDataSource";
 import { SankeyRumQueryMode } from "./SankeyRumQueryMode";
 
 /**
- * Sankey widget with RUM data source query.
+ * Query configuration for Product Analytics or RUM Sankey widget.
  */
 export class SankeyRumQuery {
   /**
@@ -15,7 +15,7 @@ export class SankeyRumQuery {
    */
   "audienceFilters"?: ProductAnalyticsAudienceFilters;
   /**
-   * Sankey widget with RUM data source.
+   * Product Analytics or RUM data source type.
    */
   "dataSource": SankeyRumDataSource;
   /**
@@ -27,7 +27,7 @@ export class SankeyRumQuery {
    */
   "joinKeys"?: SankeyJoinKeys;
   /**
-   * Sankey mode for RUM queries.
+   * Sankey mode for Product Analytics or RUM queries.
    */
   "mode": SankeyRumQueryMode;
   /**
