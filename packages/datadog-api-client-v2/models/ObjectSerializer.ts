@@ -3810,6 +3810,7 @@ import { TriggerInvestigationResponse } from "./TriggerInvestigationResponse";
 import { TriggerInvestigationResponseData } from "./TriggerInvestigationResponseData";
 import { TriggerInvestigationResponseDataAttributes } from "./TriggerInvestigationResponseDataAttributes";
 import { TriggerRateLimit } from "./TriggerRateLimit";
+import { TriggerWorkflowAutomationAction } from "./TriggerWorkflowAutomationAction";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
@@ -6222,6 +6223,7 @@ const enumsMap: { [key: string]: any[] } = {
   TriggerInvestigationResponseType: ["trigger_investigation_response"],
   TriggerSource: ["security_findings", "security_signals"],
   TriggerType: ["monitor_alert_trigger"],
+  TriggerWorkflowAutomationActionType: ["workflow"],
   UCConfigPairDataType: ["azure_uc_configs"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateConnectionRequestDataType: ["connection_id"],
@@ -10999,6 +11001,7 @@ const typeMap: { [index: string]: any } = {
   TriggerInvestigationResponseDataAttributes:
     TriggerInvestigationResponseDataAttributes,
   TriggerRateLimit: TriggerRateLimit,
+  TriggerWorkflowAutomationAction: TriggerWorkflowAutomationAction,
   UCConfigPair: UCConfigPair,
   UCConfigPairData: UCConfigPairData,
   UCConfigPairDataAttributes: UCConfigPairDataAttributes,
@@ -11711,7 +11714,11 @@ const oneOfMap: { [index: string]: string[] } = {
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
   RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
-  RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
+  RoutingRuleAction: [
+    "SendSlackMessageAction",
+    "SendTeamsMessageAction",
+    "TriggerWorkflowAutomationAction",
+  ],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: [
     "MetricsScalarQuery",
