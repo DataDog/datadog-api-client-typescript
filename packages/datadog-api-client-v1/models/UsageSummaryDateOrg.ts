@@ -847,6 +847,10 @@ export class UsageSummaryDateOrg {
    */
   "serverlessAppsApmApmGcpCloudrunInstancesAvg"?: number;
   /**
+   * Shows the average number of Serverless Apps with Application Performance Monitoring for Google Kubernetes Engine Autopilot pods for the given date and given org.
+   */
+  "serverlessAppsApmApmGcpGkeAutopilotPodsAvg"?: number;
+  /**
    * Shows the average number of Serverless Apps with Application Performance Monitoring for the given date and given org.
    */
   "serverlessAppsApmAvg"?: number;
@@ -870,6 +874,10 @@ export class UsageSummaryDateOrg {
    * Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Run instances for the given date and given org.
    */
   "serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg"?: number;
+  /**
+   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Kubernetes Engine Autopilot pods for the given date and given org.
+   */
+  "serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg"?: number;
   /**
    * Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for the given date and given org.
    */
@@ -923,6 +931,10 @@ export class UsageSummaryDateOrg {
    */
   "serverlessAppsExclFargateGoogleCloudRunInstancesAvg"?: number;
   /**
+   * Shows the average number of Serverless Apps excluding Fargate for Google Kubernetes Engine Autopilot pods for the given date and given org.
+   */
+  "serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg"?: number;
+  /**
    * Shows the average number of Serverless Apps for Google Cloud Platform Cloud Functions instances for the given date and given org.
    */
   "serverlessAppsGoogleCloudFunctionsInstancesAvg"?: number;
@@ -934,6 +946,10 @@ export class UsageSummaryDateOrg {
    * Shows the average number of Serverless Apps for Google Cloud for the given date and given org.
    */
   "serverlessAppsGoogleCountAvg"?: number;
+  /**
+   * Shows the average number of Serverless Apps for Google Kubernetes Engine Autopilot pods for the given date and given org.
+   */
+  "serverlessAppsInfraGcpGkeAutopilotPodsAvg"?: number;
   /**
    * Shows the average number of Serverless Apps for Azure and Google Cloud for the given date and given org.
    */
@@ -2038,6 +2054,11 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    serverlessAppsApmApmGcpGkeAutopilotPodsAvg: {
+      baseName: "serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg",
+      type: "number",
+      format: "int64",
+    },
     serverlessAppsApmAvg: {
       baseName: "serverless_apps_apm_avg",
       type: "number",
@@ -2070,6 +2091,12 @@ export class UsageSummaryDateOrg {
     serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg: {
       baseName:
         "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg: {
+      baseName:
+        "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg",
       type: "number",
       format: "int64",
     },
@@ -2140,6 +2167,11 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg: {
+      baseName: "serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg",
+      type: "number",
+      format: "int64",
+    },
     serverlessAppsGoogleCloudFunctionsInstancesAvg: {
       baseName: "serverless_apps_google_cloud_functions_instances_avg",
       type: "number",
@@ -2152,6 +2184,11 @@ export class UsageSummaryDateOrg {
     },
     serverlessAppsGoogleCountAvg: {
       baseName: "serverless_apps_google_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsInfraGcpGkeAutopilotPodsAvg: {
+      baseName: "serverless_apps_infra_gcp_gke_autopilot_pods_avg",
       type: "number",
       format: "int64",
     },

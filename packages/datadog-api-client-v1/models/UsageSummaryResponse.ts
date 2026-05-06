@@ -861,6 +861,10 @@ export class UsageSummaryResponse {
    */
   "serverlessAppsApmApmGcpCloudrunInstancesAvgSum"?: number;
   /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
+   */
+  "serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum"?: number;
+  /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring in the current month for all organizations.
    */
   "serverlessAppsApmAvgSum"?: number;
@@ -884,6 +888,10 @@ export class UsageSummaryResponse {
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Run instances in the current month for all organizations.
    */
   "serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
+   */
+  "serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate in the current month for all organizations.
    */
@@ -937,6 +945,10 @@ export class UsageSummaryResponse {
    */
   "serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum"?: number;
   /**
+   * Sum of the average number of Serverless Apps excluding Fargate for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
+   */
+  "serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum"?: number;
+  /**
    * Sum of the average number of Serverless Apps for Google Cloud Platform Cloud Functions instances in the current month for all organizations.
    */
   "serverlessAppsGoogleCloudFunctionsInstancesAvgSum"?: number;
@@ -948,6 +960,10 @@ export class UsageSummaryResponse {
    * Sum of the average number of Serverless Apps for Google Cloud in the current month for all organizations.
    */
   "serverlessAppsGoogleCountAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
+   */
+  "serverlessAppsInfraGcpGkeAutopilotPodsAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Azure and Google Cloud in the current month for all organizations.
    */
@@ -2081,6 +2097,11 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum: {
+      baseName: "serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg_sum",
+      type: "number",
+      format: "int64",
+    },
     serverlessAppsApmAvgSum: {
       baseName: "serverless_apps_apm_avg_sum",
       type: "number",
@@ -2113,6 +2134,12 @@ export class UsageSummaryResponse {
     serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum: {
       baseName:
         "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum: {
+      baseName:
+        "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg_sum",
       type: "number",
       format: "int64",
     },
@@ -2185,6 +2212,12 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum: {
+      baseName:
+        "serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg_sum",
+      type: "number",
+      format: "int64",
+    },
     serverlessAppsGoogleCloudFunctionsInstancesAvgSum: {
       baseName: "serverless_apps_google_cloud_functions_instances_avg_sum",
       type: "number",
@@ -2197,6 +2230,11 @@ export class UsageSummaryResponse {
     },
     serverlessAppsGoogleCountAvgSum: {
       baseName: "serverless_apps_google_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsInfraGcpGkeAutopilotPodsAvgSum: {
+      baseName: "serverless_apps_infra_gcp_gke_autopilot_pods_avg_sum",
       type: "number",
       format: "int64",
     },
