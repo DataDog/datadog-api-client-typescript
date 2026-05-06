@@ -13,6 +13,7 @@ const params: v2.AgentlessScanningApiCreateAwsScanOptionsRequest = {
       id: "000000000003",
       type: "aws_scan_options",
       attributes: {
+        complianceHost: true,
         lambda: true,
         sensitiveData: false,
         vulnContainersOs: true,

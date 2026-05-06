@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AwsScanOptionsAttributes {
   /**
+   * Indicates whether host compliance scanning is enabled.
+   */
+  "complianceHost"?: boolean;
+  /**
    * Indicates if scanning of Lambda functions is enabled.
    */
   "lambda"?: boolean;
@@ -43,6 +47,10 @@ export class AwsScanOptionsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    complianceHost: {
+      baseName: "compliance_host",
+      type: "boolean",
+    },
     lambda: {
       baseName: "lambda",
       type: "boolean",
