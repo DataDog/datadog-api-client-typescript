@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LogsArchiveAttributesCompressionMethod } from "./LogsArchiveAttributesCompressionMethod";
 import { LogsArchiveCreateRequestDestination } from "./LogsArchiveCreateRequestDestination";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The attributes associated with the archive.
  */
 export class LogsArchiveCreateRequestAttributes {
+  /**
+   * The type of compression for the archive.
+   */
+  "compressionMethod"?: LogsArchiveAttributesCompressionMethod;
   /**
    * An archive's destination.
    */
@@ -53,6 +58,10 @@ export class LogsArchiveCreateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    compressionMethod: {
+      baseName: "compression_method",
+      type: "LogsArchiveAttributesCompressionMethod",
+    },
     destination: {
       baseName: "destination",
       type: "LogsArchiveCreateRequestDestination",

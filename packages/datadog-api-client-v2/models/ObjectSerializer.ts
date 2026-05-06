@@ -5009,6 +5009,7 @@ const enumsMap: { [key: string]: any[] } = {
     "avg",
     "median",
   ],
+  LogsArchiveAttributesCompressionMethod: ["GZIP", "ZSTD"],
   LogsArchiveDestinationAzureType: ["azure"],
   LogsArchiveDestinationGCSType: ["gcs"],
   LogsArchiveDestinationS3Type: ["s3"],
