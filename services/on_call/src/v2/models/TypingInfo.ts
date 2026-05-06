@@ -132,6 +132,7 @@ import { TeamRoutingRulesRequestRule } from "./TeamRoutingRulesRequestRule";
 import { TeamTarget } from "./TeamTarget";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
+import { TriggerWorkflowAutomationAction } from "./TriggerWorkflowAutomationAction";
 import { UpdateOnCallNotificationRuleRequest } from "./UpdateOnCallNotificationRuleRequest";
 import { UpdateOnCallNotificationRuleRequestAttributes } from "./UpdateOnCallNotificationRuleRequestAttributes";
 import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
@@ -191,6 +192,7 @@ export const TypingInfo: ModelTypingInfo = {
     TeamRoutingRulesDataType: ["team_routing_rules"],
     TeamRoutingRulesRequestDataType: ["team_routing_rules"],
     TeamTargetType: ["teams"],
+    TriggerWorkflowAutomationActionType: ["workflow"],
     Urgency: ["low", "high", "dynamic"],
     UserAttributesStatus: ["active", "deactivated", "pending"],
     UserTargetType: ["users"],
@@ -232,7 +234,11 @@ export const TypingInfo: ModelTypingInfo = {
       "OnCallPhoneNotificationRuleSettings",
     ],
     OnCallNotificationRulesIncluded: ["NotificationChannelData"],
-    RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
+    RoutingRuleAction: [
+      "SendSlackMessageAction",
+      "SendTeamsMessageAction",
+      "TriggerWorkflowAutomationAction",
+    ],
     ScheduleDataIncludedItem: [
       "TeamReference",
       "Layer",
@@ -407,6 +413,7 @@ export const TypingInfo: ModelTypingInfo = {
     TeamTarget: TeamTarget,
     TimeRestriction: TimeRestriction,
     TimeRestrictions: TimeRestrictions,
+    TriggerWorkflowAutomationAction: TriggerWorkflowAutomationAction,
     UpdateOnCallNotificationRuleRequest: UpdateOnCallNotificationRuleRequest,
     UpdateOnCallNotificationRuleRequestAttributes:
       UpdateOnCallNotificationRuleRequestAttributes,
