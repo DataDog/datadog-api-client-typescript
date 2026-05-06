@@ -5880,7 +5880,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "SecurityMonitoringApi.V2.GetSecretsRules": {
     operationResponseType: "SecretRuleArray",
   },
-  "CloudInventorySyncConfigsApi.V2.UpsertSyncConfig": {
+  "StorageManagementApi.V2.UpsertSyncConfig": {
     body: {
       type: "UpsertCloudInventorySyncConfigRequest",
       format: "",
