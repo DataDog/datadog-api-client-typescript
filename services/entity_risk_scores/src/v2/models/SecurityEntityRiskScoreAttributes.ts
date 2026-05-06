@@ -133,13 +133,13 @@ export class SecurityEntityRiskScoreAttributes {
       baseName: "riskScore",
       type: "number",
       required: true,
-      format: "double",
+      format: "int64",
     },
     riskScoreEvolution: {
       baseName: "riskScoreEvolution",
       type: "number",
       required: true,
-      format: "double",
+      format: "int64",
     },
     severity: {
       baseName: "severity",
