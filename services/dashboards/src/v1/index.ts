@@ -42,6 +42,11 @@ export { ChangeWidgetDefinitionType } from "./models/ChangeWidgetDefinitionType"
 export { ChangeWidgetRequest } from "./models/ChangeWidgetRequest";
 export { CheckStatusWidgetDefinition } from "./models/CheckStatusWidgetDefinition";
 export { CheckStatusWidgetDefinitionType } from "./models/CheckStatusWidgetDefinitionType";
+export { CloudcraftWidgetDefinition } from "./models/CloudcraftWidgetDefinition";
+export { CloudcraftWidgetDefinitionOverlay } from "./models/CloudcraftWidgetDefinitionOverlay";
+export { CloudcraftWidgetDefinitionProjection } from "./models/CloudcraftWidgetDefinitionProjection";
+export { CloudcraftWidgetDefinitionProvider } from "./models/CloudcraftWidgetDefinitionProvider";
+export { CloudcraftWidgetDefinitionType } from "./models/CloudcraftWidgetDefinitionType";
 export { CohortWidgetDefinition } from "./models/CohortWidgetDefinition";
 export { CohortWidgetDefinitionType } from "./models/CohortWidgetDefinitionType";
 export { Dashboard } from "./models/Dashboard";
