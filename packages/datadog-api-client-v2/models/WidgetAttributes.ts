@@ -20,7 +20,11 @@ export class WidgetAttributes {
    */
   "definition": WidgetDefinition;
   /**
-   * Will be implemented soon. Currently always returns false.
+   * Whether the current user has favorited this widget. Populated on get,
+   * batch_get, update, and search responses; create responses always return
+   * `false` because a widget can only be favorited after it exists.
+   * Favoriting itself is performed through the shared favorites API, not
+   * this service.
    */
   "isFavorited": boolean;
   /**
