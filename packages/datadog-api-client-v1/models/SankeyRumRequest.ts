@@ -9,11 +9,11 @@ import { SankeyWidgetDefinitionType } from "./SankeyWidgetDefinitionType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Sankey widget with RUM data source.
+ * Sankey widget request for Product Analytics or RUM data source.
  */
 export class SankeyRumRequest {
   /**
-   * Sankey widget with RUM data source query.
+   * Query configuration for Product Analytics or RUM Sankey widget.
    */
   "query": SankeyRumQuery;
   /**

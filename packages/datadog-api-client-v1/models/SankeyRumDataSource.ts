@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Sankey widget with RUM data source.
+ * Product Analytics or RUM data source type.
  */
 
 export type SankeyRumDataSource =
