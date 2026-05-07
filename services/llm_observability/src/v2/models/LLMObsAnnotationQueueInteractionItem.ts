@@ -7,7 +7,7 @@ import { LLMObsInteractionType } from "./LLMObsInteractionType";
  */
 export class LLMObsAnnotationQueueInteractionItem {
   /**
-   * Identifier of the content (such as trace ID) for this interaction.
+   * Identifier of the content (trace ID or session ID) for this interaction.
    */
   "contentId": string;
   /**
