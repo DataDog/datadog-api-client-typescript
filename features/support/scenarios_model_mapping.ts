@@ -5935,6 +5935,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainersResponse",
     },
+    "v2.GetCostAIPreferredTags": {
+        "operationResponseType": "CostAIPreferredTagsResponse",
+    },
+    "v2.ListCostTagPipelineActiveKeys": {
+        "operationResponseType": "CostTagPipelineActiveKeyResponse",
+    },
     "v2.ListCustomAllocationRules": {
         "operationResponseType": "ArbitraryRuleResponseArray",
     },
@@ -5951,6 +5957,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListCustomAllocationRulesStatus": {
+        "operationResponseType": "CustomAllocationRuleStatusResponse",
     },
     "v2.GetCustomAllocationRule": {
         "ruleId": {
@@ -6167,6 +6176,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCostOCIConfigs": {
         "operationResponseType": "OCIConfigsResponse",
     },
+    "v2.GetCostSetting": {
+        "settingType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostSettingResponse",
+    },
     "v2.ListTagPipelinesRulesets": {
         "operationResponseType": "RulesetRespArray",
     },
@@ -6183,6 +6199,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListTagPipelinesRulesetsStatus": {
+        "operationResponseType": "TagPipelinesRulesetStatusResponse",
     },
     "v2.ValidateQuery": {
         "body": {
