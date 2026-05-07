@@ -648,10 +648,19 @@ import { ContainersResponseLinks } from "./ContainersResponseLinks";
 import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
 import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData";
 import { ConvertJobResultsToSignalsRequest } from "./ConvertJobResultsToSignalsRequest";
+import { CostAIPreferredTagsAttributes } from "./CostAIPreferredTagsAttributes";
+import { CostAIPreferredTagsData } from "./CostAIPreferredTagsData";
+import { CostAIPreferredTagsResponse } from "./CostAIPreferredTagsResponse";
 import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CostSettingData } from "./CostSettingData";
+import { CostSettingDataAttributes } from "./CostSettingDataAttributes";
+import { CostSettingResponse } from "./CostSettingResponse";
+import { CostTagPipelineActiveKeyAttributes } from "./CostTagPipelineActiveKeyAttributes";
+import { CostTagPipelineActiveKeyData } from "./CostTagPipelineActiveKeyData";
+import { CostTagPipelineActiveKeyResponse } from "./CostTagPipelineActiveKeyResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryData } from "./CoverageSummaryData";
@@ -805,6 +814,9 @@ import { CsmHostsAndContainersCoverageAnalysisResponse } from "./CsmHostsAndCont
 import { CsmServerlessCoverageAnalysisAttributes } from "./CsmServerlessCoverageAnalysisAttributes";
 import { CsmServerlessCoverageAnalysisData } from "./CsmServerlessCoverageAnalysisData";
 import { CsmServerlessCoverageAnalysisResponse } from "./CsmServerlessCoverageAnalysisResponse";
+import { CustomAllocationRuleStatusAttributes } from "./CustomAllocationRuleStatusAttributes";
+import { CustomAllocationRuleStatusData } from "./CustomAllocationRuleStatusData";
+import { CustomAllocationRuleStatusResponse } from "./CustomAllocationRuleStatusResponse";
 import { CustomAttributeConfig } from "./CustomAttributeConfig";
 import { CustomAttributeConfigAttributesCreate } from "./CustomAttributeConfigAttributesCreate";
 import { CustomAttributeConfigCreate } from "./CustomAttributeConfigCreate";
@@ -3653,6 +3665,9 @@ import { TableRowResourceArray } from "./TableRowResourceArray";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
 import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { TagPipelinesRulesetStatusAttributes } from "./TagPipelinesRulesetStatusAttributes";
+import { TagPipelinesRulesetStatusData } from "./TagPipelinesRulesetStatusData";
+import { TagPipelinesRulesetStatusResponse } from "./TagPipelinesRulesetStatusResponse";
 import { TargetingRule } from "./TargetingRule";
 import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { Team } from "./Team";
@@ -4463,9 +4478,12 @@ const enumsMap: { [key: string]: any[] } = {
   ConvertJobResultsToSignalsDataType: [
     "historicalDetectionsJobResultSignalConversion",
   ],
+  CostAIPreferredTagsType: ["preferred_tags"],
   CostAggregationType: ["cumulative"],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CostSettingType: ["setting"],
+  CostTagPipelineActiveKeyType: ["active_tag_key"],
   CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
     "contributor",
@@ -4494,6 +4512,7 @@ const enumsMap: { [key: string]: any[] } = {
   CreateTableRequestDataType: ["reference_table"],
   CreateUploadRequestDataType: ["upload"],
   CreateUploadResponseDataType: ["upload"],
+  CustomAllocationRuleStatusType: ["arbitrary_rule_status"],
   CustomAttributeConfigResourceType: ["custom_attribute"],
   CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
   CustomConnectionType: ["custom_connections"],
@@ -6139,6 +6158,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
+  TagPipelinesRulesetStatusType: ["ruleset_status"],
   TeamConnectionType: ["team_connection"],
   TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
@@ -7158,10 +7178,19 @@ const typeMap: { [index: string]: any } = {
   ConvertJobResultsToSignalsAttributes: ConvertJobResultsToSignalsAttributes,
   ConvertJobResultsToSignalsData: ConvertJobResultsToSignalsData,
   ConvertJobResultsToSignalsRequest: ConvertJobResultsToSignalsRequest,
+  CostAIPreferredTagsAttributes: CostAIPreferredTagsAttributes,
+  CostAIPreferredTagsData: CostAIPreferredTagsData,
+  CostAIPreferredTagsResponse: CostAIPreferredTagsResponse,
   CostAttributionAggregatesBody: CostAttributionAggregatesBody,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CostSettingData: CostSettingData,
+  CostSettingDataAttributes: CostSettingDataAttributes,
+  CostSettingResponse: CostSettingResponse,
+  CostTagPipelineActiveKeyAttributes: CostTagPipelineActiveKeyAttributes,
+  CostTagPipelineActiveKeyData: CostTagPipelineActiveKeyData,
+  CostTagPipelineActiveKeyResponse: CostTagPipelineActiveKeyResponse,
   CoverageSummaryAttributes: CoverageSummaryAttributes,
   CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,
   CoverageSummaryData: CoverageSummaryData,
@@ -7358,6 +7387,9 @@ const typeMap: { [index: string]: any } = {
     CsmServerlessCoverageAnalysisAttributes,
   CsmServerlessCoverageAnalysisData: CsmServerlessCoverageAnalysisData,
   CsmServerlessCoverageAnalysisResponse: CsmServerlessCoverageAnalysisResponse,
+  CustomAllocationRuleStatusAttributes: CustomAllocationRuleStatusAttributes,
+  CustomAllocationRuleStatusData: CustomAllocationRuleStatusData,
+  CustomAllocationRuleStatusResponse: CustomAllocationRuleStatusResponse,
   CustomAttributeConfig: CustomAttributeConfig,
   CustomAttributeConfigAttributesCreate: CustomAttributeConfigAttributesCreate,
   CustomAttributeConfigCreate: CustomAttributeConfigCreate,
@@ -10802,6 +10834,9 @@ const typeMap: { [index: string]: any } = {
   TableRowResourceData: TableRowResourceData,
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
   TableRowResourceIdentifier: TableRowResourceIdentifier,
+  TagPipelinesRulesetStatusAttributes: TagPipelinesRulesetStatusAttributes,
+  TagPipelinesRulesetStatusData: TagPipelinesRulesetStatusData,
+  TagPipelinesRulesetStatusResponse: TagPipelinesRulesetStatusResponse,
   TargetingRule: TargetingRule,
   TargetingRuleRequest: TargetingRuleRequest,
   Team: Team,
