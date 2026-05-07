@@ -62,6 +62,15 @@ import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+import { CostAIPreferredTagsAttributes } from "./CostAIPreferredTagsAttributes";
+import { CostAIPreferredTagsData } from "./CostAIPreferredTagsData";
+import { CostAIPreferredTagsResponse } from "./CostAIPreferredTagsResponse";
+import { CostSettingData } from "./CostSettingData";
+import { CostSettingDataAttributes } from "./CostSettingDataAttributes";
+import { CostSettingResponse } from "./CostSettingResponse";
+import { CostTagPipelineActiveKeyAttributes } from "./CostTagPipelineActiveKeyAttributes";
+import { CostTagPipelineActiveKeyData } from "./CostTagPipelineActiveKeyData";
+import { CostTagPipelineActiveKeyResponse } from "./CostTagPipelineActiveKeyResponse";
 import { CreateRulesetRequest } from "./CreateRulesetRequest";
 import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
 import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
@@ -70,6 +79,9 @@ import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRules
 import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { CustomAllocationRuleStatusAttributes } from "./CustomAllocationRuleStatusAttributes";
+import { CustomAllocationRuleStatusData } from "./CustomAllocationRuleStatusData";
+import { CustomAllocationRuleStatusResponse } from "./CustomAllocationRuleStatusResponse";
 import { CustomCostGetResponseMeta } from "./CustomCostGetResponseMeta";
 import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
 import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
@@ -121,6 +133,9 @@ import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttri
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
 import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { TagPipelinesRulesetStatusAttributes } from "./TagPipelinesRulesetStatusAttributes";
+import { TagPipelinesRulesetStatusData } from "./TagPipelinesRulesetStatusData";
+import { TagPipelinesRulesetStatusResponse } from "./TagPipelinesRulesetStatusResponse";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
@@ -150,7 +165,11 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
     BudgetValidationResponseDataType: ["budget_validation"],
     BudgetWithEntriesDataType: ["budget"],
+    CostAIPreferredTagsType: ["preferred_tags"],
+    CostSettingType: ["setting"],
+    CostTagPipelineActiveKeyType: ["active_tag_key"],
     CreateRulesetRequestDataType: ["create_ruleset"],
+    CustomAllocationRuleStatusType: ["arbitrary_rule_status"],
     DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
     GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
     GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
@@ -162,6 +181,7 @@ export const TypingInfo: ModelTypingInfo = {
     RulesValidateQueryRequestDataType: ["validate_query"],
     RulesValidateQueryResponseDataType: ["validate_response"],
     RulesetRespDataType: ["ruleset"],
+    TagPipelinesRulesetStatusType: ["ruleset_status"],
     UCConfigPairDataType: ["azure_uc_configs"],
     UpdateRulesetRequestDataType: ["update_ruleset"],
   },
@@ -248,6 +268,15 @@ export const TypingInfo: ModelTypingInfo = {
       BudgetWithEntriesDataAttributesEntriesItems,
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
       BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+    CostAIPreferredTagsAttributes: CostAIPreferredTagsAttributes,
+    CostAIPreferredTagsData: CostAIPreferredTagsData,
+    CostAIPreferredTagsResponse: CostAIPreferredTagsResponse,
+    CostSettingData: CostSettingData,
+    CostSettingDataAttributes: CostSettingDataAttributes,
+    CostSettingResponse: CostSettingResponse,
+    CostTagPipelineActiveKeyAttributes: CostTagPipelineActiveKeyAttributes,
+    CostTagPipelineActiveKeyData: CostTagPipelineActiveKeyData,
+    CostTagPipelineActiveKeyResponse: CostTagPipelineActiveKeyResponse,
     CreateRulesetRequest: CreateRulesetRequest,
     CreateRulesetRequestData: CreateRulesetRequestData,
     CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
@@ -261,6 +290,9 @@ export const TypingInfo: ModelTypingInfo = {
       CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
     CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
       CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    CustomAllocationRuleStatusAttributes: CustomAllocationRuleStatusAttributes,
+    CustomAllocationRuleStatusData: CustomAllocationRuleStatusData,
+    CustomAllocationRuleStatusResponse: CustomAllocationRuleStatusResponse,
     CustomCostGetResponseMeta: CustomCostGetResponseMeta,
     CustomCostListResponseMeta: CustomCostListResponseMeta,
     CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,
@@ -321,6 +353,9 @@ export const TypingInfo: ModelTypingInfo = {
       RulesetRespDataAttributesRulesItemsReferenceTable,
     RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
       RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    TagPipelinesRulesetStatusAttributes: TagPipelinesRulesetStatusAttributes,
+    TagPipelinesRulesetStatusData: TagPipelinesRulesetStatusData,
+    TagPipelinesRulesetStatusResponse: TagPipelinesRulesetStatusResponse,
     UCConfigPair: UCConfigPair,
     UCConfigPairData: UCConfigPairData,
     UCConfigPairDataAttributes: UCConfigPairDataAttributes,

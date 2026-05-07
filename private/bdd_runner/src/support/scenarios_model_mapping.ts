@@ -5947,6 +5947,12 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ContainersResponse",
   },
+  "CloudCostManagementApi.V2.GetCostAIPreferredTags": {
+    operationResponseType: "CostAIPreferredTagsResponse",
+  },
+  "CloudCostManagementApi.V2.ListCostTagPipelineActiveKeys": {
+    operationResponseType: "CostTagPipelineActiveKeyResponse",
+  },
   "CloudCostManagementApi.V2.ListCustomAllocationRules": {
     operationResponseType: "ArbitraryRuleResponseArray",
   },
@@ -5963,6 +5969,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.ListCustomAllocationRulesStatus": {
+    operationResponseType: "CustomAllocationRuleStatusResponse",
   },
   "CloudCostManagementApi.V2.GetCustomAllocationRule": {
     ruleId: {
@@ -6179,6 +6188,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CloudCostManagementApi.V2.ListCostOCIConfigs": {
     operationResponseType: "OCIConfigsResponse",
   },
+  "CloudCostManagementApi.V2.GetCostSetting": {
+    settingType: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostSettingResponse",
+  },
   "CloudCostManagementApi.V2.ListTagPipelinesRulesets": {
     operationResponseType: "RulesetRespArray",
   },
@@ -6195,6 +6211,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.ListTagPipelinesRulesetsStatus": {
+    operationResponseType: "TagPipelinesRulesetStatusResponse",
   },
   "CloudCostManagementApi.V2.ValidateQuery": {
     body: {

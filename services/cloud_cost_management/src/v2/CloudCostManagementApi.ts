@@ -38,7 +38,11 @@ import { BudgetArray } from "./models/BudgetArray";
 import { BudgetValidationRequest } from "./models/BudgetValidationRequest";
 import { BudgetValidationResponse } from "./models/BudgetValidationResponse";
 import { BudgetWithEntries } from "./models/BudgetWithEntries";
+import { CostAIPreferredTagsResponse } from "./models/CostAIPreferredTagsResponse";
+import { CostSettingResponse } from "./models/CostSettingResponse";
+import { CostTagPipelineActiveKeyResponse } from "./models/CostTagPipelineActiveKeyResponse";
 import { CreateRulesetRequest } from "./models/CreateRulesetRequest";
+import { CustomAllocationRuleStatusResponse } from "./models/CustomAllocationRuleStatusResponse";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
 import { CustomCostsFileLineItem } from "./models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "./models/CustomCostsFileListResponse";
@@ -55,6 +59,7 @@ import { RulesetResp } from "./models/RulesetResp";
 import { RulesetRespArray } from "./models/RulesetRespArray";
 import { RulesValidateQueryRequest } from "./models/RulesValidateQueryRequest";
 import { RulesValidateQueryResponse } from "./models/RulesValidateQueryResponse";
+import { TagPipelinesRulesetStatusResponse } from "./models/TagPipelinesRulesetStatusResponse";
 import { UCConfigPair } from "./models/UCConfigPair";
 import { UpdateRulesetRequest } from "./models/UpdateRulesetRequest";
 import { ValidationResponse } from "./models/ValidationResponse";
@@ -685,6 +690,52 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCostAIPreferredTags(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.getCostAIPreferredTags"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCostAIPreferredTags' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostAIPreferredTags'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/ai/preferred_tags";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCostAIPreferredTags",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCostAWSCURConfig(
     cloudAccountId: number,
     _options?: Configuration,
@@ -798,6 +849,59 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.getCostGCPUsageCostConfig",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCostSetting(
+    settingType: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["CloudCostManagementApi.v2.getCostSetting"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCostSetting' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostSetting'] = true`",
+      );
+    }
+
+    // verify required parameter 'settingType' is not null or undefined
+    if (settingType === null || settingType === undefined) {
+      throw new RequiredError("settingType", "getCostSetting");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/settings/{setting_type}".replace(
+      "{setting_type}",
+      encodeURIComponent(String(settingType)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCostSetting",
       CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1135,6 +1239,52 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async listCostTagPipelineActiveKeys(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCostTagPipelineActiveKeys"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostTagPipelineActiveKeys' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagPipelineActiveKeys'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/ai/tag_pipelines/active_keys";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostTagPipelineActiveKeys",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listCustomAllocationRules(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -1146,6 +1296,52 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listCustomAllocationRules",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCustomAllocationRulesStatus(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCustomAllocationRulesStatus"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCustomAllocationRulesStatus' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCustomAllocationRulesStatus'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/arbitrary_rule/status";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCustomAllocationRulesStatus",
       CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1268,6 +1464,52 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listTagPipelinesRulesets",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTagPipelinesRulesetsStatus(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listTagPipelinesRulesetsStatus"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listTagPipelinesRulesetsStatus' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listTagPipelinesRulesetsStatus'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/tags/enrichment/status";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listTagPipelinesRulesetsStatus",
       CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -2610,6 +2852,62 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCostAIPreferredTags
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostAIPreferredTags(
+    response: ResponseContext,
+  ): Promise<CostAIPreferredTagsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostAIPreferredTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostAIPreferredTagsResponse",
+      ) as CostAIPreferredTagsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostAIPreferredTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostAIPreferredTagsResponse",
+        "",
+      ) as CostAIPreferredTagsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCostAWSCURConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2764,6 +3062,66 @@ export class CloudCostManagementApiResponseProcessor {
         "GcpUcConfigResponse",
         "",
       ) as GcpUcConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCostSetting
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostSetting(
+    response: ResponseContext,
+  ): Promise<CostSettingResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostSettingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostSettingResponse",
+      ) as CostSettingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostSettingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostSettingResponse",
+        "",
+      ) as CostSettingResponse;
       return body;
     }
 
@@ -3228,6 +3586,62 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCostTagPipelineActiveKeys
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTagPipelineActiveKeys(
+    response: ResponseContext,
+  ): Promise<CostTagPipelineActiveKeyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostTagPipelineActiveKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostTagPipelineActiveKeyResponse",
+      ) as CostTagPipelineActiveKeyResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagPipelineActiveKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostTagPipelineActiveKeyResponse",
+        "",
+      ) as CostTagPipelineActiveKeyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listCustomAllocationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3270,6 +3684,62 @@ export class CloudCostManagementApiResponseProcessor {
         "ArbitraryRuleResponseArray",
         "",
       ) as ArbitraryRuleResponseArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCustomAllocationRulesStatus
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCustomAllocationRulesStatus(
+    response: ResponseContext,
+  ): Promise<CustomAllocationRuleStatusResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CustomAllocationRuleStatusResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomAllocationRuleStatusResponse",
+      ) as CustomAllocationRuleStatusResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomAllocationRuleStatusResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomAllocationRuleStatusResponse",
+        "",
+      ) as CustomAllocationRuleStatusResponse;
       return body;
     }
 
@@ -3386,6 +3856,62 @@ export class CloudCostManagementApiResponseProcessor {
         "RulesetRespArray",
         "",
       ) as RulesetRespArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listTagPipelinesRulesetsStatus
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTagPipelinesRulesetsStatus(
+    response: ResponseContext,
+  ): Promise<TagPipelinesRulesetStatusResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TagPipelinesRulesetStatusResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TagPipelinesRulesetStatusResponse",
+      ) as TagPipelinesRulesetStatusResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagPipelinesRulesetStatusResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TagPipelinesRulesetStatusResponse",
+        "",
+      ) as TagPipelinesRulesetStatusResponse;
       return body;
     }
 
@@ -4192,6 +4718,14 @@ export interface CloudCostManagementApiGetCostGCPUsageCostConfigRequest {
   cloudAccountId: number;
 }
 
+export interface CloudCostManagementApiGetCostSettingRequest {
+  /**
+   * The type of cost setting.
+   * @type string
+   */
+  settingType: string;
+}
+
 export interface CloudCostManagementApiGetCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
@@ -4668,6 +5202,24 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Get the preferred cost allocation tags for AI agent use. Returns a simplified response with contextual messaging based on configuration status.
+   * @param param The request object
+   */
+  public getCostAIPreferredTags(
+    options?: Configuration,
+  ): Promise<CostAIPreferredTagsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCostAIPreferredTags(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostAIPreferredTags(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get a specific AWS CUR config.
    * @param param The request object
    */
@@ -4728,6 +5280,27 @@ export class CloudCostManagementApi {
           return this.responseProcessor.getCostGCPUsageCostConfig(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Get a specific cost management setting by type.
+   * @param param The request object
+   */
+  public getCostSetting(
+    param: CloudCostManagementApiGetCostSettingRequest,
+    options?: Configuration,
+  ): Promise<CostSettingResponse> {
+    const requestContextPromise = this.requestFactory.getCostSetting(
+      param.settingType,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostSetting(responseContext);
         });
     });
   }
@@ -4887,6 +5460,26 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * List the tag keys that are actively set by tag pipeline rules, sorted by rule count in descending order.
+   * @param param The request object
+   */
+  public listCostTagPipelineActiveKeys(
+    options?: Configuration,
+  ): Promise<CostTagPipelineActiveKeyResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCostTagPipelineActiveKeys(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTagPipelineActiveKeys(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List all custom allocation rules - Retrieve a list of all custom allocation rules for the organization
    * @param param The request object
    */
@@ -4900,6 +5493,26 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCustomAllocationRules(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the processing status of all custom allocation rules.
+   * @param param The request object
+   */
+  public listCustomAllocationRulesStatus(
+    options?: Configuration,
+  ): Promise<CustomAllocationRuleStatusResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCustomAllocationRulesStatus(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCustomAllocationRulesStatus(
             responseContext,
           );
         });
@@ -4946,6 +5559,26 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listTagPipelinesRulesets(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the processing status of all tag pipeline rulesets.
+   * @param param The request object
+   */
+  public listTagPipelinesRulesetsStatus(
+    options?: Configuration,
+  ): Promise<TagPipelinesRulesetStatusResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTagPipelinesRulesetsStatus(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagPipelinesRulesetsStatus(
             responseContext,
           );
         });
