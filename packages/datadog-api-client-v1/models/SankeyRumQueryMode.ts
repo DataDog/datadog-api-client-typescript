@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Sankey mode for RUM queries.
+ * Sankey mode for Product Analytics or RUM queries.
  */
 
 export type SankeyRumQueryMode = typeof SOURCE | typeof TARGET | UnparsedObject;
