@@ -3,8 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./SecurityMonitoringRuleNewValueOptionsForgetAfter";
-import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from "./SecurityMonitoringRuleNewValueOptionsLearningDuration";
 import { SecurityMonitoringRuleNewValueOptionsLearningMethod } from "./SecurityMonitoringRuleNewValueOptionsLearningMethod";
 import { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./SecurityMonitoringRuleNewValueOptionsLearningThreshold";
 
@@ -17,7 +15,7 @@ export class SecurityMonitoringRuleNewValueOptions {
   /**
    * The duration in days after which a learned value is forgotten.
    */
-  "forgetAfter"?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
+  "forgetAfter"?: number;
   /**
    * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
    */
@@ -26,7 +24,7 @@ export class SecurityMonitoringRuleNewValueOptions {
    * The duration in days during which values are learned, and after which signals will be generated for values that
    * weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
    */
-  "learningDuration"?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
+  "learningDuration"?: number;
   /**
    * The learning method used to determine when signals should be generated for values that weren't learned.
    */
@@ -54,7 +52,7 @@ export class SecurityMonitoringRuleNewValueOptions {
   static readonly attributeTypeMap: AttributeTypeMap = {
     forgetAfter: {
       baseName: "forgetAfter",
-      type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
+      type: "number",
     },
     instantaneousBaseline: {
       baseName: "instantaneousBaseline",
@@ -62,7 +60,7 @@ export class SecurityMonitoringRuleNewValueOptions {
     },
     learningDuration: {
       baseName: "learningDuration",
-      type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
+      type: "number",
     },
     learningMethod: {
       baseName: "learningMethod",
