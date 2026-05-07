@@ -4,11 +4,11 @@ import { SankeyRumQuery } from "./SankeyRumQuery";
 import { SankeyWidgetDefinitionType } from "./SankeyWidgetDefinitionType";
 
 /**
- * Sankey widget with RUM data source.
+ * Sankey widget request for Product Analytics or RUM data source.
  */
 export class SankeyRumRequest {
   /**
-   * Sankey widget with RUM data source query.
+   * Query configuration for Product Analytics or RUM Sankey widget.
    */
   "query": SankeyRumQuery;
   /**
