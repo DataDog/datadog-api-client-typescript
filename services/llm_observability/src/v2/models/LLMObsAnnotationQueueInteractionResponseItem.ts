@@ -11,7 +11,7 @@ export class LLMObsAnnotationQueueInteractionResponseItem {
    */
   "alreadyExisted": boolean;
   /**
-   * Identifier of the content for this interaction.
+   * Identifier of the content (trace ID or session ID) for this interaction.
    */
   "contentId": string;
   /**
