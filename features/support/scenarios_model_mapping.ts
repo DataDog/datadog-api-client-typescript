@@ -6889,6 +6889,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorDowntimeMatchResponse",
     },
+    "v2.CreateEmailTransportWebhookIntake": {
+        "body": {
+            "type": "Array<TransportWebhookLog>",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.SearchIssues": {
         "include": {
             "type": "Array<SearchIssuesIncludeQueryParameterItem>",
