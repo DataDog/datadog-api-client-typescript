@@ -12,6 +12,10 @@ export class MetricsScalarQuery {
    */
   "aggregator": MetricsAggregator;
   /**
+   * Organization UUIDs to query when using [cross-organization visibility](/account_management/org_settings/cross_org_visibility/). Limited to one organization UUID.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * A data source that is powered by the Metrics platform.
    */
   "dataSource": MetricsDataSource;
@@ -42,6 +46,10 @@ export class MetricsScalarQuery {
       baseName: "aggregator",
       type: "MetricsAggregator",
       required: true,
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",

@@ -13,6 +13,10 @@ export class ProcessScalarQuery {
    */
   "aggregator"?: MetricsAggregator;
   /**
+   * Organization UUIDs to query when using [cross-organization visibility](/account_management/org_settings/cross_org_visibility/). Limited to one organization UUID.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * A data source for process-level infrastructure metrics.
    */
   "dataSource": ProcessDataSource;
@@ -62,6 +66,10 @@ export class ProcessScalarQuery {
     aggregator: {
       baseName: "aggregator",
       type: "MetricsAggregator",
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",

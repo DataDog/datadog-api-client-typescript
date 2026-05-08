@@ -14,6 +14,10 @@ export class SloQuery {
    */
   "additionalQueryFilters"?: string;
   /**
+   * Organization UUIDs to query when using [cross-organization visibility](/account_management/org_settings/cross_org_visibility/). Limited to one organization UUID.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * A data source for SLO queries.
    */
   "dataSource": SloDataSource;
@@ -55,6 +59,10 @@ export class SloQuery {
     additionalQueryFilters: {
       baseName: "additional_query_filters",
       type: "string",
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",
