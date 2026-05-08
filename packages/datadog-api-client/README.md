@@ -437,6 +437,8 @@ apiInstance
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
 | Rum Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
 | Rum Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
+| Rum Replay | @datadog/datadog-api-client-rum-replay | [README.md](../../services/rum-replay/README.md) |
+| Rum Replay Analysis | @datadog/datadog-api-client-rum-replay-analysis | [README.md](../../services/rum-replay-analysis/README.md) |
 | Rum Replay Heatmaps | @datadog/datadog-api-client-rum-replay-heatmaps | [README.md](../../services/rum-replay-heatmaps/README.md) |
 | Rum Replay Playlists | @datadog/datadog-api-client-rum-replay-playlists | [README.md](../../services/rum-replay-playlists/README.md) |
 | Rum Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |

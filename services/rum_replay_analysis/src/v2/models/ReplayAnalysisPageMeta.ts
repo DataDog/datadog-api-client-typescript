@@ -1,0 +1,46 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Pagination metadata for a RUM replay analysis response.
+ */
+export class ReplayAnalysisPageMeta {
+  /**
+   * Total number of items matching the current filters.
+   */
+  "totalFilteredCount": number;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    totalFilteredCount: {
+      baseName: "total_filtered_count",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ReplayAnalysisPageMeta.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -1081,6 +1081,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-rum-replay-analysis@workspace:services/rum_replay_analysis":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-replay-analysis@workspace:services/rum_replay_analysis"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-rum-replay-heatmaps@workspace:services/rum_replay_heatmaps":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-replay-heatmaps@workspace:services/rum_replay_heatmaps"
@@ -1111,6 +1120,15 @@ __metadata:
 "@datadog/datadog-api-client-rum-replay-viewership@workspace:services/rum_replay_viewership":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-replay-viewership@workspace:services/rum_replay_viewership"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-rum-replay@workspace:services/rum_replay":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-replay@workspace:services/rum_replay"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
