@@ -19,6 +19,10 @@ export class EventsScalarQuery {
    */
   "compute": EventsCompute;
   /**
+   * Organization UUIDs to query when using [cross-organization visibility](/account_management/org_settings/cross_org_visibility/). Limited to one organization UUID.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * A data source that is powered by the Events Platform.
    */
   "dataSource": EventsDataSource;
@@ -59,6 +63,10 @@ export class EventsScalarQuery {
       baseName: "compute",
       type: "EventsCompute",
       required: true,
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",
