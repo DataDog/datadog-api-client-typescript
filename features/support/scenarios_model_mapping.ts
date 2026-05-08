@@ -10578,6 +10578,63 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
+    "v2.ListReplayAnalysisIssues": {
+        "filterApplicationId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterSeverity": {
+            "type": "string",
+            "format": "",
+            },
+        "filterViewName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIssueCategory": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "ReplayAnalysisIssuesResponse",
+    },
+    "v2.GetReplayAnalysisIssue": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ReplayAnalysisIssueResponse",
+    },
+    "v2.ListReplayAnalysisIssueSessions": {
+        "issueId": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "ReplayAnalysisIssueSessionsResponse",
+    },
     "v2.ListReplayHeatmapSnapshots": {
         "filterDeviceType": {
             "type": "string",
@@ -10621,6 +10678,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "Snapshot",
+    },
+    "v2.GenerateReplaySummary": {
+        "sessionId": {
+            "type": "string",
+            "format": "",
+            },
+        "dataSource": {
+            "type": "string",
+            "format": "",
+            },
+        "ts": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "ReplaySummaryRequest",
+            "format": "",
+            },
+        "operationResponseType": "ReplaySummaryResponse",
     },
     "v2.GetRestrictionPolicy": {
         "resourceId": {

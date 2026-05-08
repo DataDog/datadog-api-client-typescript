@@ -2801,6 +2801,26 @@ import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
 import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
 import { ReorderRulesetResourceData } from "./ReorderRulesetResourceData";
+import { ReplayAnalysisAffectedSession } from "./ReplayAnalysisAffectedSession";
+import { ReplayAnalysisIssueData } from "./ReplayAnalysisIssueData";
+import { ReplayAnalysisIssueDataAttributes } from "./ReplayAnalysisIssueDataAttributes";
+import { ReplayAnalysisIssueMeta } from "./ReplayAnalysisIssueMeta";
+import { ReplayAnalysisIssueResponse } from "./ReplayAnalysisIssueResponse";
+import { ReplayAnalysisIssueSessionData } from "./ReplayAnalysisIssueSessionData";
+import { ReplayAnalysisIssueSessionDataAttributes } from "./ReplayAnalysisIssueSessionDataAttributes";
+import { ReplayAnalysisIssueSessionsResponse } from "./ReplayAnalysisIssueSessionsResponse";
+import { ReplayAnalysisIssuesResponse } from "./ReplayAnalysisIssuesResponse";
+import { ReplayAnalysisLLMDetails } from "./ReplayAnalysisLLMDetails";
+import { ReplayAnalysisPageMeta } from "./ReplayAnalysisPageMeta";
+import { ReplayAnalysisRepresentativeSession } from "./ReplayAnalysisRepresentativeSession";
+import { ReplayAnalysisScreenshot } from "./ReplayAnalysisScreenshot";
+import { ReplayAnalysisSignal } from "./ReplayAnalysisSignal";
+import { ReplaySummaryChapter } from "./ReplaySummaryChapter";
+import { ReplaySummaryDataAttributesResponse } from "./ReplaySummaryDataAttributesResponse";
+import { ReplaySummaryDataRequest } from "./ReplaySummaryDataRequest";
+import { ReplaySummaryDataResponse } from "./ReplaySummaryDataResponse";
+import { ReplaySummaryRequest } from "./ReplaySummaryRequest";
+import { ReplaySummaryResponse } from "./ReplaySummaryResponse";
 import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
@@ -5556,6 +5576,10 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ReorderRuleResourceDataType: ["arbitrary_rule"],
   ReorderRulesetResourceDataType: ["ruleset"],
+  ReplayAnalysisIssueDataType: ["issues"],
+  ReplayAnalysisIssueSessionDataType: ["sessions"],
+  ReplaySummaryRequestType: ["replay_summary_request"],
+  ReplaySummaryResponseType: ["summary_response"],
   ResolveVulnerableSymbolsRequestDataType: [
     "resolve-vulnerable-symbols-request",
   ],
@@ -9742,6 +9766,27 @@ const typeMap: { [index: string]: any } = {
   ReorderRuleResourceData: ReorderRuleResourceData,
   ReorderRulesetResourceArray: ReorderRulesetResourceArray,
   ReorderRulesetResourceData: ReorderRulesetResourceData,
+  ReplayAnalysisAffectedSession: ReplayAnalysisAffectedSession,
+  ReplayAnalysisIssueData: ReplayAnalysisIssueData,
+  ReplayAnalysisIssueDataAttributes: ReplayAnalysisIssueDataAttributes,
+  ReplayAnalysisIssueMeta: ReplayAnalysisIssueMeta,
+  ReplayAnalysisIssueResponse: ReplayAnalysisIssueResponse,
+  ReplayAnalysisIssueSessionData: ReplayAnalysisIssueSessionData,
+  ReplayAnalysisIssueSessionDataAttributes:
+    ReplayAnalysisIssueSessionDataAttributes,
+  ReplayAnalysisIssueSessionsResponse: ReplayAnalysisIssueSessionsResponse,
+  ReplayAnalysisIssuesResponse: ReplayAnalysisIssuesResponse,
+  ReplayAnalysisLLMDetails: ReplayAnalysisLLMDetails,
+  ReplayAnalysisPageMeta: ReplayAnalysisPageMeta,
+  ReplayAnalysisRepresentativeSession: ReplayAnalysisRepresentativeSession,
+  ReplayAnalysisScreenshot: ReplayAnalysisScreenshot,
+  ReplayAnalysisSignal: ReplayAnalysisSignal,
+  ReplaySummaryChapter: ReplaySummaryChapter,
+  ReplaySummaryDataAttributesResponse: ReplaySummaryDataAttributesResponse,
+  ReplaySummaryDataRequest: ReplaySummaryDataRequest,
+  ReplaySummaryDataResponse: ReplaySummaryDataResponse,
+  ReplaySummaryRequest: ReplaySummaryRequest,
+  ReplaySummaryResponse: ReplaySummaryResponse,
   ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
   ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
   ResolveVulnerableSymbolsRequestDataAttributes:
