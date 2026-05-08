@@ -5964,6 +5964,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CloudCostManagementApi.V2.ListCustomAllocationRulesStatus": {
+    operationResponseType: "ArbitraryRuleStatusResponseArray",
+  },
   "CloudCostManagementApi.V2.GetCustomAllocationRule": {
     ruleId: {
       type: "number",
@@ -6195,6 +6198,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.ListTagPipelinesRulesetsStatus": {
+    operationResponseType: "RulesetStatusRespArray",
   },
   "CloudCostManagementApi.V2.ValidateQuery": {
     body: {
