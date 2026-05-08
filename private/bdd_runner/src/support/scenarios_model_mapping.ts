@@ -13005,61 +13005,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UserTeamsResponse",
   },
-  "IncidentTeamsApi.V2.ListIncidentTeams": {
-    include: {
-      type: "IncidentRelatedObject",
-      format: "",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageOffset: {
-      type: "number",
-      format: "int64",
-    },
-    filter: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "IncidentTeamsResponse",
-  },
-  "IncidentTeamsApi.V2.CreateIncidentTeam": {
-    body: {
-      type: "IncidentTeamCreateRequest",
-      format: "",
-    },
-    operationResponseType: "IncidentTeamResponse",
-  },
-  "IncidentTeamsApi.V2.GetIncidentTeam": {
-    teamId: {
-      type: "string",
-      format: "",
-    },
-    include: {
-      type: "IncidentRelatedObject",
-      format: "",
-    },
-    operationResponseType: "IncidentTeamResponse",
-  },
-  "IncidentTeamsApi.V2.DeleteIncidentTeam": {
-    teamId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "IncidentTeamsApi.V2.UpdateIncidentTeam": {
-    teamId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "IncidentTeamUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "IncidentTeamResponse",
-  },
   "WidgetsApi.V2.SearchWidgets": {
     experienceType: {
       type: "WidgetExperienceType",
