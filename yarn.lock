@@ -586,6 +586,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-dataset-restrictions@workspace:services/dataset_restrictions":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-dataset-restrictions@workspace:services/dataset_restrictions"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-datasets@workspace:services/datasets":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-datasets@workspace:services/datasets"

@@ -382,6 +382,7 @@ apiInstance
 | Dashboard Secure Embed | @datadog/datadog-api-client-dashboard-secure-embed | [README.md](../../services/dashboard-secure-embed/README.md) |
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
+| Dataset Restrictions | @datadog/datadog-api-client-dataset-restrictions | [README.md](../../services/dataset-restrictions/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
 | Deployment Gates | @datadog/datadog-api-client-deployment-gates | [README.md](../../services/deployment-gates/README.md) |
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
