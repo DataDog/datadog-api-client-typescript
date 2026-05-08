@@ -199,6 +199,9 @@ import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./A
 import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleStatusResponseArray } from "./ArbitraryRuleStatusResponseArray";
+import { ArbitraryRuleStatusResponseData } from "./ArbitraryRuleStatusResponseData";
+import { ArbitraryRuleStatusResponseDataAttributes } from "./ArbitraryRuleStatusResponseDataAttributes";
 import { Argument } from "./Argument";
 import { AsanaAccessToken } from "./AsanaAccessToken";
 import { AsanaAccessTokenUpdate } from "./AsanaAccessTokenUpdate";
@@ -2903,6 +2906,9 @@ import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttri
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
 import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { RulesetStatusRespArray } from "./RulesetStatusRespArray";
+import { RulesetStatusRespData } from "./RulesetStatusRespData";
+import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttributes";
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
@@ -4257,6 +4263,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
   ArbitraryRuleResponseDataType: ["arbitrary_rule"],
+  ArbitraryRuleStatusResponseDataType: ["arbitrary_rule_status"],
   AsanaAccessTokenType: ["AsanaAccessToken"],
   AsanaIntegrationType: ["Asana"],
   AssetEntityType: ["assets"],
@@ -5609,6 +5616,7 @@ const enumsMap: { [key: string]: any[] } = {
   RulesValidateQueryRequestDataType: ["validate_query"],
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
+  RulesetStatusRespDataType: ["ruleset_status"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -6648,6 +6656,10 @@ const typeMap: { [index: string]: any } = {
     ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
   ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems:
     ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
+  ArbitraryRuleStatusResponseArray: ArbitraryRuleStatusResponseArray,
+  ArbitraryRuleStatusResponseData: ArbitraryRuleStatusResponseData,
+  ArbitraryRuleStatusResponseDataAttributes:
+    ArbitraryRuleStatusResponseDataAttributes,
   Argument: Argument,
   AsanaAccessToken: AsanaAccessToken,
   AsanaAccessTokenUpdate: AsanaAccessTokenUpdate,
@@ -9858,6 +9870,9 @@ const typeMap: { [index: string]: any } = {
     RulesetRespDataAttributesRulesItemsReferenceTable,
   RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
     RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
+  RulesetStatusRespArray: RulesetStatusRespArray,
+  RulesetStatusRespData: RulesetStatusRespData,
+  RulesetStatusRespDataAttributes: RulesetStatusRespDataAttributes,
   RumCrossProductSampling: RumCrossProductSampling,
   RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
   RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
