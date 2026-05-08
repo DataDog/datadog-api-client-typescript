@@ -66,6 +66,7 @@ import { DashboardTab } from "./DashboardTab";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
+import { DataProjectionQuery } from "./DataProjectionQuery";
 import { DeleteSharedDashboardResponse } from "./DeleteSharedDashboardResponse";
 import { DeletedMonitor } from "./DeletedMonitor";
 import { DistributionPointsPayload } from "./DistributionPointsPayload";
@@ -323,6 +324,11 @@ import { PagerDutyService } from "./PagerDutyService";
 import { PagerDutyServiceKey } from "./PagerDutyServiceKey";
 import { PagerDutyServiceName } from "./PagerDutyServiceName";
 import { Pagination } from "./Pagination";
+import { PointPlotProjection } from "./PointPlotProjection";
+import { PointPlotProjectionDimension } from "./PointPlotProjectionDimension";
+import { PointPlotWidgetDefinition } from "./PointPlotWidgetDefinition";
+import { PointPlotWidgetLegend } from "./PointPlotWidgetLegend";
+import { PointPlotWidgetRequest } from "./PointPlotWidgetRequest";
 import { PowerpackTemplateVariableContents } from "./PowerpackTemplateVariableContents";
 import { PowerpackTemplateVariables } from "./PowerpackTemplateVariables";
 import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
@@ -805,6 +811,7 @@ const enumsMap: { [key: string]: any[] } = {
   DashboardResourceType: ["dashboard"],
   DashboardShareType: ["open", "invite", "embed"],
   DashboardType: ["custom_timeboard", "custom_screenboard"],
+  DataProjectionRequestType: ["data_projection"],
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
@@ -1445,6 +1452,10 @@ const enumsMap: { [key: string]: any[] } = {
     "show_and_notify_no_data",
     "resolve",
   ],
+  PointPlotDimension: ["group", "time", "y", "radius"],
+  PointPlotProjectionType: ["point_plot"],
+  PointPlotWidgetDefinitionType: ["point_plot"],
+  PointPlotWidgetLegendType: ["automatic", "none"],
   PowerpackWidgetDefinitionType: ["powerpack"],
   ProductAnalyticsFunnelComputeAggregation: ["cardinality", "count"],
   ProductAnalyticsFunnelComputeMetric: [
@@ -2036,6 +2047,7 @@ const typeMap: { [index: string]: any } = {
   DashboardTemplateVariable: DashboardTemplateVariable,
   DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
   DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
+  DataProjectionQuery: DataProjectionQuery,
   DeleteSharedDashboardResponse: DeleteSharedDashboardResponse,
   DeletedMonitor: DeletedMonitor,
   DistributionPointsPayload: DistributionPointsPayload,
@@ -2326,6 +2338,11 @@ const typeMap: { [index: string]: any } = {
   PagerDutyServiceKey: PagerDutyServiceKey,
   PagerDutyServiceName: PagerDutyServiceName,
   Pagination: Pagination,
+  PointPlotProjection: PointPlotProjection,
+  PointPlotProjectionDimension: PointPlotProjectionDimension,
+  PointPlotWidgetDefinition: PointPlotWidgetDefinition,
+  PointPlotWidgetLegend: PointPlotWidgetLegend,
+  PointPlotWidgetRequest: PointPlotWidgetRequest,
   PowerpackTemplateVariableContents: PowerpackTemplateVariableContents,
   PowerpackTemplateVariables: PowerpackTemplateVariables,
   PowerpackWidgetDefinition: PowerpackWidgetDefinition,
@@ -2951,6 +2968,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",
     "PowerpackWidgetDefinition",
+    "PointPlotWidgetDefinition",
     "QueryValueWidgetDefinition",
     "RetentionCurveWidgetDefinition",
     "RunWorkflowWidgetDefinition",
