@@ -12993,61 +12993,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserTeamsResponse",
     },
-    "v2.ListIncidentTeams": {
-        "include": {
-            "type": "IncidentRelatedObject",
-            "format": "",
-            },
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageOffset": {
-            "type": "number",
-            "format": "int64",
-            },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "IncidentTeamsResponse",
-    },
-    "v2.CreateIncidentTeam": {
-        "body": {
-            "type": "IncidentTeamCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "IncidentTeamResponse",
-    },
-    "v2.GetIncidentTeam": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
-            "type": "IncidentRelatedObject",
-            "format": "",
-            },
-        "operationResponseType": "IncidentTeamResponse",
-    },
-    "v2.DeleteIncidentTeam": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.UpdateIncidentTeam": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "IncidentTeamUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "IncidentTeamResponse",
-    },
     "v2.SearchWidgets": {
         "experienceType": {
             "type": "WidgetExperienceType",

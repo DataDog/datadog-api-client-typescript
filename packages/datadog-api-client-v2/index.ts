@@ -504,15 +504,6 @@ export {
 } from "./apis/IncidentServicesApi";
 
 export {
-  IncidentTeamsApiCreateIncidentTeamRequest,
-  IncidentTeamsApiDeleteIncidentTeamRequest,
-  IncidentTeamsApiGetIncidentTeamRequest,
-  IncidentTeamsApiListIncidentTeamsRequest,
-  IncidentTeamsApiUpdateIncidentTeamRequest,
-  IncidentTeamsApi,
-} from "./apis/IncidentTeamsApi";
-
-export {
   IncidentsApiCreateGlobalIncidentHandleRequest,
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentAttachmentRequest,
@@ -3455,19 +3446,6 @@ export { IncidentServiceUpdateData } from "./models/IncidentServiceUpdateData";
 export { IncidentServiceUpdateRequest } from "./models/IncidentServiceUpdateRequest";
 export { IncidentSeverity } from "./models/IncidentSeverity";
 export { IncidentsResponse } from "./models/IncidentsResponse";
-export { IncidentTeamCreateAttributes } from "./models/IncidentTeamCreateAttributes";
-export { IncidentTeamCreateData } from "./models/IncidentTeamCreateData";
-export { IncidentTeamCreateRequest } from "./models/IncidentTeamCreateRequest";
-export { IncidentTeamIncludedItems } from "./models/IncidentTeamIncludedItems";
-export { IncidentTeamRelationships } from "./models/IncidentTeamRelationships";
-export { IncidentTeamResponse } from "./models/IncidentTeamResponse";
-export { IncidentTeamResponseAttributes } from "./models/IncidentTeamResponseAttributes";
-export { IncidentTeamResponseData } from "./models/IncidentTeamResponseData";
-export { IncidentTeamsResponse } from "./models/IncidentTeamsResponse";
-export { IncidentTeamType } from "./models/IncidentTeamType";
-export { IncidentTeamUpdateAttributes } from "./models/IncidentTeamUpdateAttributes";
-export { IncidentTeamUpdateData } from "./models/IncidentTeamUpdateData";
-export { IncidentTeamUpdateRequest } from "./models/IncidentTeamUpdateRequest";
 export { IncidentTimelineCellCreateAttributes } from "./models/IncidentTimelineCellCreateAttributes";
 export { IncidentTimelineCellMarkdownContentType } from "./models/IncidentTimelineCellMarkdownContentType";
 export { IncidentTimelineCellMarkdownCreateAttributes } from "./models/IncidentTimelineCellMarkdownCreateAttributes";
