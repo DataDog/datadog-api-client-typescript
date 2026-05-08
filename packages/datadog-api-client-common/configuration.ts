@@ -323,7 +323,6 @@ export function createConfiguration(
       "v2.muteSecurityFindings": false,
       "v2.runHistoricalJob": false,
       "v2.searchSecurityMonitoringHistsignals": false,
-      "v2.upsertSyncConfig": false,
       "v2.getCodeCoverageBranchSummary": false,
       "v2.getCodeCoverageCommitSummary": false,
       "v2.createDashboardSecureEmbed": false,

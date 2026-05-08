@@ -21,17 +21,12 @@ import { CloudInventorySyncConfigResponse } from "../models/CloudInventorySyncCo
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { UpsertCloudInventorySyncConfigRequest } from "../models/UpsertCloudInventorySyncConfigRequest";
 
-export class CloudInventorySyncConfigsApiRequestFactory extends BaseAPIRequestFactory {
+export class StorageManagementApiRequestFactory extends BaseAPIRequestFactory {
   public async upsertSyncConfig(
     body: UpsertCloudInventorySyncConfigRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'upsertSyncConfig'");
-    if (!_config.unstableOperations["v2.upsertSyncConfig"]) {
-      throw new Error("Unstable operation 'upsertSyncConfig' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -43,7 +38,7 @@ export class CloudInventorySyncConfigsApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudInventorySyncConfigsApi.upsertSyncConfig")
+      .getServer("v2.StorageManagementApi.upsertSyncConfig")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -73,7 +68,7 @@ export class CloudInventorySyncConfigsApiRequestFactory extends BaseAPIRequestFa
   }
 }
 
-export class CloudInventorySyncConfigsApiResponseProcessor {
+export class StorageManagementApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -158,38 +153,36 @@ export class CloudInventorySyncConfigsApiResponseProcessor {
   }
 }
 
-export interface CloudInventorySyncConfigsApiUpsertSyncConfigRequest {
+export interface StorageManagementApiUpsertSyncConfigRequest {
   /**
    * @type UpsertCloudInventorySyncConfigRequest
    */
   body: UpsertCloudInventorySyncConfigRequest;
 }
 
-export class CloudInventorySyncConfigsApi {
-  private requestFactory: CloudInventorySyncConfigsApiRequestFactory;
-  private responseProcessor: CloudInventorySyncConfigsApiResponseProcessor;
+export class StorageManagementApi {
+  private requestFactory: StorageManagementApiRequestFactory;
+  private responseProcessor: StorageManagementApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: CloudInventorySyncConfigsApiRequestFactory,
-    responseProcessor?: CloudInventorySyncConfigsApiResponseProcessor
+    requestFactory?: StorageManagementApiRequestFactory,
+    responseProcessor?: StorageManagementApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory ||
-      new CloudInventorySyncConfigsApiRequestFactory(configuration);
+      requestFactory || new StorageManagementApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CloudInventorySyncConfigsApiResponseProcessor();
+      responseProcessor || new StorageManagementApiResponseProcessor();
   }
 
   /**
-   * Create or update a cloud inventory sync configuration. Specify the cloud provider in `data.id`
-   * and provider-specific settings under `data.attributes`. This endpoint uses an upsert model.
+   * Enable Storage Management for an S3 bucket, GCS bucket, or Azure container by registering the destination that holds its inventory reports. Set `data.id` to the cloud provider (`aws`, `gcp`, or `azure`) and provide the matching settings under data.attributes. Calling this endpoint with the same provider replaces the existing configuration.
    * @param param The request object
    */
   public upsertSyncConfig(
-    param: CloudInventorySyncConfigsApiUpsertSyncConfigRequest,
+    param: StorageManagementApiUpsertSyncConfigRequest,
     options?: Configuration
   ): Promise<CloudInventorySyncConfigResponse> {
     const requestContextPromise = this.requestFactory.upsertSyncConfig(

@@ -9,19 +9,19 @@ import { CloudInventorySyncConfigResourceType } from "./CloudInventorySyncConfig
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API data object for a sync configuration.
+ * Storage Management configuration data.
  */
 export class CloudInventorySyncConfigResponseData {
   /**
-   * Attributes for a cloud inventory sync configuration. Values beyond `id` may be omitted immediately after upsert.
+   * Attributes for a Storage Management configuration. Fields other than `id` may be empty in the response immediately after a create or update; subsequent reads return the full configuration.
    */
   "attributes": CloudInventorySyncConfigAttributes;
   /**
-   * Unique identifier for the recurring sync configuration.
+   * Unique identifier for this Storage Management configuration.
    */
   "id": string;
   /**
-   * JSON:API type for sync configuration resources.
+   * Always `sync_configs`.
    */
   "type": CloudInventorySyncConfigResourceType;
 

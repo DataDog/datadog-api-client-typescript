@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API type for upsert sync configuration requests.
+ * Always `cloud_provider`.
  */
 
 export type CloudInventoryCloudProviderRequestType =

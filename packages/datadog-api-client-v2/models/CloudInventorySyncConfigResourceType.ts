@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API type for sync configuration resources.
+ * Always `sync_configs`.
  */
 
 export type CloudInventorySyncConfigResourceType =
