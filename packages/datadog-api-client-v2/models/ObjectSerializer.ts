@@ -1608,17 +1608,6 @@ import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttribut
 import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
 import { IncidentServiceUpdateRequest } from "./IncidentServiceUpdateRequest";
 import { IncidentServicesResponse } from "./IncidentServicesResponse";
-import { IncidentTeamCreateAttributes } from "./IncidentTeamCreateAttributes";
-import { IncidentTeamCreateData } from "./IncidentTeamCreateData";
-import { IncidentTeamCreateRequest } from "./IncidentTeamCreateRequest";
-import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
-import { IncidentTeamResponse } from "./IncidentTeamResponse";
-import { IncidentTeamResponseAttributes } from "./IncidentTeamResponseAttributes";
-import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
-import { IncidentTeamUpdateAttributes } from "./IncidentTeamUpdateAttributes";
-import { IncidentTeamUpdateData } from "./IncidentTeamUpdateData";
-import { IncidentTeamUpdateRequest } from "./IncidentTeamUpdateRequest";
-import { IncidentTeamsResponse } from "./IncidentTeamsResponse";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
@@ -4864,7 +4853,6 @@ const enumsMap: { [key: string]: any[] } = {
     "SEV-4",
     "SEV-5",
   ],
-  IncidentTeamType: ["teams"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
@@ -8299,17 +8287,6 @@ const typeMap: { [index: string]: any } = {
   IncidentServiceUpdateData: IncidentServiceUpdateData,
   IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
   IncidentServicesResponse: IncidentServicesResponse,
-  IncidentTeamCreateAttributes: IncidentTeamCreateAttributes,
-  IncidentTeamCreateData: IncidentTeamCreateData,
-  IncidentTeamCreateRequest: IncidentTeamCreateRequest,
-  IncidentTeamRelationships: IncidentTeamRelationships,
-  IncidentTeamResponse: IncidentTeamResponse,
-  IncidentTeamResponseAttributes: IncidentTeamResponseAttributes,
-  IncidentTeamResponseData: IncidentTeamResponseData,
-  IncidentTeamUpdateAttributes: IncidentTeamUpdateAttributes,
-  IncidentTeamUpdateData: IncidentTeamUpdateData,
-  IncidentTeamUpdateRequest: IncidentTeamUpdateRequest,
-  IncidentTeamsResponse: IncidentTeamsResponse,
   IncidentTimelineCellMarkdownCreateAttributes:
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
@@ -11532,7 +11509,6 @@ const oneOfMap: { [index: string]: string[] } = {
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
   IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
   IncidentServiceIncludedItems: ["User"],
-  IncidentTeamIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
