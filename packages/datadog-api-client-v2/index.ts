@@ -956,6 +956,18 @@ export {
 } from "./apis/RumMetricsApi";
 
 export {
+  RumReplayApiGenerateReplaySummaryRequest,
+  RumReplayApi,
+} from "./apis/RumReplayApi";
+
+export {
+  RumReplayAnalysisApiGetReplayAnalysisIssueRequest,
+  RumReplayAnalysisApiListReplayAnalysisIssueSessionsRequest,
+  RumReplayAnalysisApiListReplayAnalysisIssuesRequest,
+  RumReplayAnalysisApi,
+} from "./apis/RumReplayAnalysisApi";
+
+export {
   RumReplayHeatmapsApiCreateReplayHeatmapSnapshotRequest,
   RumReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest,
   RumReplayHeatmapsApiListReplayHeatmapSnapshotsRequest,
@@ -5017,6 +5029,30 @@ export { ReorderRuleResourceDataType } from "./models/ReorderRuleResourceDataTyp
 export { ReorderRulesetResourceArray } from "./models/ReorderRulesetResourceArray";
 export { ReorderRulesetResourceData } from "./models/ReorderRulesetResourceData";
 export { ReorderRulesetResourceDataType } from "./models/ReorderRulesetResourceDataType";
+export { ReplayAnalysisAffectedSession } from "./models/ReplayAnalysisAffectedSession";
+export { ReplayAnalysisIssueData } from "./models/ReplayAnalysisIssueData";
+export { ReplayAnalysisIssueDataAttributes } from "./models/ReplayAnalysisIssueDataAttributes";
+export { ReplayAnalysisIssueDataType } from "./models/ReplayAnalysisIssueDataType";
+export { ReplayAnalysisIssueMeta } from "./models/ReplayAnalysisIssueMeta";
+export { ReplayAnalysisIssueResponse } from "./models/ReplayAnalysisIssueResponse";
+export { ReplayAnalysisIssueSessionData } from "./models/ReplayAnalysisIssueSessionData";
+export { ReplayAnalysisIssueSessionDataAttributes } from "./models/ReplayAnalysisIssueSessionDataAttributes";
+export { ReplayAnalysisIssueSessionDataType } from "./models/ReplayAnalysisIssueSessionDataType";
+export { ReplayAnalysisIssueSessionsResponse } from "./models/ReplayAnalysisIssueSessionsResponse";
+export { ReplayAnalysisIssuesResponse } from "./models/ReplayAnalysisIssuesResponse";
+export { ReplayAnalysisLLMDetails } from "./models/ReplayAnalysisLLMDetails";
+export { ReplayAnalysisPageMeta } from "./models/ReplayAnalysisPageMeta";
+export { ReplayAnalysisRepresentativeSession } from "./models/ReplayAnalysisRepresentativeSession";
+export { ReplayAnalysisScreenshot } from "./models/ReplayAnalysisScreenshot";
+export { ReplayAnalysisSignal } from "./models/ReplayAnalysisSignal";
+export { ReplaySummaryChapter } from "./models/ReplaySummaryChapter";
+export { ReplaySummaryDataAttributesResponse } from "./models/ReplaySummaryDataAttributesResponse";
+export { ReplaySummaryDataRequest } from "./models/ReplaySummaryDataRequest";
+export { ReplaySummaryDataResponse } from "./models/ReplaySummaryDataResponse";
+export { ReplaySummaryRequest } from "./models/ReplaySummaryRequest";
+export { ReplaySummaryRequestType } from "./models/ReplaySummaryRequestType";
+export { ReplaySummaryResponse } from "./models/ReplaySummaryResponse";
+export { ReplaySummaryResponseType } from "./models/ReplaySummaryResponseType";
 export { ResolveVulnerableSymbolsRequest } from "./models/ResolveVulnerableSymbolsRequest";
 export { ResolveVulnerableSymbolsRequestData } from "./models/ResolveVulnerableSymbolsRequestData";
 export { ResolveVulnerableSymbolsRequestDataAttributes } from "./models/ResolveVulnerableSymbolsRequestDataAttributes";
