@@ -27,6 +27,7 @@ import { DashboardTab } from "./DashboardTab";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
+import { DataProjectionQuery } from "./DataProjectionQuery";
 import { DeleteSharedDashboardResponse } from "./DeleteSharedDashboardResponse";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
@@ -90,6 +91,11 @@ import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
 import { NumberFormatUnitCanonical } from "./NumberFormatUnitCanonical";
 import { NumberFormatUnitCustom } from "./NumberFormatUnitCustom";
 import { NumberFormatUnitScale } from "./NumberFormatUnitScale";
+import { PointPlotProjection } from "./PointPlotProjection";
+import { PointPlotProjectionDimension } from "./PointPlotProjectionDimension";
+import { PointPlotWidgetDefinition } from "./PointPlotWidgetDefinition";
+import { PointPlotWidgetLegend } from "./PointPlotWidgetLegend";
+import { PointPlotWidgetRequest } from "./PointPlotWidgetRequest";
 import { PowerpackTemplateVariableContents } from "./PowerpackTemplateVariableContents";
 import { PowerpackTemplateVariables } from "./PowerpackTemplateVariables";
 import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
@@ -256,6 +262,7 @@ export const TypingInfo: ModelTypingInfo = {
     DashboardResourceType: ["dashboard"],
     DashboardShareType: ["open", "invite", "embed"],
     DashboardType: ["custom_timeboard", "custom_screenboard"],
+    DataProjectionRequestType: ["data_projection"],
     DistributionWidgetDefinitionType: ["distribution"],
     EventStreamWidgetDefinitionType: ["event_stream"],
     EventTimelineWidgetDefinitionType: ["event_timeline"],
@@ -445,6 +452,10 @@ export const TypingInfo: ModelTypingInfo = {
     NoteWidgetDefinitionType: ["note"],
     NumberFormatUnitCustomType: ["custom_unit_label"],
     NumberFormatUnitScaleType: ["canonical_unit"],
+    PointPlotDimension: ["group", "time", "y", "radius"],
+    PointPlotProjectionType: ["point_plot"],
+    PointPlotWidgetDefinitionType: ["point_plot"],
+    PointPlotWidgetLegendType: ["automatic", "none"],
     PowerpackWidgetDefinitionType: ["powerpack"],
     ProductAnalyticsFunnelComputeAggregation: ["cardinality", "count"],
     ProductAnalyticsFunnelComputeMetric: [
@@ -735,6 +746,7 @@ export const TypingInfo: ModelTypingInfo = {
       "MonitorSummaryWidgetDefinition",
       "NoteWidgetDefinition",
       "PowerpackWidgetDefinition",
+      "PointPlotWidgetDefinition",
       "QueryValueWidgetDefinition",
       "RetentionCurveWidgetDefinition",
       "RunWorkflowWidgetDefinition",
@@ -794,6 +806,7 @@ export const TypingInfo: ModelTypingInfo = {
     DashboardTemplateVariable: DashboardTemplateVariable,
     DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
     DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
+    DataProjectionQuery: DataProjectionQuery,
     DeleteSharedDashboardResponse: DeleteSharedDashboardResponse,
     DistributionWidgetDefinition: DistributionWidgetDefinition,
     DistributionWidgetRequest: DistributionWidgetRequest,
@@ -871,6 +884,11 @@ export const TypingInfo: ModelTypingInfo = {
     NumberFormatUnitCanonical: NumberFormatUnitCanonical,
     NumberFormatUnitCustom: NumberFormatUnitCustom,
     NumberFormatUnitScale: NumberFormatUnitScale,
+    PointPlotProjection: PointPlotProjection,
+    PointPlotProjectionDimension: PointPlotProjectionDimension,
+    PointPlotWidgetDefinition: PointPlotWidgetDefinition,
+    PointPlotWidgetLegend: PointPlotWidgetLegend,
+    PointPlotWidgetRequest: PointPlotWidgetRequest,
     PowerpackTemplateVariableContents: PowerpackTemplateVariableContents,
     PowerpackTemplateVariables: PowerpackTemplateVariables,
     PowerpackWidgetDefinition: PowerpackWidgetDefinition,
