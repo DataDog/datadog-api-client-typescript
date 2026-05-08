@@ -6,6 +6,7 @@
 import { IssuesSearchRequestDataAttributesOrderBy } from "./IssuesSearchRequestDataAttributesOrderBy";
 import { IssuesSearchRequestDataAttributesPersona } from "./IssuesSearchRequestDataAttributesPersona";
 import { IssuesSearchRequestDataAttributesTrack } from "./IssuesSearchRequestDataAttributesTrack";
+import { IssueState } from "./IssueState";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -33,6 +34,10 @@ export class IssuesSearchRequestDataAttributes {
    * Search query following the event search syntax.
    */
   "query": string;
+  /**
+   * Filter issues by state. Multiple values are combined with OR logic.
+   */
+  "states"?: Array<IssueState>;
   /**
    * Filter issues by team IDs. Multiple values are combined with OR logic.
    */
@@ -84,6 +89,10 @@ export class IssuesSearchRequestDataAttributes {
       baseName: "query",
       type: "string",
       required: true,
+    },
+    states: {
+      baseName: "states",
+      type: "Array<IssueState>",
     },
     teamIds: {
       baseName: "team_ids",
