@@ -24,6 +24,7 @@ import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
 import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition";
 import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
+import { PointPlotWidgetDefinition } from "./PointPlotWidgetDefinition";
 import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
 import { ProductAnalyticsFunnelWidgetDefinition } from "./ProductAnalyticsFunnelWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
@@ -74,6 +75,7 @@ export type WidgetDefinition =
   | MonitorSummaryWidgetDefinition
   | NoteWidgetDefinition
   | PowerpackWidgetDefinition
+  | PointPlotWidgetDefinition
   | QueryValueWidgetDefinition
   | RetentionCurveWidgetDefinition
   | RunWorkflowWidgetDefinition
