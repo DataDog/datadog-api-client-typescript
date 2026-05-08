@@ -942,6 +942,14 @@ import { DatasetRequest } from "./DatasetRequest";
 import { DatasetResponse } from "./DatasetResponse";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
 import { DatasetResponseSingle } from "./DatasetResponseSingle";
+import { DatasetRestrictionPrincipal } from "./DatasetRestrictionPrincipal";
+import { DatasetRestrictionResponse } from "./DatasetRestrictionResponse";
+import { DatasetRestrictionResponseAttributes } from "./DatasetRestrictionResponseAttributes";
+import { DatasetRestrictionResponseData } from "./DatasetRestrictionResponseData";
+import { DatasetRestrictionUpdateRequest } from "./DatasetRestrictionUpdateRequest";
+import { DatasetRestrictionUpdateRequestAttributes } from "./DatasetRestrictionUpdateRequestAttributes";
+import { DatasetRestrictionUpdateRequestData } from "./DatasetRestrictionUpdateRequestData";
+import { DatasetRestrictionsListResponse } from "./DatasetRestrictionsListResponse";
 import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
 import { Datastore } from "./Datastore";
 import { DatastoreArray } from "./DatastoreArray";
@@ -4565,6 +4573,9 @@ const enumsMap: { [key: string]: any[] } = {
   DataTransformType: ["dataTransform"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
   DatadogIntegrationType: ["Datadog"],
+  DatasetRestrictionOwnershipMode: ["disabled", "team_tag_based"],
+  DatasetRestrictionRestrictionMode: ["standard", "default_hide"],
+  DatasetRestrictionsType: ["dataset_restrictions"],
   DatasetType: ["dataset"],
   DatastoreDataType: ["datastores"],
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
@@ -7528,6 +7539,15 @@ const typeMap: { [index: string]: any } = {
   DatasetResponse: DatasetResponse,
   DatasetResponseMulti: DatasetResponseMulti,
   DatasetResponseSingle: DatasetResponseSingle,
+  DatasetRestrictionPrincipal: DatasetRestrictionPrincipal,
+  DatasetRestrictionResponse: DatasetRestrictionResponse,
+  DatasetRestrictionResponseAttributes: DatasetRestrictionResponseAttributes,
+  DatasetRestrictionResponseData: DatasetRestrictionResponseData,
+  DatasetRestrictionUpdateRequest: DatasetRestrictionUpdateRequest,
+  DatasetRestrictionUpdateRequestAttributes:
+    DatasetRestrictionUpdateRequestAttributes,
+  DatasetRestrictionUpdateRequestData: DatasetRestrictionUpdateRequestData,
+  DatasetRestrictionsListResponse: DatasetRestrictionsListResponse,
   DatasetUpdateRequest: DatasetUpdateRequest,
   Datastore: Datastore,
   DatastoreArray: DatastoreArray,

@@ -6547,6 +6547,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecureEmbedUpdateResponse",
     },
+    "v2.ListDatasetRestrictions": {
+        "operationResponseType": "DatasetRestrictionsListResponse",
+    },
+    "v2.UpdateDatasetRestriction": {
+        "productType": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DatasetRestrictionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DatasetRestrictionResponse",
+    },
     "v2.GetAllDatasets": {
         "operationResponseType": "DatasetResponseMulti",
     },

@@ -345,6 +345,11 @@ export {
 } from "./apis/DataDeletionApi";
 
 export {
+  DatasetRestrictionsApiUpdateDatasetRestrictionRequest,
+  DatasetRestrictionsApi,
+} from "./apis/DatasetRestrictionsApi";
+
+export {
   DatasetsApiCreateDatasetRequest,
   DatasetsApiDeleteDatasetRequest,
   DatasetsApiGetDatasetRequest,
@@ -2571,6 +2576,17 @@ export { DatasetRequest } from "./models/DatasetRequest";
 export { DatasetResponse } from "./models/DatasetResponse";
 export { DatasetResponseMulti } from "./models/DatasetResponseMulti";
 export { DatasetResponseSingle } from "./models/DatasetResponseSingle";
+export { DatasetRestrictionOwnershipMode } from "./models/DatasetRestrictionOwnershipMode";
+export { DatasetRestrictionPrincipal } from "./models/DatasetRestrictionPrincipal";
+export { DatasetRestrictionResponse } from "./models/DatasetRestrictionResponse";
+export { DatasetRestrictionResponseAttributes } from "./models/DatasetRestrictionResponseAttributes";
+export { DatasetRestrictionResponseData } from "./models/DatasetRestrictionResponseData";
+export { DatasetRestrictionRestrictionMode } from "./models/DatasetRestrictionRestrictionMode";
+export { DatasetRestrictionsListResponse } from "./models/DatasetRestrictionsListResponse";
+export { DatasetRestrictionsType } from "./models/DatasetRestrictionsType";
+export { DatasetRestrictionUpdateRequest } from "./models/DatasetRestrictionUpdateRequest";
+export { DatasetRestrictionUpdateRequestAttributes } from "./models/DatasetRestrictionUpdateRequestAttributes";
+export { DatasetRestrictionUpdateRequestData } from "./models/DatasetRestrictionUpdateRequestData";
 export { DatasetType } from "./models/DatasetType";
 export { DatasetUpdateRequest } from "./models/DatasetUpdateRequest";
 export { Datastore } from "./models/Datastore";
