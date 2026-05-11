@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { FeatureFlag } from "./FeatureFlag";
+import { FeatureFlagListItem } from "./FeatureFlagListItem";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 
 /**
@@ -10,7 +10,7 @@ export class ListFeatureFlagsResponse {
   /**
    * List of feature flags.
    */
-  "data": Array<FeatureFlag>;
+  "data": Array<FeatureFlagListItem>;
   /**
    * Pagination metadata for feature flags.
    */
@@ -32,7 +32,7 @@ export class ListFeatureFlagsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<FeatureFlag>",
+      type: "Array<FeatureFlagListItem>",
       required: true,
     },
     meta: {

@@ -53,6 +53,10 @@ export class FeatureFlagAttributes {
    */
   "requireApproval"?: boolean;
   /**
+   * Indicates the whether a feature flag is stale or not.
+   */
+  "stalenessStatus"?: string;
+  /**
    * Tags associated with the feature flag.
    */
   "tags"?: Array<string>;
@@ -133,6 +137,10 @@ export class FeatureFlagAttributes {
     requireApproval: {
       baseName: "require_approval",
       type: "boolean",
+    },
+    stalenessStatus: {
+      baseName: "staleness_status",
+      type: "string",
     },
     tags: {
       baseName: "tags",
