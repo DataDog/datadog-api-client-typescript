@@ -6901,13 +6901,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MonitorDowntimeMatchResponse",
   },
-  "EmailTransportApi.V2.CreateEmailTransportWebhookIntake": {
-    body: {
-      type: "Array<TransportWebhookLog>",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
   "ErrorTrackingApi.V2.SearchIssues": {
     include: {
       type: "Array<SearchIssuesIncludeQueryParameterItem>",
