@@ -24,6 +24,9 @@ import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems } from "./A
 import { ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems";
 import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems";
+import { ArbitraryRuleStatusResponseArray } from "./ArbitraryRuleStatusResponseArray";
+import { ArbitraryRuleStatusResponseData } from "./ArbitraryRuleStatusResponseData";
+import { ArbitraryRuleStatusResponseDataAttributes } from "./ArbitraryRuleStatusResponseDataAttributes";
 import { AwsCURConfig } from "./AwsCURConfig";
 import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
 import { AwsCURConfigPatchData } from "./AwsCURConfigPatchData";
@@ -121,6 +124,9 @@ import { RulesetRespDataAttributesRulesItemsQuery } from "./RulesetRespDataAttri
 import { RulesetRespDataAttributesRulesItemsQueryAddition } from "./RulesetRespDataAttributesRulesItemsQueryAddition";
 import { RulesetRespDataAttributesRulesItemsReferenceTable } from "./RulesetRespDataAttributesRulesItemsReferenceTable";
 import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { RulesetStatusRespArray } from "./RulesetStatusRespArray";
+import { RulesetStatusRespData } from "./RulesetStatusRespData";
+import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttributes";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
@@ -141,6 +147,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
     ArbitraryRuleResponseDataType: ["arbitrary_rule"],
+    ArbitraryRuleStatusResponseDataType: ["arbitrary_rule_status"],
     AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
     AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
     AwsCURConfigType: ["aws_cur_config"],
@@ -162,6 +169,7 @@ export const TypingInfo: ModelTypingInfo = {
     RulesValidateQueryRequestDataType: ["validate_query"],
     RulesValidateQueryResponseDataType: ["validate_response"],
     RulesetRespDataType: ["ruleset"],
+    RulesetStatusRespDataType: ["ruleset_status"],
     UCConfigPairDataType: ["azure_uc_configs"],
     UpdateRulesetRequestDataType: ["update_ruleset"],
   },
@@ -206,6 +214,10 @@ export const TypingInfo: ModelTypingInfo = {
       ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
     ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems:
       ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
+    ArbitraryRuleStatusResponseArray: ArbitraryRuleStatusResponseArray,
+    ArbitraryRuleStatusResponseData: ArbitraryRuleStatusResponseData,
+    ArbitraryRuleStatusResponseDataAttributes:
+      ArbitraryRuleStatusResponseDataAttributes,
     AwsCURConfig: AwsCURConfig,
     AwsCURConfigAttributes: AwsCURConfigAttributes,
     AwsCURConfigPatchData: AwsCURConfigPatchData,
@@ -321,6 +333,9 @@ export const TypingInfo: ModelTypingInfo = {
       RulesetRespDataAttributesRulesItemsReferenceTable,
     RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
       RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    RulesetStatusRespArray: RulesetStatusRespArray,
+    RulesetStatusRespData: RulesetStatusRespData,
+    RulesetStatusRespDataAttributes: RulesetStatusRespDataAttributes,
     UCConfigPair: UCConfigPair,
     UCConfigPairData: UCConfigPairData,
     UCConfigPairDataAttributes: UCConfigPairDataAttributes,
