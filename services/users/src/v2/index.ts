@@ -9,6 +9,7 @@ export {
   UsersApiListUserPermissionsRequest,
   UsersApiListUsersRequest,
   UsersApiSendInvitationsRequest,
+  UsersApiUpdateCurrentUserRequest,
   UsersApiUpdateUserRequest,
   UsersApi,
 } from "./UsersApi";
