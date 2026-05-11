@@ -188,6 +188,30 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getCurrentUser(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/current_user";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsersApi.getCurrentUser")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getInvitation(
     userInvitationUuid: string,
     _options?: Configuration
@@ -437,6 +461,47 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateCurrentUser(
+    body: UserUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCurrentUser");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/current_user";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsersApi.updateCurrentUser")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UserUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -710,6 +775,64 @@ export class UsersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCurrentUser
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCurrentUser(
+    response: ResponseContext
+  ): Promise<UserResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse"
+      ) as UserResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse",
+        ""
+      ) as UserResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1091,6 +1214,70 @@ export class UsersApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateCurrentUser
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCurrentUser(
+    response: ResponseContext
+  ): Promise<UserResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse"
+      ) as UserResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse",
+        ""
+      ) as UserResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateUser
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1257,6 +1444,13 @@ export interface UsersApiSendInvitationsRequest {
   body: UserInvitationsRequest;
 }
 
+export interface UsersApiUpdateCurrentUserRequest {
+  /**
+   * @type UserUpdateRequest
+   */
+  body: UserUpdateRequest;
+}
+
 export interface UsersApiUpdateUserRequest {
   /**
    * The ID of the user.
@@ -1369,6 +1563,25 @@ export class UsersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.disableUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the user associated with the current authentication context.
+   * The response includes the user's profile attributes (name, email, handle,
+   * status, MFA state), along with related resources: the user's organization,
+   * assigned roles with their granted permissions, and team-scoped roles.
+   * No additional permissions are required beyond valid authentication.
+   * @param param The request object
+   */
+  public getCurrentUser(options?: Configuration): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.getCurrentUser(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCurrentUser(responseContext);
         });
     });
   }
@@ -1546,6 +1759,31 @@ export class UsersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.sendInvitations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit the profile of the currently authenticated user. Updatable fields
+   * include `name`, `title`, `email`, and `disabled` status. The `id` field
+   * in the request body must match the authenticated user's UUID; a mismatch
+   * returns a 422 error. Email address changes are recorded in the audit trail.
+   * Requires the `user_self_profile_write` permission.
+   * @param param The request object
+   */
+  public updateCurrentUser(
+    param: UsersApiUpdateCurrentUserRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.updateCurrentUser(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCurrentUser(responseContext);
         });
     });
   }
