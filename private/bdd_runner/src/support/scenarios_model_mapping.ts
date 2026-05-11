@@ -13005,6 +13005,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UserTeamsResponse",
   },
+  "WebIntegrationsApi.V2.ListWebIntegrationAccounts": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountsResponse",
+  },
+  "WebIntegrationsApi.V2.CreateWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "WebIntegrationAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
+  "WebIntegrationsApi.V2.GetWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
+  "WebIntegrationsApi.V2.DeleteWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "WebIntegrationsApi.V2.UpdateWebIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "WebIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "WebIntegrationAccountResponse",
+  },
   "WidgetsApi.V2.SearchWidgets": {
     experienceType: {
       type: "WidgetExperienceType",

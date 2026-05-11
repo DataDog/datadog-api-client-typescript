@@ -1,0 +1,53 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Attributes object of a web integration account. Secrets are never returned.
+ */
+export class WebIntegrationAccountResponseAttributes {
+  /**
+   * A human-readable name for the account.
+   */
+  "name": string;
+  /**
+   * Integration-specific settings. The shape of this object varies by integration.
+   */
+  "settings"?: { [key: string]: any };
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    settings: {
+      baseName: "settings",
+      type: "{ [key: string]: any; }",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return WebIntegrationAccountResponseAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
