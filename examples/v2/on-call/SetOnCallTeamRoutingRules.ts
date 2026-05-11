@@ -47,9 +47,36 @@ const params: v2.OnCallApiSetOnCallTeamRoutingRulesRequest = {
             },
           },
           {
-            policyId: ESCALATION_POLICY_DATA_ID,
+            actions: [
+              {
+                ackTimeoutMinutes: 10,
+                policyId: ESCALATION_POLICY_DATA_ID,
+                supportHours: {
+                  timeZone: "Europe/Paris",
+                  restrictions: [
+                    {
+                      endDay: "friday",
+                      endTime: "17:00:00",
+                      startDay: "monday",
+                      startTime: "09:00:00",
+                    },
+                  ],
+                },
+                type: "escalation_policy",
+                urgency: "low",
+              },
+            ],
+            query: "tags.service:test",
+          },
+          {
+            actions: [
+              {
+                policyId: ESCALATION_POLICY_DATA_ID,
+                type: "escalation_policy",
+                urgency: "low",
+              },
+            ],
             query: "",
-            urgency: "low",
           },
         ],
       },

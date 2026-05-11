@@ -5094,6 +5094,8 @@ export { RolloutStrategy } from "./models/RolloutStrategy";
 export { RoutingRule } from "./models/RoutingRule";
 export { RoutingRuleAction } from "./models/RoutingRuleAction";
 export { RoutingRuleAttributes } from "./models/RoutingRuleAttributes";
+export { RoutingRuleEscalationPolicyAction } from "./models/RoutingRuleEscalationPolicyAction";
+export { RoutingRuleEscalationPolicyActionType } from "./models/RoutingRuleEscalationPolicyActionType";
 export { RoutingRuleRelationships } from "./models/RoutingRuleRelationships";
 export { RoutingRuleRelationshipsPolicy } from "./models/RoutingRuleRelationshipsPolicy";
 export { RoutingRuleRelationshipsPolicyData } from "./models/RoutingRuleRelationshipsPolicyData";
