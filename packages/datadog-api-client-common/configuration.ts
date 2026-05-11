@@ -349,7 +349,6 @@ export function createConfiguration(
       "v2.triggerDeploymentGatesEvaluation": false,
       "v2.updateDeploymentGate": false,
       "v2.updateDeploymentRule": false,
-      "v2.createEmailTransportWebhookIntake": false,
       "v2.createHamrOrgConnection": false,
       "v2.getHamrOrgConnection": false,
       "v2.createGlobalIncidentHandle": false,
