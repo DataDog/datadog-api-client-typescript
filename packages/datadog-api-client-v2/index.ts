@@ -1352,6 +1352,15 @@ export {
 } from "./apis/UsersApi";
 
 export {
+  WebIntegrationsApiCreateWebIntegrationAccountRequest,
+  WebIntegrationsApiDeleteWebIntegrationAccountRequest,
+  WebIntegrationsApiGetWebIntegrationAccountRequest,
+  WebIntegrationsApiListWebIntegrationAccountsRequest,
+  WebIntegrationsApiUpdateWebIntegrationAccountRequest,
+  WebIntegrationsApi,
+} from "./apis/WebIntegrationsApi";
+
+export {
   WidgetsApiCreateWidgetRequest,
   WidgetsApiDeleteWidgetRequest,
   WidgetsApiGetWidgetRequest,
@@ -6574,6 +6583,17 @@ export { WatcherArray } from "./models/WatcherArray";
 export { WatcherData } from "./models/WatcherData";
 export { WatcherDataAttributes } from "./models/WatcherDataAttributes";
 export { WatcherDataType } from "./models/WatcherDataType";
+export { WebIntegrationAccountCreateRequest } from "./models/WebIntegrationAccountCreateRequest";
+export { WebIntegrationAccountCreateRequestAttributes } from "./models/WebIntegrationAccountCreateRequestAttributes";
+export { WebIntegrationAccountCreateRequestData } from "./models/WebIntegrationAccountCreateRequestData";
+export { WebIntegrationAccountResponse } from "./models/WebIntegrationAccountResponse";
+export { WebIntegrationAccountResponseAttributes } from "./models/WebIntegrationAccountResponseAttributes";
+export { WebIntegrationAccountResponseData } from "./models/WebIntegrationAccountResponseData";
+export { WebIntegrationAccountsResponse } from "./models/WebIntegrationAccountsResponse";
+export { WebIntegrationAccountType } from "./models/WebIntegrationAccountType";
+export { WebIntegrationAccountUpdateRequest } from "./models/WebIntegrationAccountUpdateRequest";
+export { WebIntegrationAccountUpdateRequestAttributes } from "./models/WebIntegrationAccountUpdateRequestAttributes";
+export { WebIntegrationAccountUpdateRequestData } from "./models/WebIntegrationAccountUpdateRequestData";
 export { Weekday } from "./models/Weekday";
 export { WidgetAttributes } from "./models/WidgetAttributes";
 export { WidgetData } from "./models/WidgetData";

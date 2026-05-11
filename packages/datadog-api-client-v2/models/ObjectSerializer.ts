@@ -3983,6 +3983,16 @@ import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatcherArray } from "./WatcherArray";
 import { WatcherData } from "./WatcherData";
 import { WatcherDataAttributes } from "./WatcherDataAttributes";
+import { WebIntegrationAccountCreateRequest } from "./WebIntegrationAccountCreateRequest";
+import { WebIntegrationAccountCreateRequestAttributes } from "./WebIntegrationAccountCreateRequestAttributes";
+import { WebIntegrationAccountCreateRequestData } from "./WebIntegrationAccountCreateRequestData";
+import { WebIntegrationAccountResponse } from "./WebIntegrationAccountResponse";
+import { WebIntegrationAccountResponseAttributes } from "./WebIntegrationAccountResponseAttributes";
+import { WebIntegrationAccountResponseData } from "./WebIntegrationAccountResponseData";
+import { WebIntegrationAccountUpdateRequest } from "./WebIntegrationAccountUpdateRequest";
+import { WebIntegrationAccountUpdateRequestAttributes } from "./WebIntegrationAccountUpdateRequestAttributes";
+import { WebIntegrationAccountUpdateRequestData } from "./WebIntegrationAccountUpdateRequestData";
+import { WebIntegrationAccountsResponse } from "./WebIntegrationAccountsResponse";
 import { WidgetAttributes } from "./WidgetAttributes";
 import { WidgetData } from "./WidgetData";
 import { WidgetDefinition } from "./WidgetDefinition";
@@ -6339,6 +6349,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   WatchDataType: ["rum_replay_watch"],
   WatcherDataType: ["rum_replay_watcher"],
+  WebIntegrationAccountType: ["Account"],
   Weekday: [
     "monday",
     "tuesday",
@@ -11201,6 +11212,21 @@ const typeMap: { [index: string]: any } = {
   WatcherArray: WatcherArray,
   WatcherData: WatcherData,
   WatcherDataAttributes: WatcherDataAttributes,
+  WebIntegrationAccountCreateRequest: WebIntegrationAccountCreateRequest,
+  WebIntegrationAccountCreateRequestAttributes:
+    WebIntegrationAccountCreateRequestAttributes,
+  WebIntegrationAccountCreateRequestData:
+    WebIntegrationAccountCreateRequestData,
+  WebIntegrationAccountResponse: WebIntegrationAccountResponse,
+  WebIntegrationAccountResponseAttributes:
+    WebIntegrationAccountResponseAttributes,
+  WebIntegrationAccountResponseData: WebIntegrationAccountResponseData,
+  WebIntegrationAccountUpdateRequest: WebIntegrationAccountUpdateRequest,
+  WebIntegrationAccountUpdateRequestAttributes:
+    WebIntegrationAccountUpdateRequestAttributes,
+  WebIntegrationAccountUpdateRequestData:
+    WebIntegrationAccountUpdateRequestData,
+  WebIntegrationAccountsResponse: WebIntegrationAccountsResponse,
   WidgetAttributes: WidgetAttributes,
   WidgetData: WidgetData,
   WidgetDefinition: WidgetDefinition,
