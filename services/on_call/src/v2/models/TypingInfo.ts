@@ -75,6 +75,7 @@ import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { RoutingRule } from "./RoutingRule";
 import { RoutingRuleAttributes } from "./RoutingRuleAttributes";
+import { RoutingRuleEscalationPolicyAction } from "./RoutingRuleEscalationPolicyAction";
 import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
 import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy";
 import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
@@ -167,6 +168,7 @@ export const TypingInfo: ModelTypingInfo = {
     OnCallPhoneNotificationRuleMethod: ["sms", "voice"],
     OrganizationsType: ["orgs"],
     RolesType: ["roles"],
+    RoutingRuleEscalationPolicyActionType: ["escalation_policy"],
     RoutingRuleRelationshipsPolicyDataType: ["policies"],
     RoutingRuleType: ["team_routing_rules"],
     ScheduleCreateRequestDataType: ["schedules"],
@@ -238,6 +240,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SendSlackMessageAction",
       "SendTeamsMessageAction",
       "TriggerWorkflowAutomationAction",
+      "RoutingRuleEscalationPolicyAction",
     ],
     ScheduleDataIncludedItem: [
       "TeamReference",
@@ -341,6 +344,7 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToUsers: RelationshipToUsers,
     RoutingRule: RoutingRule,
     RoutingRuleAttributes: RoutingRuleAttributes,
+    RoutingRuleEscalationPolicyAction: RoutingRuleEscalationPolicyAction,
     RoutingRuleRelationships: RoutingRuleRelationships,
     RoutingRuleRelationshipsPolicy: RoutingRuleRelationshipsPolicy,
     RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
