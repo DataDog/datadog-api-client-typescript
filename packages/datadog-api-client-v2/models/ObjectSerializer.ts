@@ -2877,6 +2877,7 @@ import { RolloutOptions } from "./RolloutOptions";
 import { RolloutOptionsRequest } from "./RolloutOptionsRequest";
 import { RoutingRule } from "./RoutingRule";
 import { RoutingRuleAttributes } from "./RoutingRuleAttributes";
+import { RoutingRuleEscalationPolicyAction } from "./RoutingRuleEscalationPolicyAction";
 import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
 import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy";
 import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
@@ -5593,6 +5594,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RolesType: ["roles"],
   RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
+  RoutingRuleEscalationPolicyActionType: ["escalation_policy"],
   RoutingRuleRelationshipsPolicyDataType: ["policies"],
   RoutingRuleType: ["team_routing_rules"],
   RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -9837,6 +9839,7 @@ const typeMap: { [index: string]: any } = {
   RolloutOptionsRequest: RolloutOptionsRequest,
   RoutingRule: RoutingRule,
   RoutingRuleAttributes: RoutingRuleAttributes,
+  RoutingRuleEscalationPolicyAction: RoutingRuleEscalationPolicyAction,
   RoutingRuleRelationships: RoutingRuleRelationships,
   RoutingRuleRelationshipsPolicy: RoutingRuleRelationshipsPolicy,
   RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
@@ -11745,6 +11748,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SendSlackMessageAction",
     "SendTeamsMessageAction",
     "TriggerWorkflowAutomationAction",
+    "RoutingRuleEscalationPolicyAction",
   ],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: [
