@@ -5952,6 +5952,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListCustomAllocationRulesStatus": {
+        "operationResponseType": "ArbitraryRuleStatusResponseArray",
+    },
     "v2.GetCustomAllocationRule": {
         "ruleId": {
             "type": "number",
@@ -6183,6 +6186,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListTagPipelinesRulesetsStatus": {
+        "operationResponseType": "RulesetStatusRespArray",
     },
     "v2.ValidateQuery": {
         "body": {
