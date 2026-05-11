@@ -12993,6 +12993,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserTeamsResponse",
     },
+    "v2.ListWebIntegrationAccounts": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "WebIntegrationAccountsResponse",
+    },
+    "v2.CreateWebIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "WebIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "WebIntegrationAccountResponse",
+    },
+    "v2.GetWebIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "WebIntegrationAccountResponse",
+    },
+    "v2.DeleteWebIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateWebIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "WebIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "WebIntegrationAccountResponse",
+    },
     "v2.SearchWidgets": {
         "experienceType": {
             "type": "WidgetExperienceType",
