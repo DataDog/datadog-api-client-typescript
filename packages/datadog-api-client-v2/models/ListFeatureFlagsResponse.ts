@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FeatureFlag } from "./FeatureFlag";
+import { FeatureFlagListItem } from "./FeatureFlagListItem";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,7 +15,7 @@ export class ListFeatureFlagsResponse {
   /**
    * List of feature flags.
    */
-  "data": Array<FeatureFlag>;
+  "data": Array<FeatureFlagListItem>;
   /**
    * Pagination metadata for feature flags.
    */
@@ -39,7 +39,7 @@ export class ListFeatureFlagsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<FeatureFlag>",
+      type: "Array<FeatureFlagListItem>",
       required: true,
     },
     meta: {
