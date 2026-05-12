@@ -3978,6 +3978,10 @@ import { UsersResponse } from "./UsersResponse";
 import { V2Event } from "./V2Event";
 import { V2EventAttributes } from "./V2EventAttributes";
 import { V2EventResponse } from "./V2EventResponse";
+import { ValidateAPIKeyResponse } from "./ValidateAPIKeyResponse";
+import { ValidateV2Attributes } from "./ValidateV2Attributes";
+import { ValidateV2Data } from "./ValidateV2Data";
+import { ValidateV2Response } from "./ValidateV2Response";
 import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
@@ -6295,6 +6299,8 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
+  ValidateAPIKeyStatus: ["ok"],
+  ValidateV2Type: ["validate_v2"],
   ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
   VersionHistoryUpdateType: ["create", "update", "delete"],
   ViewershipHistorySessionDataType: ["rum_replay_session"],
@@ -11249,6 +11255,10 @@ const typeMap: { [index: string]: any } = {
   V2Event: V2Event,
   V2EventAttributes: V2EventAttributes,
   V2EventResponse: V2EventResponse,
+  ValidateAPIKeyResponse: ValidateAPIKeyResponse,
+  ValidateV2Attributes: ValidateV2Attributes,
+  ValidateV2Data: ValidateV2Data,
+  ValidateV2Response: ValidateV2Response,
   ValidationError: ValidationError,
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,

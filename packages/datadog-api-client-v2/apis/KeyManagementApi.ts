@@ -26,6 +26,7 @@ import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateReque
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 import { ListPersonalAccessTokensResponse } from "../models/ListPersonalAccessTokensResponse";
 import { PersonalAccessTokenCreateRequest } from "../models/PersonalAccessTokenCreateRequest";
@@ -33,6 +34,8 @@ import { PersonalAccessTokenCreateResponse } from "../models/PersonalAccessToken
 import { PersonalAccessTokenResponse } from "../models/PersonalAccessTokenResponse";
 import { PersonalAccessTokensSort } from "../models/PersonalAccessTokensSort";
 import { PersonalAccessTokenUpdateRequest } from "../models/PersonalAccessTokenUpdateRequest";
+import { ValidateAPIKeyResponse } from "../models/ValidateAPIKeyResponse";
+import { ValidateV2Response } from "../models/ValidateV2Response";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   public async createAPIKey(
@@ -983,6 +986,54 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validate(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'validate'");
+    if (!_config.unstableOperations["v2.validate"]) {
+      throw new Error("Unstable operation 'validate' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/validate";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.KeyManagementApi.validate")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+
+    return requestContext;
+  }
+
+  public async validateAPIKey(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/validate_keys";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.KeyManagementApi.validateAPIKey")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2141,6 +2192,149 @@ export class KeyManagementApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validate(
+    response: ResponseContext
+  ): Promise<ValidateV2Response> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ValidateV2Response = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ValidateV2Response"
+      ) as ValidateV2Response;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ValidateV2Response = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ValidateV2Response",
+        ""
+      ) as ValidateV2Response;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateAPIKey
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateAPIKey(
+    response: ResponseContext
+  ): Promise<ValidateAPIKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ValidateAPIKeyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ValidateAPIKeyResponse"
+      ) as ValidateAPIKeyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ValidateAPIKeyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ValidateAPIKeyResponse",
+        ""
+      ) as ValidateAPIKeyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface KeyManagementApiCreateAPIKeyRequest {
@@ -2919,6 +3113,41 @@ export class KeyManagementApi {
           return this.responseProcessor.updatePersonalAccessToken(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Check if the API key is valid. Returns the organization UUID, API key ID, and associated scopes.
+   * @param param The request object
+   */
+  public validate(options?: Configuration): Promise<ValidateV2Response> {
+    const requestContextPromise = this.requestFactory.validate(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validate(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Check that the API key and application key used for the request are both valid.
+   * Returns `{"status": "ok"}` on success, `401` or `403` otherwise. Useful as a
+   * lightweight authentication probe before issuing other API calls that require
+   * full credentials.
+   * @param param The request object
+   */
+  public validateAPIKey(
+    options?: Configuration
+  ): Promise<ValidateAPIKeyResponse> {
+    const requestContextPromise = this.requestFactory.validateAPIKey(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateAPIKey(responseContext);
         });
     });
   }

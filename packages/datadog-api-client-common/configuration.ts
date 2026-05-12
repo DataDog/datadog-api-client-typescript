@@ -270,6 +270,7 @@ export function createConfiguration(
       "v2.updateLLMObsExperiment": false,
       "v2.updateLLMObsProject": false,
       "v2.anonymizeUsers": false,
+      "v2.validate": false,
       "v2.createOpenAPI": false,
       "v2.deleteOpenAPI": false,
       "v2.getOpenAPI": false,

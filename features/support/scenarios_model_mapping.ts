@@ -3553,6 +3553,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PersonalAccessTokenResponse",
     },
+    "v2.Validate": {
+        "operationResponseType": "ValidateV2Response",
+    },
+    "v2.ValidateAPIKey": {
+        "operationResponseType": "ValidateAPIKeyResponse",
+    },
     "v2.ListAPIs": {
         "query": {
             "type": "string",
