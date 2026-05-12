@@ -3198,6 +3198,16 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AnonymizeUsersResponse",
   },
+  "UsersApi.V2.GetCurrentUser": {
+    operationResponseType: "UserResponse",
+  },
+  "UsersApi.V2.UpdateCurrentUser": {
+    body: {
+      type: "UserUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "UserResponse",
+  },
   "UsersApi.V2.SendInvitations": {
     body: {
       type: "UserInvitationsRequest",

@@ -5,59 +5,60 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class UserAttributes {
   /**
-   * Creation time of the user.
+   * The ISO 8601 timestamp of when the user account was created.
    */
   "createdAt"?: Date;
   /**
-   * Whether the user is disabled.
+   * Whether the user account is deactivated. Disabled users cannot log in.
    */
   "disabled"?: boolean;
   /**
-   * Email of the user.
+   * The email address of the user, used for login and notifications.
    */
   "email"?: string;
   /**
-   * Handle of the user.
+   * The unique handle (username) of the user, typically matching their email prefix.
    */
   "handle"?: string;
   /**
-   * URL of the user's icon.
+   * URL of the user's profile icon, typically a Gravatar URL derived from the email address.
    */
   "icon"?: string;
   /**
-   * The last time the user logged in.
+   * The ISO 8601 timestamp of the user's most recent login, or null if the user has never logged in.
    */
   "lastLoginTime"?: Date;
   /**
-   * If user has MFA enabled.
+   * Whether multi-factor authentication (MFA) is enabled for the user's account.
    */
   "mfaEnabled"?: boolean;
   /**
-   * Time that the user was last modified.
+   * The ISO 8601 timestamp of when the user account was last modified.
    */
   "modifiedAt"?: Date;
   /**
-   * Name of the user.
+   * The full display name of the user as shown in the Datadog UI.
    */
   "name"?: string;
   /**
-   * Whether the user is a service account.
+   * Whether this is a service account rather than a human user.
+   * Service accounts are used for programmatic API access.
    */
   "serviceAccount"?: boolean;
   /**
-   * Status of the user.
+   * The current status of the user account (for example, `Active`, `Pending`, or `Disabled`).
    */
   "status"?: string;
   /**
-   * Title of the user.
+   * The job title of the user (for example, "Senior Engineer" or "Product Manager").
    */
   "title"?: string;
   /**
-   * UUID of the user.
+   * The globally unique identifier (UUID) of the user.
    */
   "uuid"?: string;
   /**
-   * Whether the user is verified.
+   * Whether the user's email address has been verified.
    */
   "verified"?: boolean;
   /**

@@ -5,17 +5,24 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class UserUpdateAttributes {
   /**
-   * If the user is enabled or disabled.
+   * When set to `true`, the user is deactivated and can no longer log in.
+   * When `false`, the user is active.
    */
   "disabled"?: boolean;
   /**
-   * The email of the user.
+   * The email address of the user, used for login and notifications.
+   * Must be a valid email format.
    */
   "email"?: string;
   /**
-   * The name of the user.
+   * The full display name of the user as shown in the Datadog UI.
+   * Maximum 55 characters, cannot contain `<` or `>`.
    */
   "name"?: string;
+  /**
+   * The job title of the user (for example, "Senior Engineer" or "Product Manager").
+   */
+  "title"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -41,6 +48,10 @@ export class UserUpdateAttributes {
     },
     name: {
       baseName: "name",
+      type: "string",
+    },
+    title: {
+      baseName: "title",
       type: "string",
     },
     additionalProperties: {
