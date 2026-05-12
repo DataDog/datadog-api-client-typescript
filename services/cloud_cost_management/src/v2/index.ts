@@ -18,6 +18,7 @@ export {
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
+  CloudCostManagementApiListCostTagDescriptionsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
@@ -110,6 +111,11 @@ export { BudgetWithEntriesDataAttributes } from "./models/BudgetWithEntriesDataA
 export { BudgetWithEntriesDataAttributesEntriesItems } from "./models/BudgetWithEntriesDataAttributesEntriesItems";
 export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
+export { CostTagDescription } from "./models/CostTagDescription";
+export { CostTagDescriptionAttributes } from "./models/CostTagDescriptionAttributes";
+export { CostTagDescriptionSource } from "./models/CostTagDescriptionSource";
+export { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
+export { CostTagDescriptionType } from "./models/CostTagDescriptionType";
 export { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 export { CreateRulesetRequestData } from "./models/CreateRulesetRequestData";
 export { CreateRulesetRequestDataAttributes } from "./models/CreateRulesetRequestDataAttributes";

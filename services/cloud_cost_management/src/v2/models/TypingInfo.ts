@@ -65,6 +65,9 @@ import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+import { CostTagDescription } from "./CostTagDescription";
+import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
+import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
 import { CreateRulesetRequest } from "./CreateRulesetRequest";
 import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
 import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
@@ -157,6 +160,8 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
     BudgetValidationResponseDataType: ["budget_validation"],
     BudgetWithEntriesDataType: ["budget"],
+    CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
+    CostTagDescriptionType: ["cost_tag_description"],
     CreateRulesetRequestDataType: ["create_ruleset"],
     DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
     GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
@@ -260,6 +265,9 @@ export const TypingInfo: ModelTypingInfo = {
       BudgetWithEntriesDataAttributesEntriesItems,
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
       BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+    CostTagDescription: CostTagDescription,
+    CostTagDescriptionAttributes: CostTagDescriptionAttributes,
+    CostTagDescriptionsResponse: CostTagDescriptionsResponse,
     CreateRulesetRequest: CreateRulesetRequest,
     CreateRulesetRequestData: CreateRulesetRequestData,
     CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
