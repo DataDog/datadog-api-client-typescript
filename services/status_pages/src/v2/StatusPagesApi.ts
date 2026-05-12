@@ -23,6 +23,8 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { CreateBackfilledDegradationRequest } from "./models/CreateBackfilledDegradationRequest";
+import { CreateBackfilledMaintenanceRequest } from "./models/CreateBackfilledMaintenanceRequest";
 import { CreateComponentRequest } from "./models/CreateComponentRequest";
 import { CreateDegradationRequest } from "./models/CreateDegradationRequest";
 import { CreateMaintenanceRequest } from "./models/CreateMaintenanceRequest";
@@ -50,6 +52,148 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("status-pages", version);
     }
   }
+  public async createBackfilledDegradation(
+    pageId: string,
+    body: CreateBackfilledDegradationRequest,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "createBackfilledDegradation");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createBackfilledDegradation");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/degradations/backfill".replace(
+        "{page_id}",
+        encodeURIComponent(String(pageId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.createBackfilledDegradation",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateBackfilledDegradationRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createBackfilledMaintenance(
+    pageId: string,
+    body: CreateBackfilledMaintenanceRequest,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "createBackfilledMaintenance");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createBackfilledMaintenance");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/maintenances/backfill".replace(
+        "{page_id}",
+        encodeURIComponent(String(pageId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StatusPagesApi.v2.createBackfilledMaintenance",
+      StatusPagesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateBackfilledMaintenanceRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createComponent(
     pageId: string,
     body: CreateComponentRequest,
@@ -1437,6 +1581,118 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createBackfilledDegradation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createBackfilledDegradation(
+    response: ResponseContext,
+  ): Promise<Degradation> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: Degradation = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Degradation",
+      ) as Degradation;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Degradation = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Degradation",
+        "",
+      ) as Degradation;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createBackfilledMaintenance
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createBackfilledMaintenance(
+    response: ResponseContext,
+  ): Promise<Maintenance> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: Maintenance = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Maintenance",
+      ) as Maintenance;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Maintenance = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Maintenance",
+        "",
+      ) as Maintenance;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createComponent
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2539,6 +2795,40 @@ export class StatusPagesApiResponseProcessor {
   }
 }
 
+export interface StatusPagesApiCreateBackfilledDegradationRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * @type CreateBackfilledDegradationRequest
+   */
+  body: CreateBackfilledDegradationRequest;
+  /**
+   * Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface StatusPagesApiCreateBackfilledMaintenanceRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * @type CreateBackfilledMaintenanceRequest
+   */
+  body: CreateBackfilledMaintenanceRequest;
+  /**
+   * Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, status_page.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface StatusPagesApiCreateComponentRequest {
   /**
    * The ID of the status page.
@@ -2946,6 +3236,58 @@ export class StatusPagesApi {
       requestFactory || new StatusPagesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new StatusPagesApiResponseProcessor();
+  }
+
+  /**
+   * Creates a backfilled degradation with predefined updates.
+   * @param param The request object
+   */
+  public createBackfilledDegradation(
+    param: StatusPagesApiCreateBackfilledDegradationRequest,
+    options?: Configuration,
+  ): Promise<Degradation> {
+    const requestContextPromise =
+      this.requestFactory.createBackfilledDegradation(
+        param.pageId,
+        param.body,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createBackfilledDegradation(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Creates a backfilled maintenance with predefined updates.
+   * @param param The request object
+   */
+  public createBackfilledMaintenance(
+    param: StatusPagesApiCreateBackfilledMaintenanceRequest,
+    options?: Configuration,
+  ): Promise<Maintenance> {
+    const requestContextPromise =
+      this.requestFactory.createBackfilledMaintenance(
+        param.pageId,
+        param.body,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createBackfilledMaintenance(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**

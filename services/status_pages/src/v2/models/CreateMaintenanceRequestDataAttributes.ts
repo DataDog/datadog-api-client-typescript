@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
+import { CreateMaintenanceRequestDataAttributesUpdatesItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItems";
 
 /**
  * The supported attributes for creating a maintenance.
@@ -34,6 +35,7 @@ export class CreateMaintenanceRequestDataAttributes {
    * The title of the maintenance.
    */
   "title": string;
+  "updates"?: Array<CreateMaintenanceRequestDataAttributesUpdatesItems>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -85,6 +87,10 @@ export class CreateMaintenanceRequestDataAttributes {
       baseName: "title",
       type: "string",
       required: true,
+    },
+    updates: {
+      baseName: "updates",
+      type: "Array<CreateMaintenanceRequestDataAttributesUpdatesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -1,6 +1,14 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { CreateBackfilledDegradationRequest } from "./CreateBackfilledDegradationRequest";
+import { CreateBackfilledDegradationRequestData } from "./CreateBackfilledDegradationRequestData";
+import { CreateBackfilledDegradationRequestDataAttributes } from "./CreateBackfilledDegradationRequestDataAttributes";
+import { CreateBackfilledDegradationRequestDataAttributesUpdatesItems } from "./CreateBackfilledDegradationRequestDataAttributesUpdatesItems";
+import { CreateBackfilledMaintenanceRequest } from "./CreateBackfilledMaintenanceRequest";
+import { CreateBackfilledMaintenanceRequestData } from "./CreateBackfilledMaintenanceRequestData";
+import { CreateBackfilledMaintenanceRequestDataAttributes } from "./CreateBackfilledMaintenanceRequestDataAttributes";
+import { CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems } from "./CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems";
 import { CreateComponentRequest } from "./CreateComponentRequest";
 import { CreateComponentRequestData } from "./CreateComponentRequestData";
 import { CreateComponentRequestDataAttributes } from "./CreateComponentRequestDataAttributes";
@@ -12,10 +20,14 @@ import { CreateDegradationRequest } from "./CreateDegradationRequest";
 import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
 import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
+import { CreateDegradationRequestDataAttributesUpdatesItems } from "./CreateDegradationRequestDataAttributesUpdatesItems";
+import { CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateMaintenanceRequest } from "./CreateMaintenanceRequest";
 import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
+import { CreateMaintenanceRequestDataAttributesUpdatesItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItems";
+import { CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
 import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
@@ -124,6 +136,10 @@ export const TypingInfo: ModelTypingInfo = {
       "monitoring",
       "resolved",
     ],
+    CreateMaintenanceRequestDataAttributesUpdatesItemsStatus: [
+      "in_progress",
+      "completed",
+    ],
     CreateStatusPageRequestDataAttributesType: ["public", "internal"],
     CreateStatusPageRequestDataAttributesVisualizationType: [
       "bars_and_uptime_percentage",
@@ -175,6 +191,20 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    CreateBackfilledDegradationRequest: CreateBackfilledDegradationRequest,
+    CreateBackfilledDegradationRequestData:
+      CreateBackfilledDegradationRequestData,
+    CreateBackfilledDegradationRequestDataAttributes:
+      CreateBackfilledDegradationRequestDataAttributes,
+    CreateBackfilledDegradationRequestDataAttributesUpdatesItems:
+      CreateBackfilledDegradationRequestDataAttributesUpdatesItems,
+    CreateBackfilledMaintenanceRequest: CreateBackfilledMaintenanceRequest,
+    CreateBackfilledMaintenanceRequestData:
+      CreateBackfilledMaintenanceRequestData,
+    CreateBackfilledMaintenanceRequestDataAttributes:
+      CreateBackfilledMaintenanceRequestDataAttributes,
+    CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems:
+      CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems,
     CreateComponentRequest: CreateComponentRequest,
     CreateComponentRequestData: CreateComponentRequestData,
     CreateComponentRequestDataAttributes: CreateComponentRequestDataAttributes,
@@ -192,12 +222,20 @@ export const TypingInfo: ModelTypingInfo = {
       CreateDegradationRequestDataAttributes,
     CreateDegradationRequestDataAttributesComponentsAffectedItems:
       CreateDegradationRequestDataAttributesComponentsAffectedItems,
+    CreateDegradationRequestDataAttributesUpdatesItems:
+      CreateDegradationRequestDataAttributesUpdatesItems,
+    CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems:
+      CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems,
     CreateMaintenanceRequest: CreateMaintenanceRequest,
     CreateMaintenanceRequestData: CreateMaintenanceRequestData,
     CreateMaintenanceRequestDataAttributes:
       CreateMaintenanceRequestDataAttributes,
     CreateMaintenanceRequestDataAttributesComponentsAffectedItems:
       CreateMaintenanceRequestDataAttributesComponentsAffectedItems,
+    CreateMaintenanceRequestDataAttributesUpdatesItems:
+      CreateMaintenanceRequestDataAttributesUpdatesItems,
+    CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems:
+      CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems,
     CreateStatusPageRequest: CreateStatusPageRequest,
     CreateStatusPageRequestData: CreateStatusPageRequestData,
     CreateStatusPageRequestDataAttributes:

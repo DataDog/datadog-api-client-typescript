@@ -12113,6 +12113,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Degradation",
   },
+  "StatusPagesApi.V2.CreateBackfilledDegradation": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateBackfilledDegradationRequest",
+      format: "",
+    },
+    operationResponseType: "Degradation",
+  },
   "StatusPagesApi.V2.GetDegradation": {
     pageId: {
       type: "string",
@@ -12177,6 +12192,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     body: {
       type: "CreateMaintenanceRequest",
+      format: "",
+    },
+    operationResponseType: "Maintenance",
+  },
+  "StatusPagesApi.V2.CreateBackfilledMaintenance": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateBackfilledMaintenanceRequest",
       format: "",
     },
     operationResponseType: "Maintenance",
