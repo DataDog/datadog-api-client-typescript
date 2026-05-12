@@ -3188,6 +3188,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AnonymizeUsersResponse",
     },
+    "v2.GetCurrentUser": {
+        "operationResponseType": "UserResponse",
+    },
+    "v2.UpdateCurrentUser": {
+        "body": {
+            "type": "UserUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
+    },
     "v2.SendInvitations": {
         "body": {
             "type": "UserInvitationsRequest",
