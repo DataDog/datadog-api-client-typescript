@@ -6180,6 +6180,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCostOCIConfigs": {
         "operationResponseType": "OCIConfigsResponse",
     },
+    "v2.ListCostTagDescriptions": {
+        "filterCloud": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostTagDescriptionsResponse",
+    },
     "v2.ListTagPipelinesRulesets": {
         "operationResponseType": "RulesetRespArray",
     },
