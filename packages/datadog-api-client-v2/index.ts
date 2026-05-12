@@ -385,11 +385,6 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
-  EmailTransportApiCreateEmailTransportWebhookIntakeRequest,
-  EmailTransportApi,
-} from "./apis/EmailTransportApi";
-
-export {
   EntityRiskScoresApiListEntityRiskScoresRequest,
   EntityRiskScoresApi,
 } from "./apis/EntityRiskScoresApi";
@@ -6358,19 +6353,6 @@ export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
 export { TokenType } from "./models/TokenType";
-export { TransportWebhookLog } from "./models/TransportWebhookLog";
-export { TransportWebhookLogAttributes } from "./models/TransportWebhookLogAttributes";
-export { TransportWebhookLogEmail } from "./models/TransportWebhookLogEmail";
-export { TransportWebhookLogIpAttribute } from "./models/TransportWebhookLogIpAttribute";
-export { TransportWebhookLogMessage } from "./models/TransportWebhookLogMessage";
-export { TransportWebhookLogMessageAuth } from "./models/TransportWebhookLogMessageAuth";
-export { TransportWebhookLogMessageCustomArgs } from "./models/TransportWebhookLogMessageCustomArgs";
-export { TransportWebhookLogMessageId } from "./models/TransportWebhookLogMessageId";
-export { TransportWebhookLogMessageResponse } from "./models/TransportWebhookLogMessageResponse";
-export { TransportWebhookLogMessageTimestamp } from "./models/TransportWebhookLogMessageTimestamp";
-export { TransportWebhookLogNetwork } from "./models/TransportWebhookLogNetwork";
-export { TransportWebhookLogNetworkIp } from "./models/TransportWebhookLogNetworkIp";
-export { TransportWebhookLogOrgMetadata } from "./models/TransportWebhookLogOrgMetadata";
 export { Trigger } from "./models/Trigger";
 export { TriggerAttributes } from "./models/TriggerAttributes";
 export { TriggerInvestigationRequest } from "./models/TriggerInvestigationRequest";
