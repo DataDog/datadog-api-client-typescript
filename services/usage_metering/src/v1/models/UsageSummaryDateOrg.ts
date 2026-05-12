@@ -541,6 +541,10 @@ export class UsageSummaryDateOrg {
    */
   "infraHostTop99p"?: number;
   /**
+   * Shows the average of all storage management objects over all hours in the current date for the given org.
+   */
+  "infraStorageMgmtObjectsAvg"?: number;
+  /**
    * Shows the sum of all log bytes ingested over all hours in the current date for the given org.
    */
   "ingestedEventsBytesSum"?: number;
@@ -952,6 +956,10 @@ export class UsageSummaryDateOrg {
    * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.
    */
   "siemAnalyzedLogsAddOnCountSum"?: number;
+  /**
+   * Shows the average of all storage management objects over all hours in the current date for the given org.
+   */
+  "storageManagementObjectCountAvg"?: number;
   /**
    * Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
    */
@@ -1674,6 +1682,11 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    infraStorageMgmtObjectsAvg: {
+      baseName: "infra_storage_mgmt_objects_avg",
+      type: "number",
+      format: "int64",
+    },
     ingestedEventsBytesSum: {
       baseName: "ingested_events_bytes_sum",
       type: "number",
@@ -2191,6 +2204,11 @@ export class UsageSummaryDateOrg {
     },
     siemAnalyzedLogsAddOnCountSum: {
       baseName: "siem_analyzed_logs_add_on_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    storageManagementObjectCountAvg: {
+      baseName: "storage_management_object_count_avg",
       type: "number",
       format: "int64",
     },

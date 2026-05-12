@@ -540,6 +540,10 @@ export class UsageSummaryResponse {
    */
   "infraHostTop99pSum"?: number;
   /**
+   * Shows the average of all storage management objects over all hours in the current month for all organizations.
+   */
+  "infraStorageMgmtObjectsAvgSum"?: number;
+  /**
    * Shows the sum of all log bytes ingested over all hours in the current month for all organizations.
    */
   "ingestedEventsBytesAggSum"?: number;
@@ -971,6 +975,10 @@ export class UsageSummaryResponse {
    * Shows the first date of usage in the current month for all organizations.
    */
   "startDate"?: Date;
+  /**
+   * Shows the average of all storage management objects over all hours in the current month for all organizations.
+   */
+  "storageManagementObjectCountAvgSum"?: number;
   /**
    * Shows the sum of all Synthetic browser tests over all hours in the current month for all organizations.
    */
@@ -1696,6 +1704,11 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    infraStorageMgmtObjectsAvgSum: {
+      baseName: "infra_storage_mgmt_objects_avg_sum",
+      type: "number",
+      format: "int64",
+    },
     ingestedEventsBytesAggSum: {
       baseName: "ingested_events_bytes_agg_sum",
       type: "number",
@@ -2245,6 +2258,11 @@ export class UsageSummaryResponse {
       baseName: "start_date",
       type: "Date",
       format: "date-time",
+    },
+    storageManagementObjectCountAvgSum: {
+      baseName: "storage_management_object_count_avg_sum",
+      type: "number",
+      format: "int64",
     },
     syntheticsBrowserCheckCallsCountAggSum: {
       baseName: "synthetics_browser_check_calls_count_agg_sum",
