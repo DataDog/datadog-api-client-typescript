@@ -249,6 +249,7 @@ export {
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
+  CloudCostManagementApiListCostTagDescriptionsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
@@ -2263,6 +2264,11 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CostTagDescription } from "./models/CostTagDescription";
+export { CostTagDescriptionAttributes } from "./models/CostTagDescriptionAttributes";
+export { CostTagDescriptionSource } from "./models/CostTagDescriptionSource";
+export { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
+export { CostTagDescriptionType } from "./models/CostTagDescriptionType";
 export { CoverageSummaryAttributes } from "./models/CoverageSummaryAttributes";
 export { CoverageSummaryCodeownerStats } from "./models/CoverageSummaryCodeownerStats";
 export { CoverageSummaryData } from "./models/CoverageSummaryData";

@@ -33,6 +33,7 @@ import { BudgetArray } from "../models/BudgetArray";
 import { BudgetValidationRequest } from "../models/BudgetValidationRequest";
 import { BudgetValidationResponse } from "../models/BudgetValidationResponse";
 import { BudgetWithEntries } from "../models/BudgetWithEntries";
+import { CostTagDescriptionsResponse } from "../models/CostTagDescriptionsResponse";
 import { CreateRulesetRequest } from "../models/CreateRulesetRequest";
 import { CustomCostsFileGetResponse } from "../models/CustomCostsFileGetResponse";
 import { CustomCostsFileLineItem } from "../models/CustomCostsFileLineItem";
@@ -857,6 +858,41 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostTagDescriptions(
+    filterCloud?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_descriptions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.listCostTagDescriptions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterCloud !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cloud]",
+        ObjectSerializer.serialize(filterCloud, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2930,6 +2966,64 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCostTagDescriptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTagDescriptions(
+    response: ResponseContext
+  ): Promise<CostTagDescriptionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CostTagDescriptionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagDescriptionsResponse"
+      ) as CostTagDescriptionsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagDescriptionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagDescriptionsResponse",
+        ""
+      ) as CostTagDescriptionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listCustomAllocationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4070,6 +4164,14 @@ export interface CloudCostManagementApiGetTagPipelinesRulesetRequest {
   rulesetId: string;
 }
 
+export interface CloudCostManagementApiListCostTagDescriptionsRequest {
+  /**
+   * Filter descriptions to a specific cloud provider (for example, `aws`). Omit to return descriptions across all clouds.
+   * @type string
+   */
+  filterCloud?: string;
+}
+
 export interface CloudCostManagementApiListCustomCostsFilesRequest {
   /**
    * Page number for pagination
@@ -4733,6 +4835,29 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCostOCIConfigs(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List Cloud Cost Management tag key descriptions for the organization. Use `filter[cloud]` to scope the result to a single cloud provider; when omitted, both cross-cloud defaults and cloud-specific descriptions are returned.
+   * @param param The request object
+   */
+  public listCostTagDescriptions(
+    param: CloudCostManagementApiListCostTagDescriptionsRequest = {},
+    options?: Configuration
+  ): Promise<CostTagDescriptionsResponse> {
+    const requestContextPromise = this.requestFactory.listCostTagDescriptions(
+      param.filterCloud,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTagDescriptions(
+            responseContext
+          );
         });
     });
   }

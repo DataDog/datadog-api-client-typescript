@@ -655,6 +655,9 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CostTagDescription } from "./CostTagDescription";
+import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
+import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryData } from "./CoverageSummaryData";
@@ -4488,6 +4491,8 @@ const enumsMap: { [key: string]: any[] } = {
   CostAggregationType: ["cumulative"],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
+  CostTagDescriptionType: ["cost_tag_description"],
   CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
     "contributor",
@@ -7189,6 +7194,9 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CostTagDescription: CostTagDescription,
+  CostTagDescriptionAttributes: CostTagDescriptionAttributes,
+  CostTagDescriptionsResponse: CostTagDescriptionsResponse,
   CoverageSummaryAttributes: CoverageSummaryAttributes,
   CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,
   CoverageSummaryData: CoverageSummaryData,
