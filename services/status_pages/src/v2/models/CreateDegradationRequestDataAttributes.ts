@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
 import { CreateDegradationRequestDataAttributesStatus } from "./CreateDegradationRequestDataAttributesStatus";
+import { CreateDegradationRequestDataAttributesUpdatesItems } from "./CreateDegradationRequestDataAttributesUpdatesItems";
 
 /**
  * The supported attributes for creating a degradation.
@@ -23,6 +24,7 @@ export class CreateDegradationRequestDataAttributes {
    * The title of the degradation.
    */
   "title": string;
+  "updates"?: Array<CreateDegradationRequestDataAttributesUpdatesItems>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -56,6 +58,10 @@ export class CreateDegradationRequestDataAttributes {
       baseName: "title",
       type: "string",
       required: true,
+    },
+    updates: {
+      baseName: "updates",
+      type: "Array<CreateDegradationRequestDataAttributesUpdatesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
