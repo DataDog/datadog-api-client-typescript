@@ -1207,6 +1207,8 @@ export {
 } from "./apis/StaticAnalysisApi";
 
 export {
+  StatusPagesApiCreateBackfilledDegradationRequest,
+  StatusPagesApiCreateBackfilledMaintenanceRequest,
   StatusPagesApiCreateComponentRequest,
   StatusPagesApiCreateDegradationRequest,
   StatusPagesApiCreateMaintenanceRequest,
@@ -2294,6 +2296,14 @@ export { CreateAttachmentRequest } from "./models/CreateAttachmentRequest";
 export { CreateAttachmentRequestData } from "./models/CreateAttachmentRequestData";
 export { CreateAttachmentRequestDataAttributes } from "./models/CreateAttachmentRequestDataAttributes";
 export { CreateAttachmentRequestDataAttributesAttachment } from "./models/CreateAttachmentRequestDataAttributesAttachment";
+export { CreateBackfilledDegradationRequest } from "./models/CreateBackfilledDegradationRequest";
+export { CreateBackfilledDegradationRequestData } from "./models/CreateBackfilledDegradationRequestData";
+export { CreateBackfilledDegradationRequestDataAttributes } from "./models/CreateBackfilledDegradationRequestDataAttributes";
+export { CreateBackfilledDegradationRequestDataAttributesUpdatesItems } from "./models/CreateBackfilledDegradationRequestDataAttributesUpdatesItems";
+export { CreateBackfilledMaintenanceRequest } from "./models/CreateBackfilledMaintenanceRequest";
+export { CreateBackfilledMaintenanceRequestData } from "./models/CreateBackfilledMaintenanceRequestData";
+export { CreateBackfilledMaintenanceRequestDataAttributes } from "./models/CreateBackfilledMaintenanceRequestDataAttributes";
+export { CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems } from "./models/CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems";
 export { CreateCampaignRequest } from "./models/CreateCampaignRequest";
 export { CreateCampaignRequestAttributes } from "./models/CreateCampaignRequestAttributes";
 export { CreateCampaignRequestData } from "./models/CreateCampaignRequestData";
@@ -2325,6 +2335,8 @@ export { CreateDegradationRequestData } from "./models/CreateDegradationRequestD
 export { CreateDegradationRequestDataAttributes } from "./models/CreateDegradationRequestDataAttributes";
 export { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./models/CreateDegradationRequestDataAttributesComponentsAffectedItems";
 export { CreateDegradationRequestDataAttributesStatus } from "./models/CreateDegradationRequestDataAttributesStatus";
+export { CreateDegradationRequestDataAttributesUpdatesItems } from "./models/CreateDegradationRequestDataAttributesUpdatesItems";
+export { CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./models/CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 export { CreateDeploymentGateParams } from "./models/CreateDeploymentGateParams";
 export { CreateDeploymentGateParamsData } from "./models/CreateDeploymentGateParamsData";
 export { CreateDeploymentGateParamsDataAttributes } from "./models/CreateDeploymentGateParamsDataAttributes";
@@ -2350,6 +2362,9 @@ export { CreateMaintenanceRequest } from "./models/CreateMaintenanceRequest";
 export { CreateMaintenanceRequestData } from "./models/CreateMaintenanceRequestData";
 export { CreateMaintenanceRequestDataAttributes } from "./models/CreateMaintenanceRequestDataAttributes";
 export { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./models/CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
+export { CreateMaintenanceRequestDataAttributesUpdatesItems } from "./models/CreateMaintenanceRequestDataAttributesUpdatesItems";
+export { CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./models/CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems";
+export { CreateMaintenanceRequestDataAttributesUpdatesItemsStatus } from "./models/CreateMaintenanceRequestDataAttributesUpdatesItemsStatus";
 export { CreateNotificationChannelAttributes } from "./models/CreateNotificationChannelAttributes";
 export { CreateNotificationChannelConfig } from "./models/CreateNotificationChannelConfig";
 export { CreateNotificationChannelData } from "./models/CreateNotificationChannelData";

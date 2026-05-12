@@ -5,6 +5,7 @@
  */
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
 import { CreateDegradationRequestDataAttributesStatus } from "./CreateDegradationRequestDataAttributesStatus";
+import { CreateDegradationRequestDataAttributesUpdatesItems } from "./CreateDegradationRequestDataAttributesUpdatesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -28,6 +29,7 @@ export class CreateDegradationRequestDataAttributes {
    * The title of the degradation.
    */
   "title": string;
+  "updates"?: Array<CreateDegradationRequestDataAttributesUpdatesItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -63,6 +65,10 @@ export class CreateDegradationRequestDataAttributes {
       baseName: "title",
       type: "string",
       required: true,
+    },
+    updates: {
+      baseName: "updates",
+      type: "Array<CreateDegradationRequestDataAttributesUpdatesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
