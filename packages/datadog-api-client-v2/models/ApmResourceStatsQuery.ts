@@ -27,7 +27,7 @@ export class ApmResourceStatsQuery {
   /**
    * Tag keys to group results by.
    */
-  "groupBy"?: Array<string>;
+  "groupBy": Array<string>;
   /**
    * The variable name for use in formulas.
    */
@@ -35,7 +35,7 @@ export class ApmResourceStatsQuery {
   /**
    * The APM operation name.
    */
-  "operationName"?: string;
+  "operationName": string;
   /**
    * Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
    */
@@ -90,6 +90,7 @@ export class ApmResourceStatsQuery {
     groupBy: {
       baseName: "group_by",
       type: "Array<string>",
+      required: true,
     },
     name: {
       baseName: "name",
@@ -99,6 +100,7 @@ export class ApmResourceStatsQuery {
     operationName: {
       baseName: "operation_name",
       type: "string",
+      required: true,
     },
     primaryTagName: {
       baseName: "primary_tag_name",
