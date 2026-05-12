@@ -681,6 +681,14 @@ import { CreateAttachmentRequest } from "./CreateAttachmentRequest";
 import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
 import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
 import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
+import { CreateBackfilledDegradationRequest } from "./CreateBackfilledDegradationRequest";
+import { CreateBackfilledDegradationRequestData } from "./CreateBackfilledDegradationRequestData";
+import { CreateBackfilledDegradationRequestDataAttributes } from "./CreateBackfilledDegradationRequestDataAttributes";
+import { CreateBackfilledDegradationRequestDataAttributesUpdatesItems } from "./CreateBackfilledDegradationRequestDataAttributesUpdatesItems";
+import { CreateBackfilledMaintenanceRequest } from "./CreateBackfilledMaintenanceRequest";
+import { CreateBackfilledMaintenanceRequestData } from "./CreateBackfilledMaintenanceRequestData";
+import { CreateBackfilledMaintenanceRequestDataAttributes } from "./CreateBackfilledMaintenanceRequestDataAttributes";
+import { CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems } from "./CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems";
 import { CreateCampaignRequest } from "./CreateCampaignRequest";
 import { CreateCampaignRequestAttributes } from "./CreateCampaignRequestAttributes";
 import { CreateCampaignRequestData } from "./CreateCampaignRequestData";
@@ -709,6 +717,8 @@ import { CreateDegradationRequest } from "./CreateDegradationRequest";
 import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
 import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
+import { CreateDegradationRequestDataAttributesUpdatesItems } from "./CreateDegradationRequestDataAttributesUpdatesItems";
+import { CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateDeploymentGateParams } from "./CreateDeploymentGateParams";
 import { CreateDeploymentGateParamsData } from "./CreateDeploymentGateParamsData";
 import { CreateDeploymentGateParamsDataAttributes } from "./CreateDeploymentGateParamsDataAttributes";
@@ -732,6 +742,8 @@ import { CreateMaintenanceRequest } from "./CreateMaintenanceRequest";
 import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
+import { CreateMaintenanceRequestDataAttributesUpdatesItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItems";
+import { CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateNotificationChannelAttributes } from "./CreateNotificationChannelAttributes";
 import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
@@ -4509,6 +4521,10 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CreateEnvironmentDataType: ["environments"],
   CreateFeatureFlagDataType: ["feature-flags"],
+  CreateMaintenanceRequestDataAttributesUpdatesItemsStatus: [
+    "in_progress",
+    "completed",
+  ],
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
   CreateRulesetRequestDataType: ["create_ruleset"],
@@ -7222,6 +7238,20 @@ const typeMap: { [index: string]: any } = {
   CreateAttachmentRequestDataAttributes: CreateAttachmentRequestDataAttributes,
   CreateAttachmentRequestDataAttributesAttachment:
     CreateAttachmentRequestDataAttributesAttachment,
+  CreateBackfilledDegradationRequest: CreateBackfilledDegradationRequest,
+  CreateBackfilledDegradationRequestData:
+    CreateBackfilledDegradationRequestData,
+  CreateBackfilledDegradationRequestDataAttributes:
+    CreateBackfilledDegradationRequestDataAttributes,
+  CreateBackfilledDegradationRequestDataAttributesUpdatesItems:
+    CreateBackfilledDegradationRequestDataAttributesUpdatesItems,
+  CreateBackfilledMaintenanceRequest: CreateBackfilledMaintenanceRequest,
+  CreateBackfilledMaintenanceRequestData:
+    CreateBackfilledMaintenanceRequestData,
+  CreateBackfilledMaintenanceRequestDataAttributes:
+    CreateBackfilledMaintenanceRequestDataAttributes,
+  CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems:
+    CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems,
   CreateCampaignRequest: CreateCampaignRequest,
   CreateCampaignRequestAttributes: CreateCampaignRequestAttributes,
   CreateCampaignRequestData: CreateCampaignRequestData,
@@ -7258,6 +7288,10 @@ const typeMap: { [index: string]: any } = {
     CreateDegradationRequestDataAttributes,
   CreateDegradationRequestDataAttributesComponentsAffectedItems:
     CreateDegradationRequestDataAttributesComponentsAffectedItems,
+  CreateDegradationRequestDataAttributesUpdatesItems:
+    CreateDegradationRequestDataAttributesUpdatesItems,
+  CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems:
+    CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems,
   CreateDeploymentGateParams: CreateDeploymentGateParams,
   CreateDeploymentGateParamsData: CreateDeploymentGateParamsData,
   CreateDeploymentGateParamsDataAttributes:
@@ -7287,6 +7321,10 @@ const typeMap: { [index: string]: any } = {
     CreateMaintenanceRequestDataAttributes,
   CreateMaintenanceRequestDataAttributesComponentsAffectedItems:
     CreateMaintenanceRequestDataAttributesComponentsAffectedItems,
+  CreateMaintenanceRequestDataAttributesUpdatesItems:
+    CreateMaintenanceRequestDataAttributesUpdatesItems,
+  CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems:
+    CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems,
   CreateNotificationChannelAttributes: CreateNotificationChannelAttributes,
   CreateNotificationChannelData: CreateNotificationChannelData,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,

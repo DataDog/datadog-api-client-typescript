@@ -12101,6 +12101,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Degradation",
     },
+    "v2.CreateBackfilledDegradation": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CreateBackfilledDegradationRequest",
+            "format": "",
+            },
+        "operationResponseType": "Degradation",
+    },
     "v2.GetDegradation": {
         "pageId": {
             "type": "string",
@@ -12165,6 +12180,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "body": {
             "type": "CreateMaintenanceRequest",
+            "format": "",
+            },
+        "operationResponseType": "Maintenance",
+    },
+    "v2.CreateBackfilledMaintenance": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CreateBackfilledMaintenanceRequest",
             "format": "",
             },
         "operationResponseType": "Maintenance",
