@@ -28,6 +28,9 @@ import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
 import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
@@ -67,6 +70,10 @@ import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
+import { ValidateAPIKeyResponse } from "./ValidateAPIKeyResponse";
+import { ValidateV2Attributes } from "./ValidateV2Attributes";
+import { ValidateV2Data } from "./ValidateV2Data";
+import { ValidateV2Response } from "./ValidateV2Response";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -104,6 +111,8 @@ export const TypingInfo: ModelTypingInfo = {
     PersonalAccessTokensType: ["personal_access_tokens"],
     RolesType: ["roles"],
     UsersType: ["users"],
+    ValidateAPIKeyStatus: ["ok"],
+    ValidateV2Type: ["validate_v2"],
   },
   oneOfMap: {
     APIKeyResponseIncludedItem: ["User", "LeakedKey"],
@@ -138,6 +147,9 @@ export const TypingInfo: ModelTypingInfo = {
     FullApplicationKeyAttributes: FullApplicationKeyAttributes,
     FullPersonalAccessToken: FullPersonalAccessToken,
     FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     LeakedKey: LeakedKey,
     LeakedKeyAttributes: LeakedKeyAttributes,
     ListApplicationKeysResponse: ListApplicationKeysResponse,
@@ -177,5 +189,9 @@ export const TypingInfo: ModelTypingInfo = {
     User: User,
     UserAttributes: UserAttributes,
     UserResponseRelationships: UserResponseRelationships,
+    ValidateAPIKeyResponse: ValidateAPIKeyResponse,
+    ValidateV2Attributes: ValidateV2Attributes,
+    ValidateV2Data: ValidateV2Data,
+    ValidateV2Response: ValidateV2Response,
   },
 };

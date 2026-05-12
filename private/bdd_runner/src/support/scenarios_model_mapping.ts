@@ -3563,6 +3563,12 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PersonalAccessTokenResponse",
   },
+  "KeyManagementApi.V2.Validate": {
+    operationResponseType: "ValidateV2Response",
+  },
+  "KeyManagementApi.V2.ValidateAPIKey": {
+    operationResponseType: "ValidateAPIKeyResponse",
+  },
   "APIManagementApi.V2.ListAPIs": {
     query: {
       type: "string",
