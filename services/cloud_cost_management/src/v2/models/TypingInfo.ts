@@ -65,6 +65,13 @@ import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+import { CostAnomaliesResponse } from "./CostAnomaliesResponse";
+import { CostAnomaliesResponseData } from "./CostAnomaliesResponseData";
+import { CostAnomaliesResponseDataAttributes } from "./CostAnomaliesResponseDataAttributes";
+import { CostAnomaly } from "./CostAnomaly";
+import { CostAnomalyDismissal } from "./CostAnomalyDismissal";
+import { CostAnomalyResponse } from "./CostAnomalyResponse";
+import { CostAnomalyResponseData } from "./CostAnomalyResponseData";
 import { CostTagDescription } from "./CostTagDescription";
 import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
 import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
@@ -160,6 +167,7 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
     BudgetValidationResponseDataType: ["budget_validation"],
     BudgetWithEntriesDataType: ["budget"],
+    CostAnomaliesResponseDataType: ["anomalies"],
     CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
     CostTagDescriptionType: ["cost_tag_description"],
     CreateRulesetRequestDataType: ["create_ruleset"],
@@ -265,6 +273,13 @@ export const TypingInfo: ModelTypingInfo = {
       BudgetWithEntriesDataAttributesEntriesItems,
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
       BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+    CostAnomaliesResponse: CostAnomaliesResponse,
+    CostAnomaliesResponseData: CostAnomaliesResponseData,
+    CostAnomaliesResponseDataAttributes: CostAnomaliesResponseDataAttributes,
+    CostAnomaly: CostAnomaly,
+    CostAnomalyDismissal: CostAnomalyDismissal,
+    CostAnomalyResponse: CostAnomalyResponse,
+    CostAnomalyResponseData: CostAnomalyResponseData,
     CostTagDescription: CostTagDescription,
     CostTagDescriptionAttributes: CostTagDescriptionAttributes,
     CostTagDescriptionsResponse: CostTagDescriptionsResponse,

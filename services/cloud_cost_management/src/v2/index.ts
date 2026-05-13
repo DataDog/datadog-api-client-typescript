@@ -13,11 +13,13 @@ export {
   CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
   CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCostAWSCURConfigRequest,
+  CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
+  CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
@@ -111,6 +113,14 @@ export { BudgetWithEntriesDataAttributes } from "./models/BudgetWithEntriesDataA
 export { BudgetWithEntriesDataAttributesEntriesItems } from "./models/BudgetWithEntriesDataAttributesEntriesItems";
 export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
+export { CostAnomaliesResponse } from "./models/CostAnomaliesResponse";
+export { CostAnomaliesResponseData } from "./models/CostAnomaliesResponseData";
+export { CostAnomaliesResponseDataAttributes } from "./models/CostAnomaliesResponseDataAttributes";
+export { CostAnomaliesResponseDataType } from "./models/CostAnomaliesResponseDataType";
+export { CostAnomaly } from "./models/CostAnomaly";
+export { CostAnomalyDismissal } from "./models/CostAnomalyDismissal";
+export { CostAnomalyResponse } from "./models/CostAnomalyResponse";
+export { CostAnomalyResponseData } from "./models/CostAnomalyResponseData";
 export { CostTagDescription } from "./models/CostTagDescription";
 export { CostTagDescriptionAttributes } from "./models/CostTagDescriptionAttributes";
 export { CostTagDescriptionSource } from "./models/CostTagDescriptionSource";
