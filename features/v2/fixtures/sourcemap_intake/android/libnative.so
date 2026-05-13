@@ -1,0 +1,4 @@
+ELF minimal test file for NDK symbol upload testing
+This is a placeholder representing an Android native library
+Build ID: abc123def456
+Architecture: arm64-v8a
