@@ -6259,6 +6259,55 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CostTagDescriptionsResponse",
   },
+  "CloudCostManagementApi.V2.ListCostTagKeys": {
+    filterMetric: {
+      type: "string",
+      format: "",
+    },
+    filterTags: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "CostTagKeysResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostTagKey": {
+    tagKey: {
+      type: "string",
+      format: "",
+    },
+    filterMetric: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "CostTagKeyResponse",
+  },
+  "CloudCostManagementApi.V2.ListCostTags": {
+    filterMetric: {
+      type: "string",
+      format: "",
+    },
+    filterMatch: {
+      type: "string",
+      format: "",
+    },
+    filterTags: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterTagKeys: {
+      type: "Array<string>",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "CostTagsResponse",
+  },
   "CloudCostManagementApi.V2.ListTagPipelinesRulesets": {
     operationResponseType: "RulesetRespArray",
   },

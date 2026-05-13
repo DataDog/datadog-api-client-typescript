@@ -72,9 +72,17 @@ import { CostAnomaly } from "./CostAnomaly";
 import { CostAnomalyDismissal } from "./CostAnomalyDismissal";
 import { CostAnomalyResponse } from "./CostAnomalyResponse";
 import { CostAnomalyResponseData } from "./CostAnomalyResponseData";
+import { CostTag } from "./CostTag";
+import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
 import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
 import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
+import { CostTagKey } from "./CostTagKey";
+import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
+import { CostTagKeyDetails } from "./CostTagKeyDetails";
+import { CostTagKeyResponse } from "./CostTagKeyResponse";
+import { CostTagKeysResponse } from "./CostTagKeysResponse";
+import { CostTagsResponse } from "./CostTagsResponse";
 import { CreateRulesetRequest } from "./CreateRulesetRequest";
 import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
 import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
@@ -170,6 +178,8 @@ export const TypingInfo: ModelTypingInfo = {
     CostAnomaliesResponseDataType: ["anomalies"],
     CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
     CostTagDescriptionType: ["cost_tag_description"],
+    CostTagKeyType: ["cost_tag_key"],
+    CostTagType: ["cost_tag"],
     CreateRulesetRequestDataType: ["create_ruleset"],
     DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
     GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
@@ -280,9 +290,17 @@ export const TypingInfo: ModelTypingInfo = {
     CostAnomalyDismissal: CostAnomalyDismissal,
     CostAnomalyResponse: CostAnomalyResponse,
     CostAnomalyResponseData: CostAnomalyResponseData,
+    CostTag: CostTag,
+    CostTagAttributes: CostTagAttributes,
     CostTagDescription: CostTagDescription,
     CostTagDescriptionAttributes: CostTagDescriptionAttributes,
     CostTagDescriptionsResponse: CostTagDescriptionsResponse,
+    CostTagKey: CostTagKey,
+    CostTagKeyAttributes: CostTagKeyAttributes,
+    CostTagKeyDetails: CostTagKeyDetails,
+    CostTagKeyResponse: CostTagKeyResponse,
+    CostTagKeysResponse: CostTagKeysResponse,
+    CostTagsResponse: CostTagsResponse,
     CreateRulesetRequest: CreateRulesetRequest,
     CreateRulesetRequestData: CreateRulesetRequestData,
     CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,

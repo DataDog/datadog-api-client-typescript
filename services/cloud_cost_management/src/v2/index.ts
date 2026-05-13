@@ -16,11 +16,14 @@ export {
   CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiGetCostTagKeyRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
+  CloudCostManagementApiListCostTagKeysRequest,
+  CloudCostManagementApiListCostTagsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
@@ -121,11 +124,21 @@ export { CostAnomaly } from "./models/CostAnomaly";
 export { CostAnomalyDismissal } from "./models/CostAnomalyDismissal";
 export { CostAnomalyResponse } from "./models/CostAnomalyResponse";
 export { CostAnomalyResponseData } from "./models/CostAnomalyResponseData";
+export { CostTag } from "./models/CostTag";
+export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
 export { CostTagDescriptionAttributes } from "./models/CostTagDescriptionAttributes";
 export { CostTagDescriptionSource } from "./models/CostTagDescriptionSource";
 export { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
 export { CostTagDescriptionType } from "./models/CostTagDescriptionType";
+export { CostTagKey } from "./models/CostTagKey";
+export { CostTagKeyAttributes } from "./models/CostTagKeyAttributes";
+export { CostTagKeyDetails } from "./models/CostTagKeyDetails";
+export { CostTagKeyResponse } from "./models/CostTagKeyResponse";
+export { CostTagKeysResponse } from "./models/CostTagKeysResponse";
+export { CostTagKeyType } from "./models/CostTagKeyType";
+export { CostTagsResponse } from "./models/CostTagsResponse";
+export { CostTagType } from "./models/CostTagType";
 export { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 export { CreateRulesetRequestData } from "./models/CreateRulesetRequestData";
 export { CreateRulesetRequestDataAttributes } from "./models/CreateRulesetRequestDataAttributes";
