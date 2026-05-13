@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { IssueLanguage } from "./IssueLanguage";
 import { IssuePlatform } from "./IssuePlatform";
+import { IssueRegression } from "./IssueRegression";
 import { IssueState } from "./IssueState";
 
 /**
@@ -52,6 +53,10 @@ export class IssueAttributes {
    * Platform associated with the issue.
    */
   "platform"?: IssuePlatform;
+  /**
+   * Regression information for an issue that was previously resolved and then reopened.
+   */
+  "regression"?: IssueRegression;
   /**
    * Service name.
    */
@@ -120,6 +125,10 @@ export class IssueAttributes {
     platform: {
       baseName: "platform",
       type: "IssuePlatform",
+    },
+    regression: {
+      baseName: "regression",
+      type: "IssueRegression",
     },
     service: {
       baseName: "service",
