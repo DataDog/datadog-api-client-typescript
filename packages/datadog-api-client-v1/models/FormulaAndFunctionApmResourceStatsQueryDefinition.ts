@@ -9,7 +9,7 @@ import { FormulaAndFunctionApmResourceStatsDataSource } from "./FormulaAndFuncti
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * APM resource stats query using formulas and functions.
+ * APM resource stats query using formulas and functions. Deprecated - Use `apm_metrics` query type instead.
  */
 export class FormulaAndFunctionApmResourceStatsQueryDefinition {
   /**
