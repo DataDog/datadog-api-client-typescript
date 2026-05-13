@@ -6718,6 +6718,133 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CancelDataDeletionResponseBody",
   },
+  "DependencyManagementApi.V2.CreateAIWorkflow": {
+    body: {
+      type: "CreateAIWorkflowRequest",
+      format: "",
+    },
+    operationResponseType: "AIWorkflowResponse",
+  },
+  "DependencyManagementApi.V2.ListAIWorkflows": {
+    idpCampaignId: {
+      type: "string",
+      format: "",
+    },
+    repository: {
+      type: "string",
+      format: "",
+    },
+    user: {
+      type: "string",
+      format: "",
+    },
+    completed: {
+      type: "boolean",
+      format: "",
+    },
+    createdAfter: {
+      type: "Date",
+      format: "date-time",
+    },
+    createdBefore: {
+      type: "Date",
+      format: "date-time",
+    },
+    limit: {
+      type: "number",
+      format: "",
+    },
+    offset: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "ListAIWorkflowsResponse",
+  },
+  "DependencyManagementApi.V2.GetAIWorkflow": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "AIWorkflowResponse",
+  },
+  "DependencyManagementApi.V2.DeleteAIWorkflow": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "DependencyManagementApi.V2.UpdateAIWorkflow": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateAIWorkflowRequest",
+      format: "",
+    },
+    operationResponseType: "AIWorkflowResponse",
+  },
+  "DependencyManagementApi.V2.CancelWorkflowExecutions": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "CancelWorkflowExecutionsResponse",
+  },
+  "DependencyManagementApi.V2.CreateWorkflowExecution": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    maxInstances: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "CreateWorkflowExecutionsResponse",
+  },
+  "DependencyManagementApi.V2.DeleteWorkflowExecutions": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "DependencyManagementApi.V2.ListAIWorkflowInstances": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ListWorkflowInstancesResponse",
+  },
+  "DependencyManagementApi.V2.CancelWorkflowExecution": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "DependencyManagementApi.V2.ListPROutputs": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ListPROutputsResponse",
+  },
+  "DependencyManagementApi.V2.RerunWorkflowExecution": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "WorkflowExecutionResponse",
+  },
+  "DependencyManagementApi.V2.ListExecutionSteps": {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ListExecutionStepsResponse",
+  },
   "DeploymentGatesApi.V2.ListDeploymentGates": {
     pageCursor: {
       type: "string",
