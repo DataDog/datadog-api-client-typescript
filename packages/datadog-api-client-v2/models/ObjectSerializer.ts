@@ -651,6 +651,13 @@ import { ContainersResponseLinks } from "./ContainersResponseLinks";
 import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
 import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData";
 import { ConvertJobResultsToSignalsRequest } from "./ConvertJobResultsToSignalsRequest";
+import { CostAnomaliesResponse } from "./CostAnomaliesResponse";
+import { CostAnomaliesResponseData } from "./CostAnomaliesResponseData";
+import { CostAnomaliesResponseDataAttributes } from "./CostAnomaliesResponseDataAttributes";
+import { CostAnomaly } from "./CostAnomaly";
+import { CostAnomalyDismissal } from "./CostAnomalyDismissal";
+import { CostAnomalyResponse } from "./CostAnomalyResponse";
+import { CostAnomalyResponseData } from "./CostAnomalyResponseData";
 import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
@@ -4505,6 +4512,7 @@ const enumsMap: { [key: string]: any[] } = {
     "historicalDetectionsJobResultSignalConversion",
   ],
   CostAggregationType: ["cumulative"],
+  CostAnomaliesResponseDataType: ["anomalies"],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
   CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
@@ -7212,6 +7220,13 @@ const typeMap: { [index: string]: any } = {
   ConvertJobResultsToSignalsAttributes: ConvertJobResultsToSignalsAttributes,
   ConvertJobResultsToSignalsData: ConvertJobResultsToSignalsData,
   ConvertJobResultsToSignalsRequest: ConvertJobResultsToSignalsRequest,
+  CostAnomaliesResponse: CostAnomaliesResponse,
+  CostAnomaliesResponseData: CostAnomaliesResponseData,
+  CostAnomaliesResponseDataAttributes: CostAnomaliesResponseDataAttributes,
+  CostAnomaly: CostAnomaly,
+  CostAnomalyDismissal: CostAnomalyDismissal,
+  CostAnomalyResponse: CostAnomalyResponse,
+  CostAnomalyResponseData: CostAnomalyResponseData,
   CostAttributionAggregatesBody: CostAttributionAggregatesBody,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,

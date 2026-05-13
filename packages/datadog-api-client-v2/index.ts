@@ -244,11 +244,13 @@ export {
   CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
   CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCostAWSCURConfigRequest,
+  CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
+  CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
@@ -2260,6 +2262,14 @@ export { ConvertJobResultsToSignalsData } from "./models/ConvertJobResultsToSign
 export { ConvertJobResultsToSignalsDataType } from "./models/ConvertJobResultsToSignalsDataType";
 export { ConvertJobResultsToSignalsRequest } from "./models/ConvertJobResultsToSignalsRequest";
 export { CostAggregationType } from "./models/CostAggregationType";
+export { CostAnomaliesResponse } from "./models/CostAnomaliesResponse";
+export { CostAnomaliesResponseData } from "./models/CostAnomaliesResponseData";
+export { CostAnomaliesResponseDataAttributes } from "./models/CostAnomaliesResponseDataAttributes";
+export { CostAnomaliesResponseDataType } from "./models/CostAnomaliesResponseDataType";
+export { CostAnomaly } from "./models/CostAnomaly";
+export { CostAnomalyDismissal } from "./models/CostAnomalyDismissal";
+export { CostAnomalyResponse } from "./models/CostAnomalyResponse";
+export { CostAnomalyResponseData } from "./models/CostAnomalyResponseData";
 export { CostAttributionAggregatesBody } from "./models/CostAttributionAggregatesBody";
 export { CostAttributionType } from "./models/CostAttributionType";
 export { CostByOrg } from "./models/CostByOrg";
