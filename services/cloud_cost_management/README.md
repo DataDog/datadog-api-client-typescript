@@ -25,9 +25,18 @@ import { CloudCostManagementApiV2 } from "@datadog/datadog-api-client-cloud-cost
 import { v2 } from "@datadog/datadog-api-client-cloud-cost-management";
 
 const configuration = createConfiguration();
-const apiInstance = new CloudCostManagementApiV2(configuration);
+// Enable unstable operations
+const configurationOpts = {
+    unstableOperations: {
+        "CloudCostManagementApi.v2.listCostAnomalies": true
+    }
+}
 
-apiInstance.listCustomAllocationRules().then((data) => {
+const configuration = createConfiguration(configurationOpts);
+const apiInstance = new CloudCostManagementApiV2(configuration);
+const params = {/* parameters */};
+
+apiInstance.listCostAnomalies(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

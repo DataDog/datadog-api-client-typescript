@@ -39,6 +39,8 @@ import { BudgetArray } from "./models/BudgetArray";
 import { BudgetValidationRequest } from "./models/BudgetValidationRequest";
 import { BudgetValidationResponse } from "./models/BudgetValidationResponse";
 import { BudgetWithEntries } from "./models/BudgetWithEntries";
+import { CostAnomaliesResponse } from "./models/CostAnomaliesResponse";
+import { CostAnomalyResponse } from "./models/CostAnomalyResponse";
 import { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
 import { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
@@ -688,6 +690,59 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCostAnomaly(
+    anomalyId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["CloudCostManagementApi.v2.getCostAnomaly"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCostAnomaly' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostAnomaly'] = true`",
+      );
+    }
+
+    // verify required parameter 'anomalyId' is not null or undefined
+    if (anomalyId === null || anomalyId === undefined) {
+      throw new RequiredError("anomalyId", "getCostAnomaly");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/anomalies/{anomaly_id}".replace(
+      "{anomaly_id}",
+      encodeURIComponent(String(anomalyId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCostAnomaly",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCostAWSCURConfig(
     cloudAccountId: number,
     _options?: Configuration,
@@ -989,6 +1044,140 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostAnomalies(
+    start?: number,
+    end?: number,
+    filter?: string,
+    minAnomalousThreshold?: string,
+    minCostThreshold?: string,
+    dismissalCause?: string,
+    orderBy?: string,
+    order?: string,
+    limit?: number,
+    offset?: number,
+    providerIds?: Array<string>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["CloudCostManagementApi.v2.listCostAnomalies"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostAnomalies' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostAnomalies'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/anomalies";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostAnomalies",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        serialize(start, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        serialize(end, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        serialize(filter, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (minAnomalousThreshold !== undefined) {
+      requestContext.setQueryParam(
+        "min_anomalous_threshold",
+        serialize(minAnomalousThreshold, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (minCostThreshold !== undefined) {
+      requestContext.setQueryParam(
+        "min_cost_threshold",
+        serialize(minCostThreshold, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (dismissalCause !== undefined) {
+      requestContext.setQueryParam(
+        "dismissal_cause",
+        serialize(dismissalCause, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (orderBy !== undefined) {
+      requestContext.setQueryParam(
+        "order_by",
+        serialize(orderBy, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (order !== undefined) {
+      requestContext.setQueryParam(
+        "order",
+        serialize(order, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        serialize(limit, TypingInfo, "number", ""),
+        "",
+      );
+    }
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        serialize(offset, TypingInfo, "number", ""),
+        "",
+      );
+    }
+    if (providerIds !== undefined) {
+      requestContext.setQueryParam(
+        "provider_ids",
+        serialize(providerIds, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2731,6 +2920,67 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCostAnomaly
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostAnomaly(
+    response: ResponseContext,
+  ): Promise<CostAnomalyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostAnomalyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostAnomalyResponse",
+      ) as CostAnomalyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostAnomalyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostAnomalyResponse",
+        "",
+      ) as CostAnomalyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCostAWSCURConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3111,6 +3361,66 @@ export class CloudCostManagementApiResponseProcessor {
         "BudgetArray",
         "",
       ) as BudgetArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostAnomalies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostAnomalies(
+    response: ResponseContext,
+  ): Promise<CostAnomaliesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostAnomaliesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostAnomaliesResponse",
+      ) as CostAnomaliesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostAnomaliesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostAnomaliesResponse",
+        "",
+      ) as CostAnomaliesResponse;
       return body;
     }
 
@@ -4457,6 +4767,14 @@ export interface CloudCostManagementApiGetBudgetRequest {
   budgetId: string;
 }
 
+export interface CloudCostManagementApiGetCostAnomalyRequest {
+  /**
+   * The UUID of the cost anomaly.
+   * @type string
+   */
+  anomalyId: string;
+}
+
 export interface CloudCostManagementApiGetCostAWSCURConfigRequest {
   /**
    * The unique identifier of the cloud account
@@ -4503,6 +4821,64 @@ export interface CloudCostManagementApiGetTagPipelinesRulesetRequest {
    * @type string
    */
   rulesetId: string;
+}
+
+export interface CloudCostManagementApiListCostAnomaliesRequest {
+  /**
+   * Start time as Unix milliseconds. Defaults to the start of the latest stable seven-day window.
+   * @type number
+   */
+  start?: number;
+  /**
+   * End time as Unix milliseconds. Defaults to the end of the latest stable seven-day window.
+   * @type number
+   */
+  end?: number;
+  /**
+   * Optional JSON object mapping cost tag keys to allowed values, for example `{"team":["payments"],"env":["prod"]}`. Filters match anomaly dimensions or correlated tags.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Minimum absolute anomalous cost change to include. Numeric value; defaults to `1`.
+   * @type string
+   */
+  minAnomalousThreshold?: string;
+  /**
+   * Minimum absolute actual cost to include. Numeric value; defaults to `0`.
+   * @type string
+   */
+  minCostThreshold?: string;
+  /**
+   * Filter by resolution state. Use `none` for unresolved anomalies, `all` or `*` for resolved anomalies, or a comma-separated list of causes.
+   * @type string
+   */
+  dismissalCause?: string;
+  /**
+   * Sort field. One of `start_date`, `end_date`, `duration`, `max_cost`, `anomalous_cost`, or `dismissal_date`. Defaults to `anomalous_cost`.
+   * @type string
+   */
+  orderBy?: string;
+  /**
+   * Sort direction. One of `asc` or `desc`. Defaults to `desc`.
+   * @type string
+   */
+  order?: string;
+  /**
+   * Maximum number of anomalies to return. Defaults to `200`.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * Pagination offset. Defaults to `0`.
+   * @type number
+   */
+  offset?: number;
+  /**
+   * Optional repeated cloud or SaaS provider filters, such as `aws`, `gcp`, `azure`, `Oracle`, `datadog`, `OpenAI`, or `Anthropic`.
+   * @type Array<string>
+   */
+  providerIds?: Array<string>;
 }
 
 export interface CloudCostManagementApiListCostTagDescriptionsRequest {
@@ -4965,6 +5341,27 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Get a detected Cloud Cost Management anomaly by UUID.
+   * @param param The request object
+   */
+  public getCostAnomaly(
+    param: CloudCostManagementApiGetCostAnomalyRequest,
+    options?: Configuration,
+  ): Promise<CostAnomalyResponse> {
+    const requestContextPromise = this.requestFactory.getCostAnomaly(
+      param.anomalyId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostAnomaly(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get a specific AWS CUR config.
    * @param param The request object
    */
@@ -5105,6 +5502,37 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listBudgets(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List detected Cloud Cost Management anomalies for the organization.
+   * @param param The request object
+   */
+  public listCostAnomalies(
+    param: CloudCostManagementApiListCostAnomaliesRequest = {},
+    options?: Configuration,
+  ): Promise<CostAnomaliesResponse> {
+    const requestContextPromise = this.requestFactory.listCostAnomalies(
+      param.start,
+      param.end,
+      param.filter,
+      param.minAnomalousThreshold,
+      param.minCostThreshold,
+      param.dismissalCause,
+      param.orderBy,
+      param.order,
+      param.limit,
+      param.offset,
+      param.providerIds,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostAnomalies(responseContext);
         });
     });
   }
