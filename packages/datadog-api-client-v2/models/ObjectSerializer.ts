@@ -662,9 +662,17 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CostTag } from "./CostTag";
+import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
 import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
 import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
+import { CostTagKey } from "./CostTagKey";
+import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
+import { CostTagKeyDetails } from "./CostTagKeyDetails";
+import { CostTagKeyResponse } from "./CostTagKeyResponse";
+import { CostTagKeysResponse } from "./CostTagKeysResponse";
+import { CostTagsResponse } from "./CostTagsResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryData } from "./CoverageSummaryData";
@@ -4518,6 +4526,8 @@ const enumsMap: { [key: string]: any[] } = {
   CostByOrgType: ["cost_by_org"],
   CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
   CostTagDescriptionType: ["cost_tag_description"],
+  CostTagKeyType: ["cost_tag_key"],
+  CostTagType: ["cost_tag"],
   CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
     "contributor",
@@ -7232,9 +7242,17 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CostTag: CostTag,
+  CostTagAttributes: CostTagAttributes,
   CostTagDescription: CostTagDescription,
   CostTagDescriptionAttributes: CostTagDescriptionAttributes,
   CostTagDescriptionsResponse: CostTagDescriptionsResponse,
+  CostTagKey: CostTagKey,
+  CostTagKeyAttributes: CostTagKeyAttributes,
+  CostTagKeyDetails: CostTagKeyDetails,
+  CostTagKeyResponse: CostTagKeyResponse,
+  CostTagKeysResponse: CostTagKeysResponse,
+  CostTagsResponse: CostTagsResponse,
   CoverageSummaryAttributes: CoverageSummaryAttributes,
   CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,
   CoverageSummaryData: CoverageSummaryData,
