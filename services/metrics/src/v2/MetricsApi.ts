@@ -764,6 +764,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listVolumesByMetricName(
     metricName: string,
+    windowSeconds?: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -795,6 +796,15 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (windowSeconds !== undefined) {
+      requestContext.setQueryParam(
+        "window[seconds]",
+        serialize(windowSeconds, TypingInfo, "number", "int64"),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -2204,6 +2214,12 @@ export interface MetricsApiListVolumesByMetricNameRequest {
    * @type string
    */
   metricName: string;
+  /**
+   * The number of seconds of look back (from now).
+   * Default value is 3,600 (1 hour), maximum value is 2,592,000 (1 month).
+   * @type number
+   */
+  windowSeconds?: number;
 }
 
 export interface MetricsApiQueryScalarDataRequest {
@@ -2611,7 +2627,7 @@ export class MetricsApi {
   }
 
   /**
-   * View distinct metrics volumes for the given metric name.
+   * View hourly average metric volumes for the given metric name over the look back period.
    *
    * Custom metrics generated in-app from other products will return `null` for ingested volumes.
    * @param param The request object
@@ -2622,6 +2638,7 @@ export class MetricsApi {
   ): Promise<MetricVolumesResponse> {
     const requestContextPromise = this.requestFactory.listVolumesByMetricName(
       param.metricName,
+      param.windowSeconds,
       options,
     );
     return requestContextPromise.then((requestContext) => {
