@@ -5951,6 +5951,60 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainersResponse",
     },
+    "v2.ListCostAnomalies": {
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "minAnomalousThreshold": {
+            "type": "string",
+            "format": "",
+            },
+        "minCostThreshold": {
+            "type": "string",
+            "format": "",
+            },
+        "dismissalCause": {
+            "type": "string",
+            "format": "",
+            },
+        "orderBy": {
+            "type": "string",
+            "format": "",
+            },
+        "order": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "",
+            },
+        "offset": {
+            "type": "number",
+            "format": "",
+            },
+        "providerIds": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "CostAnomaliesResponse",
+    },
+    "v2.GetCostAnomaly": {
+        "anomalyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostAnomalyResponse",
+    },
     "v2.ListCustomAllocationRules": {
         "operationResponseType": "ArbitraryRuleResponseArray",
     },
