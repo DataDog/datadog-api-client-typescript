@@ -247,11 +247,14 @@ export {
   CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiGetCostTagKeyRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
+  CloudCostManagementApiListCostTagKeysRequest,
+  CloudCostManagementApiListCostTagsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
@@ -2276,11 +2279,21 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CostTag } from "./models/CostTag";
+export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
 export { CostTagDescriptionAttributes } from "./models/CostTagDescriptionAttributes";
 export { CostTagDescriptionSource } from "./models/CostTagDescriptionSource";
 export { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
 export { CostTagDescriptionType } from "./models/CostTagDescriptionType";
+export { CostTagKey } from "./models/CostTagKey";
+export { CostTagKeyAttributes } from "./models/CostTagKeyAttributes";
+export { CostTagKeyDetails } from "./models/CostTagKeyDetails";
+export { CostTagKeyResponse } from "./models/CostTagKeyResponse";
+export { CostTagKeysResponse } from "./models/CostTagKeysResponse";
+export { CostTagKeyType } from "./models/CostTagKeyType";
+export { CostTagsResponse } from "./models/CostTagsResponse";
+export { CostTagType } from "./models/CostTagType";
 export { CoverageSummaryAttributes } from "./models/CoverageSummaryAttributes";
 export { CoverageSummaryCodeownerStats } from "./models/CoverageSummaryCodeownerStats";
 export { CoverageSummaryData } from "./models/CoverageSummaryData";

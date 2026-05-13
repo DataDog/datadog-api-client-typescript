@@ -6247,6 +6247,55 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CostTagDescriptionsResponse",
     },
+    "v2.ListCostTagKeys": {
+        "filterMetric": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "CostTagKeysResponse",
+    },
+    "v2.GetCostTagKey": {
+        "tagKey": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMetric": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "CostTagKeyResponse",
+    },
+    "v2.ListCostTags": {
+        "filterMetric": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMatch": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterTagKeys": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "CostTagsResponse",
+    },
     "v2.ListTagPipelinesRulesets": {
         "operationResponseType": "RulesetRespArray",
     },

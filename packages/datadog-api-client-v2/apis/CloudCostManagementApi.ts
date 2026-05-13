@@ -36,6 +36,9 @@ import { BudgetWithEntries } from "../models/BudgetWithEntries";
 import { CostAnomaliesResponse } from "../models/CostAnomaliesResponse";
 import { CostAnomalyResponse } from "../models/CostAnomalyResponse";
 import { CostTagDescriptionsResponse } from "../models/CostTagDescriptionsResponse";
+import { CostTagKeyResponse } from "../models/CostTagKeyResponse";
+import { CostTagKeysResponse } from "../models/CostTagKeysResponse";
+import { CostTagsResponse } from "../models/CostTagsResponse";
 import { CreateRulesetRequest } from "../models/CreateRulesetRequest";
 import { CustomCostsFileGetResponse } from "../models/CustomCostsFileGetResponse";
 import { CustomCostsFileLineItem } from "../models/CustomCostsFileLineItem";
@@ -686,6 +689,58 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCostTagKey(
+    tagKey: string,
+    filterMetric?: string,
+    pageSize?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'tagKey' is not null or undefined
+    if (tagKey === null || tagKey === undefined) {
+      throw new RequiredError("tagKey", "getCostTagKey");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_keys/{tag_key}".replace(
+      "{tag_key}",
+      encodeURIComponent(String(tagKey))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCostTagKey")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterMetric !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metric]",
+        ObjectSerializer.serialize(filterMetric, "string", ""),
+        ""
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCustomAllocationRule(
     ruleId: number,
     _options?: Configuration
@@ -1051,6 +1106,116 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       requestContext.setQueryParam(
         "filter[cloud]",
         ObjectSerializer.serialize(filterCloud, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostTagKeys(
+    filterMetric?: string,
+    filterTags?: Array<string>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_keys";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.listCostTagKeys")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterMetric !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metric]",
+        ObjectSerializer.serialize(filterMetric, "string", ""),
+        ""
+      );
+    }
+    if (filterTags !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tags]",
+        ObjectSerializer.serialize(filterTags, "Array<string>", ""),
+        "multi"
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostTags(
+    filterMetric?: string,
+    filterMatch?: string,
+    filterTags?: Array<string>,
+    filterTagKeys?: Array<string>,
+    pageSize?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tags";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.listCostTags")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterMetric !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metric]",
+        ObjectSerializer.serialize(filterMetric, "string", ""),
+        ""
+      );
+    }
+    if (filterMatch !== undefined) {
+      requestContext.setQueryParam(
+        "filter[match]",
+        ObjectSerializer.serialize(filterMatch, "string", ""),
+        ""
+      );
+    }
+    if (filterTags !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tags]",
+        ObjectSerializer.serialize(filterTags, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterTagKeys !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tag_keys]",
+        ObjectSerializer.serialize(filterTagKeys, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
         ""
       );
     }
@@ -2724,6 +2889,69 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCostTagKey
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostTagKey(
+    response: ResponseContext
+  ): Promise<CostTagKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CostTagKeyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagKeyResponse"
+      ) as CostTagKeyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagKeyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagKeyResponse",
+        ""
+      ) as CostTagKeyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCustomAllocationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3296,6 +3524,130 @@ export class CloudCostManagementApiResponseProcessor {
         "CostTagDescriptionsResponse",
         ""
       ) as CostTagDescriptionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostTagKeys
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTagKeys(
+    response: ResponseContext
+  ): Promise<CostTagKeysResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CostTagKeysResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagKeysResponse"
+      ) as CostTagKeysResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagKeysResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagKeysResponse",
+        ""
+      ) as CostTagKeysResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostTags
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTags(
+    response: ResponseContext
+  ): Promise<CostTagsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CostTagsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagsResponse"
+      ) as CostTagsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagsResponse",
+        ""
+      ) as CostTagsResponse;
       return body;
     }
 
@@ -4434,6 +4786,24 @@ export interface CloudCostManagementApiGetCostGCPUsageCostConfigRequest {
   cloudAccountId: number;
 }
 
+export interface CloudCostManagementApiGetCostTagKeyRequest {
+  /**
+   * The Cloud Cost Management tag key. Tag keys can contain forward slashes (for example, `kubernetes/instance`).
+   * @type string
+   */
+  tagKey: string;
+  /**
+   * The Cloud Cost Management metric to scope the tag key details to. When omitted, returns details across all metrics.
+   * @type string
+   */
+  filterMetric?: string;
+  /**
+   * Controls the size of the internal tag value search scope. This does **not** restrict the number of example tag values returned in the response. Defaults to 50, maximum 10000.
+   * @type number
+   */
+  pageSize?: number;
+}
+
 export interface CloudCostManagementApiGetCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
@@ -4522,6 +4892,47 @@ export interface CloudCostManagementApiListCostTagDescriptionsRequest {
    * @type string
    */
   filterCloud?: string;
+}
+
+export interface CloudCostManagementApiListCostTagKeysRequest {
+  /**
+   * The Cloud Cost Management metric to scope the tag keys to. When omitted, returns tag keys across all metrics.
+   * @type string
+   */
+  filterMetric?: string;
+  /**
+   * Filter to return only tag keys that appear with the given `key:value` tag values. For example, `filter[tags]=providername:aws` returns tag keys found on the same cost data, such as `is_aws_ec2_compute` and `aws_instance_type`.
+   * @type Array<string>
+   */
+  filterTags?: Array<string>;
+}
+
+export interface CloudCostManagementApiListCostTagsRequest {
+  /**
+   * The Cloud Cost Management metric to scope the tags to. When omitted, returns tags across all metrics.
+   * @type string
+   */
+  filterMetric?: string;
+  /**
+   * A substring used to filter the returned tags by name.
+   * @type string
+   */
+  filterMatch?: string;
+  /**
+   * Filter to return only tags that appear with the given `key:value` tag values. For example, `filter[tags]=providername:aws` returns tags found on the same cost data, such as `aws_instance_type:t3.micro` and `aws_instance_type:m5.large`.
+   * @type Array<string>
+   */
+  filterTags?: Array<string>;
+  /**
+   * Restrict the returned tags to those whose key matches one of the given tag keys.
+   * @type Array<string>
+   */
+  filterTagKeys?: Array<string>;
+  /**
+   * Controls the size of the internal tag search scope. This does **not** restrict the number of tags returned in the response. Defaults to 50, maximum 10000.
+   * @type number
+   */
+  pageSize?: number;
 }
 
 export interface CloudCostManagementApiListCustomCostsFilesRequest {
@@ -5059,6 +5470,29 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Get details for a specific Cloud Cost Management tag key, including example tag values and description.
+   * @param param The request object
+   */
+  public getCostTagKey(
+    param: CloudCostManagementApiGetCostTagKeyRequest,
+    options?: Configuration
+  ): Promise<CostTagKeyResponse> {
+    const requestContextPromise = this.requestFactory.getCostTagKey(
+      param.tagKey,
+      param.filterMetric,
+      param.pageSize,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostTagKey(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get a specific custom allocation rule - Retrieve a specific custom allocation rule by its ID
    * @param param The request object
    */
@@ -5262,6 +5696,53 @@ export class CloudCostManagementApi {
           return this.responseProcessor.listCostTagDescriptions(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * List Cloud Cost Management tag keys.
+   * @param param The request object
+   */
+  public listCostTagKeys(
+    param: CloudCostManagementApiListCostTagKeysRequest = {},
+    options?: Configuration
+  ): Promise<CostTagKeysResponse> {
+    const requestContextPromise = this.requestFactory.listCostTagKeys(
+      param.filterMetric,
+      param.filterTags,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTagKeys(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List Cloud Cost Management tags for a given metric.
+   * @param param The request object
+   */
+  public listCostTags(
+    param: CloudCostManagementApiListCostTagsRequest = {},
+    options?: Configuration
+  ): Promise<CostTagsResponse> {
+    const requestContextPromise = this.requestFactory.listCostTags(
+      param.filterMetric,
+      param.filterMatch,
+      param.filterTags,
+      param.filterTagKeys,
+      param.pageSize,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTags(responseContext);
         });
     });
   }
