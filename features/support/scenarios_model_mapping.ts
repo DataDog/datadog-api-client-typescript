@@ -9175,6 +9175,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "windowSeconds": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "MetricVolumesResponse",
     },
     "v2.QueryScalarData": {
