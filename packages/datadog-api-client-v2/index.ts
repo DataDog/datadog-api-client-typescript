@@ -3619,6 +3619,7 @@ export { IssueIncluded } from "./models/IssueIncluded";
 export { IssueLanguage } from "./models/IssueLanguage";
 export { IssuePlatform } from "./models/IssuePlatform";
 export { IssueReference } from "./models/IssueReference";
+export { IssueRegression } from "./models/IssueRegression";
 export { IssueRelationships } from "./models/IssueRelationships";
 export { IssueResponse } from "./models/IssueResponse";
 export { IssuesSearchRequest } from "./models/IssuesSearchRequest";

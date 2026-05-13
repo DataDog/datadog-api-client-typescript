@@ -1731,6 +1731,7 @@ import { IssueCaseReference } from "./IssueCaseReference";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
 import { IssueCaseRelationships } from "./IssueCaseRelationships";
 import { IssueReference } from "./IssueReference";
+import { IssueRegression } from "./IssueRegression";
 import { IssueRelationships } from "./IssueRelationships";
 import { IssueResponse } from "./IssueResponse";
 import { IssueTeam } from "./IssueTeam";
@@ -8489,6 +8490,7 @@ const typeMap: { [index: string]: any } = {
   IssueCaseRelationship: IssueCaseRelationship,
   IssueCaseRelationships: IssueCaseRelationships,
   IssueReference: IssueReference,
+  IssueRegression: IssueRegression,
   IssueRelationships: IssueRelationships,
   IssueResponse: IssueResponse,
   IssueTeam: IssueTeam,
