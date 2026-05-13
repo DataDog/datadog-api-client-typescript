@@ -527,6 +527,10 @@ export class UsageSummaryDate {
    */
   "infraHostTop99p"?: number;
   /**
+   * Shows the average number of storage management objects over all hours in the current date for all organizations.
+   */
+  "infraStorageMgmtObjectsCountAvg"?: number;
+  /**
    * Shows the sum of all log bytes ingested over all hours in the current date for all organizations.
    */
   "ingestedEventsBytesSum"?: number;
@@ -1632,6 +1636,11 @@ export class UsageSummaryDate {
     },
     infraHostTop99p: {
       baseName: "infra_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    infraStorageMgmtObjectsCountAvg: {
+      baseName: "infra_storage_mgmt_objects_count_avg",
       type: "number",
       format: "int64",
     },
