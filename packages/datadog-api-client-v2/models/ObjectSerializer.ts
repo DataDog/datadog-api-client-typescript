@@ -3831,19 +3831,6 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
-import { TransportWebhookLog } from "./TransportWebhookLog";
-import { TransportWebhookLogAttributes } from "./TransportWebhookLogAttributes";
-import { TransportWebhookLogEmail } from "./TransportWebhookLogEmail";
-import { TransportWebhookLogIpAttribute } from "./TransportWebhookLogIpAttribute";
-import { TransportWebhookLogMessage } from "./TransportWebhookLogMessage";
-import { TransportWebhookLogMessageAuth } from "./TransportWebhookLogMessageAuth";
-import { TransportWebhookLogMessageCustomArgs } from "./TransportWebhookLogMessageCustomArgs";
-import { TransportWebhookLogMessageId } from "./TransportWebhookLogMessageId";
-import { TransportWebhookLogMessageResponse } from "./TransportWebhookLogMessageResponse";
-import { TransportWebhookLogMessageTimestamp } from "./TransportWebhookLogMessageTimestamp";
-import { TransportWebhookLogNetwork } from "./TransportWebhookLogNetwork";
-import { TransportWebhookLogNetworkIp } from "./TransportWebhookLogNetworkIp";
-import { TransportWebhookLogOrgMetadata } from "./TransportWebhookLogOrgMetadata";
 import { TriggerAttributes } from "./TriggerAttributes";
 import { TriggerInvestigationRequest } from "./TriggerInvestigationRequest";
 import { TriggerInvestigationRequestData } from "./TriggerInvestigationRequestData";
@@ -11099,19 +11086,6 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
-  TransportWebhookLog: TransportWebhookLog,
-  TransportWebhookLogAttributes: TransportWebhookLogAttributes,
-  TransportWebhookLogEmail: TransportWebhookLogEmail,
-  TransportWebhookLogIpAttribute: TransportWebhookLogIpAttribute,
-  TransportWebhookLogMessage: TransportWebhookLogMessage,
-  TransportWebhookLogMessageAuth: TransportWebhookLogMessageAuth,
-  TransportWebhookLogMessageCustomArgs: TransportWebhookLogMessageCustomArgs,
-  TransportWebhookLogMessageId: TransportWebhookLogMessageId,
-  TransportWebhookLogMessageResponse: TransportWebhookLogMessageResponse,
-  TransportWebhookLogMessageTimestamp: TransportWebhookLogMessageTimestamp,
-  TransportWebhookLogNetwork: TransportWebhookLogNetwork,
-  TransportWebhookLogNetworkIp: TransportWebhookLogNetworkIp,
-  TransportWebhookLogOrgMetadata: TransportWebhookLogOrgMetadata,
   TriggerAttributes: TriggerAttributes,
   TriggerInvestigationRequest: TriggerInvestigationRequest,
   TriggerInvestigationRequestData: TriggerInvestigationRequestData,
