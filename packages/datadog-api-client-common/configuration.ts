@@ -326,6 +326,7 @@ export function createConfiguration(
       "v2.searchSecurityMonitoringHistsignals": false,
       "v2.getCodeCoverageBranchSummary": false,
       "v2.getCodeCoverageCommitSummary": false,
+      "v2.getRuleBasedView": false,
       "v2.getCostAnomaly": false,
       "v2.listCostAnomalies": false,
       "v2.createDashboardSecureEmbed": false,
