@@ -372,6 +372,7 @@ apiInstance
 | Cloud Network Monitoring | @datadog/datadog-api-client-cloud-network-monitoring | [README.md](../../services/cloud-network-monitoring/README.md) |
 | Cloudflare Integration | @datadog/datadog-api-client-cloudflare-integration | [README.md](../../services/cloudflare-integration/README.md) |
 | Code Coverage | @datadog/datadog-api-client-code-coverage | [README.md](../../services/code-coverage/README.md) |
+| Compliance | @datadog/datadog-api-client-compliance | [README.md](../../services/compliance/README.md) |
 | Confluent Cloud | @datadog/datadog-api-client-confluent-cloud | [README.md](../../services/confluent-cloud/README.md) |
 | Container Images | @datadog/datadog-api-client-container-images | [README.md](../../services/container-images/README.md) |
 | Containers | @datadog/datadog-api-client-containers | [README.md](../../services/containers/README.md) |
