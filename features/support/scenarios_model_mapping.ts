@@ -5905,6 +5905,37 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CoverageSummaryResponse",
     },
+    "v2.GetRuleBasedView": {
+        "to": {
+            "type": "number",
+            "format": "int64",
+            },
+        "framework": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "queryFindingsWithoutFrameworkVersion": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeRulesWithoutFindings": {
+            "type": "boolean",
+            "format": "",
+            },
+        "isCustom": {
+            "type": "boolean",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RuleBasedViewResponse",
+    },
     "v2.ListContainerImages": {
         "filterTags": {
             "type": "string",

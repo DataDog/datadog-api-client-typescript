@@ -291,6 +291,11 @@ export {
 } from "./apis/CodeCoverageApi";
 
 export {
+  ComplianceApiGetRuleBasedViewRequest,
+  ComplianceApi,
+} from "./apis/ComplianceApi";
+
+export {
   ConfluentCloudApiCreateConfluentAccountRequest,
   ConfluentCloudApiCreateConfluentResourceRequest,
   ConfluentCloudApiDeleteConfluentAccountRequest,
@@ -5149,6 +5154,14 @@ export { RoutingRuleRelationshipsPolicyDataType } from "./models/RoutingRuleRela
 export { RoutingRuleType } from "./models/RoutingRuleType";
 export { RuleAttributes } from "./models/RuleAttributes";
 export { RuleAttributesRequest } from "./models/RuleAttributesRequest";
+export { RuleBasedViewAttributes } from "./models/RuleBasedViewAttributes";
+export { RuleBasedViewComplianceFramework } from "./models/RuleBasedViewComplianceFramework";
+export { RuleBasedViewData } from "./models/RuleBasedViewData";
+export { RuleBasedViewResponse } from "./models/RuleBasedViewResponse";
+export { RuleBasedViewRule } from "./models/RuleBasedViewRule";
+export { RuleBasedViewRuleCategory } from "./models/RuleBasedViewRuleCategory";
+export { RuleBasedViewRuleStats } from "./models/RuleBasedViewRuleStats";
+export { RuleBasedViewType } from "./models/RuleBasedViewType";
 export { RuleOutcomeRelationships } from "./models/RuleOutcomeRelationships";
 export { RulesetResp } from "./models/RulesetResp";
 export { RulesetRespArray } from "./models/RulesetRespArray";

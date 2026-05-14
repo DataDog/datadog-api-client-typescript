@@ -2919,6 +2919,12 @@ import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy
 import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleAttributesRequest } from "./RuleAttributesRequest";
+import { RuleBasedViewAttributes } from "./RuleBasedViewAttributes";
+import { RuleBasedViewComplianceFramework } from "./RuleBasedViewComplianceFramework";
+import { RuleBasedViewData } from "./RuleBasedViewData";
+import { RuleBasedViewResponse } from "./RuleBasedViewResponse";
+import { RuleBasedViewRule } from "./RuleBasedViewRule";
+import { RuleBasedViewRuleStats } from "./RuleBasedViewRuleStats";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
@@ -5636,6 +5642,12 @@ const enumsMap: { [key: string]: any[] } = {
   RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
   RoutingRuleRelationshipsPolicyDataType: ["policies"],
   RoutingRuleType: ["team_routing_rules"],
+  RuleBasedViewRuleCategory: [
+    "cloud_configuration",
+    "infrastructure_configuration",
+    "api_security",
+  ],
+  RuleBasedViewType: ["rule_based_view"],
   RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
   RuleType: ["rule"],
   RuleTypesItems: [
@@ -9934,6 +9946,12 @@ const typeMap: { [index: string]: any } = {
   RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
   RuleAttributes: RuleAttributes,
   RuleAttributesRequest: RuleAttributesRequest,
+  RuleBasedViewAttributes: RuleBasedViewAttributes,
+  RuleBasedViewComplianceFramework: RuleBasedViewComplianceFramework,
+  RuleBasedViewData: RuleBasedViewData,
+  RuleBasedViewResponse: RuleBasedViewResponse,
+  RuleBasedViewRule: RuleBasedViewRule,
+  RuleBasedViewRuleStats: RuleBasedViewRuleStats,
   RuleOutcomeRelationships: RuleOutcomeRelationships,
   RuleUser: RuleUser,
   RuleVersionHistory: RuleVersionHistory,
