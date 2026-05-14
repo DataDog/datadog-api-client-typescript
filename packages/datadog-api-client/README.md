@@ -458,6 +458,7 @@ apiInstance
 | Spa | @datadog/datadog-api-client-spa | [README.md](../../services/spa/README.md) |
 | Spans | @datadog/datadog-api-client-spans | [README.md](../../services/spans/README.md) |
 | Spans Metrics | @datadog/datadog-api-client-spans-metrics | [README.md](../../services/spans-metrics/README.md) |
+| Specs | @datadog/datadog-api-client-specs | [README.md](../../services/specs/README.md) |
 | Static Analysis | @datadog/datadog-api-client-static-analysis | [README.md](../../services/static-analysis/README.md) |
 | Status Pages | @datadog/datadog-api-client-status-pages | [README.md](../../services/status-pages/README.md) |
 | Storage Management | @datadog/datadog-api-client-storage-management | [README.md](../../services/storage-management/README.md) |
