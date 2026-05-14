@@ -11867,6 +11867,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SpansListResponse",
     },
+    "v2.ListSpecs": {
+        "operationResponseType": "SpecsListResponse",
+    },
     "v2.CreateSCAResult": {
         "body": {
             "type": "ScaRequest",
