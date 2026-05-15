@@ -9,6 +9,8 @@ import { ActionQuerySpecObject } from "./ActionQuerySpecObject";
 import { AppBuilderEvent } from "./AppBuilderEvent";
 import { AppMeta } from "./AppMeta";
 import { AppRelationship } from "./AppRelationship";
+import { AppVersion } from "./AppVersion";
+import { AppVersionAttributes } from "./AppVersionAttributes";
 import { Component } from "./Component";
 import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
@@ -18,6 +20,9 @@ import { CreateAppRequestData } from "./CreateAppRequestData";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
 import { CreateAppResponse } from "./CreateAppResponse";
 import { CreateAppResponseData } from "./CreateAppResponseData";
+import { CreatePublishRequestRequest } from "./CreatePublishRequestRequest";
+import { CreatePublishRequestRequestData } from "./CreatePublishRequestRequestData";
+import { CreatePublishRequestRequestDataAttributes } from "./CreatePublishRequestRequestDataAttributes";
 import { CustomConnection } from "./CustomConnection";
 import { CustomConnectionAttributes } from "./CustomConnectionAttributes";
 import { CustomConnectionAttributesOnPremRunner } from "./CustomConnectionAttributesOnPremRunner";
@@ -40,6 +45,7 @@ import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { ListAppVersionsResponse } from "./ListAppVersionsResponse";
 import { ListAppsResponse } from "./ListAppsResponse";
 import { ListAppsResponseDataItems } from "./ListAppsResponseDataItems";
 import { ListAppsResponseDataItemsAttributes } from "./ListAppsResponseDataItemsAttributes";
@@ -50,12 +56,27 @@ import { PublishAppResponse } from "./PublishAppResponse";
 import { StateVariable } from "./StateVariable";
 import { StateVariableProperties } from "./StateVariableProperties";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
+import { UpdateAppFavoriteRequest } from "./UpdateAppFavoriteRequest";
+import { UpdateAppFavoriteRequestData } from "./UpdateAppFavoriteRequestData";
+import { UpdateAppFavoriteRequestDataAttributes } from "./UpdateAppFavoriteRequestDataAttributes";
+import { UpdateAppProtectionLevelRequest } from "./UpdateAppProtectionLevelRequest";
+import { UpdateAppProtectionLevelRequestData } from "./UpdateAppProtectionLevelRequestData";
+import { UpdateAppProtectionLevelRequestDataAttributes } from "./UpdateAppProtectionLevelRequestDataAttributes";
 import { UpdateAppRequest } from "./UpdateAppRequest";
 import { UpdateAppRequestData } from "./UpdateAppRequestData";
 import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes";
 import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
+import { UpdateAppSelfServiceRequest } from "./UpdateAppSelfServiceRequest";
+import { UpdateAppSelfServiceRequestData } from "./UpdateAppSelfServiceRequestData";
+import { UpdateAppSelfServiceRequestDataAttributes } from "./UpdateAppSelfServiceRequestDataAttributes";
+import { UpdateAppTagsRequest } from "./UpdateAppTagsRequest";
+import { UpdateAppTagsRequestData } from "./UpdateAppTagsRequestData";
+import { UpdateAppTagsRequestDataAttributes } from "./UpdateAppTagsRequestDataAttributes";
+import { UpdateAppVersionNameRequest } from "./UpdateAppVersionNameRequest";
+import { UpdateAppVersionNameRequestData } from "./UpdateAppVersionNameRequestData";
+import { UpdateAppVersionNameRequestDataAttributes } from "./UpdateAppVersionNameRequestDataAttributes";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -84,6 +105,13 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     AppDefinitionType: ["appDefinitions"],
     AppDeploymentType: ["deployment"],
+    AppFavoriteType: ["favorites"],
+    AppProtectionLevel: ["direct_publish", "approval_required"],
+    AppProtectionLevelType: ["protectionLevel"],
+    AppSelfServiceType: ["selfService"],
+    AppTagsType: ["tags"],
+    AppVersionNameType: ["versionNames"],
+    AppVersionType: ["appVersions"],
     AppsSortField: [
       "name",
       "created_at",
@@ -119,6 +147,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     CustomConnectionType: ["custom_connections"],
     DataTransformType: ["dataTransform"],
+    PublishRequestType: ["publishRequest"],
     StateVariableType: ["stateVariable"],
   },
   oneOfMap: {
@@ -146,6 +175,8 @@ export const TypingInfo: ModelTypingInfo = {
     AppBuilderEvent: AppBuilderEvent,
     AppMeta: AppMeta,
     AppRelationship: AppRelationship,
+    AppVersion: AppVersion,
+    AppVersionAttributes: AppVersionAttributes,
     Component: Component,
     ComponentGrid: ComponentGrid,
     ComponentGridProperties: ComponentGridProperties,
@@ -155,6 +186,10 @@ export const TypingInfo: ModelTypingInfo = {
     CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
     CreateAppResponse: CreateAppResponse,
     CreateAppResponseData: CreateAppResponseData,
+    CreatePublishRequestRequest: CreatePublishRequestRequest,
+    CreatePublishRequestRequestData: CreatePublishRequestRequestData,
+    CreatePublishRequestRequestDataAttributes:
+      CreatePublishRequestRequestDataAttributes,
     CustomConnection: CustomConnection,
     CustomConnectionAttributes: CustomConnectionAttributes,
     CustomConnectionAttributesOnPremRunner:
@@ -178,6 +213,7 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    ListAppVersionsResponse: ListAppVersionsResponse,
     ListAppsResponse: ListAppsResponse,
     ListAppsResponseDataItems: ListAppsResponseDataItems,
     ListAppsResponseDataItemsAttributes: ListAppsResponseDataItemsAttributes,
@@ -189,11 +225,30 @@ export const TypingInfo: ModelTypingInfo = {
     StateVariable: StateVariable,
     StateVariableProperties: StateVariableProperties,
     UnpublishAppResponse: UnpublishAppResponse,
+    UpdateAppFavoriteRequest: UpdateAppFavoriteRequest,
+    UpdateAppFavoriteRequestData: UpdateAppFavoriteRequestData,
+    UpdateAppFavoriteRequestDataAttributes:
+      UpdateAppFavoriteRequestDataAttributes,
+    UpdateAppProtectionLevelRequest: UpdateAppProtectionLevelRequest,
+    UpdateAppProtectionLevelRequestData: UpdateAppProtectionLevelRequestData,
+    UpdateAppProtectionLevelRequestDataAttributes:
+      UpdateAppProtectionLevelRequestDataAttributes,
     UpdateAppRequest: UpdateAppRequest,
     UpdateAppRequestData: UpdateAppRequestData,
     UpdateAppRequestDataAttributes: UpdateAppRequestDataAttributes,
     UpdateAppResponse: UpdateAppResponse,
     UpdateAppResponseData: UpdateAppResponseData,
     UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
+    UpdateAppSelfServiceRequest: UpdateAppSelfServiceRequest,
+    UpdateAppSelfServiceRequestData: UpdateAppSelfServiceRequestData,
+    UpdateAppSelfServiceRequestDataAttributes:
+      UpdateAppSelfServiceRequestDataAttributes,
+    UpdateAppTagsRequest: UpdateAppTagsRequest,
+    UpdateAppTagsRequestData: UpdateAppTagsRequestData,
+    UpdateAppTagsRequestDataAttributes: UpdateAppTagsRequestDataAttributes,
+    UpdateAppVersionNameRequest: UpdateAppVersionNameRequest,
+    UpdateAppVersionNameRequestData: UpdateAppVersionNameRequestData,
+    UpdateAppVersionNameRequestDataAttributes:
+      UpdateAppVersionNameRequestDataAttributes,
   },
 };
