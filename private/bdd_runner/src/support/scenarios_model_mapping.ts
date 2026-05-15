@@ -6197,6 +6197,202 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CloudCostManagementApi.V2.ListBudgets": {
     operationResponseType: "BudgetArray",
   },
+  "CloudCostManagementApi.V2.GetCommitmentsCommitmentList": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    commitmentType: {
+      type: "CommitmentsCommitmentType",
+      format: "",
+    },
+    operationResponseType: "CommitmentsListResponse",
+  },
+  "CloudCostManagementApi.V2.GetCommitmentsCoverageScalar": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CommitmentsCoverageScalarResponse",
+  },
+  "CloudCostManagementApi.V2.GetCommitmentsCoverageTimeseries": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CommitmentsCoverageTimeseriesResponse",
+  },
+  "CloudCostManagementApi.V2.GetCommitmentsOnDemandHotspotsScalar": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CommitmentsOnDemandHotspotsScalarResponse",
+  },
+  "CloudCostManagementApi.V2.GetCommitmentsSavingsScalar": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CommitmentsSavingsScalarResponse",
+  },
+  "CloudCostManagementApi.V2.GetCommitmentsSavingsTimeseries": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CommitmentsSavingsTimeseriesResponse",
+  },
+  "CloudCostManagementApi.V2.GetCommitmentsUtilizationScalar": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    commitmentType: {
+      type: "CommitmentsCommitmentType",
+      format: "",
+    },
+    operationResponseType: "CommitmentsUtilizationScalarResponse",
+  },
+  "CloudCostManagementApi.V2.GetCommitmentsUtilizationTimeseries": {
+    provider: {
+      type: "CommitmentsProvider",
+      format: "",
+    },
+    product: {
+      type: "string",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
+    filterBy: {
+      type: "string",
+      format: "",
+    },
+    commitmentType: {
+      type: "CommitmentsCommitmentType",
+      format: "",
+    },
+    operationResponseType: "CommitmentsUtilizationTimeseriesResponse",
+  },
   "CloudCostManagementApi.V2.ListCustomCostsFiles": {
     pageNumber: {
       type: "number",
