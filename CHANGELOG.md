@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## 1.58.0/2026-05-15
+
+### Added
+* Add Compliance Findings rule-based view endpoint to OpenAPI v2 [#4145](https://github.com/DataDog/datadog-api-client-typescript/pull/4145)
+* Add window[seconds] query parameter for look back [#4141](https://github.com/DataDog/datadog-api-client-typescript/pull/4141)
+* Add OpenAPI spec for cost-planning-api commitment program endpoints [#4136](https://github.com/DataDog/datadog-api-client-typescript/pull/4136)
+* Add regression fields to Error Tracking API responses [#4134](https://github.com/DataDog/datadog-api-client-typescript/pull/4134)
+* Add OpenAPI for Cloud Cost Management anomalies endpoints [#4129](https://github.com/DataDog/datadog-api-client-typescript/pull/4129)
+* Allow errors data source in formula event queries for dashboards [#4118](https://github.com/DataDog/datadog-api-client-typescript/pull/4118)
+* Document Cloud Cost Management v2 tags and tag_keys endpoints [#4117](https://github.com/DataDog/datadog-api-client-typescript/pull/4117)
+* Add OpenAPI definition for CCM ListCostTagDescriptions [#4109](https://github.com/DataDog/datadog-api-client-typescript/pull/4109)
+* Add OpenAPI spec for current user endpoints [#4101](https://github.com/DataDog/datadog-api-client-typescript/pull/4101)
+* Add state filter for Search Error Tracking Issues API [#4091](https://github.com/DataDog/datadog-api-client-typescript/pull/4091)
+* Add OpenAPI spec for email transport webhook intake [#4087](https://github.com/DataDog/datadog-api-client-typescript/pull/4087)
+* Add integration_type for Microsoft Teams to IncidentIntegrationMetadataAttributes [#4085](https://github.com/DataDog/datadog-api-client-typescript/pull/4085)
+* Add cross_org_uuids to v2 query endpoints [#4081](https://github.com/DataDog/datadog-api-client-typescript/pull/4081)
+* Add GKE Autopilot usage types to API documentation [#4071](https://github.com/DataDog/datadog-api-client-typescript/pull/4071)
+* Add session interaction type to LLM Observability API spec [#4069](https://github.com/DataDog/datadog-api-client-typescript/pull/4069)
+* Add OpenAPI spec for authn-validation /api/v2/validate endpoint [#4067](https://github.com/DataDog/datadog-api-client-typescript/pull/4067)
+* Add OpenAPI definitions for CCM status endpoints [#4065](https://github.com/DataDog/datadog-api-client-typescript/pull/4065)
+* Add style and sort to TreeMapWidgetRequest and sort to SunburstWidgetRequest for Dashboards [#4045](https://github.com/DataDog/datadog-api-client-typescript/pull/4045)
+* Add `compression_method` field to Log Archives [#4043](https://github.com/DataDog/datadog-api-client-typescript/pull/4043)
+* Cloud inventory api sync config endpoint documentation [#4041](https://github.com/DataDog/datadog-api-client-typescript/pull/4041)
+* Add Point Plot widget to dashboard API spec [#4037](https://github.com/DataDog/datadog-api-client-typescript/pull/4037)
+* Add backfilled degradation and maintenance endpoints to Status Pages [#4035](https://github.com/DataDog/datadog-api-client-typescript/pull/4035)
+* Add Cloud Cost Management ListCostOCIConfigs endpoint [#4033](https://github.com/DataDog/datadog-api-client-typescript/pull/4033)
+* Add Observability pipelines databricks_zerobus destination [#4021](https://github.com/DataDog/datadog-api-client-typescript/pull/4021)
+* Add infra_storage_mgmt_objects_count_avg fields to usage summary API [#4019](https://github.com/DataDog/datadog-api-client-typescript/pull/4019)
+* RUM - Add Source Map Intake API endpoint specification [#4017](https://github.com/DataDog/datadog-api-client-typescript/pull/4017)
+* Document bulk delete security monitoring rules endpoint [#4010](https://github.com/DataDog/datadog-api-client-typescript/pull/4010)
+* Add compliance_host to Agentless Scanning scan options [#4008](https://github.com/DataDog/datadog-api-client-typescript/pull/4008)
+* Add MuteSecurityFindings endpoint spec [#3993](https://github.com/DataDog/datadog-api-client-typescript/pull/3993)
+* Add OpenAPI documentation for Synthetics downtime endpoints [#3991](https://github.com/DataDog/datadog-api-client-typescript/pull/3991)
+* Add feature_flags_config_requests to usage summary API [#3930](https://github.com/DataDog/datadog-api-client-typescript/pull/3930)
+* Add specs for ListOrgsV2 and DeleteUserInvitations [#3889](https://github.com/DataDog/datadog-api-client-typescript/pull/3889)
+* Add infra_host_basic and eph_infra_host_basic to usage metering API [#3829](https://github.com/DataDog/datadog-api-client-typescript/pull/3829)
+
+### Changed
+* Mark email transport webhook endpoint as private [#4125](https://github.com/DataDog/datadog-api-client-typescript/pull/4125)
+* Mark Test Optimization endpoints as stable [#4029](https://github.com/DataDog/datadog-api-client-typescript/pull/4029)
+* Document Annotations label schema API for AI Observability [#4025](https://github.com/DataDog/datadog-api-client-typescript/pull/4025)
+* Security Monitoring - expand learningDuration and forgetAfter to support up to 30 days [#3942](https://github.com/DataDog/datadog-api-client-typescript/pull/3942)
+
+### Removed
+* Remove deprecated incident teams endpoints [#4097](https://github.com/DataDog/datadog-api-client-typescript/pull/4097)
+* Remove deprecated allocation key fields from feature flags API [#3981](https://github.com/DataDog/datadog-api-client-typescript/pull/3981)
+
+### Fixed
+* Widgets API - add complete create/update example for cloud_cost_summary [#4061](https://github.com/DataDog/datadog-api-client-typescript/pull/4061)
+* Fix Org Groups pagination response shape (meta.page + links) [#4047](https://github.com/DataDog/datadog-api-client-typescript/pull/4047)
+* Clarify metrics API query strings [#4027](https://github.com/DataDog/datadog-api-client-typescript/pull/4027)
+
+### Deprecated
+* Update Status Pages API documentation to reflect deprecation of creating a published status page [#4002](https://github.com/DataDog/datadog-api-client-typescript/pull/4002)
+
 ## 1.57.0/2026-04-24
 
 ### Changed
