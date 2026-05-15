@@ -180,6 +180,10 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         "x"
       );
     }
+    if (headers["Authorization"]) {
+      // Mask Bearer tokens (delegated tokens, PATs). See CRED-2625.
+      headers["Authorization"] = headers["Authorization"].replace(/./g, "x");
+    }
 
     const headersJSON = JSON.stringify(headers, null, 2).replace(/\n/g, "\n\t");
     const method = request.getHttpMethod().toString();
