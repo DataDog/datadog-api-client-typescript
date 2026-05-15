@@ -12,6 +12,14 @@ export {
   CloudCostManagementApiDeleteCustomCostsFileRequest,
   CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
   CloudCostManagementApiGetBudgetRequest,
+  CloudCostManagementApiGetCommitmentsCommitmentListRequest,
+  CloudCostManagementApiGetCommitmentsCoverageScalarRequest,
+  CloudCostManagementApiGetCommitmentsCoverageTimeseriesRequest,
+  CloudCostManagementApiGetCommitmentsOnDemandHotspotsScalarRequest,
+  CloudCostManagementApiGetCommitmentsSavingsScalarRequest,
+  CloudCostManagementApiGetCommitmentsSavingsTimeseriesRequest,
+  CloudCostManagementApiGetCommitmentsUtilizationScalarRequest,
+  CloudCostManagementApiGetCommitmentsUtilizationTimeseriesRequest,
   CloudCostManagementApiGetCostAWSCURConfigRequest,
   CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
@@ -116,6 +124,32 @@ export { BudgetWithEntriesDataAttributes } from "./models/BudgetWithEntriesDataA
 export { BudgetWithEntriesDataAttributesEntriesItems } from "./models/BudgetWithEntriesDataAttributesEntriesItems";
 export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
+export { CommitmentsAwsEC2RICommitment } from "./models/CommitmentsAwsEC2RICommitment";
+export { CommitmentsAwsElasticacheRICommitment } from "./models/CommitmentsAwsElasticacheRICommitment";
+export { CommitmentsAwsRDSRICommitment } from "./models/CommitmentsAwsRDSRICommitment";
+export { CommitmentsAwsSPCommitment } from "./models/CommitmentsAwsSPCommitment";
+export { CommitmentsAzureComputeSPCommitment } from "./models/CommitmentsAzureComputeSPCommitment";
+export { CommitmentsAzureVMRICommitment } from "./models/CommitmentsAzureVMRICommitment";
+export { CommitmentsAzureVMRIStatus } from "./models/CommitmentsAzureVMRIStatus";
+export { CommitmentsCommitmentType } from "./models/CommitmentsCommitmentType";
+export { CommitmentsCoverageScalarResponse } from "./models/CommitmentsCoverageScalarResponse";
+export { CommitmentsCoverageTimeseriesResponse } from "./models/CommitmentsCoverageTimeseriesResponse";
+export { CommitmentsListItem } from "./models/CommitmentsListItem";
+export { CommitmentsListMeta } from "./models/CommitmentsListMeta";
+export { CommitmentsListResponse } from "./models/CommitmentsListResponse";
+export { CommitmentsOnDemandHotspotsScalarMeta } from "./models/CommitmentsOnDemandHotspotsScalarMeta";
+export { CommitmentsOnDemandHotspotsScalarResponse } from "./models/CommitmentsOnDemandHotspotsScalarResponse";
+export { CommitmentsProvider } from "./models/CommitmentsProvider";
+export { CommitmentsSavingsScalarResponse } from "./models/CommitmentsSavingsScalarResponse";
+export { CommitmentsSavingsTimeseriesResponse } from "./models/CommitmentsSavingsTimeseriesResponse";
+export { CommitmentsScalarColumn } from "./models/CommitmentsScalarColumn";
+export { CommitmentsScalarColumnMeta } from "./models/CommitmentsScalarColumnMeta";
+export { CommitmentsScalarColumnType } from "./models/CommitmentsScalarColumnType";
+export { CommitmentsTimeseriesMetric } from "./models/CommitmentsTimeseriesMetric";
+export { CommitmentsUnit } from "./models/CommitmentsUnit";
+export { CommitmentsUtilizationScalarProductBreakdownEntry } from "./models/CommitmentsUtilizationScalarProductBreakdownEntry";
+export { CommitmentsUtilizationScalarResponse } from "./models/CommitmentsUtilizationScalarResponse";
+export { CommitmentsUtilizationTimeseriesResponse } from "./models/CommitmentsUtilizationTimeseriesResponse";
 export { CostAnomaliesResponse } from "./models/CostAnomaliesResponse";
 export { CostAnomaliesResponseData } from "./models/CostAnomaliesResponseData";
 export { CostAnomaliesResponseDataAttributes } from "./models/CostAnomaliesResponseDataAttributes";
@@ -180,6 +214,9 @@ export { GCPUsageCostConfigPostRequestType } from "./models/GCPUsageCostConfigPo
 export { GCPUsageCostConfigResponse } from "./models/GCPUsageCostConfigResponse";
 export { GCPUsageCostConfigsResponse } from "./models/GCPUsageCostConfigsResponse";
 export { GCPUsageCostConfigType } from "./models/GCPUsageCostConfigType";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { OCIConfig } from "./models/OCIConfig";
 export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
 export { OCIConfigsResponse } from "./models/OCIConfigsResponse";

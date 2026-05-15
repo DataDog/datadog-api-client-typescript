@@ -65,6 +65,27 @@ import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+import { CommitmentsAwsEC2RICommitment } from "./CommitmentsAwsEC2RICommitment";
+import { CommitmentsAwsElasticacheRICommitment } from "./CommitmentsAwsElasticacheRICommitment";
+import { CommitmentsAwsRDSRICommitment } from "./CommitmentsAwsRDSRICommitment";
+import { CommitmentsAwsSPCommitment } from "./CommitmentsAwsSPCommitment";
+import { CommitmentsAzureComputeSPCommitment } from "./CommitmentsAzureComputeSPCommitment";
+import { CommitmentsAzureVMRICommitment } from "./CommitmentsAzureVMRICommitment";
+import { CommitmentsCoverageScalarResponse } from "./CommitmentsCoverageScalarResponse";
+import { CommitmentsCoverageTimeseriesResponse } from "./CommitmentsCoverageTimeseriesResponse";
+import { CommitmentsListMeta } from "./CommitmentsListMeta";
+import { CommitmentsListResponse } from "./CommitmentsListResponse";
+import { CommitmentsOnDemandHotspotsScalarMeta } from "./CommitmentsOnDemandHotspotsScalarMeta";
+import { CommitmentsOnDemandHotspotsScalarResponse } from "./CommitmentsOnDemandHotspotsScalarResponse";
+import { CommitmentsSavingsScalarResponse } from "./CommitmentsSavingsScalarResponse";
+import { CommitmentsSavingsTimeseriesResponse } from "./CommitmentsSavingsTimeseriesResponse";
+import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
+import { CommitmentsScalarColumnMeta } from "./CommitmentsScalarColumnMeta";
+import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
+import { CommitmentsUnit } from "./CommitmentsUnit";
+import { CommitmentsUtilizationScalarProductBreakdownEntry } from "./CommitmentsUtilizationScalarProductBreakdownEntry";
+import { CommitmentsUtilizationScalarResponse } from "./CommitmentsUtilizationScalarResponse";
+import { CommitmentsUtilizationTimeseriesResponse } from "./CommitmentsUtilizationTimeseriesResponse";
 import { CostAnomaliesResponse } from "./CostAnomaliesResponse";
 import { CostAnomaliesResponseData } from "./CostAnomaliesResponseData";
 import { CostAnomaliesResponseDataAttributes } from "./CostAnomaliesResponseDataAttributes";
@@ -118,6 +139,9 @@ import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
 import { GcpUcConfigResponse } from "./GcpUcConfigResponse";
 import { GcpUcConfigResponseData } from "./GcpUcConfigResponseData";
 import { GcpUcConfigResponseDataAttributes } from "./GcpUcConfigResponseDataAttributes";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
@@ -175,6 +199,10 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
     BudgetValidationResponseDataType: ["budget_validation"],
     BudgetWithEntriesDataType: ["budget"],
+    CommitmentsAzureVMRIStatus: ["running", "expired", "cancelled"],
+    CommitmentsCommitmentType: ["ri", "sp"],
+    CommitmentsProvider: ["aws", "azure"],
+    CommitmentsScalarColumnType: ["group", "number"],
     CostAnomaliesResponseDataType: ["anomalies"],
     CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
     CostTagDescriptionType: ["cost_tag_description"],
@@ -196,7 +224,16 @@ export const TypingInfo: ModelTypingInfo = {
     UCConfigPairDataType: ["azure_uc_configs"],
     UpdateRulesetRequestDataType: ["update_ruleset"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    CommitmentsListItem: [
+      "CommitmentsAwsEC2RICommitment",
+      "CommitmentsAwsRDSRICommitment",
+      "CommitmentsAwsElasticacheRICommitment",
+      "CommitmentsAwsSPCommitment",
+      "CommitmentsAzureVMRICommitment",
+      "CommitmentsAzureComputeSPCommitment",
+    ],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AccountFilteringConfig: AccountFilteringConfig,
@@ -283,6 +320,33 @@ export const TypingInfo: ModelTypingInfo = {
       BudgetWithEntriesDataAttributesEntriesItems,
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
       BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+    CommitmentsAwsEC2RICommitment: CommitmentsAwsEC2RICommitment,
+    CommitmentsAwsElasticacheRICommitment:
+      CommitmentsAwsElasticacheRICommitment,
+    CommitmentsAwsRDSRICommitment: CommitmentsAwsRDSRICommitment,
+    CommitmentsAwsSPCommitment: CommitmentsAwsSPCommitment,
+    CommitmentsAzureComputeSPCommitment: CommitmentsAzureComputeSPCommitment,
+    CommitmentsAzureVMRICommitment: CommitmentsAzureVMRICommitment,
+    CommitmentsCoverageScalarResponse: CommitmentsCoverageScalarResponse,
+    CommitmentsCoverageTimeseriesResponse:
+      CommitmentsCoverageTimeseriesResponse,
+    CommitmentsListMeta: CommitmentsListMeta,
+    CommitmentsListResponse: CommitmentsListResponse,
+    CommitmentsOnDemandHotspotsScalarMeta:
+      CommitmentsOnDemandHotspotsScalarMeta,
+    CommitmentsOnDemandHotspotsScalarResponse:
+      CommitmentsOnDemandHotspotsScalarResponse,
+    CommitmentsSavingsScalarResponse: CommitmentsSavingsScalarResponse,
+    CommitmentsSavingsTimeseriesResponse: CommitmentsSavingsTimeseriesResponse,
+    CommitmentsScalarColumn: CommitmentsScalarColumn,
+    CommitmentsScalarColumnMeta: CommitmentsScalarColumnMeta,
+    CommitmentsTimeseriesMetric: CommitmentsTimeseriesMetric,
+    CommitmentsUnit: CommitmentsUnit,
+    CommitmentsUtilizationScalarProductBreakdownEntry:
+      CommitmentsUtilizationScalarProductBreakdownEntry,
+    CommitmentsUtilizationScalarResponse: CommitmentsUtilizationScalarResponse,
+    CommitmentsUtilizationTimeseriesResponse:
+      CommitmentsUtilizationTimeseriesResponse,
     CostAnomaliesResponse: CostAnomaliesResponse,
     CostAnomaliesResponseData: CostAnomaliesResponseData,
     CostAnomaliesResponseDataAttributes: CostAnomaliesResponseDataAttributes,
@@ -344,6 +408,9 @@ export const TypingInfo: ModelTypingInfo = {
     GcpUcConfigResponse: GcpUcConfigResponse,
     GcpUcConfigResponseData: GcpUcConfigResponseData,
     GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     OCIConfig: OCIConfig,
     OCIConfigAttributes: OCIConfigAttributes,
     OCIConfigsResponse: OCIConfigsResponse,
