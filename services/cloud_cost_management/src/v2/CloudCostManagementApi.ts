@@ -51,9 +51,15 @@ import { CommitmentsUtilizationScalarResponse } from "./models/CommitmentsUtiliz
 import { CommitmentsUtilizationTimeseriesResponse } from "./models/CommitmentsUtilizationTimeseriesResponse";
 import { CostAnomaliesResponse } from "./models/CostAnomaliesResponse";
 import { CostAnomalyResponse } from "./models/CostAnomalyResponse";
+import { CostCurrencyResponse } from "./models/CostCurrencyResponse";
+import { CostMetricsResponse } from "./models/CostMetricsResponse";
+import { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
 import { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
+import { CostTagKeyMetadataResponse } from "./models/CostTagKeyMetadataResponse";
 import { CostTagKeyResponse } from "./models/CostTagKeyResponse";
+import { CostTagKeySourcesResponse } from "./models/CostTagKeySourcesResponse";
 import { CostTagKeysResponse } from "./models/CostTagKeysResponse";
+import { CostTagMetadataDailyFilter } from "./models/CostTagMetadataDailyFilter";
 import { CostTagsResponse } from "./models/CostTagsResponse";
 import { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
@@ -1855,6 +1861,75 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCostTagMetadataCurrency(
+    filterMonth: string,
+    filterProvider?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.getCostTagMetadataCurrency"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCostTagMetadataCurrency' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostTagMetadataCurrency'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterMonth' is not null or undefined
+    if (filterMonth === null || filterMonth === undefined) {
+      throw new RequiredError("filterMonth", "getCostTagMetadataCurrency");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_metadata/currency";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCostTagMetadataCurrency",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterMonth !== undefined) {
+      requestContext.setQueryParam(
+        "filter[month]",
+        serialize(filterMonth, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterProvider !== undefined) {
+      requestContext.setQueryParam(
+        "filter[provider]",
+        serialize(filterProvider, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCustomAllocationRule(
     ruleId: number,
     _options?: Configuration,
@@ -2388,6 +2463,309 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
         "filter[tags]",
         serialize(filterTags, TypingInfo, "Array<string>", ""),
         "multi",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostTagKeySources(
+    filterMonth: string,
+    filterProvider?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCostTagKeySources"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostTagKeySources' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagKeySources'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterMonth' is not null or undefined
+    if (filterMonth === null || filterMonth === undefined) {
+      throw new RequiredError("filterMonth", "listCostTagKeySources");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_metadata/tag_sources";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostTagKeySources",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterMonth !== undefined) {
+      requestContext.setQueryParam(
+        "filter[month]",
+        serialize(filterMonth, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterProvider !== undefined) {
+      requestContext.setQueryParam(
+        "filter[provider]",
+        serialize(filterProvider, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostTagMetadata(
+    filterMonth: string,
+    filterProvider?: string,
+    filterMetric?: string,
+    filterTagKey?: string,
+    filterDaily?: CostTagMetadataDailyFilter,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCostTagMetadata"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostTagMetadata' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadata'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterMonth' is not null or undefined
+    if (filterMonth === null || filterMonth === undefined) {
+      throw new RequiredError("filterMonth", "listCostTagMetadata");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_metadata";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostTagMetadata",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterMonth !== undefined) {
+      requestContext.setQueryParam(
+        "filter[month]",
+        serialize(filterMonth, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterProvider !== undefined) {
+      requestContext.setQueryParam(
+        "filter[provider]",
+        serialize(filterProvider, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterMetric !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metric]",
+        serialize(filterMetric, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterTagKey !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tag_key]",
+        serialize(filterTagKey, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterDaily !== undefined) {
+      requestContext.setQueryParam(
+        "filter[daily]",
+        serialize(filterDaily, TypingInfo, "CostTagMetadataDailyFilter", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostTagMetadataMetrics(
+    filterMonth: string,
+    filterProvider?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCostTagMetadataMetrics"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostTagMetadataMetrics' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataMetrics'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterMonth' is not null or undefined
+    if (filterMonth === null || filterMonth === undefined) {
+      throw new RequiredError("filterMonth", "listCostTagMetadataMetrics");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_metadata/metrics";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostTagMetadataMetrics",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterMonth !== undefined) {
+      requestContext.setQueryParam(
+        "filter[month]",
+        serialize(filterMonth, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterProvider !== undefined) {
+      requestContext.setQueryParam(
+        "filter[provider]",
+        serialize(filterProvider, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostTagMetadataOrchestrators(
+    filterMonth: string,
+    filterProvider?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.listCostTagMetadataOrchestrators"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listCostTagMetadataOrchestrators' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataOrchestrators'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterMonth' is not null or undefined
+    if (filterMonth === null || filterMonth === undefined) {
+      throw new RequiredError(
+        "filterMonth",
+        "listCostTagMetadataOrchestrators",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_metadata/orchestrators";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostTagMetadataOrchestrators",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterMonth !== undefined) {
+      requestContext.setQueryParam(
+        "filter[month]",
+        serialize(filterMonth, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterProvider !== undefined) {
+      requestContext.setQueryParam(
+        "filter[provider]",
+        serialize(filterProvider, TypingInfo, "string", ""),
+        "",
       );
     }
 
@@ -4932,6 +5310,66 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCostTagMetadataCurrency
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostTagMetadataCurrency(
+    response: ResponseContext,
+  ): Promise<CostCurrencyResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostCurrencyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostCurrencyResponse",
+      ) as CostCurrencyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostCurrencyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostCurrencyResponse",
+        "",
+      ) as CostCurrencyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCustomAllocationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5544,6 +5982,246 @@ export class CloudCostManagementApiResponseProcessor {
         "CostTagKeysResponse",
         "",
       ) as CostTagKeysResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostTagKeySources
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTagKeySources(
+    response: ResponseContext,
+  ): Promise<CostTagKeySourcesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostTagKeySourcesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostTagKeySourcesResponse",
+      ) as CostTagKeySourcesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagKeySourcesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostTagKeySourcesResponse",
+        "",
+      ) as CostTagKeySourcesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostTagMetadata
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTagMetadata(
+    response: ResponseContext,
+  ): Promise<CostTagKeyMetadataResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostTagKeyMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostTagKeyMetadataResponse",
+      ) as CostTagKeyMetadataResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagKeyMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostTagKeyMetadataResponse",
+        "",
+      ) as CostTagKeyMetadataResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostTagMetadataMetrics
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTagMetadataMetrics(
+    response: ResponseContext,
+  ): Promise<CostMetricsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostMetricsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostMetricsResponse",
+      ) as CostMetricsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostMetricsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostMetricsResponse",
+        "",
+      ) as CostMetricsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCostTagMetadataOrchestrators
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostTagMetadataOrchestrators(
+    response: ResponseContext,
+  ): Promise<CostOrchestratorsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostOrchestratorsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostOrchestratorsResponse",
+      ) as CostOrchestratorsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostOrchestratorsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostOrchestratorsResponse",
+        "",
+      ) as CostOrchestratorsResponse;
       return body;
     }
 
@@ -6959,6 +7637,19 @@ export interface CloudCostManagementApiGetCostTagKeyRequest {
   pageSize?: number;
 }
 
+export interface CloudCostManagementApiGetCostTagMetadataCurrencyRequest {
+  /**
+   * The month to scope the query to, in `YYYY-MM` format.
+   * @type string
+   */
+  filterMonth: string;
+  /**
+   * Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+   * @type string
+   */
+  filterProvider?: string;
+}
+
 export interface CloudCostManagementApiGetCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
@@ -7060,6 +7751,73 @@ export interface CloudCostManagementApiListCostTagKeysRequest {
    * @type Array<string>
    */
   filterTags?: Array<string>;
+}
+
+export interface CloudCostManagementApiListCostTagKeySourcesRequest {
+  /**
+   * The month to scope the query to, in `YYYY-MM` format.
+   * @type string
+   */
+  filterMonth: string;
+  /**
+   * Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+   * @type string
+   */
+  filterProvider?: string;
+}
+
+export interface CloudCostManagementApiListCostTagMetadataRequest {
+  /**
+   * The month to scope the query to, in `YYYY-MM` format.
+   * @type string
+   */
+  filterMonth: string;
+  /**
+   * Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+   * @type string
+   */
+  filterProvider?: string;
+  /**
+   * Filter results to a specific Cloud Cost Management metric (for example, `aws.cost.net.amortized`). When omitted, every available metric for the requested period is returned.
+   * @type string
+   */
+  filterMetric?: string;
+  /**
+   * Restrict results to a single tag key.
+   * @type string
+   */
+  filterTagKey?: string;
+  /**
+   * When `true`, return one row per day with the day in the `date` attribute. Defaults to the monthly roll-up when omitted.
+   * @type CostTagMetadataDailyFilter
+   */
+  filterDaily?: CostTagMetadataDailyFilter;
+}
+
+export interface CloudCostManagementApiListCostTagMetadataMetricsRequest {
+  /**
+   * The month to scope the query to, in `YYYY-MM` format.
+   * @type string
+   */
+  filterMonth: string;
+  /**
+   * Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+   * @type string
+   */
+  filterProvider?: string;
+}
+
+export interface CloudCostManagementApiListCostTagMetadataOrchestratorsRequest {
+  /**
+   * The month to scope the query to, in `YYYY-MM` format.
+   * @type string
+   */
+  filterMonth: string;
+  /**
+   * Filter results to a specific provider. Common cloud values are `aws`, `azure`, `gcp`, `Oracle` (OCI), and `custom`. SaaS billing integrations (for example, `Snowflake`, `MongoDB`, `Databricks`) are also accepted using their display-name string. Values are case-sensitive.
+   * @type string
+   */
+  filterProvider?: string;
 }
 
 export interface CloudCostManagementApiListCostTagsRequest {
@@ -7878,6 +8636,31 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Get the dominant billing currency observed in Cloud Cost Management data for the requested period. The response wraps the currency in a JSON:API `data` array containing at most one entry; the array is empty when no currency data is available.
+   * @param param The request object
+   */
+  public getCostTagMetadataCurrency(
+    param: CloudCostManagementApiGetCostTagMetadataCurrencyRequest,
+    options?: Configuration,
+  ): Promise<CostCurrencyResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCostTagMetadataCurrency(
+        param.filterMonth,
+        param.filterProvider,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostTagMetadataCurrency(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get a specific custom allocation rule - Retrieve a specific custom allocation rule by its ID
    * @param param The request object
    */
@@ -8103,6 +8886,103 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCostTagKeys(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List Cloud Cost Management tag keys observed for the requested period, along with the origin sources that produced them (for example, `aws-user-defined`, `custom`).
+   * @param param The request object
+   */
+  public listCostTagKeySources(
+    param: CloudCostManagementApiListCostTagKeySourcesRequest,
+    options?: Configuration,
+  ): Promise<CostTagKeySourcesResponse> {
+    const requestContextPromise = this.requestFactory.listCostTagKeySources(
+      param.filterMonth,
+      param.filterProvider,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTagKeySources(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List Cloud Cost Management tag key metadata, including row counts, cost covered, cardinality, and a sample of top tag values per cloud account. Use `filter[daily]=true` to return daily rows instead of the default monthly roll-up.
+   * @param param The request object
+   */
+  public listCostTagMetadata(
+    param: CloudCostManagementApiListCostTagMetadataRequest,
+    options?: Configuration,
+  ): Promise<CostTagKeyMetadataResponse> {
+    const requestContextPromise = this.requestFactory.listCostTagMetadata(
+      param.filterMonth,
+      param.filterProvider,
+      param.filterMetric,
+      param.filterTagKey,
+      param.filterDaily,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTagMetadata(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List Cloud Cost Management metrics that have data for the requested period.
+   * @param param The request object
+   */
+  public listCostTagMetadataMetrics(
+    param: CloudCostManagementApiListCostTagMetadataMetricsRequest,
+    options?: Configuration,
+  ): Promise<CostMetricsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCostTagMetadataMetrics(
+        param.filterMonth,
+        param.filterProvider,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTagMetadataMetrics(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List container orchestrators (for example, `kubernetes`, `ecs`) detected in Cloud Cost Management data for the requested period.
+   * @param param The request object
+   */
+  public listCostTagMetadataOrchestrators(
+    param: CloudCostManagementApiListCostTagMetadataOrchestratorsRequest,
+    options?: Configuration,
+  ): Promise<CostOrchestratorsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCostTagMetadataOrchestrators(
+        param.filterMonth,
+        param.filterProvider,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostTagMetadataOrchestrators(
+            responseContext,
+          );
         });
     });
   }
