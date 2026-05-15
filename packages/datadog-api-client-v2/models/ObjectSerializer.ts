@@ -579,6 +579,27 @@ import { CodeLocation } from "./CodeLocation";
 import { CommitCoverageSummaryRequest } from "./CommitCoverageSummaryRequest";
 import { CommitCoverageSummaryRequestAttributes } from "./CommitCoverageSummaryRequestAttributes";
 import { CommitCoverageSummaryRequestData } from "./CommitCoverageSummaryRequestData";
+import { CommitmentsAwsEC2RICommitment } from "./CommitmentsAwsEC2RICommitment";
+import { CommitmentsAwsElasticacheRICommitment } from "./CommitmentsAwsElasticacheRICommitment";
+import { CommitmentsAwsRDSRICommitment } from "./CommitmentsAwsRDSRICommitment";
+import { CommitmentsAwsSPCommitment } from "./CommitmentsAwsSPCommitment";
+import { CommitmentsAzureComputeSPCommitment } from "./CommitmentsAzureComputeSPCommitment";
+import { CommitmentsAzureVMRICommitment } from "./CommitmentsAzureVMRICommitment";
+import { CommitmentsCoverageScalarResponse } from "./CommitmentsCoverageScalarResponse";
+import { CommitmentsCoverageTimeseriesResponse } from "./CommitmentsCoverageTimeseriesResponse";
+import { CommitmentsListMeta } from "./CommitmentsListMeta";
+import { CommitmentsListResponse } from "./CommitmentsListResponse";
+import { CommitmentsOnDemandHotspotsScalarMeta } from "./CommitmentsOnDemandHotspotsScalarMeta";
+import { CommitmentsOnDemandHotspotsScalarResponse } from "./CommitmentsOnDemandHotspotsScalarResponse";
+import { CommitmentsSavingsScalarResponse } from "./CommitmentsSavingsScalarResponse";
+import { CommitmentsSavingsTimeseriesResponse } from "./CommitmentsSavingsTimeseriesResponse";
+import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
+import { CommitmentsScalarColumnMeta } from "./CommitmentsScalarColumnMeta";
+import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
+import { CommitmentsUnit } from "./CommitmentsUnit";
+import { CommitmentsUtilizationScalarProductBreakdownEntry } from "./CommitmentsUtilizationScalarProductBreakdownEntry";
+import { CommitmentsUtilizationScalarResponse } from "./CommitmentsUtilizationScalarResponse";
+import { CommitmentsUtilizationTimeseriesResponse } from "./CommitmentsUtilizationTimeseriesResponse";
 import { CompletionCondition } from "./CompletionCondition";
 import { CompletionGate } from "./CompletionGate";
 import { Component } from "./Component";
@@ -4446,6 +4467,10 @@ const enumsMap: { [key: string]: any[] } = {
   CloudflareGlobalAPITokenType: ["CloudflareGlobalAPIToken"],
   CloudflareIntegrationType: ["Cloudflare"],
   CommitCoverageSummaryRequestType: ["ci_app_coverage_commit_summary_request"],
+  CommitmentsAzureVMRIStatus: ["running", "expired", "cancelled"],
+  CommitmentsCommitmentType: ["ri", "sp"],
+  CommitmentsProvider: ["aws", "azure"],
+  CommitmentsScalarColumnType: ["group", "number"],
   CompletionConditionOperator: [
     "OPERATOR_EQUAL",
     "OPERATOR_NOT_EQUAL",
@@ -7154,6 +7179,30 @@ const typeMap: { [index: string]: any } = {
   CommitCoverageSummaryRequestAttributes:
     CommitCoverageSummaryRequestAttributes,
   CommitCoverageSummaryRequestData: CommitCoverageSummaryRequestData,
+  CommitmentsAwsEC2RICommitment: CommitmentsAwsEC2RICommitment,
+  CommitmentsAwsElasticacheRICommitment: CommitmentsAwsElasticacheRICommitment,
+  CommitmentsAwsRDSRICommitment: CommitmentsAwsRDSRICommitment,
+  CommitmentsAwsSPCommitment: CommitmentsAwsSPCommitment,
+  CommitmentsAzureComputeSPCommitment: CommitmentsAzureComputeSPCommitment,
+  CommitmentsAzureVMRICommitment: CommitmentsAzureVMRICommitment,
+  CommitmentsCoverageScalarResponse: CommitmentsCoverageScalarResponse,
+  CommitmentsCoverageTimeseriesResponse: CommitmentsCoverageTimeseriesResponse,
+  CommitmentsListMeta: CommitmentsListMeta,
+  CommitmentsListResponse: CommitmentsListResponse,
+  CommitmentsOnDemandHotspotsScalarMeta: CommitmentsOnDemandHotspotsScalarMeta,
+  CommitmentsOnDemandHotspotsScalarResponse:
+    CommitmentsOnDemandHotspotsScalarResponse,
+  CommitmentsSavingsScalarResponse: CommitmentsSavingsScalarResponse,
+  CommitmentsSavingsTimeseriesResponse: CommitmentsSavingsTimeseriesResponse,
+  CommitmentsScalarColumn: CommitmentsScalarColumn,
+  CommitmentsScalarColumnMeta: CommitmentsScalarColumnMeta,
+  CommitmentsTimeseriesMetric: CommitmentsTimeseriesMetric,
+  CommitmentsUnit: CommitmentsUnit,
+  CommitmentsUtilizationScalarProductBreakdownEntry:
+    CommitmentsUtilizationScalarProductBreakdownEntry,
+  CommitmentsUtilizationScalarResponse: CommitmentsUtilizationScalarResponse,
+  CommitmentsUtilizationTimeseriesResponse:
+    CommitmentsUtilizationTimeseriesResponse,
   CompletionCondition: CompletionCondition,
   CompletionGate: CompletionGate,
   Component: Component,
@@ -11502,6 +11551,14 @@ const oneOfMap: { [index: string]: string[] } = {
   CloudflareCredentialsUpdate: [
     "CloudflareAPITokenUpdate",
     "CloudflareGlobalAPITokenUpdate",
+  ],
+  CommitmentsListItem: [
+    "CommitmentsAwsEC2RICommitment",
+    "CommitmentsAwsRDSRICommitment",
+    "CommitmentsAwsElasticacheRICommitment",
+    "CommitmentsAwsSPCommitment",
+    "CommitmentsAzureVMRICommitment",
+    "CommitmentsAzureComputeSPCommitment",
   ],
   ComponentGridPropertiesIsVisible: ["string", "boolean"],
   ComponentPropertiesIsVisible: ["boolean", "string"],

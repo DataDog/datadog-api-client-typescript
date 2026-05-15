@@ -6185,6 +6185,202 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListBudgets": {
         "operationResponseType": "BudgetArray",
     },
+    "v2.GetCommitmentsCommitmentList": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "commitmentType": {
+            "type": "CommitmentsCommitmentType",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsListResponse",
+    },
+    "v2.GetCommitmentsCoverageScalar": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsCoverageScalarResponse",
+    },
+    "v2.GetCommitmentsCoverageTimeseries": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsCoverageTimeseriesResponse",
+    },
+    "v2.GetCommitmentsOnDemandHotspotsScalar": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsOnDemandHotspotsScalarResponse",
+    },
+    "v2.GetCommitmentsSavingsScalar": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsSavingsScalarResponse",
+    },
+    "v2.GetCommitmentsSavingsTimeseries": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsSavingsTimeseriesResponse",
+    },
+    "v2.GetCommitmentsUtilizationScalar": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "commitmentType": {
+            "type": "CommitmentsCommitmentType",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsUtilizationScalarResponse",
+    },
+    "v2.GetCommitmentsUtilizationTimeseries": {
+        "provider": {
+            "type": "CommitmentsProvider",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterBy": {
+            "type": "string",
+            "format": "",
+            },
+        "commitmentType": {
+            "type": "CommitmentsCommitmentType",
+            "format": "",
+            },
+        "operationResponseType": "CommitmentsUtilizationTimeseriesResponse",
+    },
     "v2.ListCustomCostsFiles": {
         "pageNumber": {
             "type": "number",
