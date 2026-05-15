@@ -4,7 +4,6 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
-import { LLMObsAnnotatedInteractionItem } from "./LLMObsAnnotatedInteractionItem";
 import { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./LLMObsAnnotatedInteractionsDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsDataResponse } from "./LLMObsAnnotatedInteractionsDataResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "./LLMObsAnnotatedInteractionsResponse";
@@ -13,8 +12,6 @@ import { LLMObsAnnotationQueueDataAttributesRequest } from "./LLMObsAnnotationQu
 import { LLMObsAnnotationQueueDataAttributesResponse } from "./LLMObsAnnotationQueueDataAttributesResponse";
 import { LLMObsAnnotationQueueDataRequest } from "./LLMObsAnnotationQueueDataRequest";
 import { LLMObsAnnotationQueueDataResponse } from "./LLMObsAnnotationQueueDataResponse";
-import { LLMObsAnnotationQueueInteractionItem } from "./LLMObsAnnotationQueueInteractionItem";
-import { LLMObsAnnotationQueueInteractionResponseItem } from "./LLMObsAnnotationQueueInteractionResponseItem";
 import { LLMObsAnnotationQueueInteractionsDataAttributesRequest } from "./LLMObsAnnotationQueueInteractionsDataAttributesRequest";
 import { LLMObsAnnotationQueueInteractionsDataAttributesResponse } from "./LLMObsAnnotationQueueInteractionsDataAttributesResponse";
 import { LLMObsAnnotationQueueInteractionsDataRequest } from "./LLMObsAnnotationQueueInteractionsDataRequest";
@@ -34,6 +31,8 @@ import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueU
 import { LLMObsAnnotationQueueUpdateRequest } from "./LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsAnnotationQueuesResponse } from "./LLMObsAnnotationQueuesResponse";
 import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
+import { LLMObsContentBlock } from "./LLMObsContentBlock";
+import { LLMObsContentBlockTimeFrame } from "./LLMObsContentBlockTimeFrame";
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsCustomEvalConfigAssessmentCriteria } from "./LLMObsCustomEvalConfigAssessmentCriteria";
 import { LLMObsCustomEvalConfigAttributes } from "./LLMObsCustomEvalConfigAttributes";
@@ -91,6 +90,9 @@ import { LLMObsDeleteExperimentsRequest } from "./LLMObsDeleteExperimentsRequest
 import { LLMObsDeleteProjectsDataAttributesRequest } from "./LLMObsDeleteProjectsDataAttributesRequest";
 import { LLMObsDeleteProjectsDataRequest } from "./LLMObsDeleteProjectsDataRequest";
 import { LLMObsDeleteProjectsRequest } from "./LLMObsDeleteProjectsRequest";
+import { LLMObsDisplayBlockAnnotatedInteractionItem } from "./LLMObsDisplayBlockAnnotatedInteractionItem";
+import { LLMObsDisplayBlockInteractionItem } from "./LLMObsDisplayBlockInteractionItem";
+import { LLMObsDisplayBlockInteractionResponseItem } from "./LLMObsDisplayBlockInteractionResponseItem";
 import { LLMObsExperimentDataAttributesRequest } from "./LLMObsExperimentDataAttributesRequest";
 import { LLMObsExperimentDataAttributesResponse } from "./LLMObsExperimentDataAttributesResponse";
 import { LLMObsExperimentDataRequest } from "./LLMObsExperimentDataRequest";
@@ -120,12 +122,26 @@ import { LLMObsProjectUpdateDataAttributesRequest } from "./LLMObsProjectUpdateD
 import { LLMObsProjectUpdateDataRequest } from "./LLMObsProjectUpdateDataRequest";
 import { LLMObsProjectUpdateRequest } from "./LLMObsProjectUpdateRequest";
 import { LLMObsProjectsResponse } from "./LLMObsProjectsResponse";
+import { LLMObsTraceAnnotatedInteractionItem } from "./LLMObsTraceAnnotatedInteractionItem";
+import { LLMObsTraceInteractionItem } from "./LLMObsTraceInteractionItem";
+import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
     LLMObsAnnotationQueueInteractionsType: ["interactions"],
     LLMObsAnnotationQueueType: ["queues"],
+    LLMObsContentBlockHeaderLevel: ["sm", "md", "lg", "xl"],
+    LLMObsContentBlockLLMObsTraceInteractionType: ["trace", "experiment_trace"],
+    LLMObsContentBlockType: [
+      "markdown",
+      "header",
+      "text",
+      "json",
+      "image",
+      "widget",
+      "llmobs_trace",
+    ],
     LLMObsCustomEvalConfigEvalScope: ["span", "trace", "session"],
     LLMObsCustomEvalConfigIntegrationProvider: [
       "openai",
@@ -138,15 +154,16 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsCustomEvalConfigParsingType: ["structured_output", "json"],
     LLMObsCustomEvalConfigType: ["evaluator_config"],
     LLMObsDatasetType: ["datasets"],
+    LLMObsDisplayBlockInteractionType: ["display_block"],
     LLMObsEventType: ["events"],
     LLMObsExperimentSpanStatus: ["ok", "error"],
     LLMObsExperimentType: ["experiments"],
-    LLMObsInteractionType: ["trace", "experiment_trace", "session"],
     LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
     LLMObsMetricAssessment: ["pass", "fail"],
     LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
     LLMObsProjectType: ["projects"],
     LLMObsRecordType: ["records"],
+    LLMObsTraceInteractionType: ["trace", "experiment_trace", "session"],
   },
   oneOfMap: {
     AnyValue: [
@@ -157,13 +174,24 @@ export const TypingInfo: ModelTypingInfo = {
       "boolean",
     ],
     AnyValueItem: ["string", "number", "{ [key: string]: any; }", "boolean"],
+    LLMObsAnnotatedInteractionItem: [
+      "LLMObsTraceAnnotatedInteractionItem",
+      "LLMObsDisplayBlockAnnotatedInteractionItem",
+    ],
+    LLMObsAnnotationQueueInteractionItem: [
+      "LLMObsTraceInteractionItem",
+      "LLMObsDisplayBlockInteractionItem",
+    ],
+    LLMObsAnnotationQueueInteractionResponseItem: [
+      "LLMObsTraceInteractionResponseItem",
+      "LLMObsDisplayBlockInteractionResponseItem",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
-    LLMObsAnnotatedInteractionItem: LLMObsAnnotatedInteractionItem,
     LLMObsAnnotatedInteractionsDataAttributesResponse:
       LLMObsAnnotatedInteractionsDataAttributesResponse,
     LLMObsAnnotatedInteractionsDataResponse:
@@ -176,9 +204,6 @@ export const TypingInfo: ModelTypingInfo = {
       LLMObsAnnotationQueueDataAttributesResponse,
     LLMObsAnnotationQueueDataRequest: LLMObsAnnotationQueueDataRequest,
     LLMObsAnnotationQueueDataResponse: LLMObsAnnotationQueueDataResponse,
-    LLMObsAnnotationQueueInteractionItem: LLMObsAnnotationQueueInteractionItem,
-    LLMObsAnnotationQueueInteractionResponseItem:
-      LLMObsAnnotationQueueInteractionResponseItem,
     LLMObsAnnotationQueueInteractionsDataAttributesRequest:
       LLMObsAnnotationQueueInteractionsDataAttributesRequest,
     LLMObsAnnotationQueueInteractionsDataAttributesResponse:
@@ -211,6 +236,8 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
     LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
     LLMObsAnnotationSchema: LLMObsAnnotationSchema,
+    LLMObsContentBlock: LLMObsContentBlock,
+    LLMObsContentBlockTimeFrame: LLMObsContentBlockTimeFrame,
     LLMObsCursorMeta: LLMObsCursorMeta,
     LLMObsCustomEvalConfigAssessmentCriteria:
       LLMObsCustomEvalConfigAssessmentCriteria,
@@ -286,6 +313,11 @@ export const TypingInfo: ModelTypingInfo = {
       LLMObsDeleteProjectsDataAttributesRequest,
     LLMObsDeleteProjectsDataRequest: LLMObsDeleteProjectsDataRequest,
     LLMObsDeleteProjectsRequest: LLMObsDeleteProjectsRequest,
+    LLMObsDisplayBlockAnnotatedInteractionItem:
+      LLMObsDisplayBlockAnnotatedInteractionItem,
+    LLMObsDisplayBlockInteractionItem: LLMObsDisplayBlockInteractionItem,
+    LLMObsDisplayBlockInteractionResponseItem:
+      LLMObsDisplayBlockInteractionResponseItem,
     LLMObsExperimentDataAttributesRequest:
       LLMObsExperimentDataAttributesRequest,
     LLMObsExperimentDataAttributesResponse:
@@ -320,5 +352,8 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsProjectUpdateDataRequest: LLMObsProjectUpdateDataRequest,
     LLMObsProjectUpdateRequest: LLMObsProjectUpdateRequest,
     LLMObsProjectsResponse: LLMObsProjectsResponse,
+    LLMObsTraceAnnotatedInteractionItem: LLMObsTraceAnnotatedInteractionItem,
+    LLMObsTraceInteractionItem: LLMObsTraceInteractionItem,
+    LLMObsTraceInteractionResponseItem: LLMObsTraceInteractionResponseItem,
   },
 };
