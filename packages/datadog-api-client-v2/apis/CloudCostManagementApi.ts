@@ -33,6 +33,16 @@ import { BudgetArray } from "../models/BudgetArray";
 import { BudgetValidationRequest } from "../models/BudgetValidationRequest";
 import { BudgetValidationResponse } from "../models/BudgetValidationResponse";
 import { BudgetWithEntries } from "../models/BudgetWithEntries";
+import { CommitmentsCommitmentType } from "../models/CommitmentsCommitmentType";
+import { CommitmentsCoverageScalarResponse } from "../models/CommitmentsCoverageScalarResponse";
+import { CommitmentsCoverageTimeseriesResponse } from "../models/CommitmentsCoverageTimeseriesResponse";
+import { CommitmentsListResponse } from "../models/CommitmentsListResponse";
+import { CommitmentsOnDemandHotspotsScalarResponse } from "../models/CommitmentsOnDemandHotspotsScalarResponse";
+import { CommitmentsProvider } from "../models/CommitmentsProvider";
+import { CommitmentsSavingsScalarResponse } from "../models/CommitmentsSavingsScalarResponse";
+import { CommitmentsSavingsTimeseriesResponse } from "../models/CommitmentsSavingsTimeseriesResponse";
+import { CommitmentsUtilizationScalarResponse } from "../models/CommitmentsUtilizationScalarResponse";
+import { CommitmentsUtilizationTimeseriesResponse } from "../models/CommitmentsUtilizationTimeseriesResponse";
 import { CostAnomaliesResponse } from "../models/CostAnomaliesResponse";
 import { CostAnomalyResponse } from "../models/CostAnomalyResponse";
 import { CostTagDescriptionsResponse } from "../models/CostTagDescriptionsResponse";
@@ -49,6 +59,7 @@ import { GCPUsageCostConfigPatchRequest } from "../models/GCPUsageCostConfigPatc
 import { GCPUsageCostConfigPostRequest } from "../models/GCPUsageCostConfigPostRequest";
 import { GCPUsageCostConfigResponse } from "../models/GCPUsageCostConfigResponse";
 import { GCPUsageCostConfigsResponse } from "../models/GCPUsageCostConfigsResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { OCIConfigsResponse } from "../models/OCIConfigsResponse";
 import { ReorderRuleResourceArray } from "../models/ReorderRuleResourceArray";
 import { ReorderRulesetResourceArray } from "../models/ReorderRulesetResourceArray";
@@ -540,6 +551,813 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsCommitmentList(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    commitmentType?: CommitmentsCommitmentType,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getCommitmentsCommitmentList'");
+    if (!_config.unstableOperations["v2.getCommitmentsCommitmentList"]) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsCommitmentList' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError("provider", "getCommitmentsCommitmentList");
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError("product", "getCommitmentsCommitmentList");
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsCommitmentList");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsCommitmentList");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/commitment-list";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCommitmentsCommitmentList")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+    if (commitmentType !== undefined) {
+      requestContext.setQueryParam(
+        "commitmentType",
+        ObjectSerializer.serialize(
+          commitmentType,
+          "CommitmentsCommitmentType",
+          ""
+        ),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsCoverageScalar(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getCommitmentsCoverageScalar'");
+    if (!_config.unstableOperations["v2.getCommitmentsCoverageScalar"]) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsCoverageScalar' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError("provider", "getCommitmentsCoverageScalar");
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError("product", "getCommitmentsCoverageScalar");
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsCoverageScalar");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsCoverageScalar");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/coverage/scalar";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCommitmentsCoverageScalar")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsCoverageTimeseries(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getCommitmentsCoverageTimeseries'");
+    if (!_config.unstableOperations["v2.getCommitmentsCoverageTimeseries"]) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsCoverageTimeseries' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError("provider", "getCommitmentsCoverageTimeseries");
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError("product", "getCommitmentsCoverageTimeseries");
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsCoverageTimeseries");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsCoverageTimeseries");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/coverage/timeseries";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCommitmentsCoverageTimeseries")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsOnDemandHotspotsScalar(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getCommitmentsOnDemandHotspotsScalar'"
+    );
+    if (
+      !_config.unstableOperations["v2.getCommitmentsOnDemandHotspotsScalar"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsOnDemandHotspotsScalar' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError(
+        "provider",
+        "getCommitmentsOnDemandHotspotsScalar"
+      );
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError(
+        "product",
+        "getCommitmentsOnDemandHotspotsScalar"
+      );
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsOnDemandHotspotsScalar");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsOnDemandHotspotsScalar");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/on-demand-hot-spots/scalar";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.CloudCostManagementApi.getCommitmentsOnDemandHotspotsScalar"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsSavingsScalar(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getCommitmentsSavingsScalar'");
+    if (!_config.unstableOperations["v2.getCommitmentsSavingsScalar"]) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsSavingsScalar' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError("provider", "getCommitmentsSavingsScalar");
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError("product", "getCommitmentsSavingsScalar");
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsSavingsScalar");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsSavingsScalar");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/savings/scalar";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCommitmentsSavingsScalar")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsSavingsTimeseries(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getCommitmentsSavingsTimeseries'");
+    if (!_config.unstableOperations["v2.getCommitmentsSavingsTimeseries"]) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsSavingsTimeseries' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError("provider", "getCommitmentsSavingsTimeseries");
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError("product", "getCommitmentsSavingsTimeseries");
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsSavingsTimeseries");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsSavingsTimeseries");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/savings/timeseries";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCommitmentsSavingsTimeseries")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsUtilizationScalar(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    commitmentType?: CommitmentsCommitmentType,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getCommitmentsUtilizationScalar'");
+    if (!_config.unstableOperations["v2.getCommitmentsUtilizationScalar"]) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsUtilizationScalar' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError("provider", "getCommitmentsUtilizationScalar");
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError("product", "getCommitmentsUtilizationScalar");
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsUtilizationScalar");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsUtilizationScalar");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/utilization/scalar";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCommitmentsUtilizationScalar")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+    if (commitmentType !== undefined) {
+      requestContext.setQueryParam(
+        "commitmentType",
+        ObjectSerializer.serialize(
+          commitmentType,
+          "CommitmentsCommitmentType",
+          ""
+        ),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCommitmentsUtilizationTimeseries(
+    provider: CommitmentsProvider,
+    product: string,
+    start: number,
+    end: number,
+    filterBy?: string,
+    commitmentType?: CommitmentsCommitmentType,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getCommitmentsUtilizationTimeseries'"
+    );
+    if (!_config.unstableOperations["v2.getCommitmentsUtilizationTimeseries"]) {
+      throw new Error(
+        "Unstable operation 'getCommitmentsUtilizationTimeseries' is disabled"
+      );
+    }
+
+    // verify required parameter 'provider' is not null or undefined
+    if (provider === null || provider === undefined) {
+      throw new RequiredError(
+        "provider",
+        "getCommitmentsUtilizationTimeseries"
+      );
+    }
+
+    // verify required parameter 'product' is not null or undefined
+    if (product === null || product === undefined) {
+      throw new RequiredError("product", "getCommitmentsUtilizationTimeseries");
+    }
+
+    // verify required parameter 'start' is not null or undefined
+    if (start === null || start === undefined) {
+      throw new RequiredError("start", "getCommitmentsUtilizationTimeseries");
+    }
+
+    // verify required parameter 'end' is not null or undefined
+    if (end === null || end === undefined) {
+      throw new RequiredError("end", "getCommitmentsUtilizationTimeseries");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/commitments/utilization/timeseries";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.CloudCostManagementApi.getCommitmentsUtilizationTimeseries"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (provider !== undefined) {
+      requestContext.setQueryParam(
+        "provider",
+        ObjectSerializer.serialize(provider, "CommitmentsProvider", ""),
+        ""
+      );
+    }
+    if (product !== undefined) {
+      requestContext.setQueryParam(
+        "product",
+        ObjectSerializer.serialize(product, "string", ""),
+        ""
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
+      );
+    }
+    if (filterBy !== undefined) {
+      requestContext.setQueryParam(
+        "filterBy",
+        ObjectSerializer.serialize(filterBy, "string", ""),
+        ""
+      );
+    }
+    if (commitmentType !== undefined) {
+      requestContext.setQueryParam(
+        "commitmentType",
+        ObjectSerializer.serialize(
+          commitmentType,
+          "CommitmentsCommitmentType",
+          ""
+        ),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2638,6 +3456,668 @@ export class CloudCostManagementApiResponseProcessor {
         "BudgetWithEntries",
         ""
       ) as BudgetWithEntries;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsCommitmentList
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsCommitmentList(
+    response: ResponseContext
+  ): Promise<CommitmentsListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CommitmentsListResponse"
+      ) as CommitmentsListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CommitmentsListResponse",
+        ""
+      ) as CommitmentsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsCoverageScalar
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsCoverageScalar(
+    response: ResponseContext
+  ): Promise<CommitmentsCoverageScalarResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsCoverageScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsCoverageScalarResponse"
+        ) as CommitmentsCoverageScalarResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsCoverageScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsCoverageScalarResponse",
+          ""
+        ) as CommitmentsCoverageScalarResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsCoverageTimeseries
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsCoverageTimeseries(
+    response: ResponseContext
+  ): Promise<CommitmentsCoverageTimeseriesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsCoverageTimeseriesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsCoverageTimeseriesResponse"
+        ) as CommitmentsCoverageTimeseriesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsCoverageTimeseriesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsCoverageTimeseriesResponse",
+          ""
+        ) as CommitmentsCoverageTimeseriesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsOnDemandHotspotsScalar
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsOnDemandHotspotsScalar(
+    response: ResponseContext
+  ): Promise<CommitmentsOnDemandHotspotsScalarResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsOnDemandHotspotsScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsOnDemandHotspotsScalarResponse"
+        ) as CommitmentsOnDemandHotspotsScalarResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsOnDemandHotspotsScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsOnDemandHotspotsScalarResponse",
+          ""
+        ) as CommitmentsOnDemandHotspotsScalarResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsSavingsScalar
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsSavingsScalar(
+    response: ResponseContext
+  ): Promise<CommitmentsSavingsScalarResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsSavingsScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsSavingsScalarResponse"
+        ) as CommitmentsSavingsScalarResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsSavingsScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsSavingsScalarResponse",
+          ""
+        ) as CommitmentsSavingsScalarResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsSavingsTimeseries
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsSavingsTimeseries(
+    response: ResponseContext
+  ): Promise<CommitmentsSavingsTimeseriesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsSavingsTimeseriesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsSavingsTimeseriesResponse"
+        ) as CommitmentsSavingsTimeseriesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsSavingsTimeseriesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsSavingsTimeseriesResponse",
+          ""
+        ) as CommitmentsSavingsTimeseriesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsUtilizationScalar
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsUtilizationScalar(
+    response: ResponseContext
+  ): Promise<CommitmentsUtilizationScalarResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsUtilizationScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsUtilizationScalarResponse"
+        ) as CommitmentsUtilizationScalarResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsUtilizationScalarResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsUtilizationScalarResponse",
+          ""
+        ) as CommitmentsUtilizationScalarResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCommitmentsUtilizationTimeseries
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCommitmentsUtilizationTimeseries(
+    response: ResponseContext
+  ): Promise<CommitmentsUtilizationTimeseriesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CommitmentsUtilizationTimeseriesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsUtilizationTimeseriesResponse"
+        ) as CommitmentsUtilizationTimeseriesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CommitmentsUtilizationTimeseriesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CommitmentsUtilizationTimeseriesResponse",
+          ""
+        ) as CommitmentsUtilizationTimeseriesResponse;
       return body;
     }
 
@@ -4754,6 +6234,245 @@ export interface CloudCostManagementApiGetBudgetRequest {
   budgetId: string;
 }
 
+export interface CloudCostManagementApiGetCommitmentsCommitmentListRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+  /**
+   * Type of commitment to query. ri for Reserved Instances, sp for Savings Plans. Defaults to ri.
+   * @type CommitmentsCommitmentType
+   */
+  commitmentType?: CommitmentsCommitmentType;
+}
+
+export interface CloudCostManagementApiGetCommitmentsCoverageScalarRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+}
+
+export interface CloudCostManagementApiGetCommitmentsCoverageTimeseriesRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+}
+
+export interface CloudCostManagementApiGetCommitmentsOnDemandHotspotsScalarRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+}
+
+export interface CloudCostManagementApiGetCommitmentsSavingsScalarRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+}
+
+export interface CloudCostManagementApiGetCommitmentsSavingsTimeseriesRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+}
+
+export interface CloudCostManagementApiGetCommitmentsUtilizationScalarRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+  /**
+   * Type of commitment to query. ri for Reserved Instances, sp for Savings Plans. Defaults to ri.
+   * @type CommitmentsCommitmentType
+   */
+  commitmentType?: CommitmentsCommitmentType;
+}
+
+export interface CloudCostManagementApiGetCommitmentsUtilizationTimeseriesRequest {
+  /**
+   * Cloud provider for commitment programs (aws or azure).
+   * @type CommitmentsProvider
+   */
+  provider: CommitmentsProvider;
+  /**
+   * Cloud product identifier (for example, ec2, rds, virtualmachines).
+   * @type string
+   */
+  product: string;
+  /**
+   * Start of the query time range in Unix milliseconds.
+   * @type number
+   */
+  start: number;
+  /**
+   * End of the query time range in Unix milliseconds.
+   * @type number
+   */
+  end: number;
+  /**
+   * Optional filter expression to narrow down results.
+   * @type string
+   */
+  filterBy?: string;
+  /**
+   * Type of commitment to query. ri for Reserved Instances, sp for Savings Plans. Defaults to ri.
+   * @type CommitmentsCommitmentType
+   */
+  commitmentType?: CommitmentsCommitmentType;
+}
+
 export interface CloudCostManagementApiGetCostAnomalyRequest {
   /**
    * The UUID of the cost anomaly.
@@ -5379,6 +7098,233 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getBudget(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a list of individual cloud commitments (Reserved Instances or Savings Plans) with their utilization details. The response schema varies based on the provider, product, and commitment type.
+   * @param param The request object
+   */
+  public getCommitmentsCommitmentList(
+    param: CloudCostManagementApiGetCommitmentsCommitmentListRequest,
+    options?: Configuration
+  ): Promise<CommitmentsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsCommitmentList(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        param.commitmentType,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsCommitmentList(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get scalar coverage metrics for cloud commitment programs, including hours and cost coverage percentages.
+   * @param param The request object
+   */
+  public getCommitmentsCoverageScalar(
+    param: CloudCostManagementApiGetCommitmentsCoverageScalarRequest,
+    options?: Configuration
+  ): Promise<CommitmentsCoverageScalarResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsCoverageScalar(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsCoverageScalar(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type (Reserved Instances, Savings Plans, On-Demand, and Spot) for both hours and cost.
+   * @param param The request object
+   */
+  public getCommitmentsCoverageTimeseries(
+    param: CloudCostManagementApiGetCommitmentsCoverageTimeseriesRequest,
+    options?: Configuration
+  ): Promise<CommitmentsCoverageTimeseriesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsCoverageTimeseries(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsCoverageTimeseries(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get scalar on-demand hot-spots data for cloud commitment programs, showing per-dimension breakdowns of on-demand spending with coverage metrics and potential savings.
+   * @param param The request object
+   */
+  public getCommitmentsOnDemandHotspotsScalar(
+    param: CloudCostManagementApiGetCommitmentsOnDemandHotspotsScalarRequest,
+    options?: Configuration
+  ): Promise<CommitmentsOnDemandHotspotsScalarResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsOnDemandHotspotsScalar(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsOnDemandHotspotsScalar(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get scalar savings metrics for cloud commitment programs, including realized savings and effective savings rate.
+   * @param param The request object
+   */
+  public getCommitmentsSavingsScalar(
+    param: CloudCostManagementApiGetCommitmentsSavingsScalarRequest,
+    options?: Configuration
+  ): Promise<CommitmentsSavingsScalarResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsSavingsScalar(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsSavingsScalar(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get timeseries savings metrics for cloud commitment programs, including actual cost, on-demand equivalent cost, realized savings, and effective savings rate over time.
+   * @param param The request object
+   */
+  public getCommitmentsSavingsTimeseries(
+    param: CloudCostManagementApiGetCommitmentsSavingsTimeseriesRequest,
+    options?: Configuration
+  ): Promise<CommitmentsSavingsTimeseriesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsSavingsTimeseries(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsSavingsTimeseries(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get scalar utilization metrics for cloud commitment programs, including utilization percentage and unused cost.
+   * @param param The request object
+   */
+  public getCommitmentsUtilizationScalar(
+    param: CloudCostManagementApiGetCommitmentsUtilizationScalarRequest,
+    options?: Configuration
+  ): Promise<CommitmentsUtilizationScalarResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsUtilizationScalar(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        param.commitmentType,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsUtilizationScalar(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get timeseries utilization metrics for cloud commitment programs, including used and unused cost series over time.
+   * @param param The request object
+   */
+  public getCommitmentsUtilizationTimeseries(
+    param: CloudCostManagementApiGetCommitmentsUtilizationTimeseriesRequest,
+    options?: Configuration
+  ): Promise<CommitmentsUtilizationTimeseriesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCommitmentsUtilizationTimeseries(
+        param.provider,
+        param.product,
+        param.start,
+        param.end,
+        param.filterBy,
+        param.commitmentType,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCommitmentsUtilizationTimeseries(
+            responseContext
+          );
         });
     });
   }
