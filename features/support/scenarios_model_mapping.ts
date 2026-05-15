@@ -3794,6 +3794,102 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UnpublishAppResponse",
     },
+    "v2.UpdateAppFavorite": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateAppFavoriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateProtectionLevel": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateAppProtectionLevelRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateAppResponse",
+    },
+    "v2.CreatePublishRequest": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CreatePublishRequestRequest",
+            "format": "",
+            },
+        "operationResponseType": "PublishAppResponse",
+    },
+    "v2.RevertApp": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UpdateAppResponse",
+    },
+    "v2.UpdateAppSelfService": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateAppSelfServiceRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAppTags": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateAppTagsRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAppVersionName": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateAppVersionNameRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListAppVersions": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListAppVersionsResponse",
+    },
     "v2.ListAuditLogs": {
         "filterQuery": {
             "type": "string",

@@ -20,16 +20,23 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AppsSortField } from "../models/AppsSortField";
 import { CreateAppRequest } from "../models/CreateAppRequest";
 import { CreateAppResponse } from "../models/CreateAppResponse";
+import { CreatePublishRequestRequest } from "../models/CreatePublishRequestRequest";
 import { DeleteAppResponse } from "../models/DeleteAppResponse";
 import { DeleteAppsRequest } from "../models/DeleteAppsRequest";
 import { DeleteAppsResponse } from "../models/DeleteAppsResponse";
 import { GetAppResponse } from "../models/GetAppResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAppsResponse } from "../models/ListAppsResponse";
+import { ListAppVersionsResponse } from "../models/ListAppVersionsResponse";
 import { PublishAppResponse } from "../models/PublishAppResponse";
 import { UnpublishAppResponse } from "../models/UnpublishAppResponse";
+import { UpdateAppFavoriteRequest } from "../models/UpdateAppFavoriteRequest";
+import { UpdateAppProtectionLevelRequest } from "../models/UpdateAppProtectionLevelRequest";
 import { UpdateAppRequest } from "../models/UpdateAppRequest";
 import { UpdateAppResponse } from "../models/UpdateAppResponse";
+import { UpdateAppSelfServiceRequest } from "../models/UpdateAppSelfServiceRequest";
+import { UpdateAppTagsRequest } from "../models/UpdateAppTagsRequest";
+import { UpdateAppVersionNameRequest } from "../models/UpdateAppVersionNameRequest";
 
 export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
   public async createApp(
@@ -60,6 +67,57 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateAppRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createPublishRequest(
+    appId: string,
+    body: CreatePublishRequestRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "createPublishRequest");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPublishRequest");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/app-builder/apps/{app_id}/publish-request".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.createPublishRequest")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreatePublishRequestRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -304,6 +362,57 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listAppVersions(
+    appId: string,
+    limit?: number,
+    page?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "listAppVersions");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/versions".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.listAppVersions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+    if (page !== undefined) {
+      requestContext.setQueryParam(
+        "page",
+        ObjectSerializer.serialize(page, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async publishApp(
     appId: string,
     _options?: Configuration
@@ -327,6 +436,54 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async revertApp(
+    appId: string,
+    version: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "revertApp");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "revertApp");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/revert".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.revertApp")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (version !== undefined) {
+      requestContext.setQueryParam(
+        "version",
+        ObjectSerializer.serialize(version, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -419,6 +576,274 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateAppFavorite(
+    appId: string,
+    body: UpdateAppFavoriteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "updateAppFavorite");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAppFavorite");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/favorite".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.updateAppFavorite")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateAppFavoriteRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateAppSelfService(
+    appId: string,
+    body: UpdateAppSelfServiceRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "updateAppSelfService");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAppSelfService");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/app-builder/apps/{app_id}/self-service".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.updateAppSelfService")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateAppSelfServiceRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateAppTags(
+    appId: string,
+    body: UpdateAppTagsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "updateAppTags");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAppTags");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/tags".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.updateAppTags")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateAppTagsRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateAppVersionName(
+    appId: string,
+    version: string,
+    body: UpdateAppVersionNameRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "updateAppVersionName");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "updateAppVersionName");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAppVersionName");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/app-builder/apps/{app_id}/version-name".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.updateAppVersionName")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (version !== undefined) {
+      requestContext.setQueryParam(
+        "version",
+        ObjectSerializer.serialize(version, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateAppVersionNameRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateProtectionLevel(
+    appId: string,
+    body: UpdateAppProtectionLevelRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "updateProtectionLevel");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateProtectionLevel");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/app-builder/apps/{app_id}/protection-level".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.updateProtectionLevel")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateAppProtectionLevelRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class AppBuilderApiResponseProcessor {
@@ -493,6 +918,91 @@ export class AppBuilderApiResponseProcessor {
         "CreateAppResponse",
         ""
       ) as CreateAppResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createPublishRequest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPublishRequest(
+    response: ResponseContext
+  ): Promise<PublishAppResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: PublishAppResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "PublishAppResponse"
+      ) as PublishAppResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PublishAppResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "PublishAppResponse",
+        ""
+      ) as PublishAppResponse;
       return body;
     }
 
@@ -841,6 +1351,91 @@ export class AppBuilderApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAppVersions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAppVersions(
+    response: ResponseContext
+  ): Promise<ListAppVersionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListAppVersionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListAppVersionsResponse"
+      ) as ListAppVersionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListAppVersionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListAppVersionsResponse",
+        ""
+      ) as ListAppVersionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to publishApp
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -912,6 +1507,91 @@ export class AppBuilderApiResponseProcessor {
         "PublishAppResponse",
         ""
       ) as PublishAppResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to revertApp
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async revertApp(
+    response: ResponseContext
+  ): Promise<UpdateAppResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UpdateAppResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateAppResponse"
+      ) as UpdateAppResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UpdateAppResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateAppResponse",
+        ""
+      ) as UpdateAppResponse;
       return body;
     }
 
@@ -1087,6 +1767,387 @@ export class AppBuilderApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateAppFavorite
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAppFavorite(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateAppSelfService
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAppSelfService(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateAppTags
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAppTags(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateAppVersionName
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAppVersionName(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateProtectionLevel
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateProtectionLevel(
+    response: ResponseContext
+  ): Promise<UpdateAppResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UpdateAppResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateAppResponse"
+      ) as UpdateAppResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UpdateAppResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateAppResponse",
+        ""
+      ) as UpdateAppResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface AppBuilderApiCreateAppRequest {
@@ -1094,6 +2155,18 @@ export interface AppBuilderApiCreateAppRequest {
    * @type CreateAppRequest
    */
   body: CreateAppRequest;
+}
+
+export interface AppBuilderApiCreatePublishRequestRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * @type CreatePublishRequestRequest
+   */
+  body: CreatePublishRequestRequest;
 }
 
 export interface AppBuilderApiDeleteAppRequest {
@@ -1182,12 +2255,43 @@ export interface AppBuilderApiListAppsRequest {
   sort?: Array<AppsSortField>;
 }
 
+export interface AppBuilderApiListAppVersionsRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * The number of versions to return per page.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  page?: number;
+}
+
 export interface AppBuilderApiPublishAppRequest {
   /**
    * The ID of the app to publish.
    * @type string
    */
   appId: string;
+}
+
+export interface AppBuilderApiRevertAppRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * The version number of the app to revert to. Cannot be `latest`. The special value `deployed` can be used to revert to the currently published version.
+   * @type string
+   */
+  version: string;
 }
 
 export interface AppBuilderApiUnpublishAppRequest {
@@ -1208,6 +2312,71 @@ export interface AppBuilderApiUpdateAppRequest {
    * @type UpdateAppRequest
    */
   body: UpdateAppRequest;
+}
+
+export interface AppBuilderApiUpdateAppFavoriteRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * @type UpdateAppFavoriteRequest
+   */
+  body: UpdateAppFavoriteRequest;
+}
+
+export interface AppBuilderApiUpdateAppSelfServiceRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * @type UpdateAppSelfServiceRequest
+   */
+  body: UpdateAppSelfServiceRequest;
+}
+
+export interface AppBuilderApiUpdateAppTagsRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * @type UpdateAppTagsRequest
+   */
+  body: UpdateAppTagsRequest;
+}
+
+export interface AppBuilderApiUpdateAppVersionNameRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * The version number of the app to name. The special values `latest` and `deployed` can also be used to target the latest or currently published version.
+   * @type string
+   */
+  version: string;
+  /**
+   * @type UpdateAppVersionNameRequest
+   */
+  body: UpdateAppVersionNameRequest;
+}
+
+export interface AppBuilderApiUpdateProtectionLevelRequest {
+  /**
+   * The ID of the app.
+   * @type string
+   */
+  appId: string;
+  /**
+   * @type UpdateAppProtectionLevelRequest
+   */
+  body: UpdateAppProtectionLevelRequest;
 }
 
 export class AppBuilderApi {
@@ -1244,6 +2413,28 @@ export class AppBuilderApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createApp(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a publish request to ask for approval to publish an app whose protection level is `approval_required`. Publishing happens automatically once the request is approved by a user with the appropriate permissions.
+   * @param param The request object
+   */
+  public createPublishRequest(
+    param: AppBuilderApiCreatePublishRequestRequest,
+    options?: Configuration
+  ): Promise<PublishAppResponse> {
+    const requestContextPromise = this.requestFactory.createPublishRequest(
+      param.appId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPublishRequest(responseContext);
         });
     });
   }
@@ -1344,6 +2535,29 @@ export class AppBuilderApi {
   }
 
   /**
+   * List the versions of an app. This endpoint is paginated.
+   * @param param The request object
+   */
+  public listAppVersions(
+    param: AppBuilderApiListAppVersionsRequest,
+    options?: Configuration
+  ): Promise<ListAppVersionsResponse> {
+    const requestContextPromise = this.requestFactory.listAppVersions(
+      param.appId,
+      param.limit,
+      param.page,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAppVersions(responseContext);
+        });
+    });
+  }
+
+  /**
    * Publish an app for use by other users. To ensure the app is accessible to the correct users, you also need to set a [Restriction Policy](https://docs.datadoghq.com/api/latest/restriction-policies/) on the app if a policy does not yet exist. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
    * @param param The request object
    */
@@ -1360,6 +2574,28 @@ export class AppBuilderApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.publishApp(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Revert an app to a previous version. The version to revert to is selected through the `version` query parameter. The reverted version becomes the new latest version of the app.
+   * @param param The request object
+   */
+  public revertApp(
+    param: AppBuilderApiRevertAppRequest,
+    options?: Configuration
+  ): Promise<UpdateAppResponse> {
+    const requestContextPromise = this.requestFactory.revertApp(
+      param.appId,
+      param.version,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.revertApp(responseContext);
         });
     });
   }
@@ -1403,6 +2639,117 @@ export class AppBuilderApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateApp(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Add or remove an app from the current user's favorites. Favorited apps can be filtered for using the `filter[favorite]` query parameter on the [List Apps](https://docs.datadoghq.com/api/latest/app-builder/#list-apps) endpoint.
+   * @param param The request object
+   */
+  public updateAppFavorite(
+    param: AppBuilderApiUpdateAppFavoriteRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.updateAppFavorite(
+      param.appId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAppFavorite(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Enable or disable self-service for an app. Self-service apps can be discovered and run by users in your organization without explicit access being granted.
+   * @param param The request object
+   */
+  public updateAppSelfService(
+    param: AppBuilderApiUpdateAppSelfServiceRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.updateAppSelfService(
+      param.appId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAppSelfService(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Replace the tags on an app. The provided list overwrites the existing tags entirely; tags not present in the request body are removed.
+   * @param param The request object
+   */
+  public updateAppTags(
+    param: AppBuilderApiUpdateAppTagsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.updateAppTags(
+      param.appId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAppTags(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Assign a human-readable name to a specific version of an app. The version is selected through the `version` query parameter.
+   * @param param The request object
+   */
+  public updateAppVersionName(
+    param: AppBuilderApiUpdateAppVersionNameRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.updateAppVersionName(
+      param.appId,
+      param.version,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAppVersionName(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the publication protection level of an app. When set to `approval_required`, future publishes must go through an approval workflow before going live.
+   * @param param The request object
+   */
+  public updateProtectionLevel(
+    param: AppBuilderApiUpdateProtectionLevelRequest,
+    options?: Configuration
+  ): Promise<UpdateAppResponse> {
+    const requestContextPromise = this.requestFactory.updateProtectionLevel(
+      param.appId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateProtectionLevel(responseContext);
         });
     });
   }

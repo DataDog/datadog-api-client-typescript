@@ -134,6 +134,8 @@ import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { AppMeta } from "./AppMeta";
 import { AppRelationship } from "./AppRelationship";
 import { AppTriggerWrapper } from "./AppTriggerWrapper";
+import { AppVersion } from "./AppVersion";
+import { AppVersionAttributes } from "./AppVersionAttributes";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -800,6 +802,9 @@ import { CreatePageRequestDataAttributesTarget } from "./CreatePageRequestDataAt
 import { CreatePageResponse } from "./CreatePageResponse";
 import { CreatePageResponseData } from "./CreatePageResponseData";
 import { CreatePhoneNotificationChannelConfig } from "./CreatePhoneNotificationChannelConfig";
+import { CreatePublishRequestRequest } from "./CreatePublishRequestRequest";
+import { CreatePublishRequestRequestData } from "./CreatePublishRequestRequestData";
+import { CreatePublishRequestRequestDataAttributes } from "./CreatePublishRequestRequestDataAttributes";
 import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
@@ -1969,6 +1974,7 @@ import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination
 import { ListAllocationsResponse } from "./ListAllocationsResponse";
 import { ListAppKeyRegistrationsResponse } from "./ListAppKeyRegistrationsResponse";
 import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
+import { ListAppVersionsResponse } from "./ListAppVersionsResponse";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
 import { ListAppsResponse } from "./ListAppsResponse";
 import { ListAppsResponseDataItems } from "./ListAppsResponseDataItems";
@@ -3878,12 +3884,27 @@ import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
 import { UpdateActionConnectionResponse } from "./UpdateActionConnectionResponse";
+import { UpdateAppFavoriteRequest } from "./UpdateAppFavoriteRequest";
+import { UpdateAppFavoriteRequestData } from "./UpdateAppFavoriteRequestData";
+import { UpdateAppFavoriteRequestDataAttributes } from "./UpdateAppFavoriteRequestDataAttributes";
+import { UpdateAppProtectionLevelRequest } from "./UpdateAppProtectionLevelRequest";
+import { UpdateAppProtectionLevelRequestData } from "./UpdateAppProtectionLevelRequestData";
+import { UpdateAppProtectionLevelRequestDataAttributes } from "./UpdateAppProtectionLevelRequestDataAttributes";
 import { UpdateAppRequest } from "./UpdateAppRequest";
 import { UpdateAppRequestData } from "./UpdateAppRequestData";
 import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes";
 import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
+import { UpdateAppSelfServiceRequest } from "./UpdateAppSelfServiceRequest";
+import { UpdateAppSelfServiceRequestData } from "./UpdateAppSelfServiceRequestData";
+import { UpdateAppSelfServiceRequestDataAttributes } from "./UpdateAppSelfServiceRequestDataAttributes";
+import { UpdateAppTagsRequest } from "./UpdateAppTagsRequest";
+import { UpdateAppTagsRequestData } from "./UpdateAppTagsRequestData";
+import { UpdateAppTagsRequestDataAttributes } from "./UpdateAppTagsRequestDataAttributes";
+import { UpdateAppVersionNameRequest } from "./UpdateAppVersionNameRequest";
+import { UpdateAppVersionNameRequestData } from "./UpdateAppVersionNameRequestData";
+import { UpdateAppVersionNameRequestDataAttributes } from "./UpdateAppVersionNameRequestDataAttributes";
 import { UpdateAppsDatastoreItemRequest } from "./UpdateAppsDatastoreItemRequest";
 import { UpdateAppsDatastoreItemRequestData } from "./UpdateAppsDatastoreItemRequestData";
 import { UpdateAppsDatastoreItemRequestDataAttributes } from "./UpdateAppsDatastoreItemRequestDataAttributes";
@@ -4234,7 +4255,14 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   AppDefinitionType: ["appDefinitions"],
   AppDeploymentType: ["deployment"],
+  AppFavoriteType: ["favorites"],
   AppKeyRegistrationDataType: ["app_key_registration"],
+  AppProtectionLevel: ["direct_publish", "approval_required"],
+  AppProtectionLevelType: ["protectionLevel"],
+  AppSelfServiceType: ["selfService"],
+  AppTagsType: ["tags"],
+  AppVersionNameType: ["versionNames"],
+  AppVersionType: ["appVersions"],
   ApplicationKeysSort: [
     "created_at",
     "-created_at",
@@ -5567,6 +5595,7 @@ const enumsMap: { [key: string]: any[] } = {
   ProductAnalyticsTimeseriesResponseType: ["timeseries_response"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
+  PublishRequestType: ["publishRequest"],
   QueryAccountRequestDataType: ["query_account_request"],
   QueryEventFilteredUsersRequestDataType: [
     "query_event_filtered_users_request",
@@ -6630,6 +6659,8 @@ const typeMap: { [index: string]: any } = {
   AppMeta: AppMeta,
   AppRelationship: AppRelationship,
   AppTriggerWrapper: AppTriggerWrapper,
+  AppVersion: AppVersion,
+  AppVersionAttributes: AppVersionAttributes,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
@@ -7435,6 +7466,10 @@ const typeMap: { [index: string]: any } = {
   CreatePageResponse: CreatePageResponse,
   CreatePageResponseData: CreatePageResponseData,
   CreatePhoneNotificationChannelConfig: CreatePhoneNotificationChannelConfig,
+  CreatePublishRequestRequest: CreatePublishRequestRequest,
+  CreatePublishRequestRequestData: CreatePublishRequestRequestData,
+  CreatePublishRequestRequestDataAttributes:
+    CreatePublishRequestRequestDataAttributes,
   CreateRuleRequest: CreateRuleRequest,
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
@@ -8804,6 +8839,7 @@ const typeMap: { [index: string]: any } = {
   ListAllocationsResponse: ListAllocationsResponse,
   ListAppKeyRegistrationsResponse: ListAppKeyRegistrationsResponse,
   ListAppKeyRegistrationsResponseMeta: ListAppKeyRegistrationsResponseMeta,
+  ListAppVersionsResponse: ListAppVersionsResponse,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
   ListAppsResponse: ListAppsResponse,
   ListAppsResponseDataItems: ListAppsResponseDataItems,
@@ -11177,12 +11213,31 @@ const typeMap: { [index: string]: any } = {
   UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,
   UpdateActionConnectionResponse: UpdateActionConnectionResponse,
+  UpdateAppFavoriteRequest: UpdateAppFavoriteRequest,
+  UpdateAppFavoriteRequestData: UpdateAppFavoriteRequestData,
+  UpdateAppFavoriteRequestDataAttributes:
+    UpdateAppFavoriteRequestDataAttributes,
+  UpdateAppProtectionLevelRequest: UpdateAppProtectionLevelRequest,
+  UpdateAppProtectionLevelRequestData: UpdateAppProtectionLevelRequestData,
+  UpdateAppProtectionLevelRequestDataAttributes:
+    UpdateAppProtectionLevelRequestDataAttributes,
   UpdateAppRequest: UpdateAppRequest,
   UpdateAppRequestData: UpdateAppRequestData,
   UpdateAppRequestDataAttributes: UpdateAppRequestDataAttributes,
   UpdateAppResponse: UpdateAppResponse,
   UpdateAppResponseData: UpdateAppResponseData,
   UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
+  UpdateAppSelfServiceRequest: UpdateAppSelfServiceRequest,
+  UpdateAppSelfServiceRequestData: UpdateAppSelfServiceRequestData,
+  UpdateAppSelfServiceRequestDataAttributes:
+    UpdateAppSelfServiceRequestDataAttributes,
+  UpdateAppTagsRequest: UpdateAppTagsRequest,
+  UpdateAppTagsRequestData: UpdateAppTagsRequestData,
+  UpdateAppTagsRequestDataAttributes: UpdateAppTagsRequestDataAttributes,
+  UpdateAppVersionNameRequest: UpdateAppVersionNameRequest,
+  UpdateAppVersionNameRequestData: UpdateAppVersionNameRequestData,
+  UpdateAppVersionNameRequestDataAttributes:
+    UpdateAppVersionNameRequestDataAttributes,
   UpdateAppsDatastoreItemRequest: UpdateAppsDatastoreItemRequest,
   UpdateAppsDatastoreItemRequestData: UpdateAppsDatastoreItemRequestData,
   UpdateAppsDatastoreItemRequestDataAttributes:

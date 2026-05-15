@@ -80,13 +80,21 @@ export {
 
 export {
   AppBuilderApiCreateAppRequest,
+  AppBuilderApiCreatePublishRequestRequest,
   AppBuilderApiDeleteAppRequest,
   AppBuilderApiDeleteAppsRequest,
   AppBuilderApiGetAppRequest,
+  AppBuilderApiListAppVersionsRequest,
   AppBuilderApiListAppsRequest,
   AppBuilderApiPublishAppRequest,
+  AppBuilderApiRevertAppRequest,
   AppBuilderApiUnpublishAppRequest,
   AppBuilderApiUpdateAppRequest,
+  AppBuilderApiUpdateAppFavoriteRequest,
+  AppBuilderApiUpdateAppSelfServiceRequest,
+  AppBuilderApiUpdateAppTagsRequest,
+  AppBuilderApiUpdateAppVersionNameRequest,
+  AppBuilderApiUpdateProtectionLevelRequest,
   AppBuilderApi,
 } from "./apis/AppBuilderApi";
 
@@ -1506,6 +1514,7 @@ export { AppBuilderEventName } from "./models/AppBuilderEventName";
 export { AppBuilderEventType } from "./models/AppBuilderEventType";
 export { AppDefinitionType } from "./models/AppDefinitionType";
 export { AppDeploymentType } from "./models/AppDeploymentType";
+export { AppFavoriteType } from "./models/AppFavoriteType";
 export { AppKeyRegistrationData } from "./models/AppKeyRegistrationData";
 export { AppKeyRegistrationDataType } from "./models/AppKeyRegistrationDataType";
 export { ApplicationKeyCreateAttributes } from "./models/ApplicationKeyCreateAttributes";
@@ -1563,9 +1572,17 @@ export { ApplicationSecurityWafExclusionFilterUpdateAttributes } from "./models/
 export { ApplicationSecurityWafExclusionFilterUpdateData } from "./models/ApplicationSecurityWafExclusionFilterUpdateData";
 export { ApplicationSecurityWafExclusionFilterUpdateRequest } from "./models/ApplicationSecurityWafExclusionFilterUpdateRequest";
 export { AppMeta } from "./models/AppMeta";
+export { AppProtectionLevel } from "./models/AppProtectionLevel";
+export { AppProtectionLevelType } from "./models/AppProtectionLevelType";
 export { AppRelationship } from "./models/AppRelationship";
+export { AppSelfServiceType } from "./models/AppSelfServiceType";
 export { AppsSortField } from "./models/AppsSortField";
+export { AppTagsType } from "./models/AppTagsType";
 export { AppTriggerWrapper } from "./models/AppTriggerWrapper";
+export { AppVersion } from "./models/AppVersion";
+export { AppVersionAttributes } from "./models/AppVersionAttributes";
+export { AppVersionNameType } from "./models/AppVersionNameType";
+export { AppVersionType } from "./models/AppVersionType";
 export { ArbitraryCostUpsertRequest } from "./models/ArbitraryCostUpsertRequest";
 export { ArbitraryCostUpsertRequestData } from "./models/ArbitraryCostUpsertRequestData";
 export { ArbitraryCostUpsertRequestDataAttributes } from "./models/ArbitraryCostUpsertRequestDataAttributes";
@@ -2445,6 +2462,9 @@ export { CreatePageResponse } from "./models/CreatePageResponse";
 export { CreatePageResponseData } from "./models/CreatePageResponseData";
 export { CreatePageResponseDataType } from "./models/CreatePageResponseDataType";
 export { CreatePhoneNotificationChannelConfig } from "./models/CreatePhoneNotificationChannelConfig";
+export { CreatePublishRequestRequest } from "./models/CreatePublishRequestRequest";
+export { CreatePublishRequestRequestData } from "./models/CreatePublishRequestRequestData";
+export { CreatePublishRequestRequestDataAttributes } from "./models/CreatePublishRequestRequestDataAttributes";
 export { CreateRuleRequest } from "./models/CreateRuleRequest";
 export { CreateRuleRequestData } from "./models/CreateRuleRequestData";
 export { CreateRuleResponse } from "./models/CreateRuleResponse";
@@ -3791,6 +3811,7 @@ export { ListAppsResponseDataItemsAttributes } from "./models/ListAppsResponseDa
 export { ListAppsResponseDataItemsRelationships } from "./models/ListAppsResponseDataItemsRelationships";
 export { ListAppsResponseMeta } from "./models/ListAppsResponseMeta";
 export { ListAppsResponseMetaPage } from "./models/ListAppsResponseMetaPage";
+export { ListAppVersionsResponse } from "./models/ListAppVersionsResponse";
 export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
 export { ListCampaignsResponse } from "./models/ListCampaignsResponse";
 export { ListConnectionsResponse } from "./models/ListConnectionsResponse";
@@ -4986,6 +5007,7 @@ export { ProjectUpdate } from "./models/ProjectUpdate";
 export { ProjectUpdateAttributes } from "./models/ProjectUpdateAttributes";
 export { ProjectUpdateRequest } from "./models/ProjectUpdateRequest";
 export { PublishAppResponse } from "./models/PublishAppResponse";
+export { PublishRequestType } from "./models/PublishRequestType";
 export { PutAppsDatastoreItemResponseArray } from "./models/PutAppsDatastoreItemResponseArray";
 export { PutAppsDatastoreItemResponseData } from "./models/PutAppsDatastoreItemResponseData";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
@@ -6466,6 +6488,12 @@ export { Unit } from "./models/Unit";
 export { UnpublishAppResponse } from "./models/UnpublishAppResponse";
 export { UpdateActionConnectionRequest } from "./models/UpdateActionConnectionRequest";
 export { UpdateActionConnectionResponse } from "./models/UpdateActionConnectionResponse";
+export { UpdateAppFavoriteRequest } from "./models/UpdateAppFavoriteRequest";
+export { UpdateAppFavoriteRequestData } from "./models/UpdateAppFavoriteRequestData";
+export { UpdateAppFavoriteRequestDataAttributes } from "./models/UpdateAppFavoriteRequestDataAttributes";
+export { UpdateAppProtectionLevelRequest } from "./models/UpdateAppProtectionLevelRequest";
+export { UpdateAppProtectionLevelRequestData } from "./models/UpdateAppProtectionLevelRequestData";
+export { UpdateAppProtectionLevelRequestDataAttributes } from "./models/UpdateAppProtectionLevelRequestDataAttributes";
 export { UpdateAppRequest } from "./models/UpdateAppRequest";
 export { UpdateAppRequestData } from "./models/UpdateAppRequestData";
 export { UpdateAppRequestDataAttributes } from "./models/UpdateAppRequestDataAttributes";
@@ -6480,6 +6508,15 @@ export { UpdateAppsDatastoreItemRequestDataType } from "./models/UpdateAppsDatas
 export { UpdateAppsDatastoreRequest } from "./models/UpdateAppsDatastoreRequest";
 export { UpdateAppsDatastoreRequestData } from "./models/UpdateAppsDatastoreRequestData";
 export { UpdateAppsDatastoreRequestDataAttributes } from "./models/UpdateAppsDatastoreRequestDataAttributes";
+export { UpdateAppSelfServiceRequest } from "./models/UpdateAppSelfServiceRequest";
+export { UpdateAppSelfServiceRequestData } from "./models/UpdateAppSelfServiceRequestData";
+export { UpdateAppSelfServiceRequestDataAttributes } from "./models/UpdateAppSelfServiceRequestDataAttributes";
+export { UpdateAppTagsRequest } from "./models/UpdateAppTagsRequest";
+export { UpdateAppTagsRequestData } from "./models/UpdateAppTagsRequestData";
+export { UpdateAppTagsRequestDataAttributes } from "./models/UpdateAppTagsRequestDataAttributes";
+export { UpdateAppVersionNameRequest } from "./models/UpdateAppVersionNameRequest";
+export { UpdateAppVersionNameRequestData } from "./models/UpdateAppVersionNameRequestData";
+export { UpdateAppVersionNameRequestDataAttributes } from "./models/UpdateAppVersionNameRequestDataAttributes";
 export { UpdateCampaignRequest } from "./models/UpdateCampaignRequest";
 export { UpdateCampaignRequestAttributes } from "./models/UpdateCampaignRequestAttributes";
 export { UpdateCampaignRequestData } from "./models/UpdateCampaignRequestData";
