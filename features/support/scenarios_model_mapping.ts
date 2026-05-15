@@ -6596,6 +6596,73 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CostTagKeyResponse",
     },
+    "v2.ListCostTagMetadata": {
+        "filterMonth": {
+            "type": "string",
+            "format": "",
+            },
+        "filterProvider": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMetric": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTagKey": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDaily": {
+            "type": "CostTagMetadataDailyFilter",
+            "format": "",
+            },
+        "operationResponseType": "CostTagKeyMetadataResponse",
+    },
+    "v2.GetCostTagMetadataCurrency": {
+        "filterMonth": {
+            "type": "string",
+            "format": "",
+            },
+        "filterProvider": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostCurrencyResponse",
+    },
+    "v2.ListCostTagMetadataMetrics": {
+        "filterMonth": {
+            "type": "string",
+            "format": "",
+            },
+        "filterProvider": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostMetricsResponse",
+    },
+    "v2.ListCostTagMetadataOrchestrators": {
+        "filterMonth": {
+            "type": "string",
+            "format": "",
+            },
+        "filterProvider": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostOrchestratorsResponse",
+    },
+    "v2.ListCostTagKeySources": {
+        "filterMonth": {
+            "type": "string",
+            "format": "",
+            },
+        "filterProvider": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostTagKeySourcesResponse",
+    },
     "v2.ListCostTags": {
         "filterMetric": {
             "type": "string",

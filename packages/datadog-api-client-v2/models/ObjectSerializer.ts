@@ -685,6 +685,12 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CostCurrency } from "./CostCurrency";
+import { CostCurrencyResponse } from "./CostCurrencyResponse";
+import { CostMetric } from "./CostMetric";
+import { CostMetricsResponse } from "./CostMetricsResponse";
+import { CostOrchestrator } from "./CostOrchestrator";
+import { CostOrchestratorsResponse } from "./CostOrchestratorsResponse";
 import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
@@ -693,7 +699,13 @@ import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
 import { CostTagKey } from "./CostTagKey";
 import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
 import { CostTagKeyDetails } from "./CostTagKeyDetails";
+import { CostTagKeyMetadata } from "./CostTagKeyMetadata";
+import { CostTagKeyMetadataAttributes } from "./CostTagKeyMetadataAttributes";
+import { CostTagKeyMetadataResponse } from "./CostTagKeyMetadataResponse";
 import { CostTagKeyResponse } from "./CostTagKeyResponse";
+import { CostTagKeySource } from "./CostTagKeySource";
+import { CostTagKeySourceAttributes } from "./CostTagKeySourceAttributes";
+import { CostTagKeySourcesResponse } from "./CostTagKeySourcesResponse";
 import { CostTagKeysResponse } from "./CostTagKeysResponse";
 import { CostTagsResponse } from "./CostTagsResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
@@ -4575,9 +4587,15 @@ const enumsMap: { [key: string]: any[] } = {
   CostAnomaliesResponseDataType: ["anomalies"],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CostCurrencyType: ["cost_currency"],
+  CostMetricType: ["cost_metric"],
+  CostOrchestratorType: ["cost_orchestrator"],
   CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
   CostTagDescriptionType: ["cost_tag_description"],
+  CostTagKeyMetadataType: ["cost_tag_key_metadata"],
+  CostTagKeySourceType: ["cost_tag_key_source"],
   CostTagKeyType: ["cost_tag_key"],
+  CostTagMetadataDailyFilter: ["true", "false"],
   CostTagType: ["cost_tag"],
   CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
@@ -7338,6 +7356,12 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CostCurrency: CostCurrency,
+  CostCurrencyResponse: CostCurrencyResponse,
+  CostMetric: CostMetric,
+  CostMetricsResponse: CostMetricsResponse,
+  CostOrchestrator: CostOrchestrator,
+  CostOrchestratorsResponse: CostOrchestratorsResponse,
   CostTag: CostTag,
   CostTagAttributes: CostTagAttributes,
   CostTagDescription: CostTagDescription,
@@ -7346,7 +7370,13 @@ const typeMap: { [index: string]: any } = {
   CostTagKey: CostTagKey,
   CostTagKeyAttributes: CostTagKeyAttributes,
   CostTagKeyDetails: CostTagKeyDetails,
+  CostTagKeyMetadata: CostTagKeyMetadata,
+  CostTagKeyMetadataAttributes: CostTagKeyMetadataAttributes,
+  CostTagKeyMetadataResponse: CostTagKeyMetadataResponse,
   CostTagKeyResponse: CostTagKeyResponse,
+  CostTagKeySource: CostTagKeySource,
+  CostTagKeySourceAttributes: CostTagKeySourceAttributes,
+  CostTagKeySourcesResponse: CostTagKeySourcesResponse,
   CostTagKeysResponse: CostTagKeysResponse,
   CostTagsResponse: CostTagsResponse,
   CoverageSummaryAttributes: CoverageSummaryAttributes,
