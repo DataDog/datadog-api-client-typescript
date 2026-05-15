@@ -3804,6 +3804,102 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UnpublishAppResponse",
   },
+  "AppBuilderApi.V2.UpdateAppFavorite": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateAppFavoriteRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AppBuilderApi.V2.UpdateProtectionLevel": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateAppProtectionLevelRequest",
+      format: "",
+    },
+    operationResponseType: "UpdateAppResponse",
+  },
+  "AppBuilderApi.V2.CreatePublishRequest": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreatePublishRequestRequest",
+      format: "",
+    },
+    operationResponseType: "PublishAppResponse",
+  },
+  "AppBuilderApi.V2.RevertApp": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    version: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "UpdateAppResponse",
+  },
+  "AppBuilderApi.V2.UpdateAppSelfService": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateAppSelfServiceRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AppBuilderApi.V2.UpdateAppTags": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateAppTagsRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AppBuilderApi.V2.UpdateAppVersionName": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    version: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateAppVersionNameRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "AppBuilderApi.V2.ListAppVersions": {
+    appId: {
+      type: "string",
+      format: "uuid",
+    },
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    page: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ListAppVersionsResponse",
+  },
   "AuditApi.V2.ListAuditLogs": {
     filterQuery: {
       type: "string",
