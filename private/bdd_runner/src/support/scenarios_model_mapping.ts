@@ -6608,6 +6608,73 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CostTagKeyResponse",
   },
+  "CloudCostManagementApi.V2.ListCostTagMetadata": {
+    filterMonth: {
+      type: "string",
+      format: "",
+    },
+    filterProvider: {
+      type: "string",
+      format: "",
+    },
+    filterMetric: {
+      type: "string",
+      format: "",
+    },
+    filterTagKey: {
+      type: "string",
+      format: "",
+    },
+    filterDaily: {
+      type: "CostTagMetadataDailyFilter",
+      format: "",
+    },
+    operationResponseType: "CostTagKeyMetadataResponse",
+  },
+  "CloudCostManagementApi.V2.GetCostTagMetadataCurrency": {
+    filterMonth: {
+      type: "string",
+      format: "",
+    },
+    filterProvider: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostCurrencyResponse",
+  },
+  "CloudCostManagementApi.V2.ListCostTagMetadataMetrics": {
+    filterMonth: {
+      type: "string",
+      format: "",
+    },
+    filterProvider: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostMetricsResponse",
+  },
+  "CloudCostManagementApi.V2.ListCostTagMetadataOrchestrators": {
+    filterMonth: {
+      type: "string",
+      format: "",
+    },
+    filterProvider: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostOrchestratorsResponse",
+  },
+  "CloudCostManagementApi.V2.ListCostTagKeySources": {
+    filterMonth: {
+      type: "string",
+      format: "",
+    },
+    filterProvider: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostTagKeySourcesResponse",
+  },
   "CloudCostManagementApi.V2.ListCostTags": {
     filterMetric: {
       type: "string",
