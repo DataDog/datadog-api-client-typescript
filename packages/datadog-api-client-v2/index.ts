@@ -264,12 +264,17 @@ export {
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
   CloudCostManagementApiGetCostTagKeyRequest,
+  CloudCostManagementApiGetCostTagMetadataCurrencyRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
+  CloudCostManagementApiListCostTagKeySourcesRequest,
   CloudCostManagementApiListCostTagKeysRequest,
+  CloudCostManagementApiListCostTagMetadataRequest,
+  CloudCostManagementApiListCostTagMetadataMetricsRequest,
+  CloudCostManagementApiListCostTagMetadataOrchestratorsRequest,
   CloudCostManagementApiListCostTagsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
@@ -2330,6 +2335,15 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CostCurrency } from "./models/CostCurrency";
+export { CostCurrencyResponse } from "./models/CostCurrencyResponse";
+export { CostCurrencyType } from "./models/CostCurrencyType";
+export { CostMetric } from "./models/CostMetric";
+export { CostMetricsResponse } from "./models/CostMetricsResponse";
+export { CostMetricType } from "./models/CostMetricType";
+export { CostOrchestrator } from "./models/CostOrchestrator";
+export { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
+export { CostOrchestratorType } from "./models/CostOrchestratorType";
 export { CostTag } from "./models/CostTag";
 export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
@@ -2340,9 +2354,18 @@ export { CostTagDescriptionType } from "./models/CostTagDescriptionType";
 export { CostTagKey } from "./models/CostTagKey";
 export { CostTagKeyAttributes } from "./models/CostTagKeyAttributes";
 export { CostTagKeyDetails } from "./models/CostTagKeyDetails";
+export { CostTagKeyMetadata } from "./models/CostTagKeyMetadata";
+export { CostTagKeyMetadataAttributes } from "./models/CostTagKeyMetadataAttributes";
+export { CostTagKeyMetadataResponse } from "./models/CostTagKeyMetadataResponse";
+export { CostTagKeyMetadataType } from "./models/CostTagKeyMetadataType";
 export { CostTagKeyResponse } from "./models/CostTagKeyResponse";
+export { CostTagKeySource } from "./models/CostTagKeySource";
+export { CostTagKeySourceAttributes } from "./models/CostTagKeySourceAttributes";
+export { CostTagKeySourcesResponse } from "./models/CostTagKeySourcesResponse";
+export { CostTagKeySourceType } from "./models/CostTagKeySourceType";
 export { CostTagKeysResponse } from "./models/CostTagKeysResponse";
 export { CostTagKeyType } from "./models/CostTagKeyType";
+export { CostTagMetadataDailyFilter } from "./models/CostTagMetadataDailyFilter";
 export { CostTagsResponse } from "./models/CostTagsResponse";
 export { CostTagType } from "./models/CostTagType";
 export { CoverageSummaryAttributes } from "./models/CoverageSummaryAttributes";
