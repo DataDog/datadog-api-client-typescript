@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-05-15
+
+### Added
+* Add window[seconds] query parameter for look back [#4140](https://github.com/DataDog/datadog-api-client-typescript/pull/4140)
+* Add cross_org_uuids to v2 query endpoints [#4080](https://github.com/DataDog/datadog-api-client-typescript/pull/4080)
+
+### Fixed
+* Clarify metrics API query strings [#4026](https://github.com/DataDog/datadog-api-client-typescript/pull/4026)
+
 ## 0.0.1-beta.6/2026-04-24
 
 ### Added

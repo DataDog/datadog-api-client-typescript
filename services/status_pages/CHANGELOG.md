@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-05-15
+
+### Added
+* Add backfilled degradation and maintenance endpoints to Status Pages [#4034](https://github.com/DataDog/datadog-api-client-typescript/pull/4034)
+
+### Deprecated
+* Update Status Pages API documentation to reflect deprecation of creating a published status page [#4001](https://github.com/DataDog/datadog-api-client-typescript/pull/4001)
+
 ## 0.0.1-beta.4/2026-04-16
 
 ### Added

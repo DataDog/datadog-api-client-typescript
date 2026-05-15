@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.12/2026-05-15
+
+### Added
+* Document bulk delete security monitoring rules endpoint [#4009](https://github.com/DataDog/datadog-api-client-typescript/pull/4009)
+* Add MuteSecurityFindings endpoint spec [#3992](https://github.com/DataDog/datadog-api-client-typescript/pull/3992)
+
+### Changed
+* Security Monitoring - expand learningDuration and forgetAfter to support up to 30 days [#3941](https://github.com/DataDog/datadog-api-client-typescript/pull/3941)
+
 ## 0.0.1-beta.11/2026-04-24
 
 ### Added

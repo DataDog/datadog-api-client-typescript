@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-05-15
+
+### Added
+* Allow errors data source in formula event queries for dashboards [#4116](https://github.com/DataDog/datadog-api-client-typescript/pull/4116)
+
 ## 0.0.1-beta.8/2026-04-16
 
 ### Added

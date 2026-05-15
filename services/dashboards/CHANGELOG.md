@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-05-15
+
+### Added
+* Allow errors data source in formula event queries for dashboards [#4116](https://github.com/DataDog/datadog-api-client-typescript/pull/4116)
+* Add style and sort to TreeMapWidgetRequest and sort to SunburstWidgetRequest for Dashboards [#4044](https://github.com/DataDog/datadog-api-client-typescript/pull/4044)
+* Add Point Plot widget to dashboard API spec [#4036](https://github.com/DataDog/datadog-api-client-typescript/pull/4036)
+
 ## 0.0.1-beta.8/2026-04-16
 
 ### Added

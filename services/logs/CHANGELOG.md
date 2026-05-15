@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-05-15
+
+### Added
+* Add `compression_method` field to Log Archives [#4042](https://github.com/DataDog/datadog-api-client-typescript/pull/4042)
+
 ## 0.0.1-beta.8/2026-04-24
 
 ### Added

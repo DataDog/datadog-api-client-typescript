@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-05-15
+
+### Added
+* Add session interaction type to LLM Observability API spec [#4068](https://github.com/DataDog/datadog-api-client-typescript/pull/4068)
+
+### Changed
+* Document Annotations label schema API for AI Observability [#4024](https://github.com/DataDog/datadog-api-client-typescript/pull/4024)
+
 ## 0.0.1-beta.4/2026-04-24
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-05-15
+
+### Added
+* Add Observability pipelines databricks_zerobus destination [#4020](https://github.com/DataDog/datadog-api-client-typescript/pull/4020)
+
 ## 0.0.1-beta.9/2026-04-16
 
 ### Added

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-05-15
+
+### Added
+* Add OpenAPI spec for current user endpoints [#4100](https://github.com/DataDog/datadog-api-client-typescript/pull/4100)
+* Add integration_type for Microsoft Teams to IncidentIntegrationMetadataAttributes [#4084](https://github.com/DataDog/datadog-api-client-typescript/pull/4084)
+
 ## 0.0.1-beta.6/2026-04-24
 
 ### Changed
