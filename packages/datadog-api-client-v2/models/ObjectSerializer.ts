@@ -1836,7 +1836,6 @@ import { KindData } from "./KindData";
 import { KindMetadata } from "./KindMetadata";
 import { KindObj } from "./KindObj";
 import { KindResponseMeta } from "./KindResponseMeta";
-import { LLMObsAnnotatedInteractionItem } from "./LLMObsAnnotatedInteractionItem";
 import { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./LLMObsAnnotatedInteractionsDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsDataResponse } from "./LLMObsAnnotatedInteractionsDataResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "./LLMObsAnnotatedInteractionsResponse";
@@ -1845,8 +1844,6 @@ import { LLMObsAnnotationQueueDataAttributesRequest } from "./LLMObsAnnotationQu
 import { LLMObsAnnotationQueueDataAttributesResponse } from "./LLMObsAnnotationQueueDataAttributesResponse";
 import { LLMObsAnnotationQueueDataRequest } from "./LLMObsAnnotationQueueDataRequest";
 import { LLMObsAnnotationQueueDataResponse } from "./LLMObsAnnotationQueueDataResponse";
-import { LLMObsAnnotationQueueInteractionItem } from "./LLMObsAnnotationQueueInteractionItem";
-import { LLMObsAnnotationQueueInteractionResponseItem } from "./LLMObsAnnotationQueueInteractionResponseItem";
 import { LLMObsAnnotationQueueInteractionsDataAttributesRequest } from "./LLMObsAnnotationQueueInteractionsDataAttributesRequest";
 import { LLMObsAnnotationQueueInteractionsDataAttributesResponse } from "./LLMObsAnnotationQueueInteractionsDataAttributesResponse";
 import { LLMObsAnnotationQueueInteractionsDataRequest } from "./LLMObsAnnotationQueueInteractionsDataRequest";
@@ -1866,6 +1863,8 @@ import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueU
 import { LLMObsAnnotationQueueUpdateRequest } from "./LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsAnnotationQueuesResponse } from "./LLMObsAnnotationQueuesResponse";
 import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
+import { LLMObsContentBlock } from "./LLMObsContentBlock";
+import { LLMObsContentBlockTimeFrame } from "./LLMObsContentBlockTimeFrame";
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsCustomEvalConfigAssessmentCriteria } from "./LLMObsCustomEvalConfigAssessmentCriteria";
 import { LLMObsCustomEvalConfigAttributes } from "./LLMObsCustomEvalConfigAttributes";
@@ -1923,6 +1922,9 @@ import { LLMObsDeleteExperimentsRequest } from "./LLMObsDeleteExperimentsRequest
 import { LLMObsDeleteProjectsDataAttributesRequest } from "./LLMObsDeleteProjectsDataAttributesRequest";
 import { LLMObsDeleteProjectsDataRequest } from "./LLMObsDeleteProjectsDataRequest";
 import { LLMObsDeleteProjectsRequest } from "./LLMObsDeleteProjectsRequest";
+import { LLMObsDisplayBlockAnnotatedInteractionItem } from "./LLMObsDisplayBlockAnnotatedInteractionItem";
+import { LLMObsDisplayBlockInteractionItem } from "./LLMObsDisplayBlockInteractionItem";
+import { LLMObsDisplayBlockInteractionResponseItem } from "./LLMObsDisplayBlockInteractionResponseItem";
 import { LLMObsExperimentDataAttributesRequest } from "./LLMObsExperimentDataAttributesRequest";
 import { LLMObsExperimentDataAttributesResponse } from "./LLMObsExperimentDataAttributesResponse";
 import { LLMObsExperimentDataRequest } from "./LLMObsExperimentDataRequest";
@@ -1952,6 +1954,9 @@ import { LLMObsProjectUpdateDataAttributesRequest } from "./LLMObsProjectUpdateD
 import { LLMObsProjectUpdateDataRequest } from "./LLMObsProjectUpdateDataRequest";
 import { LLMObsProjectUpdateRequest } from "./LLMObsProjectUpdateRequest";
 import { LLMObsProjectsResponse } from "./LLMObsProjectsResponse";
+import { LLMObsTraceAnnotatedInteractionItem } from "./LLMObsTraceAnnotatedInteractionItem";
+import { LLMObsTraceInteractionItem } from "./LLMObsTraceInteractionItem";
+import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
 import { LaunchDarklyAPIKey } from "./LaunchDarklyAPIKey";
 import { LaunchDarklyAPIKeyUpdate } from "./LaunchDarklyAPIKeyUpdate";
 import { LaunchDarklyIntegration } from "./LaunchDarklyIntegration";
@@ -5061,6 +5066,17 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
   LLMObsAnnotationQueueInteractionsType: ["interactions"],
   LLMObsAnnotationQueueType: ["queues"],
+  LLMObsContentBlockHeaderLevel: ["sm", "md", "lg", "xl"],
+  LLMObsContentBlockLLMObsTraceInteractionType: ["trace", "experiment_trace"],
+  LLMObsContentBlockType: [
+    "markdown",
+    "header",
+    "text",
+    "json",
+    "image",
+    "widget",
+    "llmobs_trace",
+  ],
   LLMObsCustomEvalConfigEvalScope: ["span", "trace", "session"],
   LLMObsCustomEvalConfigIntegrationProvider: [
     "openai",
@@ -5073,15 +5089,16 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsCustomEvalConfigParsingType: ["structured_output", "json"],
   LLMObsCustomEvalConfigType: ["evaluator_config"],
   LLMObsDatasetType: ["datasets"],
+  LLMObsDisplayBlockInteractionType: ["display_block"],
   LLMObsEventType: ["events"],
   LLMObsExperimentSpanStatus: ["ok", "error"],
   LLMObsExperimentType: ["experiments"],
-  LLMObsInteractionType: ["trace", "experiment_trace", "session"],
   LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
   LLMObsMetricAssessment: ["pass", "fail"],
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
   LLMObsProjectType: ["projects"],
   LLMObsRecordType: ["records"],
+  LLMObsTraceInteractionType: ["trace", "experiment_trace", "session"],
   Language: [
     "PYTHON",
     "JAVASCRIPT",
@@ -8665,7 +8682,6 @@ const typeMap: { [index: string]: any } = {
   KindMetadata: KindMetadata,
   KindObj: KindObj,
   KindResponseMeta: KindResponseMeta,
-  LLMObsAnnotatedInteractionItem: LLMObsAnnotatedInteractionItem,
   LLMObsAnnotatedInteractionsDataAttributesResponse:
     LLMObsAnnotatedInteractionsDataAttributesResponse,
   LLMObsAnnotatedInteractionsDataResponse:
@@ -8678,9 +8694,6 @@ const typeMap: { [index: string]: any } = {
     LLMObsAnnotationQueueDataAttributesResponse,
   LLMObsAnnotationQueueDataRequest: LLMObsAnnotationQueueDataRequest,
   LLMObsAnnotationQueueDataResponse: LLMObsAnnotationQueueDataResponse,
-  LLMObsAnnotationQueueInteractionItem: LLMObsAnnotationQueueInteractionItem,
-  LLMObsAnnotationQueueInteractionResponseItem:
-    LLMObsAnnotationQueueInteractionResponseItem,
   LLMObsAnnotationQueueInteractionsDataAttributesRequest:
     LLMObsAnnotationQueueInteractionsDataAttributesRequest,
   LLMObsAnnotationQueueInteractionsDataAttributesResponse:
@@ -8713,6 +8726,8 @@ const typeMap: { [index: string]: any } = {
   LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
   LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
   LLMObsAnnotationSchema: LLMObsAnnotationSchema,
+  LLMObsContentBlock: LLMObsContentBlock,
+  LLMObsContentBlockTimeFrame: LLMObsContentBlockTimeFrame,
   LLMObsCursorMeta: LLMObsCursorMeta,
   LLMObsCustomEvalConfigAssessmentCriteria:
     LLMObsCustomEvalConfigAssessmentCriteria,
@@ -8784,6 +8799,11 @@ const typeMap: { [index: string]: any } = {
     LLMObsDeleteProjectsDataAttributesRequest,
   LLMObsDeleteProjectsDataRequest: LLMObsDeleteProjectsDataRequest,
   LLMObsDeleteProjectsRequest: LLMObsDeleteProjectsRequest,
+  LLMObsDisplayBlockAnnotatedInteractionItem:
+    LLMObsDisplayBlockAnnotatedInteractionItem,
+  LLMObsDisplayBlockInteractionItem: LLMObsDisplayBlockInteractionItem,
+  LLMObsDisplayBlockInteractionResponseItem:
+    LLMObsDisplayBlockInteractionResponseItem,
   LLMObsExperimentDataAttributesRequest: LLMObsExperimentDataAttributesRequest,
   LLMObsExperimentDataAttributesResponse:
     LLMObsExperimentDataAttributesResponse,
@@ -8817,6 +8837,9 @@ const typeMap: { [index: string]: any } = {
   LLMObsProjectUpdateDataRequest: LLMObsProjectUpdateDataRequest,
   LLMObsProjectUpdateRequest: LLMObsProjectUpdateRequest,
   LLMObsProjectsResponse: LLMObsProjectsResponse,
+  LLMObsTraceAnnotatedInteractionItem: LLMObsTraceAnnotatedInteractionItem,
+  LLMObsTraceInteractionItem: LLMObsTraceInteractionItem,
+  LLMObsTraceInteractionResponseItem: LLMObsTraceInteractionResponseItem,
   LaunchDarklyAPIKey: LaunchDarklyAPIKey,
   LaunchDarklyAPIKeyUpdate: LaunchDarklyAPIKeyUpdate,
   LaunchDarklyIntegration: LaunchDarklyIntegration,
@@ -11758,6 +11781,18 @@ const oneOfMap: { [index: string]: string[] } = {
   IncidentTodoResponseIncludedItem: ["User"],
   IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam"],
   IssuesSearchResultIncluded: ["Issue", "Case", "IssueUser", "IssueTeam"],
+  LLMObsAnnotatedInteractionItem: [
+    "LLMObsTraceAnnotatedInteractionItem",
+    "LLMObsDisplayBlockAnnotatedInteractionItem",
+  ],
+  LLMObsAnnotationQueueInteractionItem: [
+    "LLMObsTraceInteractionItem",
+    "LLMObsDisplayBlockInteractionItem",
+  ],
+  LLMObsAnnotationQueueInteractionResponseItem: [
+    "LLMObsTraceInteractionResponseItem",
+    "LLMObsDisplayBlockInteractionResponseItem",
+  ],
   LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
   LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
   ListEntityCatalogResponseIncludedItem: [
