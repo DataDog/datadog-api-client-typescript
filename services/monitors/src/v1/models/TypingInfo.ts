@@ -13,6 +13,7 @@ import { MonitorFormulaAndFunctionAggregateFilteredQueryDefinition } from "./Mon
 import { MonitorFormulaAndFunctionAggregateQueryFilter } from "./MonitorFormulaAndFunctionAggregateQueryFilter";
 import { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./MonitorFormulaAndFunctionAggregateQueryJoinCondition";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
+import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormulaAndFunctionDataJobsQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
@@ -175,6 +176,7 @@ export const TypingInfo: ModelTypingInfo = {
       "cost alert",
       "data-quality alert",
       "network-path alert",
+      "data-jobs alert",
     ],
     OnMissingDataOption: [
       "default",
@@ -201,6 +203,7 @@ export const TypingInfo: ModelTypingInfo = {
       "MonitorFormulaAndFunctionEventQueryDefinition",
       "MonitorFormulaAndFunctionCostQueryDefinition",
       "MonitorFormulaAndFunctionDataQualityQueryDefinition",
+      "MonitorFormulaAndFunctionDataJobsQueryDefinition",
       "MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition",
       "MonitorFormulaAndFunctionAggregateFilteredQueryDefinition",
     ],
@@ -224,6 +227,8 @@ export const TypingInfo: ModelTypingInfo = {
       MonitorFormulaAndFunctionAggregateQueryJoinCondition,
     MonitorFormulaAndFunctionCostQueryDefinition:
       MonitorFormulaAndFunctionCostQueryDefinition,
+    MonitorFormulaAndFunctionDataJobsQueryDefinition:
+      MonitorFormulaAndFunctionDataJobsQueryDefinition,
     MonitorFormulaAndFunctionDataQualityMonitorOptions:
       MonitorFormulaAndFunctionDataQualityMonitorOptions,
     MonitorFormulaAndFunctionDataQualityQueryDefinition:
