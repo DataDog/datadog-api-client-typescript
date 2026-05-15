@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-05-15
+
+### Added
+* Add GKE Autopilot usage types to API documentation [#4070](https://github.com/DataDog/datadog-api-client-typescript/pull/4070)
+* Add infra_storage_mgmt_objects_count_avg fields to usage summary API [#4018](https://github.com/DataDog/datadog-api-client-typescript/pull/4018)
+* Add feature_flags_config_requests to usage summary API [#3929](https://github.com/DataDog/datadog-api-client-typescript/pull/3929)
+* Add infra_host_basic and eph_infra_host_basic to usage metering API [#3828](https://github.com/DataDog/datadog-api-client-typescript/pull/3828)
+
 ## 0.0.1-beta.9/2026-04-16
 
 ### Added

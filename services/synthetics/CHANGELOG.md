@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-05-15
+
+### Added
+* Add OpenAPI documentation for Synthetics downtime endpoints [#3990](https://github.com/DataDog/datadog-api-client-typescript/pull/3990)
+
 ## 0.0.1-beta.10/2026-04-24
 
 ### Changed

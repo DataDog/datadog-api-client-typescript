@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-05-15
+
+### Added
+* Add OpenAPI spec for current user endpoints [#4100](https://github.com/DataDog/datadog-api-client-typescript/pull/4100)
+
 ## 0.0.1-beta.3/2026-04-24
 
 ### Changed

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-05-15
+
+### Added
+* Add regression fields to Error Tracking API responses [#4133](https://github.com/DataDog/datadog-api-client-typescript/pull/4133)
+* Add state filter for Search Error Tracking Issues API [#4088](https://github.com/DataDog/datadog-api-client-typescript/pull/4088)
+
 ## 0.0.1-beta.4/2026-04-16
 
 ### Added

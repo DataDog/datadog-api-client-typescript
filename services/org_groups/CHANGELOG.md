@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-05-15
+
+### Fixed
+* Fix Org Groups pagination response shape (meta.page + links) [#4046](https://github.com/DataDog/datadog-api-client-typescript/pull/4046)
+
 ## 0.0.1-beta.3/2026-04-24
 
 ### Changed

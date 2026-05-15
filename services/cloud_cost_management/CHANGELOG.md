@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-05-15
+
+### Added
+* Add OpenAPI spec for cost-planning-api commitment program endpoints [#4135](https://github.com/DataDog/datadog-api-client-typescript/pull/4135)
+* Add OpenAPI for Cloud Cost Management anomalies endpoints [#4128](https://github.com/DataDog/datadog-api-client-typescript/pull/4128)
+* Document Cloud Cost Management v2 tags and tag_keys endpoints [#4115](https://github.com/DataDog/datadog-api-client-typescript/pull/4115)
+* Add OpenAPI definition for CCM ListCostTagDescriptions [#4108](https://github.com/DataDog/datadog-api-client-typescript/pull/4108)
+* Add OpenAPI definitions for CCM status endpoints [#4064](https://github.com/DataDog/datadog-api-client-typescript/pull/4064)
+* Add Cloud Cost Management ListCostOCIConfigs endpoint [#4032](https://github.com/DataDog/datadog-api-client-typescript/pull/4032)
+
 ## 0.0.1-beta.5/2026-04-24
 
 ### Removed
