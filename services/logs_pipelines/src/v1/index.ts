@@ -32,6 +32,8 @@ export { LogsDecoderProcessor } from "./models/LogsDecoderProcessor";
 export { LogsDecoderProcessorBinaryToTextEncoding } from "./models/LogsDecoderProcessorBinaryToTextEncoding";
 export { LogsDecoderProcessorInputRepresentation } from "./models/LogsDecoderProcessorInputRepresentation";
 export { LogsDecoderProcessorType } from "./models/LogsDecoderProcessorType";
+export { LogsExcludeAttributeProcessor } from "./models/LogsExcludeAttributeProcessor";
+export { LogsExcludeAttributeProcessorType } from "./models/LogsExcludeAttributeProcessorType";
 export { LogsFilter } from "./models/LogsFilter";
 export { LogsGeoIPParser } from "./models/LogsGeoIPParser";
 export { LogsGeoIPParserType } from "./models/LogsGeoIPParserType";
