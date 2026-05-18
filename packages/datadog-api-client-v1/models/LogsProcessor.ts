@@ -9,6 +9,7 @@ import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
 import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
 import { LogsDateRemapper } from "./LogsDateRemapper";
 import { LogsDecoderProcessor } from "./LogsDecoderProcessor";
+import { LogsExcludeAttributeProcessor } from "./LogsExcludeAttributeProcessor";
 import { LogsGeoIPParser } from "./LogsGeoIPParser";
 import { LogsGrokParser } from "./LogsGrokParser";
 import { LogsLookupProcessor } from "./LogsLookupProcessor";
@@ -51,4 +52,5 @@ export type LogsProcessor =
   | LogsArrayProcessor
   | LogsDecoderProcessor
   | LogsSchemaProcessor
+  | LogsExcludeAttributeProcessor
   | UnparsedObject;

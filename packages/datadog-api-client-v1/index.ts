@@ -614,6 +614,8 @@ export { LogsDecoderProcessor } from "./models/LogsDecoderProcessor";
 export { LogsDecoderProcessorBinaryToTextEncoding } from "./models/LogsDecoderProcessorBinaryToTextEncoding";
 export { LogsDecoderProcessorInputRepresentation } from "./models/LogsDecoderProcessorInputRepresentation";
 export { LogsDecoderProcessorType } from "./models/LogsDecoderProcessorType";
+export { LogsExcludeAttributeProcessor } from "./models/LogsExcludeAttributeProcessor";
+export { LogsExcludeAttributeProcessorType } from "./models/LogsExcludeAttributeProcessorType";
 export { LogsExclusion } from "./models/LogsExclusion";
 export { LogsExclusionFilter } from "./models/LogsExclusionFilter";
 export { LogsFilter } from "./models/LogsFilter";
