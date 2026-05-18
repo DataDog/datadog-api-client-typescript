@@ -98,6 +98,7 @@ export { SyntheticsDowntimeTimeSlotRecurrenceResponse } from "./models/Synthetic
 export { SyntheticsDowntimeTimeSlotRequest } from "./models/SyntheticsDowntimeTimeSlotRequest";
 export { SyntheticsDowntimeTimeSlotResponse } from "./models/SyntheticsDowntimeTimeSlotResponse";
 export { SyntheticsDowntimeWeekday } from "./models/SyntheticsDowntimeWeekday";
+export { SyntheticsDowntimeWeekdayPosition } from "./models/SyntheticsDowntimeWeekdayPosition";
 export { SyntheticsFastTestResult } from "./models/SyntheticsFastTestResult";
 export { SyntheticsFastTestResultAttributes } from "./models/SyntheticsFastTestResultAttributes";
 export { SyntheticsFastTestResultData } from "./models/SyntheticsFastTestResultData";
