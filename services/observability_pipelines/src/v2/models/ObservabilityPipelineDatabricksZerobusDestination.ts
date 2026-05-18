@@ -23,9 +23,9 @@ export class ObservabilityPipelineDatabricksZerobusDestination {
    */
   "id": string;
   /**
-   * Your Databricks Zerobus ingestion endpoint. This is the endpoint used to stream data directly into your Databricks Lakehouse.
+   * Name of the environment variable or the secret identifier that references the Databricks Zerobus ingestion endpoint, which is used to stream data directly into your Databricks Lakehouse.
    */
-  "ingestionEndpoint": string;
+  "ingestionEndpointKey"?: string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
    */
@@ -39,9 +39,9 @@ export class ObservabilityPipelineDatabricksZerobusDestination {
    */
   "type": ObservabilityPipelineDatabricksZerobusDestinationType;
   /**
-   * Your Databricks workspace URL. This is used to communicate with the Unity Catalog API.
+   * Name of the environment variable or the secret identifier that references your Databricks workspace URL, which is used to communicate with the Unity Catalog API.
    */
-  "unityCatalogEndpoint": string;
+  "unityCatalogEndpointKey"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -71,10 +71,9 @@ export class ObservabilityPipelineDatabricksZerobusDestination {
       type: "string",
       required: true,
     },
-    ingestionEndpoint: {
-      baseName: "ingestion_endpoint",
+    ingestionEndpointKey: {
+      baseName: "ingestion_endpoint_key",
       type: "string",
-      required: true,
     },
     inputs: {
       baseName: "inputs",
@@ -91,10 +90,9 @@ export class ObservabilityPipelineDatabricksZerobusDestination {
       type: "ObservabilityPipelineDatabricksZerobusDestinationType",
       required: true,
     },
-    unityCatalogEndpoint: {
-      baseName: "unity_catalog_endpoint",
+    unityCatalogEndpointKey: {
+      baseName: "unity_catalog_endpoint_key",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
