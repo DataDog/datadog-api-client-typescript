@@ -6205,6 +6205,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsDowntimeFrequency: ["DAILY", "WEEKLY", "MONTHLY", "YEARLY"],
   SyntheticsDowntimeResourceType: ["downtime"],
   SyntheticsDowntimeWeekday: ["MO", "TU", "WE", "TH", "FR", "SA", "SU"],
+  SyntheticsDowntimeWeekdayPosition: [1, 2, 3, 4, -1],
   SyntheticsFastTestResultType: ["result"],
   SyntheticsFastTestSubType: [
     "dns",
