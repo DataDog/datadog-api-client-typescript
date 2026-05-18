@@ -32,6 +32,7 @@ export type MonitorType =
   | typeof COST_ALERT
   | typeof DATA_QUALITY_ALERT
   | typeof NETWORK_PATH_ALERT
+  | typeof DATA_JOBS_ALERT
   | UnparsedObject;
 export const COMPOSITE = "composite";
 export const EVENT_ALERT = "event alert";
@@ -54,3 +55,4 @@ export const NETWORK_PERFORMANCE_ALERT = "network-performance alert";
 export const COST_ALERT = "cost alert";
 export const DATA_QUALITY_ALERT = "data-quality alert";
 export const NETWORK_PATH_ALERT = "network-path alert";
+export const DATA_JOBS_ALERT = "data-jobs alert";

@@ -238,6 +238,7 @@ import { MonitorFormulaAndFunctionAggregateFilteredQueryDefinition } from "./Mon
 import { MonitorFormulaAndFunctionAggregateQueryFilter } from "./MonitorFormulaAndFunctionAggregateQueryFilter";
 import { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./MonitorFormulaAndFunctionAggregateQueryJoinCondition";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
+import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormulaAndFunctionDataJobsQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
@@ -1260,6 +1261,7 @@ const enumsMap: { [key: string]: any[] } = {
     "cost alert",
     "data-quality alert",
     "network-path alert",
+    "data-jobs alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
@@ -2239,6 +2241,8 @@ const typeMap: { [index: string]: any } = {
     MonitorFormulaAndFunctionAggregateQueryJoinCondition,
   MonitorFormulaAndFunctionCostQueryDefinition:
     MonitorFormulaAndFunctionCostQueryDefinition,
+  MonitorFormulaAndFunctionDataJobsQueryDefinition:
+    MonitorFormulaAndFunctionDataJobsQueryDefinition,
   MonitorFormulaAndFunctionDataQualityMonitorOptions:
     MonitorFormulaAndFunctionDataQualityMonitorOptions,
   MonitorFormulaAndFunctionDataQualityQueryDefinition:
@@ -2854,6 +2858,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorFormulaAndFunctionEventQueryDefinition",
     "MonitorFormulaAndFunctionCostQueryDefinition",
     "MonitorFormulaAndFunctionDataQualityQueryDefinition",
+    "MonitorFormulaAndFunctionDataJobsQueryDefinition",
     "MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition",
     "MonitorFormulaAndFunctionAggregateFilteredQueryDefinition",
   ],
