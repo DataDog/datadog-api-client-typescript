@@ -11768,6 +11768,49 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListScorecardsResponse",
   },
+  "ScorecardsApi.V2.ListScorecardScores": {
+    aggregation: {
+      type: "ScorecardScoresAggregation",
+      format: "",
+    },
+    filterRuleId: {
+      type: "string",
+      format: "",
+    },
+    filterRuleName: {
+      type: "string",
+      format: "",
+    },
+    filterRuleLevel: {
+      type: "string",
+      format: "",
+    },
+    filterRuleScorecardId: {
+      type: "string",
+      format: "",
+    },
+    filterRuleIsCustom: {
+      type: "boolean",
+      format: "",
+    },
+    filterRuleIsEnabled: {
+      type: "boolean",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageOffset: {
+      type: "number",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "ListScorecardScoresResponse",
+  },
   "SeatsApi.V2.GetSeatsUsers": {
     productCode: {
       type: "string",
