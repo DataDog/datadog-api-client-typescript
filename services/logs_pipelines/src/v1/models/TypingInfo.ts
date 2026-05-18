@@ -13,6 +13,7 @@ import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsDateRemapper } from "./LogsDateRemapper";
 import { LogsDecoderProcessor } from "./LogsDecoderProcessor";
+import { LogsExcludeAttributeProcessor } from "./LogsExcludeAttributeProcessor";
 import { LogsFilter } from "./LogsFilter";
 import { LogsGeoIPParser } from "./LogsGeoIPParser";
 import { LogsGrokParser } from "./LogsGrokParser";
@@ -51,6 +52,7 @@ export const TypingInfo: ModelTypingInfo = {
     LogsDecoderProcessorBinaryToTextEncoding: ["base64", "base16"],
     LogsDecoderProcessorInputRepresentation: ["utf_8", "integer"],
     LogsDecoderProcessorType: ["decoder-processor"],
+    LogsExcludeAttributeProcessorType: ["exclude-attribute"],
     LogsGeoIPParserType: ["geo-ip-parser"],
     LogsGrokParserType: ["grok-parser"],
     LogsLookupProcessorType: ["lookup-processor"],
@@ -95,6 +97,7 @@ export const TypingInfo: ModelTypingInfo = {
       "LogsArrayProcessor",
       "LogsDecoderProcessor",
       "LogsSchemaProcessor",
+      "LogsExcludeAttributeProcessor",
     ],
     LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
   },
@@ -112,6 +115,7 @@ export const TypingInfo: ModelTypingInfo = {
     LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
     LogsDateRemapper: LogsDateRemapper,
     LogsDecoderProcessor: LogsDecoderProcessor,
+    LogsExcludeAttributeProcessor: LogsExcludeAttributeProcessor,
     LogsFilter: LogsFilter,
     LogsGeoIPParser: LogsGeoIPParser,
     LogsGrokParser: LogsGrokParser,
