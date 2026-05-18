@@ -171,18 +171,17 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     for (const header in originalHeaders) {
       headers[header] = originalHeaders[header];
     }
-    if (headers["DD-API-KEY"]) {
-      headers["DD-API-KEY"] = headers["DD-API-KEY"].replace(/./g, "x");
-    }
-    if (headers["DD-APPLICATION-KEY"]) {
-      headers["DD-APPLICATION-KEY"] = headers["DD-APPLICATION-KEY"].replace(
-        /./g,
-        "x"
-      );
-    }
-    if (headers["Authorization"]) {
-      // Mask Bearer tokens (delegated tokens, PATs). See CRED-2625.
-      headers["Authorization"] = headers["Authorization"].replace(/./g, "x");
+    // Mask credential headers before serializing for the debug log.
+    // Authorization carries Bearer tokens (delegated tokens, PATs). See CRED-2625.
+    const headersToRedact = [
+      "DD-API-KEY",
+      "DD-APPLICATION-KEY",
+      "Authorization",
+    ];
+    for (const header of headersToRedact) {
+      if (headers[header]) {
+        headers[header] = headers[header].replace(/./g, "x");
+      }
     }
 
     const headersJSON = JSON.stringify(headers, null, 2).replace(/\n/g, "\n\t");
