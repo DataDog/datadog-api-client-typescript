@@ -146,6 +146,9 @@ import { SankeyWidgetDefinition } from "./SankeyWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
+import { ScatterplotDataProjectionDimension } from "./ScatterplotDataProjectionDimension";
+import { ScatterplotDataProjectionProjection } from "./ScatterplotDataProjectionProjection";
+import { ScatterplotDataProjectionQuery } from "./ScatterplotDataProjectionQuery";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
 import { SelectableTemplateVariableItems } from "./SelectableTemplateVariableItems";
@@ -489,7 +492,19 @@ export const TypingInfo: ModelTypingInfo = {
     SankeyRumQueryMode: ["source", "target"],
     SankeyWidgetDefinitionType: ["sankey"],
     ScatterPlotWidgetDefinitionType: ["scatterplot"],
+    ScatterplotDataProjectionProjectionType: ["scatterplot"],
+    ScatterplotDataProjectionQueryStorage: [
+      "live",
+      "hot",
+      "habanero",
+      "online_archives",
+      "driveline",
+      "flex_tier",
+      "case_insensitive",
+      "cloud_prem",
+    ],
     ScatterplotDimension: ["x", "y", "radius", "color"],
+    ScatterplotTableRequestType: ["table", "data_projection"],
     ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
     ServiceMapWidgetDefinitionType: ["servicemap"],
     ServiceSummaryWidgetDefinitionType: ["trace_service"],
@@ -944,6 +959,9 @@ export const TypingInfo: ModelTypingInfo = {
     ScatterPlotRequest: ScatterPlotRequest,
     ScatterPlotWidgetDefinition: ScatterPlotWidgetDefinition,
     ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
+    ScatterplotDataProjectionDimension: ScatterplotDataProjectionDimension,
+    ScatterplotDataProjectionProjection: ScatterplotDataProjectionProjection,
+    ScatterplotDataProjectionQuery: ScatterplotDataProjectionQuery,
     ScatterplotTableRequest: ScatterplotTableRequest,
     ScatterplotWidgetFormula: ScatterplotWidgetFormula,
     SelectableTemplateVariableItems: SelectableTemplateVariableItems,
