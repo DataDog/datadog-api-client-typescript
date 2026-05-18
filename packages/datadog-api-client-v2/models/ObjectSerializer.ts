@@ -2041,6 +2041,8 @@ import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseL
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
+import { ListScorecardScoresMeta } from "./ListScorecardScoresMeta";
+import { ListScorecardScoresResponse } from "./ListScorecardScoresResponse";
 import { ListScorecardsResponse } from "./ListScorecardsResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
@@ -3104,6 +3106,11 @@ import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
 import { ScorecardListResponseAttributes } from "./ScorecardListResponseAttributes";
 import { ScorecardListResponseData } from "./ScorecardListResponseData";
+import { ScorecardScoreAttributes } from "./ScorecardScoreAttributes";
+import { ScorecardScoreData } from "./ScorecardScoreData";
+import { ScorecardScoreRelationshipData } from "./ScorecardScoreRelationshipData";
+import { ScorecardScoreRelationshipItem } from "./ScorecardScoreRelationshipItem";
+import { ScorecardScoreRelationships } from "./ScorecardScoreRelationships";
 import { SeatUserData } from "./SeatUserData";
 import { SeatUserDataArray } from "./SeatUserDataArray";
 import { SeatUserDataAttributes } from "./SeatUserDataAttributes";
@@ -5834,6 +5841,14 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleUpdateRequestDataType: ["schedules"],
   ScheduleUserType: ["users"],
   ScorecardListType: ["scorecard"],
+  ScorecardScoreDataType: ["score"],
+  ScorecardScoresAggregation: [
+    "by-entity",
+    "by-rule",
+    "by-scorecard",
+    "by-team",
+    "by-kind",
+  ],
   ScorecardType: ["scorecard"],
   SearchIssuesIncludeQueryParameterItem: [
     "issue",
@@ -8947,6 +8962,8 @@ const typeMap: { [index: string]: any } = {
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,
+  ListScorecardScoresMeta: ListScorecardScoresMeta,
+  ListScorecardScoresResponse: ListScorecardScoresResponse,
   ListScorecardsResponse: ListScorecardsResponse,
   ListSecurityFindingsResponse: ListSecurityFindingsResponse,
   ListTagsResponse: ListTagsResponse,
@@ -10246,6 +10263,11 @@ const typeMap: { [index: string]: any } = {
   ScheduleUserAttributes: ScheduleUserAttributes,
   ScorecardListResponseAttributes: ScorecardListResponseAttributes,
   ScorecardListResponseData: ScorecardListResponseData,
+  ScorecardScoreAttributes: ScorecardScoreAttributes,
+  ScorecardScoreData: ScorecardScoreData,
+  ScorecardScoreRelationshipData: ScorecardScoreRelationshipData,
+  ScorecardScoreRelationshipItem: ScorecardScoreRelationshipItem,
+  ScorecardScoreRelationships: ScorecardScoreRelationships,
   SeatUserData: SeatUserData,
   SeatUserDataArray: SeatUserDataArray,
   SeatUserDataAttributes: SeatUserDataAttributes,

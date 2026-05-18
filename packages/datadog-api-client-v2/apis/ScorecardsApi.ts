@@ -25,11 +25,13 @@ import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListCampaignsResponse } from "../models/ListCampaignsResponse";
 import { ListRulesResponse } from "../models/ListRulesResponse";
 import { ListRulesResponseDataItem } from "../models/ListRulesResponseDataItem";
+import { ListScorecardScoresResponse } from "../models/ListScorecardScoresResponse";
 import { ListScorecardsResponse } from "../models/ListScorecardsResponse";
 import { OutcomesBatchRequest } from "../models/OutcomesBatchRequest";
 import { OutcomesBatchResponse } from "../models/OutcomesBatchResponse";
 import { OutcomesResponse } from "../models/OutcomesResponse";
 import { OutcomesResponseDataItem } from "../models/OutcomesResponseDataItem";
+import { ScorecardScoresAggregation } from "../models/ScorecardScoresAggregation";
 import { UpdateCampaignRequest } from "../models/UpdateCampaignRequest";
 import { UpdateOutcomesAsyncRequest } from "../models/UpdateOutcomesAsyncRequest";
 import { UpdateRuleRequest } from "../models/UpdateRuleRequest";
@@ -623,6 +625,114 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[scorecard][description]",
         ObjectSerializer.serialize(filterScorecardDescription, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listScorecardScores(
+    aggregation: ScorecardScoresAggregation,
+    filterRuleId?: string,
+    filterRuleName?: string,
+    filterRuleLevel?: string,
+    filterRuleScorecardId?: string,
+    filterRuleIsCustom?: boolean,
+    filterRuleIsEnabled?: boolean,
+    sort?: string,
+    pageOffset?: number,
+    pageLimit?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'aggregation' is not null or undefined
+    if (aggregation === null || aggregation === undefined) {
+      throw new RequiredError("aggregation", "listScorecardScores");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/scorecard/scores/{aggregation}".replace(
+      "{aggregation}",
+      encodeURIComponent(String(aggregation))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ScorecardsApi.listScorecardScores")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterRuleId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule][id]",
+        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        ""
+      );
+    }
+    if (filterRuleName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule][name]",
+        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        ""
+      );
+    }
+    if (filterRuleLevel !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule][level]",
+        ObjectSerializer.serialize(filterRuleLevel, "string", ""),
+        ""
+      );
+    }
+    if (filterRuleScorecardId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule][scorecard_id]",
+        ObjectSerializer.serialize(filterRuleScorecardId, "string", ""),
+        ""
+      );
+    }
+    if (filterRuleIsCustom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule][is_custom]",
+        ObjectSerializer.serialize(filterRuleIsCustom, "boolean", ""),
+        ""
+      );
+    }
+    if (filterRuleIsEnabled !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule][is_enabled]",
+        ObjectSerializer.serialize(filterRuleIsEnabled, "boolean", ""),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", ""),
         ""
       );
     }
@@ -1491,6 +1601,68 @@ export class ScorecardsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listScorecardScores
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listScorecardScores(
+    response: ResponseContext
+  ): Promise<ListScorecardScoresResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListScorecardScoresResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListScorecardScoresResponse"
+      ) as ListScorecardScoresResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListScorecardScoresResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListScorecardScoresResponse",
+        ""
+      ) as ListScorecardScoresResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateScorecardCampaign
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1909,6 +2081,59 @@ export interface ScorecardsApiListScorecardsRequest {
   filterScorecardDescription?: string;
 }
 
+export interface ScorecardsApiListScorecardScoresRequest {
+  /**
+   * The type of scores being requested.
+   * @type ScorecardScoresAggregation
+   */
+  aggregation: ScorecardScoresAggregation;
+  /**
+   * Filter scores by rule ID(s), comma-separated.
+   * @type string
+   */
+  filterRuleId?: string;
+  /**
+   * Filter scores by rule name.
+   * @type string
+   */
+  filterRuleName?: string;
+  /**
+   * Filter scores by rule level(s), comma-separated.
+   * @type string
+   */
+  filterRuleLevel?: string;
+  /**
+   * Filter scores by scorecard ID(s), comma-separated.
+   * @type string
+   */
+  filterRuleScorecardId?: string;
+  /**
+   * Filter scores to show only custom rules.
+   * @type boolean
+   */
+  filterRuleIsCustom?: boolean;
+  /**
+   * Filter scores to show only enabled rules.
+   * @type boolean
+   */
+  filterRuleIsEnabled?: boolean;
+  /**
+   * Sort scores by field. Use a hyphen prefix for descending order. Options: score, numerator, denominator, total_pass, total_fail, total_skip, total_no_data.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Offset for pagination.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Number of scores to return. Max is 1000.
+   * @type number
+   */
+  pageLimit?: number;
+}
+
 export interface ScorecardsApiUpdateScorecardCampaignRequest {
   /**
    * Campaign ID or key.
@@ -2302,6 +2527,36 @@ export class ScorecardsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listScorecards(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a list of scorecard scores for each aggregation type, with score breakdowns.
+   * @param param The request object
+   */
+  public listScorecardScores(
+    param: ScorecardsApiListScorecardScoresRequest,
+    options?: Configuration
+  ): Promise<ListScorecardScoresResponse> {
+    const requestContextPromise = this.requestFactory.listScorecardScores(
+      param.aggregation,
+      param.filterRuleId,
+      param.filterRuleName,
+      param.filterRuleLevel,
+      param.filterRuleScorecardId,
+      param.filterRuleIsCustom,
+      param.filterRuleIsEnabled,
+      param.sort,
+      param.pageOffset,
+      param.pageLimit,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listScorecardScores(responseContext);
         });
     });
   }
