@@ -451,18 +451,23 @@ export {
 } from "./apis/FastlyIntegrationApi";
 
 export {
+  FeatureFlagsApiApproveFlagSuggestionRequest,
   FeatureFlagsApiArchiveFeatureFlagRequest,
   FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiCreateFeatureFlagRequest,
   FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiCreateFlagSuggestionRequest,
   FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiDeleteFlagSuggestionRequest,
   FeatureFlagsApiDisableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
   FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiGetFlagSuggestionRequest,
   FeatureFlagsApiListFeatureFlagsRequest,
   FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
   FeatureFlagsApiPauseExposureScheduleRequest,
+  FeatureFlagsApiRejectFlagSuggestionRequest,
   FeatureFlagsApiResumeExposureScheduleRequest,
   FeatureFlagsApiStartExposureScheduleRequest,
   FeatureFlagsApiStopExposureScheduleRequest,
@@ -2449,6 +2454,9 @@ export { CreateFeatureFlagAttributes } from "./models/CreateFeatureFlagAttribute
 export { CreateFeatureFlagData } from "./models/CreateFeatureFlagData";
 export { CreateFeatureFlagDataType } from "./models/CreateFeatureFlagDataType";
 export { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
+export { CreateFlagSuggestionAttributes } from "./models/CreateFlagSuggestionAttributes";
+export { CreateFlagSuggestionData } from "./models/CreateFlagSuggestionData";
+export { CreateFlagSuggestionRequest } from "./models/CreateFlagSuggestionRequest";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
@@ -3133,6 +3141,14 @@ export { Findings } from "./models/Findings";
 export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
 export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
+export { FlagSuggestion } from "./models/FlagSuggestion";
+export { FlagSuggestionAction } from "./models/FlagSuggestionAction";
+export { FlagSuggestionAttributes } from "./models/FlagSuggestionAttributes";
+export { FlagSuggestionDataType } from "./models/FlagSuggestionDataType";
+export { FlagSuggestionEventDataType } from "./models/FlagSuggestionEventDataType";
+export { FlagSuggestionProperty } from "./models/FlagSuggestionProperty";
+export { FlagSuggestionResponse } from "./models/FlagSuggestionResponse";
+export { FlagSuggestionStatus } from "./models/FlagSuggestionStatus";
 export { FlakyTest } from "./models/FlakyTest";
 export { FlakyTestAttributes } from "./models/FlakyTestAttributes";
 export { FlakyTestAttributesFlakyState } from "./models/FlakyTestAttributesFlakyState";
@@ -5207,6 +5223,9 @@ export { RevertCustomRuleRevisionDataType } from "./models/RevertCustomRuleRevis
 export { RevertCustomRuleRevisionRequest } from "./models/RevertCustomRuleRevisionRequest";
 export { RevertCustomRuleRevisionRequestData } from "./models/RevertCustomRuleRevisionRequestData";
 export { RevertCustomRuleRevisionRequestDataAttributes } from "./models/RevertCustomRuleRevisionRequestDataAttributes";
+export { ReviewFlagSuggestionAttributes } from "./models/ReviewFlagSuggestionAttributes";
+export { ReviewFlagSuggestionData } from "./models/ReviewFlagSuggestionData";
+export { ReviewFlagSuggestionRequest } from "./models/ReviewFlagSuggestionRequest";
 export { Role } from "./models/Role";
 export { RoleAttributes } from "./models/RoleAttributes";
 export { RoleClone } from "./models/RoleClone";
@@ -6084,6 +6103,7 @@ export { StatusPagesUserType } from "./models/StatusPagesUserType";
 export { Step } from "./models/Step";
 export { StepDisplay } from "./models/StepDisplay";
 export { StepDisplayBounds } from "./models/StepDisplayBounds";
+export { SuggestionMetadata } from "./models/SuggestionMetadata";
 export { SuiteCreateEdit } from "./models/SuiteCreateEdit";
 export { SuiteCreateEditRequest } from "./models/SuiteCreateEditRequest";
 export { SuiteJsonPatchRequest } from "./models/SuiteJsonPatchRequest";

@@ -7615,6 +7615,42 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AllocationExposureScheduleResponse",
     },
+    "v2.GetFlagSuggestion": {
+        "suggestionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "FlagSuggestionResponse",
+    },
+    "v2.DeleteFlagSuggestion": {
+        "suggestionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ApproveFlagSuggestion": {
+        "suggestionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ReviewFlagSuggestionRequest",
+            "format": "",
+            },
+        "operationResponseType": "FlagSuggestionResponse",
+    },
+    "v2.RejectFlagSuggestion": {
+        "suggestionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ReviewFlagSuggestionRequest",
+            "format": "",
+            },
+        "operationResponseType": "FlagSuggestionResponse",
+    },
     "v2.GetFeatureFlag": {
         "featureFlagId": {
             "type": "string",
@@ -7691,6 +7727,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "operationResponseType": "{}",
+    },
+    "v2.CreateFlagSuggestion": {
+        "featureFlagId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CreateFlagSuggestionRequest",
+            "format": "",
+            },
+        "operationResponseType": "FlagSuggestionResponse",
     },
     "v2.UnarchiveFeatureFlag": {
         "featureFlagId": {
