@@ -3,29 +3,31 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScatterPlotRequest } from "./ScatterPlotRequest";
-import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
+import { ScatterplotDimension } from "./ScatterplotDimension";
+import { WidgetNumberFormat } from "./WidgetNumberFormat";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Widget definition.
+ * A single dimension mapping for a scatterplot data projection.
  */
-export class ScatterPlotWidgetDefinitionRequests {
+export class ScatterplotDataProjectionDimension {
   /**
-   * Scatterplot table request. Supports two modes:
-   * - **Formulas and functions** (default): `request_type` is absent or `"table"`. Uses `queries` and `formulas`.
-   * - **Data projection**: `request_type` is `"data_projection"`. Uses `query`, `projection`, and optionally `limit`.
+   * Display alias for the dimension.
    */
-  "table"?: ScatterplotTableRequest;
+  "alias"?: string;
   /**
-   * Updated scatter plot.
+   * The column name from the data source.
    */
-  "x"?: ScatterPlotRequest;
+  "column": string;
   /**
-   * Updated scatter plot.
+   * Dimension of the Scatterplot.
    */
-  "y"?: ScatterPlotRequest;
+  "dimension": ScatterplotDimension;
+  /**
+   * Number format options for the widget.
+   */
+  "numberFormat"?: WidgetNumberFormat;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,17 +45,23 @@ export class ScatterPlotWidgetDefinitionRequests {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    table: {
-      baseName: "table",
-      type: "ScatterplotTableRequest",
+    alias: {
+      baseName: "alias",
+      type: "string",
     },
-    x: {
-      baseName: "x",
-      type: "ScatterPlotRequest",
+    column: {
+      baseName: "column",
+      type: "string",
+      required: true,
     },
-    y: {
-      baseName: "y",
-      type: "ScatterPlotRequest",
+    dimension: {
+      baseName: "dimension",
+      type: "ScatterplotDimension",
+      required: true,
+    },
+    numberFormat: {
+      baseName: "number_format",
+      type: "WidgetNumberFormat",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +73,7 @@ export class ScatterPlotWidgetDefinitionRequests {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
+    return ScatterplotDataProjectionDimension.attributeTypeMap;
   }
 
   public constructor() {}

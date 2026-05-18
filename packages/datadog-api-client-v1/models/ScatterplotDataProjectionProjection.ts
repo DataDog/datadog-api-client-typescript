@@ -3,29 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScatterPlotRequest } from "./ScatterPlotRequest";
-import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
+import { ScatterplotDataProjectionDimension } from "./ScatterplotDataProjectionDimension";
+import { ScatterplotDataProjectionProjectionType } from "./ScatterplotDataProjectionProjectionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Widget definition.
+ * The projection configuration for a scatterplot data projection request.
  */
-export class ScatterPlotWidgetDefinitionRequests {
+export class ScatterplotDataProjectionProjection {
   /**
-   * Scatterplot table request. Supports two modes:
-   * - **Formulas and functions** (default): `request_type` is absent or `"table"`. Uses `queries` and `formulas`.
-   * - **Data projection**: `request_type` is `"data_projection"`. Uses `query`, `projection`, and optionally `limit`.
+   * Dimension mappings for the scatterplot axes.
    */
-  "table"?: ScatterplotTableRequest;
+  "dimensions": Array<ScatterplotDataProjectionDimension>;
   /**
-   * Updated scatter plot.
+   * The type of the scatterplot data projection.
    */
-  "x"?: ScatterPlotRequest;
-  /**
-   * Updated scatter plot.
-   */
-  "y"?: ScatterPlotRequest;
+  "type": ScatterplotDataProjectionProjectionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,17 +37,15 @@ export class ScatterPlotWidgetDefinitionRequests {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    table: {
-      baseName: "table",
-      type: "ScatterplotTableRequest",
+    dimensions: {
+      baseName: "dimensions",
+      type: "Array<ScatterplotDataProjectionDimension>",
+      required: true,
     },
-    x: {
-      baseName: "x",
-      type: "ScatterPlotRequest",
-    },
-    y: {
-      baseName: "y",
-      type: "ScatterPlotRequest",
+    type: {
+      baseName: "type",
+      type: "ScatterplotDataProjectionProjectionType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +57,7 @@ export class ScatterPlotWidgetDefinitionRequests {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
+    return ScatterplotDataProjectionProjection.attributeTypeMap;
   }
 
   public constructor() {}

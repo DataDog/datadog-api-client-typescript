@@ -426,6 +426,9 @@ import { SankeyWidgetDefinition } from "./SankeyWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
+import { ScatterplotDataProjectionDimension } from "./ScatterplotDataProjectionDimension";
+import { ScatterplotDataProjectionProjection } from "./ScatterplotDataProjectionProjection";
+import { ScatterplotDataProjectionQuery } from "./ScatterplotDataProjectionQuery";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
 import { SearchSLOQuery } from "./SearchSLOQuery";
@@ -1507,7 +1510,19 @@ const enumsMap: { [key: string]: any[] } = {
   SankeyRumQueryMode: ["source", "target"],
   SankeyWidgetDefinitionType: ["sankey"],
   ScatterPlotWidgetDefinitionType: ["scatterplot"],
+  ScatterplotDataProjectionProjectionType: ["scatterplot"],
+  ScatterplotDataProjectionQueryStorage: [
+    "live",
+    "hot",
+    "habanero",
+    "online_archives",
+    "driveline",
+    "flex_tier",
+    "case_insensitive",
+    "cloud_prem",
+  ],
   ScatterplotDimension: ["x", "y", "radius", "color"],
+  ScatterplotTableRequestType: ["table", "data_projection"],
   ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
   SearchSLOTimeframe: ["7d", "30d", "90d"],
   ServiceCheckStatus: [0, 1, 2, 3],
@@ -2453,6 +2468,9 @@ const typeMap: { [index: string]: any } = {
   ScatterPlotRequest: ScatterPlotRequest,
   ScatterPlotWidgetDefinition: ScatterPlotWidgetDefinition,
   ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
+  ScatterplotDataProjectionDimension: ScatterplotDataProjectionDimension,
+  ScatterplotDataProjectionProjection: ScatterplotDataProjectionProjection,
+  ScatterplotDataProjectionQuery: ScatterplotDataProjectionQuery,
   ScatterplotTableRequest: ScatterplotTableRequest,
   ScatterplotWidgetFormula: ScatterplotWidgetFormula,
   SearchSLOQuery: SearchSLOQuery,
