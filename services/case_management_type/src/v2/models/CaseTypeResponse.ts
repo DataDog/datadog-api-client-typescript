@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseTypeResource } from "./CaseTypeResource";
 
 /**
- * Response containing a single case type.
+ * Case type response
  */
 export class CaseTypeResponse {
   /**
-   * A case type that defines a classification category for cases. Each case type can have its own custom attributes, statuses, and automation rules.
+   * The definition of `CaseType` object.
    */
   "data"?: CaseTypeResource;
   /**

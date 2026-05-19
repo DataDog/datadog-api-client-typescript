@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * JSON:API resource type for custom attribute configurations.
+ * Custom attributes config JSON:API resource type
  */
 export type CustomAttributeConfigResourceType =
   | typeof CUSTOM_ATTRIBUTE

@@ -3,6 +3,6 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 import { TimelineCellContentComment } from "./TimelineCellContentComment";
 
 /**
- * The content payload of a timeline cell, varying by cell type.
+ * timeline cell content
  */
 export type TimelineCellContent = TimelineCellContentComment | UnparsedObject;

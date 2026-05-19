@@ -12,7 +12,7 @@ export class CaseUpdateTitle {
    */
   "attributes": CaseUpdateTitleAttributes;
   /**
-   * JSON:API resource type for cases.
+   * Case resource type
    */
   "type": CaseResourceType;
   /**

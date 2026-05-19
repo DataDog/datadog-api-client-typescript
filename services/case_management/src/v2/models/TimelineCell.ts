@@ -5,15 +5,15 @@ import { TimelineCellContent } from "./TimelineCellContent";
 import { TimelineCellType } from "./TimelineCellType";
 
 /**
- * Attributes of a timeline cell, representing a single event in a case's chronological activity log (for example, a comment, status change, or assignment update).
+ * timeline cell
  */
 export class TimelineCell {
   /**
-   * The author of the timeline cell. Currently only user authors are supported.
+   * author of the timeline cell
    */
   "author"?: TimelineCellAuthor;
   /**
-   * The content payload of a timeline cell, varying by cell type.
+   * timeline cell content
    */
   "cellContent"?: TimelineCellContent;
   /**
@@ -29,7 +29,7 @@ export class TimelineCell {
    */
   "modifiedAt"?: Date;
   /**
-   * The type of content in the timeline cell. Currently only `COMMENT` is supported in this endpoint.
+   * Timeline cell content type
    */
   "type"?: TimelineCellType;
   /**

@@ -12,7 +12,7 @@ export class CaseUpdateDescription {
    */
   "attributes": CaseUpdateDescriptionAttributes;
   /**
-   * JSON:API resource type for cases.
+   * Case resource type
    */
   "type": CaseResourceType;
   /**
