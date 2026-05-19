@@ -12126,6 +12126,49 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListScorecardsResponse",
     },
+    "v2.ListScorecardScores": {
+        "aggregation": {
+            "type": "ScorecardScoresAggregation",
+            "format": "",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleLevel": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleScorecardId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleIsCustom": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleIsEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "ListScorecardScoresResponse",
+    },
     "v2.GetSeatsUsers": {
         "productCode": {
             "type": "string",

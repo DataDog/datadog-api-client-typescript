@@ -1062,6 +1062,7 @@ export {
   ScorecardsApiListScorecardCampaignsRequest,
   ScorecardsApiListScorecardOutcomesRequest,
   ScorecardsApiListScorecardRulesRequest,
+  ScorecardsApiListScorecardScoresRequest,
   ScorecardsApiListScorecardsRequest,
   ScorecardsApiUpdateScorecardCampaignRequest,
   ScorecardsApiUpdateScorecardOutcomesRequest,
@@ -4010,6 +4011,8 @@ export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogRe
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
+export { ListScorecardScoresMeta } from "./models/ListScorecardScoresMeta";
+export { ListScorecardScoresResponse } from "./models/ListScorecardScoresResponse";
 export { ListScorecardsResponse } from "./models/ListScorecardsResponse";
 export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 export { ListTagsResponse } from "./models/ListTagsResponse";
@@ -5615,6 +5618,13 @@ export { ScheduleUserType } from "./models/ScheduleUserType";
 export { ScorecardListResponseAttributes } from "./models/ScorecardListResponseAttributes";
 export { ScorecardListResponseData } from "./models/ScorecardListResponseData";
 export { ScorecardListType } from "./models/ScorecardListType";
+export { ScorecardScoreAttributes } from "./models/ScorecardScoreAttributes";
+export { ScorecardScoreData } from "./models/ScorecardScoreData";
+export { ScorecardScoreDataType } from "./models/ScorecardScoreDataType";
+export { ScorecardScoreRelationshipData } from "./models/ScorecardScoreRelationshipData";
+export { ScorecardScoreRelationshipItem } from "./models/ScorecardScoreRelationshipItem";
+export { ScorecardScoreRelationships } from "./models/ScorecardScoreRelationships";
+export { ScorecardScoresAggregation } from "./models/ScorecardScoresAggregation";
 export { ScorecardType } from "./models/ScorecardType";
 export { SearchIssuesIncludeQueryParameterItem } from "./models/SearchIssuesIncludeQueryParameterItem";
 export { SeatAssignmentsDataType } from "./models/SeatAssignmentsDataType";
