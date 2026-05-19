@@ -23,6 +23,10 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
    * Options for sorting group by results.
    */
   "sort"?: MonitorFormulaAndFunctionEventQueryGroupBySort;
+  /**
+   * Source reference for composite query payloads.
+   */
+  "source"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,6 +57,10 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
     sort: {
       baseName: "sort",
       type: "MonitorFormulaAndFunctionEventQueryGroupBySort",
+    },
+    source: {
+      baseName: "source",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
