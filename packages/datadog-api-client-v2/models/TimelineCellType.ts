@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Timeline cell content type
+ * The type of content in the timeline cell. Currently only `COMMENT` is supported in this endpoint.
  */
 
 export type TimelineCellType = typeof COMMENT | UnparsedObject;

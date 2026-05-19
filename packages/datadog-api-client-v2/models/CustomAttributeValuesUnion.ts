@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Union of supported value for a custom attribute
+ * The value of a custom attribute. The accepted format depends on the attribute's type and whether it accepts multiple values.
  */
 
 export type CustomAttributeValuesUnion =

@@ -9,7 +9,7 @@ import { CustomAttributeValuesUnion } from "./CustomAttributeValuesUnion";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Custom attribute values
+ * A typed value for a custom attribute on a specific case.
  */
 export class CustomAttributeValue {
   /**
@@ -17,11 +17,11 @@ export class CustomAttributeValue {
    */
   "isMulti": boolean;
   /**
-   * Custom attributes type
+   * The data type of the custom attribute, which determines the allowed values and UI input control.
    */
   "type": CustomAttributeType;
   /**
-   * Union of supported value for a custom attribute
+   * The value of a custom attribute. The accepted format depends on the attribute's type and whether it accepts multiple values.
    */
   "value": CustomAttributeValuesUnion;
 

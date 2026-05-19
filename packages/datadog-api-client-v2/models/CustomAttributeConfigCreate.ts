@@ -9,15 +9,15 @@ import { CustomAttributeConfigResourceType } from "./CustomAttributeConfigResour
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Custom attribute config
+ * Data object for creating a custom attribute configuration.
  */
 export class CustomAttributeConfigCreate {
   /**
-   * Custom attribute config resource attributes
+   * Attributes required to create a custom attribute configuration.
    */
   "attributes": CustomAttributeConfigAttributesCreate;
   /**
-   * Custom attributes config JSON:API resource type
+   * JSON:API resource type for custom attribute configurations.
    */
   "type": CustomAttributeConfigResourceType;
 

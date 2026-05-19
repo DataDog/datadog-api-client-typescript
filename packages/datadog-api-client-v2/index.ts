@@ -173,37 +173,69 @@ export {
 } from "./apis/CSMThreatsApi";
 
 export {
+  CaseManagementApiAddCaseInsightsRequest,
+  CaseManagementApiAggregateCasesRequest,
   CaseManagementApiArchiveCaseRequest,
   CaseManagementApiAssignCaseRequest,
+  CaseManagementApiBulkUpdateCasesRequest,
   CaseManagementApiCommentCaseRequest,
+  CaseManagementApiCountCasesRequest,
   CaseManagementApiCreateCaseRequest,
+  CaseManagementApiCreateCaseAutomationRuleRequest,
   CaseManagementApiCreateCaseJiraIssueRequest,
+  CaseManagementApiCreateCaseLinkRequest,
   CaseManagementApiCreateCaseNotebookRequest,
   CaseManagementApiCreateCaseServiceNowTicketRequest,
+  CaseManagementApiCreateCaseViewRequest,
+  CaseManagementApiCreateMaintenanceWindowRequest,
   CaseManagementApiCreateProjectRequest,
   CaseManagementApiCreateProjectNotificationRuleRequest,
+  CaseManagementApiDeleteCaseAutomationRuleRequest,
   CaseManagementApiDeleteCaseCommentRequest,
   CaseManagementApiDeleteCaseCustomAttributeRequest,
+  CaseManagementApiDeleteCaseLinkRequest,
+  CaseManagementApiDeleteCaseViewRequest,
+  CaseManagementApiDeleteMaintenanceWindowRequest,
   CaseManagementApiDeleteProjectRequest,
   CaseManagementApiDeleteProjectNotificationRuleRequest,
+  CaseManagementApiDisableCaseAutomationRuleRequest,
+  CaseManagementApiEnableCaseAutomationRuleRequest,
+  CaseManagementApiFavoriteCaseProjectRequest,
   CaseManagementApiGetCaseRequest,
+  CaseManagementApiGetCaseAutomationRuleRequest,
+  CaseManagementApiGetCaseViewRequest,
   CaseManagementApiGetProjectRequest,
   CaseManagementApiGetProjectNotificationRulesRequest,
   CaseManagementApiLinkIncidentRequest,
   CaseManagementApiLinkJiraIssueToCaseRequest,
+  CaseManagementApiListCaseAutomationRulesRequest,
+  CaseManagementApiListCaseLinksRequest,
+  CaseManagementApiListCaseTimelineRequest,
+  CaseManagementApiListCaseViewsRequest,
+  CaseManagementApiListCaseWatchersRequest,
   CaseManagementApiMoveCaseToProjectRequest,
+  CaseManagementApiRemoveCaseInsightsRequest,
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUnfavoriteCaseProjectRequest,
   CaseManagementApiUnlinkJiraIssueRequest,
+  CaseManagementApiUnwatchCaseRequest,
   CaseManagementApiUpdateAttributesRequest,
+  CaseManagementApiUpdateCaseAutomationRuleRequest,
+  CaseManagementApiUpdateCaseCommentRequest,
   CaseManagementApiUpdateCaseCustomAttributeRequest,
   CaseManagementApiUpdateCaseDescriptionRequest,
+  CaseManagementApiUpdateCaseDueDateRequest,
+  CaseManagementApiUpdateCaseResolvedReasonRequest,
   CaseManagementApiUpdateCaseTitleRequest,
+  CaseManagementApiUpdateCaseViewRequest,
+  CaseManagementApiUpdateMaintenanceWindowRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateProjectRequest,
   CaseManagementApiUpdateProjectNotificationRuleRequest,
   CaseManagementApiUpdateStatusRequest,
+  CaseManagementApiWatchCaseRequest,
   CaseManagementApi,
 } from "./apis/CaseManagementApi";
 
@@ -211,12 +243,14 @@ export {
   CaseManagementAttributeApiCreateCustomAttributeConfigRequest,
   CaseManagementAttributeApiDeleteCustomAttributeConfigRequest,
   CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest,
+  CaseManagementAttributeApiUpdateCustomAttributeConfigRequest,
   CaseManagementAttributeApi,
 } from "./apis/CaseManagementAttributeApi";
 
 export {
   CaseManagementTypeApiCreateCaseTypeRequest,
   CaseManagementTypeApiDeleteCaseTypeRequest,
+  CaseManagementTypeApiUpdateCaseTypeRequest,
   CaseManagementTypeApi,
 } from "./apis/CaseManagementTypeApi";
 
@@ -1695,6 +1729,22 @@ export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
 export { AutoCloseInactiveCases } from "./models/AutoCloseInactiveCases";
+export { AutomationRule } from "./models/AutomationRule";
+export { AutomationRuleAction } from "./models/AutomationRuleAction";
+export { AutomationRuleActionData } from "./models/AutomationRuleActionData";
+export { AutomationRuleActionType } from "./models/AutomationRuleActionType";
+export { AutomationRuleAttributes } from "./models/AutomationRuleAttributes";
+export { AutomationRuleCreate } from "./models/AutomationRuleCreate";
+export { AutomationRuleCreateAttributes } from "./models/AutomationRuleCreateAttributes";
+export { AutomationRuleCreateRequest } from "./models/AutomationRuleCreateRequest";
+export { AutomationRuleRelationships } from "./models/AutomationRuleRelationships";
+export { AutomationRuleResponse } from "./models/AutomationRuleResponse";
+export { AutomationRulesResponse } from "./models/AutomationRulesResponse";
+export { AutomationRuleTrigger } from "./models/AutomationRuleTrigger";
+export { AutomationRuleTriggerData } from "./models/AutomationRuleTriggerData";
+export { AutomationRuleTriggerType } from "./models/AutomationRuleTriggerType";
+export { AutomationRuleUpdate } from "./models/AutomationRuleUpdate";
+export { AutomationRuleUpdateRequest } from "./models/AutomationRuleUpdateRequest";
 export { AutoTransitionAssignedCases } from "./models/AutoTransitionAssignedCases";
 export { AWSAccountCreateRequest } from "./models/AWSAccountCreateRequest";
 export { AWSAccountCreateRequestAttributes } from "./models/AWSAccountCreateRequestAttributes";
@@ -1916,13 +1966,34 @@ export { CampaignType } from "./models/CampaignType";
 export { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionResponseBody";
 export { Case } from "./models/Case";
 export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
+export { CaseAggregateGroup } from "./models/CaseAggregateGroup";
+export { CaseAggregateGroupBy } from "./models/CaseAggregateGroupBy";
+export { CaseAggregateRequest } from "./models/CaseAggregateRequest";
+export { CaseAggregateRequestAttributes } from "./models/CaseAggregateRequestAttributes";
+export { CaseAggregateRequestData } from "./models/CaseAggregateRequestData";
+export { CaseAggregateResourceType } from "./models/CaseAggregateResourceType";
+export { CaseAggregateResponse } from "./models/CaseAggregateResponse";
+export { CaseAggregateResponseAttributes } from "./models/CaseAggregateResponseAttributes";
+export { CaseAggregateResponseData } from "./models/CaseAggregateResponseData";
 export { CaseAssign } from "./models/CaseAssign";
 export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
 export { CaseAssignRequest } from "./models/CaseAssignRequest";
 export { CaseAttributes } from "./models/CaseAttributes";
+export { CaseAutomationRuleResourceType } from "./models/CaseAutomationRuleResourceType";
+export { CaseAutomationRuleState } from "./models/CaseAutomationRuleState";
+export { CaseBulkActionType } from "./models/CaseBulkActionType";
+export { CaseBulkResourceType } from "./models/CaseBulkResourceType";
+export { CaseBulkUpdateRequest } from "./models/CaseBulkUpdateRequest";
+export { CaseBulkUpdateRequestAttributes } from "./models/CaseBulkUpdateRequestAttributes";
+export { CaseBulkUpdateRequestData } from "./models/CaseBulkUpdateRequestData";
 export { CaseComment } from "./models/CaseComment";
 export { CaseCommentAttributes } from "./models/CaseCommentAttributes";
 export { CaseCommentRequest } from "./models/CaseCommentRequest";
+export { CaseCountGroup } from "./models/CaseCountGroup";
+export { CaseCountGroupValue } from "./models/CaseCountGroupValue";
+export { CaseCountResponse } from "./models/CaseCountResponse";
+export { CaseCountResponseAttributes } from "./models/CaseCountResponseAttributes";
+export { CaseCountResponseData } from "./models/CaseCountResponseData";
 export { CaseCreate } from "./models/CaseCreate";
 export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
 export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
@@ -1930,7 +2001,19 @@ export { CaseCreateRequest } from "./models/CaseCreateRequest";
 export { CaseDataType } from "./models/CaseDataType";
 export { CaseEmpty } from "./models/CaseEmpty";
 export { CaseEmptyRequest } from "./models/CaseEmptyRequest";
+export { CaseInsight } from "./models/CaseInsight";
+export { CaseInsightsAttributes } from "./models/CaseInsightsAttributes";
+export { CaseInsightsData } from "./models/CaseInsightsData";
 export { CaseInsightsItems } from "./models/CaseInsightsItems";
+export { CaseInsightsRequest } from "./models/CaseInsightsRequest";
+export { CaseInsightType } from "./models/CaseInsightType";
+export { CaseLink } from "./models/CaseLink";
+export { CaseLinkAttributes } from "./models/CaseLinkAttributes";
+export { CaseLinkCreate } from "./models/CaseLinkCreate";
+export { CaseLinkCreateRequest } from "./models/CaseLinkCreateRequest";
+export { CaseLinkResourceType } from "./models/CaseLinkResourceType";
+export { CaseLinkResponse } from "./models/CaseLinkResponse";
+export { CaseLinksResponse } from "./models/CaseLinksResponse";
 export { CaseManagementProject } from "./models/CaseManagementProject";
 export { CaseManagementProjectData } from "./models/CaseManagementProjectData";
 export { CaseManagementProjectDataType } from "./models/CaseManagementProjectDataType";
@@ -1968,23 +2051,51 @@ export { CaseTypeResourceAttributes } from "./models/CaseTypeResourceAttributes"
 export { CaseTypeResourceType } from "./models/CaseTypeResourceType";
 export { CaseTypeResponse } from "./models/CaseTypeResponse";
 export { CaseTypesResponse } from "./models/CaseTypesResponse";
+export { CaseTypeUpdate } from "./models/CaseTypeUpdate";
+export { CaseTypeUpdateRequest } from "./models/CaseTypeUpdateRequest";
 export { CaseUpdateAttributes } from "./models/CaseUpdateAttributes";
 export { CaseUpdateAttributesAttributes } from "./models/CaseUpdateAttributesAttributes";
 export { CaseUpdateAttributesRequest } from "./models/CaseUpdateAttributesRequest";
+export { CaseUpdateComment } from "./models/CaseUpdateComment";
+export { CaseUpdateCommentAttributes } from "./models/CaseUpdateCommentAttributes";
+export { CaseUpdateCommentRequest } from "./models/CaseUpdateCommentRequest";
 export { CaseUpdateCustomAttribute } from "./models/CaseUpdateCustomAttribute";
 export { CaseUpdateCustomAttributeRequest } from "./models/CaseUpdateCustomAttributeRequest";
 export { CaseUpdateDescription } from "./models/CaseUpdateDescription";
 export { CaseUpdateDescriptionAttributes } from "./models/CaseUpdateDescriptionAttributes";
 export { CaseUpdateDescriptionRequest } from "./models/CaseUpdateDescriptionRequest";
+export { CaseUpdateDueDate } from "./models/CaseUpdateDueDate";
+export { CaseUpdateDueDateAttributes } from "./models/CaseUpdateDueDateAttributes";
+export { CaseUpdateDueDateRequest } from "./models/CaseUpdateDueDateRequest";
 export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
 export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
 export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
+export { CaseUpdateResolvedReason } from "./models/CaseUpdateResolvedReason";
+export { CaseUpdateResolvedReasonAttributes } from "./models/CaseUpdateResolvedReasonAttributes";
+export { CaseUpdateResolvedReasonRequest } from "./models/CaseUpdateResolvedReasonRequest";
 export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
 export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
 export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
 export { CaseUpdateTitle } from "./models/CaseUpdateTitle";
 export { CaseUpdateTitleAttributes } from "./models/CaseUpdateTitleAttributes";
 export { CaseUpdateTitleRequest } from "./models/CaseUpdateTitleRequest";
+export { CaseView } from "./models/CaseView";
+export { CaseViewAttributes } from "./models/CaseViewAttributes";
+export { CaseViewCreate } from "./models/CaseViewCreate";
+export { CaseViewCreateAttributes } from "./models/CaseViewCreateAttributes";
+export { CaseViewCreateRequest } from "./models/CaseViewCreateRequest";
+export { CaseViewRelationships } from "./models/CaseViewRelationships";
+export { CaseViewResourceType } from "./models/CaseViewResourceType";
+export { CaseViewResponse } from "./models/CaseViewResponse";
+export { CaseViewsResponse } from "./models/CaseViewsResponse";
+export { CaseViewUpdate } from "./models/CaseViewUpdate";
+export { CaseViewUpdateAttributes } from "./models/CaseViewUpdateAttributes";
+export { CaseViewUpdateRequest } from "./models/CaseViewUpdateRequest";
+export { CaseWatcher } from "./models/CaseWatcher";
+export { CaseWatcherRelationships } from "./models/CaseWatcherRelationships";
+export { CaseWatcherResourceType } from "./models/CaseWatcherResourceType";
+export { CaseWatchersResponse } from "./models/CaseWatchersResponse";
+export { CaseWatcherUserRelationship } from "./models/CaseWatcherUserRelationship";
 export { ChangeEventAttributes } from "./models/ChangeEventAttributes";
 export { ChangeEventAttributesAuthor } from "./models/ChangeEventAttributesAuthor";
 export { ChangeEventAttributesAuthorType } from "./models/ChangeEventAttributesAuthorType";
@@ -2570,7 +2681,12 @@ export { CustomAttributeConfigResourceAttributes } from "./models/CustomAttribut
 export { CustomAttributeConfigResourceType } from "./models/CustomAttributeConfigResourceType";
 export { CustomAttributeConfigResponse } from "./models/CustomAttributeConfigResponse";
 export { CustomAttributeConfigsResponse } from "./models/CustomAttributeConfigsResponse";
+export { CustomAttributeConfigUpdate } from "./models/CustomAttributeConfigUpdate";
+export { CustomAttributeConfigUpdateAttributes } from "./models/CustomAttributeConfigUpdateAttributes";
+export { CustomAttributeConfigUpdateRequest } from "./models/CustomAttributeConfigUpdateRequest";
+export { CustomAttributeSelectOption } from "./models/CustomAttributeSelectOption";
 export { CustomAttributeType } from "./models/CustomAttributeType";
+export { CustomAttributeTypeData } from "./models/CustomAttributeTypeData";
 export { CustomAttributeValue } from "./models/CustomAttributeValue";
 export { CustomAttributeValuesUnion } from "./models/CustomAttributeValuesUnion";
 export { CustomConnection } from "./models/CustomConnection";
@@ -4143,6 +4259,17 @@ export { MaintenanceDataRelationshipsLastModifiedByUser } from "./models/Mainten
 export { MaintenanceDataRelationshipsLastModifiedByUserData } from "./models/MaintenanceDataRelationshipsLastModifiedByUserData";
 export { MaintenanceDataRelationshipsStatusPage } from "./models/MaintenanceDataRelationshipsStatusPage";
 export { MaintenanceDataRelationshipsStatusPageData } from "./models/MaintenanceDataRelationshipsStatusPageData";
+export { MaintenanceWindow } from "./models/MaintenanceWindow";
+export { MaintenanceWindowAttributes } from "./models/MaintenanceWindowAttributes";
+export { MaintenanceWindowCreate } from "./models/MaintenanceWindowCreate";
+export { MaintenanceWindowCreateAttributes } from "./models/MaintenanceWindowCreateAttributes";
+export { MaintenanceWindowCreateRequest } from "./models/MaintenanceWindowCreateRequest";
+export { MaintenanceWindowResourceType } from "./models/MaintenanceWindowResourceType";
+export { MaintenanceWindowResponse } from "./models/MaintenanceWindowResponse";
+export { MaintenanceWindowsResponse } from "./models/MaintenanceWindowsResponse";
+export { MaintenanceWindowUpdate } from "./models/MaintenanceWindowUpdate";
+export { MaintenanceWindowUpdateAttributes } from "./models/MaintenanceWindowUpdateAttributes";
+export { MaintenanceWindowUpdateRequest } from "./models/MaintenanceWindowUpdateRequest";
 export { ManagedOrgsData } from "./models/ManagedOrgsData";
 export { ManagedOrgsRelationships } from "./models/ManagedOrgsRelationships";
 export { ManagedOrgsRelationshipToOrg } from "./models/ManagedOrgsRelationshipToOrg";
@@ -5044,6 +5171,9 @@ export { ProjectedCost } from "./models/ProjectedCost";
 export { ProjectedCostAttributes } from "./models/ProjectedCostAttributes";
 export { ProjectedCostResponse } from "./models/ProjectedCostResponse";
 export { ProjectedCostType } from "./models/ProjectedCostType";
+export { ProjectFavorite } from "./models/ProjectFavorite";
+export { ProjectFavoriteResourceType } from "./models/ProjectFavoriteResourceType";
+export { ProjectFavoritesResponse } from "./models/ProjectFavoritesResponse";
 export { ProjectNotificationSettings } from "./models/ProjectNotificationSettings";
 export { ProjectRelationship } from "./models/ProjectRelationship";
 export { ProjectRelationshipData } from "./models/ProjectRelationshipData";

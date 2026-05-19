@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Timeline cell JSON:API resource type
+ * JSON:API resource type for timeline cells.
  */
 
 export type TimelineCellResourceType = typeof TIMELINE_CELL | UnparsedObject;

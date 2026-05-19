@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CaseUpdateAttributesAttributes {
   /**
-   * The definition of `CaseObjectAttributes` object.
+   * Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
    */
   "attributes": { [key: string]: Array<string> };
 
