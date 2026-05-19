@@ -901,6 +901,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-model-lab-api@workspace:services/model_lab_api":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-model-lab-api@workspace:services/model_lab_api"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-monitors@workspace:services/monitors":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-monitors@workspace:services/monitors"

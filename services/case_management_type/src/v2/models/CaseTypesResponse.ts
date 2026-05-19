@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseTypeResource } from "./CaseTypeResource";
 
 /**
- * Response containing a list of case types.
+ * Case types response.
  */
 export class CaseTypesResponse {
   /**

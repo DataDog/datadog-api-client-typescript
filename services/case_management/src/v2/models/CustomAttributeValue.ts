@@ -4,7 +4,7 @@ import { CustomAttributeType } from "./CustomAttributeType";
 import { CustomAttributeValuesUnion } from "./CustomAttributeValuesUnion";
 
 /**
- * A typed value for a custom attribute on a specific case.
+ * Custom attribute values
  */
 export class CustomAttributeValue {
   /**
@@ -12,11 +12,11 @@ export class CustomAttributeValue {
    */
   "isMulti": boolean;
   /**
-   * The data type of the custom attribute, which determines the allowed values and UI input control.
+   * Custom attributes type
    */
   "type": CustomAttributeType;
   /**
-   * The value of a custom attribute. The accepted format depends on the attribute's type and whether it accepts multiple values.
+   * Union of supported value for a custom attribute
    */
   "value": CustomAttributeValuesUnion;
   /**

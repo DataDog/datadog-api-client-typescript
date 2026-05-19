@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The data type of the custom attribute, which determines the allowed values and UI input control.
+ * Custom attributes type
  */
 export type CustomAttributeType =
   | typeof URL

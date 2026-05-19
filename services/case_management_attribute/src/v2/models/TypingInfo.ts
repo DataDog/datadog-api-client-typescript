@@ -7,12 +7,7 @@ import { CustomAttributeConfigCreate } from "./CustomAttributeConfigCreate";
 import { CustomAttributeConfigCreateRequest } from "./CustomAttributeConfigCreateRequest";
 import { CustomAttributeConfigResourceAttributes } from "./CustomAttributeConfigResourceAttributes";
 import { CustomAttributeConfigResponse } from "./CustomAttributeConfigResponse";
-import { CustomAttributeConfigUpdate } from "./CustomAttributeConfigUpdate";
-import { CustomAttributeConfigUpdateAttributes } from "./CustomAttributeConfigUpdateAttributes";
-import { CustomAttributeConfigUpdateRequest } from "./CustomAttributeConfigUpdateRequest";
 import { CustomAttributeConfigsResponse } from "./CustomAttributeConfigsResponse";
-import { CustomAttributeSelectOption } from "./CustomAttributeSelectOption";
-import { CustomAttributeTypeData } from "./CustomAttributeTypeData";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -30,12 +25,6 @@ export const TypingInfo: ModelTypingInfo = {
     CustomAttributeConfigResourceAttributes:
       CustomAttributeConfigResourceAttributes,
     CustomAttributeConfigResponse: CustomAttributeConfigResponse,
-    CustomAttributeConfigUpdate: CustomAttributeConfigUpdate,
-    CustomAttributeConfigUpdateAttributes:
-      CustomAttributeConfigUpdateAttributes,
-    CustomAttributeConfigUpdateRequest: CustomAttributeConfigUpdateRequest,
     CustomAttributeConfigsResponse: CustomAttributeConfigsResponse,
-    CustomAttributeSelectOption: CustomAttributeSelectOption,
-    CustomAttributeTypeData: CustomAttributeTypeData,
   },
 };

@@ -17,7 +17,7 @@ export class CaseCreate {
    */
   "relationships"?: CaseCreateRelationships;
   /**
-   * JSON:API resource type for cases.
+   * Case resource type
    */
   "type": CaseResourceType;
   /**

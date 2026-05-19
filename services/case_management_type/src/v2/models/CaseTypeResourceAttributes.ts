@@ -1,23 +1,23 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes of a case type, which define a classification category for cases. Organizations use case types to model different workflows (for example, Security Incident, Bug Report, Change Request).
+ * Case Type resource attributes
  */
 export class CaseTypeResourceAttributes {
   /**
-   * Timestamp when the case type was marked as deleted. A null value indicates the case type is active.
+   * Timestamp of when the case type was deleted
    */
   "deletedAt"?: Date;
   /**
-   * A detailed description explaining when this case type should be used.
+   * Case type description.
    */
   "description"?: string;
   /**
-   * An emoji icon representing the case type in the UI.
+   * Case type emoji.
    */
   "emoji"?: string;
   /**
-   * The display name of the case type, shown in the Case Management UI when creating or viewing cases.
+   * Case type name.
    */
   "name": string;
   /**

@@ -415,6 +415,7 @@ apiInstance
 | Logs Restriction Queries | @datadog/datadog-api-client-logs-restriction-queries | [README.md](../../services/logs-restriction-queries/README.md) |
 | Metrics | @datadog/datadog-api-client-metrics | [README.md](../../services/metrics/README.md) |
 | Microsoft Teams Integration | @datadog/datadog-api-client-microsoft-teams-integration | [README.md](../../services/microsoft-teams-integration/README.md) |
+| Model Lab API | @datadog/datadog-api-client-model-lab-api | [README.md](../../services/model-lab-api/README.md) |
 | Monitors | @datadog/datadog-api-client-monitors | [README.md](../../services/monitors/README.md) |
 | Network Device Monitoring | @datadog/datadog-api-client-network-device-monitoring | [README.md](../../services/network-device-monitoring/README.md) |
 | Notebooks | @datadog/datadog-api-client-notebooks | [README.md](../../services/notebooks/README.md) |

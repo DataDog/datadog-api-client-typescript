@@ -4048,64 +4048,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CaseResponse",
   },
-  "CaseManagementApi.V2.AggregateCases": {
-    body: {
-      type: "CaseAggregateRequest",
-      format: "",
-    },
-    operationResponseType: "CaseAggregateResponse",
-  },
-  "CaseManagementApi.V2.BulkUpdateCases": {
-    body: {
-      type: "CaseBulkUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CaseManagementApi.V2.CountCases": {
-    queryFilter: {
-      type: "string",
-      format: "",
-    },
-    groupBys: {
-      type: "string",
-      format: "",
-    },
-    limit: {
-      type: "number",
-      format: "",
-    },
-    operationResponseType: "CaseCountResponse",
-  },
-  "CaseManagementApi.V2.ListCaseLinks": {
-    entityType: {
-      type: "string",
-      format: "",
-    },
-    entityId: {
-      type: "string",
-      format: "",
-    },
-    relationship: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "CaseLinksResponse",
-  },
-  "CaseManagementApi.V2.CreateCaseLink": {
-    body: {
-      type: "CaseLinkCreateRequest",
-      format: "",
-    },
-    operationResponseType: "CaseLinkResponse",
-  },
-  "CaseManagementApi.V2.DeleteCaseLink": {
-    linkId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
   "CaseManagementApi.V2.GetProjects": {
     operationResponseType: "ProjectsResponse",
   },
@@ -4115,9 +4057,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ProjectResponse",
-  },
-  "CaseManagementApi.V2.ListUserCaseProjectFavorites": {
-    operationResponseType: "ProjectFavoritesResponse",
   },
   "CaseManagementApi.V2.GetProject": {
     projectId: {
@@ -4143,20 +4082,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ProjectResponse",
-  },
-  "CaseManagementApi.V2.FavoriteCaseProject": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CaseManagementApi.V2.UnfavoriteCaseProject": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
   },
   "CaseManagementApi.V2.GetProjectNotificationRules": {
     projectId: {
@@ -4197,122 +4122,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     notificationRuleId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CaseManagementApi.V2.ListCaseAutomationRules": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "AutomationRulesResponse",
-  },
-  "CaseManagementApi.V2.CreateCaseAutomationRule": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "AutomationRuleCreateRequest",
-      format: "",
-    },
-    operationResponseType: "AutomationRuleResponse",
-  },
-  "CaseManagementApi.V2.GetCaseAutomationRule": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    ruleId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "AutomationRuleResponse",
-  },
-  "CaseManagementApi.V2.UpdateCaseAutomationRule": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    ruleId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "AutomationRuleUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "AutomationRuleResponse",
-  },
-  "CaseManagementApi.V2.DeleteCaseAutomationRule": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    ruleId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CaseManagementApi.V2.DisableCaseAutomationRule": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    ruleId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "AutomationRuleResponse",
-  },
-  "CaseManagementApi.V2.EnableCaseAutomationRule": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    ruleId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "AutomationRuleResponse",
-  },
-  "CaseManagementApi.V2.ListCaseViews": {
-    projectId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "CaseViewsResponse",
-  },
-  "CaseManagementApi.V2.CreateCaseView": {
-    body: {
-      type: "CaseViewCreateRequest",
-      format: "",
-    },
-    operationResponseType: "CaseViewResponse",
-  },
-  "CaseManagementApi.V2.GetCaseView": {
-    viewId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "CaseViewResponse",
-  },
-  "CaseManagementApi.V2.UpdateCaseView": {
-    viewId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CaseViewUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "CaseViewResponse",
-  },
-  "CaseManagementApi.V2.DeleteCaseView": {
-    viewId: {
       type: "string",
       format: "",
     },
@@ -4369,21 +4178,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TimelineResponse",
   },
-  "CaseManagementApi.V2.UpdateCaseComment": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    cellId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CaseUpdateCommentRequest",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
   "CaseManagementApi.V2.DeleteCaseComment": {
     caseId: {
       type: "string",
@@ -4428,39 +4222,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     body: {
       type: "CaseUpdateDescriptionRequest",
-      format: "",
-    },
-    operationResponseType: "CaseResponse",
-  },
-  "CaseManagementApi.V2.UpdateCaseDueDate": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CaseUpdateDueDateRequest",
-      format: "",
-    },
-    operationResponseType: "CaseResponse",
-  },
-  "CaseManagementApi.V2.AddCaseInsights": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CaseInsightsRequest",
-      format: "",
-    },
-    operationResponseType: "CaseResponse",
-  },
-  "CaseManagementApi.V2.RemoveCaseInsights": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CaseInsightsRequest",
       format: "",
     },
     operationResponseType: "CaseResponse",
@@ -4549,17 +4310,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "CaseManagementApi.V2.UpdateCaseResolvedReason": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CaseUpdateResolvedReasonRequest",
-      format: "",
-    },
-    operationResponseType: "CaseResponse",
-  },
   "CaseManagementApi.V2.UpdateStatus": {
     caseId: {
       type: "string",
@@ -4570,25 +4320,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "CaseResponse",
-  },
-  "CaseManagementApi.V2.ListCaseTimeline": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    pageSize: {
-      type: "number",
-      format: "",
-    },
-    pageNumber: {
-      type: "number",
-      format: "",
-    },
-    sortAscending: {
-      type: "boolean",
-      format: "",
-    },
-    operationResponseType: "TimelineResponse",
   },
   "CaseManagementApi.V2.UpdateCaseTitle": {
     caseId: {
@@ -4623,80 +4354,12 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CaseResponse",
   },
-  "CaseManagementApi.V2.ListCaseWatchers": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "CaseWatchersResponse",
-  },
-  "CaseManagementApi.V2.WatchCase": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    userUuid: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CaseManagementApi.V2.UnwatchCase": {
-    caseId: {
-      type: "string",
-      format: "",
-    },
-    userUuid: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CaseManagementApi.V2.ListMaintenanceWindows": {
-    operationResponseType: "MaintenanceWindowsResponse",
-  },
-  "CaseManagementApi.V2.CreateMaintenanceWindow": {
-    body: {
-      type: "MaintenanceWindowCreateRequest",
-      format: "",
-    },
-    operationResponseType: "MaintenanceWindowResponse",
-  },
-  "CaseManagementApi.V2.UpdateMaintenanceWindow": {
-    maintenanceWindowId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "MaintenanceWindowUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "MaintenanceWindowResponse",
-  },
-  "CaseManagementApi.V2.DeleteMaintenanceWindow": {
-    maintenanceWindowId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
   "CaseManagementTypeApi.V2.GetAllCaseTypes": {
     operationResponseType: "CaseTypesResponse",
   },
   "CaseManagementTypeApi.V2.CreateCaseType": {
     body: {
       type: "CaseTypeCreateRequest",
-      format: "",
-    },
-    operationResponseType: "CaseTypeResponse",
-  },
-  "CaseManagementTypeApi.V2.UpdateCaseType": {
-    caseTypeId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CaseTypeUpdateRequest",
       format: "",
     },
     operationResponseType: "CaseTypeResponse",
@@ -4725,21 +4388,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     body: {
       type: "CustomAttributeConfigCreateRequest",
-      format: "",
-    },
-    operationResponseType: "CustomAttributeConfigResponse",
-  },
-  "CaseManagementAttributeApi.V2.UpdateCustomAttributeConfig": {
-    caseTypeId: {
-      type: "string",
-      format: "",
-    },
-    customAttributeId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "CustomAttributeConfigUpdateRequest",
       format: "",
     },
     operationResponseType: "CustomAttributeConfigResponse",
@@ -9970,6 +9618,206 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "IntakePayloadAccepted",
+  },
+  "ModelLabAPIApi.V2.GetModelLabArtifactContent": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    artifactPath: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "HttpFile",
+  },
+  "ModelLabAPIApi.V2.ListModelLabRunFacetKeys": {
+    filterProjectId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ModelLabFacetKeysResponse",
+  },
+  "ModelLabAPIApi.V2.ListModelLabRunFacetValues": {
+    filterProjectId: {
+      type: "number",
+      format: "int64",
+    },
+    facetType: {
+      type: "ModelLabFacetType",
+      format: "",
+    },
+    facetName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ModelLabFacetValuesResponse",
+  },
+  "ModelLabAPIApi.V2.ListModelLabProjectFacetKeys": {
+    operationResponseType: "ModelLabFacetKeysResponse",
+  },
+  "ModelLabAPIApi.V2.ListModelLabProjectFacetValues": {
+    facetType: {
+      type: "ModelLabProjectFacetType",
+      format: "",
+    },
+    facetName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ModelLabFacetValuesResponse",
+  },
+  "ModelLabAPIApi.V2.ListModelLabProjects": {
+    filter: {
+      type: "string",
+      format: "",
+    },
+    filterOwnerId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterTags: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "ModelLabProjectsResponse",
+  },
+  "ModelLabAPIApi.V2.GetModelLabProject": {
+    projectId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ModelLabProjectResponse",
+  },
+  "ModelLabAPIApi.V2.ListModelLabProjectArtifacts": {
+    projectId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ModelLabProjectArtifactsResponse",
+  },
+  "ModelLabAPIApi.V2.StarModelLabProject": {
+    projectId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "{}",
+  },
+  "ModelLabAPIApi.V2.UnstarModelLabProject": {
+    projectId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "{}",
+  },
+  "ModelLabAPIApi.V2.ListModelLabRuns": {
+    filterId: {
+      type: "string",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    filterOwnerId: {
+      type: "string",
+      format: "",
+    },
+    filterStatus: {
+      type: "ModelLabRunStatus",
+      format: "",
+    },
+    filterProjectId: {
+      type: "number",
+      format: "int64",
+    },
+    filterTags: {
+      type: "string",
+      format: "",
+    },
+    filterParams: {
+      type: "string",
+      format: "",
+    },
+    filterParentRunId: {
+      type: "string",
+      format: "",
+    },
+    pinnedFirst: {
+      type: "boolean",
+      format: "",
+    },
+    includePinned: {
+      type: "boolean",
+      format: "",
+    },
+    includeDescendantMatches: {
+      type: "boolean",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    operationResponseType: "ModelLabRunsResponse",
+  },
+  "ModelLabAPIApi.V2.GetModelLabRun": {
+    runId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ModelLabRunResponse",
+  },
+  "ModelLabAPIApi.V2.DeleteModelLabRun": {
+    runId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "{}",
+  },
+  "ModelLabAPIApi.V2.ListModelLabRunArtifacts": {
+    runId: {
+      type: "number",
+      format: "int64",
+    },
+    path: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ModelLabRunArtifactsResponse",
+  },
+  "ModelLabAPIApi.V2.PinModelLabRun": {
+    runId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "{}",
+  },
+  "ModelLabAPIApi.V2.UnpinModelLabRun": {
+    runId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "{}",
   },
   "MonitorsApi.V2.GetMonitorNotificationRules": {
     page: {
