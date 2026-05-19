@@ -1,16 +1,21 @@
 export {
+  FeatureFlagsApiApproveFlagSuggestionRequest,
   FeatureFlagsApiArchiveFeatureFlagRequest,
   FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiCreateFeatureFlagRequest,
   FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiCreateFlagSuggestionRequest,
   FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiDeleteFlagSuggestionRequest,
   FeatureFlagsApiDisableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
   FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiGetFlagSuggestionRequest,
   FeatureFlagsApiListFeatureFlagsRequest,
   FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
   FeatureFlagsApiPauseExposureScheduleRequest,
+  FeatureFlagsApiRejectFlagSuggestionRequest,
   FeatureFlagsApiResumeExposureScheduleRequest,
   FeatureFlagsApiStartExposureScheduleRequest,
   FeatureFlagsApiStopExposureScheduleRequest,
@@ -46,6 +51,9 @@ export { CreateFeatureFlagAttributes } from "./models/CreateFeatureFlagAttribute
 export { CreateFeatureFlagData } from "./models/CreateFeatureFlagData";
 export { CreateFeatureFlagDataType } from "./models/CreateFeatureFlagDataType";
 export { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
+export { CreateFlagSuggestionAttributes } from "./models/CreateFlagSuggestionAttributes";
+export { CreateFlagSuggestionData } from "./models/CreateFlagSuggestionData";
+export { CreateFlagSuggestionRequest } from "./models/CreateFlagSuggestionRequest";
 export { CreateVariant } from "./models/CreateVariant";
 export { Environment } from "./models/Environment";
 export { EnvironmentAttributes } from "./models/EnvironmentAttributes";
@@ -64,6 +72,14 @@ export { FeatureFlagResponse } from "./models/FeatureFlagResponse";
 export { FeatureFlagsPaginationMeta } from "./models/FeatureFlagsPaginationMeta";
 export { FeatureFlagsPaginationMetaPage } from "./models/FeatureFlagsPaginationMetaPage";
 export { FeatureFlagStatus } from "./models/FeatureFlagStatus";
+export { FlagSuggestion } from "./models/FlagSuggestion";
+export { FlagSuggestionAction } from "./models/FlagSuggestionAction";
+export { FlagSuggestionAttributes } from "./models/FlagSuggestionAttributes";
+export { FlagSuggestionDataType } from "./models/FlagSuggestionDataType";
+export { FlagSuggestionEventDataType } from "./models/FlagSuggestionEventDataType";
+export { FlagSuggestionProperty } from "./models/FlagSuggestionProperty";
+export { FlagSuggestionResponse } from "./models/FlagSuggestionResponse";
+export { FlagSuggestionStatus } from "./models/FlagSuggestionStatus";
 export { GuardrailMetric } from "./models/GuardrailMetric";
 export { GuardrailMetricRequest } from "./models/GuardrailMetricRequest";
 export { GuardrailTriggerAction } from "./models/GuardrailTriggerAction";
@@ -71,9 +87,13 @@ export { ListAllocationsResponse } from "./models/ListAllocationsResponse";
 export { ListEnvironmentsResponse } from "./models/ListEnvironmentsResponse";
 export { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
+export { ReviewFlagSuggestionAttributes } from "./models/ReviewFlagSuggestionAttributes";
+export { ReviewFlagSuggestionData } from "./models/ReviewFlagSuggestionData";
+export { ReviewFlagSuggestionRequest } from "./models/ReviewFlagSuggestionRequest";
 export { RolloutOptions } from "./models/RolloutOptions";
 export { RolloutOptionsRequest } from "./models/RolloutOptionsRequest";
 export { RolloutStrategy } from "./models/RolloutStrategy";
+export { SuggestionMetadata } from "./models/SuggestionMetadata";
 export { TargetingRule } from "./models/TargetingRule";
 export { TargetingRuleRequest } from "./models/TargetingRuleRequest";
 export { UpdateEnvironmentAttributes } from "./models/UpdateEnvironmentAttributes";
