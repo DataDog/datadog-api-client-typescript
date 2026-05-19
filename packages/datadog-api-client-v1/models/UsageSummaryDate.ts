@@ -324,6 +324,10 @@ export class UsageSummaryDate {
    */
   "dataJobsMonitoringHostHrSum"?: number;
   /**
+   * Shows the average of all Data Observability Quality Monitoring usage over all hours in the current date for all organizations.
+   */
+  "dataObservabilityQualityMonitoringAvg"?: number;
+  /**
    * The date for the usage.
    */
   "date"?: Date;
@@ -1383,6 +1387,11 @@ export class UsageSummaryDate {
     },
     dataJobsMonitoringHostHrSum: {
       baseName: "data_jobs_monitoring_host_hr_sum",
+      type: "number",
+      format: "int64",
+    },
+    dataObservabilityQualityMonitoringAvg: {
+      baseName: "data_observability_quality_monitoring_avg",
       type: "number",
       format: "int64",
     },
