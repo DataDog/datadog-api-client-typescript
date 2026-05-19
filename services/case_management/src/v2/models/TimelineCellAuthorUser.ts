@@ -4,15 +4,15 @@ import { TimelineCellAuthorUserContent } from "./TimelineCellAuthorUserContent";
 import { TimelineCellAuthorUserType } from "./TimelineCellAuthorUserType";
 
 /**
- * timeline cell user author
+ * A user who authored a timeline cell.
  */
 export class TimelineCellAuthorUser {
   /**
-   * user author content.
+   * Profile information for the user who authored the timeline cell.
    */
   "content"?: TimelineCellAuthorUserContent;
   /**
-   * user author type.
+   * The type of timeline cell author. Currently only `USER` is supported.
    */
   "type"?: TimelineCellAuthorUserType;
   /**

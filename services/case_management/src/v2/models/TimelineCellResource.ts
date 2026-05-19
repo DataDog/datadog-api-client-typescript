@@ -4,11 +4,11 @@ import { TimelineCell } from "./TimelineCell";
 import { TimelineCellResourceType } from "./TimelineCellResourceType";
 
 /**
- * Timeline cell JSON:API resource
+ * A timeline cell resource representing a single entry in a case's activity timeline.
  */
 export class TimelineCellResource {
   /**
-   * timeline cell
+   * Attributes of a timeline cell, representing a single event in a case's chronological activity log (for example, a comment, status change, or assignment update).
    */
   "attributes": TimelineCell;
   /**
@@ -16,7 +16,7 @@ export class TimelineCellResource {
    */
   "id": string;
   /**
-   * Timeline cell JSON:API resource type
+   * JSON:API resource type for timeline cells.
    */
   "type": TimelineCellResourceType;
   /**

@@ -4,11 +4,11 @@ import { CustomAttributeConfigResourceAttributes } from "./CustomAttributeConfig
 import { CustomAttributeConfigResourceType } from "./CustomAttributeConfigResourceType";
 
 /**
- * The definition of `CustomAttributeConfig` object.
+ * A custom attribute configuration that defines an organization-specific metadata field on cases. Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined select options.
  */
 export class CustomAttributeConfig {
   /**
-   * Custom attribute resource attributes
+   * Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to cases of a given type.
    */
   "attributes"?: CustomAttributeConfigResourceAttributes;
   /**
@@ -16,7 +16,7 @@ export class CustomAttributeConfig {
    */
   "id"?: string;
   /**
-   * Custom attributes config JSON:API resource type
+   * JSON:API resource type for custom attribute configurations.
    */
   "type"?: CustomAttributeConfigResourceType;
   /**

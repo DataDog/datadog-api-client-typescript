@@ -1,6 +1,7 @@
 export {
   CaseManagementTypeApiCreateCaseTypeRequest,
   CaseManagementTypeApiDeleteCaseTypeRequest,
+  CaseManagementTypeApiUpdateCaseTypeRequest,
   CaseManagementTypeApi,
 } from "./CaseManagementTypeApi";
 
@@ -12,3 +13,5 @@ export { CaseTypeResourceAttributes } from "./models/CaseTypeResourceAttributes"
 export { CaseTypeResourceType } from "./models/CaseTypeResourceType";
 export { CaseTypeResponse } from "./models/CaseTypeResponse";
 export { CaseTypesResponse } from "./models/CaseTypesResponse";
+export { CaseTypeUpdate } from "./models/CaseTypeUpdate";
+export { CaseTypeUpdateRequest } from "./models/CaseTypeUpdateRequest";

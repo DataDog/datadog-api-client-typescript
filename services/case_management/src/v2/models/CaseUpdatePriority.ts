@@ -12,7 +12,7 @@ export class CaseUpdatePriority {
    */
   "attributes": CaseUpdatePriorityAttributes;
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    */
   "type": CaseResourceType;
   /**

@@ -21,7 +21,7 @@ export class Case {
    */
   "relationships"?: CaseRelationships;
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    */
   "type": CaseResourceType;
   /**
