@@ -23,6 +23,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    */
   "name"?: string;
   /**
+   * Source reference for composite query payloads.
+   */
+  "source"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -53,6 +57,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     },
     name: {
       baseName: "name",
+      type: "string",
+    },
+    source: {
+      baseName: "source",
       type: "string",
     },
     additionalProperties: {
