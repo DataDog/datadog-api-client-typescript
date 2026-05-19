@@ -370,6 +370,12 @@ export {
 } from "./apis/DashboardSecureEmbedApi";
 
 export {
+  DashboardsApiGetDashboardUsageRequest,
+  DashboardsApiListDashboardsUsageRequest,
+  DashboardsApi,
+} from "./apis/DashboardsApi";
+
+export {
   DataDeletionApiCancelDataDeletionRequestRequest,
   DataDeletionApiCreateDataDeletionRequestRequest,
   DataDeletionApiGetDataDeletionRequestsRequest,
@@ -2671,6 +2677,11 @@ export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateIte
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 export { DashboardTriggerWrapper } from "./models/DashboardTriggerWrapper";
 export { DashboardType } from "./models/DashboardType";
+export { DashboardUsage } from "./models/DashboardUsage";
+export { DashboardUsageAttributes } from "./models/DashboardUsageAttributes";
+export { DashboardUsageResponse } from "./models/DashboardUsageResponse";
+export { DashboardUsageType } from "./models/DashboardUsageType";
+export { DashboardUsageUser } from "./models/DashboardUsageUser";
 export { DataAttributesRulesItemsIfTagExists } from "./models/DataAttributesRulesItemsIfTagExists";
 export { DataAttributesRulesItemsMapping } from "./models/DataAttributesRulesItemsMapping";
 export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTriggerWrapper";
@@ -3843,6 +3854,9 @@ export { ListConnectionsResponseDataAttributes } from "./models/ListConnectionsR
 export { ListConnectionsResponseDataAttributesConnectionsItems } from "./models/ListConnectionsResponseDataAttributesConnectionsItems";
 export { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./models/ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 export { ListConnectionsResponseDataType } from "./models/ListConnectionsResponseDataType";
+export { ListDashboardsUsageResponse } from "./models/ListDashboardsUsageResponse";
+export { ListDashboardsUsageResponseLinks } from "./models/ListDashboardsUsageResponseLinks";
+export { ListDashboardsUsageResponseMeta } from "./models/ListDashboardsUsageResponseMeta";
 export { ListDeploymentRuleResponseData } from "./models/ListDeploymentRuleResponseData";
 export { ListDeploymentRulesDataType } from "./models/ListDeploymentRulesDataType";
 export { ListDeploymentRulesResponseDataAttributes } from "./models/ListDeploymentRulesResponseDataAttributes";

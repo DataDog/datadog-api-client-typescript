@@ -991,6 +991,10 @@ import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
 import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
+import { DashboardUsage } from "./DashboardUsage";
+import { DashboardUsageAttributes } from "./DashboardUsageAttributes";
+import { DashboardUsageResponse } from "./DashboardUsageResponse";
+import { DashboardUsageUser } from "./DashboardUsageUser";
 import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
@@ -2006,6 +2010,9 @@ import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
 import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
+import { ListDashboardsUsageResponse } from "./ListDashboardsUsageResponse";
+import { ListDashboardsUsageResponseLinks } from "./ListDashboardsUsageResponseLinks";
+import { ListDashboardsUsageResponseMeta } from "./ListDashboardsUsageResponseMeta";
 import { ListDeploymentRuleResponseData } from "./ListDeploymentRuleResponseData";
 import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRulesResponseDataAttributes";
 import { ListDevicesResponse } from "./ListDevicesResponse";
@@ -4682,6 +4689,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  DashboardUsageType: ["dashboards-usages"],
   DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
@@ -7737,6 +7745,10 @@ const typeMap: { [index: string]: any } = {
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
   DashboardTriggerWrapper: DashboardTriggerWrapper,
+  DashboardUsage: DashboardUsage,
+  DashboardUsageAttributes: DashboardUsageAttributes,
+  DashboardUsageResponse: DashboardUsageResponse,
+  DashboardUsageUser: DashboardUsageUser,
   DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
@@ -8911,6 +8923,9 @@ const typeMap: { [index: string]: any } = {
     ListConnectionsResponseDataAttributesConnectionsItems,
   ListConnectionsResponseDataAttributesConnectionsItemsJoin:
     ListConnectionsResponseDataAttributesConnectionsItemsJoin,
+  ListDashboardsUsageResponse: ListDashboardsUsageResponse,
+  ListDashboardsUsageResponseLinks: ListDashboardsUsageResponseLinks,
+  ListDashboardsUsageResponseMeta: ListDashboardsUsageResponseMeta,
   ListDeploymentRuleResponseData: ListDeploymentRuleResponseData,
   ListDeploymentRulesResponseDataAttributes:
     ListDeploymentRulesResponseDataAttributes,

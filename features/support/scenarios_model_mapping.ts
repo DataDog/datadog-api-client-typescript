@@ -7069,6 +7069,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecureEmbedUpdateResponse",
     },
+    "v2.ListDashboardsUsage": {
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListDashboardsUsageResponse",
+    },
+    "v2.GetDashboardUsage": {
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DashboardUsageResponse",
+    },
     "v2.GetAllDatasets": {
         "operationResponseType": "DatasetResponseMulti",
     },

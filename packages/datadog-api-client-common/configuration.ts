@@ -346,6 +346,8 @@ export function createConfiguration(
       "v2.deleteDashboardSecureEmbed": false,
       "v2.getDashboardSecureEmbed": false,
       "v2.updateDashboardSecureEmbed": false,
+      "v2.getDashboardUsage": false,
+      "v2.listDashboardsUsage": false,
       "v2.createDataset": false,
       "v2.deleteDataset": false,
       "v2.getAllDatasets": false,
