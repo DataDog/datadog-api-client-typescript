@@ -8,7 +8,7 @@ import { TimelineCellAuthorUser } from "./TimelineCellAuthorUser";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * author of the timeline cell
+ * The author of the timeline cell. Currently only user authors are supported.
  */
 
 export type TimelineCellAuthor = TimelineCellAuthorUser | UnparsedObject;

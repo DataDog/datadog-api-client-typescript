@@ -8,11 +8,11 @@ import { CustomAttributeConfig } from "./CustomAttributeConfig";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Custom attribute config response.
+ * Response containing a single custom attribute configuration.
  */
 export class CustomAttributeConfigResponse {
   /**
-   * The definition of `CustomAttributeConfig` object.
+   * A custom attribute configuration that defines an organization-specific metadata field on cases. Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined select options.
    */
   "data"?: CustomAttributeConfig;
 

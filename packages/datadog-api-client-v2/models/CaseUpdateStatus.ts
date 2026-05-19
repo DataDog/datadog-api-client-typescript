@@ -17,7 +17,7 @@ export class CaseUpdateStatus {
    */
   "attributes": CaseUpdateStatusAttributes;
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    */
   "type": CaseResourceType;
 

@@ -261,6 +261,20 @@ import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
 import { AutoCloseInactiveCases } from "./AutoCloseInactiveCases";
 import { AutoTransitionAssignedCases } from "./AutoTransitionAssignedCases";
+import { AutomationRule } from "./AutomationRule";
+import { AutomationRuleAction } from "./AutomationRuleAction";
+import { AutomationRuleActionData } from "./AutomationRuleActionData";
+import { AutomationRuleAttributes } from "./AutomationRuleAttributes";
+import { AutomationRuleCreate } from "./AutomationRuleCreate";
+import { AutomationRuleCreateAttributes } from "./AutomationRuleCreateAttributes";
+import { AutomationRuleCreateRequest } from "./AutomationRuleCreateRequest";
+import { AutomationRuleRelationships } from "./AutomationRuleRelationships";
+import { AutomationRuleResponse } from "./AutomationRuleResponse";
+import { AutomationRuleTrigger } from "./AutomationRuleTrigger";
+import { AutomationRuleTriggerData } from "./AutomationRuleTriggerData";
+import { AutomationRuleUpdate } from "./AutomationRuleUpdate";
+import { AutomationRuleUpdateRequest } from "./AutomationRuleUpdateRequest";
+import { AutomationRulesResponse } from "./AutomationRulesResponse";
 import { AwsCURConfig } from "./AwsCURConfig";
 import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
 import { AwsCURConfigPatchData } from "./AwsCURConfigPatchData";
@@ -412,20 +426,46 @@ import { CampaignResponseAttributes } from "./CampaignResponseAttributes";
 import { CampaignResponseData } from "./CampaignResponseData";
 import { CancelDataDeletionResponseBody } from "./CancelDataDeletionResponseBody";
 import { Case } from "./Case";
+import { CaseAggregateGroup } from "./CaseAggregateGroup";
+import { CaseAggregateGroupBy } from "./CaseAggregateGroupBy";
+import { CaseAggregateRequest } from "./CaseAggregateRequest";
+import { CaseAggregateRequestAttributes } from "./CaseAggregateRequestAttributes";
+import { CaseAggregateRequestData } from "./CaseAggregateRequestData";
+import { CaseAggregateResponse } from "./CaseAggregateResponse";
+import { CaseAggregateResponseAttributes } from "./CaseAggregateResponseAttributes";
+import { CaseAggregateResponseData } from "./CaseAggregateResponseData";
 import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseAssignRequest } from "./CaseAssignRequest";
 import { CaseAttributes } from "./CaseAttributes";
+import { CaseBulkUpdateRequest } from "./CaseBulkUpdateRequest";
+import { CaseBulkUpdateRequestAttributes } from "./CaseBulkUpdateRequestAttributes";
+import { CaseBulkUpdateRequestData } from "./CaseBulkUpdateRequestData";
 import { CaseComment } from "./CaseComment";
 import { CaseCommentAttributes } from "./CaseCommentAttributes";
 import { CaseCommentRequest } from "./CaseCommentRequest";
+import { CaseCountGroup } from "./CaseCountGroup";
+import { CaseCountGroupValue } from "./CaseCountGroupValue";
+import { CaseCountResponse } from "./CaseCountResponse";
+import { CaseCountResponseAttributes } from "./CaseCountResponseAttributes";
+import { CaseCountResponseData } from "./CaseCountResponseData";
 import { CaseCreate } from "./CaseCreate";
 import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
 import { CaseCreateRequest } from "./CaseCreateRequest";
 import { CaseEmpty } from "./CaseEmpty";
 import { CaseEmptyRequest } from "./CaseEmptyRequest";
+import { CaseInsight } from "./CaseInsight";
+import { CaseInsightsAttributes } from "./CaseInsightsAttributes";
+import { CaseInsightsData } from "./CaseInsightsData";
 import { CaseInsightsItems } from "./CaseInsightsItems";
+import { CaseInsightsRequest } from "./CaseInsightsRequest";
+import { CaseLink } from "./CaseLink";
+import { CaseLinkAttributes } from "./CaseLinkAttributes";
+import { CaseLinkCreate } from "./CaseLinkCreate";
+import { CaseLinkCreateRequest } from "./CaseLinkCreateRequest";
+import { CaseLinkResponse } from "./CaseLinkResponse";
+import { CaseLinksResponse } from "./CaseLinksResponse";
 import { CaseManagementProject } from "./CaseManagementProject";
 import { CaseManagementProjectData } from "./CaseManagementProjectData";
 import { CaseNotificationRule } from "./CaseNotificationRule";
@@ -450,24 +490,50 @@ import { CaseTypeCreateRequest } from "./CaseTypeCreateRequest";
 import { CaseTypeResource } from "./CaseTypeResource";
 import { CaseTypeResourceAttributes } from "./CaseTypeResourceAttributes";
 import { CaseTypeResponse } from "./CaseTypeResponse";
+import { CaseTypeUpdate } from "./CaseTypeUpdate";
+import { CaseTypeUpdateRequest } from "./CaseTypeUpdateRequest";
 import { CaseTypesResponse } from "./CaseTypesResponse";
 import { CaseUpdateAttributes } from "./CaseUpdateAttributes";
 import { CaseUpdateAttributesAttributes } from "./CaseUpdateAttributesAttributes";
 import { CaseUpdateAttributesRequest } from "./CaseUpdateAttributesRequest";
+import { CaseUpdateComment } from "./CaseUpdateComment";
+import { CaseUpdateCommentAttributes } from "./CaseUpdateCommentAttributes";
+import { CaseUpdateCommentRequest } from "./CaseUpdateCommentRequest";
 import { CaseUpdateCustomAttribute } from "./CaseUpdateCustomAttribute";
 import { CaseUpdateCustomAttributeRequest } from "./CaseUpdateCustomAttributeRequest";
 import { CaseUpdateDescription } from "./CaseUpdateDescription";
 import { CaseUpdateDescriptionAttributes } from "./CaseUpdateDescriptionAttributes";
 import { CaseUpdateDescriptionRequest } from "./CaseUpdateDescriptionRequest";
+import { CaseUpdateDueDate } from "./CaseUpdateDueDate";
+import { CaseUpdateDueDateAttributes } from "./CaseUpdateDueDateAttributes";
+import { CaseUpdateDueDateRequest } from "./CaseUpdateDueDateRequest";
 import { CaseUpdatePriority } from "./CaseUpdatePriority";
 import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 import { CaseUpdatePriorityRequest } from "./CaseUpdatePriorityRequest";
+import { CaseUpdateResolvedReason } from "./CaseUpdateResolvedReason";
+import { CaseUpdateResolvedReasonAttributes } from "./CaseUpdateResolvedReasonAttributes";
+import { CaseUpdateResolvedReasonRequest } from "./CaseUpdateResolvedReasonRequest";
 import { CaseUpdateStatus } from "./CaseUpdateStatus";
 import { CaseUpdateStatusAttributes } from "./CaseUpdateStatusAttributes";
 import { CaseUpdateStatusRequest } from "./CaseUpdateStatusRequest";
 import { CaseUpdateTitle } from "./CaseUpdateTitle";
 import { CaseUpdateTitleAttributes } from "./CaseUpdateTitleAttributes";
 import { CaseUpdateTitleRequest } from "./CaseUpdateTitleRequest";
+import { CaseView } from "./CaseView";
+import { CaseViewAttributes } from "./CaseViewAttributes";
+import { CaseViewCreate } from "./CaseViewCreate";
+import { CaseViewCreateAttributes } from "./CaseViewCreateAttributes";
+import { CaseViewCreateRequest } from "./CaseViewCreateRequest";
+import { CaseViewRelationships } from "./CaseViewRelationships";
+import { CaseViewResponse } from "./CaseViewResponse";
+import { CaseViewUpdate } from "./CaseViewUpdate";
+import { CaseViewUpdateAttributes } from "./CaseViewUpdateAttributes";
+import { CaseViewUpdateRequest } from "./CaseViewUpdateRequest";
+import { CaseViewsResponse } from "./CaseViewsResponse";
+import { CaseWatcher } from "./CaseWatcher";
+import { CaseWatcherRelationships } from "./CaseWatcherRelationships";
+import { CaseWatcherUserRelationship } from "./CaseWatcherUserRelationship";
+import { CaseWatchersResponse } from "./CaseWatchersResponse";
 import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
@@ -882,7 +948,12 @@ import { CustomAttributeConfigCreate } from "./CustomAttributeConfigCreate";
 import { CustomAttributeConfigCreateRequest } from "./CustomAttributeConfigCreateRequest";
 import { CustomAttributeConfigResourceAttributes } from "./CustomAttributeConfigResourceAttributes";
 import { CustomAttributeConfigResponse } from "./CustomAttributeConfigResponse";
+import { CustomAttributeConfigUpdate } from "./CustomAttributeConfigUpdate";
+import { CustomAttributeConfigUpdateAttributes } from "./CustomAttributeConfigUpdateAttributes";
+import { CustomAttributeConfigUpdateRequest } from "./CustomAttributeConfigUpdateRequest";
 import { CustomAttributeConfigsResponse } from "./CustomAttributeConfigsResponse";
+import { CustomAttributeSelectOption } from "./CustomAttributeSelectOption";
+import { CustomAttributeTypeData } from "./CustomAttributeTypeData";
 import { CustomAttributeValue } from "./CustomAttributeValue";
 import { CustomConnection } from "./CustomConnection";
 import { CustomConnectionAttributes } from "./CustomConnectionAttributes";
@@ -2126,6 +2197,16 @@ import { MaintenanceDataRelationshipsLastModifiedByUser } from "./MaintenanceDat
 import { MaintenanceDataRelationshipsLastModifiedByUserData } from "./MaintenanceDataRelationshipsLastModifiedByUserData";
 import { MaintenanceDataRelationshipsStatusPage } from "./MaintenanceDataRelationshipsStatusPage";
 import { MaintenanceDataRelationshipsStatusPageData } from "./MaintenanceDataRelationshipsStatusPageData";
+import { MaintenanceWindow } from "./MaintenanceWindow";
+import { MaintenanceWindowAttributes } from "./MaintenanceWindowAttributes";
+import { MaintenanceWindowCreate } from "./MaintenanceWindowCreate";
+import { MaintenanceWindowCreateAttributes } from "./MaintenanceWindowCreateAttributes";
+import { MaintenanceWindowCreateRequest } from "./MaintenanceWindowCreateRequest";
+import { MaintenanceWindowResponse } from "./MaintenanceWindowResponse";
+import { MaintenanceWindowUpdate } from "./MaintenanceWindowUpdate";
+import { MaintenanceWindowUpdateAttributes } from "./MaintenanceWindowUpdateAttributes";
+import { MaintenanceWindowUpdateRequest } from "./MaintenanceWindowUpdateRequest";
+import { MaintenanceWindowsResponse } from "./MaintenanceWindowsResponse";
 import { ManagedOrgsData } from "./ManagedOrgsData";
 import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
@@ -2752,6 +2833,8 @@ import { ProjectColumnsConfigColumnsItemsSort } from "./ProjectColumnsConfigColu
 import { ProjectCreate } from "./ProjectCreate";
 import { ProjectCreateAttributes } from "./ProjectCreateAttributes";
 import { ProjectCreateRequest } from "./ProjectCreateRequest";
+import { ProjectFavorite } from "./ProjectFavorite";
+import { ProjectFavoritesResponse } from "./ProjectFavoritesResponse";
 import { ProjectNotificationSettings } from "./ProjectNotificationSettings";
 import { ProjectRelationship } from "./ProjectRelationship";
 import { ProjectRelationshipData } from "./ProjectRelationshipData";
@@ -4402,6 +4485,15 @@ const enumsMap: { [key: string]: any[] } = {
     "-saml_assertion_attribute.attribute_value",
   ],
   AuthNMappingsType: ["authn_mappings"],
+  AutomationRuleActionType: ["execute_workflow", "assign_agent"],
+  AutomationRuleTriggerType: [
+    "case_created",
+    "status_transitioned",
+    "attribute_value_changed",
+    "event_correlation_signal_correlated",
+    "case_review_approved",
+    "comment_added",
+  ],
   AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
   AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
   AwsCURConfigType: ["aws_cur_config"],
@@ -4473,7 +4565,42 @@ const enumsMap: { [key: string]: any[] } = {
   CampaignStatus: ["in_progress", "not_started", "completed"],
   CampaignType: ["campaign"],
   Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
+  CaseAggregateResourceType: ["aggregate"],
+  CaseAutomationRuleResourceType: ["rule"],
+  CaseAutomationRuleState: ["ENABLED", "DISABLED"],
+  CaseBulkActionType: [
+    "priority",
+    "status",
+    "assign",
+    "unassign",
+    "archive",
+    "unarchive",
+    "jira",
+    "servicenow",
+    "linear",
+    "update_project",
+  ],
+  CaseBulkResourceType: ["bulk"],
   CaseDataType: ["cases"],
+  CaseInsightType: [
+    "SECURITY_SIGNAL",
+    "MONITOR",
+    "EVENT_CORRELATION",
+    "ERROR_TRACKING",
+    "CLOUD_COST_RECOMMENDATION",
+    "INCIDENT",
+    "SENSITIVE_DATA_SCANNER_ISSUE",
+    "EVENT",
+    "WATCHDOG_STORY",
+    "WIDGET",
+    "SECURITY_FINDING",
+    "INSIGHT_SCORECARD_CAMPAIGN",
+    "RESOURCE_POLICY",
+    "APM_RECOMMENDATION",
+    "SCM_URL",
+    "PROFILING_DOWNSIZING_EXPERIMENT",
+  ],
+  CaseLinkResourceType: ["link"],
   CaseManagementProjectDataType: ["projects"],
   CaseNotificationRuleResourceType: ["notification_rule"],
   CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
@@ -4483,6 +4610,8 @@ const enumsMap: { [key: string]: any[] } = {
   CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
   CaseType: ["STANDARD"],
   CaseTypeResourceType: ["case_type"],
+  CaseViewResourceType: ["view"],
+  CaseWatcherResourceType: ["watcher"],
   ChangeEventAttributesAuthorType: ["user", "system", "api", "automation"],
   ChangeEventAttributesChangedResourceType: ["feature_flag", "configuration"],
   ChangeEventAttributesImpactedResourcesItemType: ["service"],
@@ -5187,6 +5316,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
   MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
+  MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
   MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
@@ -5636,6 +5766,7 @@ const enumsMap: { [key: string]: any[] } = {
   ProductAnalyticsScalarResponseType: ["scalar_response"],
   ProductAnalyticsServerSideEventItemType: ["server"],
   ProductAnalyticsTimeseriesResponseType: ["timeseries_response"],
+  ProjectFavoriteResourceType: ["project_favorite"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   PublishRequestType: ["publishRequest"],
@@ -6877,6 +7008,20 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingsResponse: AuthNMappingsResponse,
   AutoCloseInactiveCases: AutoCloseInactiveCases,
   AutoTransitionAssignedCases: AutoTransitionAssignedCases,
+  AutomationRule: AutomationRule,
+  AutomationRuleAction: AutomationRuleAction,
+  AutomationRuleActionData: AutomationRuleActionData,
+  AutomationRuleAttributes: AutomationRuleAttributes,
+  AutomationRuleCreate: AutomationRuleCreate,
+  AutomationRuleCreateAttributes: AutomationRuleCreateAttributes,
+  AutomationRuleCreateRequest: AutomationRuleCreateRequest,
+  AutomationRuleRelationships: AutomationRuleRelationships,
+  AutomationRuleResponse: AutomationRuleResponse,
+  AutomationRuleTrigger: AutomationRuleTrigger,
+  AutomationRuleTriggerData: AutomationRuleTriggerData,
+  AutomationRuleUpdate: AutomationRuleUpdate,
+  AutomationRuleUpdateRequest: AutomationRuleUpdateRequest,
+  AutomationRulesResponse: AutomationRulesResponse,
   AwsCURConfig: AwsCURConfig,
   AwsCURConfigAttributes: AwsCURConfigAttributes,
   AwsCURConfigPatchData: AwsCURConfigPatchData,
@@ -7045,20 +7190,46 @@ const typeMap: { [index: string]: any } = {
   CampaignResponseData: CampaignResponseData,
   CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   Case: Case,
+  CaseAggregateGroup: CaseAggregateGroup,
+  CaseAggregateGroupBy: CaseAggregateGroupBy,
+  CaseAggregateRequest: CaseAggregateRequest,
+  CaseAggregateRequestAttributes: CaseAggregateRequestAttributes,
+  CaseAggregateRequestData: CaseAggregateRequestData,
+  CaseAggregateResponse: CaseAggregateResponse,
+  CaseAggregateResponseAttributes: CaseAggregateResponseAttributes,
+  CaseAggregateResponseData: CaseAggregateResponseData,
   CaseAssign: CaseAssign,
   CaseAssignAttributes: CaseAssignAttributes,
   CaseAssignRequest: CaseAssignRequest,
   CaseAttributes: CaseAttributes,
+  CaseBulkUpdateRequest: CaseBulkUpdateRequest,
+  CaseBulkUpdateRequestAttributes: CaseBulkUpdateRequestAttributes,
+  CaseBulkUpdateRequestData: CaseBulkUpdateRequestData,
   CaseComment: CaseComment,
   CaseCommentAttributes: CaseCommentAttributes,
   CaseCommentRequest: CaseCommentRequest,
+  CaseCountGroup: CaseCountGroup,
+  CaseCountGroupValue: CaseCountGroupValue,
+  CaseCountResponse: CaseCountResponse,
+  CaseCountResponseAttributes: CaseCountResponseAttributes,
+  CaseCountResponseData: CaseCountResponseData,
   CaseCreate: CaseCreate,
   CaseCreateAttributes: CaseCreateAttributes,
   CaseCreateRelationships: CaseCreateRelationships,
   CaseCreateRequest: CaseCreateRequest,
   CaseEmpty: CaseEmpty,
   CaseEmptyRequest: CaseEmptyRequest,
+  CaseInsight: CaseInsight,
+  CaseInsightsAttributes: CaseInsightsAttributes,
+  CaseInsightsData: CaseInsightsData,
   CaseInsightsItems: CaseInsightsItems,
+  CaseInsightsRequest: CaseInsightsRequest,
+  CaseLink: CaseLink,
+  CaseLinkAttributes: CaseLinkAttributes,
+  CaseLinkCreate: CaseLinkCreate,
+  CaseLinkCreateRequest: CaseLinkCreateRequest,
+  CaseLinkResponse: CaseLinkResponse,
+  CaseLinksResponse: CaseLinksResponse,
   CaseManagementProject: CaseManagementProject,
   CaseManagementProjectData: CaseManagementProjectData,
   CaseNotificationRule: CaseNotificationRule,
@@ -7083,24 +7254,50 @@ const typeMap: { [index: string]: any } = {
   CaseTypeResource: CaseTypeResource,
   CaseTypeResourceAttributes: CaseTypeResourceAttributes,
   CaseTypeResponse: CaseTypeResponse,
+  CaseTypeUpdate: CaseTypeUpdate,
+  CaseTypeUpdateRequest: CaseTypeUpdateRequest,
   CaseTypesResponse: CaseTypesResponse,
   CaseUpdateAttributes: CaseUpdateAttributes,
   CaseUpdateAttributesAttributes: CaseUpdateAttributesAttributes,
   CaseUpdateAttributesRequest: CaseUpdateAttributesRequest,
+  CaseUpdateComment: CaseUpdateComment,
+  CaseUpdateCommentAttributes: CaseUpdateCommentAttributes,
+  CaseUpdateCommentRequest: CaseUpdateCommentRequest,
   CaseUpdateCustomAttribute: CaseUpdateCustomAttribute,
   CaseUpdateCustomAttributeRequest: CaseUpdateCustomAttributeRequest,
   CaseUpdateDescription: CaseUpdateDescription,
   CaseUpdateDescriptionAttributes: CaseUpdateDescriptionAttributes,
   CaseUpdateDescriptionRequest: CaseUpdateDescriptionRequest,
+  CaseUpdateDueDate: CaseUpdateDueDate,
+  CaseUpdateDueDateAttributes: CaseUpdateDueDateAttributes,
+  CaseUpdateDueDateRequest: CaseUpdateDueDateRequest,
   CaseUpdatePriority: CaseUpdatePriority,
   CaseUpdatePriorityAttributes: CaseUpdatePriorityAttributes,
   CaseUpdatePriorityRequest: CaseUpdatePriorityRequest,
+  CaseUpdateResolvedReason: CaseUpdateResolvedReason,
+  CaseUpdateResolvedReasonAttributes: CaseUpdateResolvedReasonAttributes,
+  CaseUpdateResolvedReasonRequest: CaseUpdateResolvedReasonRequest,
   CaseUpdateStatus: CaseUpdateStatus,
   CaseUpdateStatusAttributes: CaseUpdateStatusAttributes,
   CaseUpdateStatusRequest: CaseUpdateStatusRequest,
   CaseUpdateTitle: CaseUpdateTitle,
   CaseUpdateTitleAttributes: CaseUpdateTitleAttributes,
   CaseUpdateTitleRequest: CaseUpdateTitleRequest,
+  CaseView: CaseView,
+  CaseViewAttributes: CaseViewAttributes,
+  CaseViewCreate: CaseViewCreate,
+  CaseViewCreateAttributes: CaseViewCreateAttributes,
+  CaseViewCreateRequest: CaseViewCreateRequest,
+  CaseViewRelationships: CaseViewRelationships,
+  CaseViewResponse: CaseViewResponse,
+  CaseViewUpdate: CaseViewUpdate,
+  CaseViewUpdateAttributes: CaseViewUpdateAttributes,
+  CaseViewUpdateRequest: CaseViewUpdateRequest,
+  CaseViewsResponse: CaseViewsResponse,
+  CaseWatcher: CaseWatcher,
+  CaseWatcherRelationships: CaseWatcherRelationships,
+  CaseWatcherUserRelationship: CaseWatcherUserRelationship,
+  CaseWatchersResponse: CaseWatchersResponse,
   CasesResponse: CasesResponse,
   CasesResponseMeta: CasesResponseMeta,
   CasesResponseMetaPagination: CasesResponseMetaPagination,
@@ -7617,7 +7814,12 @@ const typeMap: { [index: string]: any } = {
   CustomAttributeConfigResourceAttributes:
     CustomAttributeConfigResourceAttributes,
   CustomAttributeConfigResponse: CustomAttributeConfigResponse,
+  CustomAttributeConfigUpdate: CustomAttributeConfigUpdate,
+  CustomAttributeConfigUpdateAttributes: CustomAttributeConfigUpdateAttributes,
+  CustomAttributeConfigUpdateRequest: CustomAttributeConfigUpdateRequest,
   CustomAttributeConfigsResponse: CustomAttributeConfigsResponse,
+  CustomAttributeSelectOption: CustomAttributeSelectOption,
+  CustomAttributeTypeData: CustomAttributeTypeData,
   CustomAttributeValue: CustomAttributeValue,
   CustomConnection: CustomConnection,
   CustomConnectionAttributes: CustomConnectionAttributes,
@@ -9050,6 +9252,16 @@ const typeMap: { [index: string]: any } = {
     MaintenanceDataRelationshipsStatusPage,
   MaintenanceDataRelationshipsStatusPageData:
     MaintenanceDataRelationshipsStatusPageData,
+  MaintenanceWindow: MaintenanceWindow,
+  MaintenanceWindowAttributes: MaintenanceWindowAttributes,
+  MaintenanceWindowCreate: MaintenanceWindowCreate,
+  MaintenanceWindowCreateAttributes: MaintenanceWindowCreateAttributes,
+  MaintenanceWindowCreateRequest: MaintenanceWindowCreateRequest,
+  MaintenanceWindowResponse: MaintenanceWindowResponse,
+  MaintenanceWindowUpdate: MaintenanceWindowUpdate,
+  MaintenanceWindowUpdateAttributes: MaintenanceWindowUpdateAttributes,
+  MaintenanceWindowUpdateRequest: MaintenanceWindowUpdateRequest,
+  MaintenanceWindowsResponse: MaintenanceWindowsResponse,
   ManagedOrgsData: ManagedOrgsData,
   ManagedOrgsRelationshipToOrg: ManagedOrgsRelationshipToOrg,
   ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
@@ -9863,6 +10075,8 @@ const typeMap: { [index: string]: any } = {
   ProjectCreate: ProjectCreate,
   ProjectCreateAttributes: ProjectCreateAttributes,
   ProjectCreateRequest: ProjectCreateRequest,
+  ProjectFavorite: ProjectFavorite,
+  ProjectFavoritesResponse: ProjectFavoritesResponse,
   ProjectNotificationSettings: ProjectNotificationSettings,
   ProjectRelationship: ProjectRelationship,
   ProjectRelationshipData: ProjectRelationshipData,

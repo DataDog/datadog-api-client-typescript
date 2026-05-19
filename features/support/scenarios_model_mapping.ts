@@ -4038,6 +4038,64 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.AggregateCases": {
+        "body": {
+            "type": "CaseAggregateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseAggregateResponse",
+    },
+    "v2.BulkUpdateCases": {
+        "body": {
+            "type": "CaseBulkUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CountCases": {
+        "queryFilter": {
+            "type": "string",
+            "format": "",
+            },
+        "groupBys": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "CaseCountResponse",
+    },
+    "v2.ListCaseLinks": {
+        "entityType": {
+            "type": "string",
+            "format": "",
+            },
+        "entityId": {
+            "type": "string",
+            "format": "",
+            },
+        "relationship": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CaseLinksResponse",
+    },
+    "v2.CreateCaseLink": {
+        "body": {
+            "type": "CaseLinkCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseLinkResponse",
+    },
+    "v2.DeleteCaseLink": {
+        "linkId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetProjects": {
         "operationResponseType": "ProjectsResponse",
     },
@@ -4047,6 +4105,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ProjectResponse",
+    },
+    "v2.ListUserCaseProjectFavorites": {
+        "operationResponseType": "ProjectFavoritesResponse",
     },
     "v2.GetProject": {
         "projectId": {
@@ -4072,6 +4133,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ProjectResponse",
+    },
+    "v2.FavoriteCaseProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnfavoriteCaseProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.GetProjectNotificationRules": {
         "projectId": {
@@ -4112,6 +4187,122 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListCaseAutomationRules": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AutomationRulesResponse",
+    },
+    "v2.CreateCaseAutomationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AutomationRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AutomationRuleResponse",
+    },
+    "v2.GetCaseAutomationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AutomationRuleResponse",
+    },
+    "v2.UpdateCaseAutomationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AutomationRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AutomationRuleResponse",
+    },
+    "v2.DeleteCaseAutomationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DisableCaseAutomationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AutomationRuleResponse",
+    },
+    "v2.EnableCaseAutomationRule": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AutomationRuleResponse",
+    },
+    "v2.ListCaseViews": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CaseViewsResponse",
+    },
+    "v2.CreateCaseView": {
+        "body": {
+            "type": "CaseViewCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseViewResponse",
+    },
+    "v2.GetCaseView": {
+        "viewId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CaseViewResponse",
+    },
+    "v2.UpdateCaseView": {
+        "viewId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseViewUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseViewResponse",
+    },
+    "v2.DeleteCaseView": {
+        "viewId": {
             "type": "string",
             "format": "",
             },
@@ -4168,6 +4359,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TimelineResponse",
     },
+    "v2.UpdateCaseComment": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "cellId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdateCommentRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.DeleteCaseComment": {
         "caseId": {
             "type": "string",
@@ -4212,6 +4418,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "body": {
             "type": "CaseUpdateDescriptionRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.UpdateCaseDueDate": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdateDueDateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.AddCaseInsights": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseInsightsRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.RemoveCaseInsights": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseInsightsRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
@@ -4300,6 +4539,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.UpdateCaseResolvedReason": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdateResolvedReasonRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
     "v2.UpdateStatus": {
         "caseId": {
             "type": "string",
@@ -4310,6 +4560,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CaseResponse",
+    },
+    "v2.ListCaseTimeline": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "sortAscending": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "TimelineResponse",
     },
     "v2.UpdateCaseTitle": {
         "caseId": {
@@ -4344,12 +4613,80 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.ListCaseWatchers": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CaseWatchersResponse",
+    },
+    "v2.WatchCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "userUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnwatchCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "userUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListMaintenanceWindows": {
+        "operationResponseType": "MaintenanceWindowsResponse",
+    },
+    "v2.CreateMaintenanceWindow": {
+        "body": {
+            "type": "MaintenanceWindowCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceWindowResponse",
+    },
+    "v2.UpdateMaintenanceWindow": {
+        "maintenanceWindowId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MaintenanceWindowUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceWindowResponse",
+    },
+    "v2.DeleteMaintenanceWindow": {
+        "maintenanceWindowId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetAllCaseTypes": {
         "operationResponseType": "CaseTypesResponse",
     },
     "v2.CreateCaseType": {
         "body": {
             "type": "CaseTypeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseTypeResponse",
+    },
+    "v2.UpdateCaseType": {
+        "caseTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseTypeUpdateRequest",
             "format": "",
             },
         "operationResponseType": "CaseTypeResponse",
@@ -4378,6 +4715,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "body": {
             "type": "CustomAttributeConfigCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomAttributeConfigResponse",
+    },
+    "v2.UpdateCustomAttributeConfig": {
+        "caseTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "customAttributeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CustomAttributeConfigUpdateRequest",
             "format": "",
             },
         "operationResponseType": "CustomAttributeConfigResponse",

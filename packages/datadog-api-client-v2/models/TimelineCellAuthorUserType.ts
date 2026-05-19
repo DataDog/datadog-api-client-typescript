@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * user author type.
+ * The type of timeline cell author. Currently only `USER` is supported.
  */
 
 export type TimelineCellAuthorUserType = typeof USER | UnparsedObject;
