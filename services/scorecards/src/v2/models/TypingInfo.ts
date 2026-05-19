@@ -18,6 +18,8 @@ import { ListCampaignsResponse } from "./ListCampaignsResponse";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
+import { ListScorecardScoresMeta } from "./ListScorecardScoresMeta";
+import { ListScorecardScoresResponse } from "./ListScorecardScoresResponse";
 import { ListScorecardsResponse } from "./ListScorecardsResponse";
 import { OutcomesBatchAttributes } from "./OutcomesBatchAttributes";
 import { OutcomesBatchRequest } from "./OutcomesBatchRequest";
@@ -42,6 +44,11 @@ import { RuleAttributesRequest } from "./RuleAttributesRequest";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { ScorecardListResponseAttributes } from "./ScorecardListResponseAttributes";
 import { ScorecardListResponseData } from "./ScorecardListResponseData";
+import { ScorecardScoreAttributes } from "./ScorecardScoreAttributes";
+import { ScorecardScoreData } from "./ScorecardScoreData";
+import { ScorecardScoreRelationshipData } from "./ScorecardScoreRelationshipData";
+import { ScorecardScoreRelationshipItem } from "./ScorecardScoreRelationshipItem";
+import { ScorecardScoreRelationships } from "./ScorecardScoreRelationships";
 import { UpdateCampaignRequest } from "./UpdateCampaignRequest";
 import { UpdateCampaignRequestAttributes } from "./UpdateCampaignRequestAttributes";
 import { UpdateCampaignRequestData } from "./UpdateCampaignRequestData";
@@ -62,6 +69,14 @@ export const TypingInfo: ModelTypingInfo = {
     OutcomesBatchType: ["batched-outcome"],
     RuleType: ["rule"],
     ScorecardListType: ["scorecard"],
+    ScorecardScoreDataType: ["score"],
+    ScorecardScoresAggregation: [
+      "by-entity",
+      "by-rule",
+      "by-scorecard",
+      "by-team",
+      "by-kind",
+    ],
     ScorecardType: ["scorecard"],
     State: ["pass", "fail", "skip"],
     UpdateOutcomesAsyncType: ["batched-outcome"],
@@ -86,6 +101,8 @@ export const TypingInfo: ModelTypingInfo = {
     ListRulesResponse: ListRulesResponse,
     ListRulesResponseDataItem: ListRulesResponseDataItem,
     ListRulesResponseLinks: ListRulesResponseLinks,
+    ListScorecardScoresMeta: ListScorecardScoresMeta,
+    ListScorecardScoresResponse: ListScorecardScoresResponse,
     ListScorecardsResponse: ListScorecardsResponse,
     OutcomesBatchAttributes: OutcomesBatchAttributes,
     OutcomesBatchRequest: OutcomesBatchRequest,
@@ -111,6 +128,11 @@ export const TypingInfo: ModelTypingInfo = {
     RuleOutcomeRelationships: RuleOutcomeRelationships,
     ScorecardListResponseAttributes: ScorecardListResponseAttributes,
     ScorecardListResponseData: ScorecardListResponseData,
+    ScorecardScoreAttributes: ScorecardScoreAttributes,
+    ScorecardScoreData: ScorecardScoreData,
+    ScorecardScoreRelationshipData: ScorecardScoreRelationshipData,
+    ScorecardScoreRelationshipItem: ScorecardScoreRelationshipItem,
+    ScorecardScoreRelationships: ScorecardScoreRelationships,
     UpdateCampaignRequest: UpdateCampaignRequest,
     UpdateCampaignRequestAttributes: UpdateCampaignRequestAttributes,
     UpdateCampaignRequestData: UpdateCampaignRequestData,
