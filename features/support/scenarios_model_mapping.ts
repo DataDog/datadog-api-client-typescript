@@ -2658,6 +2658,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LLMObsAnnotationQueueLabelSchemaResponse",
     },
+    "v2.AggregateLLMObsExperimentation": {
+        "body": {
+            "type": "LLMObsExperimentationAnalyticsRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsExperimentationAnalyticsResponse",
+    },
+    "v2.SearchLLMObsExperimentation": {
+        "body": {
+            "type": "LLMObsExperimentationSearchRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsExperimentationSearchResponse",
+    },
+    "v2.SimpleSearchLLMObsExperimentation": {
+        "body": {
+            "type": "LLMObsExperimentationSimpleSearchRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsExperimentationSimpleSearchResponse",
+    },
     "v2.ListLLMObsExperiments": {
         "filterProjectId": {
             "type": "string",
@@ -2888,6 +2909,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListLLMObsExperimentEvents": {
+        "experimentId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsExperimentEventsV2Response",
     },
     "v2.ListDatastores": {
         "operationResponseType": "DatastoreArray",

@@ -662,6 +662,7 @@ export {
 } from "./apis/KeyManagementApi";
 
 export {
+  LLMObservabilityApiAggregateLLMObsExperimentationRequest,
   LLMObservabilityApiCreateLLMObsAnnotationQueueRequest,
   LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest,
   LLMObservabilityApiCreateLLMObsDatasetRequest,
@@ -682,8 +683,11 @@ export {
   LLMObservabilityApiListLLMObsAnnotationQueuesRequest,
   LLMObservabilityApiListLLMObsDatasetRecordsRequest,
   LLMObservabilityApiListLLMObsDatasetsRequest,
+  LLMObservabilityApiListLLMObsExperimentEventsRequest,
   LLMObservabilityApiListLLMObsExperimentsRequest,
   LLMObservabilityApiListLLMObsProjectsRequest,
+  LLMObservabilityApiSearchLLMObsExperimentationRequest,
+  LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
   LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest,
@@ -4146,21 +4150,62 @@ export { LLMObsDisplayBlockInteractionItem } from "./models/LLMObsDisplayBlockIn
 export { LLMObsDisplayBlockInteractionResponseItem } from "./models/LLMObsDisplayBlockInteractionResponseItem";
 export { LLMObsDisplayBlockInteractionType } from "./models/LLMObsDisplayBlockInteractionType";
 export { LLMObsEventType } from "./models/LLMObsEventType";
+export { LLMObsExperimentationAnalyticsAggregate } from "./models/LLMObsExperimentationAnalyticsAggregate";
+export { LLMObsExperimentationAnalyticsCompute } from "./models/LLMObsExperimentationAnalyticsCompute";
+export { LLMObsExperimentationAnalyticsDataAttributesRequest } from "./models/LLMObsExperimentationAnalyticsDataAttributesRequest";
+export { LLMObsExperimentationAnalyticsDataAttributesResponse } from "./models/LLMObsExperimentationAnalyticsDataAttributesResponse";
+export { LLMObsExperimentationAnalyticsDataRequest } from "./models/LLMObsExperimentationAnalyticsDataRequest";
+export { LLMObsExperimentationAnalyticsDataResponse } from "./models/LLMObsExperimentationAnalyticsDataResponse";
+export { LLMObsExperimentationAnalyticsGroupBy } from "./models/LLMObsExperimentationAnalyticsGroupBy";
+export { LLMObsExperimentationAnalyticsRequest } from "./models/LLMObsExperimentationAnalyticsRequest";
+export { LLMObsExperimentationAnalyticsResponse } from "./models/LLMObsExperimentationAnalyticsResponse";
+export { LLMObsExperimentationAnalyticsResult } from "./models/LLMObsExperimentationAnalyticsResult";
+export { LLMObsExperimentationAnalyticsSearch } from "./models/LLMObsExperimentationAnalyticsSearch";
+export { LLMObsExperimentationAnalyticsTimeRange } from "./models/LLMObsExperimentationAnalyticsTimeRange";
+export { LLMObsExperimentationAnalyticsValue } from "./models/LLMObsExperimentationAnalyticsValue";
+export { LLMObsExperimentationContentPreview } from "./models/LLMObsExperimentationContentPreview";
+export { LLMObsExperimentationCursorPage } from "./models/LLMObsExperimentationCursorPage";
+export { LLMObsExperimentationFilter } from "./models/LLMObsExperimentationFilter";
+export { LLMObsExperimentationInclude } from "./models/LLMObsExperimentationInclude";
+export { LLMObsExperimentationNumberPage } from "./models/LLMObsExperimentationNumberPage";
+export { LLMObsExperimentationSearchDataAttributesRequest } from "./models/LLMObsExperimentationSearchDataAttributesRequest";
+export { LLMObsExperimentationSearchDataRequest } from "./models/LLMObsExperimentationSearchDataRequest";
+export { LLMObsExperimentationSearchDataResponse } from "./models/LLMObsExperimentationSearchDataResponse";
+export { LLMObsExperimentationSearchRequest } from "./models/LLMObsExperimentationSearchRequest";
+export { LLMObsExperimentationSearchResponse } from "./models/LLMObsExperimentationSearchResponse";
+export { LLMObsExperimentationSearchResults } from "./models/LLMObsExperimentationSearchResults";
+export { LLMObsExperimentationSimpleSearchDataAttributesRequest } from "./models/LLMObsExperimentationSimpleSearchDataAttributesRequest";
+export { LLMObsExperimentationSimpleSearchDataRequest } from "./models/LLMObsExperimentationSimpleSearchDataRequest";
+export { LLMObsExperimentationSimpleSearchDataResponse } from "./models/LLMObsExperimentationSimpleSearchDataResponse";
+export { LLMObsExperimentationSimpleSearchMeta } from "./models/LLMObsExperimentationSimpleSearchMeta";
+export { LLMObsExperimentationSimpleSearchMetaPage } from "./models/LLMObsExperimentationSimpleSearchMetaPage";
+export { LLMObsExperimentationSimpleSearchRequest } from "./models/LLMObsExperimentationSimpleSearchRequest";
+export { LLMObsExperimentationSimpleSearchResponse } from "./models/LLMObsExperimentationSimpleSearchResponse";
+export { LLMObsExperimentationSortField } from "./models/LLMObsExperimentationSortField";
+export { LLMObsExperimentationSortFieldDirection } from "./models/LLMObsExperimentationSortFieldDirection";
+export { LLMObsExperimentationType } from "./models/LLMObsExperimentationType";
 export { LLMObsExperimentDataAttributesRequest } from "./models/LLMObsExperimentDataAttributesRequest";
 export { LLMObsExperimentDataAttributesResponse } from "./models/LLMObsExperimentDataAttributesResponse";
 export { LLMObsExperimentDataRequest } from "./models/LLMObsExperimentDataRequest";
 export { LLMObsExperimentDataResponse } from "./models/LLMObsExperimentDataResponse";
+export { LLMObsExperimentEvalMetricEvent } from "./models/LLMObsExperimentEvalMetricEvent";
 export { LLMObsExperimentEventsDataAttributesRequest } from "./models/LLMObsExperimentEventsDataAttributesRequest";
 export { LLMObsExperimentEventsDataRequest } from "./models/LLMObsExperimentEventsDataRequest";
 export { LLMObsExperimentEventsRequest } from "./models/LLMObsExperimentEventsRequest";
+export { LLMObsExperimentEventsType } from "./models/LLMObsExperimentEventsType";
+export { LLMObsExperimentEventsV2DataAttributesResponse } from "./models/LLMObsExperimentEventsV2DataAttributesResponse";
+export { LLMObsExperimentEventsV2DataResponse } from "./models/LLMObsExperimentEventsV2DataResponse";
+export { LLMObsExperimentEventsV2Response } from "./models/LLMObsExperimentEventsV2Response";
 export { LLMObsExperimentMetric } from "./models/LLMObsExperimentMetric";
 export { LLMObsExperimentMetricError } from "./models/LLMObsExperimentMetricError";
 export { LLMObsExperimentRequest } from "./models/LLMObsExperimentRequest";
 export { LLMObsExperimentResponse } from "./models/LLMObsExperimentResponse";
+export { LLMObsExperimentRunDataResponse } from "./models/LLMObsExperimentRunDataResponse";
 export { LLMObsExperimentSpan } from "./models/LLMObsExperimentSpan";
 export { LLMObsExperimentSpanError } from "./models/LLMObsExperimentSpanError";
 export { LLMObsExperimentSpanMeta } from "./models/LLMObsExperimentSpanMeta";
 export { LLMObsExperimentSpanStatus } from "./models/LLMObsExperimentSpanStatus";
+export { LLMObsExperimentSpanWithEvals } from "./models/LLMObsExperimentSpanWithEvals";
 export { LLMObsExperimentsResponse } from "./models/LLMObsExperimentsResponse";
 export { LLMObsExperimentType } from "./models/LLMObsExperimentType";
 export { LLMObsExperimentUpdateDataAttributesRequest } from "./models/LLMObsExperimentUpdateDataAttributesRequest";
