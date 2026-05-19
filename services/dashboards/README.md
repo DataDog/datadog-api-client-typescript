@@ -2,7 +2,10 @@
 
 ## Description
 
-Manage all your dashboards, as well as access to your shared dashboards, through the API. See the [Dashboards page](https://docs.datadoghq.com/dashboards/) for more information.
+Get usage statistics for the dashboards in your organization, including view
+counts, last-edit times, widget counts, and quality scores. See the
+[Dashboards documentation](https://docs.datadoghq.com/dashboards/) for more
+information.
 
 ## Navigation
 
@@ -21,14 +24,22 @@ yarn add @datadog/datadog-api-client-dashboards
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { DashboardsApiV1 } from "@datadog/datadog-api-client-dashboards";
-import { v1 } from "@datadog/datadog-api-client-dashboards";
+import { DashboardsApiV2 } from "@datadog/datadog-api-client-dashboards";
+import { v2 } from "@datadog/datadog-api-client-dashboards";
 
 const configuration = createConfiguration();
-const apiInstance = new DashboardsApiV1(configuration);
+// Enable unstable operations
+const configurationOpts = {
+    unstableOperations: {
+        "DashboardsApi.v2.listDashboardsUsage": true
+    }
+}
+
+const configuration = createConfiguration(configurationOpts);
+const apiInstance = new DashboardsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listDashboards(params).then((data) => {
+apiInstance.listDashboardsUsage(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
