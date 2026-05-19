@@ -4,15 +4,15 @@ import { CustomAttributeConfigAttributesCreate } from "./CustomAttributeConfigAt
 import { CustomAttributeConfigResourceType } from "./CustomAttributeConfigResourceType";
 
 /**
- * Custom attribute config
+ * Data object for creating a custom attribute configuration.
  */
 export class CustomAttributeConfigCreate {
   /**
-   * Custom attribute config resource attributes
+   * Attributes required to create a custom attribute configuration.
    */
   "attributes": CustomAttributeConfigAttributesCreate;
   /**
-   * Custom attributes config JSON:API resource type
+   * JSON:API resource type for custom attribute configurations.
    */
   "type": CustomAttributeConfigResourceType;
   /**

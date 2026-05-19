@@ -12,7 +12,7 @@ export class CaseAssign {
    */
   "attributes": CaseAssignAttributes;
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    */
   "type": CaseResourceType;
   /**

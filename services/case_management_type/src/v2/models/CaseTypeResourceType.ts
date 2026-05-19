@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Case type resource type
+ * JSON:API resource type for case types.
  */
 export type CaseTypeResourceType = typeof CASE_TYPE | UnparsedObject;
 export const CASE_TYPE = "case_type";

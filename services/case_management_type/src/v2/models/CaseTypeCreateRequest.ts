@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseTypeCreate } from "./CaseTypeCreate";
 
 /**
- * Case type create request
+ * Request payload for creating a case type.
  */
 export class CaseTypeCreateRequest {
   /**
-   * Case type
+   * Data object for creating a case type.
    */
   "data": CaseTypeCreate;
   /**

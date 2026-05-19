@@ -8,11 +8,11 @@ import { CustomAttributeValue } from "./CustomAttributeValue";
  */
 export class CaseUpdateCustomAttribute {
   /**
-   * Custom attribute values
+   * A typed value for a custom attribute on a specific case.
    */
   "attributes": CustomAttributeValue;
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    */
   "type": CaseResourceType;
   /**

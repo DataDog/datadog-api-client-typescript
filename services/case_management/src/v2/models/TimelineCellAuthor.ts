@@ -3,6 +3,6 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 import { TimelineCellAuthorUser } from "./TimelineCellAuthorUser";
 
 /**
- * author of the timeline cell
+ * The author of the timeline cell. Currently only user authors are supported.
  */
 export type TimelineCellAuthor = TimelineCellAuthorUser | UnparsedObject;
