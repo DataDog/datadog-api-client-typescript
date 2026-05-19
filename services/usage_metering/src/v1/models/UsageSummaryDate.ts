@@ -331,6 +331,10 @@ export class UsageSummaryDate {
    */
   "dbmQueriesCountAvg"?: number;
   /**
+   * Shows the sum of all serverless job hours over all hours in the current date for all organizations.
+   */
+  "doJobsMonitoringServerlessJobHoursSum"?: number;
+  /**
    * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for the given org.
    */
   "ephInfraHostAgentSum"?: number;
@@ -1391,6 +1395,11 @@ export class UsageSummaryDate {
     },
     dbmQueriesCountAvg: {
       baseName: "dbm_queries_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    doJobsMonitoringServerlessJobHoursSum: {
+      baseName: "do_jobs_monitoring_serverless_job_hours_sum",
       type: "number",
       format: "int64",
     },

@@ -340,6 +340,10 @@ export class UsageSummaryResponse {
    */
   "dbmQueriesAvgSum"?: number;
   /**
+   * Shows the sum of all serverless job hours over all hours in the current month for all organizations.
+   */
+  "doJobsMonitoringServerlessJobHoursAggSum"?: number;
+  /**
    * Shows the last date of usage in the current month for all organizations.
    */
   "endDate"?: Date;
@@ -1446,6 +1450,11 @@ export class UsageSummaryResponse {
     },
     dbmQueriesAvgSum: {
       baseName: "dbm_queries_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    doJobsMonitoringServerlessJobHoursAggSum: {
+      baseName: "do_jobs_monitoring_serverless_job_hours_agg_sum",
       type: "number",
       format: "int64",
     },
