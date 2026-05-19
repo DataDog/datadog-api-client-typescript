@@ -264,12 +264,17 @@ export {
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
   CloudCostManagementApiGetCostTagKeyRequest,
+  CloudCostManagementApiGetCostTagMetadataCurrencyRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
+  CloudCostManagementApiListCostTagKeySourcesRequest,
   CloudCostManagementApiListCostTagKeysRequest,
+  CloudCostManagementApiListCostTagMetadataRequest,
+  CloudCostManagementApiListCostTagMetadataMetricsRequest,
+  CloudCostManagementApiListCostTagMetadataOrchestratorsRequest,
   CloudCostManagementApiListCostTagsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
@@ -363,6 +368,12 @@ export {
   DashboardSecureEmbedApiUpdateDashboardSecureEmbedRequest,
   DashboardSecureEmbedApi,
 } from "./apis/DashboardSecureEmbedApi";
+
+export {
+  DashboardsApiGetDashboardUsageRequest,
+  DashboardsApiListDashboardsUsageRequest,
+  DashboardsApi,
+} from "./apis/DashboardsApi";
 
 export {
   DataDeletionApiCancelDataDeletionRequestRequest,
@@ -2330,6 +2341,15 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CostCurrency } from "./models/CostCurrency";
+export { CostCurrencyResponse } from "./models/CostCurrencyResponse";
+export { CostCurrencyType } from "./models/CostCurrencyType";
+export { CostMetric } from "./models/CostMetric";
+export { CostMetricsResponse } from "./models/CostMetricsResponse";
+export { CostMetricType } from "./models/CostMetricType";
+export { CostOrchestrator } from "./models/CostOrchestrator";
+export { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
+export { CostOrchestratorType } from "./models/CostOrchestratorType";
 export { CostTag } from "./models/CostTag";
 export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
@@ -2340,9 +2360,18 @@ export { CostTagDescriptionType } from "./models/CostTagDescriptionType";
 export { CostTagKey } from "./models/CostTagKey";
 export { CostTagKeyAttributes } from "./models/CostTagKeyAttributes";
 export { CostTagKeyDetails } from "./models/CostTagKeyDetails";
+export { CostTagKeyMetadata } from "./models/CostTagKeyMetadata";
+export { CostTagKeyMetadataAttributes } from "./models/CostTagKeyMetadataAttributes";
+export { CostTagKeyMetadataResponse } from "./models/CostTagKeyMetadataResponse";
+export { CostTagKeyMetadataType } from "./models/CostTagKeyMetadataType";
 export { CostTagKeyResponse } from "./models/CostTagKeyResponse";
+export { CostTagKeySource } from "./models/CostTagKeySource";
+export { CostTagKeySourceAttributes } from "./models/CostTagKeySourceAttributes";
+export { CostTagKeySourcesResponse } from "./models/CostTagKeySourcesResponse";
+export { CostTagKeySourceType } from "./models/CostTagKeySourceType";
 export { CostTagKeysResponse } from "./models/CostTagKeysResponse";
 export { CostTagKeyType } from "./models/CostTagKeyType";
+export { CostTagMetadataDailyFilter } from "./models/CostTagMetadataDailyFilter";
 export { CostTagsResponse } from "./models/CostTagsResponse";
 export { CostTagType } from "./models/CostTagType";
 export { CoverageSummaryAttributes } from "./models/CoverageSummaryAttributes";
@@ -2648,6 +2677,11 @@ export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateIte
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 export { DashboardTriggerWrapper } from "./models/DashboardTriggerWrapper";
 export { DashboardType } from "./models/DashboardType";
+export { DashboardUsage } from "./models/DashboardUsage";
+export { DashboardUsageAttributes } from "./models/DashboardUsageAttributes";
+export { DashboardUsageResponse } from "./models/DashboardUsageResponse";
+export { DashboardUsageType } from "./models/DashboardUsageType";
+export { DashboardUsageUser } from "./models/DashboardUsageUser";
 export { DataAttributesRulesItemsIfTagExists } from "./models/DataAttributesRulesItemsIfTagExists";
 export { DataAttributesRulesItemsMapping } from "./models/DataAttributesRulesItemsMapping";
 export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTriggerWrapper";
@@ -3820,6 +3854,9 @@ export { ListConnectionsResponseDataAttributes } from "./models/ListConnectionsR
 export { ListConnectionsResponseDataAttributesConnectionsItems } from "./models/ListConnectionsResponseDataAttributesConnectionsItems";
 export { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./models/ListConnectionsResponseDataAttributesConnectionsItemsJoin";
 export { ListConnectionsResponseDataType } from "./models/ListConnectionsResponseDataType";
+export { ListDashboardsUsageResponse } from "./models/ListDashboardsUsageResponse";
+export { ListDashboardsUsageResponseLinks } from "./models/ListDashboardsUsageResponseLinks";
+export { ListDashboardsUsageResponseMeta } from "./models/ListDashboardsUsageResponseMeta";
 export { ListDeploymentRuleResponseData } from "./models/ListDeploymentRuleResponseData";
 export { ListDeploymentRulesDataType } from "./models/ListDeploymentRulesDataType";
 export { ListDeploymentRulesResponseDataAttributes } from "./models/ListDeploymentRulesResponseDataAttributes";
@@ -6095,6 +6132,7 @@ export { SyntheticsDowntimeTimeSlotRecurrenceResponse } from "./models/Synthetic
 export { SyntheticsDowntimeTimeSlotRequest } from "./models/SyntheticsDowntimeTimeSlotRequest";
 export { SyntheticsDowntimeTimeSlotResponse } from "./models/SyntheticsDowntimeTimeSlotResponse";
 export { SyntheticsDowntimeWeekday } from "./models/SyntheticsDowntimeWeekday";
+export { SyntheticsDowntimeWeekdayPosition } from "./models/SyntheticsDowntimeWeekdayPosition";
 export { SyntheticsFastTestResult } from "./models/SyntheticsFastTestResult";
 export { SyntheticsFastTestResultAttributes } from "./models/SyntheticsFastTestResultAttributes";
 export { SyntheticsFastTestResultData } from "./models/SyntheticsFastTestResultData";

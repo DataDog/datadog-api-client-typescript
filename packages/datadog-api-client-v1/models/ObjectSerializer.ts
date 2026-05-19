@@ -187,6 +187,7 @@ import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
 import { LogsDateRemapper } from "./LogsDateRemapper";
 import { LogsDecoderProcessor } from "./LogsDecoderProcessor";
+import { LogsExcludeAttributeProcessor } from "./LogsExcludeAttributeProcessor";
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
 import { LogsFilter } from "./LogsFilter";
@@ -238,6 +239,7 @@ import { MonitorFormulaAndFunctionAggregateFilteredQueryDefinition } from "./Mon
 import { MonitorFormulaAndFunctionAggregateQueryFilter } from "./MonitorFormulaAndFunctionAggregateQueryFilter";
 import { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./MonitorFormulaAndFunctionAggregateQueryJoinCondition";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
+import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormulaAndFunctionDataJobsQueryDefinition";
 import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
@@ -1113,6 +1115,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsDecoderProcessorBinaryToTextEncoding: ["base64", "base16"],
   LogsDecoderProcessorInputRepresentation: ["utf_8", "integer"],
   LogsDecoderProcessorType: ["decoder-processor"],
+  LogsExcludeAttributeProcessorType: ["exclude-attribute"],
   LogsGeoIPParserType: ["geo-ip-parser"],
   LogsGrokParserType: ["grok-parser"],
   LogsLookupProcessorType: ["lookup-processor"],
@@ -1260,6 +1263,7 @@ const enumsMap: { [key: string]: any[] } = {
     "cost alert",
     "data-quality alert",
     "network-path alert",
+    "data-jobs alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
@@ -2183,6 +2187,7 @@ const typeMap: { [index: string]: any } = {
   LogsDailyLimitReset: LogsDailyLimitReset,
   LogsDateRemapper: LogsDateRemapper,
   LogsDecoderProcessor: LogsDecoderProcessor,
+  LogsExcludeAttributeProcessor: LogsExcludeAttributeProcessor,
   LogsExclusion: LogsExclusion,
   LogsExclusionFilter: LogsExclusionFilter,
   LogsFilter: LogsFilter,
@@ -2239,6 +2244,8 @@ const typeMap: { [index: string]: any } = {
     MonitorFormulaAndFunctionAggregateQueryJoinCondition,
   MonitorFormulaAndFunctionCostQueryDefinition:
     MonitorFormulaAndFunctionCostQueryDefinition,
+  MonitorFormulaAndFunctionDataJobsQueryDefinition:
+    MonitorFormulaAndFunctionDataJobsQueryDefinition,
   MonitorFormulaAndFunctionDataQualityMonitorOptions:
     MonitorFormulaAndFunctionDataQualityMonitorOptions,
   MonitorFormulaAndFunctionDataQualityQueryDefinition:
@@ -2836,6 +2843,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsArrayProcessor",
     "LogsDecoderProcessor",
     "LogsSchemaProcessor",
+    "LogsExcludeAttributeProcessor",
   ],
   LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
   MonitorFormulaAndFunctionAggregateAugmentQuery: [
@@ -2854,6 +2862,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorFormulaAndFunctionEventQueryDefinition",
     "MonitorFormulaAndFunctionCostQueryDefinition",
     "MonitorFormulaAndFunctionDataQualityQueryDefinition",
+    "MonitorFormulaAndFunctionDataJobsQueryDefinition",
     "MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition",
     "MonitorFormulaAndFunctionAggregateFilteredQueryDefinition",
   ],

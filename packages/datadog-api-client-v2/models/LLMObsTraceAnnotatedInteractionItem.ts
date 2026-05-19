@@ -21,9 +21,17 @@ export class LLMObsTraceAnnotatedInteractionItem {
    */
   "contentId": string;
   /**
+   * Timestamp when the interaction was added to the queue.
+   */
+  "createdAt": Date;
+  /**
    * Unique identifier of the interaction.
    */
   "id": string;
+  /**
+   * Timestamp when the interaction was last updated.
+   */
+  "modifiedAt": Date;
   /**
    * Type of an upstream-entity interaction.
    */
@@ -55,10 +63,22 @@ export class LLMObsTraceAnnotatedInteractionItem {
       type: "string",
       required: true,
     },
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
+    },
     id: {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
     },
     type: {
       baseName: "type",

@@ -685,6 +685,12 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CostCurrency } from "./CostCurrency";
+import { CostCurrencyResponse } from "./CostCurrencyResponse";
+import { CostMetric } from "./CostMetric";
+import { CostMetricsResponse } from "./CostMetricsResponse";
+import { CostOrchestrator } from "./CostOrchestrator";
+import { CostOrchestratorsResponse } from "./CostOrchestratorsResponse";
 import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
@@ -693,7 +699,13 @@ import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
 import { CostTagKey } from "./CostTagKey";
 import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
 import { CostTagKeyDetails } from "./CostTagKeyDetails";
+import { CostTagKeyMetadata } from "./CostTagKeyMetadata";
+import { CostTagKeyMetadataAttributes } from "./CostTagKeyMetadataAttributes";
+import { CostTagKeyMetadataResponse } from "./CostTagKeyMetadataResponse";
 import { CostTagKeyResponse } from "./CostTagKeyResponse";
+import { CostTagKeySource } from "./CostTagKeySource";
+import { CostTagKeySourceAttributes } from "./CostTagKeySourceAttributes";
+import { CostTagKeySourcesResponse } from "./CostTagKeySourcesResponse";
 import { CostTagKeysResponse } from "./CostTagKeysResponse";
 import { CostTagsResponse } from "./CostTagsResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
@@ -979,6 +991,10 @@ import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
 import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
+import { DashboardUsage } from "./DashboardUsage";
+import { DashboardUsageAttributes } from "./DashboardUsageAttributes";
+import { DashboardUsageResponse } from "./DashboardUsageResponse";
+import { DashboardUsageUser } from "./DashboardUsageUser";
 import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
@@ -1994,6 +2010,9 @@ import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
 import { ListConnectionsResponseDataAttributes } from "./ListConnectionsResponseDataAttributes";
 import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
 import { ListConnectionsResponseDataAttributesConnectionsItemsJoin } from "./ListConnectionsResponseDataAttributesConnectionsItemsJoin";
+import { ListDashboardsUsageResponse } from "./ListDashboardsUsageResponse";
+import { ListDashboardsUsageResponseLinks } from "./ListDashboardsUsageResponseLinks";
+import { ListDashboardsUsageResponseMeta } from "./ListDashboardsUsageResponseMeta";
 import { ListDeploymentRuleResponseData } from "./ListDeploymentRuleResponseData";
 import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRulesResponseDataAttributes";
 import { ListDevicesResponse } from "./ListDevicesResponse";
@@ -4575,9 +4594,15 @@ const enumsMap: { [key: string]: any[] } = {
   CostAnomaliesResponseDataType: ["anomalies"],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CostCurrencyType: ["cost_currency"],
+  CostMetricType: ["cost_metric"],
+  CostOrchestratorType: ["cost_orchestrator"],
   CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
   CostTagDescriptionType: ["cost_tag_description"],
+  CostTagKeyMetadataType: ["cost_tag_key_metadata"],
+  CostTagKeySourceType: ["cost_tag_key_source"],
   CostTagKeyType: ["cost_tag_key"],
+  CostTagMetadataDailyFilter: ["true", "false"],
   CostTagType: ["cost_tag"],
   CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
@@ -4664,6 +4689,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  DashboardUsageType: ["dashboards-usages"],
   DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
@@ -6187,6 +6213,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsDowntimeFrequency: ["DAILY", "WEEKLY", "MONTHLY", "YEARLY"],
   SyntheticsDowntimeResourceType: ["downtime"],
   SyntheticsDowntimeWeekday: ["MO", "TU", "WE", "TH", "FR", "SA", "SU"],
+  SyntheticsDowntimeWeekdayPosition: [1, 2, 3, 4, -1],
   SyntheticsFastTestResultType: ["result"],
   SyntheticsFastTestSubType: [
     "dns",
@@ -7338,6 +7365,12 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CostCurrency: CostCurrency,
+  CostCurrencyResponse: CostCurrencyResponse,
+  CostMetric: CostMetric,
+  CostMetricsResponse: CostMetricsResponse,
+  CostOrchestrator: CostOrchestrator,
+  CostOrchestratorsResponse: CostOrchestratorsResponse,
   CostTag: CostTag,
   CostTagAttributes: CostTagAttributes,
   CostTagDescription: CostTagDescription,
@@ -7346,7 +7379,13 @@ const typeMap: { [index: string]: any } = {
   CostTagKey: CostTagKey,
   CostTagKeyAttributes: CostTagKeyAttributes,
   CostTagKeyDetails: CostTagKeyDetails,
+  CostTagKeyMetadata: CostTagKeyMetadata,
+  CostTagKeyMetadataAttributes: CostTagKeyMetadataAttributes,
+  CostTagKeyMetadataResponse: CostTagKeyMetadataResponse,
   CostTagKeyResponse: CostTagKeyResponse,
+  CostTagKeySource: CostTagKeySource,
+  CostTagKeySourceAttributes: CostTagKeySourceAttributes,
+  CostTagKeySourcesResponse: CostTagKeySourcesResponse,
   CostTagKeysResponse: CostTagKeysResponse,
   CostTagsResponse: CostTagsResponse,
   CoverageSummaryAttributes: CoverageSummaryAttributes,
@@ -7706,6 +7745,10 @@ const typeMap: { [index: string]: any } = {
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
   DashboardTriggerWrapper: DashboardTriggerWrapper,
+  DashboardUsage: DashboardUsage,
+  DashboardUsageAttributes: DashboardUsageAttributes,
+  DashboardUsageResponse: DashboardUsageResponse,
+  DashboardUsageUser: DashboardUsageUser,
   DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
@@ -8880,6 +8923,9 @@ const typeMap: { [index: string]: any } = {
     ListConnectionsResponseDataAttributesConnectionsItems,
   ListConnectionsResponseDataAttributesConnectionsItemsJoin:
     ListConnectionsResponseDataAttributesConnectionsItemsJoin,
+  ListDashboardsUsageResponse: ListDashboardsUsageResponse,
+  ListDashboardsUsageResponseLinks: ListDashboardsUsageResponseLinks,
+  ListDashboardsUsageResponseMeta: ListDashboardsUsageResponseMeta,
   ListDeploymentRuleResponseData: ListDeploymentRuleResponseData,
   ListDeploymentRulesResponseDataAttributes:
     ListDeploymentRulesResponseDataAttributes,
