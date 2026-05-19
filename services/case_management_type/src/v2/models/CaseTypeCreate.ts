@@ -4,15 +4,15 @@ import { CaseTypeResourceAttributes } from "./CaseTypeResourceAttributes";
 import { CaseTypeResourceType } from "./CaseTypeResourceType";
 
 /**
- * Case type
+ * Data object for creating a case type.
  */
 export class CaseTypeCreate {
   /**
-   * Case Type resource attributes
+   * Attributes of a case type, which define a classification category for cases. Organizations use case types to model different workflows (for example, Security Incident, Bug Report, Change Request).
    */
   "attributes": CaseTypeResourceAttributes;
   /**
-   * Case type resource type
+   * JSON:API resource type for case types.
    */
   "type": CaseTypeResourceType;
   /**
