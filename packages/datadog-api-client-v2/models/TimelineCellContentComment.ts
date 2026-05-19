@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * comment content
+ * The content of a comment timeline cell.
  */
 export class TimelineCellContentComment {
   /**
-   * comment message
+   * The text content of the comment. Supports Markdown formatting.
    */
   "message"?: string;
 

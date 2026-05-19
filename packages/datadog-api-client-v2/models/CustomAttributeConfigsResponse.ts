@@ -8,7 +8,7 @@ import { CustomAttributeConfig } from "./CustomAttributeConfig";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Custom attribute configs response.
+ * Response containing a list of custom attribute configurations.
  */
 export class CustomAttributeConfigsResponse {
   /**

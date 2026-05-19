@@ -7,23 +7,23 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * user author content.
+ * Profile information for the user who authored the timeline cell.
  */
 export class TimelineCellAuthorUserContent {
   /**
-   * user email
+   * The email address of the user.
    */
   "email"?: string;
   /**
-   * user handle
+   * The Datadog handle of the user.
    */
   "handle"?: string;
   /**
-   * user UUID
+   * The UUID of the user.
    */
   "id"?: string;
   /**
-   * user name
+   * The display name of the user.
    */
   "name"?: string;
 

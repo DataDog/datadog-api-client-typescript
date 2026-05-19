@@ -8,11 +8,11 @@ import { CustomAttributeConfigCreate } from "./CustomAttributeConfigCreate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Custom attribute config create request
+ * Request payload for creating a custom attribute configuration.
  */
 export class CustomAttributeConfigCreateRequest {
   /**
-   * Custom attribute config
+   * Data object for creating a custom attribute configuration.
    */
   "data": CustomAttributeConfigCreate;
 

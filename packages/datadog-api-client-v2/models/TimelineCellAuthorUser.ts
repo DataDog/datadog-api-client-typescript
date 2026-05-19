@@ -9,15 +9,15 @@ import { TimelineCellAuthorUserType } from "./TimelineCellAuthorUserType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * timeline cell user author
+ * A user who authored a timeline cell.
  */
 export class TimelineCellAuthorUser {
   /**
-   * user author content.
+   * Profile information for the user who authored the timeline cell.
    */
   "content"?: TimelineCellAuthorUserContent;
   /**
-   * user author type.
+   * The type of timeline cell author. Currently only `USER` is supported.
    */
   "type"?: TimelineCellAuthorUserType;
 

@@ -8,27 +8,27 @@ import { CustomAttributeType } from "./CustomAttributeType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Custom attribute config resource attributes
+ * Attributes required to create a custom attribute configuration.
  */
 export class CustomAttributeConfigAttributesCreate {
   /**
-   * Custom attribute description.
+   * A description explaining the purpose and expected values for this custom attribute.
    */
   "description"?: string;
   /**
-   * Custom attribute name.
+   * The human-readable label shown in the Case Management UI for this custom attribute.
    */
   "displayName": string;
   /**
-   * Whether multiple values can be set
+   * If `true`, this attribute accepts an array of values. If `false`, only a single value is allowed.
    */
   "isMulti": boolean;
   /**
-   * Custom attribute key. This will be the value use to search on this custom attribute
+   * The programmatic key used to reference this custom attribute in search queries and API calls.
    */
   "key": string;
   /**
-   * Custom attributes type
+   * The data type of the custom attribute, which determines the allowed values and UI input control.
    */
   "type": CustomAttributeType;
 

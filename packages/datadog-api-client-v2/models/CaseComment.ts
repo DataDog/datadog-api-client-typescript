@@ -17,7 +17,7 @@ export class CaseComment {
    */
   "attributes": CaseCommentAttributes;
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    */
   "type": CaseResourceType;
 

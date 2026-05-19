@@ -8,7 +8,7 @@ import { TimelineCellContentComment } from "./TimelineCellContentComment";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * timeline cell content
+ * The content payload of a timeline cell, varying by cell type.
  */
 
 export type TimelineCellContent = TimelineCellContentComment | UnparsedObject;

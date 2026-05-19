@@ -20,6 +20,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CustomAttributeConfigCreateRequest } from "../models/CustomAttributeConfigCreateRequest";
 import { CustomAttributeConfigResponse } from "../models/CustomAttributeConfigResponse";
 import { CustomAttributeConfigsResponse } from "../models/CustomAttributeConfigsResponse";
+import { CustomAttributeConfigUpdateRequest } from "../models/CustomAttributeConfigUpdateRequest";
 
 export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFactory {
   public async createCustomAttributeConfig(
@@ -180,6 +181,80 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateCustomAttributeConfig(
+    caseTypeId: string,
+    customAttributeId: string,
+    body: CustomAttributeConfigUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateCustomAttributeConfig'");
+    if (!_config.unstableOperations["v2.updateCustomAttributeConfig"]) {
+      throw new Error(
+        "Unstable operation 'updateCustomAttributeConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'caseTypeId' is not null or undefined
+    if (caseTypeId === null || caseTypeId === undefined) {
+      throw new RequiredError("caseTypeId", "updateCustomAttributeConfig");
+    }
+
+    // verify required parameter 'customAttributeId' is not null or undefined
+    if (customAttributeId === null || customAttributeId === undefined) {
+      throw new RequiredError(
+        "customAttributeId",
+        "updateCustomAttributeConfig"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCustomAttributeConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}"
+        .replace("{case_type_id}", encodeURIComponent(String(caseTypeId)))
+        .replace(
+          "{custom_attribute_id}",
+          encodeURIComponent(String(customAttributeId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CaseManagementAttributeApi.updateCustomAttributeConfig")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CustomAttributeConfigUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -429,11 +504,75 @@ export class CaseManagementAttributeApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateCustomAttributeConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCustomAttributeConfig(
+    response: ResponseContext
+  ): Promise<CustomAttributeConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomAttributeConfigResponse"
+      ) as CustomAttributeConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomAttributeConfigResponse",
+        ""
+      ) as CustomAttributeConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface CaseManagementAttributeApiCreateCustomAttributeConfigRequest {
   /**
-   * Case type's UUID
+   * The UUID of the case type.
    * @type string
    */
   caseTypeId: string;
@@ -446,7 +585,7 @@ export interface CaseManagementAttributeApiCreateCustomAttributeConfigRequest {
 
 export interface CaseManagementAttributeApiDeleteCustomAttributeConfigRequest {
   /**
-   * Case type's UUID
+   * The UUID of the case type.
    * @type string
    */
   caseTypeId: string;
@@ -459,10 +598,28 @@ export interface CaseManagementAttributeApiDeleteCustomAttributeConfigRequest {
 
 export interface CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest {
   /**
-   * Case type's UUID
+   * The UUID of the case type.
    * @type string
    */
   caseTypeId: string;
+}
+
+export interface CaseManagementAttributeApiUpdateCustomAttributeConfigRequest {
+  /**
+   * The UUID of the case type.
+   * @type string
+   */
+  caseTypeId: string;
+  /**
+   * Case Custom attribute's UUID
+   * @type string
+   */
+  customAttributeId: string;
+  /**
+   * Custom attribute config payload.
+   * @type CustomAttributeConfigUpdateRequest
+   */
+  body: CustomAttributeConfigUpdateRequest;
 }
 
 export class CaseManagementAttributeApi {
@@ -571,6 +728,32 @@ export class CaseManagementAttributeApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAllCustomAttributes(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Updates the display name, description, type, or options of an existing custom attribute configuration for a case type.
+   * @param param The request object
+   */
+  public updateCustomAttributeConfig(
+    param: CaseManagementAttributeApiUpdateCustomAttributeConfigRequest,
+    options?: Configuration
+  ): Promise<CustomAttributeConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCustomAttributeConfig(
+        param.caseTypeId,
+        param.customAttributeId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCustomAttributeConfig(
+            responseContext
+          );
         });
     });
   }

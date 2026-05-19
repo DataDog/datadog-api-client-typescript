@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Case resource type
+ * JSON:API resource type for cases.
  */
 
 export type CaseResourceType = typeof CASE | UnparsedObject;
