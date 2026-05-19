@@ -9607,6 +9607,206 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
+    "v2.GetModelLabArtifactContent": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "artifactPath": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HttpFile",
+    },
+    "v2.ListModelLabRunFacetKeys": {
+        "filterProjectId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ModelLabFacetKeysResponse",
+    },
+    "v2.ListModelLabRunFacetValues": {
+        "filterProjectId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "facetType": {
+            "type": "ModelLabFacetType",
+            "format": "",
+            },
+        "facetName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ModelLabFacetValuesResponse",
+    },
+    "v2.ListModelLabProjectFacetKeys": {
+        "operationResponseType": "ModelLabFacetKeysResponse",
+    },
+    "v2.ListModelLabProjectFacetValues": {
+        "facetType": {
+            "type": "ModelLabProjectFacetType",
+            "format": "",
+            },
+        "facetName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ModelLabFacetValuesResponse",
+    },
+    "v2.ListModelLabProjects": {
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOwnerId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "ModelLabProjectsResponse",
+    },
+    "v2.GetModelLabProject": {
+        "projectId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ModelLabProjectResponse",
+    },
+    "v2.ListModelLabProjectArtifacts": {
+        "projectId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ModelLabProjectArtifactsResponse",
+    },
+    "v2.StarModelLabProject": {
+        "projectId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnstarModelLabProject": {
+        "projectId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListModelLabRuns": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOwnerId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "ModelLabRunStatus",
+            "format": "",
+            },
+        "filterProjectId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "filterParams": {
+            "type": "string",
+            "format": "",
+            },
+        "filterParentRunId": {
+            "type": "string",
+            "format": "",
+            },
+        "pinnedFirst": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includePinned": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeDescendantMatches": {
+            "type": "boolean",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "ModelLabRunsResponse",
+    },
+    "v2.GetModelLabRun": {
+        "runId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ModelLabRunResponse",
+    },
+    "v2.DeleteModelLabRun": {
+        "runId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListModelLabRunArtifacts": {
+        "runId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "path": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ModelLabRunArtifactsResponse",
+    },
+    "v2.PinModelLabRun": {
+        "runId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnpinModelLabRun": {
+        "runId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetMonitorNotificationRules": {
         "page": {
             "type": "number",

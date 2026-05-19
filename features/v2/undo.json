@@ -3956,6 +3956,118 @@
       "type": "safe"
     }
   },
+  "GetModelLabArtifactContent": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListModelLabRunFacetKeys": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListModelLabRunFacetValues": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListModelLabProjectFacetKeys": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListModelLabProjectFacetValues": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListModelLabProjects": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetModelLabProject": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListModelLabProjectArtifacts": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UnstarModelLabProject": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "StarModelLabProject": {
+    "tag": "Model Lab API",
+    "undo": {
+      "operationId": "UnstarModelLabProject",
+      "parameters": [
+        {
+          "name": "project_id",
+          "origin": "path",
+          "source": "project_id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "ListModelLabRuns": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "DeleteModelLabRun": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetModelLabRun": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListModelLabRunArtifacts": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UnpinModelLabRun": {
+    "tag": "Model Lab API",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "PinModelLabRun": {
+    "tag": "Model Lab API",
+    "undo": {
+      "operationId": "UnpinModelLabRun",
+      "parameters": [
+        {
+          "name": "run_id",
+          "origin": "path",
+          "source": "run_id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
   "GetMonitorNotificationRules": {
     "tag": "Monitors",
     "undo": {
