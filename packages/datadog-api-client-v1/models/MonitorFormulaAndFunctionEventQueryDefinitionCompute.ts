@@ -27,6 +27,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    * The name assigned to this aggregation, when multiple aggregations are defined for a query.
    */
   "name"?: string;
+  /**
+   * Source reference for composite query payloads.
+   */
+  "source"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -60,6 +64,10 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     },
     name: {
       baseName: "name",
+      type: "string",
+    },
+    source: {
+      baseName: "source",
       type: "string",
     },
     additionalProperties: {
