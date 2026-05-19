@@ -19,6 +19,10 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
    */
   "sort"?: MonitorFormulaAndFunctionEventQueryGroupBySort;
   /**
+   * Source reference for composite query payloads.
+   */
+  "source"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -46,6 +50,10 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
     sort: {
       baseName: "sort",
       type: "MonitorFormulaAndFunctionEventQueryGroupBySort",
+    },
+    source: {
+      baseName: "source",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
