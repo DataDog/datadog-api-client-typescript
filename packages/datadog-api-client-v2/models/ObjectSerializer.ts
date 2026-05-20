@@ -1972,6 +1972,12 @@ import { LLMObsCustomEvalConfigUpdateData } from "./LLMObsCustomEvalConfigUpdate
 import { LLMObsCustomEvalConfigUpdateRequest } from "./LLMObsCustomEvalConfigUpdateRequest";
 import { LLMObsCustomEvalConfigUser } from "./LLMObsCustomEvalConfigUser";
 import { LLMObsCustomEvalConfigVertexAIOptions } from "./LLMObsCustomEvalConfigVertexAIOptions";
+import { LLMObsDataDeletionRequest } from "./LLMObsDataDeletionRequest";
+import { LLMObsDataDeletionRequestAttributes } from "./LLMObsDataDeletionRequestAttributes";
+import { LLMObsDataDeletionRequestData } from "./LLMObsDataDeletionRequestData";
+import { LLMObsDataDeletionResponse } from "./LLMObsDataDeletionResponse";
+import { LLMObsDataDeletionResponseAttributes } from "./LLMObsDataDeletionResponseAttributes";
+import { LLMObsDataDeletionResponseData } from "./LLMObsDataDeletionResponseData";
 import { LLMObsDatasetDataAttributesRequest } from "./LLMObsDatasetDataAttributesRequest";
 import { LLMObsDatasetDataAttributesResponse } from "./LLMObsDatasetDataAttributesResponse";
 import { LLMObsDatasetDataRequest } from "./LLMObsDatasetDataRequest";
@@ -2079,6 +2085,24 @@ import { LLMObsProjectUpdateDataAttributesRequest } from "./LLMObsProjectUpdateD
 import { LLMObsProjectUpdateDataRequest } from "./LLMObsProjectUpdateDataRequest";
 import { LLMObsProjectUpdateRequest } from "./LLMObsProjectUpdateRequest";
 import { LLMObsProjectsResponse } from "./LLMObsProjectsResponse";
+import { LLMObsSearchSpansRequest } from "./LLMObsSearchSpansRequest";
+import { LLMObsSearchSpansRequestAttributes } from "./LLMObsSearchSpansRequestAttributes";
+import { LLMObsSearchSpansRequestData } from "./LLMObsSearchSpansRequestData";
+import { LLMObsSpanAttributes } from "./LLMObsSpanAttributes";
+import { LLMObsSpanData } from "./LLMObsSpanData";
+import { LLMObsSpanEvaluationMetric } from "./LLMObsSpanEvaluationMetric";
+import { LLMObsSpanFilter } from "./LLMObsSpanFilter";
+import { LLMObsSpanIO } from "./LLMObsSpanIO";
+import { LLMObsSpanMessage } from "./LLMObsSpanMessage";
+import { LLMObsSpanPageQuery } from "./LLMObsSpanPageQuery";
+import { LLMObsSpanSearchOptions } from "./LLMObsSpanSearchOptions";
+import { LLMObsSpanToolCall } from "./LLMObsSpanToolCall";
+import { LLMObsSpanToolDefinition } from "./LLMObsSpanToolDefinition";
+import { LLMObsSpanToolResult } from "./LLMObsSpanToolResult";
+import { LLMObsSpansResponse } from "./LLMObsSpansResponse";
+import { LLMObsSpansResponseLinks } from "./LLMObsSpansResponseLinks";
+import { LLMObsSpansResponseMeta } from "./LLMObsSpansResponseMeta";
+import { LLMObsSpansResponsePage } from "./LLMObsSpansResponsePage";
 import { LLMObsTraceAnnotatedInteractionItem } from "./LLMObsTraceAnnotatedInteractionItem";
 import { LLMObsTraceInteractionItem } from "./LLMObsTraceInteractionItem";
 import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
@@ -5318,6 +5342,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   LLMObsCustomEvalConfigParsingType: ["structured_output", "json"],
   LLMObsCustomEvalConfigType: ["evaluator_config"],
+  LLMObsDataDeletionRequestType: ["create_deletion_req"],
+  LLMObsDataDeletionResponseType: ["deletion_request"],
   LLMObsDatasetType: ["datasets"],
   LLMObsDisplayBlockInteractionType: ["display_block"],
   LLMObsEventType: ["events"],
@@ -5331,6 +5357,8 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
   LLMObsProjectType: ["projects"],
   LLMObsRecordType: ["records"],
+  LLMObsSearchSpansRequestType: ["spans"],
+  LLMObsSpanType: ["span"],
   LLMObsTraceInteractionType: ["trace", "experiment_trace", "session"],
   Language: [
     "PYTHON",
@@ -9100,6 +9128,12 @@ const typeMap: { [index: string]: any } = {
   LLMObsCustomEvalConfigUpdateRequest: LLMObsCustomEvalConfigUpdateRequest,
   LLMObsCustomEvalConfigUser: LLMObsCustomEvalConfigUser,
   LLMObsCustomEvalConfigVertexAIOptions: LLMObsCustomEvalConfigVertexAIOptions,
+  LLMObsDataDeletionRequest: LLMObsDataDeletionRequest,
+  LLMObsDataDeletionRequestAttributes: LLMObsDataDeletionRequestAttributes,
+  LLMObsDataDeletionRequestData: LLMObsDataDeletionRequestData,
+  LLMObsDataDeletionResponse: LLMObsDataDeletionResponse,
+  LLMObsDataDeletionResponseAttributes: LLMObsDataDeletionResponseAttributes,
+  LLMObsDataDeletionResponseData: LLMObsDataDeletionResponseData,
   LLMObsDatasetDataAttributesRequest: LLMObsDatasetDataAttributesRequest,
   LLMObsDatasetDataAttributesResponse: LLMObsDatasetDataAttributesResponse,
   LLMObsDatasetDataRequest: LLMObsDatasetDataRequest,
@@ -9240,6 +9274,24 @@ const typeMap: { [index: string]: any } = {
   LLMObsProjectUpdateDataRequest: LLMObsProjectUpdateDataRequest,
   LLMObsProjectUpdateRequest: LLMObsProjectUpdateRequest,
   LLMObsProjectsResponse: LLMObsProjectsResponse,
+  LLMObsSearchSpansRequest: LLMObsSearchSpansRequest,
+  LLMObsSearchSpansRequestAttributes: LLMObsSearchSpansRequestAttributes,
+  LLMObsSearchSpansRequestData: LLMObsSearchSpansRequestData,
+  LLMObsSpanAttributes: LLMObsSpanAttributes,
+  LLMObsSpanData: LLMObsSpanData,
+  LLMObsSpanEvaluationMetric: LLMObsSpanEvaluationMetric,
+  LLMObsSpanFilter: LLMObsSpanFilter,
+  LLMObsSpanIO: LLMObsSpanIO,
+  LLMObsSpanMessage: LLMObsSpanMessage,
+  LLMObsSpanPageQuery: LLMObsSpanPageQuery,
+  LLMObsSpanSearchOptions: LLMObsSpanSearchOptions,
+  LLMObsSpanToolCall: LLMObsSpanToolCall,
+  LLMObsSpanToolDefinition: LLMObsSpanToolDefinition,
+  LLMObsSpanToolResult: LLMObsSpanToolResult,
+  LLMObsSpansResponse: LLMObsSpansResponse,
+  LLMObsSpansResponseLinks: LLMObsSpansResponseLinks,
+  LLMObsSpansResponseMeta: LLMObsSpansResponseMeta,
+  LLMObsSpansResponsePage: LLMObsSpansResponsePage,
   LLMObsTraceAnnotatedInteractionItem: LLMObsTraceAnnotatedInteractionItem,
   LLMObsTraceInteractionItem: LLMObsTraceInteractionItem,
   LLMObsTraceInteractionResponseItem: LLMObsTraceInteractionResponseItem,

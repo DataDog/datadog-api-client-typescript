@@ -673,6 +673,7 @@ export {
   LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
   LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest,
+  LLMObservabilityApiDeleteLLMObsDataRequest,
   LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest,
   LLMObservabilityApiDeleteLLMObsDatasetsRequest,
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
@@ -686,7 +687,9 @@ export {
   LLMObservabilityApiListLLMObsExperimentEventsRequest,
   LLMObservabilityApiListLLMObsExperimentsRequest,
   LLMObservabilityApiListLLMObsProjectsRequest,
+  LLMObservabilityApiListLLMObsSpansRequest,
   LLMObservabilityApiSearchLLMObsExperimentationRequest,
+  LLMObservabilityApiSearchLLMObsSpansRequest,
   LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
@@ -4107,6 +4110,14 @@ export { LLMObsCustomEvalConfigUpdateData } from "./models/LLMObsCustomEvalConfi
 export { LLMObsCustomEvalConfigUpdateRequest } from "./models/LLMObsCustomEvalConfigUpdateRequest";
 export { LLMObsCustomEvalConfigUser } from "./models/LLMObsCustomEvalConfigUser";
 export { LLMObsCustomEvalConfigVertexAIOptions } from "./models/LLMObsCustomEvalConfigVertexAIOptions";
+export { LLMObsDataDeletionRequest } from "./models/LLMObsDataDeletionRequest";
+export { LLMObsDataDeletionRequestAttributes } from "./models/LLMObsDataDeletionRequestAttributes";
+export { LLMObsDataDeletionRequestData } from "./models/LLMObsDataDeletionRequestData";
+export { LLMObsDataDeletionRequestType } from "./models/LLMObsDataDeletionRequestType";
+export { LLMObsDataDeletionResponse } from "./models/LLMObsDataDeletionResponse";
+export { LLMObsDataDeletionResponseAttributes } from "./models/LLMObsDataDeletionResponseAttributes";
+export { LLMObsDataDeletionResponseData } from "./models/LLMObsDataDeletionResponseData";
+export { LLMObsDataDeletionResponseType } from "./models/LLMObsDataDeletionResponseType";
 export { LLMObsDatasetDataAttributesRequest } from "./models/LLMObsDatasetDataAttributesRequest";
 export { LLMObsDatasetDataAttributesResponse } from "./models/LLMObsDatasetDataAttributesResponse";
 export { LLMObsDatasetDataRequest } from "./models/LLMObsDatasetDataRequest";
@@ -4227,6 +4238,26 @@ export { LLMObsProjectUpdateDataAttributesRequest } from "./models/LLMObsProject
 export { LLMObsProjectUpdateDataRequest } from "./models/LLMObsProjectUpdateDataRequest";
 export { LLMObsProjectUpdateRequest } from "./models/LLMObsProjectUpdateRequest";
 export { LLMObsRecordType } from "./models/LLMObsRecordType";
+export { LLMObsSearchSpansRequest } from "./models/LLMObsSearchSpansRequest";
+export { LLMObsSearchSpansRequestAttributes } from "./models/LLMObsSearchSpansRequestAttributes";
+export { LLMObsSearchSpansRequestData } from "./models/LLMObsSearchSpansRequestData";
+export { LLMObsSearchSpansRequestType } from "./models/LLMObsSearchSpansRequestType";
+export { LLMObsSpanAttributes } from "./models/LLMObsSpanAttributes";
+export { LLMObsSpanData } from "./models/LLMObsSpanData";
+export { LLMObsSpanEvaluationMetric } from "./models/LLMObsSpanEvaluationMetric";
+export { LLMObsSpanFilter } from "./models/LLMObsSpanFilter";
+export { LLMObsSpanIO } from "./models/LLMObsSpanIO";
+export { LLMObsSpanMessage } from "./models/LLMObsSpanMessage";
+export { LLMObsSpanPageQuery } from "./models/LLMObsSpanPageQuery";
+export { LLMObsSpanSearchOptions } from "./models/LLMObsSpanSearchOptions";
+export { LLMObsSpansResponse } from "./models/LLMObsSpansResponse";
+export { LLMObsSpansResponseLinks } from "./models/LLMObsSpansResponseLinks";
+export { LLMObsSpansResponseMeta } from "./models/LLMObsSpansResponseMeta";
+export { LLMObsSpansResponsePage } from "./models/LLMObsSpansResponsePage";
+export { LLMObsSpanToolCall } from "./models/LLMObsSpanToolCall";
+export { LLMObsSpanToolDefinition } from "./models/LLMObsSpanToolDefinition";
+export { LLMObsSpanToolResult } from "./models/LLMObsSpanToolResult";
+export { LLMObsSpanType } from "./models/LLMObsSpanType";
 export { LLMObsTraceAnnotatedInteractionItem } from "./models/LLMObsTraceAnnotatedInteractionItem";
 export { LLMObsTraceInteractionItem } from "./models/LLMObsTraceInteractionItem";
 export { LLMObsTraceInteractionResponseItem } from "./models/LLMObsTraceInteractionResponseItem";
