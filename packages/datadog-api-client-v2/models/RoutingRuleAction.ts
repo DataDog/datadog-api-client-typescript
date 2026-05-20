@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RoutingRuleEscalationPolicyAction } from "./RoutingRuleEscalationPolicyAction";
 import { SendSlackMessageAction } from "./SendSlackMessageAction";
 import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 import { TriggerWorkflowAutomationAction } from "./TriggerWorkflowAutomationAction";
@@ -17,4 +18,5 @@ export type RoutingRuleAction =
   | SendSlackMessageAction
   | SendTeamsMessageAction
   | TriggerWorkflowAutomationAction
+  | RoutingRuleEscalationPolicyAction
   | UnparsedObject;

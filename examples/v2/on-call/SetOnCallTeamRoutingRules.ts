@@ -22,12 +22,12 @@ const params: v2.OnCallApiSetOnCallTeamRoutingRulesRequest = {
           {
             actions: [
               {
-                channel: "channel",
-                type: "send_slack_message",
-                workspace: "workspace",
+                type: "escalation_policy",
+                policyId: ESCALATION_POLICY_DATA_ID,
+                urgency: "low",
               },
             ],
-            query: "tags.service:test",
+            query: "tags.service:time_restrictions",
             timeRestriction: {
               timeZone: "Europe/Paris",
               restrictions: [
@@ -47,9 +47,47 @@ const params: v2.OnCallApiSetOnCallTeamRoutingRulesRequest = {
             },
           },
           {
+            actions: [
+              {
+                type: "escalation_policy",
+                policyId: ESCALATION_POLICY_DATA_ID,
+                urgency: "low",
+                ackTimeoutMinutes: 30,
+                supportHours: {
+                  timeZone: "Europe/Paris",
+                  restrictions: [
+                    {
+                      endDay: "wednesday",
+                      endTime: "17:00:00",
+                      startDay: "wednesday",
+                      startTime: "09:00:00",
+                    },
+                    {
+                      endDay: "thursday",
+                      endTime: "17:00:00",
+                      startDay: "thursday",
+                      startTime: "09:00:00",
+                    },
+                  ],
+                },
+              },
+            ],
+            query: "tags.service:support_hours_and_acknowledgment_timeout",
+          },
+          {
             policyId: ESCALATION_POLICY_DATA_ID,
-            query: "",
+            query: "tags.service:legacy_policy_definition",
             urgency: "low",
+          },
+          {
+            actions: [
+              {
+                type: "escalation_policy",
+                policyId: ESCALATION_POLICY_DATA_ID,
+                urgency: "low",
+              },
+            ],
+            query: "",
           },
         ],
       },
