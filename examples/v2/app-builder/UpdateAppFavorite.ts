@@ -7,6 +7,9 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.AppBuilderApi(configuration);
 
+// there is a valid "app" in the system
+const APP_DATA_ID = process.env.APP_DATA_ID as string;
+
 const params: v2.AppBuilderApiUpdateAppFavoriteRequest = {
   body: {
     data: {
@@ -16,7 +19,7 @@ const params: v2.AppBuilderApiUpdateAppFavoriteRequest = {
       type: "favorites",
     },
   },
-  appId: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+  appId: APP_DATA_ID,
 };
 
 apiInstance
