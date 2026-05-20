@@ -130,6 +130,7 @@ import { ApmDependencyStatsQuery } from "./ApmDependencyStatsQuery";
 import { ApmMetricsQuery } from "./ApmMetricsQuery";
 import { ApmResourceStatsQuery } from "./ApmResourceStatsQuery";
 import { AppBuilderEvent } from "./AppBuilderEvent";
+import { AppBuilderListTagsResponse } from "./AppBuilderListTagsResponse";
 import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { AppMeta } from "./AppMeta";
 import { AppRelationship } from "./AppRelationship";
@@ -344,6 +345,10 @@ import { BillingDimensionsMappingBodyItem } from "./BillingDimensionsMappingBody
 import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
 import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 import { BillingDimensionsMappingResponse } from "./BillingDimensionsMappingResponse";
+import { BlueprintAttributes } from "./BlueprintAttributes";
+import { BlueprintData } from "./BlueprintData";
+import { BlueprintMetadataAttributes } from "./BlueprintMetadataAttributes";
+import { BlueprintMetadataData } from "./BlueprintMetadataData";
 import { BranchCoverageSummaryRequest } from "./BranchCoverageSummaryRequest";
 import { BranchCoverageSummaryRequestAttributes } from "./BranchCoverageSummaryRequestAttributes";
 import { BranchCoverageSummaryRequestData } from "./BranchCoverageSummaryRequestData";
@@ -1535,6 +1540,8 @@ import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
+import { GetBlueprintResponse } from "./GetBlueprintResponse";
+import { GetBlueprintsResponse } from "./GetBlueprintsResponse";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
@@ -2137,6 +2144,7 @@ import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataIt
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
 import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
+import { ListBlueprintsResponse } from "./ListBlueprintsResponse";
 import { ListCampaignsResponse } from "./ListCampaignsResponse";
 import { ListConnectionsResponse } from "./ListConnectionsResponse";
 import { ListConnectionsResponseData } from "./ListConnectionsResponseData";
@@ -3923,6 +3931,7 @@ import { TableRowResourceArray } from "./TableRowResourceArray";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
 import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { TagData } from "./TagData";
 import { TargetingRule } from "./TargetingRule";
 import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { Team } from "./Team";
@@ -4614,6 +4623,7 @@ const enumsMap: { [key: string]: any[] } = {
     "OK",
     "NOT_FOUND",
   ],
+  BlueprintDataType: ["blueprint"],
   BranchCoverageSummaryRequestType: ["ci_app_coverage_branch_summary_request"],
   BudgetValidationResponseDataType: ["budget_validation"],
   BudgetWithEntriesDataType: ["budget"],
@@ -6567,6 +6577,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
+  TagDataType: ["tag"],
   TeamConnectionType: ["team_connection"],
   TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
@@ -6964,6 +6975,7 @@ const typeMap: { [index: string]: any } = {
   ApmMetricsQuery: ApmMetricsQuery,
   ApmResourceStatsQuery: ApmResourceStatsQuery,
   AppBuilderEvent: AppBuilderEvent,
+  AppBuilderListTagsResponse: AppBuilderListTagsResponse,
   AppKeyRegistrationData: AppKeyRegistrationData,
   AppMeta: AppMeta,
   AppRelationship: AppRelationship,
@@ -7231,6 +7243,10 @@ const typeMap: { [index: string]: any } = {
   BillingDimensionsMappingBodyItemAttributesEndpointsItems:
     BillingDimensionsMappingBodyItemAttributesEndpointsItems,
   BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
+  BlueprintAttributes: BlueprintAttributes,
+  BlueprintData: BlueprintData,
+  BlueprintMetadataAttributes: BlueprintMetadataAttributes,
+  BlueprintMetadataData: BlueprintMetadataData,
   BranchCoverageSummaryRequest: BranchCoverageSummaryRequest,
   BranchCoverageSummaryRequestAttributes:
     BranchCoverageSummaryRequestAttributes,
@@ -8615,6 +8631,8 @@ const typeMap: { [index: string]: any } = {
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
+  GetBlueprintResponse: GetBlueprintResponse,
+  GetBlueprintsResponse: GetBlueprintsResponse,
   GetCustomFrameworkResponse: GetCustomFrameworkResponse,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
   GetDeviceAttributes: GetDeviceAttributes,
@@ -9330,6 +9348,7 @@ const typeMap: { [index: string]: any } = {
   ListAppsResponseMeta: ListAppsResponseMeta,
   ListAppsResponseMetaPage: ListAppsResponseMetaPage,
   ListAssetsSBOMsResponse: ListAssetsSBOMsResponse,
+  ListBlueprintsResponse: ListBlueprintsResponse,
   ListCampaignsResponse: ListCampaignsResponse,
   ListConnectionsResponse: ListConnectionsResponse,
   ListConnectionsResponseData: ListConnectionsResponseData,
@@ -11537,6 +11556,7 @@ const typeMap: { [index: string]: any } = {
   TableRowResourceData: TableRowResourceData,
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
   TableRowResourceIdentifier: TableRowResourceIdentifier,
+  TagData: TagData,
   TargetingRule: TargetingRule,
   TargetingRuleRequest: TargetingRuleRequest,
   Team: Team,
