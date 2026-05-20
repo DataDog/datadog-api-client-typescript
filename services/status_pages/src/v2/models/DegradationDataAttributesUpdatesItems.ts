@@ -24,6 +24,10 @@ export class DegradationDataAttributesUpdatesItems {
    */
   "id"?: string;
   /**
+   * UUID of the user who last modified the resource.
+   */
+  "lastModifiedByUserUuid"?: string;
+  /**
    * Timestamp of when the update was last modified.
    */
   "modifiedAt"?: Date;
@@ -67,6 +71,10 @@ export class DegradationDataAttributesUpdatesItems {
       baseName: "id",
       type: "string",
       format: "uuid",
+    },
+    lastModifiedByUserUuid: {
+      baseName: "last_modified_by_user_uuid",
+      type: "string",
     },
     modifiedAt: {
       baseName: "modified_at",
