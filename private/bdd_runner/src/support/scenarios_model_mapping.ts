@@ -2585,6 +2585,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "LLMObservabilityApi.V2.DeleteLLMObsData": {
+    body: {
+      type: "LLMObsDataDeletionRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDataDeletionResponse",
+  },
   "LLMObservabilityApi.V2.ListLLMObsAnnotationQueues": {
     projectId: {
       type: "string",
@@ -2791,6 +2798,64 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "LLMObsProjectResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsSpans": {
+    filterFrom: {
+      type: "string",
+      format: "",
+    },
+    filterTo: {
+      type: "string",
+      format: "",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    filterSpanId: {
+      type: "string",
+      format: "",
+    },
+    filterTraceId: {
+      type: "string",
+      format: "",
+    },
+    filterSpanKind: {
+      type: "string",
+      format: "",
+    },
+    filterSpanName: {
+      type: "string",
+      format: "",
+    },
+    filterMlApp: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    includeAttachments: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "LLMObsSpansResponse",
+  },
+  "LLMObservabilityApi.V2.SearchLLMObsSpans": {
+    body: {
+      type: "LLMObsSearchSpansRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsSpansResponse",
   },
   "LLMObservabilityApi.V2.ListLLMObsDatasets": {
     projectId: {
