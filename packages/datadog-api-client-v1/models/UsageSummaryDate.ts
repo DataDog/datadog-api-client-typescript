@@ -272,6 +272,14 @@ export class UsageSummaryDate {
    */
   "csmHostEnterpriseTotalHostCountTop99p"?: number;
   /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for the given org.
+   */
+  "csmHostProHostsAgentlessScannersSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for the given org.
+   */
+  "csmHostProHostsAgentlessScannersTop99p"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Security Management Pro OCI hosts over all hours in the current date for the given org.
    */
   "csmHostProOciHostCountTop99p"?: number;
@@ -303,6 +311,14 @@ export class UsageSummaryDate {
    * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current date for all organizations.
    */
   "cspmHostTop99p"?: number;
+  /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for all organizations.
+   */
+  "cspmHostsAgentlessScannersSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for all organizations.
+   */
+  "cspmHostsAgentlessScannersTop99p"?: number;
   /**
    * Shows the average number of distinct custom metrics over all hours in the current date for all organizations.
    */
@@ -1321,6 +1337,16 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    csmHostProHostsAgentlessScannersSum: {
+      baseName: "csm_host_pro_hosts_agentless_scanners_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostProHostsAgentlessScannersTop99p: {
+      baseName: "csm_host_pro_hosts_agentless_scanners_top99p",
+      type: "number",
+      format: "int64",
+    },
     csmHostProOciHostCountTop99p: {
       baseName: "csm_host_pro_oci_host_count_top99p",
       type: "number",
@@ -1358,6 +1384,16 @@ export class UsageSummaryDate {
     },
     cspmHostTop99p: {
       baseName: "cspm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    cspmHostsAgentlessScannersSum: {
+      baseName: "cspm_hosts_agentless_scanners_sum",
+      type: "number",
+      format: "int64",
+    },
+    cspmHostsAgentlessScannersTop99p: {
+      baseName: "cspm_hosts_agentless_scanners_top99p",
       type: "number",
       format: "int64",
     },

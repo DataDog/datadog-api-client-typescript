@@ -277,6 +277,14 @@ export class UsageSummaryResponse {
    */
   "csmHostEnterpriseTotalHostCountTop99pSum"?: number;
   /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
+   */
+  "csmHostProHostsAgentlessScannersAggSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
+   */
+  "csmHostProHostsAgentlessScannersTop99pSum"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Security Management Pro OCI hosts over all hours in the current month for all organizations.
    */
   "csmHostProOciHostCountTop99pSum"?: number;
@@ -308,6 +316,14 @@ export class UsageSummaryResponse {
    * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current month for all organizations.
    */
   "cspmHostTop99pSum"?: number;
+  /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
+   */
+  "cspmHostsAgentlessScannersAggSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
+   */
+  "cspmHostsAgentlessScannersTop99pSum"?: number;
   /**
    * Shows the average number of distinct historical custom metrics over all hours in the current month for all organizations.
    */
@@ -1371,6 +1387,16 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    csmHostProHostsAgentlessScannersAggSum: {
+      baseName: "csm_host_pro_hosts_agentless_scanners_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostProHostsAgentlessScannersTop99pSum: {
+      baseName: "csm_host_pro_hosts_agentless_scanners_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
     csmHostProOciHostCountTop99pSum: {
       baseName: "csm_host_pro_oci_host_count_top99p_sum",
       type: "number",
@@ -1408,6 +1434,16 @@ export class UsageSummaryResponse {
     },
     cspmHostTop99pSum: {
       baseName: "cspm_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    cspmHostsAgentlessScannersAggSum: {
+      baseName: "cspm_hosts_agentless_scanners_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    cspmHostsAgentlessScannersTop99pSum: {
+      baseName: "cspm_hosts_agentless_scanners_top99p_sum",
       type: "number",
       format: "int64",
     },
