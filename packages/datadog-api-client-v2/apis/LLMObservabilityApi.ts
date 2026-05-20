@@ -42,7 +42,14 @@ import { LLMObsDeleteDatasetRecordsRequest } from "../models/LLMObsDeleteDataset
 import { LLMObsDeleteDatasetsRequest } from "../models/LLMObsDeleteDatasetsRequest";
 import { LLMObsDeleteExperimentsRequest } from "../models/LLMObsDeleteExperimentsRequest";
 import { LLMObsDeleteProjectsRequest } from "../models/LLMObsDeleteProjectsRequest";
+import { LLMObsExperimentationAnalyticsRequest } from "../models/LLMObsExperimentationAnalyticsRequest";
+import { LLMObsExperimentationAnalyticsResponse } from "../models/LLMObsExperimentationAnalyticsResponse";
+import { LLMObsExperimentationSearchRequest } from "../models/LLMObsExperimentationSearchRequest";
+import { LLMObsExperimentationSearchResponse } from "../models/LLMObsExperimentationSearchResponse";
+import { LLMObsExperimentationSimpleSearchRequest } from "../models/LLMObsExperimentationSimpleSearchRequest";
+import { LLMObsExperimentationSimpleSearchResponse } from "../models/LLMObsExperimentationSimpleSearchResponse";
 import { LLMObsExperimentEventsRequest } from "../models/LLMObsExperimentEventsRequest";
+import { LLMObsExperimentEventsV2Response } from "../models/LLMObsExperimentEventsV2Response";
 import { LLMObsExperimentRequest } from "../models/LLMObsExperimentRequest";
 import { LLMObsExperimentResponse } from "../models/LLMObsExperimentResponse";
 import { LLMObsExperimentsResponse } from "../models/LLMObsExperimentsResponse";
@@ -53,6 +60,58 @@ import { LLMObsProjectsResponse } from "../models/LLMObsProjectsResponse";
 import { LLMObsProjectUpdateRequest } from "../models/LLMObsProjectUpdateRequest";
 
 export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
+  public async aggregateLLMObsExperimentation(
+    body: LLMObsExperimentationAnalyticsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'aggregateLLMObsExperimentation'");
+    if (!_config.unstableOperations["v2.aggregateLLMObsExperimentation"]) {
+      throw new Error(
+        "Unstable operation 'aggregateLLMObsExperimentation' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "aggregateLLMObsExperimentation");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/experimentation/analytics";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.aggregateLLMObsExperimentation")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "LLMObsExperimentationAnalyticsRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createLLMObsAnnotationQueue(
     body: LLMObsAnnotationQueueRequest,
     _options?: Configuration
@@ -1132,6 +1191,65 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listLLMObsExperimentEvents(
+    experimentId: string,
+    pageLimit?: number,
+    pageCursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listLLMObsExperimentEvents'");
+    if (!_config.unstableOperations["v2.listLLMObsExperimentEvents"]) {
+      throw new Error(
+        "Unstable operation 'listLLMObsExperimentEvents' is disabled"
+      );
+    }
+
+    // verify required parameter 'experimentId' is not null or undefined
+    if (experimentId === null || experimentId === undefined) {
+      throw new RequiredError("experimentId", "listLLMObsExperimentEvents");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v3/experiments/{experiment_id}/events".replace(
+        "{experiment_id}",
+        encodeURIComponent(String(experimentId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.listLLMObsExperimentEvents")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listLLMObsExperiments(
     filterProjectId?: string,
     filterDatasetId?: string,
@@ -1256,6 +1374,110 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchLLMObsExperimentation(
+    body: LLMObsExperimentationSearchRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'searchLLMObsExperimentation'");
+    if (!_config.unstableOperations["v2.searchLLMObsExperimentation"]) {
+      throw new Error(
+        "Unstable operation 'searchLLMObsExperimentation' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "searchLLMObsExperimentation");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/experimentation/search";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.searchLLMObsExperimentation")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "LLMObsExperimentationSearchRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async simpleSearchLLMObsExperimentation(
+    body: LLMObsExperimentationSimpleSearchRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'simpleSearchLLMObsExperimentation'");
+    if (!_config.unstableOperations["v2.simpleSearchLLMObsExperimentation"]) {
+      throw new Error(
+        "Unstable operation 'simpleSearchLLMObsExperimentation' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "simpleSearchLLMObsExperimentation");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/experimentation/simple-search";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.simpleSearchLLMObsExperimentation")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "LLMObsExperimentationSimpleSearchRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1699,6 +1921,94 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class LLMObservabilityApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to aggregateLLMObsExperimentation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async aggregateLLMObsExperimentation(
+    response: ResponseContext
+  ): Promise<LLMObsExperimentationAnalyticsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsExperimentationAnalyticsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentationAnalyticsResponse"
+        ) as LLMObsExperimentationAnalyticsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsExperimentationAnalyticsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentationAnalyticsResponse",
+          ""
+        ) as LLMObsExperimentationAnalyticsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -3350,6 +3660,95 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsExperimentEvents
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsExperimentEvents(
+    response: ResponseContext
+  ): Promise<LLMObsExperimentEventsV2Response> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsExperimentEventsV2Response =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentEventsV2Response"
+        ) as LLMObsExperimentEventsV2Response;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsExperimentEventsV2Response =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentEventsV2Response",
+          ""
+        ) as LLMObsExperimentEventsV2Response;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsExperiments
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3506,6 +3905,182 @@ export class LLMObservabilityApiResponseProcessor {
         "LLMObsProjectsResponse",
         ""
       ) as LLMObsProjectsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to searchLLMObsExperimentation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchLLMObsExperimentation(
+    response: ResponseContext
+  ): Promise<LLMObsExperimentationSearchResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 206) {
+      const body: LLMObsExperimentationSearchResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentationSearchResponse"
+        ) as LLMObsExperimentationSearchResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsExperimentationSearchResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentationSearchResponse",
+          ""
+        ) as LLMObsExperimentationSearchResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to simpleSearchLLMObsExperimentation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async simpleSearchLLMObsExperimentation(
+    response: ResponseContext
+  ): Promise<LLMObsExperimentationSimpleSearchResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsExperimentationSimpleSearchResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentationSimpleSearchResponse"
+        ) as LLMObsExperimentationSimpleSearchResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsExperimentationSimpleSearchResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsExperimentationSimpleSearchResponse",
+          ""
+        ) as LLMObsExperimentationSimpleSearchResponse;
       return body;
     }
 
@@ -4116,6 +4691,14 @@ export class LLMObservabilityApiResponseProcessor {
   }
 }
 
+export interface LLMObservabilityApiAggregateLLMObsExperimentationRequest {
+  /**
+   * Analytics payload.
+   * @type LLMObsExperimentationAnalyticsRequest
+   */
+  body: LLMObsExperimentationAnalyticsRequest;
+}
+
 export interface LLMObservabilityApiCreateLLMObsAnnotationQueueRequest {
   /**
    * Create annotation queue payload.
@@ -4366,6 +4949,24 @@ export interface LLMObservabilityApiListLLMObsDatasetsRequest {
   pageLimit?: number;
 }
 
+export interface LLMObservabilityApiListLLMObsExperimentEventsRequest {
+  /**
+   * The ID of the LLM Observability experiment.
+   * @type string
+   */
+  experimentId: string;
+  /**
+   * Maximum number of spans to return per page. Defaults to 5000.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Opaque cursor from a previous response to fetch the next page of results.
+   * @type string
+   */
+  pageCursor?: string;
+}
+
 export interface LLMObservabilityApiListLLMObsExperimentsRequest {
   /**
    * Filter experiments by project ID. Required if `filter[dataset_id]` is not provided.
@@ -4415,6 +5016,22 @@ export interface LLMObservabilityApiListLLMObsProjectsRequest {
    * @type number
    */
   pageLimit?: number;
+}
+
+export interface LLMObservabilityApiSearchLLMObsExperimentationRequest {
+  /**
+   * Experimentation search payload.
+   * @type LLMObsExperimentationSearchRequest
+   */
+  body: LLMObsExperimentationSearchRequest;
+}
+
+export interface LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest {
+  /**
+   * Simple search payload.
+   * @type LLMObsExperimentationSimpleSearchRequest
+   */
+  body: LLMObsExperimentationSimpleSearchRequest;
 }
 
 export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest {
@@ -4533,6 +5150,30 @@ export class LLMObservabilityApi {
       requestFactory || new LLMObservabilityApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new LLMObservabilityApiResponseProcessor();
+  }
+
+  /**
+   * Execute an analytics aggregation over LLM Observability experimentation data.
+   * Use this endpoint to compute metrics (for example average eval scores) grouped by fields such as `span_id` or `experiment_id`.
+   *
+   * At least one `compute` definition and one `index` must be provided.
+   * @param param The request object
+   */
+  public aggregateLLMObsExperimentation(
+    param: LLMObservabilityApiAggregateLLMObsExperimentationRequest,
+    options?: Configuration
+  ): Promise<LLMObsExperimentationAnalyticsResponse> {
+    const requestContextPromise =
+      this.requestFactory.aggregateLLMObsExperimentation(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.aggregateLLMObsExperimentation(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -5017,6 +5658,32 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Retrieve spans and experiment-level summary metrics for a given experiment with cursor-based pagination.
+   * @param param The request object
+   */
+  public listLLMObsExperimentEvents(
+    param: LLMObservabilityApiListLLMObsExperimentEventsRequest,
+    options?: Configuration
+  ): Promise<LLMObsExperimentEventsV2Response> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsExperimentEvents(
+        param.experimentId,
+        param.pageLimit,
+        param.pageCursor,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsExperimentEvents(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List all LLM Observability experiments sorted by creation date, newest first.
    * @param param The request object
    */
@@ -5061,6 +5728,58 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsProjects(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
+   *
+   * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
+   *
+   * Returns `200 OK` when all results fit in a single page. Returns `206 Partial Content` with a cursor in `meta.after` when additional pages are available.
+   * @param param The request object
+   */
+  public searchLLMObsExperimentation(
+    param: LLMObservabilityApiSearchLLMObsExperimentationRequest,
+    options?: Configuration
+  ): Promise<LLMObsExperimentationSearchResponse> {
+    const requestContextPromise =
+      this.requestFactory.searchLLMObsExperimentation(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchLLMObsExperimentation(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Search across LLM Observability experimentation entities using offset-based (page-number) pagination.
+   * Use this endpoint when you need total page count or want to navigate to a specific page number.
+   *
+   * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
+   * @param param The request object
+   */
+  public simpleSearchLLMObsExperimentation(
+    param: LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest,
+    options?: Configuration
+  ): Promise<LLMObsExperimentationSimpleSearchResponse> {
+    const requestContextPromise =
+      this.requestFactory.simpleSearchLLMObsExperimentation(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.simpleSearchLLMObsExperimentation(
+            responseContext
+          );
         });
     });
   }

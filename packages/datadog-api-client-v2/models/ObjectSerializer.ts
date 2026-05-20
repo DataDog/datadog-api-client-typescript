@@ -2016,19 +2016,57 @@ import { LLMObsExperimentDataAttributesRequest } from "./LLMObsExperimentDataAtt
 import { LLMObsExperimentDataAttributesResponse } from "./LLMObsExperimentDataAttributesResponse";
 import { LLMObsExperimentDataRequest } from "./LLMObsExperimentDataRequest";
 import { LLMObsExperimentDataResponse } from "./LLMObsExperimentDataResponse";
+import { LLMObsExperimentEvalMetricEvent } from "./LLMObsExperimentEvalMetricEvent";
 import { LLMObsExperimentEventsDataAttributesRequest } from "./LLMObsExperimentEventsDataAttributesRequest";
 import { LLMObsExperimentEventsDataRequest } from "./LLMObsExperimentEventsDataRequest";
 import { LLMObsExperimentEventsRequest } from "./LLMObsExperimentEventsRequest";
+import { LLMObsExperimentEventsV2DataAttributesResponse } from "./LLMObsExperimentEventsV2DataAttributesResponse";
+import { LLMObsExperimentEventsV2DataResponse } from "./LLMObsExperimentEventsV2DataResponse";
+import { LLMObsExperimentEventsV2Response } from "./LLMObsExperimentEventsV2Response";
 import { LLMObsExperimentMetric } from "./LLMObsExperimentMetric";
 import { LLMObsExperimentMetricError } from "./LLMObsExperimentMetricError";
 import { LLMObsExperimentRequest } from "./LLMObsExperimentRequest";
 import { LLMObsExperimentResponse } from "./LLMObsExperimentResponse";
+import { LLMObsExperimentRunDataResponse } from "./LLMObsExperimentRunDataResponse";
 import { LLMObsExperimentSpan } from "./LLMObsExperimentSpan";
 import { LLMObsExperimentSpanError } from "./LLMObsExperimentSpanError";
 import { LLMObsExperimentSpanMeta } from "./LLMObsExperimentSpanMeta";
+import { LLMObsExperimentSpanWithEvals } from "./LLMObsExperimentSpanWithEvals";
 import { LLMObsExperimentUpdateDataAttributesRequest } from "./LLMObsExperimentUpdateDataAttributesRequest";
 import { LLMObsExperimentUpdateDataRequest } from "./LLMObsExperimentUpdateDataRequest";
 import { LLMObsExperimentUpdateRequest } from "./LLMObsExperimentUpdateRequest";
+import { LLMObsExperimentationAnalyticsAggregate } from "./LLMObsExperimentationAnalyticsAggregate";
+import { LLMObsExperimentationAnalyticsCompute } from "./LLMObsExperimentationAnalyticsCompute";
+import { LLMObsExperimentationAnalyticsDataAttributesRequest } from "./LLMObsExperimentationAnalyticsDataAttributesRequest";
+import { LLMObsExperimentationAnalyticsDataAttributesResponse } from "./LLMObsExperimentationAnalyticsDataAttributesResponse";
+import { LLMObsExperimentationAnalyticsDataRequest } from "./LLMObsExperimentationAnalyticsDataRequest";
+import { LLMObsExperimentationAnalyticsDataResponse } from "./LLMObsExperimentationAnalyticsDataResponse";
+import { LLMObsExperimentationAnalyticsGroupBy } from "./LLMObsExperimentationAnalyticsGroupBy";
+import { LLMObsExperimentationAnalyticsRequest } from "./LLMObsExperimentationAnalyticsRequest";
+import { LLMObsExperimentationAnalyticsResponse } from "./LLMObsExperimentationAnalyticsResponse";
+import { LLMObsExperimentationAnalyticsResult } from "./LLMObsExperimentationAnalyticsResult";
+import { LLMObsExperimentationAnalyticsSearch } from "./LLMObsExperimentationAnalyticsSearch";
+import { LLMObsExperimentationAnalyticsTimeRange } from "./LLMObsExperimentationAnalyticsTimeRange";
+import { LLMObsExperimentationAnalyticsValue } from "./LLMObsExperimentationAnalyticsValue";
+import { LLMObsExperimentationContentPreview } from "./LLMObsExperimentationContentPreview";
+import { LLMObsExperimentationCursorPage } from "./LLMObsExperimentationCursorPage";
+import { LLMObsExperimentationFilter } from "./LLMObsExperimentationFilter";
+import { LLMObsExperimentationInclude } from "./LLMObsExperimentationInclude";
+import { LLMObsExperimentationNumberPage } from "./LLMObsExperimentationNumberPage";
+import { LLMObsExperimentationSearchDataAttributesRequest } from "./LLMObsExperimentationSearchDataAttributesRequest";
+import { LLMObsExperimentationSearchDataRequest } from "./LLMObsExperimentationSearchDataRequest";
+import { LLMObsExperimentationSearchDataResponse } from "./LLMObsExperimentationSearchDataResponse";
+import { LLMObsExperimentationSearchRequest } from "./LLMObsExperimentationSearchRequest";
+import { LLMObsExperimentationSearchResponse } from "./LLMObsExperimentationSearchResponse";
+import { LLMObsExperimentationSearchResults } from "./LLMObsExperimentationSearchResults";
+import { LLMObsExperimentationSimpleSearchDataAttributesRequest } from "./LLMObsExperimentationSimpleSearchDataAttributesRequest";
+import { LLMObsExperimentationSimpleSearchDataRequest } from "./LLMObsExperimentationSimpleSearchDataRequest";
+import { LLMObsExperimentationSimpleSearchDataResponse } from "./LLMObsExperimentationSimpleSearchDataResponse";
+import { LLMObsExperimentationSimpleSearchMeta } from "./LLMObsExperimentationSimpleSearchMeta";
+import { LLMObsExperimentationSimpleSearchMetaPage } from "./LLMObsExperimentationSimpleSearchMetaPage";
+import { LLMObsExperimentationSimpleSearchRequest } from "./LLMObsExperimentationSimpleSearchRequest";
+import { LLMObsExperimentationSimpleSearchResponse } from "./LLMObsExperimentationSimpleSearchResponse";
+import { LLMObsExperimentationSortField } from "./LLMObsExperimentationSortField";
 import { LLMObsExperimentsResponse } from "./LLMObsExperimentsResponse";
 import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
 import { LLMObsProjectDataAttributesRequest } from "./LLMObsProjectDataAttributesRequest";
@@ -5283,8 +5321,11 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsDatasetType: ["datasets"],
   LLMObsDisplayBlockInteractionType: ["display_block"],
   LLMObsEventType: ["events"],
+  LLMObsExperimentEventsType: ["experiment_events"],
   LLMObsExperimentSpanStatus: ["ok", "error"],
   LLMObsExperimentType: ["experiments"],
+  LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
+  LLMObsExperimentationType: ["experimentation"],
   LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
   LLMObsMetricAssessment: ["pass", "fail"],
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
@@ -9116,21 +9157,76 @@ const typeMap: { [index: string]: any } = {
     LLMObsExperimentDataAttributesResponse,
   LLMObsExperimentDataRequest: LLMObsExperimentDataRequest,
   LLMObsExperimentDataResponse: LLMObsExperimentDataResponse,
+  LLMObsExperimentEvalMetricEvent: LLMObsExperimentEvalMetricEvent,
   LLMObsExperimentEventsDataAttributesRequest:
     LLMObsExperimentEventsDataAttributesRequest,
   LLMObsExperimentEventsDataRequest: LLMObsExperimentEventsDataRequest,
   LLMObsExperimentEventsRequest: LLMObsExperimentEventsRequest,
+  LLMObsExperimentEventsV2DataAttributesResponse:
+    LLMObsExperimentEventsV2DataAttributesResponse,
+  LLMObsExperimentEventsV2DataResponse: LLMObsExperimentEventsV2DataResponse,
+  LLMObsExperimentEventsV2Response: LLMObsExperimentEventsV2Response,
   LLMObsExperimentMetric: LLMObsExperimentMetric,
   LLMObsExperimentMetricError: LLMObsExperimentMetricError,
   LLMObsExperimentRequest: LLMObsExperimentRequest,
   LLMObsExperimentResponse: LLMObsExperimentResponse,
+  LLMObsExperimentRunDataResponse: LLMObsExperimentRunDataResponse,
   LLMObsExperimentSpan: LLMObsExperimentSpan,
   LLMObsExperimentSpanError: LLMObsExperimentSpanError,
   LLMObsExperimentSpanMeta: LLMObsExperimentSpanMeta,
+  LLMObsExperimentSpanWithEvals: LLMObsExperimentSpanWithEvals,
   LLMObsExperimentUpdateDataAttributesRequest:
     LLMObsExperimentUpdateDataAttributesRequest,
   LLMObsExperimentUpdateDataRequest: LLMObsExperimentUpdateDataRequest,
   LLMObsExperimentUpdateRequest: LLMObsExperimentUpdateRequest,
+  LLMObsExperimentationAnalyticsAggregate:
+    LLMObsExperimentationAnalyticsAggregate,
+  LLMObsExperimentationAnalyticsCompute: LLMObsExperimentationAnalyticsCompute,
+  LLMObsExperimentationAnalyticsDataAttributesRequest:
+    LLMObsExperimentationAnalyticsDataAttributesRequest,
+  LLMObsExperimentationAnalyticsDataAttributesResponse:
+    LLMObsExperimentationAnalyticsDataAttributesResponse,
+  LLMObsExperimentationAnalyticsDataRequest:
+    LLMObsExperimentationAnalyticsDataRequest,
+  LLMObsExperimentationAnalyticsDataResponse:
+    LLMObsExperimentationAnalyticsDataResponse,
+  LLMObsExperimentationAnalyticsGroupBy: LLMObsExperimentationAnalyticsGroupBy,
+  LLMObsExperimentationAnalyticsRequest: LLMObsExperimentationAnalyticsRequest,
+  LLMObsExperimentationAnalyticsResponse:
+    LLMObsExperimentationAnalyticsResponse,
+  LLMObsExperimentationAnalyticsResult: LLMObsExperimentationAnalyticsResult,
+  LLMObsExperimentationAnalyticsSearch: LLMObsExperimentationAnalyticsSearch,
+  LLMObsExperimentationAnalyticsTimeRange:
+    LLMObsExperimentationAnalyticsTimeRange,
+  LLMObsExperimentationAnalyticsValue: LLMObsExperimentationAnalyticsValue,
+  LLMObsExperimentationContentPreview: LLMObsExperimentationContentPreview,
+  LLMObsExperimentationCursorPage: LLMObsExperimentationCursorPage,
+  LLMObsExperimentationFilter: LLMObsExperimentationFilter,
+  LLMObsExperimentationInclude: LLMObsExperimentationInclude,
+  LLMObsExperimentationNumberPage: LLMObsExperimentationNumberPage,
+  LLMObsExperimentationSearchDataAttributesRequest:
+    LLMObsExperimentationSearchDataAttributesRequest,
+  LLMObsExperimentationSearchDataRequest:
+    LLMObsExperimentationSearchDataRequest,
+  LLMObsExperimentationSearchDataResponse:
+    LLMObsExperimentationSearchDataResponse,
+  LLMObsExperimentationSearchRequest: LLMObsExperimentationSearchRequest,
+  LLMObsExperimentationSearchResponse: LLMObsExperimentationSearchResponse,
+  LLMObsExperimentationSearchResults: LLMObsExperimentationSearchResults,
+  LLMObsExperimentationSimpleSearchDataAttributesRequest:
+    LLMObsExperimentationSimpleSearchDataAttributesRequest,
+  LLMObsExperimentationSimpleSearchDataRequest:
+    LLMObsExperimentationSimpleSearchDataRequest,
+  LLMObsExperimentationSimpleSearchDataResponse:
+    LLMObsExperimentationSimpleSearchDataResponse,
+  LLMObsExperimentationSimpleSearchMeta: LLMObsExperimentationSimpleSearchMeta,
+  LLMObsExperimentationSimpleSearchMetaPage:
+    LLMObsExperimentationSimpleSearchMetaPage,
+  LLMObsExperimentationSimpleSearchRequest:
+    LLMObsExperimentationSimpleSearchRequest,
+  LLMObsExperimentationSimpleSearchResponse:
+    LLMObsExperimentationSimpleSearchResponse,
+  LLMObsExperimentationSortField: LLMObsExperimentationSortField,
   LLMObsExperimentsResponse: LLMObsExperimentsResponse,
   LLMObsLabelSchema: LLMObsLabelSchema,
   LLMObsProjectDataAttributesRequest: LLMObsProjectDataAttributesRequest,
