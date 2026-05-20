@@ -20,6 +20,8 @@ import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJS
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionJSONSchemaTargetTarget } from "./SyntheticsAssertionJSONSchemaTargetTarget";
 import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
+import { SyntheticsAssertionMCPRespectsSpecification } from "./SyntheticsAssertionMCPRespectsSpecification";
+import { SyntheticsAssertionMCPServerCapabilitiesTarget } from "./SyntheticsAssertionMCPServerCapabilitiesTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
@@ -136,6 +138,7 @@ export const TypingInfo: ModelTypingInfo = {
       "udp",
       "icmp",
       "websocket",
+      "mcp",
     ],
     SyntheticsAPITestType: ["api"],
     SyntheticsAPIWaitStepSubtype: ["wait"],
@@ -173,6 +176,10 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsAssertionJSONSchemaMetaSchema: ["draft-07", "draft-06"],
     SyntheticsAssertionJSONSchemaOperator: ["validatesJSONSchema"],
     SyntheticsAssertionJavascriptType: ["javascript"],
+    SyntheticsAssertionMCPRespectsSpecificationType: [
+      "mcpRespectsSpecification",
+    ],
+    SyntheticsAssertionMCPServerCapabilitiesType: ["mcpServerCapabilities"],
     SyntheticsAssertionOperator: [
       "contains",
       "doesNotContain",
@@ -213,6 +220,8 @@ export const TypingInfo: ModelTypingInfo = {
       "connection",
       "multiNetworkHop",
       "jitter",
+      "mcpToolNameLength",
+      "mcpToolCount",
     ],
     SyntheticsAssertionXPathOperator: ["validatesXPath"],
     SyntheticsBasicAuthDigestType: ["digest"],
@@ -292,6 +301,15 @@ export const TypingInfo: ModelTypingInfo = {
       "http_header",
       "http_status_code",
     ],
+    SyntheticsMCPProtocolVersion: ["2025-06-18"],
+    SyntheticsMCPServerCapability: [
+      "completions",
+      "experimental",
+      "logging",
+      "prompts",
+      "resources",
+      "tools",
+    ],
     SyntheticsMobileStepParamsDirection: ["up", "down", "left", "right"],
     SyntheticsMobileStepParamsElementContextType: ["native", "web"],
     SyntheticsMobileStepParamsElementUserLocatorValuesItemsType: [
@@ -362,7 +380,13 @@ export const TypingInfo: ModelTypingInfo = {
       "uploadFiles",
       "wait",
     ],
-    SyntheticsTestCallType: ["healthcheck", "unary"],
+    SyntheticsTestCallType: [
+      "healthcheck",
+      "unary",
+      "init",
+      "tool_list",
+      "tool_call",
+    ],
     SyntheticsTestDetailsSubType: [
       "http",
       "ssl",
@@ -420,6 +444,8 @@ export const TypingInfo: ModelTypingInfo = {
       "SyntheticsAssertionJSONSchemaTarget",
       "SyntheticsAssertionXPathTarget",
       "SyntheticsAssertionJavascript",
+      "SyntheticsAssertionMCPServerCapabilitiesTarget",
+      "SyntheticsAssertionMCPRespectsSpecification",
     ],
     SyntheticsAssertionTargetValue: ["number", "string"],
     SyntheticsBasicAuth: [
@@ -457,6 +483,10 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsAssertionJSONSchemaTargetTarget:
       SyntheticsAssertionJSONSchemaTargetTarget,
     SyntheticsAssertionJavascript: SyntheticsAssertionJavascript,
+    SyntheticsAssertionMCPRespectsSpecification:
+      SyntheticsAssertionMCPRespectsSpecification,
+    SyntheticsAssertionMCPServerCapabilitiesTarget:
+      SyntheticsAssertionMCPServerCapabilitiesTarget,
     SyntheticsAssertionTarget: SyntheticsAssertionTarget,
     SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
     SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
