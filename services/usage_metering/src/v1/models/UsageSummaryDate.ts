@@ -347,6 +347,10 @@ export class UsageSummaryDate {
    */
   "dbmQueriesCountAvg"?: number;
   /**
+   * Shows the sum of all orchestrator job hours over all hours in the current date for all organizations.
+   */
+  "doJobsMonitoringOrchestratorsJobHoursSum"?: number;
+  /**
    * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for the given org.
    */
   "ephInfraHostAgentSum"?: number;
@@ -1427,6 +1431,11 @@ export class UsageSummaryDate {
     },
     dbmQueriesCountAvg: {
       baseName: "dbm_queries_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    doJobsMonitoringOrchestratorsJobHoursSum: {
+      baseName: "do_jobs_monitoring_orchestrators_job_hours_sum",
       type: "number",
       format: "int64",
     },
