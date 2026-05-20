@@ -492,6 +492,8 @@ import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJS
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionJSONSchemaTargetTarget } from "./SyntheticsAssertionJSONSchemaTargetTarget";
 import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
+import { SyntheticsAssertionMCPRespectsSpecification } from "./SyntheticsAssertionMCPRespectsSpecification";
+import { SyntheticsAssertionMCPServerCapabilitiesTarget } from "./SyntheticsAssertionMCPServerCapabilitiesTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
@@ -1539,6 +1541,7 @@ const enumsMap: { [key: string]: any[] } = {
     "udp",
     "icmp",
     "websocket",
+    "mcp",
   ],
   SyntheticsAPITestType: ["api"],
   SyntheticsAPIWaitStepSubtype: ["wait"],
@@ -1576,6 +1579,8 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsAssertionJSONSchemaMetaSchema: ["draft-07", "draft-06"],
   SyntheticsAssertionJSONSchemaOperator: ["validatesJSONSchema"],
   SyntheticsAssertionJavascriptType: ["javascript"],
+  SyntheticsAssertionMCPRespectsSpecificationType: ["mcpRespectsSpecification"],
+  SyntheticsAssertionMCPServerCapabilitiesType: ["mcpServerCapabilities"],
   SyntheticsAssertionOperator: [
     "contains",
     "doesNotContain",
@@ -1616,6 +1621,8 @@ const enumsMap: { [key: string]: any[] } = {
     "connection",
     "multiNetworkHop",
     "jitter",
+    "mcpToolNameLength",
+    "mcpToolCount",
   ],
   SyntheticsAssertionXPathOperator: ["validatesXPath"],
   SyntheticsBasicAuthDigestType: ["digest"],
@@ -1695,6 +1702,15 @@ const enumsMap: { [key: string]: any[] } = {
     "http_header",
     "http_status_code",
   ],
+  SyntheticsMCPProtocolVersion: ["2025-06-18"],
+  SyntheticsMCPServerCapability: [
+    "completions",
+    "experimental",
+    "logging",
+    "prompts",
+    "resources",
+    "tools",
+  ],
   SyntheticsMobileStepParamsDirection: ["up", "down", "left", "right"],
   SyntheticsMobileStepParamsElementContextType: ["native", "web"],
   SyntheticsMobileStepParamsElementUserLocatorValuesItemsType: [
@@ -1765,7 +1781,13 @@ const enumsMap: { [key: string]: any[] } = {
     "uploadFiles",
     "wait",
   ],
-  SyntheticsTestCallType: ["healthcheck", "unary"],
+  SyntheticsTestCallType: [
+    "healthcheck",
+    "unary",
+    "init",
+    "tool_list",
+    "tool_call",
+  ],
   SyntheticsTestDetailsSubType: [
     "http",
     "ssl",
@@ -2525,6 +2547,10 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONSchemaTargetTarget:
     SyntheticsAssertionJSONSchemaTargetTarget,
   SyntheticsAssertionJavascript: SyntheticsAssertionJavascript,
+  SyntheticsAssertionMCPRespectsSpecification:
+    SyntheticsAssertionMCPRespectsSpecification,
+  SyntheticsAssertionMCPServerCapabilitiesTarget:
+    SyntheticsAssertionMCPServerCapabilitiesTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
@@ -2936,6 +2962,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsAssertionJSONSchemaTarget",
     "SyntheticsAssertionXPathTarget",
     "SyntheticsAssertionJavascript",
+    "SyntheticsAssertionMCPServerCapabilitiesTarget",
+    "SyntheticsAssertionMCPRespectsSpecification",
   ],
   SyntheticsAssertionTargetValue: ["number", "string"],
   SyntheticsBasicAuth: [
