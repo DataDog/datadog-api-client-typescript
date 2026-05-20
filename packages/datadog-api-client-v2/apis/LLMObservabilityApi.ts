@@ -29,6 +29,8 @@ import { LLMObsAnnotationQueuesResponse } from "../models/LLMObsAnnotationQueues
 import { LLMObsAnnotationQueueUpdateRequest } from "../models/LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsCustomEvalConfigResponse } from "../models/LLMObsCustomEvalConfigResponse";
 import { LLMObsCustomEvalConfigUpdateRequest } from "../models/LLMObsCustomEvalConfigUpdateRequest";
+import { LLMObsDataDeletionRequest } from "../models/LLMObsDataDeletionRequest";
+import { LLMObsDataDeletionResponse } from "../models/LLMObsDataDeletionResponse";
 import { LLMObsDatasetRecordsListResponse } from "../models/LLMObsDatasetRecordsListResponse";
 import { LLMObsDatasetRecordsMutationResponse } from "../models/LLMObsDatasetRecordsMutationResponse";
 import { LLMObsDatasetRecordsRequest } from "../models/LLMObsDatasetRecordsRequest";
@@ -58,6 +60,8 @@ import { LLMObsProjectRequest } from "../models/LLMObsProjectRequest";
 import { LLMObsProjectResponse } from "../models/LLMObsProjectResponse";
 import { LLMObsProjectsResponse } from "../models/LLMObsProjectsResponse";
 import { LLMObsProjectUpdateRequest } from "../models/LLMObsProjectUpdateRequest";
+import { LLMObsSearchSpansRequest } from "../models/LLMObsSearchSpansRequest";
+import { LLMObsSpansResponse } from "../models/LLMObsSpansResponse";
 
 export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   public async aggregateLLMObsExperimentation(
@@ -650,6 +654,52 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteLLMObsData(
+    body: LLMObsDataDeletionRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteLLMObsData'");
+    if (!_config.unstableOperations["v2.deleteLLMObsData"]) {
+      throw new Error("Unstable operation 'deleteLLMObsData' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "deleteLLMObsData");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/deletion/data/llmobs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.deleteLLMObsData")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "LLMObsDataDeletionRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1384,6 +1434,133 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listLLMObsSpans(
+    filterFrom?: string,
+    filterTo?: string,
+    filterQuery?: string,
+    filterSpanId?: string,
+    filterTraceId?: string,
+    filterSpanKind?: string,
+    filterSpanName?: string,
+    filterMlApp?: string,
+    pageLimit?: number,
+    pageCursor?: string,
+    sort?: string,
+    includeAttachments?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listLLMObsSpans'");
+    if (!_config.unstableOperations["v2.listLLMObsSpans"]) {
+      throw new Error("Unstable operation 'listLLMObsSpans' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/spans/events";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.listLLMObsSpans")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterFrom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from]",
+        ObjectSerializer.serialize(filterFrom, "string", ""),
+        ""
+      );
+    }
+    if (filterTo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to]",
+        ObjectSerializer.serialize(filterTo, "string", ""),
+        ""
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
+      );
+    }
+    if (filterSpanId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[span_id]",
+        ObjectSerializer.serialize(filterSpanId, "string", ""),
+        ""
+      );
+    }
+    if (filterTraceId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[trace_id]",
+        ObjectSerializer.serialize(filterTraceId, "string", ""),
+        ""
+      );
+    }
+    if (filterSpanKind !== undefined) {
+      requestContext.setQueryParam(
+        "filter[span_kind]",
+        ObjectSerializer.serialize(filterSpanKind, "string", ""),
+        ""
+      );
+    }
+    if (filterSpanName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[span_name]",
+        ObjectSerializer.serialize(filterSpanName, "string", ""),
+        ""
+      );
+    }
+    if (filterMlApp !== undefined) {
+      requestContext.setQueryParam(
+        "filter[ml_app]",
+        ObjectSerializer.serialize(filterMlApp, "string", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
+    }
+    if (includeAttachments !== undefined) {
+      requestContext.setQueryParam(
+        "include_attachments",
+        ObjectSerializer.serialize(includeAttachments, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async searchLLMObsExperimentation(
     body: LLMObsExperimentationSearchRequest,
     _options?: Configuration
@@ -1423,6 +1600,52 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsExperimentationSearchRequest",
         ""
       ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchLLMObsSpans(
+    body: LLMObsSearchSpansRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'searchLLMObsSpans'");
+    if (!_config.unstableOperations["v2.searchLLMObsSpans"]) {
+      throw new Error("Unstable operation 'searchLLMObsSpans' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "searchLLMObsSpans");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/spans/events/search";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.searchLLMObsSpans")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "LLMObsSearchSpansRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -2837,6 +3060,91 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteLLMObsData
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLLMObsData(
+    response: ResponseContext
+  ): Promise<LLMObsDataDeletionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      const body: LLMObsDataDeletionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsDataDeletionResponse"
+      ) as LLMObsDataDeletionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDataDeletionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsDataDeletionResponse",
+        ""
+      ) as LLMObsDataDeletionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteLLMObsDatasetRecords
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3919,6 +4227,91 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsSpans
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsSpans(
+    response: ResponseContext
+  ): Promise<LLMObsSpansResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsSpansResponse"
+      ) as LLMObsSpansResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsSpansResponse",
+        ""
+      ) as LLMObsSpansResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchLLMObsExperimentation
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3993,6 +4386,91 @@ export class LLMObservabilityApiResponseProcessor {
           "LLMObsExperimentationSearchResponse",
           ""
         ) as LLMObsExperimentationSearchResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to searchLLMObsSpans
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchLLMObsSpans(
+    response: ResponseContext
+  ): Promise<LLMObsSpansResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsSpansResponse"
+      ) as LLMObsSpansResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsSpansResponse",
+        ""
+      ) as LLMObsSpansResponse;
       return body;
     }
 
@@ -4809,6 +5287,14 @@ export interface LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest {
   evalName: string;
 }
 
+export interface LLMObservabilityApiDeleteLLMObsDataRequest {
+  /**
+   * Data deletion request payload.
+   * @type LLMObsDataDeletionRequest
+   */
+  body: LLMObsDataDeletionRequest;
+}
+
 export interface LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest {
   /**
    * The ID of the LLM Observability project.
@@ -5018,12 +5504,83 @@ export interface LLMObservabilityApiListLLMObsProjectsRequest {
   pageLimit?: number;
 }
 
+export interface LLMObservabilityApiListLLMObsSpansRequest {
+  /**
+   * Start of the time range. Accepts ISO 8601 or relative format (e.g., `now-15m`). Defaults to `now-15m`.
+   * @type string
+   */
+  filterFrom?: string;
+  /**
+   * End of the time range. Accepts ISO 8601 or relative format. Defaults to `now`.
+   * @type string
+   */
+  filterTo?: string;
+  /**
+   * Search query using LLM Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`filter[span_id]`, `filter[trace_id]`, etc.) are ignored.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * Filter by exact span ID.
+   * @type string
+   */
+  filterSpanId?: string;
+  /**
+   * Filter by exact trace ID.
+   * @type string
+   */
+  filterTraceId?: string;
+  /**
+   * Filter by span kind (e.g., llm, agent, tool, task, workflow).
+   * @type string
+   */
+  filterSpanKind?: string;
+  /**
+   * Filter by span name.
+   * @type string
+   */
+  filterSpanName?: string;
+  /**
+   * Filter by ML application name.
+   * @type string
+   */
+  filterMlApp?: string;
+  /**
+   * Maximum number of spans to return. Defaults to `10`.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Cursor from the previous response to retrieve the next page.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * Sort order for the results.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Whether to include attachment data in the response. Defaults to `true`.
+   * @type boolean
+   */
+  includeAttachments?: boolean;
+}
+
 export interface LLMObservabilityApiSearchLLMObsExperimentationRequest {
   /**
    * Experimentation search payload.
    * @type LLMObsExperimentationSearchRequest
    */
   body: LLMObsExperimentationSearchRequest;
+}
+
+export interface LLMObservabilityApiSearchLLMObsSpansRequest {
+  /**
+   * Search spans payload.
+   * @type LLMObsSearchSpansRequest
+   */
+  body: LLMObsSearchSpansRequest;
 }
 
 export interface LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest {
@@ -5417,6 +5974,27 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Submit a request to delete LLM Observability span data matching a trace ID filter within a specified time range.
+   * @param param The request object
+   */
+  public deleteLLMObsData(
+    param: LLMObservabilityApiDeleteLLMObsDataRequest,
+    options?: Configuration
+  ): Promise<LLMObsDataDeletionResponse> {
+    const requestContextPromise = this.requestFactory.deleteLLMObsData(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLLMObsData(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete one or more records from an LLM Observability dataset.
    * @param param The request object
    */
@@ -5733,6 +6311,38 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * List LLM Observability spans matching the specified filters.
+   * @param param The request object
+   */
+  public listLLMObsSpans(
+    param: LLMObservabilityApiListLLMObsSpansRequest = {},
+    options?: Configuration
+  ): Promise<LLMObsSpansResponse> {
+    const requestContextPromise = this.requestFactory.listLLMObsSpans(
+      param.filterFrom,
+      param.filterTo,
+      param.filterQuery,
+      param.filterSpanId,
+      param.filterTraceId,
+      param.filterSpanKind,
+      param.filterSpanName,
+      param.filterMlApp,
+      param.pageLimit,
+      param.pageCursor,
+      param.sort,
+      param.includeAttachments,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsSpans(responseContext);
+        });
+    });
+  }
+
+  /**
    * Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
    *
    * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
@@ -5753,6 +6363,27 @@ export class LLMObservabilityApi {
           return this.responseProcessor.searchLLMObsExperimentation(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Search LLM Observability spans using structured filters in the request body.
+   * @param param The request object
+   */
+  public searchLLMObsSpans(
+    param: LLMObservabilityApiSearchLLMObsSpansRequest,
+    options?: Configuration
+  ): Promise<LLMObsSpansResponse> {
+    const requestContextPromise = this.requestFactory.searchLLMObsSpans(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchLLMObsSpans(responseContext);
         });
     });
   }
