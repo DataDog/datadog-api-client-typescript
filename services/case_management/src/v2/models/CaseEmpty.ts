@@ -7,7 +7,7 @@ import { CaseResourceType } from "./CaseResourceType";
  */
 export class CaseEmpty {
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    */
   "type": CaseResourceType;
   /**
