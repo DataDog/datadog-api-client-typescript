@@ -361,6 +361,10 @@ export class UsageSummaryResponse {
    */
   "dbmQueriesAvgSum"?: number;
   /**
+   * Shows the sum of all orchestrator job hours over all hours in the current month for all organizations.
+   */
+  "doJobsMonitoringOrchestratorsJobHoursAggSum"?: number;
+  /**
    * Shows the last date of usage in the current month for all organizations.
    */
   "endDate"?: Date;
@@ -1489,6 +1493,11 @@ export class UsageSummaryResponse {
     },
     dbmQueriesAvgSum: {
       baseName: "dbm_queries_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    doJobsMonitoringOrchestratorsJobHoursAggSum: {
+      baseName: "do_jobs_monitoring_orchestrators_job_hours_agg_sum",
       type: "number",
       format: "int64",
     },
