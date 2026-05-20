@@ -66,6 +66,10 @@ export { SyntheticsAssertionJSONSchemaMetaSchema } from "./models/SyntheticsAsse
 export { SyntheticsAssertionJSONSchemaOperator } from "./models/SyntheticsAssertionJSONSchemaOperator";
 export { SyntheticsAssertionJSONSchemaTarget } from "./models/SyntheticsAssertionJSONSchemaTarget";
 export { SyntheticsAssertionJSONSchemaTargetTarget } from "./models/SyntheticsAssertionJSONSchemaTargetTarget";
+export { SyntheticsAssertionMCPRespectsSpecification } from "./models/SyntheticsAssertionMCPRespectsSpecification";
+export { SyntheticsAssertionMCPRespectsSpecificationType } from "./models/SyntheticsAssertionMCPRespectsSpecificationType";
+export { SyntheticsAssertionMCPServerCapabilitiesTarget } from "./models/SyntheticsAssertionMCPServerCapabilitiesTarget";
+export { SyntheticsAssertionMCPServerCapabilitiesType } from "./models/SyntheticsAssertionMCPServerCapabilitiesType";
 export { SyntheticsAssertionOperator } from "./models/SyntheticsAssertionOperator";
 export { SyntheticsAssertionTarget } from "./models/SyntheticsAssertionTarget";
 export { SyntheticsAssertionTargetValue } from "./models/SyntheticsAssertionTargetValue";
@@ -139,6 +143,8 @@ export { SyntheticsListTestsResponse } from "./models/SyntheticsListTestsRespons
 export { SyntheticsLocalVariableParsingOptionsType } from "./models/SyntheticsLocalVariableParsingOptionsType";
 export { SyntheticsLocation } from "./models/SyntheticsLocation";
 export { SyntheticsLocations } from "./models/SyntheticsLocations";
+export { SyntheticsMCPProtocolVersion } from "./models/SyntheticsMCPProtocolVersion";
+export { SyntheticsMCPServerCapability } from "./models/SyntheticsMCPServerCapability";
 export { SyntheticsMobileStep } from "./models/SyntheticsMobileStep";
 export { SyntheticsMobileStepParams } from "./models/SyntheticsMobileStepParams";
 export { SyntheticsMobileStepParamsDirection } from "./models/SyntheticsMobileStepParamsDirection";

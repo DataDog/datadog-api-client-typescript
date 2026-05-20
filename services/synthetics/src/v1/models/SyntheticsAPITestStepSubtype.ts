@@ -12,6 +12,7 @@ export type SyntheticsAPITestStepSubtype =
   | typeof UDP
   | typeof ICMP
   | typeof WEBSOCKET
+  | typeof MCP
   | UnparsedObject;
 export const HTTP = "http";
 export const GRPC = "grpc";
@@ -21,3 +22,4 @@ export const TCP = "tcp";
 export const UDP = "udp";
 export const ICMP = "icmp";
 export const WEBSOCKET = "websocket";
+export const MCP = "mcp";
