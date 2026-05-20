@@ -197,28 +197,24 @@ export function serialize(
     const attributesMap = typingInfo.typeMap[type].getAttributeTypeMap();
     const instance: { [index: string]: any } = {};
 
-    for (const attributeName in data) {
-      const attributeObj = attributesMap[attributeName];
-      if (
-        attributeName === "_unparsed" ||
-        attributeName === "additionalProperties"
-      ) {
-        continue;
-      } else if (
-        attributeObj === undefined &&
-        !("additionalProperties" in attributesMap)
-      ) {
-        throw new Error(
-          "unexpected attribute " + attributeName + " of type " + type,
-        );
-      } else if (attributeObj) {
-        instance[attributeObj.baseName] = serialize(
-          data[attributeName],
-          typingInfo,
-          attributeObj.type,
-          attributeObj.format,
-        );
+    for (const k of Object.keys(data)) {
+      if (k === "_unparsed" || k === "additionalProperties") continue;
+      if (!(k in attributesMap) && !("additionalProperties" in attributesMap)) {
+        throw new Error("unexpected attribute " + k + " of type " + type);
       }
+    }
+
+    for (const attributeName of Object.keys(attributesMap)) {
+      if (attributeName === "additionalProperties") continue;
+      if (!(attributeName in data)) continue;
+      if (data[attributeName] === undefined) continue;
+      const attributeObj = attributesMap[attributeName];
+      instance[attributeObj.baseName] = serialize(
+        data[attributeName],
+        typingInfo,
+        attributeObj.type,
+        attributeObj.format,
+      );
     }
 
     if (data.additionalProperties) {
@@ -322,7 +318,7 @@ export function deserialize(
       for (const oneOf of typingInfo.oneOfMap[type]) {
         try {
           const d = deserialize(data, typingInfo, oneOf, format);
-          if (!d?._unparsed) {
+          if (!(d instanceof UnparsedObject) && !d?._unparsed) {
             oneOfs.push(d);
           }
         } catch (e) {
