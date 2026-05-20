@@ -833,8 +833,6 @@ import { CreateDegradationRequest } from "./CreateDegradationRequest";
 import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
 import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
-import { CreateDegradationRequestDataAttributesUpdatesItems } from "./CreateDegradationRequestDataAttributesUpdatesItems";
-import { CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateDeploymentGateParams } from "./CreateDeploymentGateParams";
 import { CreateDeploymentGateParamsData } from "./CreateDeploymentGateParamsData";
 import { CreateDeploymentGateParamsDataAttributes } from "./CreateDeploymentGateParamsDataAttributes";
@@ -858,8 +856,6 @@ import { CreateMaintenanceRequest } from "./CreateMaintenanceRequest";
 import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
-import { CreateMaintenanceRequestDataAttributesUpdatesItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItems";
-import { CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateNotificationChannelAttributes } from "./CreateNotificationChannelAttributes";
 import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
@@ -7794,10 +7790,6 @@ const typeMap: { [index: string]: any } = {
     CreateDegradationRequestDataAttributes,
   CreateDegradationRequestDataAttributesComponentsAffectedItems:
     CreateDegradationRequestDataAttributesComponentsAffectedItems,
-  CreateDegradationRequestDataAttributesUpdatesItems:
-    CreateDegradationRequestDataAttributesUpdatesItems,
-  CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems:
-    CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems,
   CreateDeploymentGateParams: CreateDeploymentGateParams,
   CreateDeploymentGateParamsData: CreateDeploymentGateParamsData,
   CreateDeploymentGateParamsDataAttributes:
@@ -7827,10 +7819,6 @@ const typeMap: { [index: string]: any } = {
     CreateMaintenanceRequestDataAttributes,
   CreateMaintenanceRequestDataAttributesComponentsAffectedItems:
     CreateMaintenanceRequestDataAttributesComponentsAffectedItems,
-  CreateMaintenanceRequestDataAttributesUpdatesItems:
-    CreateMaintenanceRequestDataAttributesUpdatesItems,
-  CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems:
-    CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems,
   CreateNotificationChannelAttributes: CreateNotificationChannelAttributes,
   CreateNotificationChannelData: CreateNotificationChannelData,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,

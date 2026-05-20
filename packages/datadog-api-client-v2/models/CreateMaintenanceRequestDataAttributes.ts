@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
-import { CreateMaintenanceRequestDataAttributesUpdatesItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -40,7 +39,6 @@ export class CreateMaintenanceRequestDataAttributes {
    * The title of the maintenance.
    */
   "title": string;
-  "updates"?: Array<CreateMaintenanceRequestDataAttributesUpdatesItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -94,10 +92,6 @@ export class CreateMaintenanceRequestDataAttributes {
       baseName: "title",
       type: "string",
       required: true,
-    },
-    updates: {
-      baseName: "updates",
-      type: "Array<CreateMaintenanceRequestDataAttributesUpdatesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
