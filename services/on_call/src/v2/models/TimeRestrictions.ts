@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TimeRestriction } from "./TimeRestriction";
 
 /**
- * Holds time zone information and a list of time restrictions for a routing rule.
+ * Time restrictions during which the routing rule is active. Outside of these hours, the rule does not match and routing continues to subsequent rules. This is mutually exclusive with the action-level `support_hours` field.
  */
 export class TimeRestrictions {
   /**
