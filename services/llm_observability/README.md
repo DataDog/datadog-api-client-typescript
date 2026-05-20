@@ -2,7 +2,7 @@
 
 ## Description
 
-Manage LLM Observability projects, datasets, dataset records, experiments, and annotations.
+Manage LLM Observability spans, data, projects, datasets, dataset records, experiments, and annotations.
 
 ## Navigation
 
