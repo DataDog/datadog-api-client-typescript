@@ -33,10 +33,12 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         certificateDomains: [],
         files: [{}],
         httpVersion: "http1",
+        mcpProtocolVersion: "2025-06-18",
         proxy: {
           url: "https://example.com",
         },
         service: "Greeter",
+        toolName: "search",
         url: "https://example.com",
       },
       variables: [

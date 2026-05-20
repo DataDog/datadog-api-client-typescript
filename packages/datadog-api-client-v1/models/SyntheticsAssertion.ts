@@ -7,6 +7,8 @@ import { SyntheticsAssertionBodyHashTarget } from "./SyntheticsAssertionBodyHash
 import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
+import { SyntheticsAssertionMCPRespectsSpecification } from "./SyntheticsAssertionMCPRespectsSpecification";
+import { SyntheticsAssertionMCPServerCapabilitiesTarget } from "./SyntheticsAssertionMCPServerCapabilitiesTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 
@@ -24,4 +26,6 @@ export type SyntheticsAssertion =
   | SyntheticsAssertionJSONSchemaTarget
   | SyntheticsAssertionXPathTarget
   | SyntheticsAssertionJavascript
+  | SyntheticsAssertionMCPServerCapabilitiesTarget
+  | SyntheticsAssertionMCPRespectsSpecification
   | UnparsedObject;

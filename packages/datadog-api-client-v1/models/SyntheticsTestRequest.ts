@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsMCPProtocolVersion } from "./SyntheticsMCPProtocolVersion";
 import { SyntheticsTestCallType } from "./SyntheticsTestCallType";
 import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVersion";
 import { SyntheticsTestRequestBodyFile } from "./SyntheticsTestRequestBodyFile";
@@ -36,7 +37,9 @@ export class SyntheticsTestRequest {
    */
   "bodyType"?: SyntheticsTestRequestBodyType;
   /**
-   * The type of gRPC call to perform.
+   * The type of call to perform. Used by gRPC steps (`healthcheck`, `unary`)
+   * and MCP steps (`init`, `tool_list`, `tool_call`). Valid values depend on
+   * the parent step's `subtype`.
    */
   "callType"?: SyntheticsTestCallType;
   /**
@@ -100,6 +103,10 @@ export class SyntheticsTestRequest {
    */
   "isMessageBase64Encoded"?: boolean;
   /**
+   * The MCP protocol version used by the step. See https://modelcontextprotocol.io/specification.
+   */
+  "mcpProtocolVersion"?: SyntheticsMCPProtocolVersion;
+  /**
    * Message to send for UDP or WebSocket tests.
    */
   "message"?: string;
@@ -153,6 +160,14 @@ export class SyntheticsTestRequest {
    * Timeout in seconds for the test.
    */
   "timeout"?: number;
+  /**
+   * Arguments to pass to the MCP tool. Free-form object whose shape depends on the tool. Used when `callType` is `tool_call`.
+   */
+  "toolArgs"?: { [key: string]: any };
+  /**
+   * The name of the MCP tool to call. Required when `callType` is `tool_call`.
+   */
+  "toolName"?: string;
   /**
    * URL to perform the test with.
    */
@@ -254,6 +269,10 @@ export class SyntheticsTestRequest {
       baseName: "isMessageBase64Encoded",
       type: "boolean",
     },
+    mcpProtocolVersion: {
+      baseName: "mcpProtocolVersion",
+      type: "SyntheticsMCPProtocolVersion",
+    },
     message: {
       baseName: "message",
       type: "string",
@@ -307,6 +326,14 @@ export class SyntheticsTestRequest {
       baseName: "timeout",
       type: "number",
       format: "double",
+    },
+    toolArgs: {
+      baseName: "toolArgs",
+      type: "{ [key: string]: any; }",
+    },
+    toolName: {
+      baseName: "toolName",
+      type: "string",
     },
     url: {
       baseName: "url",
