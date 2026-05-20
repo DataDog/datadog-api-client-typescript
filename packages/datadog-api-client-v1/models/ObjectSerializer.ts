@@ -3140,27 +3140,26 @@ export class ObjectSerializer {
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
 
-      for (const attributeName in data) {
-        const attributeObj = attributesMap[attributeName];
+      for (const k of Object.keys(data)) {
+        if (k === "_unparsed" || k === "additionalProperties") continue;
         if (
-          attributeName === "_unparsed" ||
-          attributeName === "additionalProperties"
-        ) {
-          continue;
-        } else if (
-          attributeObj === undefined &&
+          !(k in attributesMap) &&
           !("additionalProperties" in attributesMap)
         ) {
-          throw new Error(
-            "unexpected attribute " + attributeName + " of type " + type
-          );
-        } else if (attributeObj) {
-          instance[attributeObj.baseName] = ObjectSerializer.serialize(
-            data[attributeName],
-            attributeObj.type,
-            attributeObj.format
-          );
+          throw new Error("unexpected attribute " + k + " of type " + type);
         }
+      }
+
+      for (const attributeName of Object.keys(attributesMap)) {
+        if (attributeName === "additionalProperties") continue;
+        if (!(attributeName in data)) continue;
+        if (data[attributeName] === undefined) continue;
+        const attributeObj = attributesMap[attributeName];
+        instance[attributeObj.baseName] = ObjectSerializer.serialize(
+          data[attributeName],
+          attributeObj.type,
+          attributeObj.format
+        );
       }
 
       if (data.additionalProperties) {
@@ -3266,7 +3265,7 @@ export class ObjectSerializer {
         for (const oneOf of oneOfMap[type]) {
           try {
             const d = ObjectSerializer.deserialize(data, oneOf, format);
-            if (!d?._unparsed) {
+            if (!(d instanceof UnparsedObject) && !d?._unparsed) {
               oneOfs.push(d);
             }
           } catch (e) {
