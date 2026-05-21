@@ -7016,6 +7016,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCostOCIConfigs": {
         "operationResponseType": "OCIConfigsResponse",
     },
+    "v2.SearchCostRecommendations": {
+        "pageSize": {
+            "type": "string",
+            "format": "",
+            },
+        "pageToken": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RecommendationsFilterRequest",
+            "format": "",
+            },
+        "operationResponseType": "CostRecommendationArray",
+    },
     "v2.ListCostTagDescriptions": {
         "filterCloud": {
             "type": "string",

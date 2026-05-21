@@ -757,6 +757,10 @@ import { CostMetric } from "./CostMetric";
 import { CostMetricsResponse } from "./CostMetricsResponse";
 import { CostOrchestrator } from "./CostOrchestrator";
 import { CostOrchestratorsResponse } from "./CostOrchestratorsResponse";
+import { CostRecommendationArray } from "./CostRecommendationArray";
+import { CostRecommendationData } from "./CostRecommendationData";
+import { CostRecommendationDataAttributes } from "./CostRecommendationDataAttributes";
+import { CostRecommendationDataAttributesPotentialDailySavings } from "./CostRecommendationDataAttributesPotentialDailySavings";
 import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
@@ -3003,6 +3007,10 @@ import { ReadinessGate } from "./ReadinessGate";
 import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
 import { RecommendationDocument } from "./RecommendationDocument";
+import { RecommendationsFilterRequest } from "./RecommendationsFilterRequest";
+import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
+import { RecommendationsPageMeta } from "./RecommendationsPageMeta";
+import { RecommendationsPageMetaPage } from "./RecommendationsPageMetaPage";
 import { RegisterAppKeyResponse } from "./RegisterAppKeyResponse";
 import { RelationAttributes } from "./RelationAttributes";
 import { RelationEntity } from "./RelationEntity";
@@ -4827,6 +4835,7 @@ const enumsMap: { [key: string]: any[] } = {
   CostCurrencyType: ["cost_currency"],
   CostMetricType: ["cost_metric"],
   CostOrchestratorType: ["cost_orchestrator"],
+  CostRecommendationDataType: ["recommendation"],
   CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
   CostTagDescriptionType: ["cost_tag_description"],
   CostTagKeyMetadataType: ["cost_tag_key_metadata"],
@@ -7706,6 +7715,11 @@ const typeMap: { [index: string]: any } = {
   CostMetricsResponse: CostMetricsResponse,
   CostOrchestrator: CostOrchestrator,
   CostOrchestratorsResponse: CostOrchestratorsResponse,
+  CostRecommendationArray: CostRecommendationArray,
+  CostRecommendationData: CostRecommendationData,
+  CostRecommendationDataAttributes: CostRecommendationDataAttributes,
+  CostRecommendationDataAttributesPotentialDailySavings:
+    CostRecommendationDataAttributesPotentialDailySavings,
   CostTag: CostTag,
   CostTagAttributes: CostTagAttributes,
   CostTagDescription: CostTagDescription,
@@ -10404,6 +10418,10 @@ const typeMap: { [index: string]: any } = {
   RecommendationAttributes: RecommendationAttributes,
   RecommendationData: RecommendationData,
   RecommendationDocument: RecommendationDocument,
+  RecommendationsFilterRequest: RecommendationsFilterRequest,
+  RecommendationsFilterRequestSortItems: RecommendationsFilterRequestSortItems,
+  RecommendationsPageMeta: RecommendationsPageMeta,
+  RecommendationsPageMetaPage: RecommendationsPageMetaPage,
   RegisterAppKeyResponse: RegisterAppKeyResponse,
   RelationAttributes: RelationAttributes,
   RelationEntity: RelationEntity,

@@ -313,6 +313,7 @@ export {
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
+  CloudCostManagementApiSearchCostRecommendationsRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
@@ -2488,6 +2489,11 @@ export { CostMetricType } from "./models/CostMetricType";
 export { CostOrchestrator } from "./models/CostOrchestrator";
 export { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
 export { CostOrchestratorType } from "./models/CostOrchestratorType";
+export { CostRecommendationArray } from "./models/CostRecommendationArray";
+export { CostRecommendationData } from "./models/CostRecommendationData";
+export { CostRecommendationDataAttributes } from "./models/CostRecommendationDataAttributes";
+export { CostRecommendationDataAttributesPotentialDailySavings } from "./models/CostRecommendationDataAttributesPotentialDailySavings";
+export { CostRecommendationDataType } from "./models/CostRecommendationDataType";
 export { CostTag } from "./models/CostTag";
 export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
@@ -5358,6 +5364,10 @@ export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType"
 export { RecommendationAttributes } from "./models/RecommendationAttributes";
 export { RecommendationData } from "./models/RecommendationData";
 export { RecommendationDocument } from "./models/RecommendationDocument";
+export { RecommendationsFilterRequest } from "./models/RecommendationsFilterRequest";
+export { RecommendationsFilterRequestSortItems } from "./models/RecommendationsFilterRequestSortItems";
+export { RecommendationsPageMeta } from "./models/RecommendationsPageMeta";
+export { RecommendationsPageMetaPage } from "./models/RecommendationsPageMetaPage";
 export { RecommendationType } from "./models/RecommendationType";
 export { ReferenceTableCreateSourceType } from "./models/ReferenceTableCreateSourceType";
 export { ReferenceTableSchemaFieldType } from "./models/ReferenceTableSchemaFieldType";
