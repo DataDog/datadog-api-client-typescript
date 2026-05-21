@@ -4024,6 +4024,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListAppVersionsResponse",
     },
+    "v2.GetBlueprint": {
+        "blueprintId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "GetBlueprintResponse",
+    },
+    "v2.ListBlueprints": {
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListBlueprintsResponse",
+    },
+    "v2.GetBlueprintsByIntegrationId": {
+        "integrationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetBlueprintsResponse",
+    },
+    "v2.GetBlueprintsBySlugs": {
+        "slugs": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetBlueprintsResponse",
+    },
+    "v2.ListTags": {
+        "operationResponseType": "AppBuilderListTagsResponse",
+    },
     "v2.ListAuditLogs": {
         "filterQuery": {
             "type": "string",

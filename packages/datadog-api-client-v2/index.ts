@@ -84,8 +84,12 @@ export {
   AppBuilderApiDeleteAppRequest,
   AppBuilderApiDeleteAppsRequest,
   AppBuilderApiGetAppRequest,
+  AppBuilderApiGetBlueprintRequest,
+  AppBuilderApiGetBlueprintsByIntegrationIdRequest,
+  AppBuilderApiGetBlueprintsBySlugsRequest,
   AppBuilderApiListAppVersionsRequest,
   AppBuilderApiListAppsRequest,
+  AppBuilderApiListBlueprintsRequest,
   AppBuilderApiPublishAppRequest,
   AppBuilderApiRevertAppRequest,
   AppBuilderApiUnpublishAppRequest,
@@ -1588,6 +1592,7 @@ export { ApmRetentionFilterType } from "./models/ApmRetentionFilterType";
 export { AppBuilderEvent } from "./models/AppBuilderEvent";
 export { AppBuilderEventName } from "./models/AppBuilderEventName";
 export { AppBuilderEventType } from "./models/AppBuilderEventType";
+export { AppBuilderListTagsResponse } from "./models/AppBuilderListTagsResponse";
 export { AppDefinitionType } from "./models/AppDefinitionType";
 export { AppDeploymentType } from "./models/AppDeploymentType";
 export { AppFavoriteType } from "./models/AppFavoriteType";
@@ -1954,6 +1959,11 @@ export { BillingDimensionsMappingBodyItemAttributes } from "./models/BillingDime
 export { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 export { BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus";
 export { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMappingResponse";
+export { BlueprintAttributes } from "./models/BlueprintAttributes";
+export { BlueprintData } from "./models/BlueprintData";
+export { BlueprintDataType } from "./models/BlueprintDataType";
+export { BlueprintMetadataAttributes } from "./models/BlueprintMetadataAttributes";
+export { BlueprintMetadataData } from "./models/BlueprintMetadataData";
 export { BranchCoverageSummaryRequest } from "./models/BranchCoverageSummaryRequest";
 export { BranchCoverageSummaryRequestAttributes } from "./models/BranchCoverageSummaryRequestAttributes";
 export { BranchCoverageSummaryRequestData } from "./models/BranchCoverageSummaryRequestData";
@@ -3464,6 +3474,8 @@ export { GetAppKeyRegistrationResponse } from "./models/GetAppKeyRegistrationRes
 export { GetAppResponse } from "./models/GetAppResponse";
 export { GetAppResponseData } from "./models/GetAppResponseData";
 export { GetAppResponseDataAttributes } from "./models/GetAppResponseDataAttributes";
+export { GetBlueprintResponse } from "./models/GetBlueprintResponse";
+export { GetBlueprintsResponse } from "./models/GetBlueprintsResponse";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
 export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
@@ -3995,6 +4007,7 @@ export { ListAppsResponseMeta } from "./models/ListAppsResponseMeta";
 export { ListAppsResponseMetaPage } from "./models/ListAppsResponseMetaPage";
 export { ListAppVersionsResponse } from "./models/ListAppVersionsResponse";
 export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
+export { ListBlueprintsResponse } from "./models/ListBlueprintsResponse";
 export { ListCampaignsResponse } from "./models/ListCampaignsResponse";
 export { ListConnectionsResponse } from "./models/ListConnectionsResponse";
 export { ListConnectionsResponseData } from "./models/ListConnectionsResponseData";
@@ -6634,6 +6647,8 @@ export { TableRowResourceData } from "./models/TableRowResourceData";
 export { TableRowResourceDataAttributes } from "./models/TableRowResourceDataAttributes";
 export { TableRowResourceDataType } from "./models/TableRowResourceDataType";
 export { TableRowResourceIdentifier } from "./models/TableRowResourceIdentifier";
+export { TagData } from "./models/TagData";
+export { TagDataType } from "./models/TagDataType";
 export { TargetingRule } from "./models/TargetingRule";
 export { TargetingRuleRequest } from "./models/TargetingRuleRequest";
 export { Team } from "./models/Team";
