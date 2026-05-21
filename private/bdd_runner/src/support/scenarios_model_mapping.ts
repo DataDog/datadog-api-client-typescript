@@ -7028,6 +7028,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CloudCostManagementApi.V2.ListCostOCIConfigs": {
     operationResponseType: "OCIConfigsResponse",
   },
+  "CloudCostManagementApi.V2.SearchCostRecommendations": {
+    pageSize: {
+      type: "string",
+      format: "",
+    },
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RecommendationsFilterRequest",
+      format: "",
+    },
+    operationResponseType: "CostRecommendationArray",
+  },
   "CloudCostManagementApi.V2.ListCostTagDescriptions": {
     filterCloud: {
       type: "string",
