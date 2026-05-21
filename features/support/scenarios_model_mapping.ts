@@ -8244,6 +8244,79 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GlobalIncidentSettingsResponse",
     },
+    "v2.ListIncidentJiraTemplates": {
+        "isDefault": {
+            "type": "boolean",
+            "format": "",
+            },
+        "incidentTypeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "templateType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentJiraTemplatesResponse",
+    },
+    "v2.CreateIncidentJiraTemplate": {
+        "body": {
+            "type": "IncidentJiraTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentJiraTemplateResponse",
+    },
+    "v2.GetIncidentJiraTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentJiraTemplateResponse",
+    },
+    "v2.UpdateIncidentJiraTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentJiraTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentJiraTemplateResponse",
+    },
+    "v2.DeleteIncidentJiraTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateIncidentMicrosoftTeamsConfiguration": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentMicrosoftTeamsConfigurationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentMicrosoftTeamsConfigurationResponse",
+    },
+    "v2.UpdateIncidentMicrosoftTeamsConfiguration": {
+        "configurationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentMicrosoftTeamsConfigurationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentMicrosoftTeamsConfigurationResponse",
+    },
     "v2.ListIncidentNotificationRules": {
         "include": {
             "type": "string",
@@ -8294,6 +8367,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.PatchIncidentNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PutIncidentNotificationRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentNotificationRule",
     },
     "v2.ListIncidentNotificationTemplates": {
         "filterIncidentType": {
@@ -8384,6 +8472,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "PostmortemTemplateResponse",
+    },
+    "v2.ListIncidentReservedRoles": {
+        "operationResponseType": "IncidentReservedRolesResponse",
+    },
+    "v2.GetIncidentReservedRole": {
+        "roleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentReservedRoleResponse",
+    },
+    "v2.ListIncidentTemplateVariables": {
+        "filterIncidentType": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "includeFollowUps": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTemplateVariablesResponse",
     },
     "v2.ListIncidentTypes": {
         "includeDeleted": {
@@ -8491,6 +8600,32 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentUserDefinedFieldResponse",
     },
+    "v2.CreateIncidentZoomConfiguration": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentZoomConfigurationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentZoomConfigurationResponse",
+    },
+    "v2.UpdateIncidentZoomConfiguration": {
+        "configurationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentZoomConfigurationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentZoomConfigurationResponse",
+    },
     "v2.ImportIncident": {
         "include": {
             "type": "Array<IncidentImportRelatedObject>",
@@ -8501,6 +8636,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentImportResponse",
+    },
+    "v2.ListIncidentPagerdutyServices": {
+        "includeUnresolved": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "IncidentPagerdutyServicesResponse",
+    },
+    "v2.GetIncidentPagerdutyRelatedIncidents": {
+        "pagerdutyIncidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentPagerdutyRelatedIncidentsResponse",
+    },
+    "v2.CreateIncidentRoleAssignment": {
+        "body": {
+            "type": "IncidentRoleAssignmentRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRoleAssignmentResponse",
+    },
+    "v2.GetIncidentRoleAssignment": {
+        "roleAssignmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentRoleAssignmentResponse",
+    },
+    "v2.DeleteIncidentRoleAssignment": {
+        "roleAssignmentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
     },
     "v2.SearchIncidents": {
         "include": {
@@ -8524,6 +8694,82 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "operationResponseType": "IncidentSearchResponse",
+    },
+    "v2.SearchIncidentsV2": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "IncidentSearchIncidentsSortOrder",
+            "format": "",
+            },
+        "withFacets": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterWithDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "semanticQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "timeZone": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentSearchIncidentsIncludeType>",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "IncidentSearchResponse",
+    },
+    "v2.ExportIncidents": {
+        "body": {
+            "type": "IncidentSearchIncidentsExportRequest",
+            "format": "",
+            },
+        "operationResponseType": "HttpFile",
+    },
+    "v2.CreateIncidentStatuspageIncident": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentStatuspageIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentStatuspageIncidentResponse",
+    },
+    "v2.UpdateIncidentStatuspageIncident": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "",
+            },
+        "statuspageIncidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentStatuspageIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentStatuspageIncidentResponse",
     },
     "v2.GetIncident": {
         "incidentId": {
@@ -8629,6 +8875,113 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Attachment",
     },
+    "v2.GetIncidentAutomationData": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentAutomationDataResponse",
+    },
+    "v2.UpsertIncidentAutomationData": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentAutomationDataRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentAutomationDataResponse",
+    },
+    "v2.GetIncidentCaseSourceLink": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentCaseLinkResponse",
+    },
+    "v2.ListIncidentCommunications": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCommunicationType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentCommunicationsResponse",
+    },
+    "v2.CreateIncidentCommunication": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentCommunicationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentCommunicationResponse",
+    },
+    "v2.GetIncidentCommunication": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "communicationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentCommunicationResponse",
+    },
+    "v2.DeleteIncidentCommunication": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "communicationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentCommunication": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "communicationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentCommunicationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentCommunicationResponse",
+    },
+    "v2.CreateIncidentGoogleMeetSpace": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentGoogleMeetIntegrationResponse",
+    },
     "v2.ListIncidentImpacts": {
         "incidentId": {
             "type": "string",
@@ -8665,6 +9018,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.CreateIncidentJiraIssue": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentJiraIssueRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentJiraIssueIntegrationResponse",
+    },
+    "v2.CreateIncidentMSTeamsOnlineMeeting": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentMSTeamsIntegrationResponse",
+    },
+    "v2.GetIncidentPageSourceLink": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentCaseLinkResponse",
     },
     "v2.ListIncidentIntegrations": {
         "incidentId": {
@@ -8775,6 +9153,182 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTodoResponse",
+    },
+    "v2.RenderIncidentTemplate": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentRenderTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRenderedTemplateResponse",
+    },
+    "v2.ListIncidentRuleExecutionStates": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRuleExecutionStatesResponse",
+    },
+    "v2.BatchUpdateIncidentRuleExecutionStates": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentBatchUpdateRuleExecutionStatesRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRuleExecutionStatesResponse",
+    },
+    "v2.BatchCreateIncidentRuleExecutionStates": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentBatchCreateRuleExecutionStatesRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRuleExecutionStatesResponse",
+    },
+    "v2.GetIncidentStatusPagesSuggestion": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentStatusPagesSuggestionResponse",
+    },
+    "v2.CreateIncidentStatusPageNotice": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "statuspageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "notifySubscribers": {
+            "type": "boolean",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentStatusPageNoticeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentStatusPageNoticeIntegrationResponse",
+    },
+    "v2.UpdateIncidentStatusPageNotice": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "statuspageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "noticeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "notifySubscribers": {
+            "type": "boolean",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentStatusPageNoticeUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentStatusPageNoticeIntegrationResponse",
+    },
+    "v2.ListIncidentTimelineEntries": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimelineEntriesResponse",
+    },
+    "v2.CreateIncidentTimelineEntry": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTimelineEntryRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimelineEntryResponse",
+    },
+    "v2.DeleteIncidentTimelineEntry": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "timelineEntryId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentTimelineEntry": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "timelineEntryId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentTimelineEntryRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimelineEntryResponse",
+    },
+    "v2.GetIncidentTimelineEntryThread": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "timelineEntryId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentTimelineThreadResponse",
+    },
+    "v2.CreateIncidentZoomMeeting": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentCreateZoomMeetingRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentZoomIntegrationResponse",
+    },
+    "v2.GetStatuspageSubscriptionPreferences": {
+        "operationResponseType": "IncidentStatuspagePreferencesResponse",
+    },
+    "v2.ListStatuspageEmailSubscriptions": {
+        "pageId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentStatuspageSubscriptionsResponse",
+    },
+    "v2.CreateStatuspageEmailSubscription": {
+        "pageId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentStatuspageSubscriptionRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentStatuspageSubscriptionResponse",
     },
     "v2.ListAWSAccounts": {
         "awsAccountId": {
