@@ -15,6 +15,10 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    * access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
    */
   "baselineUserLocations"?: boolean;
+  /**
+   * The duration in days during which Datadog learns the user's regular access locations. After this period, signals are generated for accesses from unknown locations.
+   */
+  "baselineUserLocationsDuration"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +39,10 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
     baselineUserLocations: {
       baseName: "baselineUserLocations",
       type: "boolean",
+    },
+    baselineUserLocationsDuration: {
+      baseName: "baselineUserLocationsDuration",
+      type: "number",
     },
     additionalProperties: {
       baseName: "additionalProperties",
