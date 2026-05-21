@@ -10,6 +10,10 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    */
   "baselineUserLocations"?: boolean;
   /**
+   * The duration in days during which Datadog learns the user's regular access locations. After this period, signals are generated for accesses from unknown locations.
+   */
+  "baselineUserLocationsDuration"?: number;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -27,6 +31,11 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
     baselineUserLocations: {
       baseName: "baselineUserLocations",
       type: "boolean",
+    },
+    baselineUserLocationsDuration: {
+      baseName: "baselineUserLocationsDuration",
+      type: "number",
+      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
