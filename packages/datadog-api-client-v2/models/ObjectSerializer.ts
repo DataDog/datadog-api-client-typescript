@@ -2551,6 +2551,8 @@ import { ObservabilityPipelineHttpClientDestination } from "./ObservabilityPipel
 import { ObservabilityPipelineHttpClientDestinationCompression } from "./ObservabilityPipelineHttpClientDestinationCompression";
 import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
 import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
+import { ObservabilityPipelineHttpServerSourceValidToken } from "./ObservabilityPipelineHttpServerSourceValidToken";
+import { ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader } from "./ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader";
 import { ObservabilityPipelineKafkaDestination } from "./ObservabilityPipelineKafkaDestination";
 import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipelineKafkaLibrdkafkaOption";
 import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
@@ -2616,12 +2618,14 @@ import { ObservabilityPipelineSocketSourceFramingCharacterDelimited } from "./Ob
 import { ObservabilityPipelineSocketSourceFramingChunkedGelf } from "./ObservabilityPipelineSocketSourceFramingChunkedGelf";
 import { ObservabilityPipelineSocketSourceFramingNewlineDelimited } from "./ObservabilityPipelineSocketSourceFramingNewlineDelimited";
 import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./ObservabilityPipelineSocketSourceFramingOctetCounting";
+import { ObservabilityPipelineSourceValidTokenFieldToAdd } from "./ObservabilityPipelineSourceValidTokenFieldToAdd";
 import { ObservabilityPipelineSpec } from "./ObservabilityPipelineSpec";
 import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
 import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
 import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
 import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
+import { ObservabilityPipelineSplunkHecSourceValidToken } from "./ObservabilityPipelineSplunkHecSourceValidToken";
 import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
 import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
 import { ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem } from "./ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem";
@@ -5656,6 +5660,10 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineHttpClientSourceType: ["http_client"],
   ObservabilityPipelineHttpServerSourceAuthStrategy: ["none", "plain"],
   ObservabilityPipelineHttpServerSourceType: ["http_server"],
+  ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation: [
+    "path",
+    "address",
+  ],
   ObservabilityPipelineKafkaDestinationCompression: [
     "none",
     "gzip",
@@ -9842,6 +9850,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineHttpClientDestinationCompression,
   ObservabilityPipelineHttpClientSource: ObservabilityPipelineHttpClientSource,
   ObservabilityPipelineHttpServerSource: ObservabilityPipelineHttpServerSource,
+  ObservabilityPipelineHttpServerSourceValidToken:
+    ObservabilityPipelineHttpServerSourceValidToken,
+  ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader:
+    ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader,
   ObservabilityPipelineKafkaDestination: ObservabilityPipelineKafkaDestination,
   ObservabilityPipelineKafkaLibrdkafkaOption:
     ObservabilityPipelineKafkaLibrdkafkaOption,
@@ -9962,6 +9974,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineSocketSourceFramingNewlineDelimited,
   ObservabilityPipelineSocketSourceFramingOctetCounting:
     ObservabilityPipelineSocketSourceFramingOctetCounting,
+  ObservabilityPipelineSourceValidTokenFieldToAdd:
+    ObservabilityPipelineSourceValidTokenFieldToAdd,
   ObservabilityPipelineSpec: ObservabilityPipelineSpec,
   ObservabilityPipelineSpecData: ObservabilityPipelineSpecData,
   ObservabilityPipelineSplitArrayProcessor:
@@ -9971,6 +9985,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineSplunkHecDestination:
     ObservabilityPipelineSplunkHecDestination,
   ObservabilityPipelineSplunkHecSource: ObservabilityPipelineSplunkHecSource,
+  ObservabilityPipelineSplunkHecSourceValidToken:
+    ObservabilityPipelineSplunkHecSourceValidToken,
   ObservabilityPipelineSplunkTcpSource: ObservabilityPipelineSplunkTcpSource,
   ObservabilityPipelineSumoLogicDestination:
     ObservabilityPipelineSumoLogicDestination,
@@ -12433,6 +12449,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineEnrichmentTableFieldEventLookup",
     "ObservabilityPipelineEnrichmentTableFieldVrlLookup",
     "ObservabilityPipelineEnrichmentTableFieldSecretLookup",
+  ],
+  ObservabilityPipelineHttpServerSourceValidTokenPathToToken: [
+    "ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation",
+    "ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader",
   ],
   ObservabilityPipelineMetricValue: [
     "ObservabilityPipelineGeneratedMetricIncrementByOne",
