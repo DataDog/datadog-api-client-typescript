@@ -62,6 +62,11 @@ import { LLMObsExperimentRequest } from "./models/LLMObsExperimentRequest";
 import { LLMObsExperimentResponse } from "./models/LLMObsExperimentResponse";
 import { LLMObsExperimentsResponse } from "./models/LLMObsExperimentsResponse";
 import { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
+import { LLMObsIntegrationAccount } from "./models/LLMObsIntegrationAccount";
+import { LLMObsIntegrationInferenceRequest } from "./models/LLMObsIntegrationInferenceRequest";
+import { LLMObsIntegrationInferenceResponse } from "./models/LLMObsIntegrationInferenceResponse";
+import { LLMObsIntegrationModel } from "./models/LLMObsIntegrationModel";
+import { LLMObsIntegrationName } from "./models/LLMObsIntegrationName";
 import { LLMObsProjectRequest } from "./models/LLMObsProjectRequest";
 import { LLMObsProjectResponse } from "./models/LLMObsProjectResponse";
 import { LLMObsProjectsResponse } from "./models/LLMObsProjectsResponse";
@@ -539,6 +544,84 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsExperimentEventsRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createLLMObsIntegrationInference(
+    integration: LLMObsIntegrationName,
+    accountId: string,
+    body: LLMObsIntegrationInferenceRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.createLLMObsIntegrationInference"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createLLMObsIntegrationInference' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsIntegrationInference'] = true`",
+      );
+    }
+
+    // verify required parameter 'integration' is not null or undefined
+    if (integration === null || integration === undefined) {
+      throw new RequiredError(
+        "integration",
+        "createLLMObsIntegrationInference",
+      );
+    }
+
+    // verify required parameter 'accountId' is not null or undefined
+    if (accountId === null || accountId === undefined) {
+      throw new RequiredError("accountId", "createLLMObsIntegrationInference");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createLLMObsIntegrationInference");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/inference"
+        .replace("{integration}", encodeURIComponent(String(integration)))
+        .replace("{account_id}", encodeURIComponent(String(accountId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.createLLMObsIntegrationInference",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsIntegrationInferenceRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1669,6 +1752,121 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsIntegrationAccounts(
+    integration: LLMObsIntegrationName,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsIntegrationAccounts"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsIntegrationAccounts' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsIntegrationAccounts'] = true`",
+      );
+    }
+
+    // verify required parameter 'integration' is not null or undefined
+    if (integration === null || integration === undefined) {
+      throw new RequiredError("integration", "listLLMObsIntegrationAccounts");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/integrations/{integration}/accounts".replace(
+        "{integration}",
+        encodeURIComponent(String(integration)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsIntegrationAccounts",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsIntegrationModels(
+    integration: LLMObsIntegrationName,
+    accountId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsIntegrationModels"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsIntegrationModels' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsIntegrationModels'] = true`",
+      );
+    }
+
+    // verify required parameter 'integration' is not null or undefined
+    if (integration === null || integration === undefined) {
+      throw new RequiredError("integration", "listLLMObsIntegrationModels");
+    }
+
+    // verify required parameter 'accountId' is not null or undefined
+    if (accountId === null || accountId === undefined) {
+      throw new RequiredError("accountId", "listLLMObsIntegrationModels");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/models"
+        .replace("{integration}", encodeURIComponent(String(integration)))
+        .replace("{account_id}", encodeURIComponent(String(accountId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsIntegrationModels",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
     // Apply auth methods
@@ -3148,6 +3346,88 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createLLMObsIntegrationInference
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createLLMObsIntegrationInference(
+    response: ResponseContext,
+  ): Promise<LLMObsIntegrationInferenceResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsIntegrationInferenceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsIntegrationInferenceResponse",
+      ) as LLMObsIntegrationInferenceResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsIntegrationInferenceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsIntegrationInferenceResponse",
+        "",
+      ) as LLMObsIntegrationInferenceResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createLLMObsProject
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4455,6 +4735,168 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsIntegrationAccounts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsIntegrationAccounts(
+    response: ResponseContext,
+  ): Promise<Array<LLMObsIntegrationAccount>> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: Array<LLMObsIntegrationAccount> = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Array<LLMObsIntegrationAccount>",
+      ) as Array<LLMObsIntegrationAccount>;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Array<LLMObsIntegrationAccount> = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Array<LLMObsIntegrationAccount>",
+        "",
+      ) as Array<LLMObsIntegrationAccount>;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsIntegrationModels
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsIntegrationModels(
+    response: ResponseContext,
+  ): Promise<Array<LLMObsIntegrationModel>> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: Array<LLMObsIntegrationModel> = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Array<LLMObsIntegrationModel>",
+      ) as Array<LLMObsIntegrationModel>;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Array<LLMObsIntegrationModel> = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Array<LLMObsIntegrationModel>",
+        "",
+      ) as Array<LLMObsIntegrationModel>;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsProjects
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5505,6 +5947,24 @@ export interface LLMObservabilityApiCreateLLMObsExperimentEventsRequest {
   body: LLMObsExperimentEventsRequest;
 }
 
+export interface LLMObservabilityApiCreateLLMObsIntegrationInferenceRequest {
+  /**
+   * The name of the LLM integration.
+   * @type LLMObsIntegrationName
+   */
+  integration: LLMObsIntegrationName;
+  /**
+   * The ID of the integration account.
+   * @type string
+   */
+  accountId: string;
+  /**
+   * Inference request parameters.
+   * @type LLMObsIntegrationInferenceRequest
+   */
+  body: LLMObsIntegrationInferenceRequest;
+}
+
 export interface LLMObservabilityApiCreateLLMObsProjectRequest {
   /**
    * Create project payload.
@@ -5734,6 +6194,27 @@ export interface LLMObservabilityApiListLLMObsExperimentsRequest {
    * @type number
    */
   pageLimit?: number;
+}
+
+export interface LLMObservabilityApiListLLMObsIntegrationAccountsRequest {
+  /**
+   * The name of the LLM integration.
+   * @type LLMObsIntegrationName
+   */
+  integration: LLMObsIntegrationName;
+}
+
+export interface LLMObservabilityApiListLLMObsIntegrationModelsRequest {
+  /**
+   * The name of the LLM integration.
+   * @type LLMObsIntegrationName
+   */
+  integration: LLMObsIntegrationName;
+  /**
+   * The ID of the integration account.
+   * @type string
+   */
+  accountId: string;
 }
 
 export interface LLMObservabilityApiListLLMObsProjectsRequest {
@@ -6144,6 +6625,32 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Run an LLM inference request through the specified integration and account, returning the model response and token usage.
+   * @param param The request object
+   */
+  public createLLMObsIntegrationInference(
+    param: LLMObservabilityApiCreateLLMObsIntegrationInferenceRequest,
+    options?: Configuration,
+  ): Promise<LLMObsIntegrationInferenceResponse> {
+    const requestContextPromise =
+      this.requestFactory.createLLMObsIntegrationInference(
+        param.integration,
+        param.accountId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLLMObsIntegrationInference(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new LLM Observability project. Returns the existing project if a name conflict occurs.
    * @param param The request object
    */
@@ -6540,6 +7047,55 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsExperiments(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve the list of configured accounts for the specified LLM provider integration.
+   * @param param The request object
+   */
+  public listLLMObsIntegrationAccounts(
+    param: LLMObservabilityApiListLLMObsIntegrationAccountsRequest,
+    options?: Configuration,
+  ): Promise<Array<LLMObsIntegrationAccount>> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsIntegrationAccounts(
+        param.integration,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsIntegrationAccounts(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve the list of models available for the specified LLM provider integration and account.
+   * @param param The request object
+   */
+  public listLLMObsIntegrationModels(
+    param: LLMObservabilityApiListLLMObsIntegrationModelsRequest,
+    options?: Configuration,
+  ): Promise<Array<LLMObsIntegrationModel>> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsIntegrationModels(
+        param.integration,
+        param.accountId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsIntegrationModels(
+            responseContext,
+          );
         });
     });
   }
