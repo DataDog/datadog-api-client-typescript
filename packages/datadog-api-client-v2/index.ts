@@ -669,6 +669,7 @@ export {
   LLMObservabilityApiCreateLLMObsDatasetRecordsRequest,
   LLMObservabilityApiCreateLLMObsExperimentRequest,
   LLMObservabilityApiCreateLLMObsExperimentEventsRequest,
+  LLMObservabilityApiCreateLLMObsIntegrationInferenceRequest,
   LLMObservabilityApiCreateLLMObsProjectRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
@@ -686,6 +687,8 @@ export {
   LLMObservabilityApiListLLMObsDatasetsRequest,
   LLMObservabilityApiListLLMObsExperimentEventsRequest,
   LLMObservabilityApiListLLMObsExperimentsRequest,
+  LLMObservabilityApiListLLMObsIntegrationAccountsRequest,
+  LLMObservabilityApiListLLMObsIntegrationModelsRequest,
   LLMObservabilityApiListLLMObsProjectsRequest,
   LLMObservabilityApiListLLMObsSpansRequest,
   LLMObservabilityApiSearchLLMObsExperimentationRequest,
@@ -4077,6 +4080,12 @@ export { LLMObsAnnotationQueueUpdateDataAttributesRequest } from "./models/LLMOb
 export { LLMObsAnnotationQueueUpdateDataRequest } from "./models/LLMObsAnnotationQueueUpdateDataRequest";
 export { LLMObsAnnotationQueueUpdateRequest } from "./models/LLMObsAnnotationQueueUpdateRequest";
 export { LLMObsAnnotationSchema } from "./models/LLMObsAnnotationSchema";
+export { LLMObsAnthropicEffort } from "./models/LLMObsAnthropicEffort";
+export { LLMObsAnthropicMetadata } from "./models/LLMObsAnthropicMetadata";
+export { LLMObsAnthropicThinkingConfig } from "./models/LLMObsAnthropicThinkingConfig";
+export { LLMObsAnthropicThinkingType } from "./models/LLMObsAnthropicThinkingType";
+export { LLMObsAzureOpenAIMetadata } from "./models/LLMObsAzureOpenAIMetadata";
+export { LLMObsBedrockMetadata } from "./models/LLMObsBedrockMetadata";
 export { LLMObsContentBlock } from "./models/LLMObsContentBlock";
 export { LLMObsContentBlockHeaderLevel } from "./models/LLMObsContentBlockHeaderLevel";
 export { LLMObsContentBlockLLMObsTraceInteractionType } from "./models/LLMObsContentBlockLLMObsTraceInteractionType";
@@ -4218,10 +4227,29 @@ export { LLMObsExperimentType } from "./models/LLMObsExperimentType";
 export { LLMObsExperimentUpdateDataAttributesRequest } from "./models/LLMObsExperimentUpdateDataAttributesRequest";
 export { LLMObsExperimentUpdateDataRequest } from "./models/LLMObsExperimentUpdateDataRequest";
 export { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
+export { LLMObsInferenceCode } from "./models/LLMObsInferenceCode";
+export { LLMObsInferenceContent } from "./models/LLMObsInferenceContent";
+export { LLMObsInferenceContentValue } from "./models/LLMObsInferenceContentValue";
+export { LLMObsInferenceErrorResponse } from "./models/LLMObsInferenceErrorResponse";
+export { LLMObsInferenceFunction } from "./models/LLMObsInferenceFunction";
+export { LLMObsInferenceMessage } from "./models/LLMObsInferenceMessage";
+export { LLMObsInferenceRunResult } from "./models/LLMObsInferenceRunResult";
+export { LLMObsInferenceTool } from "./models/LLMObsInferenceTool";
+export { LLMObsInferenceToolCall } from "./models/LLMObsInferenceToolCall";
+export { LLMObsInferenceToolResult } from "./models/LLMObsInferenceToolResult";
+export { LLMObsIntegrationAccount } from "./models/LLMObsIntegrationAccount";
+export { LLMObsIntegrationInferenceRequest } from "./models/LLMObsIntegrationInferenceRequest";
+export { LLMObsIntegrationInferenceResponse } from "./models/LLMObsIntegrationInferenceResponse";
+export { LLMObsIntegrationModel } from "./models/LLMObsIntegrationModel";
+export { LLMObsIntegrationName } from "./models/LLMObsIntegrationName";
+export { LLMObsInternalReasoning } from "./models/LLMObsInternalReasoning";
 export { LLMObsLabelSchema } from "./models/LLMObsLabelSchema";
 export { LLMObsLabelSchemaType } from "./models/LLMObsLabelSchemaType";
 export { LLMObsMetricAssessment } from "./models/LLMObsMetricAssessment";
 export { LLMObsMetricScoreType } from "./models/LLMObsMetricScoreType";
+export { LLMObsOpenAIMetadata } from "./models/LLMObsOpenAIMetadata";
+export { LLMObsOpenAIReasoningEffort } from "./models/LLMObsOpenAIReasoningEffort";
+export { LLMObsOpenAIReasoningSummary } from "./models/LLMObsOpenAIReasoningSummary";
 export { LLMObsProjectDataAttributesRequest } from "./models/LLMObsProjectDataAttributesRequest";
 export { LLMObsProjectDataAttributesResponse } from "./models/LLMObsProjectDataAttributesResponse";
 export { LLMObsProjectDataRequest } from "./models/LLMObsProjectDataRequest";
@@ -4258,6 +4286,7 @@ export { LLMObsTraceAnnotatedInteractionItem } from "./models/LLMObsTraceAnnotat
 export { LLMObsTraceInteractionItem } from "./models/LLMObsTraceInteractionItem";
 export { LLMObsTraceInteractionResponseItem } from "./models/LLMObsTraceInteractionResponseItem";
 export { LLMObsTraceInteractionType } from "./models/LLMObsTraceInteractionType";
+export { LLMObsVertexAIMetadata } from "./models/LLMObsVertexAIMetadata";
 export { Log } from "./models/Log";
 export { LogAttributes } from "./models/LogAttributes";
 export { LogsAggregateBucket } from "./models/LogsAggregateBucket";

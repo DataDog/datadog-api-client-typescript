@@ -1946,6 +1946,10 @@ import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueU
 import { LLMObsAnnotationQueueUpdateRequest } from "./LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsAnnotationQueuesResponse } from "./LLMObsAnnotationQueuesResponse";
 import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
+import { LLMObsAnthropicMetadata } from "./LLMObsAnthropicMetadata";
+import { LLMObsAnthropicThinkingConfig } from "./LLMObsAnthropicThinkingConfig";
+import { LLMObsAzureOpenAIMetadata } from "./LLMObsAzureOpenAIMetadata";
+import { LLMObsBedrockMetadata } from "./LLMObsBedrockMetadata";
 import { LLMObsContentBlock } from "./LLMObsContentBlock";
 import { LLMObsContentBlockTimeFrame } from "./LLMObsContentBlockTimeFrame";
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
@@ -2070,7 +2074,23 @@ import { LLMObsExperimentationSimpleSearchRequest } from "./LLMObsExperimentatio
 import { LLMObsExperimentationSimpleSearchResponse } from "./LLMObsExperimentationSimpleSearchResponse";
 import { LLMObsExperimentationSortField } from "./LLMObsExperimentationSortField";
 import { LLMObsExperimentsResponse } from "./LLMObsExperimentsResponse";
+import { LLMObsInferenceCode } from "./LLMObsInferenceCode";
+import { LLMObsInferenceContent } from "./LLMObsInferenceContent";
+import { LLMObsInferenceContentValue } from "./LLMObsInferenceContentValue";
+import { LLMObsInferenceErrorResponse } from "./LLMObsInferenceErrorResponse";
+import { LLMObsInferenceFunction } from "./LLMObsInferenceFunction";
+import { LLMObsInferenceMessage } from "./LLMObsInferenceMessage";
+import { LLMObsInferenceRunResult } from "./LLMObsInferenceRunResult";
+import { LLMObsInferenceTool } from "./LLMObsInferenceTool";
+import { LLMObsInferenceToolCall } from "./LLMObsInferenceToolCall";
+import { LLMObsInferenceToolResult } from "./LLMObsInferenceToolResult";
+import { LLMObsIntegrationAccount } from "./LLMObsIntegrationAccount";
+import { LLMObsIntegrationInferenceRequest } from "./LLMObsIntegrationInferenceRequest";
+import { LLMObsIntegrationInferenceResponse } from "./LLMObsIntegrationInferenceResponse";
+import { LLMObsIntegrationModel } from "./LLMObsIntegrationModel";
+import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
+import { LLMObsOpenAIMetadata } from "./LLMObsOpenAIMetadata";
 import { LLMObsProjectDataAttributesRequest } from "./LLMObsProjectDataAttributesRequest";
 import { LLMObsProjectDataAttributesResponse } from "./LLMObsProjectDataAttributesResponse";
 import { LLMObsProjectDataRequest } from "./LLMObsProjectDataRequest";
@@ -2102,6 +2122,7 @@ import { LLMObsSpansResponsePage } from "./LLMObsSpansResponsePage";
 import { LLMObsTraceAnnotatedInteractionItem } from "./LLMObsTraceAnnotatedInteractionItem";
 import { LLMObsTraceInteractionItem } from "./LLMObsTraceInteractionItem";
 import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
+import { LLMObsVertexAIMetadata } from "./LLMObsVertexAIMetadata";
 import { LaunchDarklyAPIKey } from "./LaunchDarklyAPIKey";
 import { LaunchDarklyAPIKeyUpdate } from "./LaunchDarklyAPIKeyUpdate";
 import { LaunchDarklyIntegration } from "./LaunchDarklyIntegration";
@@ -5322,6 +5343,8 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
   LLMObsAnnotationQueueInteractionsType: ["interactions"],
   LLMObsAnnotationQueueType: ["queues"],
+  LLMObsAnthropicEffort: ["low", "medium", "high", "max"],
+  LLMObsAnthropicThinkingType: ["enabled", "disabled", "adaptive"],
   LLMObsContentBlockHeaderLevel: ["sm", "md", "lg", "xl"],
   LLMObsContentBlockLLMObsTraceInteractionType: ["trace", "experiment_trace"],
   LLMObsContentBlockType: [
@@ -5354,9 +5377,19 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsExperimentType: ["experiments"],
   LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
   LLMObsExperimentationType: ["experimentation"],
+  LLMObsIntegrationName: [
+    "openai",
+    "amazon_bedrock",
+    "anthropic",
+    "azure_openai",
+    "vertex_ai",
+    "llmproxy",
+  ],
   LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
   LLMObsMetricAssessment: ["pass", "fail"],
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
+  LLMObsOpenAIReasoningEffort: ["none", "low", "medium", "high", "xhigh"],
+  LLMObsOpenAIReasoningSummary: ["auto", "concise", "detailed"],
   LLMObsProjectType: ["projects"],
   LLMObsRecordType: ["records"],
   LLMObsSearchSpansRequestType: ["spans"],
@@ -9101,6 +9134,10 @@ const typeMap: { [index: string]: any } = {
   LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
   LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
   LLMObsAnnotationSchema: LLMObsAnnotationSchema,
+  LLMObsAnthropicMetadata: LLMObsAnthropicMetadata,
+  LLMObsAnthropicThinkingConfig: LLMObsAnthropicThinkingConfig,
+  LLMObsAzureOpenAIMetadata: LLMObsAzureOpenAIMetadata,
+  LLMObsBedrockMetadata: LLMObsBedrockMetadata,
   LLMObsContentBlock: LLMObsContentBlock,
   LLMObsContentBlockTimeFrame: LLMObsContentBlockTimeFrame,
   LLMObsCursorMeta: LLMObsCursorMeta,
@@ -9261,7 +9298,23 @@ const typeMap: { [index: string]: any } = {
     LLMObsExperimentationSimpleSearchResponse,
   LLMObsExperimentationSortField: LLMObsExperimentationSortField,
   LLMObsExperimentsResponse: LLMObsExperimentsResponse,
+  LLMObsInferenceCode: LLMObsInferenceCode,
+  LLMObsInferenceContent: LLMObsInferenceContent,
+  LLMObsInferenceContentValue: LLMObsInferenceContentValue,
+  LLMObsInferenceErrorResponse: LLMObsInferenceErrorResponse,
+  LLMObsInferenceFunction: LLMObsInferenceFunction,
+  LLMObsInferenceMessage: LLMObsInferenceMessage,
+  LLMObsInferenceRunResult: LLMObsInferenceRunResult,
+  LLMObsInferenceTool: LLMObsInferenceTool,
+  LLMObsInferenceToolCall: LLMObsInferenceToolCall,
+  LLMObsInferenceToolResult: LLMObsInferenceToolResult,
+  LLMObsIntegrationAccount: LLMObsIntegrationAccount,
+  LLMObsIntegrationInferenceRequest: LLMObsIntegrationInferenceRequest,
+  LLMObsIntegrationInferenceResponse: LLMObsIntegrationInferenceResponse,
+  LLMObsIntegrationModel: LLMObsIntegrationModel,
+  LLMObsInternalReasoning: LLMObsInternalReasoning,
   LLMObsLabelSchema: LLMObsLabelSchema,
+  LLMObsOpenAIMetadata: LLMObsOpenAIMetadata,
   LLMObsProjectDataAttributesRequest: LLMObsProjectDataAttributesRequest,
   LLMObsProjectDataAttributesResponse: LLMObsProjectDataAttributesResponse,
   LLMObsProjectDataRequest: LLMObsProjectDataRequest,
@@ -9294,6 +9347,7 @@ const typeMap: { [index: string]: any } = {
   LLMObsTraceAnnotatedInteractionItem: LLMObsTraceAnnotatedInteractionItem,
   LLMObsTraceInteractionItem: LLMObsTraceInteractionItem,
   LLMObsTraceInteractionResponseItem: LLMObsTraceInteractionResponseItem,
+  LLMObsVertexAIMetadata: LLMObsVertexAIMetadata,
   LaunchDarklyAPIKey: LaunchDarklyAPIKey,
   LaunchDarklyAPIKeyUpdate: LaunchDarklyAPIKeyUpdate,
   LaunchDarklyIntegration: LaunchDarklyIntegration,
