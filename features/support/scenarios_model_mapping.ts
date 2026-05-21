@@ -2745,6 +2745,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListLLMObsIntegrationAccounts": {
+        "integration": {
+            "type": "LLMObsIntegrationName",
+            "format": "",
+            },
+        "operationResponseType": "Array<LLMObsIntegrationAccount>",
+    },
+    "v2.CreateLLMObsIntegrationInference": {
+        "integration": {
+            "type": "LLMObsIntegrationName",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsIntegrationInferenceRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsIntegrationInferenceResponse",
+    },
+    "v2.ListLLMObsIntegrationModels": {
+        "integration": {
+            "type": "LLMObsIntegrationName",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Array<LLMObsIntegrationModel>",
+    },
     "v2.ListLLMObsProjects": {
         "filterId": {
             "type": "string",
