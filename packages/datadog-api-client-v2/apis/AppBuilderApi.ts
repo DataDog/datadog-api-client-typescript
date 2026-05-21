@@ -17,6 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { AppBuilderListTagsResponse } from "../models/AppBuilderListTagsResponse";
 import { AppsSortField } from "../models/AppsSortField";
 import { CreateAppRequest } from "../models/CreateAppRequest";
 import { CreateAppResponse } from "../models/CreateAppResponse";
@@ -25,9 +26,12 @@ import { DeleteAppResponse } from "../models/DeleteAppResponse";
 import { DeleteAppsRequest } from "../models/DeleteAppsRequest";
 import { DeleteAppsResponse } from "../models/DeleteAppsResponse";
 import { GetAppResponse } from "../models/GetAppResponse";
+import { GetBlueprintResponse } from "../models/GetBlueprintResponse";
+import { GetBlueprintsResponse } from "../models/GetBlueprintsResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAppsResponse } from "../models/ListAppsResponse";
 import { ListAppVersionsResponse } from "../models/ListAppVersionsResponse";
+import { ListBlueprintsResponse } from "../models/ListBlueprintsResponse";
 import { PublishAppResponse } from "../models/PublishAppResponse";
 import { UnpublishAppResponse } from "../models/UnpublishAppResponse";
 import { UpdateAppFavoriteRequest } from "../models/UpdateAppFavoriteRequest";
@@ -248,6 +252,106 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getBlueprint(
+    blueprintId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'blueprintId' is not null or undefined
+    if (blueprintId === null || blueprintId === undefined) {
+      throw new RequiredError("blueprintId", "getBlueprint");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/blueprint/{blueprint_id}".replace(
+      "{blueprint_id}",
+      encodeURIComponent(String(blueprintId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.getBlueprint")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getBlueprintsByIntegrationId(
+    integrationId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'integrationId' is not null or undefined
+    if (integrationId === null || integrationId === undefined) {
+      throw new RequiredError("integrationId", "getBlueprintsByIntegrationId");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/app-builder/blueprints/integration-id/{integration_id}".replace(
+        "{integration_id}",
+        encodeURIComponent(String(integrationId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.getBlueprintsByIntegrationId")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getBlueprintsBySlugs(
+    slugs: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'slugs' is not null or undefined
+    if (slugs === null || slugs === undefined) {
+      throw new RequiredError("slugs", "getBlueprintsBySlugs");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/blueprints/slugs/{slugs}".replace(
+      "{slugs}",
+      encodeURIComponent(String(slugs))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.getBlueprintsBySlugs")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listApps(
     limit?: number,
     page?: number,
@@ -403,6 +507,70 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listBlueprints(
+    limit?: number,
+    page?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/blueprints";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.listBlueprints")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+    if (page !== undefined) {
+      requestContext.setQueryParam(
+        "page",
+        ObjectSerializer.serialize(page, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTags(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/app-builder/tags";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AppBuilderApi.listTags")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1272,6 +1440,249 @@ export class AppBuilderApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getBlueprint
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getBlueprint(
+    response: ResponseContext
+  ): Promise<GetBlueprintResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetBlueprintResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetBlueprintResponse"
+      ) as GetBlueprintResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetBlueprintResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetBlueprintResponse",
+        ""
+      ) as GetBlueprintResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getBlueprintsByIntegrationId
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getBlueprintsByIntegrationId(
+    response: ResponseContext
+  ): Promise<GetBlueprintsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetBlueprintsResponse"
+      ) as GetBlueprintsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetBlueprintsResponse",
+        ""
+      ) as GetBlueprintsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getBlueprintsBySlugs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getBlueprintsBySlugs(
+    response: ResponseContext
+  ): Promise<GetBlueprintsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetBlueprintsResponse"
+      ) as GetBlueprintsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetBlueprintsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetBlueprintsResponse",
+        ""
+      ) as GetBlueprintsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listApps
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1422,6 +1833,168 @@ export class AppBuilderApiResponseProcessor {
         "ListAppVersionsResponse",
         ""
       ) as ListAppVersionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listBlueprints
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listBlueprints(
+    response: ResponseContext
+  ): Promise<ListBlueprintsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListBlueprintsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListBlueprintsResponse"
+      ) as ListBlueprintsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListBlueprintsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListBlueprintsResponse",
+        ""
+      ) as ListBlueprintsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listTags
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTags(
+    response: ResponseContext
+  ): Promise<AppBuilderListTagsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AppBuilderListTagsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AppBuilderListTagsResponse"
+      ) as AppBuilderListTagsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AppBuilderListTagsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AppBuilderListTagsResponse",
+        ""
+      ) as AppBuilderListTagsResponse;
       return body;
     }
 
@@ -2197,6 +2770,30 @@ export interface AppBuilderApiGetAppRequest {
   version?: string;
 }
 
+export interface AppBuilderApiGetBlueprintRequest {
+  /**
+   * The ID of the blueprint to retrieve.
+   * @type string
+   */
+  blueprintId: string;
+}
+
+export interface AppBuilderApiGetBlueprintsByIntegrationIdRequest {
+  /**
+   * The integration ID to filter blueprints by.
+   * @type string
+   */
+  integrationId: string;
+}
+
+export interface AppBuilderApiGetBlueprintsBySlugsRequest {
+  /**
+   * A comma-separated list of blueprint slugs.
+   * @type string
+   */
+  slugs: string;
+}
+
 export interface AppBuilderApiListAppsRequest {
   /**
    * The number of apps to return per page.
@@ -2268,6 +2865,19 @@ export interface AppBuilderApiListAppVersionsRequest {
   limit?: number;
   /**
    * The page number to return.
+   * @type number
+   */
+  page?: number;
+}
+
+export interface AppBuilderApiListBlueprintsRequest {
+  /**
+   * The number of blueprints to return per page. Defaults to 10. Maximum is 100.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * The page of results to return. Starts at 0.
    * @type number
    */
   page?: number;
@@ -2504,6 +3114,72 @@ export class AppBuilderApi {
   }
 
   /**
+   * Retrieve an app blueprint by its ID.
+   * @param param The request object
+   */
+  public getBlueprint(
+    param: AppBuilderApiGetBlueprintRequest,
+    options?: Configuration
+  ): Promise<GetBlueprintResponse> {
+    const requestContextPromise = this.requestFactory.getBlueprint(
+      param.blueprintId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getBlueprint(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List app blueprints associated with a specific integration ID.
+   * @param param The request object
+   */
+  public getBlueprintsByIntegrationId(
+    param: AppBuilderApiGetBlueprintsByIntegrationIdRequest,
+    options?: Configuration
+  ): Promise<GetBlueprintsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getBlueprintsByIntegrationId(
+        param.integrationId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getBlueprintsByIntegrationId(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve app blueprints by their slugs.
+   * @param param The request object
+   */
+  public getBlueprintsBySlugs(
+    param: AppBuilderApiGetBlueprintsBySlugsRequest,
+    options?: Configuration
+  ): Promise<GetBlueprintsResponse> {
+    const requestContextPromise = this.requestFactory.getBlueprintsBySlugs(
+      param.slugs,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getBlueprintsBySlugs(responseContext);
+        });
+    });
+  }
+
+  /**
    * List all apps, with optional filters and sorting. This endpoint is paginated. Only basic app information such as the app ID, name, and description is returned by this endpoint. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
    * @param param The request object
    */
@@ -2553,6 +3229,45 @@ export class AppBuilderApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAppVersions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List available app blueprints.
+   * @param param The request object
+   */
+  public listBlueprints(
+    param: AppBuilderApiListBlueprintsRequest = {},
+    options?: Configuration
+  ): Promise<ListBlueprintsResponse> {
+    const requestContextPromise = this.requestFactory.listBlueprints(
+      param.limit,
+      param.page,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listBlueprints(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all tags associated with the authenticated user's apps.
+   * @param param The request object
+   */
+  public listTags(
+    options?: Configuration
+  ): Promise<AppBuilderListTagsResponse> {
+    const requestContextPromise = this.requestFactory.listTags(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTags(responseContext);
         });
     });
   }
