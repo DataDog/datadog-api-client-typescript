@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineSplunkHecSourceType } from "./ObservabilityPipelineSplunkHecSourceType";
+import { ObservabilityPipelineSplunkHecSourceValidToken } from "./ObservabilityPipelineSplunkHecSourceValidToken";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
@@ -30,6 +31,11 @@ export class ObservabilityPipelineSplunkHecSource {
    * The source type. Always `splunk_hec`.
    */
   "type": ObservabilityPipelineSplunkHecSourceType;
+  /**
+   * A list of tokens that are accepted for authenticating incoming HEC requests. When set, the source
+   * rejects any request whose HEC token does not match an enabled entry in this list.
+   */
+  "validTokens"?: Array<ObservabilityPipelineSplunkHecSourceValidToken>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -66,6 +72,10 @@ export class ObservabilityPipelineSplunkHecSource {
       baseName: "type",
       type: "ObservabilityPipelineSplunkHecSourceType",
       required: true,
+    },
+    validTokens: {
+      baseName: "valid_tokens",
+      type: "Array<ObservabilityPipelineSplunkHecSourceValidToken>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
