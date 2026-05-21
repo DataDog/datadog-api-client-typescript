@@ -20,14 +20,10 @@ import { CreateDegradationRequest } from "./CreateDegradationRequest";
 import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
 import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
-import { CreateDegradationRequestDataAttributesUpdatesItems } from "./CreateDegradationRequestDataAttributesUpdatesItems";
-import { CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateMaintenanceRequest } from "./CreateMaintenanceRequest";
 import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
-import { CreateMaintenanceRequestDataAttributesUpdatesItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItems";
-import { CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems";
 import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
 import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
@@ -222,20 +218,12 @@ export const TypingInfo: ModelTypingInfo = {
       CreateDegradationRequestDataAttributes,
     CreateDegradationRequestDataAttributesComponentsAffectedItems:
       CreateDegradationRequestDataAttributesComponentsAffectedItems,
-    CreateDegradationRequestDataAttributesUpdatesItems:
-      CreateDegradationRequestDataAttributesUpdatesItems,
-    CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems:
-      CreateDegradationRequestDataAttributesUpdatesItemsComponentsAffectedItems,
     CreateMaintenanceRequest: CreateMaintenanceRequest,
     CreateMaintenanceRequestData: CreateMaintenanceRequestData,
     CreateMaintenanceRequestDataAttributes:
       CreateMaintenanceRequestDataAttributes,
     CreateMaintenanceRequestDataAttributesComponentsAffectedItems:
       CreateMaintenanceRequestDataAttributesComponentsAffectedItems,
-    CreateMaintenanceRequestDataAttributesUpdatesItems:
-      CreateMaintenanceRequestDataAttributesUpdatesItems,
-    CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems:
-      CreateMaintenanceRequestDataAttributesUpdatesItemsComponentsAffectedItems,
     CreateStatusPageRequest: CreateStatusPageRequest,
     CreateStatusPageRequestData: CreateStatusPageRequestData,
     CreateStatusPageRequestDataAttributes:
