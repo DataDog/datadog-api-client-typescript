@@ -99,6 +99,10 @@ import { CostMetric } from "./CostMetric";
 import { CostMetricsResponse } from "./CostMetricsResponse";
 import { CostOrchestrator } from "./CostOrchestrator";
 import { CostOrchestratorsResponse } from "./CostOrchestratorsResponse";
+import { CostRecommendationArray } from "./CostRecommendationArray";
+import { CostRecommendationData } from "./CostRecommendationData";
+import { CostRecommendationDataAttributes } from "./CostRecommendationDataAttributes";
+import { CostRecommendationDataAttributesPotentialDailySavings } from "./CostRecommendationDataAttributesPotentialDailySavings";
 import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
@@ -157,6 +161,10 @@ import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
+import { RecommendationsFilterRequest } from "./RecommendationsFilterRequest";
+import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
+import { RecommendationsPageMeta } from "./RecommendationsPageMeta";
+import { RecommendationsPageMetaPage } from "./RecommendationsPageMetaPage";
 import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
 import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
@@ -219,6 +227,7 @@ export const TypingInfo: ModelTypingInfo = {
     CostCurrencyType: ["cost_currency"],
     CostMetricType: ["cost_metric"],
     CostOrchestratorType: ["cost_orchestrator"],
+    CostRecommendationDataType: ["recommendation"],
     CostTagDescriptionSource: ["human", "ai_generated", "datadog"],
     CostTagDescriptionType: ["cost_tag_description"],
     CostTagKeyMetadataType: ["cost_tag_key_metadata"],
@@ -378,6 +387,11 @@ export const TypingInfo: ModelTypingInfo = {
     CostMetricsResponse: CostMetricsResponse,
     CostOrchestrator: CostOrchestrator,
     CostOrchestratorsResponse: CostOrchestratorsResponse,
+    CostRecommendationArray: CostRecommendationArray,
+    CostRecommendationData: CostRecommendationData,
+    CostRecommendationDataAttributes: CostRecommendationDataAttributes,
+    CostRecommendationDataAttributesPotentialDailySavings:
+      CostRecommendationDataAttributesPotentialDailySavings,
     CostTag: CostTag,
     CostTagAttributes: CostTagAttributes,
     CostTagDescription: CostTagDescription,
@@ -444,6 +458,11 @@ export const TypingInfo: ModelTypingInfo = {
     OCIConfig: OCIConfig,
     OCIConfigAttributes: OCIConfigAttributes,
     OCIConfigsResponse: OCIConfigsResponse,
+    RecommendationsFilterRequest: RecommendationsFilterRequest,
+    RecommendationsFilterRequestSortItems:
+      RecommendationsFilterRequestSortItems,
+    RecommendationsPageMeta: RecommendationsPageMeta,
+    RecommendationsPageMetaPage: RecommendationsPageMetaPage,
     ReorderRuleResourceArray: ReorderRuleResourceArray,
     ReorderRuleResourceData: ReorderRuleResourceData,
     ReorderRulesetResourceArray: ReorderRulesetResourceArray,

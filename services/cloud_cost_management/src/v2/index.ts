@@ -40,6 +40,7 @@ export {
   CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiReorderCustomAllocationRulesRequest,
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
+  CloudCostManagementApiSearchCostRecommendationsRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
@@ -172,6 +173,11 @@ export { CostMetricType } from "./models/CostMetricType";
 export { CostOrchestrator } from "./models/CostOrchestrator";
 export { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
 export { CostOrchestratorType } from "./models/CostOrchestratorType";
+export { CostRecommendationArray } from "./models/CostRecommendationArray";
+export { CostRecommendationData } from "./models/CostRecommendationData";
+export { CostRecommendationDataAttributes } from "./models/CostRecommendationDataAttributes";
+export { CostRecommendationDataAttributesPotentialDailySavings } from "./models/CostRecommendationDataAttributesPotentialDailySavings";
+export { CostRecommendationDataType } from "./models/CostRecommendationDataType";
 export { CostTag } from "./models/CostTag";
 export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
@@ -244,6 +250,10 @@ export { OCIConfig } from "./models/OCIConfig";
 export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
 export { OCIConfigsResponse } from "./models/OCIConfigsResponse";
 export { OCIConfigType } from "./models/OCIConfigType";
+export { RecommendationsFilterRequest } from "./models/RecommendationsFilterRequest";
+export { RecommendationsFilterRequestSortItems } from "./models/RecommendationsFilterRequestSortItems";
+export { RecommendationsPageMeta } from "./models/RecommendationsPageMeta";
+export { RecommendationsPageMetaPage } from "./models/RecommendationsPageMetaPage";
 export { ReorderRuleResourceArray } from "./models/ReorderRuleResourceArray";
 export { ReorderRuleResourceData } from "./models/ReorderRuleResourceData";
 export { ReorderRuleResourceDataType } from "./models/ReorderRuleResourceDataType";

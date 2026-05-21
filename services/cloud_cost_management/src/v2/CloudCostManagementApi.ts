@@ -54,6 +54,7 @@ import { CostAnomalyResponse } from "./models/CostAnomalyResponse";
 import { CostCurrencyResponse } from "./models/CostCurrencyResponse";
 import { CostMetricsResponse } from "./models/CostMetricsResponse";
 import { CostOrchestratorsResponse } from "./models/CostOrchestratorsResponse";
+import { CostRecommendationArray } from "./models/CostRecommendationArray";
 import { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
 import { CostTagKeyMetadataResponse } from "./models/CostTagKeyMetadataResponse";
 import { CostTagKeyResponse } from "./models/CostTagKeyResponse";
@@ -73,6 +74,7 @@ import { GCPUsageCostConfigResponse } from "./models/GCPUsageCostConfigResponse"
 import { GCPUsageCostConfigsResponse } from "./models/GCPUsageCostConfigsResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { OCIConfigsResponse } from "./models/OCIConfigsResponse";
+import { RecommendationsFilterRequest } from "./models/RecommendationsFilterRequest";
 import { ReorderRuleResourceArray } from "./models/ReorderRuleResourceArray";
 import { ReorderRulesetResourceArray } from "./models/ReorderRulesetResourceArray";
 import { RulesetResp } from "./models/RulesetResp";
@@ -3175,6 +3177,85 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReorderRulesetResourceArray", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchCostRecommendations(
+    body: RecommendationsFilterRequest,
+    pageSize?: string,
+    pageToken?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudCostManagementApi.v2.searchCostRecommendations"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'searchCostRecommendations' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.searchCostRecommendations'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "searchCostRecommendations");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/recommendations";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.searchCostRecommendations",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (pageToken !== undefined) {
+      requestContext.setQueryParam(
+        "page[token]",
+        serialize(pageToken, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RecommendationsFilterRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -6670,6 +6751,62 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to searchCostRecommendations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchCostRecommendations(
+    response: ResponseContext,
+  ): Promise<CostRecommendationArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CostRecommendationArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationArray",
+      ) as CostRecommendationArray;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostRecommendationArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CostRecommendationArray",
+        "",
+      ) as CostRecommendationArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateCostAWSCURConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7893,6 +8030,23 @@ export interface CloudCostManagementApiReorderTagPipelinesRulesetsRequest {
    * @type ReorderRulesetResourceArray
    */
   body: ReorderRulesetResourceArray;
+}
+
+export interface CloudCostManagementApiSearchCostRecommendationsRequest {
+  /**
+   * @type RecommendationsFilterRequest
+   */
+  body: RecommendationsFilterRequest;
+  /**
+   * Number of results per page (1–10000).
+   * @type string
+   */
+  pageSize?: string;
+  /**
+   * Pagination token from a previous response.
+   * @type string
+   */
+  pageToken?: string;
 }
 
 export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
@@ -9160,6 +9314,31 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.reorderTagPipelinesRulesets(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List cost recommendations matching a filter, with pagination and sorting.
+   * @param param The request object
+   */
+  public searchCostRecommendations(
+    param: CloudCostManagementApiSearchCostRecommendationsRequest,
+    options?: Configuration,
+  ): Promise<CostRecommendationArray> {
+    const requestContextPromise = this.requestFactory.searchCostRecommendations(
+      param.body,
+      param.pageSize,
+      param.pageToken,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchCostRecommendations(
             responseContext,
           );
         });
