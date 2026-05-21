@@ -2755,6 +2755,39 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "LLMObservabilityApi.V2.ListLLMObsIntegrationAccounts": {
+    integration: {
+      type: "LLMObsIntegrationName",
+      format: "",
+    },
+    operationResponseType: "Array<LLMObsIntegrationAccount>",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsIntegrationInference": {
+    integration: {
+      type: "LLMObsIntegrationName",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsIntegrationInferenceRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsIntegrationInferenceResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsIntegrationModels": {
+    integration: {
+      type: "LLMObsIntegrationName",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "Array<LLMObsIntegrationModel>",
+  },
   "LLMObservabilityApi.V2.ListLLMObsProjects": {
     filterId: {
       type: "string",
