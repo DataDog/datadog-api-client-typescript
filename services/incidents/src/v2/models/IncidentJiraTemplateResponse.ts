@@ -1,0 +1,47 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { IncidentJiraTemplateDataResponse } from "./IncidentJiraTemplateDataResponse";
+
+/**
+ * Response with a single incident Jira template.
+ */
+export class IncidentJiraTemplateResponse {
+  /**
+   * Incident Jira template data in a response.
+   */
+  "data": IncidentJiraTemplateDataResponse;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "IncidentJiraTemplateDataResponse",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return IncidentJiraTemplateResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
