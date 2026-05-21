@@ -7,10 +7,15 @@ import { ActionQueryProperties } from "./ActionQueryProperties";
 import { ActionQuerySpecConnectionGroup } from "./ActionQuerySpecConnectionGroup";
 import { ActionQuerySpecObject } from "./ActionQuerySpecObject";
 import { AppBuilderEvent } from "./AppBuilderEvent";
+import { AppBuilderListTagsResponse } from "./AppBuilderListTagsResponse";
 import { AppMeta } from "./AppMeta";
 import { AppRelationship } from "./AppRelationship";
 import { AppVersion } from "./AppVersion";
 import { AppVersionAttributes } from "./AppVersionAttributes";
+import { BlueprintAttributes } from "./BlueprintAttributes";
+import { BlueprintData } from "./BlueprintData";
+import { BlueprintMetadataAttributes } from "./BlueprintMetadataAttributes";
+import { BlueprintMetadataData } from "./BlueprintMetadataData";
 import { Component } from "./Component";
 import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
@@ -42,6 +47,8 @@ import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
+import { GetBlueprintResponse } from "./GetBlueprintResponse";
+import { GetBlueprintsResponse } from "./GetBlueprintsResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -52,9 +59,11 @@ import { ListAppsResponseDataItemsAttributes } from "./ListAppsResponseDataItems
 import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataItemsRelationships";
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
+import { ListBlueprintsResponse } from "./ListBlueprintsResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
 import { StateVariable } from "./StateVariable";
 import { StateVariableProperties } from "./StateVariableProperties";
+import { TagData } from "./TagData";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateAppFavoriteRequest } from "./UpdateAppFavoriteRequest";
 import { UpdateAppFavoriteRequestData } from "./UpdateAppFavoriteRequestData";
@@ -122,6 +131,7 @@ export const TypingInfo: ModelTypingInfo = {
       "-updated_at",
       "-user_name",
     ],
+    BlueprintDataType: ["blueprint"],
     ComponentGridType: ["grid"],
     ComponentType: [
       "table",
@@ -149,6 +159,7 @@ export const TypingInfo: ModelTypingInfo = {
     DataTransformType: ["dataTransform"],
     PublishRequestType: ["publishRequest"],
     StateVariableType: ["stateVariable"],
+    TagDataType: ["tag"],
   },
   oneOfMap: {
     ActionQueryCondition: ["boolean", "string"],
@@ -173,10 +184,15 @@ export const TypingInfo: ModelTypingInfo = {
     ActionQuerySpecConnectionGroup: ActionQuerySpecConnectionGroup,
     ActionQuerySpecObject: ActionQuerySpecObject,
     AppBuilderEvent: AppBuilderEvent,
+    AppBuilderListTagsResponse: AppBuilderListTagsResponse,
     AppMeta: AppMeta,
     AppRelationship: AppRelationship,
     AppVersion: AppVersion,
     AppVersionAttributes: AppVersionAttributes,
+    BlueprintAttributes: BlueprintAttributes,
+    BlueprintData: BlueprintData,
+    BlueprintMetadataAttributes: BlueprintMetadataAttributes,
+    BlueprintMetadataData: BlueprintMetadataData,
     Component: Component,
     ComponentGrid: ComponentGrid,
     ComponentGridProperties: ComponentGridProperties,
@@ -210,6 +226,8 @@ export const TypingInfo: ModelTypingInfo = {
     GetAppResponse: GetAppResponse,
     GetAppResponseData: GetAppResponseData,
     GetAppResponseDataAttributes: GetAppResponseDataAttributes,
+    GetBlueprintResponse: GetBlueprintResponse,
+    GetBlueprintsResponse: GetBlueprintsResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -221,9 +239,11 @@ export const TypingInfo: ModelTypingInfo = {
       ListAppsResponseDataItemsRelationships,
     ListAppsResponseMeta: ListAppsResponseMeta,
     ListAppsResponseMetaPage: ListAppsResponseMetaPage,
+    ListBlueprintsResponse: ListBlueprintsResponse,
     PublishAppResponse: PublishAppResponse,
     StateVariable: StateVariable,
     StateVariableProperties: StateVariableProperties,
+    TagData: TagData,
     UnpublishAppResponse: UnpublishAppResponse,
     UpdateAppFavoriteRequest: UpdateAppFavoriteRequest,
     UpdateAppFavoriteRequestData: UpdateAppFavoriteRequestData,
