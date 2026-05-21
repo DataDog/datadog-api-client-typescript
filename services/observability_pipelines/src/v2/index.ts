@@ -157,6 +157,10 @@ export { ObservabilityPipelineHttpClientSourceType } from "./models/Observabilit
 export { ObservabilityPipelineHttpServerSource } from "./models/ObservabilityPipelineHttpServerSource";
 export { ObservabilityPipelineHttpServerSourceAuthStrategy } from "./models/ObservabilityPipelineHttpServerSourceAuthStrategy";
 export { ObservabilityPipelineHttpServerSourceType } from "./models/ObservabilityPipelineHttpServerSourceType";
+export { ObservabilityPipelineHttpServerSourceValidToken } from "./models/ObservabilityPipelineHttpServerSourceValidToken";
+export { ObservabilityPipelineHttpServerSourceValidTokenPathToToken } from "./models/ObservabilityPipelineHttpServerSourceValidTokenPathToToken";
+export { ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader } from "./models/ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader";
+export { ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation } from "./models/ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation";
 export { ObservabilityPipelineKafkaDestination } from "./models/ObservabilityPipelineKafkaDestination";
 export { ObservabilityPipelineKafkaDestinationCompression } from "./models/ObservabilityPipelineKafkaDestinationCompression";
 export { ObservabilityPipelineKafkaDestinationEncoding } from "./models/ObservabilityPipelineKafkaDestinationEncoding";
@@ -282,6 +286,7 @@ export { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./models/
 export { ObservabilityPipelineSocketSourceFramingOctetCountingMethod } from "./models/ObservabilityPipelineSocketSourceFramingOctetCountingMethod";
 export { ObservabilityPipelineSocketSourceMode } from "./models/ObservabilityPipelineSocketSourceMode";
 export { ObservabilityPipelineSocketSourceType } from "./models/ObservabilityPipelineSocketSourceType";
+export { ObservabilityPipelineSourceValidTokenFieldToAdd } from "./models/ObservabilityPipelineSourceValidTokenFieldToAdd";
 export { ObservabilityPipelineSpec } from "./models/ObservabilityPipelineSpec";
 export { ObservabilityPipelineSpecData } from "./models/ObservabilityPipelineSpecData";
 export { ObservabilityPipelineSplitArrayProcessor } from "./models/ObservabilityPipelineSplitArrayProcessor";
@@ -293,6 +298,7 @@ export { ObservabilityPipelineSplunkHecDestinationTokenStrategy } from "./models
 export { ObservabilityPipelineSplunkHecDestinationType } from "./models/ObservabilityPipelineSplunkHecDestinationType";
 export { ObservabilityPipelineSplunkHecSource } from "./models/ObservabilityPipelineSplunkHecSource";
 export { ObservabilityPipelineSplunkHecSourceType } from "./models/ObservabilityPipelineSplunkHecSourceType";
+export { ObservabilityPipelineSplunkHecSourceValidToken } from "./models/ObservabilityPipelineSplunkHecSourceValidToken";
 export { ObservabilityPipelineSplunkTcpSource } from "./models/ObservabilityPipelineSplunkTcpSource";
 export { ObservabilityPipelineSplunkTcpSourceType } from "./models/ObservabilityPipelineSplunkTcpSourceType";
 export { ObservabilityPipelineSumoLogicDestination } from "./models/ObservabilityPipelineSumoLogicDestination";

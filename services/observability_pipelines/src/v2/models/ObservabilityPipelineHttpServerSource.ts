@@ -3,6 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ObservabilityPipelineDecoding } from "./ObservabilityPipelineDecoding";
 import { ObservabilityPipelineHttpServerSourceAuthStrategy } from "./ObservabilityPipelineHttpServerSourceAuthStrategy";
 import { ObservabilityPipelineHttpServerSourceType } from "./ObservabilityPipelineHttpServerSourceType";
+import { ObservabilityPipelineHttpServerSourceValidToken } from "./ObservabilityPipelineHttpServerSourceValidToken";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
@@ -47,6 +48,12 @@ export class ObservabilityPipelineHttpServerSource {
    * Name of the environment variable or secret that holds the username (used when `auth_strategy` is `plain`).
    */
   "usernameKey"?: string;
+  /**
+   * A list of tokens that are accepted for authenticating incoming HTTP requests. When set,
+   * the source rejects any request whose token does not match an enabled entry in this list.
+   * Cannot be combined with the `plain` auth strategy.
+   */
+  "validTokens"?: Array<ObservabilityPipelineHttpServerSourceValidToken>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -101,6 +108,10 @@ export class ObservabilityPipelineHttpServerSource {
     usernameKey: {
       baseName: "username_key",
       type: "string",
+    },
+    validTokens: {
+      baseName: "valid_tokens",
+      type: "Array<ObservabilityPipelineHttpServerSourceValidToken>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
