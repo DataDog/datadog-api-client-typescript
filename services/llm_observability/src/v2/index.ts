@@ -17,6 +17,7 @@ export {
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
   LLMObservabilityApiDeleteLLMObsProjectsRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
+  LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
   LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
   LLMObservabilityApiGetLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiListLLMObsAnnotationQueuesRequest,
@@ -47,7 +48,12 @@ export { APIErrorResponse } from "./models/APIErrorResponse";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { LLMObsAnnotatedInteractionByTraceItem } from "./models/LLMObsAnnotatedInteractionByTraceItem";
 export { LLMObsAnnotatedInteractionItem } from "./models/LLMObsAnnotatedInteractionItem";
+export { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./models/LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
+export { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./models/LLMObsAnnotatedInteractionsByTraceDataResponse";
+export { LLMObsAnnotatedInteractionsByTraceResponse } from "./models/LLMObsAnnotatedInteractionsByTraceResponse";
+export { LLMObsAnnotatedInteractionsByTraceType } from "./models/LLMObsAnnotatedInteractionsByTraceType";
 export { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./models/LLMObsAnnotatedInteractionsDataAttributesResponse";
 export { LLMObsAnnotatedInteractionsDataResponse } from "./models/LLMObsAnnotatedInteractionsDataResponse";
 export { LLMObsAnnotatedInteractionsResponse } from "./models/LLMObsAnnotatedInteractionsResponse";
@@ -84,6 +90,7 @@ export { LLMObsAnthropicEffort } from "./models/LLMObsAnthropicEffort";
 export { LLMObsAnthropicMetadata } from "./models/LLMObsAnthropicMetadata";
 export { LLMObsAnthropicThinkingConfig } from "./models/LLMObsAnthropicThinkingConfig";
 export { LLMObsAnthropicThinkingType } from "./models/LLMObsAnthropicThinkingType";
+export { LLMObsAnyInteractionType } from "./models/LLMObsAnyInteractionType";
 export { LLMObsAzureOpenAIMetadata } from "./models/LLMObsAzureOpenAIMetadata";
 export { LLMObsBedrockMetadata } from "./models/LLMObsBedrockMetadata";
 export { LLMObsContentBlock } from "./models/LLMObsContentBlock";
