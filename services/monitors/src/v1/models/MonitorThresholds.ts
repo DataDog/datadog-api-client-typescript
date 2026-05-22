@@ -9,9 +9,17 @@ export class MonitorThresholds {
    */
   "critical"?: number;
   /**
+   * Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and options['variables']. Cannot be combined with static thresholds. This field is in preview.
+   */
+  "criticalQuery"?: string;
+  /**
    * The monitor `CRITICAL` recovery threshold.
    */
   "criticalRecovery"?: number;
+  /**
+   * Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and options['variables']. Cannot be combined with static thresholds. This field is in preview.
+   */
+  "criticalRecoveryQuery"?: string;
   /**
    * The monitor `OK` threshold.
    */
@@ -48,10 +56,18 @@ export class MonitorThresholds {
       type: "number",
       format: "double",
     },
+    criticalQuery: {
+      baseName: "critical_query",
+      type: "string",
+    },
     criticalRecovery: {
       baseName: "critical_recovery",
       type: "number",
       format: "double",
+    },
+    criticalRecoveryQuery: {
+      baseName: "critical_recovery_query",
+      type: "string",
     },
     ok: {
       baseName: "ok",
