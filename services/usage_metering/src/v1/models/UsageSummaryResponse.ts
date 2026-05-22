@@ -588,6 +588,22 @@ export class UsageSummaryResponse {
    */
   "liveIngestedBytesAggSum"?: number;
   /**
+   * Sum of all LLM Observability spans with 15-day retention for all hours in the current month for all organizations.
+   */
+  "llmObservability15dayRetentionSpansAggSum"?: number;
+  /**
+   * Sum of all LLM Observability spans with 30-day retention for all hours in the current month for all organizations.
+   */
+  "llmObservability30dayRetentionSpansAggSum"?: number;
+  /**
+   * Sum of all LLM Observability spans with 60-day retention for all hours in the current month for all organizations.
+   */
+  "llmObservability60dayRetentionSpansAggSum"?: number;
+  /**
+   * Sum of all LLM Observability spans with 90-day retention for all hours in the current month for all organizations.
+   */
+  "llmObservability90dayRetentionSpansAggSum"?: number;
+  /**
    * Sum of all LLM observability sessions for all hours in the current month for all organizations.
    */
   "llmObservabilityAggSum"?: number;
@@ -1777,6 +1793,26 @@ export class UsageSummaryResponse {
     },
     liveIngestedBytesAggSum: {
       baseName: "live_ingested_bytes_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability15dayRetentionSpansAggSum: {
+      baseName: "llm_observability_15day_retention_spans_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability30dayRetentionSpansAggSum: {
+      baseName: "llm_observability_30day_retention_spans_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability60dayRetentionSpansAggSum: {
+      baseName: "llm_observability_60day_retention_spans_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability90dayRetentionSpansAggSum: {
+      baseName: "llm_observability_90day_retention_spans_agg_sum",
       type: "number",
       format: "int64",
     },
