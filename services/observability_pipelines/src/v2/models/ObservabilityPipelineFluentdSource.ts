@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineFluentdSourceType } from "./ObservabilityPipelineFluentdSourceType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 
 /**
  * The `fluentd` source ingests logs from a Fluentd-compatible service.
@@ -18,9 +18,9 @@ export class ObservabilityPipelineFluentdSource {
    */
   "id": string;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `fluentd.
    */
@@ -51,7 +51,7 @@ export class ObservabilityPipelineFluentdSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineMtlsServerTls",
     },
     type: {
       baseName: "type",

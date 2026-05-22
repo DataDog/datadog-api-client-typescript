@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineFluentBitSourceType } from "./ObservabilityPipelineFluentBitSourceType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 
 /**
  * The `fluent_bit` source ingests logs from Fluent Bit.
@@ -18,9 +18,9 @@ export class ObservabilityPipelineFluentBitSource {
    */
   "id": string;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `fluent_bit`.
    */
@@ -51,7 +51,7 @@ export class ObservabilityPipelineFluentBitSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineMtlsServerTls",
     },
     type: {
       baseName: "type",

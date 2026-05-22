@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineSplunkHecSourceType } from "./ObservabilityPipelineSplunkHecSourceType";
 import { ObservabilityPipelineSplunkHecSourceValidToken } from "./ObservabilityPipelineSplunkHecSourceValidToken";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
@@ -24,9 +24,9 @@ export class ObservabilityPipelineSplunkHecSource {
    */
   "storeHecToken"?: boolean;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. Always `splunk_hec`.
    */
@@ -66,7 +66,7 @@ export class ObservabilityPipelineSplunkHecSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineMtlsServerTls",
     },
     type: {
       baseName: "type",
