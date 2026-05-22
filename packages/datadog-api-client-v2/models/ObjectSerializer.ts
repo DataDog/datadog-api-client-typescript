@@ -1663,12 +1663,43 @@ import { IPAllowlistEntryAttributes } from "./IPAllowlistEntryAttributes";
 import { IPAllowlistEntryData } from "./IPAllowlistEntryData";
 import { IPAllowlistResponse } from "./IPAllowlistResponse";
 import { IPAllowlistUpdateRequest } from "./IPAllowlistUpdateRequest";
+import { IncidentAutomationDataAttributesRequest } from "./IncidentAutomationDataAttributesRequest";
+import { IncidentAutomationDataAttributesResponse } from "./IncidentAutomationDataAttributesResponse";
+import { IncidentAutomationDataDataRequest } from "./IncidentAutomationDataDataRequest";
+import { IncidentAutomationDataDataResponse } from "./IncidentAutomationDataDataResponse";
+import { IncidentAutomationDataRequest } from "./IncidentAutomationDataRequest";
+import { IncidentAutomationDataResponse } from "./IncidentAutomationDataResponse";
+import { IncidentBatchCreateRuleExecutionStatesData } from "./IncidentBatchCreateRuleExecutionStatesData";
+import { IncidentBatchCreateRuleExecutionStatesDataAttributes } from "./IncidentBatchCreateRuleExecutionStatesDataAttributes";
+import { IncidentBatchCreateRuleExecutionStatesRequest } from "./IncidentBatchCreateRuleExecutionStatesRequest";
+import { IncidentBatchUpdateRuleExecutionStatesData } from "./IncidentBatchUpdateRuleExecutionStatesData";
+import { IncidentBatchUpdateRuleExecutionStatesDataAttributes } from "./IncidentBatchUpdateRuleExecutionStatesDataAttributes";
+import { IncidentBatchUpdateRuleExecutionStatesRequest } from "./IncidentBatchUpdateRuleExecutionStatesRequest";
+import { IncidentCaseLinkData } from "./IncidentCaseLinkData";
+import { IncidentCaseLinkDataAttributes } from "./IncidentCaseLinkDataAttributes";
+import { IncidentCaseLinkResponse } from "./IncidentCaseLinkResponse";
+import { IncidentCommunicationContent } from "./IncidentCommunicationContent";
+import { IncidentCommunicationContentHandle } from "./IncidentCommunicationContentHandle";
+import { IncidentCommunicationDataAttributesRequest } from "./IncidentCommunicationDataAttributesRequest";
+import { IncidentCommunicationDataAttributesResponse } from "./IncidentCommunicationDataAttributesResponse";
+import { IncidentCommunicationDataRequest } from "./IncidentCommunicationDataRequest";
+import { IncidentCommunicationDataResponse } from "./IncidentCommunicationDataResponse";
+import { IncidentCommunicationRequest } from "./IncidentCommunicationRequest";
+import { IncidentCommunicationResponse } from "./IncidentCommunicationResponse";
+import { IncidentCommunicationsResponse } from "./IncidentCommunicationsResponse";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
+import { IncidentCreateZoomMeetingData } from "./IncidentCreateZoomMeetingData";
+import { IncidentCreateZoomMeetingDataAttributes } from "./IncidentCreateZoomMeetingDataAttributes";
+import { IncidentCreateZoomMeetingRequest } from "./IncidentCreateZoomMeetingRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentGoogleMeetIntegrationDataAttributes } from "./IncidentGoogleMeetIntegrationDataAttributes";
+import { IncidentGoogleMeetIntegrationDataResponse } from "./IncidentGoogleMeetIntegrationDataResponse";
+import { IncidentGoogleMeetIntegrationResponse } from "./IncidentGoogleMeetIntegrationResponse";
+import { IncidentGoogleMeetSpace } from "./IncidentGoogleMeetSpace";
 import { IncidentHandleAttributesFields } from "./IncidentHandleAttributesFields";
 import { IncidentHandleAttributesRequest } from "./IncidentHandleAttributesRequest";
 import { IncidentHandleAttributesResponse } from "./IncidentHandleAttributesResponse";
@@ -1708,6 +1739,33 @@ import { IncidentIntegrationMetadataPatchRequest } from "./IncidentIntegrationMe
 import { IncidentIntegrationMetadataResponse } from "./IncidentIntegrationMetadataResponse";
 import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMetadataResponseData";
 import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
+import { IncidentJiraIssueDataAttributesRequest } from "./IncidentJiraIssueDataAttributesRequest";
+import { IncidentJiraIssueDataRequest } from "./IncidentJiraIssueDataRequest";
+import { IncidentJiraIssueIntegrationDataAttributes } from "./IncidentJiraIssueIntegrationDataAttributes";
+import { IncidentJiraIssueIntegrationDataResponse } from "./IncidentJiraIssueIntegrationDataResponse";
+import { IncidentJiraIssueIntegrationResponse } from "./IncidentJiraIssueIntegrationResponse";
+import { IncidentJiraIssueRequest } from "./IncidentJiraIssueRequest";
+import { IncidentJiraTemplateDataAttributesRequest } from "./IncidentJiraTemplateDataAttributesRequest";
+import { IncidentJiraTemplateDataAttributesResponse } from "./IncidentJiraTemplateDataAttributesResponse";
+import { IncidentJiraTemplateDataRequest } from "./IncidentJiraTemplateDataRequest";
+import { IncidentJiraTemplateDataResponse } from "./IncidentJiraTemplateDataResponse";
+import { IncidentJiraTemplateFieldConfiguration } from "./IncidentJiraTemplateFieldConfiguration";
+import { IncidentJiraTemplateIncidentTypeRelationship } from "./IncidentJiraTemplateIncidentTypeRelationship";
+import { IncidentJiraTemplateIncidentTypeRelationshipData } from "./IncidentJiraTemplateIncidentTypeRelationshipData";
+import { IncidentJiraTemplateRelationships } from "./IncidentJiraTemplateRelationships";
+import { IncidentJiraTemplateRequest } from "./IncidentJiraTemplateRequest";
+import { IncidentJiraTemplateResponse } from "./IncidentJiraTemplateResponse";
+import { IncidentJiraTemplatesResponse } from "./IncidentJiraTemplatesResponse";
+import { IncidentMSTeamsChannel } from "./IncidentMSTeamsChannel";
+import { IncidentMSTeamsIntegrationDataAttributes } from "./IncidentMSTeamsIntegrationDataAttributes";
+import { IncidentMSTeamsIntegrationDataResponse } from "./IncidentMSTeamsIntegrationDataResponse";
+import { IncidentMSTeamsIntegrationResponse } from "./IncidentMSTeamsIntegrationResponse";
+import { IncidentMicrosoftTeamsConfigurationDataAttributesRequest } from "./IncidentMicrosoftTeamsConfigurationDataAttributesRequest";
+import { IncidentMicrosoftTeamsConfigurationDataAttributesResponse } from "./IncidentMicrosoftTeamsConfigurationDataAttributesResponse";
+import { IncidentMicrosoftTeamsConfigurationDataRequest } from "./IncidentMicrosoftTeamsConfigurationDataRequest";
+import { IncidentMicrosoftTeamsConfigurationDataResponse } from "./IncidentMicrosoftTeamsConfigurationDataResponse";
+import { IncidentMicrosoftTeamsConfigurationRequest } from "./IncidentMicrosoftTeamsConfigurationRequest";
+import { IncidentMicrosoftTeamsConfigurationResponse } from "./IncidentMicrosoftTeamsConfigurationResponse";
 import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentNotificationRule } from "./IncidentNotificationRule";
@@ -1735,13 +1793,46 @@ import { IncidentNotificationTemplateRelationships } from "./IncidentNotificatio
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
 import { IncidentNotificationTemplateUpdateData } from "./IncidentNotificationTemplateUpdateData";
+import { IncidentPagerdutyIncidentDataResponse } from "./IncidentPagerdutyIncidentDataResponse";
+import { IncidentPagerdutyRelatedIncidentsResponse } from "./IncidentPagerdutyRelatedIncidentsResponse";
+import { IncidentPagerdutyServiceData } from "./IncidentPagerdutyServiceData";
+import { IncidentPagerdutyServiceDataAttributes } from "./IncidentPagerdutyServiceDataAttributes";
+import { IncidentPagerdutyServicesResponse } from "./IncidentPagerdutyServicesResponse";
 import { IncidentRelationshipData } from "./IncidentRelationshipData";
+import { IncidentRenderTemplateDataAttributesRequest } from "./IncidentRenderTemplateDataAttributesRequest";
+import { IncidentRenderTemplateDataRequest } from "./IncidentRenderTemplateDataRequest";
+import { IncidentRenderTemplateRequest } from "./IncidentRenderTemplateRequest";
+import { IncidentRenderedTemplateData } from "./IncidentRenderedTemplateData";
+import { IncidentRenderedTemplateDataAttributes } from "./IncidentRenderedTemplateDataAttributes";
+import { IncidentRenderedTemplateResponse } from "./IncidentRenderedTemplateResponse";
+import { IncidentReservedRoleDataAttributesResponse } from "./IncidentReservedRoleDataAttributesResponse";
+import { IncidentReservedRoleDataResponse } from "./IncidentReservedRoleDataResponse";
+import { IncidentReservedRolePolicy } from "./IncidentReservedRolePolicy";
+import { IncidentReservedRoleResponse } from "./IncidentReservedRoleResponse";
+import { IncidentReservedRolesResponse } from "./IncidentReservedRolesResponse";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
+import { IncidentRoleAssignmentDataAttributesRequest } from "./IncidentRoleAssignmentDataAttributesRequest";
+import { IncidentRoleAssignmentDataAttributesResponse } from "./IncidentRoleAssignmentDataAttributesResponse";
+import { IncidentRoleAssignmentDataRequest } from "./IncidentRoleAssignmentDataRequest";
+import { IncidentRoleAssignmentDataResponse } from "./IncidentRoleAssignmentDataResponse";
+import { IncidentRoleAssignmentRelationshipsRequest } from "./IncidentRoleAssignmentRelationshipsRequest";
+import { IncidentRoleAssignmentRelationshipsResponse } from "./IncidentRoleAssignmentRelationshipsResponse";
+import { IncidentRoleAssignmentRequest } from "./IncidentRoleAssignmentRequest";
+import { IncidentRoleAssignmentResponderRelationship } from "./IncidentRoleAssignmentResponderRelationship";
+import { IncidentRoleAssignmentResponderRelationshipData } from "./IncidentRoleAssignmentResponderRelationshipData";
+import { IncidentRoleAssignmentResponse } from "./IncidentRoleAssignmentResponse";
+import { IncidentRoleAssignmentRoleRelationship } from "./IncidentRoleAssignmentRoleRelationship";
+import { IncidentRoleAssignmentRoleRelationshipData } from "./IncidentRoleAssignmentRoleRelationshipData";
+import { IncidentRuleExecutionStateDataAttributesResponse } from "./IncidentRuleExecutionStateDataAttributesResponse";
+import { IncidentRuleExecutionStateDataResponse } from "./IncidentRuleExecutionStateDataResponse";
+import { IncidentRuleExecutionStateRule } from "./IncidentRuleExecutionStateRule";
+import { IncidentRuleExecutionStatesResponse } from "./IncidentRuleExecutionStatesResponse";
+import { IncidentSearchIncidentsExportRequest } from "./IncidentSearchIncidentsExportRequest";
 import { IncidentSearchResponse } from "./IncidentSearchResponse";
 import { IncidentSearchResponseAttributes } from "./IncidentSearchResponseAttributes";
 import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
@@ -1764,8 +1855,50 @@ import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttribut
 import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
 import { IncidentServiceUpdateRequest } from "./IncidentServiceUpdateRequest";
 import { IncidentServicesResponse } from "./IncidentServicesResponse";
+import { IncidentStatusPageNoticeCreateData } from "./IncidentStatusPageNoticeCreateData";
+import { IncidentStatusPageNoticeCreateDataAttributes } from "./IncidentStatusPageNoticeCreateDataAttributes";
+import { IncidentStatusPageNoticeCreateRequest } from "./IncidentStatusPageNoticeCreateRequest";
+import { IncidentStatusPageNoticeIntegrationDataAttributes } from "./IncidentStatusPageNoticeIntegrationDataAttributes";
+import { IncidentStatusPageNoticeIntegrationDataResponse } from "./IncidentStatusPageNoticeIntegrationDataResponse";
+import { IncidentStatusPageNoticeIntegrationResponse } from "./IncidentStatusPageNoticeIntegrationResponse";
+import { IncidentStatusPageNoticeUpdateData } from "./IncidentStatusPageNoticeUpdateData";
+import { IncidentStatusPageNoticeUpdateDataAttributes } from "./IncidentStatusPageNoticeUpdateDataAttributes";
+import { IncidentStatusPageNoticeUpdateRequest } from "./IncidentStatusPageNoticeUpdateRequest";
+import { IncidentStatusPagesSuggestionData } from "./IncidentStatusPagesSuggestionData";
+import { IncidentStatusPagesSuggestionDataAttributes } from "./IncidentStatusPagesSuggestionDataAttributes";
+import { IncidentStatusPagesSuggestionResponse } from "./IncidentStatusPagesSuggestionResponse";
+import { IncidentStatuspageIncidentDataAttributesRequest } from "./IncidentStatuspageIncidentDataAttributesRequest";
+import { IncidentStatuspageIncidentDataAttributesResponse } from "./IncidentStatuspageIncidentDataAttributesResponse";
+import { IncidentStatuspageIncidentDataRequest } from "./IncidentStatuspageIncidentDataRequest";
+import { IncidentStatuspageIncidentDataResponse } from "./IncidentStatuspageIncidentDataResponse";
+import { IncidentStatuspageIncidentEntry } from "./IncidentStatuspageIncidentEntry";
+import { IncidentStatuspageIncidentRequest } from "./IncidentStatuspageIncidentRequest";
+import { IncidentStatuspageIncidentResponse } from "./IncidentStatuspageIncidentResponse";
+import { IncidentStatuspagePreferencesData } from "./IncidentStatuspagePreferencesData";
+import { IncidentStatuspagePreferencesDataAttributes } from "./IncidentStatuspagePreferencesDataAttributes";
+import { IncidentStatuspagePreferencesResponse } from "./IncidentStatuspagePreferencesResponse";
+import { IncidentStatuspageSubscriptionDataAttributesRequest } from "./IncidentStatuspageSubscriptionDataAttributesRequest";
+import { IncidentStatuspageSubscriptionDataAttributesResponse } from "./IncidentStatuspageSubscriptionDataAttributesResponse";
+import { IncidentStatuspageSubscriptionDataRequest } from "./IncidentStatuspageSubscriptionDataRequest";
+import { IncidentStatuspageSubscriptionDataResponse } from "./IncidentStatuspageSubscriptionDataResponse";
+import { IncidentStatuspageSubscriptionRequest } from "./IncidentStatuspageSubscriptionRequest";
+import { IncidentStatuspageSubscriptionResponse } from "./IncidentStatuspageSubscriptionResponse";
+import { IncidentStatuspageSubscriptionsResponse } from "./IncidentStatuspageSubscriptionsResponse";
+import { IncidentTemplateVariableData } from "./IncidentTemplateVariableData";
+import { IncidentTemplateVariableDataAttributes } from "./IncidentTemplateVariableDataAttributes";
+import { IncidentTemplateVariablesResponse } from "./IncidentTemplateVariablesResponse";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
+import { IncidentTimelineEntriesResponse } from "./IncidentTimelineEntriesResponse";
+import { IncidentTimelineEntryContent } from "./IncidentTimelineEntryContent";
+import { IncidentTimelineEntryDataAttributesRequest } from "./IncidentTimelineEntryDataAttributesRequest";
+import { IncidentTimelineEntryDataAttributesResponse } from "./IncidentTimelineEntryDataAttributesResponse";
+import { IncidentTimelineEntryDataRequest } from "./IncidentTimelineEntryDataRequest";
+import { IncidentTimelineEntryDataResponse } from "./IncidentTimelineEntryDataResponse";
+import { IncidentTimelineEntryRequest } from "./IncidentTimelineEntryRequest";
+import { IncidentTimelineEntryResponse } from "./IncidentTimelineEntryResponse";
+import { IncidentTimelineThreadDataResponse } from "./IncidentTimelineThreadDataResponse";
+import { IncidentTimelineThreadResponse } from "./IncidentTimelineThreadResponse";
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
 import { IncidentTodoAttributes } from "./IncidentTodoAttributes";
 import { IncidentTodoCreateData } from "./IncidentTodoCreateData";
@@ -1809,6 +1942,16 @@ import { IncidentUserDefinedFieldResponseData } from "./IncidentUserDefinedField
 import { IncidentUserDefinedFieldUpdateData } from "./IncidentUserDefinedFieldUpdateData";
 import { IncidentUserDefinedFieldUpdateRequest } from "./IncidentUserDefinedFieldUpdateRequest";
 import { IncidentUserDefinedFieldValidValue } from "./IncidentUserDefinedFieldValidValue";
+import { IncidentZoomConfigurationDataAttributesRequest } from "./IncidentZoomConfigurationDataAttributesRequest";
+import { IncidentZoomConfigurationDataAttributesResponse } from "./IncidentZoomConfigurationDataAttributesResponse";
+import { IncidentZoomConfigurationDataRequest } from "./IncidentZoomConfigurationDataRequest";
+import { IncidentZoomConfigurationDataResponse } from "./IncidentZoomConfigurationDataResponse";
+import { IncidentZoomConfigurationRequest } from "./IncidentZoomConfigurationRequest";
+import { IncidentZoomConfigurationResponse } from "./IncidentZoomConfigurationResponse";
+import { IncidentZoomIntegrationDataAttributes } from "./IncidentZoomIntegrationDataAttributes";
+import { IncidentZoomIntegrationDataResponse } from "./IncidentZoomIntegrationDataResponse";
+import { IncidentZoomIntegrationResponse } from "./IncidentZoomIntegrationResponse";
+import { IncidentZoomMeeting } from "./IncidentZoomMeeting";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
@@ -5212,6 +5355,10 @@ const enumsMap: { [key: string]: any[] } = {
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
   IncidentAttachmentType: ["incident_attachments"],
+  IncidentAutomationDataType: ["incidents_automation_data"],
+  IncidentCaseLinkType: ["case_link"],
+  IncidentCommunicationKind: ["manual", "automated"],
+  IncidentCommunicationType: ["communication"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
     "multiselect",
@@ -5219,6 +5366,7 @@ const enumsMap: { [key: string]: any[] } = {
     "metrictag",
     "autocomplete",
   ],
+  IncidentGoogleMeetIntegrationType: ["incident_integrations"],
   IncidentHandleType: ["incidents_handles"],
   IncidentImpactRelatedObject: [
     "incident",
@@ -5236,6 +5384,11 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentImportVisibility: ["organization", "private"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
+  IncidentJiraIssueIntegrationType: ["incident_integrations"],
+  IncidentJiraIssueType: ["incident_jira_issues"],
+  IncidentJiraTemplateType: ["incidents_jira_templates"],
+  IncidentMicrosoftTeamsConfigurationType: ["microsoft_teams_configurations"],
+  IncidentMicrosoftTeamsIntegrationType: ["incident_integrations"],
   IncidentNotificationRuleAttributesVisibility: [
     "all",
     "organization",
@@ -5248,10 +5401,29 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentNotificationRuleType: ["incident_notification_rules"],
   IncidentNotificationTemplateType: ["notification_templates"],
+  IncidentPagerdutyServiceType: ["pagerduty_service"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
+  IncidentRenderedTemplateType: ["rendered_templates"],
+  IncidentReservedRoleType: ["incident_reserved_roles"],
   IncidentResourceType: ["incidents"],
   IncidentRespondersType: ["incident_responders"],
+  IncidentRoleAssignmentType: ["incident_role_assignments"],
+  IncidentRuleExecutionStateType: ["incident_rule_execution_states"],
+  IncidentSearchIncidentsIncludeType: [
+    "incident_type",
+    "impacts",
+    "users",
+    "responders",
+    "integrations",
+    "attachments",
+  ],
+  IncidentSearchIncidentsSortOrder: [
+    "created",
+    "-created",
+    "modified",
+    "-modified",
+  ],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
   IncidentServiceType: ["services"],
@@ -5264,7 +5436,24 @@ const enumsMap: { [key: string]: any[] } = {
     "SEV-4",
     "SEV-5",
   ],
+  IncidentStatusPageNoticeIntegrationType: ["incident_integrations"],
+  IncidentStatusPagesSuggestionType: ["incident_statuspages_suggestion"],
+  IncidentStatuspageIncidentType: ["incident_integrations"],
+  IncidentStatuspagePreferencesType: ["statuspage_subscription_preferences"],
+  IncidentStatuspageSubscriptionType: ["statuspage_email_subscription"],
+  IncidentTemplateVariableType: ["template_variables"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
+  IncidentTimelineCellSource: ["slack", "microsoft_teams", "datadog", "api"],
+  IncidentTimelineCellType: [
+    "markdown",
+    "incident_status_change",
+    "timestamp_change",
+    "meeting_summary",
+    "meeting_chat",
+    "role_assignment_change",
+    "postmortem_change",
+  ],
+  IncidentTimelineEntryType: ["incident_timeline_cells"],
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
@@ -5278,6 +5467,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentUserDefinedFieldFieldType: [1, 2, 3, 4, 5, 6, 7, 8],
   IncidentUserDefinedFieldType: ["user_defined_field"],
+  IncidentZoomConfigurationType: ["zoom_configurations"],
+  IncidentZoomIntegrationType: ["incident_integrations"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
   InputSchemaParametersType: [
     "STRING",
@@ -8820,12 +9011,56 @@ const typeMap: { [index: string]: any } = {
   IPAllowlistEntryData: IPAllowlistEntryData,
   IPAllowlistResponse: IPAllowlistResponse,
   IPAllowlistUpdateRequest: IPAllowlistUpdateRequest,
+  IncidentAutomationDataAttributesRequest:
+    IncidentAutomationDataAttributesRequest,
+  IncidentAutomationDataAttributesResponse:
+    IncidentAutomationDataAttributesResponse,
+  IncidentAutomationDataDataRequest: IncidentAutomationDataDataRequest,
+  IncidentAutomationDataDataResponse: IncidentAutomationDataDataResponse,
+  IncidentAutomationDataRequest: IncidentAutomationDataRequest,
+  IncidentAutomationDataResponse: IncidentAutomationDataResponse,
+  IncidentBatchCreateRuleExecutionStatesData:
+    IncidentBatchCreateRuleExecutionStatesData,
+  IncidentBatchCreateRuleExecutionStatesDataAttributes:
+    IncidentBatchCreateRuleExecutionStatesDataAttributes,
+  IncidentBatchCreateRuleExecutionStatesRequest:
+    IncidentBatchCreateRuleExecutionStatesRequest,
+  IncidentBatchUpdateRuleExecutionStatesData:
+    IncidentBatchUpdateRuleExecutionStatesData,
+  IncidentBatchUpdateRuleExecutionStatesDataAttributes:
+    IncidentBatchUpdateRuleExecutionStatesDataAttributes,
+  IncidentBatchUpdateRuleExecutionStatesRequest:
+    IncidentBatchUpdateRuleExecutionStatesRequest,
+  IncidentCaseLinkData: IncidentCaseLinkData,
+  IncidentCaseLinkDataAttributes: IncidentCaseLinkDataAttributes,
+  IncidentCaseLinkResponse: IncidentCaseLinkResponse,
+  IncidentCommunicationContent: IncidentCommunicationContent,
+  IncidentCommunicationContentHandle: IncidentCommunicationContentHandle,
+  IncidentCommunicationDataAttributesRequest:
+    IncidentCommunicationDataAttributesRequest,
+  IncidentCommunicationDataAttributesResponse:
+    IncidentCommunicationDataAttributesResponse,
+  IncidentCommunicationDataRequest: IncidentCommunicationDataRequest,
+  IncidentCommunicationDataResponse: IncidentCommunicationDataResponse,
+  IncidentCommunicationRequest: IncidentCommunicationRequest,
+  IncidentCommunicationResponse: IncidentCommunicationResponse,
+  IncidentCommunicationsResponse: IncidentCommunicationsResponse,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,
   IncidentCreateRequest: IncidentCreateRequest,
+  IncidentCreateZoomMeetingData: IncidentCreateZoomMeetingData,
+  IncidentCreateZoomMeetingDataAttributes:
+    IncidentCreateZoomMeetingDataAttributes,
+  IncidentCreateZoomMeetingRequest: IncidentCreateZoomMeetingRequest,
   IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
   IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+  IncidentGoogleMeetIntegrationDataAttributes:
+    IncidentGoogleMeetIntegrationDataAttributes,
+  IncidentGoogleMeetIntegrationDataResponse:
+    IncidentGoogleMeetIntegrationDataResponse,
+  IncidentGoogleMeetIntegrationResponse: IncidentGoogleMeetIntegrationResponse,
+  IncidentGoogleMeetSpace: IncidentGoogleMeetSpace,
   IncidentHandleAttributesFields: IncidentHandleAttributesFields,
   IncidentHandleAttributesRequest: IncidentHandleAttributesRequest,
   IncidentHandleAttributesResponse: IncidentHandleAttributesResponse,
@@ -8871,6 +9106,49 @@ const typeMap: { [index: string]: any } = {
   IncidentIntegrationMetadataResponseData:
     IncidentIntegrationMetadataResponseData,
   IncidentIntegrationRelationships: IncidentIntegrationRelationships,
+  IncidentJiraIssueDataAttributesRequest:
+    IncidentJiraIssueDataAttributesRequest,
+  IncidentJiraIssueDataRequest: IncidentJiraIssueDataRequest,
+  IncidentJiraIssueIntegrationDataAttributes:
+    IncidentJiraIssueIntegrationDataAttributes,
+  IncidentJiraIssueIntegrationDataResponse:
+    IncidentJiraIssueIntegrationDataResponse,
+  IncidentJiraIssueIntegrationResponse: IncidentJiraIssueIntegrationResponse,
+  IncidentJiraIssueRequest: IncidentJiraIssueRequest,
+  IncidentJiraTemplateDataAttributesRequest:
+    IncidentJiraTemplateDataAttributesRequest,
+  IncidentJiraTemplateDataAttributesResponse:
+    IncidentJiraTemplateDataAttributesResponse,
+  IncidentJiraTemplateDataRequest: IncidentJiraTemplateDataRequest,
+  IncidentJiraTemplateDataResponse: IncidentJiraTemplateDataResponse,
+  IncidentJiraTemplateFieldConfiguration:
+    IncidentJiraTemplateFieldConfiguration,
+  IncidentJiraTemplateIncidentTypeRelationship:
+    IncidentJiraTemplateIncidentTypeRelationship,
+  IncidentJiraTemplateIncidentTypeRelationshipData:
+    IncidentJiraTemplateIncidentTypeRelationshipData,
+  IncidentJiraTemplateRelationships: IncidentJiraTemplateRelationships,
+  IncidentJiraTemplateRequest: IncidentJiraTemplateRequest,
+  IncidentJiraTemplateResponse: IncidentJiraTemplateResponse,
+  IncidentJiraTemplatesResponse: IncidentJiraTemplatesResponse,
+  IncidentMSTeamsChannel: IncidentMSTeamsChannel,
+  IncidentMSTeamsIntegrationDataAttributes:
+    IncidentMSTeamsIntegrationDataAttributes,
+  IncidentMSTeamsIntegrationDataResponse:
+    IncidentMSTeamsIntegrationDataResponse,
+  IncidentMSTeamsIntegrationResponse: IncidentMSTeamsIntegrationResponse,
+  IncidentMicrosoftTeamsConfigurationDataAttributesRequest:
+    IncidentMicrosoftTeamsConfigurationDataAttributesRequest,
+  IncidentMicrosoftTeamsConfigurationDataAttributesResponse:
+    IncidentMicrosoftTeamsConfigurationDataAttributesResponse,
+  IncidentMicrosoftTeamsConfigurationDataRequest:
+    IncidentMicrosoftTeamsConfigurationDataRequest,
+  IncidentMicrosoftTeamsConfigurationDataResponse:
+    IncidentMicrosoftTeamsConfigurationDataResponse,
+  IncidentMicrosoftTeamsConfigurationRequest:
+    IncidentMicrosoftTeamsConfigurationRequest,
+  IncidentMicrosoftTeamsConfigurationResponse:
+    IncidentMicrosoftTeamsConfigurationResponse,
   IncidentNonDatadogCreator: IncidentNonDatadogCreator,
   IncidentNotificationHandle: IncidentNotificationHandle,
   IncidentNotificationRule: IncidentNotificationRule,
@@ -8910,13 +9188,61 @@ const typeMap: { [index: string]: any } = {
     IncidentNotificationTemplateUpdateAttributes,
   IncidentNotificationTemplateUpdateData:
     IncidentNotificationTemplateUpdateData,
+  IncidentPagerdutyIncidentDataResponse: IncidentPagerdutyIncidentDataResponse,
+  IncidentPagerdutyRelatedIncidentsResponse:
+    IncidentPagerdutyRelatedIncidentsResponse,
+  IncidentPagerdutyServiceData: IncidentPagerdutyServiceData,
+  IncidentPagerdutyServiceDataAttributes:
+    IncidentPagerdutyServiceDataAttributes,
+  IncidentPagerdutyServicesResponse: IncidentPagerdutyServicesResponse,
   IncidentRelationshipData: IncidentRelationshipData,
+  IncidentRenderTemplateDataAttributesRequest:
+    IncidentRenderTemplateDataAttributesRequest,
+  IncidentRenderTemplateDataRequest: IncidentRenderTemplateDataRequest,
+  IncidentRenderTemplateRequest: IncidentRenderTemplateRequest,
+  IncidentRenderedTemplateData: IncidentRenderedTemplateData,
+  IncidentRenderedTemplateDataAttributes:
+    IncidentRenderedTemplateDataAttributes,
+  IncidentRenderedTemplateResponse: IncidentRenderedTemplateResponse,
+  IncidentReservedRoleDataAttributesResponse:
+    IncidentReservedRoleDataAttributesResponse,
+  IncidentReservedRoleDataResponse: IncidentReservedRoleDataResponse,
+  IncidentReservedRolePolicy: IncidentReservedRolePolicy,
+  IncidentReservedRoleResponse: IncidentReservedRoleResponse,
+  IncidentReservedRolesResponse: IncidentReservedRolesResponse,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
   IncidentResponseData: IncidentResponseData,
   IncidentResponseMeta: IncidentResponseMeta,
   IncidentResponseMetaPagination: IncidentResponseMetaPagination,
   IncidentResponseRelationships: IncidentResponseRelationships,
+  IncidentRoleAssignmentDataAttributesRequest:
+    IncidentRoleAssignmentDataAttributesRequest,
+  IncidentRoleAssignmentDataAttributesResponse:
+    IncidentRoleAssignmentDataAttributesResponse,
+  IncidentRoleAssignmentDataRequest: IncidentRoleAssignmentDataRequest,
+  IncidentRoleAssignmentDataResponse: IncidentRoleAssignmentDataResponse,
+  IncidentRoleAssignmentRelationshipsRequest:
+    IncidentRoleAssignmentRelationshipsRequest,
+  IncidentRoleAssignmentRelationshipsResponse:
+    IncidentRoleAssignmentRelationshipsResponse,
+  IncidentRoleAssignmentRequest: IncidentRoleAssignmentRequest,
+  IncidentRoleAssignmentResponderRelationship:
+    IncidentRoleAssignmentResponderRelationship,
+  IncidentRoleAssignmentResponderRelationshipData:
+    IncidentRoleAssignmentResponderRelationshipData,
+  IncidentRoleAssignmentResponse: IncidentRoleAssignmentResponse,
+  IncidentRoleAssignmentRoleRelationship:
+    IncidentRoleAssignmentRoleRelationship,
+  IncidentRoleAssignmentRoleRelationshipData:
+    IncidentRoleAssignmentRoleRelationshipData,
+  IncidentRuleExecutionStateDataAttributesResponse:
+    IncidentRuleExecutionStateDataAttributesResponse,
+  IncidentRuleExecutionStateDataResponse:
+    IncidentRuleExecutionStateDataResponse,
+  IncidentRuleExecutionStateRule: IncidentRuleExecutionStateRule,
+  IncidentRuleExecutionStatesResponse: IncidentRuleExecutionStatesResponse,
+  IncidentSearchIncidentsExportRequest: IncidentSearchIncidentsExportRequest,
   IncidentSearchResponse: IncidentSearchResponse,
   IncidentSearchResponseAttributes: IncidentSearchResponseAttributes,
   IncidentSearchResponseData: IncidentSearchResponseData,
@@ -8942,10 +9268,71 @@ const typeMap: { [index: string]: any } = {
   IncidentServiceUpdateData: IncidentServiceUpdateData,
   IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
   IncidentServicesResponse: IncidentServicesResponse,
+  IncidentStatusPageNoticeCreateData: IncidentStatusPageNoticeCreateData,
+  IncidentStatusPageNoticeCreateDataAttributes:
+    IncidentStatusPageNoticeCreateDataAttributes,
+  IncidentStatusPageNoticeCreateRequest: IncidentStatusPageNoticeCreateRequest,
+  IncidentStatusPageNoticeIntegrationDataAttributes:
+    IncidentStatusPageNoticeIntegrationDataAttributes,
+  IncidentStatusPageNoticeIntegrationDataResponse:
+    IncidentStatusPageNoticeIntegrationDataResponse,
+  IncidentStatusPageNoticeIntegrationResponse:
+    IncidentStatusPageNoticeIntegrationResponse,
+  IncidentStatusPageNoticeUpdateData: IncidentStatusPageNoticeUpdateData,
+  IncidentStatusPageNoticeUpdateDataAttributes:
+    IncidentStatusPageNoticeUpdateDataAttributes,
+  IncidentStatusPageNoticeUpdateRequest: IncidentStatusPageNoticeUpdateRequest,
+  IncidentStatusPagesSuggestionData: IncidentStatusPagesSuggestionData,
+  IncidentStatusPagesSuggestionDataAttributes:
+    IncidentStatusPagesSuggestionDataAttributes,
+  IncidentStatusPagesSuggestionResponse: IncidentStatusPagesSuggestionResponse,
+  IncidentStatuspageIncidentDataAttributesRequest:
+    IncidentStatuspageIncidentDataAttributesRequest,
+  IncidentStatuspageIncidentDataAttributesResponse:
+    IncidentStatuspageIncidentDataAttributesResponse,
+  IncidentStatuspageIncidentDataRequest: IncidentStatuspageIncidentDataRequest,
+  IncidentStatuspageIncidentDataResponse:
+    IncidentStatuspageIncidentDataResponse,
+  IncidentStatuspageIncidentEntry: IncidentStatuspageIncidentEntry,
+  IncidentStatuspageIncidentRequest: IncidentStatuspageIncidentRequest,
+  IncidentStatuspageIncidentResponse: IncidentStatuspageIncidentResponse,
+  IncidentStatuspagePreferencesData: IncidentStatuspagePreferencesData,
+  IncidentStatuspagePreferencesDataAttributes:
+    IncidentStatuspagePreferencesDataAttributes,
+  IncidentStatuspagePreferencesResponse: IncidentStatuspagePreferencesResponse,
+  IncidentStatuspageSubscriptionDataAttributesRequest:
+    IncidentStatuspageSubscriptionDataAttributesRequest,
+  IncidentStatuspageSubscriptionDataAttributesResponse:
+    IncidentStatuspageSubscriptionDataAttributesResponse,
+  IncidentStatuspageSubscriptionDataRequest:
+    IncidentStatuspageSubscriptionDataRequest,
+  IncidentStatuspageSubscriptionDataResponse:
+    IncidentStatuspageSubscriptionDataResponse,
+  IncidentStatuspageSubscriptionRequest: IncidentStatuspageSubscriptionRequest,
+  IncidentStatuspageSubscriptionResponse:
+    IncidentStatuspageSubscriptionResponse,
+  IncidentStatuspageSubscriptionsResponse:
+    IncidentStatuspageSubscriptionsResponse,
+  IncidentTemplateVariableData: IncidentTemplateVariableData,
+  IncidentTemplateVariableDataAttributes:
+    IncidentTemplateVariableDataAttributes,
+  IncidentTemplateVariablesResponse: IncidentTemplateVariablesResponse,
   IncidentTimelineCellMarkdownCreateAttributes:
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
     IncidentTimelineCellMarkdownCreateAttributesContent,
+  IncidentTimelineEntriesResponse: IncidentTimelineEntriesResponse,
+  IncidentTimelineEntryContent: IncidentTimelineEntryContent,
+  IncidentTimelineEntryDataAttributesRequest:
+    IncidentTimelineEntryDataAttributesRequest,
+  IncidentTimelineEntryDataAttributesResponse:
+    IncidentTimelineEntryDataAttributesResponse,
+  IncidentTimelineEntryDataRequest: IncidentTimelineEntryDataRequest,
+  IncidentTimelineEntryDataResponse: IncidentTimelineEntryDataResponse,
+  IncidentTimelineEntryRequest: IncidentTimelineEntryRequest,
+  IncidentTimelineEntryResponse: IncidentTimelineEntryResponse,
+  IncidentTimelineThreadDataResponse: IncidentTimelineThreadDataResponse,
+  IncidentTimelineThreadResponse: IncidentTimelineThreadResponse,
   IncidentTodoAnonymousAssignee: IncidentTodoAnonymousAssignee,
   IncidentTodoAttributes: IncidentTodoAttributes,
   IncidentTodoCreateData: IncidentTodoCreateData,
@@ -8993,6 +9380,18 @@ const typeMap: { [index: string]: any } = {
   IncidentUserDefinedFieldUpdateData: IncidentUserDefinedFieldUpdateData,
   IncidentUserDefinedFieldUpdateRequest: IncidentUserDefinedFieldUpdateRequest,
   IncidentUserDefinedFieldValidValue: IncidentUserDefinedFieldValidValue,
+  IncidentZoomConfigurationDataAttributesRequest:
+    IncidentZoomConfigurationDataAttributesRequest,
+  IncidentZoomConfigurationDataAttributesResponse:
+    IncidentZoomConfigurationDataAttributesResponse,
+  IncidentZoomConfigurationDataRequest: IncidentZoomConfigurationDataRequest,
+  IncidentZoomConfigurationDataResponse: IncidentZoomConfigurationDataResponse,
+  IncidentZoomConfigurationRequest: IncidentZoomConfigurationRequest,
+  IncidentZoomConfigurationResponse: IncidentZoomConfigurationResponse,
+  IncidentZoomIntegrationDataAttributes: IncidentZoomIntegrationDataAttributes,
+  IncidentZoomIntegrationDataResponse: IncidentZoomIntegrationDataResponse,
+  IncidentZoomIntegrationResponse: IncidentZoomIntegrationResponse,
+  IncidentZoomMeeting: IncidentZoomMeeting,
   IncidentsResponse: IncidentsResponse,
   InputSchema: InputSchema,
   InputSchemaParameters: InputSchemaParameters,
