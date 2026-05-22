@@ -3,10 +3,10 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineSocketSourceFraming } from "./ObservabilityPipelineSocketSourceFraming";
 import { ObservabilityPipelineSocketSourceMode } from "./ObservabilityPipelineSocketSourceMode";
 import { ObservabilityPipelineSocketSourceType } from "./ObservabilityPipelineSocketSourceType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -33,9 +33,9 @@ export class ObservabilityPipelineSocketSource {
    */
   "mode": ObservabilityPipelineSocketSourceMode;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `socket`.
    */
@@ -78,7 +78,7 @@ export class ObservabilityPipelineSocketSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineMtlsServerTls",
     },
     type: {
       baseName: "type",

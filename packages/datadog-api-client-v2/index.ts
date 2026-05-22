@@ -4855,6 +4855,7 @@ export { ObservabilityPipelineMetricTagsProcessorRuleAction } from "./models/Obs
 export { ObservabilityPipelineMetricTagsProcessorRuleMode } from "./models/ObservabilityPipelineMetricTagsProcessorRuleMode";
 export { ObservabilityPipelineMetricTagsProcessorType } from "./models/ObservabilityPipelineMetricTagsProcessorType";
 export { ObservabilityPipelineMetricValue } from "./models/ObservabilityPipelineMetricValue";
+export { ObservabilityPipelineMtlsServerTls } from "./models/ObservabilityPipelineMtlsServerTls";
 export { ObservabilityPipelineNewRelicDestination } from "./models/ObservabilityPipelineNewRelicDestination";
 export { ObservabilityPipelineNewRelicDestinationRegion } from "./models/ObservabilityPipelineNewRelicDestinationRegion";
 export { ObservabilityPipelineNewRelicDestinationType } from "./models/ObservabilityPipelineNewRelicDestinationType";
