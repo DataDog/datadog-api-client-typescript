@@ -1223,6 +1223,12 @@ import { EntityContextResponse } from "./EntityContextResponse";
 import { EntityContextResponseMeta } from "./EntityContextResponseMeta";
 import { EntityContextRevision } from "./EntityContextRevision";
 import { EntityData } from "./EntityData";
+import { EntityIntegrationConfigAttributes } from "./EntityIntegrationConfigAttributes";
+import { EntityIntegrationConfigData } from "./EntityIntegrationConfigData";
+import { EntityIntegrationConfigRequest } from "./EntityIntegrationConfigRequest";
+import { EntityIntegrationConfigRequestAttributes } from "./EntityIntegrationConfigRequestAttributes";
+import { EntityIntegrationConfigRequestData } from "./EntityIntegrationConfigRequestData";
+import { EntityIntegrationConfigResponse } from "./EntityIntegrationConfigResponse";
 import { EntityMeta } from "./EntityMeta";
 import { EntityRelationships } from "./EntityRelationships";
 import { EntityResponseArray } from "./EntityResponseArray";
@@ -5054,6 +5060,8 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
+  EntityIntegrationConfigRequestType: ["entity_integration_config_requests"],
+  EntityIntegrationConfigType: ["entity_integration_configs"],
   EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
   EntityResponseDataRelationshipsOncallsDataItemsType: ["oncall"],
   EntityResponseDataRelationshipsRawSchemaDataType: ["rawSchema"],
@@ -8386,6 +8394,13 @@ const typeMap: { [index: string]: any } = {
   EntityContextResponseMeta: EntityContextResponseMeta,
   EntityContextRevision: EntityContextRevision,
   EntityData: EntityData,
+  EntityIntegrationConfigAttributes: EntityIntegrationConfigAttributes,
+  EntityIntegrationConfigData: EntityIntegrationConfigData,
+  EntityIntegrationConfigRequest: EntityIntegrationConfigRequest,
+  EntityIntegrationConfigRequestAttributes:
+    EntityIntegrationConfigRequestAttributes,
+  EntityIntegrationConfigRequestData: EntityIntegrationConfigRequestData,
+  EntityIntegrationConfigResponse: EntityIntegrationConfigResponse,
   EntityMeta: EntityMeta,
   EntityRelationships: EntityRelationships,
   EntityResponseArray: EntityResponseArray,

@@ -8393,6 +8393,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "HamrOrgConnectionResponse",
     },
+    "v2.GetEntityIntegrationConfig": {
+        "integrationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "EntityIntegrationConfigResponse",
+    },
+    "v2.UpdateEntityIntegrationConfig": {
+        "integrationId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "EntityIntegrationConfigRequest",
+            "format": "",
+            },
+        "operationResponseType": "EntityIntegrationConfigResponse",
+    },
+    "v2.DeleteEntityIntegrationConfig": {
+        "integrationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListIncidents": {
         "include": {
             "type": "Array<IncidentRelatedObject>",

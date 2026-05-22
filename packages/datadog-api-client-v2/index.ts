@@ -461,6 +461,13 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
+  EntityIntegrationConfigsApiGetEntityIntegrationConfigRequest,
+  EntityIntegrationConfigsApiUpdateEntityIntegrationConfigRequest,
+  EntityIntegrationConfigsApi,
+} from "./apis/EntityIntegrationConfigsApi";
+
+export {
   EntityRiskScoresApiListEntityRiskScoresRequest,
   EntityRiskScoresApi,
 } from "./apis/EntityRiskScoresApi";
@@ -3078,6 +3085,14 @@ export { EntityContextResponse } from "./models/EntityContextResponse";
 export { EntityContextResponseMeta } from "./models/EntityContextResponseMeta";
 export { EntityContextRevision } from "./models/EntityContextRevision";
 export { EntityData } from "./models/EntityData";
+export { EntityIntegrationConfigAttributes } from "./models/EntityIntegrationConfigAttributes";
+export { EntityIntegrationConfigData } from "./models/EntityIntegrationConfigData";
+export { EntityIntegrationConfigRequest } from "./models/EntityIntegrationConfigRequest";
+export { EntityIntegrationConfigRequestAttributes } from "./models/EntityIntegrationConfigRequestAttributes";
+export { EntityIntegrationConfigRequestData } from "./models/EntityIntegrationConfigRequestData";
+export { EntityIntegrationConfigRequestType } from "./models/EntityIntegrationConfigRequestType";
+export { EntityIntegrationConfigResponse } from "./models/EntityIntegrationConfigResponse";
+export { EntityIntegrationConfigType } from "./models/EntityIntegrationConfigType";
 export { EntityMeta } from "./models/EntityMeta";
 export { EntityRelationships } from "./models/EntityRelationships";
 export { EntityResponseArray } from "./models/EntityResponseArray";
