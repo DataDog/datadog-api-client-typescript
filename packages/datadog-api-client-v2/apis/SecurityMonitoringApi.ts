@@ -32,6 +32,7 @@ import { CreateJiraIssueRequestArray } from "../models/CreateJiraIssueRequestArr
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
 import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { DetachCaseRequest } from "../models/DetachCaseRequest";
+import { EntityContextResponse } from "../models/EntityContextResponse";
 import { Finding } from "../models/Finding";
 import { FindingCaseResponse } from "../models/FindingCaseResponse";
 import { FindingCaseResponseArray } from "../models/FindingCaseResponseArray";
@@ -63,6 +64,12 @@ import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
 import { NotificationRulesList } from "../models/NotificationRulesList";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
 import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
+import { SampleLogGenerationBulkSubscriptionRequest } from "../models/SampleLogGenerationBulkSubscriptionRequest";
+import { SampleLogGenerationBulkSubscriptionResponse } from "../models/SampleLogGenerationBulkSubscriptionResponse";
+import { SampleLogGenerationSubscriptionCreateRequest } from "../models/SampleLogGenerationSubscriptionCreateRequest";
+import { SampleLogGenerationSubscriptionResponse } from "../models/SampleLogGenerationSubscriptionResponse";
+import { SampleLogGenerationSubscriptionsResponse } from "../models/SampleLogGenerationSubscriptionsResponse";
+import { SampleLogGenerationSubscriptionsStatusFilter } from "../models/SampleLogGenerationSubscriptionsStatusFilter";
 import { SBOMComponentLicenseType } from "../models/SBOMComponentLicenseType";
 import { SBOMFormat } from "../models/SBOMFormat";
 import { ScannedAssetsMetadata } from "../models/ScannedAssetsMetadata";
@@ -71,6 +78,7 @@ import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateReque
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
 import { SecurityFilterUpdateRequest } from "../models/SecurityFilterUpdateRequest";
+import { SecurityFilterVersionsResponse } from "../models/SecurityFilterVersionsResponse";
 import { SecurityFindingsData } from "../models/SecurityFindingsData";
 import { SecurityFindingsSearchRequest } from "../models/SecurityFindingsSearchRequest";
 import { SecurityFindingsSearchRequestData } from "../models/SecurityFindingsSearchRequestData";
@@ -82,6 +90,12 @@ import { SecurityMonitoringCriticalAssetCreateRequest } from "../models/Security
 import { SecurityMonitoringCriticalAssetResponse } from "../models/SecurityMonitoringCriticalAssetResponse";
 import { SecurityMonitoringCriticalAssetsResponse } from "../models/SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "../models/SecurityMonitoringCriticalAssetUpdateRequest";
+import { SecurityMonitoringIntegrationConfigCreateRequest } from "../models/SecurityMonitoringIntegrationConfigCreateRequest";
+import { SecurityMonitoringIntegrationConfigResponse } from "../models/SecurityMonitoringIntegrationConfigResponse";
+import { SecurityMonitoringIntegrationConfigsResponse } from "../models/SecurityMonitoringIntegrationConfigsResponse";
+import { SecurityMonitoringIntegrationConfigUpdateRequest } from "../models/SecurityMonitoringIntegrationConfigUpdateRequest";
+import { SecurityMonitoringIntegrationCredentialsValidateRequest } from "../models/SecurityMonitoringIntegrationCredentialsValidateRequest";
+import { SecurityMonitoringIntegrationType } from "../models/SecurityMonitoringIntegrationType";
 import { SecurityMonitoringListRulesResponse } from "../models/SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringPaginatedSuppressionsResponse } from "../models/SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringRuleBulkDeletePayload } from "../models/SecurityMonitoringRuleBulkDeletePayload";
@@ -121,6 +135,7 @@ import { SecurityMonitoringTerraformBulkExportRequest } from "../models/Security
 import { SecurityMonitoringTerraformConvertRequest } from "../models/SecurityMonitoringTerraformConvertRequest";
 import { SecurityMonitoringTerraformExportResponse } from "../models/SecurityMonitoringTerraformExportResponse";
 import { SecurityMonitoringTerraformResourceType } from "../models/SecurityMonitoringTerraformResourceType";
+import { SignalEntitiesResponse } from "../models/SignalEntitiesResponse";
 import { UpdateCustomFrameworkRequest } from "../models/UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "../models/UpdateCustomFrameworkResponse";
 import { UpdateResourceEvaluationFiltersRequest } from "../models/UpdateResourceEvaluationFiltersRequest";
@@ -251,6 +266,71 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AttachJiraIssueRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async bulkCreateSampleLogGenerationSubscriptions(
+    body: SampleLogGenerationBulkSubscriptionRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'bulkCreateSampleLogGenerationSubscriptions'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.bulkCreateSampleLogGenerationSubscriptions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'bulkCreateSampleLogGenerationSubscriptions' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "bulkCreateSampleLogGenerationSubscriptions"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/sample_log_generation/subscriptions/bulk";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.bulkCreateSampleLogGenerationSubscriptions"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SampleLogGenerationBulkSubscriptionRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -966,6 +1046,66 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createSampleLogGenerationSubscription(
+    body: SampleLogGenerationSubscriptionCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createSampleLogGenerationSubscription'"
+    );
+    if (
+      !_config.unstableOperations["v2.createSampleLogGenerationSubscription"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSampleLogGenerationSubscription' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSampleLogGenerationSubscription");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/sample_log_generation/subscriptions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSampleLogGenerationSubscription"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SampleLogGenerationSubscriptionCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSecurityFilter(
     body: SecurityFilterCreateRequest,
     _options?: Configuration
@@ -1042,6 +1182,71 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       ObjectSerializer.serialize(
         body,
         "SecurityMonitoringCriticalAssetCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityMonitoringIntegrationConfig(
+    body: SecurityMonitoringIntegrationConfigCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createSecurityMonitoringIntegrationConfig'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.createSecurityMonitoringIntegrationConfig"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityMonitoringIntegrationConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityMonitoringIntegrationConfig"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityMonitoringIntegrationConfig"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringIntegrationConfigCreateRequest",
         ""
       ),
       contentType
@@ -1353,6 +1558,57 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteSampleLogGenerationSubscription(
+    contentPackId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteSampleLogGenerationSubscription'"
+    );
+    if (
+      !_config.unstableOperations["v2.deleteSampleLogGenerationSubscription"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSampleLogGenerationSubscription' is disabled"
+      );
+    }
+
+    // verify required parameter 'contentPackId' is not null or undefined
+    if (contentPackId === null || contentPackId === undefined) {
+      throw new RequiredError(
+        "contentPackId",
+        "deleteSampleLogGenerationSubscription"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/sample_log_generation/subscriptions/{content_pack_id}".replace(
+        "{content_pack_id}",
+        encodeURIComponent(String(contentPackId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSampleLogGenerationSubscription"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteSecurityFilter(
     securityFilterId: string,
     _options?: Configuration
@@ -1413,6 +1669,59 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer(
         "v2.SecurityMonitoringApi.deleteSecurityMonitoringCriticalAsset"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityMonitoringIntegrationConfig(
+    integrationConfigId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteSecurityMonitoringIntegrationConfig'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.deleteSecurityMonitoringIntegrationConfig"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityMonitoringIntegrationConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'integrationConfigId' is not null or undefined
+    if (integrationConfigId === null || integrationConfigId === undefined) {
+      throw new RequiredError(
+        "integrationConfigId",
+        "deleteSecurityMonitoringIntegrationConfig"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}".replace(
+        "{integration_config_id}",
+        encodeURIComponent(String(integrationConfigId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityMonitoringIntegrationConfig"
       )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
@@ -1999,6 +2308,86 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getEntityContext(
+    query?: string,
+    from?: string,
+    to?: string,
+    asOf?: string,
+    limit?: number,
+    pageToken?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getEntityContext'");
+    if (!_config.unstableOperations["v2.getEntityContext"]) {
+      throw new Error("Unstable operation 'getEntityContext' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/entity_context";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getEntityContext")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
+      );
+    }
+    if (from !== undefined) {
+      requestContext.setQueryParam(
+        "from",
+        ObjectSerializer.serialize(from, "string", ""),
+        ""
+      );
+    }
+    if (to !== undefined) {
+      requestContext.setQueryParam(
+        "to",
+        ObjectSerializer.serialize(to, "string", ""),
+        ""
+      );
+    }
+    if (asOf !== undefined) {
+      requestContext.setQueryParam(
+        "as_of",
+        ObjectSerializer.serialize(asOf, "string", ""),
+        ""
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+    if (pageToken !== undefined) {
+      requestContext.setQueryParam(
+        "page_token",
+        ObjectSerializer.serialize(pageToken, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2608,6 +2997,57 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSecurityMonitoringIntegrationConfig(
+    integrationConfigId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getSecurityMonitoringIntegrationConfig'"
+    );
+    if (
+      !_config.unstableOperations["v2.getSecurityMonitoringIntegrationConfig"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityMonitoringIntegrationConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'integrationConfigId' is not null or undefined
+    if (integrationConfigId === null || integrationConfigId === undefined) {
+      throw new RequiredError(
+        "integrationConfigId",
+        "getSecurityMonitoringIntegrationConfig"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}".replace(
+        "{integration_config_id}",
+        encodeURIComponent(String(integrationConfigId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityMonitoringIntegrationConfig"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityMonitoringRule(
     ruleId: string,
     _options?: Configuration
@@ -2704,6 +3144,56 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSignalEntities(
+    signalId: string,
+    limit?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSignalEntities'");
+    if (!_config.unstableOperations["v2.getSignalEntities"]) {
+      throw new Error("Unstable operation 'getSignalEntities' is disabled");
+    }
+
+    // verify required parameter 'signalId' is not null or undefined
+    if (signalId === null || signalId === undefined) {
+      throw new RequiredError("signalId", "getSignalEntities");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}/entities".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSignalEntities")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int32"),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3436,6 +3926,75 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSampleLogGenerationSubscriptions(
+    status?: SampleLogGenerationSubscriptionsStatusFilter,
+    startTimestamp?: Date,
+    endTimestamp?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSampleLogGenerationSubscriptions'"
+    );
+    if (
+      !_config.unstableOperations["v2.listSampleLogGenerationSubscriptions"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSampleLogGenerationSubscriptions' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/sample_log_generation/subscriptions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSampleLogGenerationSubscriptions"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (status !== undefined) {
+      requestContext.setQueryParam(
+        "status",
+        ObjectSerializer.serialize(
+          status,
+          "SampleLogGenerationSubscriptionsStatusFilter",
+          ""
+        ),
+        ""
+      );
+    }
+    if (startTimestamp !== undefined) {
+      requestContext.setQueryParam(
+        "start_timestamp",
+        ObjectSerializer.serialize(startTimestamp, "Date", "date-time"),
+        ""
+      );
+    }
+    if (endTimestamp !== undefined) {
+      requestContext.setQueryParam(
+        "end_timestamp",
+        ObjectSerializer.serialize(endTimestamp, "Date", "date-time"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listScannedAssetsMetadata(
     pageToken?: string,
     pageNumber?: number,
@@ -3529,6 +4088,32 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.listSecurityFilters")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityFilterVersions(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters/versions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listSecurityFilterVersions")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -3698,6 +4283,59 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[limit]",
         ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityMonitoringIntegrationConfigs(
+    filterIntegrationType?: SecurityMonitoringIntegrationType,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSecurityMonitoringIntegrationConfigs'"
+    );
+    if (
+      !_config.unstableOperations["v2.listSecurityMonitoringIntegrationConfigs"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityMonitoringIntegrationConfigs' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityMonitoringIntegrationConfigs"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterIntegrationType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[integration_type]",
+        ObjectSerializer.serialize(
+          filterIntegrationType,
+          "SecurityMonitoringIntegrationType",
+          ""
+        ),
         ""
       );
     }
@@ -5199,6 +5837,83 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateSecurityMonitoringIntegrationConfig(
+    integrationConfigId: string,
+    body: SecurityMonitoringIntegrationConfigUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateSecurityMonitoringIntegrationConfig'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.updateSecurityMonitoringIntegrationConfig"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityMonitoringIntegrationConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'integrationConfigId' is not null or undefined
+    if (integrationConfigId === null || integrationConfigId === undefined) {
+      throw new RequiredError(
+        "integrationConfigId",
+        "updateSecurityMonitoringIntegrationConfig"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateSecurityMonitoringIntegrationConfig"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}".replace(
+        "{integration_config_id}",
+        encodeURIComponent(String(integrationConfigId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.updateSecurityMonitoringIntegrationConfig"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringIntegrationConfigUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateSecurityMonitoringRule(
     ruleId: string,
     body: SecurityMonitoringRuleUpdatePayload,
@@ -5297,6 +6012,124 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       ObjectSerializer.serialize(
         body,
         "SecurityMonitoringSuppressionUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validateSecurityMonitoringIntegrationConfig(
+    integrationConfigId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'validateSecurityMonitoringIntegrationConfig'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.validateSecurityMonitoringIntegrationConfig"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'validateSecurityMonitoringIntegrationConfig' is disabled"
+      );
+    }
+
+    // verify required parameter 'integrationConfigId' is not null or undefined
+    if (integrationConfigId === null || integrationConfigId === undefined) {
+      throw new RequiredError(
+        "integrationConfigId",
+        "validateSecurityMonitoringIntegrationConfig"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}/validate".replace(
+        "{integration_config_id}",
+        encodeURIComponent(String(integrationConfigId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.validateSecurityMonitoringIntegrationConfig"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validateSecurityMonitoringIntegrationCredentials(
+    body: SecurityMonitoringIntegrationCredentialsValidateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'validateSecurityMonitoringIntegrationCredentials'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.validateSecurityMonitoringIntegrationCredentials"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'validateSecurityMonitoringIntegrationCredentials' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "validateSecurityMonitoringIntegrationCredentials"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/validate";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.validateSecurityMonitoringIntegrationCredentials"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringIntegrationCredentialsValidateRequest",
         ""
       ),
       contentType
@@ -5594,6 +6427,70 @@ export class SecurityMonitoringApiResponseProcessor {
         "FindingCaseResponse",
         ""
       ) as FindingCaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to bulkCreateSampleLogGenerationSubscriptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async bulkCreateSampleLogGenerationSubscriptions(
+    response: ResponseContext
+  ): Promise<SampleLogGenerationBulkSubscriptionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SampleLogGenerationBulkSubscriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationBulkSubscriptionResponse"
+        ) as SampleLogGenerationBulkSubscriptionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SampleLogGenerationBulkSubscriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationBulkSubscriptionResponse",
+          ""
+        ) as SampleLogGenerationBulkSubscriptionResponse;
       return body;
     }
 
@@ -6527,6 +7424,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSampleLogGenerationSubscription
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSampleLogGenerationSubscription(
+    response: ResponseContext
+  ): Promise<SampleLogGenerationSubscriptionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SampleLogGenerationSubscriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionResponse"
+        ) as SampleLogGenerationSubscriptionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SampleLogGenerationSubscriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionResponse",
+          ""
+        ) as SampleLogGenerationSubscriptionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6641,6 +7602,70 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringCriticalAssetResponse",
           ""
         ) as SecurityMonitoringCriticalAssetResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createSecurityMonitoringIntegrationConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityMonitoringIntegrationConfig(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse",
+          ""
+        ) as SecurityMonitoringIntegrationConfigResponse;
       return body;
     }
 
@@ -7092,6 +8117,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteSampleLogGenerationSubscription
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSampleLogGenerationSubscription(
+    response: ResponseContext
+  ): Promise<SampleLogGenerationSubscriptionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SampleLogGenerationSubscriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionResponse"
+        ) as SampleLogGenerationSubscriptionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SampleLogGenerationSubscriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionResponse",
+          ""
+        ) as SampleLogGenerationSubscriptionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7147,6 +8236,59 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteSecurityMonitoringCriticalAsset(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityMonitoringIntegrationConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityMonitoringIntegrationConfig(
     response: ResponseContext
   ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -8014,6 +9156,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getEntityContext
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getEntityContext(
+    response: ResponseContext
+  ): Promise<EntityContextResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: EntityContextResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EntityContextResponse"
+      ) as EntityContextResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EntityContextResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EntityContextResponse",
+        ""
+      ) as EntityContextResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getFinding
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8794,6 +9998,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecurityMonitoringIntegrationConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringIntegrationConfig(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse",
+          ""
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8966,6 +10234,69 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringSuppressionResponse",
           ""
         ) as SecurityMonitoringSuppressionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSignalEntities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSignalEntities(
+    response: ResponseContext
+  ): Promise<SignalEntitiesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SignalEntitiesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SignalEntitiesResponse"
+      ) as SignalEntitiesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SignalEntitiesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SignalEntitiesResponse",
+        ""
+      ) as SignalEntitiesResponse;
       return body;
     }
 
@@ -9811,6 +11142,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSampleLogGenerationSubscriptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSampleLogGenerationSubscriptions(
+    response: ResponseContext
+  ): Promise<SampleLogGenerationSubscriptionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SampleLogGenerationSubscriptionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionsResponse"
+        ) as SampleLogGenerationSubscriptionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SampleLogGenerationSubscriptionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SampleLogGenerationSubscriptionsResponse",
+          ""
+        ) as SampleLogGenerationSubscriptionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listScannedAssetsMetadata
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9940,6 +11335,64 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityFiltersResponse",
         ""
       ) as SecurityFiltersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityFilterVersions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFilterVersions(
+    response: ResponseContext
+  ): Promise<SecurityFilterVersionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityFilterVersionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityFilterVersionsResponse"
+      ) as SecurityFilterVersionsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityFilterVersionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityFilterVersionsResponse",
+        ""
+      ) as SecurityFilterVersionsResponse;
       return body;
     }
 
@@ -10127,6 +11580,66 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringSignalsListResponse",
           ""
         ) as SecurityMonitoringSignalsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityMonitoringIntegrationConfigs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityMonitoringIntegrationConfigs(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringIntegrationConfigsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringIntegrationConfigsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigsResponse"
+        ) as SecurityMonitoringIntegrationConfigsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringIntegrationConfigsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigsResponse",
+          ""
+        ) as SecurityMonitoringIntegrationConfigsResponse;
       return body;
     }
 
@@ -11463,6 +12976,71 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSecurityMonitoringIntegrationConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityMonitoringIntegrationConfig(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse",
+          ""
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -11580,6 +13158,113 @@ export class SecurityMonitoringApiResponseProcessor {
           ""
         ) as SecurityMonitoringSuppressionResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateSecurityMonitoringIntegrationConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateSecurityMonitoringIntegrationConfig(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateSecurityMonitoringIntegrationCredentials
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateSecurityMonitoringIntegrationCredentials(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -11723,6 +13408,14 @@ export interface SecurityMonitoringApiAttachJiraIssueRequest {
   body: AttachJiraIssueRequest;
 }
 
+export interface SecurityMonitoringApiBulkCreateSampleLogGenerationSubscriptionsRequest {
+  /**
+   * The content packs to subscribe to and the desired duration of the subscriptions.
+   * @type SampleLogGenerationBulkSubscriptionRequest
+   */
+  body: SampleLogGenerationBulkSubscriptionRequest;
+}
+
 export interface SecurityMonitoringApiBulkDeleteSecurityMonitoringRulesRequest {
   /**
    * @type SecurityMonitoringRuleBulkDeletePayload
@@ -11838,6 +13531,14 @@ export interface SecurityMonitoringApiCreateJiraIssuesRequest {
   body: CreateJiraIssueRequestArray;
 }
 
+export interface SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest {
+  /**
+   * The content pack to subscribe to and the desired duration of the subscription.
+   * @type SampleLogGenerationSubscriptionCreateRequest
+   */
+  body: SampleLogGenerationSubscriptionCreateRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   /**
    * The definition of the new security filter.
@@ -11852,6 +13553,14 @@ export interface SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetReque
    * @type SecurityMonitoringCriticalAssetCreateRequest
    */
   body: SecurityMonitoringCriticalAssetCreateRequest;
+}
+
+export interface SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest {
+  /**
+   * The definition of the new integration configuration.
+   * @type SecurityMonitoringIntegrationConfigCreateRequest
+   */
+  body: SecurityMonitoringIntegrationConfigCreateRequest;
 }
 
 export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
@@ -11916,6 +13625,14 @@ export interface SecurityMonitoringApiDeleteHistoricalJobRequest {
   jobId: string;
 }
 
+export interface SecurityMonitoringApiDeleteSampleLogGenerationSubscriptionRequest {
+  /**
+   * The identifier of the Cloud SIEM content pack to operate on (for example, `aws-cloudtrail`).
+   * @type string
+   */
+  contentPackId: string;
+}
+
 export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
   /**
    * The ID of the security filter.
@@ -11930,6 +13647,14 @@ export interface SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetReque
    * @type string
    */
   criticalAssetId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityMonitoringIntegrationConfigRequest {
+  /**
+   * The ID of the entity context sync configuration.
+   * @type string
+   */
+  integrationConfigId: string;
 }
 
 export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
@@ -12055,6 +13780,43 @@ export interface SecurityMonitoringApiGetCustomFrameworkRequest {
    * @type string
    */
   version: string;
+}
+
+export interface SecurityMonitoringApiGetEntityContextRequest {
+  /**
+   * A free-text query (for example, an email address or principal ID) used to filter the entities returned.
+   * @type string
+   */
+  query?: string;
+  /**
+   * The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`).
+   * Defaults to `now-7d`. Ignored when `as_of` is set.
+   * @type string
+   */
+  from?: string;
+  /**
+   * The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`).
+   * Defaults to `now`. Ignored when `as_of` is set.
+   * @type string
+   */
+  to?: string;
+  /**
+   * A point in time at which to query the entity revisions, as an RFC3339 timestamp, a Unix timestamp
+   * (in seconds), or a relative time (for example, `now-1d`). When set, `from` and `to` are ignored.
+   * Cannot be combined with custom `from` / `to` values.
+   * @type string
+   */
+  asOf?: string;
+  /**
+   * The maximum number of entities to return.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * An opaque token used to fetch the next page of results, as returned in `meta.page.next_token` of a previous response.
+   * @type string
+   */
+  pageToken?: string;
 }
 
 export interface SecurityMonitoringApiGetFindingRequest {
@@ -12215,6 +13977,14 @@ export interface SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdReq
   pageLimit?: number;
 }
 
+export interface SecurityMonitoringApiGetSecurityMonitoringIntegrationConfigRequest {
+  /**
+   * The ID of the entity context sync configuration.
+   * @type string
+   */
+  integrationConfigId: string;
+}
+
 export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -12237,6 +14007,19 @@ export interface SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest {
    * @type string
    */
   suppressionId: string;
+}
+
+export interface SecurityMonitoringApiGetSignalEntitiesRequest {
+  /**
+   * The ID of the signal.
+   * @type string
+   */
+  signalId: string;
+  /**
+   * The maximum number of entities to return.
+   * @type number
+   */
+  limit?: number;
 }
 
 export interface SecurityMonitoringApiGetSignalNotificationRuleRequest {
@@ -12475,6 +14258,29 @@ export interface SecurityMonitoringApiListMultipleRulesetsRequest {
   body: GetMultipleRulesetsRequest;
 }
 
+export interface SecurityMonitoringApiListSampleLogGenerationSubscriptionsRequest {
+  /**
+   * Filter the subscriptions by status. Use `active` to return only currently active
+   * subscriptions, or `all` to return every subscription including expired ones.
+   * Ignored when `start_timestamp` is provided. Defaults to `active`.
+   * @type SampleLogGenerationSubscriptionsStatusFilter
+   */
+  status?: SampleLogGenerationSubscriptionsStatusFilter;
+  /**
+   * The start of the time range, as an RFC3339 timestamp. When provided, the response includes
+   * every subscription that was active at any point in `[start_timestamp, end_timestamp]`,
+   * and the `status` filter is ignored.
+   * @type Date
+   */
+  startTimestamp?: Date;
+  /**
+   * The end of the time range, as an RFC3339 timestamp. Ignored unless `start_timestamp` is set.
+   * Defaults to the current time when `start_timestamp` is provided.
+   * @type Date
+   */
+  endTimestamp?: Date;
+}
+
 export interface SecurityMonitoringApiListScannedAssetsMetadataRequest {
   /**
    * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
@@ -12562,6 +14368,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
    * @type number
    */
   pageLimit?: number;
+}
+
+export interface SecurityMonitoringApiListSecurityMonitoringIntegrationConfigsRequest {
+  /**
+   * Filter the entity context sync configurations by source type.
+   * @type SecurityMonitoringIntegrationType
+   */
+  filterIntegrationType?: SecurityMonitoringIntegrationType;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
@@ -13094,6 +14908,19 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetReque
   body: SecurityMonitoringCriticalAssetUpdateRequest;
 }
 
+export interface SecurityMonitoringApiUpdateSecurityMonitoringIntegrationConfigRequest {
+  /**
+   * The ID of the entity context sync configuration.
+   * @type string
+   */
+  integrationConfigId: string;
+  /**
+   * The fields to update on the integration configuration.
+   * @type SecurityMonitoringIntegrationConfigUpdateRequest
+   */
+  body: SecurityMonitoringIntegrationConfigUpdateRequest;
+}
+
 export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -13117,6 +14944,22 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest
    * @type SecurityMonitoringSuppressionUpdateRequest
    */
   body: SecurityMonitoringSuppressionUpdateRequest;
+}
+
+export interface SecurityMonitoringApiValidateSecurityMonitoringIntegrationConfigRequest {
+  /**
+   * The ID of the entity context sync configuration.
+   * @type string
+   */
+  integrationConfigId: string;
+}
+
+export interface SecurityMonitoringApiValidateSecurityMonitoringIntegrationCredentialsRequest {
+  /**
+   * The credentials to validate.
+   * @type SecurityMonitoringIntegrationCredentialsValidateRequest
+   */
+  body: SecurityMonitoringIntegrationCredentialsValidateRequest;
 }
 
 export interface SecurityMonitoringApiValidateSecurityMonitoringRuleRequest {
@@ -13214,6 +15057,36 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.attachJiraIssue(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Subscribe to sample log generation for multiple Cloud SIEM content packs in a single call.
+   * Each requested content pack is processed independently; the response includes a per-item
+   * status so partial successes can be inspected.
+   *
+   * **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an
+   * eligible pricing model. Non-trial orgs receive `403 Forbidden`, the feature flag may also reject
+   * requests with `400 Bad Request`, and legacy pricing tiers receive per-item responses with `status: not_available`.
+   * @param param The request object
+   */
+  public bulkCreateSampleLogGenerationSubscriptions(
+    param: SecurityMonitoringApiBulkCreateSampleLogGenerationSubscriptionsRequest,
+    options?: Configuration
+  ): Promise<SampleLogGenerationBulkSubscriptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.bulkCreateSampleLogGenerationSubscriptions(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.bulkCreateSampleLogGenerationSubscriptions(
+            responseContext
+          );
         });
     });
   }
@@ -13568,6 +15441,36 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Subscribe to sample log generation for a Cloud SIEM content pack. Sample logs for the
+   * requested content pack are injected into the Logs platform for the duration of the subscription,
+   * so detection rules can be exercised without onboarding the underlying integration first.
+   *
+   * **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an
+   * eligible pricing model. Non-trial orgs receive `403 Forbidden`, the feature flag may also reject
+   * requests with `400 Bad Request`, and legacy pricing tiers receive a response with `status: not_available`.
+   * @param param The request object
+   */
+  public createSampleLogGenerationSubscription(
+    param: SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest,
+    options?: Configuration
+  ): Promise<SampleLogGenerationSubscriptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSampleLogGenerationSubscription(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSampleLogGenerationSubscription(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a security filter.
    *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
@@ -13609,6 +15512,32 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSecurityMonitoringCriticalAsset(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new entity context sync configuration so Cloud SIEM can ingest entities from an external
+   * source. The credentials provided in `secrets` are validated against the source before the configuration
+   * is stored and never returned in subsequent responses.
+   * @param param The request object
+   */
+  public createSecurityMonitoringIntegrationConfig(
+    param: SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringIntegrationConfig(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityMonitoringIntegrationConfig(
             responseContext
           );
         });
@@ -13771,6 +15700,35 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Unsubscribe from sample log generation for a Cloud SIEM content pack.
+   * After unsubscribing, no more sample logs are generated for the requested content pack.
+   *
+   * **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an
+   * eligible pricing model. Non-trial orgs receive `403 Forbidden`, the feature flag may also reject
+   * requests with `400 Bad Request`, and legacy pricing tiers receive a response with `status: not_available`.
+   * @param param The request object
+   */
+  public deleteSampleLogGenerationSubscription(
+    param: SecurityMonitoringApiDeleteSampleLogGenerationSubscriptionRequest,
+    options?: Configuration
+  ): Promise<SampleLogGenerationSubscriptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.deleteSampleLogGenerationSubscription(
+        param.contentPackId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSampleLogGenerationSubscription(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a specific security filter.
    * @param param The request object
    */
@@ -13809,6 +15767,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityMonitoringCriticalAsset(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an entity context sync configuration. Cloud SIEM stops ingesting entities from this source,
+   * and the credentials stored for the configuration are removed from the secrets store.
+   * @param param The request object
+   */
+  public deleteSecurityMonitoringIntegrationConfig(
+    param: SecurityMonitoringApiDeleteSecurityMonitoringIntegrationConfigRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringIntegrationConfig(
+        param.integrationConfigId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityMonitoringIntegrationConfig(
             responseContext
           );
         });
@@ -14117,6 +16100,35 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Search the Cloud SIEM entity context store for entities that match a query, and return the historical
+   * revisions of each entity in the requested time range. The endpoint can either return revisions across an
+   * interval (`from` / `to`) or the snapshot of each entity at a single point in time (`as_of`); the two modes
+   * are mutually exclusive.
+   * @param param The request object
+   */
+  public getEntityContext(
+    param: SecurityMonitoringApiGetEntityContextRequest = {},
+    options?: Configuration
+  ): Promise<EntityContextResponse> {
+    const requestContextPromise = this.requestFactory.getEntityContext(
+      param.query,
+      param.from,
+      param.to,
+      param.asOf,
+      param.limit,
+      param.pageToken,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getEntityContext(responseContext);
+        });
+    });
+  }
+
+  /**
    * Returns a single finding with message and resource configuration.
    * @param param The request object
    */
@@ -14397,6 +16409,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get the details of a specific entity context sync configuration.
+   * @param param The request object
+   */
+  public getSecurityMonitoringIntegrationConfig(
+    param: SecurityMonitoringApiGetSecurityMonitoringIntegrationConfigRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringIntegrationConfig(
+        param.integrationConfigId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringIntegrationConfig(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a rule's details.
    * @param param The request object
    */
@@ -14460,6 +16496,28 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.getSecurityMonitoringSuppression(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get the list of entities related to a security signal, captured at the signal's timestamp.
+   * @param param The request object
+   */
+  public getSignalEntities(
+    param: SecurityMonitoringApiGetSignalEntitiesRequest,
+    options?: Configuration
+  ): Promise<SignalEntitiesResponse> {
+    const requestContextPromise = this.requestFactory.getSignalEntities(
+      param.signalId,
+      param.limit,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSignalEntities(responseContext);
         });
     });
   }
@@ -14901,6 +16959,38 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get the sample log generation subscriptions for the organization.
+   * Sample log generation injects representative example logs for a given Cloud SIEM content pack into the Logs platform,
+   * which can be used to test detection rules without onboarding the underlying integration first.
+   *
+   * **Availability**: this endpoint is restricted to Cloud SIEM trial organizations on an eligible
+   * pricing model. Other organizations receive a `403 Forbidden` (non-trial orgs) or a `400 Bad Request`
+   * (feature disabled), and legacy pricing tiers receive a response with `status: not_available`.
+   * @param param The request object
+   */
+  public listSampleLogGenerationSubscriptions(
+    param: SecurityMonitoringApiListSampleLogGenerationSubscriptionsRequest = {},
+    options?: Configuration
+  ): Promise<SampleLogGenerationSubscriptionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSampleLogGenerationSubscriptions(
+        param.status,
+        param.startTimestamp,
+        param.endTimestamp,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSampleLogGenerationSubscriptions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a list of security scanned assets metadata for an organization.
    *
    * ### Pagination
@@ -14985,6 +17075,28 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSecurityFilters(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the configured security filters at each historical version of the configuration.
+   * Each entry in the response represents the set of all security filters at a given version,
+   * ordered from the most recent version to the oldest.
+   * @param param The request object
+   */
+  public listSecurityFilterVersions(
+    options?: Configuration
+  ): Promise<SecurityFilterVersionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFilterVersions(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFilterVersions(
+            responseContext
+          );
         });
     });
   }
@@ -15117,6 +17229,32 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSecurityMonitoringHistsignals(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List the entity context sync configurations for Cloud SIEM. Each configuration connects Cloud SIEM
+   * to an external source that provides entities (for example, users from an identity provider) for use
+   * in signals and the entity explorer.
+   * @param param The request object
+   */
+  public listSecurityMonitoringIntegrationConfigs(
+    param: SecurityMonitoringApiListSecurityMonitoringIntegrationConfigsRequest = {},
+    options?: Configuration
+  ): Promise<SecurityMonitoringIntegrationConfigsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringIntegrationConfigs(
+        param.filterIntegrationType,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityMonitoringIntegrationConfigs(
             responseContext
           );
         });
@@ -15919,6 +18057,31 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Update an existing entity context sync configuration. Supports partial updates; only the fields provided in the request body are modified.
+   * @param param The request object
+   */
+  public updateSecurityMonitoringIntegrationConfig(
+    param: SecurityMonitoringApiUpdateSecurityMonitoringIntegrationConfigRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringIntegrationConfig(
+        param.integrationConfigId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityMonitoringIntegrationConfig(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
    * must be included. For example, when modifying a query all queries must be included.
    * Default rules can only be updated to be enabled, to change notifications, or to update
@@ -15965,6 +18128,56 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateSecurityMonitoringSuppression(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Validate the credentials currently stored on an existing entity context sync configuration.
+   * Returns a 200 status code if the credentials are still valid against the external entity source.
+   * @param param The request object
+   */
+  public validateSecurityMonitoringIntegrationConfig(
+    param: SecurityMonitoringApiValidateSecurityMonitoringIntegrationConfigRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.validateSecurityMonitoringIntegrationConfig(
+        param.integrationConfigId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateSecurityMonitoringIntegrationConfig(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Validate a set of credentials against the external entity source before creating a sync configuration.
+   * Returns a 200 status code if the credentials are valid.
+   * @param param The request object
+   */
+  public validateSecurityMonitoringIntegrationCredentials(
+    param: SecurityMonitoringApiValidateSecurityMonitoringIntegrationCredentialsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.validateSecurityMonitoringIntegrationCredentials(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateSecurityMonitoringIntegrationCredentials(
             responseContext
           );
         });

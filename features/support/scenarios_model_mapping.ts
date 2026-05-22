@@ -5954,6 +5954,59 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringCriticalAssetResponse",
     },
+    "v2.ListSecurityMonitoringIntegrationConfigs": {
+        "filterIntegrationType": {
+            "type": "SecurityMonitoringIntegrationType",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringIntegrationConfigsResponse",
+    },
+    "v2.CreateSecurityMonitoringIntegrationConfig": {
+        "body": {
+            "type": "SecurityMonitoringIntegrationConfigCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringIntegrationConfigResponse",
+    },
+    "v2.ValidateSecurityMonitoringIntegrationCredentials": {
+        "body": {
+            "type": "SecurityMonitoringIntegrationCredentialsValidateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetSecurityMonitoringIntegrationConfig": {
+        "integrationConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringIntegrationConfigResponse",
+    },
+    "v2.DeleteSecurityMonitoringIntegrationConfig": {
+        "integrationConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSecurityMonitoringIntegrationConfig": {
+        "integrationConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringIntegrationConfigUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringIntegrationConfigResponse",
+    },
+    "v2.ValidateSecurityMonitoringIntegrationConfig": {
+        "integrationConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },
@@ -5963,6 +6016,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.ListSecurityFilterVersions": {
+        "operationResponseType": "SecurityFilterVersionsResponse",
     },
     "v2.GetSecurityFilter": {
         "securityFilterId": {
@@ -6093,6 +6149,33 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.GetEntityContext": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "from": {
+            "type": "string",
+            "format": "",
+            },
+        "to": {
+            "type": "string",
+            "format": "",
+            },
+        "asOf": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageToken": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "EntityContextResponse",
+    },
     "v2.ListSecurityMonitoringRules": {
         "pageSize": {
             "type": "number",
@@ -6212,6 +6295,42 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetRuleVersionHistoryResponse",
     },
+    "v2.ListSampleLogGenerationSubscriptions": {
+        "status": {
+            "type": "SampleLogGenerationSubscriptionsStatusFilter",
+            "format": "",
+            },
+        "startTimestamp": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endTimestamp": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "SampleLogGenerationSubscriptionsResponse",
+    },
+    "v2.CreateSampleLogGenerationSubscription": {
+        "body": {
+            "type": "SampleLogGenerationSubscriptionCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SampleLogGenerationSubscriptionResponse",
+    },
+    "v2.BulkCreateSampleLogGenerationSubscriptions": {
+        "body": {
+            "type": "SampleLogGenerationBulkSubscriptionRequest",
+            "format": "",
+            },
+        "operationResponseType": "SampleLogGenerationBulkSubscriptionResponse",
+    },
+    "v2.DeleteSampleLogGenerationSubscription": {
+        "contentPackId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SampleLogGenerationSubscriptionResponse",
+    },
     "v2.ListSecurityMonitoringSignals": {
         "filterQuery": {
             "type": "string",
@@ -6284,6 +6403,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.GetSignalEntities": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SignalEntitiesResponse",
     },
     "v2.EditSecurityMonitoringSignalIncidents": {
         "signalId": {

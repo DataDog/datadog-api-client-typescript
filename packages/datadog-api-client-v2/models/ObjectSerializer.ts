@@ -1216,6 +1216,12 @@ import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttribut
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
 import { EPSS } from "./EPSS";
 import { EntityAttributes } from "./EntityAttributes";
+import { EntityContextEntity } from "./EntityContextEntity";
+import { EntityContextEntityAttributes } from "./EntityContextEntityAttributes";
+import { EntityContextPage } from "./EntityContextPage";
+import { EntityContextResponse } from "./EntityContextResponse";
+import { EntityContextResponseMeta } from "./EntityContextResponseMeta";
+import { EntityContextRevision } from "./EntityContextRevision";
 import { EntityData } from "./EntityData";
 import { EntityMeta } from "./EntityMeta";
 import { EntityRelationships } from "./EntityRelationships";
@@ -3272,6 +3278,20 @@ import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
 import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
 import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
+import { SampleLogGenerationBulkSubscriptionAttributes } from "./SampleLogGenerationBulkSubscriptionAttributes";
+import { SampleLogGenerationBulkSubscriptionData } from "./SampleLogGenerationBulkSubscriptionData";
+import { SampleLogGenerationBulkSubscriptionItemMeta } from "./SampleLogGenerationBulkSubscriptionItemMeta";
+import { SampleLogGenerationBulkSubscriptionRequest } from "./SampleLogGenerationBulkSubscriptionRequest";
+import { SampleLogGenerationBulkSubscriptionResponse } from "./SampleLogGenerationBulkSubscriptionResponse";
+import { SampleLogGenerationBulkSubscriptionResultItem } from "./SampleLogGenerationBulkSubscriptionResultItem";
+import { SampleLogGenerationSubscriptionAttributes } from "./SampleLogGenerationSubscriptionAttributes";
+import { SampleLogGenerationSubscriptionCreateAttributes } from "./SampleLogGenerationSubscriptionCreateAttributes";
+import { SampleLogGenerationSubscriptionCreateData } from "./SampleLogGenerationSubscriptionCreateData";
+import { SampleLogGenerationSubscriptionCreateRequest } from "./SampleLogGenerationSubscriptionCreateRequest";
+import { SampleLogGenerationSubscriptionData } from "./SampleLogGenerationSubscriptionData";
+import { SampleLogGenerationSubscriptionResponse } from "./SampleLogGenerationSubscriptionResponse";
+import { SampleLogGenerationSubscriptionsResponse } from "./SampleLogGenerationSubscriptionsResponse";
+import { SampleLogGenerationSubscriptionsResponseMeta } from "./SampleLogGenerationSubscriptionsResponseMeta";
 import { ScaRequest } from "./ScaRequest";
 import { ScaRequestData } from "./ScaRequestData";
 import { ScaRequestDataAttributes } from "./ScaRequestDataAttributes";
@@ -3378,6 +3398,10 @@ import { SecurityFilterResponse } from "./SecurityFilterResponse";
 import { SecurityFilterUpdateAttributes } from "./SecurityFilterUpdateAttributes";
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
 import { SecurityFilterUpdateRequest } from "./SecurityFilterUpdateRequest";
+import { SecurityFilterVersion } from "./SecurityFilterVersion";
+import { SecurityFilterVersionAttributes } from "./SecurityFilterVersionAttributes";
+import { SecurityFilterVersionEntry } from "./SecurityFilterVersionEntry";
+import { SecurityFilterVersionsResponse } from "./SecurityFilterVersionsResponse";
 import { SecurityFiltersResponse } from "./SecurityFiltersResponse";
 import { SecurityFindingsAttributes } from "./SecurityFindingsAttributes";
 import { SecurityFindingsData } from "./SecurityFindingsData";
@@ -3403,6 +3427,19 @@ import { SecurityMonitoringCriticalAssetUpdateData } from "./SecurityMonitoringC
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
+import { SecurityMonitoringIntegrationConfigAttributes } from "./SecurityMonitoringIntegrationConfigAttributes";
+import { SecurityMonitoringIntegrationConfigCreateAttributes } from "./SecurityMonitoringIntegrationConfigCreateAttributes";
+import { SecurityMonitoringIntegrationConfigCreateData } from "./SecurityMonitoringIntegrationConfigCreateData";
+import { SecurityMonitoringIntegrationConfigCreateRequest } from "./SecurityMonitoringIntegrationConfigCreateRequest";
+import { SecurityMonitoringIntegrationConfigData } from "./SecurityMonitoringIntegrationConfigData";
+import { SecurityMonitoringIntegrationConfigResponse } from "./SecurityMonitoringIntegrationConfigResponse";
+import { SecurityMonitoringIntegrationConfigUpdateAttributes } from "./SecurityMonitoringIntegrationConfigUpdateAttributes";
+import { SecurityMonitoringIntegrationConfigUpdateData } from "./SecurityMonitoringIntegrationConfigUpdateData";
+import { SecurityMonitoringIntegrationConfigUpdateRequest } from "./SecurityMonitoringIntegrationConfigUpdateRequest";
+import { SecurityMonitoringIntegrationConfigsResponse } from "./SecurityMonitoringIntegrationConfigsResponse";
+import { SecurityMonitoringIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringIntegrationCredentialsValidateAttributes";
+import { SecurityMonitoringIntegrationCredentialsValidateData } from "./SecurityMonitoringIntegrationCredentialsValidateData";
+import { SecurityMonitoringIntegrationCredentialsValidateRequest } from "./SecurityMonitoringIntegrationCredentialsValidateRequest";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
@@ -3648,6 +3685,9 @@ import { ShiftDataAttributes } from "./ShiftDataAttributes";
 import { ShiftDataRelationships } from "./ShiftDataRelationships";
 import { ShiftDataRelationshipsUser } from "./ShiftDataRelationshipsUser";
 import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData";
+import { SignalEntitiesAttributes } from "./SignalEntitiesAttributes";
+import { SignalEntitiesData } from "./SignalEntitiesData";
+import { SignalEntitiesResponse } from "./SignalEntitiesResponse";
 import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
@@ -6140,6 +6180,22 @@ const enumsMap: { [key: string]: any[] } = {
     "completed_with_errors",
     "failed",
   ],
+  SampleLogGenerationBulkSubscriptionRequestType: [
+    "bulk_subscription_requests",
+  ],
+  SampleLogGenerationDuration: ["1h", "1d", "3d", "7d"],
+  SampleLogGenerationSubscriptionRequestType: ["subscription_requests"],
+  SampleLogGenerationSubscriptionResourceType: ["subscriptions"],
+  SampleLogGenerationSubscriptionStatus: [
+    "subscribed",
+    "renewed",
+    "unsubscribed",
+    "no_active_subscription",
+    "not_available",
+    "active",
+    "expired",
+  ],
+  SampleLogGenerationSubscriptionsStatusFilter: ["active", "all"],
   ScaRequestDataType: ["scarequests"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
@@ -6201,6 +6257,7 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityEntityRiskScoreType: ["security_entity_risk_score"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
+  SecurityFilterVersionType: ["security_filters_configuration"],
   SecurityFindingsDataType: ["finding"],
   SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
   SecurityFindingsStatus: ["done", "timeout"],
@@ -6244,6 +6301,13 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringCriticalAssetType: ["critical_assets"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
+  SecurityMonitoringIntegrationConfigResourceType: ["integration_config"],
+  SecurityMonitoringIntegrationConfigState: [
+    "valid",
+    "invalid",
+    "initializing",
+  ],
+  SecurityMonitoringIntegrationType: ["GOOGLE_WORKSPACE", "OKTA", "ENTRA_ID"],
   SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [
     300, 600, 900, 1800, 3600, 10800,
   ],
@@ -6457,6 +6521,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceNowUserType: ["users"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
+  SignalEntitiesType: ["entities"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
   SloDataSource: ["slo"],
@@ -8313,6 +8378,12 @@ const typeMap: { [index: string]: any } = {
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
   EPSS: EPSS,
   EntityAttributes: EntityAttributes,
+  EntityContextEntity: EntityContextEntity,
+  EntityContextEntityAttributes: EntityContextEntityAttributes,
+  EntityContextPage: EntityContextPage,
+  EntityContextResponse: EntityContextResponse,
+  EntityContextResponseMeta: EntityContextResponseMeta,
+  EntityContextRevision: EntityContextRevision,
   EntityData: EntityData,
   EntityMeta: EntityMeta,
   EntityRelationships: EntityRelationships,
@@ -10749,6 +10820,33 @@ const typeMap: { [index: string]: any } = {
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
   SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
   SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
+  SampleLogGenerationBulkSubscriptionAttributes:
+    SampleLogGenerationBulkSubscriptionAttributes,
+  SampleLogGenerationBulkSubscriptionData:
+    SampleLogGenerationBulkSubscriptionData,
+  SampleLogGenerationBulkSubscriptionItemMeta:
+    SampleLogGenerationBulkSubscriptionItemMeta,
+  SampleLogGenerationBulkSubscriptionRequest:
+    SampleLogGenerationBulkSubscriptionRequest,
+  SampleLogGenerationBulkSubscriptionResponse:
+    SampleLogGenerationBulkSubscriptionResponse,
+  SampleLogGenerationBulkSubscriptionResultItem:
+    SampleLogGenerationBulkSubscriptionResultItem,
+  SampleLogGenerationSubscriptionAttributes:
+    SampleLogGenerationSubscriptionAttributes,
+  SampleLogGenerationSubscriptionCreateAttributes:
+    SampleLogGenerationSubscriptionCreateAttributes,
+  SampleLogGenerationSubscriptionCreateData:
+    SampleLogGenerationSubscriptionCreateData,
+  SampleLogGenerationSubscriptionCreateRequest:
+    SampleLogGenerationSubscriptionCreateRequest,
+  SampleLogGenerationSubscriptionData: SampleLogGenerationSubscriptionData,
+  SampleLogGenerationSubscriptionResponse:
+    SampleLogGenerationSubscriptionResponse,
+  SampleLogGenerationSubscriptionsResponse:
+    SampleLogGenerationSubscriptionsResponse,
+  SampleLogGenerationSubscriptionsResponseMeta:
+    SampleLogGenerationSubscriptionsResponseMeta,
   ScaRequest: ScaRequest,
   ScaRequestData: ScaRequestData,
   ScaRequestDataAttributes: ScaRequestDataAttributes,
@@ -10873,6 +10971,10 @@ const typeMap: { [index: string]: any } = {
   SecurityFilterUpdateAttributes: SecurityFilterUpdateAttributes,
   SecurityFilterUpdateData: SecurityFilterUpdateData,
   SecurityFilterUpdateRequest: SecurityFilterUpdateRequest,
+  SecurityFilterVersion: SecurityFilterVersion,
+  SecurityFilterVersionAttributes: SecurityFilterVersionAttributes,
+  SecurityFilterVersionEntry: SecurityFilterVersionEntry,
+  SecurityFilterVersionsResponse: SecurityFilterVersionsResponse,
   SecurityFiltersResponse: SecurityFiltersResponse,
   SecurityFindingsAttributes: SecurityFindingsAttributes,
   SecurityFindingsData: SecurityFindingsData,
@@ -10912,6 +11014,32 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringCriticalAssetsResponse:
     SecurityMonitoringCriticalAssetsResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
+  SecurityMonitoringIntegrationConfigAttributes:
+    SecurityMonitoringIntegrationConfigAttributes,
+  SecurityMonitoringIntegrationConfigCreateAttributes:
+    SecurityMonitoringIntegrationConfigCreateAttributes,
+  SecurityMonitoringIntegrationConfigCreateData:
+    SecurityMonitoringIntegrationConfigCreateData,
+  SecurityMonitoringIntegrationConfigCreateRequest:
+    SecurityMonitoringIntegrationConfigCreateRequest,
+  SecurityMonitoringIntegrationConfigData:
+    SecurityMonitoringIntegrationConfigData,
+  SecurityMonitoringIntegrationConfigResponse:
+    SecurityMonitoringIntegrationConfigResponse,
+  SecurityMonitoringIntegrationConfigUpdateAttributes:
+    SecurityMonitoringIntegrationConfigUpdateAttributes,
+  SecurityMonitoringIntegrationConfigUpdateData:
+    SecurityMonitoringIntegrationConfigUpdateData,
+  SecurityMonitoringIntegrationConfigUpdateRequest:
+    SecurityMonitoringIntegrationConfigUpdateRequest,
+  SecurityMonitoringIntegrationConfigsResponse:
+    SecurityMonitoringIntegrationConfigsResponse,
+  SecurityMonitoringIntegrationCredentialsValidateAttributes:
+    SecurityMonitoringIntegrationCredentialsValidateAttributes,
+  SecurityMonitoringIntegrationCredentialsValidateData:
+    SecurityMonitoringIntegrationCredentialsValidateData,
+  SecurityMonitoringIntegrationCredentialsValidateRequest:
+    SecurityMonitoringIntegrationCredentialsValidateRequest,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
   SecurityMonitoringPaginatedSuppressionsResponse:
     SecurityMonitoringPaginatedSuppressionsResponse,
@@ -11249,6 +11377,9 @@ const typeMap: { [index: string]: any } = {
   ShiftDataRelationships: ShiftDataRelationships,
   ShiftDataRelationshipsUser: ShiftDataRelationshipsUser,
   ShiftDataRelationshipsUserData: ShiftDataRelationshipsUserData,
+  SignalEntitiesAttributes: SignalEntitiesAttributes,
+  SignalEntitiesData: SignalEntitiesData,
+  SignalEntitiesResponse: SignalEntitiesResponse,
   SimpleMonitorUserTemplate: SimpleMonitorUserTemplate,
   SingleAggregatedConnectionResponseArray:
     SingleAggregatedConnectionResponseArray,
