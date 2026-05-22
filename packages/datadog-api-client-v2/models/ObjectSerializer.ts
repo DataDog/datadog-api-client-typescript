@@ -2596,6 +2596,7 @@ import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPip
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
@@ -9956,6 +9957,7 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineMetricTagsProcessor,
   ObservabilityPipelineMetricTagsProcessorRule:
     ObservabilityPipelineMetricTagsProcessorRule,
+  ObservabilityPipelineMtlsServerTls: ObservabilityPipelineMtlsServerTls,
   ObservabilityPipelineNewRelicDestination:
     ObservabilityPipelineNewRelicDestination,
   ObservabilityPipelineOcsfMapperProcessor:
