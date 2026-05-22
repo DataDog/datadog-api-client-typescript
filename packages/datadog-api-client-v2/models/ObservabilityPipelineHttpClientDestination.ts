@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineHttpClientDestinationAuthStrategy } from "./ObservabilityPipelineHttpClientDestinationAuthStrategy";
 import { ObservabilityPipelineHttpClientDestinationCompression } from "./ObservabilityPipelineHttpClientDestinationCompression";
 import { ObservabilityPipelineHttpClientDestinationEncoding } from "./ObservabilityPipelineHttpClientDestinationEncoding";
@@ -21,6 +22,10 @@ export class ObservabilityPipelineHttpClientDestination {
    * HTTP authentication strategy.
    */
   "authStrategy"?: ObservabilityPipelineHttpClientDestinationAuthStrategy;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression configuration for HTTP requests.
    */
@@ -85,6 +90,10 @@ export class ObservabilityPipelineHttpClientDestination {
     authStrategy: {
       baseName: "auth_strategy",
       type: "ObservabilityPipelineHttpClientDestinationAuthStrategy",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     compression: {
       baseName: "compression",

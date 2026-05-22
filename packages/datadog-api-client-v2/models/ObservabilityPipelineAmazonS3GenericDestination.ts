@@ -9,6 +9,7 @@ import { ObservabilityPipelineAmazonS3GenericCompression } from "./Observability
 import { ObservabilityPipelineAmazonS3GenericDestinationType } from "./ObservabilityPipelineAmazonS3GenericDestinationType";
 import { ObservabilityPipelineAmazonS3GenericEncoding } from "./ObservabilityPipelineAmazonS3GenericEncoding";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -31,6 +32,10 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
    * S3 bucket name.
    */
   "bucket": string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression algorithm applied to encoded logs.
    */
@@ -92,6 +97,10 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
       baseName: "bucket",
       type: "string",
       required: true,
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     compression: {
       baseName: "compression",

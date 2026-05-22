@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineCloudPremDestinationType } from "./ObservabilityPipelineCloudPremDestinationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineCloudPremDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Name of the environment variable or secret that holds the CloudPrem endpoint URL.
    */
@@ -46,6 +51,10 @@ export class ObservabilityPipelineCloudPremDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     endpointUrlKey: {
       baseName: "endpoint_url_key",
       type: "string",
