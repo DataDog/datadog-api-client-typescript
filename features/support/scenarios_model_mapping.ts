@@ -2955,6 +2955,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LLMObsDatasetResponse",
     },
+    "v2.GetLLMObsDatasetDraftState": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetDraftStateResponse",
+    },
+    "v2.LockLLMObsDatasetDraftState": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetDraftStateResponse",
+    },
+    "v2.UnlockLLMObsDatasetDraftState": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListLLMObsDatasetRecords": {
         "projectId": {
             "type": "string",
@@ -3022,6 +3055,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ListLLMObsDatasetVersions": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetVersionsResponse",
     },
     "v2.ListLLMObsExperimentEvents": {
         "experimentId": {

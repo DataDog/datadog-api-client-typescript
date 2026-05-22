@@ -2009,6 +2009,10 @@ import { LLMObsDatasetDataAttributesRequest } from "./LLMObsDatasetDataAttribute
 import { LLMObsDatasetDataAttributesResponse } from "./LLMObsDatasetDataAttributesResponse";
 import { LLMObsDatasetDataRequest } from "./LLMObsDatasetDataRequest";
 import { LLMObsDatasetDataResponse } from "./LLMObsDatasetDataResponse";
+import { LLMObsDatasetDraftStateData } from "./LLMObsDatasetDraftStateData";
+import { LLMObsDatasetDraftStateDataAttributes } from "./LLMObsDatasetDraftStateDataAttributes";
+import { LLMObsDatasetDraftStateResponse } from "./LLMObsDatasetDraftStateResponse";
+import { LLMObsDatasetDraftStateUser } from "./LLMObsDatasetDraftStateUser";
 import { LLMObsDatasetRecordDataResponse } from "./LLMObsDatasetRecordDataResponse";
 import { LLMObsDatasetRecordItem } from "./LLMObsDatasetRecordItem";
 import { LLMObsDatasetRecordUpdateItem } from "./LLMObsDatasetRecordUpdateItem";
@@ -2026,6 +2030,9 @@ import { LLMObsDatasetResponse } from "./LLMObsDatasetResponse";
 import { LLMObsDatasetUpdateDataAttributesRequest } from "./LLMObsDatasetUpdateDataAttributesRequest";
 import { LLMObsDatasetUpdateDataRequest } from "./LLMObsDatasetUpdateDataRequest";
 import { LLMObsDatasetUpdateRequest } from "./LLMObsDatasetUpdateRequest";
+import { LLMObsDatasetVersionData } from "./LLMObsDatasetVersionData";
+import { LLMObsDatasetVersionDataAttributes } from "./LLMObsDatasetVersionDataAttributes";
+import { LLMObsDatasetVersionsResponse } from "./LLMObsDatasetVersionsResponse";
 import { LLMObsDatasetsResponse } from "./LLMObsDatasetsResponse";
 import { LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest";
 import { LLMObsDeleteAnnotationQueueInteractionsDataRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataRequest";
@@ -5452,7 +5459,9 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsCustomEvalConfigType: ["evaluator_config"],
   LLMObsDataDeletionRequestType: ["create_deletion_req"],
   LLMObsDataDeletionResponseType: ["deletion_request"],
+  LLMObsDatasetDraftStateType: ["draft_state_data"],
   LLMObsDatasetType: ["datasets"],
+  LLMObsDatasetVersionType: ["dataset_version"],
   LLMObsDisplayBlockInteractionType: ["display_block"],
   LLMObsEventType: ["events"],
   LLMObsExperimentEventsType: ["experiment_events"],
@@ -9345,6 +9354,10 @@ const typeMap: { [index: string]: any } = {
   LLMObsDatasetDataAttributesResponse: LLMObsDatasetDataAttributesResponse,
   LLMObsDatasetDataRequest: LLMObsDatasetDataRequest,
   LLMObsDatasetDataResponse: LLMObsDatasetDataResponse,
+  LLMObsDatasetDraftStateData: LLMObsDatasetDraftStateData,
+  LLMObsDatasetDraftStateDataAttributes: LLMObsDatasetDraftStateDataAttributes,
+  LLMObsDatasetDraftStateResponse: LLMObsDatasetDraftStateResponse,
+  LLMObsDatasetDraftStateUser: LLMObsDatasetDraftStateUser,
   LLMObsDatasetRecordDataResponse: LLMObsDatasetRecordDataResponse,
   LLMObsDatasetRecordItem: LLMObsDatasetRecordItem,
   LLMObsDatasetRecordUpdateItem: LLMObsDatasetRecordUpdateItem,
@@ -9365,6 +9378,9 @@ const typeMap: { [index: string]: any } = {
     LLMObsDatasetUpdateDataAttributesRequest,
   LLMObsDatasetUpdateDataRequest: LLMObsDatasetUpdateDataRequest,
   LLMObsDatasetUpdateRequest: LLMObsDatasetUpdateRequest,
+  LLMObsDatasetVersionData: LLMObsDatasetVersionData,
+  LLMObsDatasetVersionDataAttributes: LLMObsDatasetVersionDataAttributes,
+  LLMObsDatasetVersionsResponse: LLMObsDatasetVersionsResponse,
   LLMObsDatasetsResponse: LLMObsDatasetsResponse,
   LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest:
     LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest,
