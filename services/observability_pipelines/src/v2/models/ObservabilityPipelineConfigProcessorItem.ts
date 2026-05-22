@@ -3,6 +3,8 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
 import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
 import { ObservabilityPipelineAddHostnameProcessor } from "./ObservabilityPipelineAddHostnameProcessor";
+import { ObservabilityPipelineAddMetricTagsProcessor } from "./ObservabilityPipelineAddMetricTagsProcessor";
+import { ObservabilityPipelineAggregateProcessor } from "./ObservabilityPipelineAggregateProcessor";
 import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCustomProcessor";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
@@ -18,9 +20,11 @@ import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuot
 import { ObservabilityPipelineReduceProcessor } from "./ObservabilityPipelineReduceProcessor";
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
+import { ObservabilityPipelineRenameMetricTagsProcessor } from "./ObservabilityPipelineRenameMetricTagsProcessor";
 import { ObservabilityPipelineSampleProcessor } from "./ObservabilityPipelineSampleProcessor";
 import { ObservabilityPipelineSensitiveDataScannerProcessor } from "./ObservabilityPipelineSensitiveDataScannerProcessor";
 import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
+import { ObservabilityPipelineTagCardinalityLimitProcessor } from "./ObservabilityPipelineTagCardinalityLimitProcessor";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 
 /**
@@ -48,5 +52,9 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineSensitiveDataScannerProcessor
   | ObservabilityPipelineSplitArrayProcessor
   | ObservabilityPipelineThrottleProcessor
+  | ObservabilityPipelineAddMetricTagsProcessor
+  | ObservabilityPipelineAggregateProcessor
   | ObservabilityPipelineMetricTagsProcessor
+  | ObservabilityPipelineRenameMetricTagsProcessor
+  | ObservabilityPipelineTagCardinalityLimitProcessor
   | UnparsedObject;

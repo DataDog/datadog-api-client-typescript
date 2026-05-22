@@ -23,6 +23,11 @@ export { ObservabilityPipelineAddFieldsProcessor } from "./models/ObservabilityP
 export { ObservabilityPipelineAddFieldsProcessorType } from "./models/ObservabilityPipelineAddFieldsProcessorType";
 export { ObservabilityPipelineAddHostnameProcessor } from "./models/ObservabilityPipelineAddHostnameProcessor";
 export { ObservabilityPipelineAddHostnameProcessorType } from "./models/ObservabilityPipelineAddHostnameProcessorType";
+export { ObservabilityPipelineAddMetricTagsProcessor } from "./models/ObservabilityPipelineAddMetricTagsProcessor";
+export { ObservabilityPipelineAddMetricTagsProcessorType } from "./models/ObservabilityPipelineAddMetricTagsProcessorType";
+export { ObservabilityPipelineAggregateProcessor } from "./models/ObservabilityPipelineAggregateProcessor";
+export { ObservabilityPipelineAggregateProcessorMode } from "./models/ObservabilityPipelineAggregateProcessorMode";
+export { ObservabilityPipelineAggregateProcessorType } from "./models/ObservabilityPipelineAggregateProcessorType";
 export { ObservabilityPipelineAmazonDataFirehoseSource } from "./models/ObservabilityPipelineAmazonDataFirehoseSource";
 export { ObservabilityPipelineAmazonDataFirehoseSourceType } from "./models/ObservabilityPipelineAmazonDataFirehoseSourceType";
 export { ObservabilityPipelineAmazonOpenSearchDestination } from "./models/ObservabilityPipelineAmazonOpenSearchDestination";
@@ -224,6 +229,9 @@ export { ObservabilityPipelineRemoveFieldsProcessorType } from "./models/Observa
 export { ObservabilityPipelineRenameFieldsProcessor } from "./models/ObservabilityPipelineRenameFieldsProcessor";
 export { ObservabilityPipelineRenameFieldsProcessorField } from "./models/ObservabilityPipelineRenameFieldsProcessorField";
 export { ObservabilityPipelineRenameFieldsProcessorType } from "./models/ObservabilityPipelineRenameFieldsProcessorType";
+export { ObservabilityPipelineRenameMetricTagsProcessor } from "./models/ObservabilityPipelineRenameMetricTagsProcessor";
+export { ObservabilityPipelineRenameMetricTagsProcessorTag } from "./models/ObservabilityPipelineRenameMetricTagsProcessorTag";
+export { ObservabilityPipelineRenameMetricTagsProcessorType } from "./models/ObservabilityPipelineRenameMetricTagsProcessorType";
 export { ObservabilityPipelineRsyslogDestination } from "./models/ObservabilityPipelineRsyslogDestination";
 export { ObservabilityPipelineRsyslogDestinationType } from "./models/ObservabilityPipelineRsyslogDestinationType";
 export { ObservabilityPipelineRsyslogSource } from "./models/ObservabilityPipelineRsyslogSource";
@@ -313,6 +321,13 @@ export { ObservabilityPipelineSyslogNgDestinationType } from "./models/Observabi
 export { ObservabilityPipelineSyslogNgSource } from "./models/ObservabilityPipelineSyslogNgSource";
 export { ObservabilityPipelineSyslogNgSourceType } from "./models/ObservabilityPipelineSyslogNgSourceType";
 export { ObservabilityPipelineSyslogSourceMode } from "./models/ObservabilityPipelineSyslogSourceMode";
+export { ObservabilityPipelineTagCardinalityLimitProcessor } from "./models/ObservabilityPipelineTagCardinalityLimitProcessor";
+export { ObservabilityPipelineTagCardinalityLimitProcessorAction } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorAction";
+export { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit";
+export { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode";
+export { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
+export { ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode";
+export { ObservabilityPipelineTagCardinalityLimitProcessorType } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorType";
 export { ObservabilityPipelineThrottleProcessor } from "./models/ObservabilityPipelineThrottleProcessor";
 export { ObservabilityPipelineThrottleProcessorType } from "./models/ObservabilityPipelineThrottleProcessorType";
 export { ObservabilityPipelineTls } from "./models/ObservabilityPipelineTls";
