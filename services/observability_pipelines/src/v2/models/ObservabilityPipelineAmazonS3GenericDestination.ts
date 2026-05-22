@@ -6,6 +6,7 @@ import { ObservabilityPipelineAmazonS3GenericCompression } from "./Observability
 import { ObservabilityPipelineAmazonS3GenericDestinationType } from "./ObservabilityPipelineAmazonS3GenericDestinationType";
 import { ObservabilityPipelineAmazonS3GenericEncoding } from "./ObservabilityPipelineAmazonS3GenericEncoding";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
 /**
  * The `amazon_s3_generic` destination sends your logs to an Amazon S3 bucket.
@@ -26,6 +27,10 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
    * S3 bucket name.
    */
   "bucket": string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression algorithm applied to encoded logs.
    */
@@ -85,6 +90,10 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
       baseName: "bucket",
       type: "string",
       required: true,
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     compression: {
       baseName: "compression",
