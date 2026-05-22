@@ -1,9 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineSocketSourceFraming } from "./ObservabilityPipelineSocketSourceFraming";
 import { ObservabilityPipelineSocketSourceMode } from "./ObservabilityPipelineSocketSourceMode";
 import { ObservabilityPipelineSocketSourceType } from "./ObservabilityPipelineSocketSourceType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `socket` source ingests logs over TCP or UDP.
@@ -28,9 +28,9 @@ export class ObservabilityPipelineSocketSource {
    */
   "mode": ObservabilityPipelineSocketSourceMode;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `socket`.
    */
@@ -71,7 +71,7 @@ export class ObservabilityPipelineSocketSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineMtlsServerTls",
     },
     type: {
       baseName: "type",

@@ -86,6 +86,7 @@ import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPip
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
@@ -744,6 +745,7 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineMetricTagsProcessor,
     ObservabilityPipelineMetricTagsProcessorRule:
       ObservabilityPipelineMetricTagsProcessorRule,
+    ObservabilityPipelineMtlsServerTls: ObservabilityPipelineMtlsServerTls,
     ObservabilityPipelineNewRelicDestination:
       ObservabilityPipelineNewRelicDestination,
     ObservabilityPipelineOcsfMapperProcessor:

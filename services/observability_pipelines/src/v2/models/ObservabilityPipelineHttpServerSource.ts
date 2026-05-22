@@ -4,7 +4,7 @@ import { ObservabilityPipelineDecoding } from "./ObservabilityPipelineDecoding";
 import { ObservabilityPipelineHttpServerSourceAuthStrategy } from "./ObservabilityPipelineHttpServerSourceAuthStrategy";
 import { ObservabilityPipelineHttpServerSourceType } from "./ObservabilityPipelineHttpServerSourceType";
 import { ObservabilityPipelineHttpServerSourceValidToken } from "./ObservabilityPipelineHttpServerSourceValidToken";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 
 /**
  * The `http_server` source collects logs over HTTP POST from external services.
@@ -37,9 +37,9 @@ export class ObservabilityPipelineHttpServerSource {
    */
   "passwordKey"?: string;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `http_server`.
    */
@@ -98,7 +98,7 @@ export class ObservabilityPipelineHttpServerSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineMtlsServerTls",
     },
     type: {
       baseName: "type",

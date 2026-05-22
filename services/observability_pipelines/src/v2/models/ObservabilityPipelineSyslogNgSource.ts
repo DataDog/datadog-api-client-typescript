@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineSyslogNgSourceType } from "./ObservabilityPipelineSyslogNgSourceType";
 import { ObservabilityPipelineSyslogSourceMode } from "./ObservabilityPipelineSyslogSourceMode";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
@@ -23,9 +23,9 @@ export class ObservabilityPipelineSyslogNgSource {
    */
   "mode": ObservabilityPipelineSyslogSourceMode;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `syslog_ng`.
    */
@@ -61,7 +61,7 @@ export class ObservabilityPipelineSyslogNgSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineMtlsServerTls",
     },
     type: {
       baseName: "type",
