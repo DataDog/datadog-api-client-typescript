@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineKafkaDestinationCompression } from "./ObservabilityPipelineKafkaDestinationCompression";
 import { ObservabilityPipelineKafkaDestinationEncoding } from "./ObservabilityPipelineKafkaDestinationEncoding";
 import { ObservabilityPipelineKafkaDestinationType } from "./ObservabilityPipelineKafkaDestinationType";
@@ -17,6 +18,10 @@ export class ObservabilityPipelineKafkaDestination {
    * Name of the environment variable or secret that holds the Kafka bootstrap servers list.
    */
   "bootstrapServersKey"?: string;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression codec for Kafka messages.
    */
@@ -95,6 +100,10 @@ export class ObservabilityPipelineKafkaDestination {
     bootstrapServersKey: {
       baseName: "bootstrap_servers_key",
       type: "string",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     compression: {
       baseName: "compression",
