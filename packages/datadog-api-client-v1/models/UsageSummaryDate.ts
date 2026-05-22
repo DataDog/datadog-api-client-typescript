@@ -568,6 +568,22 @@ export class UsageSummaryDate {
    */
   "iotDeviceTop99p"?: number;
   /**
+   * Sum of all LLM Observability spans with 15-day retention over all hours in the current date for all organizations.
+   */
+  "llmObservability15dayRetentionSpansSum"?: number;
+  /**
+   * Sum of all LLM Observability spans with 30-day retention over all hours in the current date for all organizations.
+   */
+  "llmObservability30dayRetentionSpansSum"?: number;
+  /**
+   * Sum of all LLM Observability spans with 60-day retention over all hours in the current date for all organizations.
+   */
+  "llmObservability60dayRetentionSpansSum"?: number;
+  /**
+   * Sum of all LLM Observability spans with 90-day retention over all hours in the current date for all organizations.
+   */
+  "llmObservability90dayRetentionSpansSum"?: number;
+  /**
    * Sum of all LLM observability minimum spend over all hours in the current date for all organizations.
    */
   "llmObservabilityMinSpendSum"?: number;
@@ -1708,6 +1724,26 @@ export class UsageSummaryDate {
     },
     iotDeviceTop99p: {
       baseName: "iot_device_top99p",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability15dayRetentionSpansSum: {
+      baseName: "llm_observability_15day_retention_spans_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability30dayRetentionSpansSum: {
+      baseName: "llm_observability_30day_retention_spans_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability60dayRetentionSpansSum: {
+      baseName: "llm_observability_60day_retention_spans_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability90dayRetentionSpansSum: {
+      baseName: "llm_observability_90day_retention_spans_sum",
       type: "number",
       format: "int64",
     },
