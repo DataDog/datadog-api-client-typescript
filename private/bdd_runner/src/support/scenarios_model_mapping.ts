@@ -14481,6 +14481,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UserTeamsResponse",
   },
+  "TestExamplesApi.V2.ListTestExamples": {
+    operationResponseType: "TestExamplesResponse",
+  },
   "WebIntegrationsApi.V2.ListWebIntegrationAccounts": {
     integrationName: {
       type: "string",
