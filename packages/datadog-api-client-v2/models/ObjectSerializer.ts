@@ -2530,6 +2530,8 @@ import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelin
 import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./ObservabilityPipelineAddEnvVarsProcessorVariable";
 import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
 import { ObservabilityPipelineAddHostnameProcessor } from "./ObservabilityPipelineAddHostnameProcessor";
+import { ObservabilityPipelineAddMetricTagsProcessor } from "./ObservabilityPipelineAddMetricTagsProcessor";
+import { ObservabilityPipelineAggregateProcessor } from "./ObservabilityPipelineAggregateProcessor";
 import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
@@ -2632,6 +2634,8 @@ import { ObservabilityPipelineReduceProcessorMergeStrategy } from "./Observabili
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessorField } from "./ObservabilityPipelineRenameFieldsProcessorField";
+import { ObservabilityPipelineRenameMetricTagsProcessor } from "./ObservabilityPipelineRenameMetricTagsProcessor";
+import { ObservabilityPipelineRenameMetricTagsProcessorTag } from "./ObservabilityPipelineRenameMetricTagsProcessorTag";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
 import { ObservabilityPipelineRsyslogSource } from "./ObservabilityPipelineRsyslogSource";
 import { ObservabilityPipelineSampleProcessor } from "./ObservabilityPipelineSampleProcessor";
@@ -2676,6 +2680,9 @@ import { ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem } from 
 import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSumoLogicSource";
 import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
 import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
+import { ObservabilityPipelineTagCardinalityLimitProcessor } from "./ObservabilityPipelineTagCardinalityLimitProcessor";
+import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit";
+import { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 import { OktaAPIToken } from "./OktaAPIToken";
@@ -5619,6 +5626,17 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
   ObservabilityPipelineAddHostnameProcessorType: ["add_hostname"],
+  ObservabilityPipelineAddMetricTagsProcessorType: ["add_metric_tags"],
+  ObservabilityPipelineAggregateProcessorMode: [
+    "auto",
+    "sum",
+    "latest",
+    "count",
+    "max",
+    "min",
+    "mean",
+  ],
+  ObservabilityPipelineAggregateProcessorType: ["aggregate"],
   ObservabilityPipelineAmazonDataFirehoseSourceType: ["amazon_data_firehose"],
   ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy: [
     "basic",
@@ -5832,6 +5850,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineReduceProcessorType: ["reduce"],
   ObservabilityPipelineRemoveFieldsProcessorType: ["remove_fields"],
   ObservabilityPipelineRenameFieldsProcessorType: ["rename_fields"],
+  ObservabilityPipelineRenameMetricTagsProcessorType: ["rename_metric_tags"],
   ObservabilityPipelineRsyslogDestinationType: ["rsyslog"],
   ObservabilityPipelineRsyslogSourceType: ["rsyslog"],
   ObservabilityPipelineSampleProcessorType: ["sample"],
@@ -5909,6 +5928,21 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineSyslogNgDestinationType: ["syslog_ng"],
   ObservabilityPipelineSyslogNgSourceType: ["syslog_ng"],
   ObservabilityPipelineSyslogSourceMode: ["tcp", "udp"],
+  ObservabilityPipelineTagCardinalityLimitProcessorAction: [
+    "drop_tag",
+    "drop_event",
+  ],
+  ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode: [
+    "tracked",
+    "excluded",
+  ],
+  ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode: [
+    "limit_override",
+    "excluded",
+  ],
+  ObservabilityPipelineTagCardinalityLimitProcessorType: [
+    "tag_cardinality_limit",
+  ],
   ObservabilityPipelineThrottleProcessorType: ["throttle"],
   OktaAPITokenType: ["OktaAPIToken"],
   OktaAccountType: ["okta-accounts"],
@@ -9914,6 +9948,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineAddFieldsProcessor,
   ObservabilityPipelineAddHostnameProcessor:
     ObservabilityPipelineAddHostnameProcessor,
+  ObservabilityPipelineAddMetricTagsProcessor:
+    ObservabilityPipelineAddMetricTagsProcessor,
+  ObservabilityPipelineAggregateProcessor:
+    ObservabilityPipelineAggregateProcessor,
   ObservabilityPipelineAmazonDataFirehoseSource:
     ObservabilityPipelineAmazonDataFirehoseSource,
   ObservabilityPipelineAmazonOpenSearchDestination:
@@ -10095,6 +10133,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineRenameFieldsProcessor,
   ObservabilityPipelineRenameFieldsProcessorField:
     ObservabilityPipelineRenameFieldsProcessorField,
+  ObservabilityPipelineRenameMetricTagsProcessor:
+    ObservabilityPipelineRenameMetricTagsProcessor,
+  ObservabilityPipelineRenameMetricTagsProcessorTag:
+    ObservabilityPipelineRenameMetricTagsProcessorTag,
   ObservabilityPipelineRsyslogDestination:
     ObservabilityPipelineRsyslogDestination,
   ObservabilityPipelineRsyslogSource: ObservabilityPipelineRsyslogSource,
@@ -10174,6 +10216,12 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineSyslogNgDestination:
     ObservabilityPipelineSyslogNgDestination,
   ObservabilityPipelineSyslogNgSource: ObservabilityPipelineSyslogNgSource,
+  ObservabilityPipelineTagCardinalityLimitProcessor:
+    ObservabilityPipelineTagCardinalityLimitProcessor,
+  ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit:
+    ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit,
+  ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit:
+    ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit,
   ObservabilityPipelineThrottleProcessor:
     ObservabilityPipelineThrottleProcessor,
   ObservabilityPipelineTls: ObservabilityPipelineTls,
@@ -12666,7 +12714,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSensitiveDataScannerProcessor",
     "ObservabilityPipelineSplitArrayProcessor",
     "ObservabilityPipelineThrottleProcessor",
+    "ObservabilityPipelineAddMetricTagsProcessor",
+    "ObservabilityPipelineAggregateProcessor",
     "ObservabilityPipelineMetricTagsProcessor",
+    "ObservabilityPipelineRenameMetricTagsProcessor",
+    "ObservabilityPipelineTagCardinalityLimitProcessor",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineDatadogAgentSource",
