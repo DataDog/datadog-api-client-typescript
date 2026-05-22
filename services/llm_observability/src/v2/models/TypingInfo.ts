@@ -4,6 +4,10 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { LLMObsAnnotatedInteractionByTraceItem } from "./LLMObsAnnotatedInteractionByTraceItem";
+import { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
+import { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./LLMObsAnnotatedInteractionsByTraceDataResponse";
+import { LLMObsAnnotatedInteractionsByTraceResponse } from "./LLMObsAnnotatedInteractionsByTraceResponse";
 import { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./LLMObsAnnotatedInteractionsDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsDataResponse } from "./LLMObsAnnotatedInteractionsDataResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "./LLMObsAnnotatedInteractionsResponse";
@@ -211,11 +215,18 @@ import { LLMObsVertexAIMetadata } from "./LLMObsVertexAIMetadata";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    LLMObsAnnotatedInteractionsByTraceType: ["annotated_interactions_by_trace"],
     LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
     LLMObsAnnotationQueueInteractionsType: ["interactions"],
     LLMObsAnnotationQueueType: ["queues"],
     LLMObsAnthropicEffort: ["low", "medium", "high", "max"],
     LLMObsAnthropicThinkingType: ["enabled", "disabled", "adaptive"],
+    LLMObsAnyInteractionType: [
+      "trace",
+      "experiment_trace",
+      "session",
+      "display_block",
+    ],
     LLMObsContentBlockHeaderLevel: ["sm", "md", "lg", "xl"],
     LLMObsContentBlockLLMObsTraceInteractionType: ["trace", "experiment_trace"],
     LLMObsContentBlockType: [
@@ -294,6 +305,14 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    LLMObsAnnotatedInteractionByTraceItem:
+      LLMObsAnnotatedInteractionByTraceItem,
+    LLMObsAnnotatedInteractionsByTraceDataAttributesResponse:
+      LLMObsAnnotatedInteractionsByTraceDataAttributesResponse,
+    LLMObsAnnotatedInteractionsByTraceDataResponse:
+      LLMObsAnnotatedInteractionsByTraceDataResponse,
+    LLMObsAnnotatedInteractionsByTraceResponse:
+      LLMObsAnnotatedInteractionsByTraceResponse,
     LLMObsAnnotatedInteractionsDataAttributesResponse:
       LLMObsAnnotatedInteractionsDataAttributesResponse,
     LLMObsAnnotatedInteractionsDataResponse:
