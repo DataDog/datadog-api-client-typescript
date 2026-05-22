@@ -18,6 +18,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { LLMObsAnnotatedInteractionsByTraceResponse } from "../models/LLMObsAnnotatedInteractionsByTraceResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "../models/LLMObsAnnotatedInteractionsResponse";
 import { LLMObsAnnotationQueueInteractionsRequest } from "../models/LLMObsAnnotationQueueInteractionsRequest";
 import { LLMObsAnnotationQueueInteractionsResponse } from "../models/LLMObsAnnotationQueueInteractionsResponse";
@@ -1025,6 +1026,77 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsAnnotatedInteractionsByTraceIDs(
+    contentIds: Array<string>,
+    offset?: number,
+    limit?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getLLMObsAnnotatedInteractionsByTraceIDs'"
+    );
+    if (
+      !_config.unstableOperations["v2.getLLMObsAnnotatedInteractionsByTraceIDs"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getLLMObsAnnotatedInteractionsByTraceIDs' is disabled"
+      );
+    }
+
+    // verify required parameter 'contentIds' is not null or undefined
+    if (contentIds === null || contentIds === undefined) {
+      throw new RequiredError(
+        "contentIds",
+        "getLLMObsAnnotatedInteractionsByTraceIDs"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/annotated-interactions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.LLMObservabilityApi.getLLMObsAnnotatedInteractionsByTraceIDs"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (contentIds !== undefined) {
+      requestContext.setQueryParam(
+        "contentIds",
+        ObjectSerializer.serialize(contentIds, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        ObjectSerializer.serialize(offset, "number", "int32"),
+        ""
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int32"),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3781,6 +3853,94 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getLLMObsAnnotatedInteractionsByTraceIDs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsAnnotatedInteractionsByTraceIDs(
+    response: ResponseContext
+  ): Promise<LLMObsAnnotatedInteractionsByTraceResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsAnnotatedInteractionsByTraceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsAnnotatedInteractionsByTraceResponse"
+        ) as LLMObsAnnotatedInteractionsByTraceResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotatedInteractionsByTraceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsAnnotatedInteractionsByTraceResponse",
+          ""
+        ) as LLMObsAnnotatedInteractionsByTraceResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getLLMObsAnnotationQueueLabelSchema
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5786,6 +5946,24 @@ export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest {
   queueId: string;
 }
 
+export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest {
+  /**
+   * One or more content IDs to retrieve annotated interactions for. At least one is required.
+   * @type Array<string>
+   */
+  contentIds: Array<string>;
+  /**
+   * Pagination offset. Must be >= 0. Defaults to 0.
+   * @type number
+   */
+  offset?: number;
+  /**
+   * Maximum number of results to return. Must be > 0. Defaults to 100.
+   * @type number
+   */
+  limit?: number;
+}
+
 export interface LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest {
   /**
    * The ID of the LLM Observability annotation queue.
@@ -6587,6 +6765,32 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsAnnotatedInteractions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Returns annotated interactions across all annotation queues for the given content IDs. Results include queue metadata (ID and name) for each interaction.
+   * @param param The request object
+   */
+  public getLLMObsAnnotatedInteractionsByTraceIDs(
+    param: LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
+    options?: Configuration
+  ): Promise<LLMObsAnnotatedInteractionsByTraceResponse> {
+    const requestContextPromise =
+      this.requestFactory.getLLMObsAnnotatedInteractionsByTraceIDs(
+        param.contentIds,
+        param.offset,
+        param.limit,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsAnnotatedInteractionsByTraceIDs(
             responseContext
           );
         });

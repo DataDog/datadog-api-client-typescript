@@ -258,6 +258,7 @@ export function createConfiguration(
       "v2.deleteLLMObsExperiments": false,
       "v2.deleteLLMObsProjects": false,
       "v2.getLLMObsAnnotatedInteractions": false,
+      "v2.getLLMObsAnnotatedInteractionsByTraceIDs": false,
       "v2.getLLMObsAnnotationQueueLabelSchema": false,
       "v2.getLLMObsCustomEvalConfig": false,
       "v2.listLLMObsAnnotationQueues": false,
