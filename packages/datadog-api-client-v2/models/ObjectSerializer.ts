@@ -2759,13 +2759,11 @@ import { OrgGroupMembershipBulkUpdateRelationships } from "./OrgGroupMembershipB
 import { OrgGroupMembershipBulkUpdateRequest } from "./OrgGroupMembershipBulkUpdateRequest";
 import { OrgGroupMembershipData } from "./OrgGroupMembershipData";
 import { OrgGroupMembershipListResponse } from "./OrgGroupMembershipListResponse";
-import { OrgGroupMembershipRelationshipData } from "./OrgGroupMembershipRelationshipData";
 import { OrgGroupMembershipRelationships } from "./OrgGroupMembershipRelationships";
 import { OrgGroupMembershipResponse } from "./OrgGroupMembershipResponse";
 import { OrgGroupMembershipUpdateData } from "./OrgGroupMembershipUpdateData";
 import { OrgGroupMembershipUpdateRelationships } from "./OrgGroupMembershipUpdateRelationships";
 import { OrgGroupMembershipUpdateRequest } from "./OrgGroupMembershipUpdateRequest";
-import { OrgGroupMembershipsRelationship } from "./OrgGroupMembershipsRelationship";
 import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
 import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
 import { OrgGroupPaginationMetaPage } from "./OrgGroupPaginationMetaPage";
@@ -2800,7 +2798,6 @@ import { OrgGroupPolicyUpdateData } from "./OrgGroupPolicyUpdateData";
 import { OrgGroupPolicyUpdateRequest } from "./OrgGroupPolicyUpdateRequest";
 import { OrgGroupRelationshipToOne } from "./OrgGroupRelationshipToOne";
 import { OrgGroupRelationshipToOneData } from "./OrgGroupRelationshipToOneData";
-import { OrgGroupRelationships } from "./OrgGroupRelationships";
 import { OrgGroupResponse } from "./OrgGroupResponse";
 import { OrgGroupUpdateAttributes } from "./OrgGroupUpdateAttributes";
 import { OrgGroupUpdateData } from "./OrgGroupUpdateData";
@@ -5928,12 +5925,15 @@ const enumsMap: { [key: string]: any[] } = {
   OrgConnectionType: ["org_connection"],
   OrgConnectionTypeEnum: ["logs", "metrics", "audit"],
   OrgConnectionUserRelationshipDataType: ["users"],
-  OrgGroupIncludeOption: ["memberships"],
   OrgGroupMembershipBulkUpdateType: ["org_group_membership_bulk_updates"],
   OrgGroupMembershipSortOption: ["name", "-name", "uuid", "-uuid"],
   OrgGroupMembershipType: ["org_group_memberships"],
   OrgGroupPolicyConfigType: ["org_group_policy_configs"],
-  OrgGroupPolicyEnforcementTier: ["DEFAULT", "ENFORCE", "DELEGATE"],
+  OrgGroupPolicyEnforcementTier: [
+    "OVERRIDE_ALLOWED",
+    "GROUP_MANAGED",
+    "DELEGATE",
+  ],
   OrgGroupPolicyOverrideSortOption: ["id", "-id", "org_uuid", "-org_uuid"],
   OrgGroupPolicyOverrideType: ["org_group_policy_overrides"],
   OrgGroupPolicyPolicyType: ["org_config"],
@@ -10263,13 +10263,11 @@ const typeMap: { [index: string]: any } = {
   OrgGroupMembershipBulkUpdateRequest: OrgGroupMembershipBulkUpdateRequest,
   OrgGroupMembershipData: OrgGroupMembershipData,
   OrgGroupMembershipListResponse: OrgGroupMembershipListResponse,
-  OrgGroupMembershipRelationshipData: OrgGroupMembershipRelationshipData,
   OrgGroupMembershipRelationships: OrgGroupMembershipRelationships,
   OrgGroupMembershipResponse: OrgGroupMembershipResponse,
   OrgGroupMembershipUpdateData: OrgGroupMembershipUpdateData,
   OrgGroupMembershipUpdateRelationships: OrgGroupMembershipUpdateRelationships,
   OrgGroupMembershipUpdateRequest: OrgGroupMembershipUpdateRequest,
-  OrgGroupMembershipsRelationship: OrgGroupMembershipsRelationship,
   OrgGroupPaginationLinks: OrgGroupPaginationLinks,
   OrgGroupPaginationMeta: OrgGroupPaginationMeta,
   OrgGroupPaginationMetaPage: OrgGroupPaginationMetaPage,
@@ -10307,7 +10305,6 @@ const typeMap: { [index: string]: any } = {
   OrgGroupPolicyUpdateRequest: OrgGroupPolicyUpdateRequest,
   OrgGroupRelationshipToOne: OrgGroupRelationshipToOne,
   OrgGroupRelationshipToOneData: OrgGroupRelationshipToOneData,
-  OrgGroupRelationships: OrgGroupRelationships,
   OrgGroupResponse: OrgGroupResponse,
   OrgGroupUpdateAttributes: OrgGroupUpdateAttributes,
   OrgGroupUpdateData: OrgGroupUpdateData,

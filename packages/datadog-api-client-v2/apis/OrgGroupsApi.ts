@@ -19,7 +19,6 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { OrgGroupCreateRequest } from "../models/OrgGroupCreateRequest";
-import { OrgGroupIncludeOption } from "../models/OrgGroupIncludeOption";
 import { OrgGroupListResponse } from "../models/OrgGroupListResponse";
 import { OrgGroupMembershipBulkUpdateRequest } from "../models/OrgGroupMembershipBulkUpdateRequest";
 import { OrgGroupMembershipListResponse } from "../models/OrgGroupMembershipListResponse";
@@ -794,7 +793,6 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     pageSize?: number,
     sort?: OrgGroupSortOption,
-    include?: Array<OrgGroupIncludeOption>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -834,13 +832,6 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
         "sort",
         ObjectSerializer.serialize(sort, "OrgGroupSortOption", ""),
         ""
-      );
-    }
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(include, "Array<OrgGroupIncludeOption>", ""),
-        "csv"
       );
     }
 
@@ -2964,11 +2955,6 @@ export interface OrgGroupsApiListOrgGroupsRequest {
    * @type OrgGroupSortOption
    */
   sort?: OrgGroupSortOption;
-  /**
-   * List of related resources to include.
-   * @type Array<OrgGroupIncludeOption>
-   */
-  include?: Array<OrgGroupIncludeOption>;
 }
 
 export interface OrgGroupsApiUpdateOrgGroupRequest {
@@ -3384,7 +3370,6 @@ export class OrgGroupsApi {
       param.pageNumber,
       param.pageSize,
       param.sort,
-      param.include,
       options
     );
     return requestContextPromise.then((requestContext) => {

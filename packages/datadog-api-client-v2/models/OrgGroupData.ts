@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { OrgGroupAttributes } from "./OrgGroupAttributes";
-import { OrgGroupRelationships } from "./OrgGroupRelationships";
 import { OrgGroupType } from "./OrgGroupType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -21,10 +20,6 @@ export class OrgGroupData {
    * The ID of the org group.
    */
   "id": string;
-  /**
-   * Relationships of an org group.
-   */
-  "relationships"?: OrgGroupRelationships;
   /**
    * Org groups resource type.
    */
@@ -56,10 +51,6 @@ export class OrgGroupData {
       type: "string",
       required: true,
       format: "uuid",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "OrgGroupRelationships",
     },
     type: {
       baseName: "type",
