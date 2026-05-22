@@ -2582,6 +2582,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LLMObsDataDeletionResponse",
     },
+    "v2.GetLLMObsAnnotatedInteractionsByTraceIDs": {
+        "contentIds": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int32",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "LLMObsAnnotatedInteractionsByTraceResponse",
+    },
     "v2.ListLLMObsAnnotationQueues": {
         "projectId": {
             "type": "string",

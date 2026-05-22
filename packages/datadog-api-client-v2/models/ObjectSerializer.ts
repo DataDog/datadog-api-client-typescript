@@ -1936,6 +1936,10 @@ import { KindData } from "./KindData";
 import { KindMetadata } from "./KindMetadata";
 import { KindObj } from "./KindObj";
 import { KindResponseMeta } from "./KindResponseMeta";
+import { LLMObsAnnotatedInteractionByTraceItem } from "./LLMObsAnnotatedInteractionByTraceItem";
+import { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
+import { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./LLMObsAnnotatedInteractionsByTraceDataResponse";
+import { LLMObsAnnotatedInteractionsByTraceResponse } from "./LLMObsAnnotatedInteractionsByTraceResponse";
 import { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./LLMObsAnnotatedInteractionsDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsDataResponse } from "./LLMObsAnnotatedInteractionsDataResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "./LLMObsAnnotatedInteractionsResponse";
@@ -5400,11 +5404,18 @@ const enumsMap: { [key: string]: any[] } = {
   JiraIssueTemplateType: ["jira-issue-template"],
   JiraIssuesDataType: ["jira_issues"],
   JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
+  LLMObsAnnotatedInteractionsByTraceType: ["annotated_interactions_by_trace"],
   LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
   LLMObsAnnotationQueueInteractionsType: ["interactions"],
   LLMObsAnnotationQueueType: ["queues"],
   LLMObsAnthropicEffort: ["low", "medium", "high", "max"],
   LLMObsAnthropicThinkingType: ["enabled", "disabled", "adaptive"],
+  LLMObsAnyInteractionType: [
+    "trace",
+    "experiment_trace",
+    "session",
+    "display_block",
+  ],
   LLMObsContentBlockHeaderLevel: ["sm", "md", "lg", "xl"],
   LLMObsContentBlockLLMObsTraceInteractionType: ["trace", "experiment_trace"],
   LLMObsContentBlockType: [
@@ -9194,6 +9205,13 @@ const typeMap: { [index: string]: any } = {
   KindMetadata: KindMetadata,
   KindObj: KindObj,
   KindResponseMeta: KindResponseMeta,
+  LLMObsAnnotatedInteractionByTraceItem: LLMObsAnnotatedInteractionByTraceItem,
+  LLMObsAnnotatedInteractionsByTraceDataAttributesResponse:
+    LLMObsAnnotatedInteractionsByTraceDataAttributesResponse,
+  LLMObsAnnotatedInteractionsByTraceDataResponse:
+    LLMObsAnnotatedInteractionsByTraceDataResponse,
+  LLMObsAnnotatedInteractionsByTraceResponse:
+    LLMObsAnnotatedInteractionsByTraceResponse,
   LLMObsAnnotatedInteractionsDataAttributesResponse:
     LLMObsAnnotatedInteractionsDataAttributesResponse,
   LLMObsAnnotatedInteractionsDataResponse:
