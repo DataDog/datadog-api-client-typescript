@@ -11336,10 +11336,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "OrgGroupSortOption",
             "format": "",
             },
-        "include": {
-            "type": "Array<OrgGroupIncludeOption>",
-            "format": "",
-            },
         "operationResponseType": "OrgGroupListResponse",
     },
     "v2.CreateOrgGroup": {

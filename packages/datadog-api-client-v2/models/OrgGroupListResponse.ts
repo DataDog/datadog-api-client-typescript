@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { OrgGroupData } from "./OrgGroupData";
-import { OrgGroupMembershipData } from "./OrgGroupMembershipData";
 import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
 import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
 
@@ -18,10 +17,6 @@ export class OrgGroupListResponse {
    * An array of org groups.
    */
   "data": Array<OrgGroupData>;
-  /**
-   * Related resources included in the response when requested with the `include` parameter.
-   */
-  "included"?: Array<OrgGroupMembershipData>;
   /**
    * Pagination links for navigating between pages of an org group list response.
    */
@@ -51,10 +46,6 @@ export class OrgGroupListResponse {
       baseName: "data",
       type: "Array<OrgGroupData>",
       required: true,
-    },
-    included: {
-      baseName: "included",
-      type: "Array<OrgGroupMembershipData>",
     },
     links: {
       baseName: "links",

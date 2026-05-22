@@ -15,7 +15,7 @@ const params: v2.OrgGroupsApiUpdateOrgGroupPolicyRequest = {
         content: {
           value: "UTC",
         },
-        enforcementTier: "DEFAULT",
+        enforcementTier: "OVERRIDE_ALLOWED",
       },
       id: "1a2b3c4d-5e6f-7890-abcd-ef0123456789",
       type: "org_group_policies",
