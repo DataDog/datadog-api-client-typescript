@@ -2,6 +2,7 @@ export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiBulkCreateSampleLogGenerationSubscriptionsRequest,
   SecurityMonitoringApiBulkDeleteSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsAssigneeRequest,
@@ -16,8 +17,10 @@ export {
   SecurityMonitoringApiCreateCasesRequest,
   SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
+  SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
@@ -25,8 +28,10 @@ export {
   SecurityMonitoringApiDeactivateContentPackRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteHistoricalJobRequest,
+  SecurityMonitoringApiDeleteSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
@@ -39,6 +44,7 @@ export {
   SecurityMonitoringApiExportSecurityMonitoringTerraformResourceRequest,
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
+  SecurityMonitoringApiGetEntityContextRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
@@ -50,9 +56,11 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdRequest,
+  SecurityMonitoringApiGetSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiGetSignalEntitiesRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
   SecurityMonitoringApiGetSuggestedActionsMatchingSignalRequest,
   SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
@@ -64,9 +72,11 @@ export {
   SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListIndicatorsOfCompromiseRequest,
   SecurityMonitoringApiListMultipleRulesetsRequest,
+  SecurityMonitoringApiListSampleLogGenerationSubscriptionsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
+  SecurityMonitoringApiListSecurityMonitoringIntegrationConfigsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest,
@@ -86,8 +96,11 @@ export {
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiValidateSecurityMonitoringIntegrationConfigRequest,
+  SecurityMonitoringApiValidateSecurityMonitoringIntegrationCredentialsRequest,
   SecurityMonitoringApiValidateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiValidateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApi,
@@ -168,6 +181,12 @@ export { DetachCaseRequestDataRelationships } from "./models/DetachCaseRequestDa
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
+export { EntityContextEntity } from "./models/EntityContextEntity";
+export { EntityContextEntityAttributes } from "./models/EntityContextEntityAttributes";
+export { EntityContextPage } from "./models/EntityContextPage";
+export { EntityContextResponse } from "./models/EntityContextResponse";
+export { EntityContextResponseMeta } from "./models/EntityContextResponseMeta";
+export { EntityContextRevision } from "./models/EntityContextRevision";
 export { EPSS } from "./models/EPSS";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
@@ -291,6 +310,26 @@ export { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
 export { RunHistoricalJobRequestAttributes } from "./models/RunHistoricalJobRequestAttributes";
 export { RunHistoricalJobRequestData } from "./models/RunHistoricalJobRequestData";
 export { RunHistoricalJobRequestDataType } from "./models/RunHistoricalJobRequestDataType";
+export { SampleLogGenerationBulkSubscriptionAttributes } from "./models/SampleLogGenerationBulkSubscriptionAttributes";
+export { SampleLogGenerationBulkSubscriptionData } from "./models/SampleLogGenerationBulkSubscriptionData";
+export { SampleLogGenerationBulkSubscriptionItemMeta } from "./models/SampleLogGenerationBulkSubscriptionItemMeta";
+export { SampleLogGenerationBulkSubscriptionRequest } from "./models/SampleLogGenerationBulkSubscriptionRequest";
+export { SampleLogGenerationBulkSubscriptionRequestType } from "./models/SampleLogGenerationBulkSubscriptionRequestType";
+export { SampleLogGenerationBulkSubscriptionResponse } from "./models/SampleLogGenerationBulkSubscriptionResponse";
+export { SampleLogGenerationBulkSubscriptionResultItem } from "./models/SampleLogGenerationBulkSubscriptionResultItem";
+export { SampleLogGenerationDuration } from "./models/SampleLogGenerationDuration";
+export { SampleLogGenerationSubscriptionAttributes } from "./models/SampleLogGenerationSubscriptionAttributes";
+export { SampleLogGenerationSubscriptionCreateAttributes } from "./models/SampleLogGenerationSubscriptionCreateAttributes";
+export { SampleLogGenerationSubscriptionCreateData } from "./models/SampleLogGenerationSubscriptionCreateData";
+export { SampleLogGenerationSubscriptionCreateRequest } from "./models/SampleLogGenerationSubscriptionCreateRequest";
+export { SampleLogGenerationSubscriptionData } from "./models/SampleLogGenerationSubscriptionData";
+export { SampleLogGenerationSubscriptionRequestType } from "./models/SampleLogGenerationSubscriptionRequestType";
+export { SampleLogGenerationSubscriptionResourceType } from "./models/SampleLogGenerationSubscriptionResourceType";
+export { SampleLogGenerationSubscriptionResponse } from "./models/SampleLogGenerationSubscriptionResponse";
+export { SampleLogGenerationSubscriptionsResponse } from "./models/SampleLogGenerationSubscriptionsResponse";
+export { SampleLogGenerationSubscriptionsResponseMeta } from "./models/SampleLogGenerationSubscriptionsResponseMeta";
+export { SampleLogGenerationSubscriptionsStatusFilter } from "./models/SampleLogGenerationSubscriptionsStatusFilter";
+export { SampleLogGenerationSubscriptionStatus } from "./models/SampleLogGenerationSubscriptionStatus";
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
@@ -333,6 +372,11 @@ export { SecurityFilterType } from "./models/SecurityFilterType";
 export { SecurityFilterUpdateAttributes } from "./models/SecurityFilterUpdateAttributes";
 export { SecurityFilterUpdateData } from "./models/SecurityFilterUpdateData";
 export { SecurityFilterUpdateRequest } from "./models/SecurityFilterUpdateRequest";
+export { SecurityFilterVersion } from "./models/SecurityFilterVersion";
+export { SecurityFilterVersionAttributes } from "./models/SecurityFilterVersionAttributes";
+export { SecurityFilterVersionEntry } from "./models/SecurityFilterVersionEntry";
+export { SecurityFilterVersionsResponse } from "./models/SecurityFilterVersionsResponse";
+export { SecurityFilterVersionType } from "./models/SecurityFilterVersionType";
 export { SecurityFindingsAttributes } from "./models/SecurityFindingsAttributes";
 export { SecurityFindingsData } from "./models/SecurityFindingsData";
 export { SecurityFindingsDataType } from "./models/SecurityFindingsDataType";
@@ -368,6 +412,22 @@ export { SecurityMonitoringCriticalAssetUpdateData } from "./models/SecurityMoni
 export { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
+export { SecurityMonitoringIntegrationConfigAttributes } from "./models/SecurityMonitoringIntegrationConfigAttributes";
+export { SecurityMonitoringIntegrationConfigCreateAttributes } from "./models/SecurityMonitoringIntegrationConfigCreateAttributes";
+export { SecurityMonitoringIntegrationConfigCreateData } from "./models/SecurityMonitoringIntegrationConfigCreateData";
+export { SecurityMonitoringIntegrationConfigCreateRequest } from "./models/SecurityMonitoringIntegrationConfigCreateRequest";
+export { SecurityMonitoringIntegrationConfigData } from "./models/SecurityMonitoringIntegrationConfigData";
+export { SecurityMonitoringIntegrationConfigResourceType } from "./models/SecurityMonitoringIntegrationConfigResourceType";
+export { SecurityMonitoringIntegrationConfigResponse } from "./models/SecurityMonitoringIntegrationConfigResponse";
+export { SecurityMonitoringIntegrationConfigsResponse } from "./models/SecurityMonitoringIntegrationConfigsResponse";
+export { SecurityMonitoringIntegrationConfigState } from "./models/SecurityMonitoringIntegrationConfigState";
+export { SecurityMonitoringIntegrationConfigUpdateAttributes } from "./models/SecurityMonitoringIntegrationConfigUpdateAttributes";
+export { SecurityMonitoringIntegrationConfigUpdateData } from "./models/SecurityMonitoringIntegrationConfigUpdateData";
+export { SecurityMonitoringIntegrationConfigUpdateRequest } from "./models/SecurityMonitoringIntegrationConfigUpdateRequest";
+export { SecurityMonitoringIntegrationCredentialsValidateAttributes } from "./models/SecurityMonitoringIntegrationCredentialsValidateAttributes";
+export { SecurityMonitoringIntegrationCredentialsValidateData } from "./models/SecurityMonitoringIntegrationCredentialsValidateData";
+export { SecurityMonitoringIntegrationCredentialsValidateRequest } from "./models/SecurityMonitoringIntegrationCredentialsValidateRequest";
+export { SecurityMonitoringIntegrationType } from "./models/SecurityMonitoringIntegrationType";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
 export { SecurityMonitoringPaginatedSuppressionsResponse } from "./models/SecurityMonitoringPaginatedSuppressionsResponse";
 export { SecurityMonitoringReferenceTable } from "./models/SecurityMonitoringReferenceTable";
@@ -511,6 +571,10 @@ export { SecurityMonitoringThirdPartyRuleCaseCreate } from "./models/SecurityMon
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { Selectors } from "./models/Selectors";
+export { SignalEntitiesAttributes } from "./models/SignalEntitiesAttributes";
+export { SignalEntitiesData } from "./models/SignalEntitiesData";
+export { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
+export { SignalEntitiesType } from "./models/SignalEntitiesType";
 export { SpecVersion } from "./models/SpecVersion";
 export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
 export { SuppressionVersions } from "./models/SuppressionVersions";
