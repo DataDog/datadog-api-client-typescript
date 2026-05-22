@@ -38,6 +38,7 @@ import { LLMObsCustomEvalConfigResponse } from "./models/LLMObsCustomEvalConfigR
 import { LLMObsCustomEvalConfigUpdateRequest } from "./models/LLMObsCustomEvalConfigUpdateRequest";
 import { LLMObsDataDeletionRequest } from "./models/LLMObsDataDeletionRequest";
 import { LLMObsDataDeletionResponse } from "./models/LLMObsDataDeletionResponse";
+import { LLMObsDatasetDraftStateResponse } from "./models/LLMObsDatasetDraftStateResponse";
 import { LLMObsDatasetRecordsListResponse } from "./models/LLMObsDatasetRecordsListResponse";
 import { LLMObsDatasetRecordsMutationResponse } from "./models/LLMObsDatasetRecordsMutationResponse";
 import { LLMObsDatasetRecordsRequest } from "./models/LLMObsDatasetRecordsRequest";
@@ -46,6 +47,7 @@ import { LLMObsDatasetRequest } from "./models/LLMObsDatasetRequest";
 import { LLMObsDatasetResponse } from "./models/LLMObsDatasetResponse";
 import { LLMObsDatasetsResponse } from "./models/LLMObsDatasetsResponse";
 import { LLMObsDatasetUpdateRequest } from "./models/LLMObsDatasetUpdateRequest";
+import { LLMObsDatasetVersionsResponse } from "./models/LLMObsDatasetVersionsResponse";
 import { LLMObsDeleteAnnotationQueueInteractionsRequest } from "./models/LLMObsDeleteAnnotationQueueInteractionsRequest";
 import { LLMObsDeleteDatasetRecordsRequest } from "./models/LLMObsDeleteDatasetRecordsRequest";
 import { LLMObsDeleteDatasetsRequest } from "./models/LLMObsDeleteDatasetsRequest";
@@ -1448,6 +1450,66 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getLLMObsDatasetDraftState(
+    projectId: string,
+    datasetId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.getLLMObsDatasetDraftState"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsDatasetDraftState'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "getLLMObsDatasetDraftState");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "getLLMObsDatasetDraftState");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.getLLMObsDatasetDraftState",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listLLMObsAnnotationQueues(
     projectId?: string,
     queueIds?: Array<string>,
@@ -1672,6 +1734,66 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsDatasetVersions(
+    projectId: string,
+    datasetId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsDatasetVersions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsDatasetVersions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsDatasetVersions'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "listLLMObsDatasetVersions");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "listLLMObsDatasetVersions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/versions"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsDatasetVersions",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
     // Apply auth methods
@@ -2174,6 +2296,66 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async lockLLMObsDatasetDraftState(
+    projectId: string,
+    datasetId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.lockLLMObsDatasetDraftState"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'lockLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.lockLLMObsDatasetDraftState'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "lockLLMObsDatasetDraftState");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "lockLLMObsDatasetDraftState");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/lock"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.lockLLMObsDatasetDraftState",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async searchLLMObsExperimentation(
     body: LLMObsExperimentationSearchRequest,
     _options?: Configuration,
@@ -2347,6 +2529,66 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async unlockLLMObsDatasetDraftState(
+    projectId: string,
+    datasetId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'unlockLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "unlockLLMObsDatasetDraftState");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "unlockLLMObsDatasetDraftState");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/unlock"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -4488,6 +4730,89 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getLLMObsDatasetDraftState
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsDatasetDraftState(
+    response: ResponseContext,
+  ): Promise<LLMObsDatasetDraftStateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsDatasetDraftStateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetDraftStateResponse",
+      ) as LLMObsDatasetDraftStateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDatasetDraftStateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetDraftStateResponse",
+        "",
+      ) as LLMObsDatasetDraftStateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsAnnotationQueues
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4719,6 +5044,89 @@ export class LLMObservabilityApiResponseProcessor {
         "LLMObsDatasetsResponse",
         "",
       ) as LLMObsDatasetsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsDatasetVersions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsDatasetVersions(
+    response: ResponseContext,
+  ): Promise<LLMObsDatasetVersionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsDatasetVersionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetVersionsResponse",
+      ) as LLMObsDatasetVersionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDatasetVersionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetVersionsResponse",
+        "",
+      ) as LLMObsDatasetVersionsResponse;
       return body;
     }
 
@@ -5221,6 +5629,89 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to lockLLMObsDatasetDraftState
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async lockLLMObsDatasetDraftState(
+    response: ResponseContext,
+  ): Promise<LLMObsDatasetDraftStateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsDatasetDraftStateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetDraftStateResponse",
+      ) as LLMObsDatasetDraftStateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDatasetDraftStateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetDraftStateResponse",
+        "",
+      ) as LLMObsDatasetDraftStateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchLLMObsExperimentation
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5453,6 +5944,78 @@ export class LLMObservabilityApiResponseProcessor {
         "",
       ) as LLMObsExperimentationSimpleSearchResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to unlockLLMObsDatasetDraftState
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async unlockLLMObsDatasetDraftState(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -6261,6 +6824,19 @@ export interface LLMObservabilityApiGetLLMObsCustomEvalConfigRequest {
   evalName: string;
 }
 
+export interface LLMObservabilityApiGetLLMObsDatasetDraftStateRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
+}
+
 export interface LLMObservabilityApiListLLMObsAnnotationQueuesRequest {
   /**
    * Filter annotation queues by project ID. Cannot be used together with `queueIds`.
@@ -6328,6 +6904,19 @@ export interface LLMObservabilityApiListLLMObsDatasetsRequest {
    * @type number
    */
   pageLimit?: number;
+}
+
+export interface LLMObservabilityApiListLLMObsDatasetVersionsRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
 }
 
 export interface LLMObservabilityApiListLLMObsExperimentEventsRequest {
@@ -6483,6 +7072,19 @@ export interface LLMObservabilityApiListLLMObsSpansRequest {
   includeAttachments?: boolean;
 }
 
+export interface LLMObservabilityApiLockLLMObsDatasetDraftStateRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
+}
+
 export interface LLMObservabilityApiSearchLLMObsExperimentationRequest {
   /**
    * Experimentation search payload.
@@ -6505,6 +7107,19 @@ export interface LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest {
    * @type LLMObsExperimentationSimpleSearchRequest
    */
   body: LLMObsExperimentationSimpleSearchRequest;
+}
+
+export interface LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
 }
 
 export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest {
@@ -7129,6 +7744,31 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Retrieve the draft state of a dataset, including whether it is currently locked for editing and which user holds the lock.
+   * @param param The request object
+   */
+  public getLLMObsDatasetDraftState(
+    param: LLMObservabilityApiGetLLMObsDatasetDraftStateRequest,
+    options?: Configuration,
+  ): Promise<LLMObsDatasetDraftStateResponse> {
+    const requestContextPromise =
+      this.requestFactory.getLLMObsDatasetDraftState(
+        param.projectId,
+        param.datasetId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsDatasetDraftState(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List annotation queues. Optionally filter by project ID or queue IDs. These parameters are mutually exclusive.
    * If neither is provided, all queues in the organization are returned.
    * @param param The request object
@@ -7202,6 +7842,30 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsDatasets(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the active versions of a dataset. A version is created each time a dataset is referenced by an experiment run.
+   * @param param The request object
+   */
+  public listLLMObsDatasetVersions(
+    param: LLMObservabilityApiListLLMObsDatasetVersionsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsDatasetVersionsResponse> {
+    const requestContextPromise = this.requestFactory.listLLMObsDatasetVersions(
+      param.projectId,
+      param.datasetId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsDatasetVersions(
+            responseContext,
+          );
         });
     });
   }
@@ -7363,6 +8027,31 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Acquire the draft lock on a dataset for the calling user. The lock prevents other users from concurrently editing the dataset draft.
+   * @param param The request object
+   */
+  public lockLLMObsDatasetDraftState(
+    param: LLMObservabilityApiLockLLMObsDatasetDraftStateRequest,
+    options?: Configuration,
+  ): Promise<LLMObsDatasetDraftStateResponse> {
+    const requestContextPromise =
+      this.requestFactory.lockLLMObsDatasetDraftState(
+        param.projectId,
+        param.datasetId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.lockLLMObsDatasetDraftState(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
    *
    * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
@@ -7429,6 +8118,31 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.simpleSearchLLMObsExperimentation(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Release the draft lock on a dataset held by the calling user, allowing other users to edit the dataset draft.
+   * @param param The request object
+   */
+  public unlockLLMObsDatasetDraftState(
+    param: LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.unlockLLMObsDatasetDraftState(
+        param.projectId,
+        param.datasetId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.unlockLLMObsDatasetDraftState(
             responseContext,
           );
         });

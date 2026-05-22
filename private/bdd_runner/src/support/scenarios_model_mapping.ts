@@ -2965,6 +2965,39 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetResponse",
   },
+  "LLMObservabilityApi.V2.GetLLMObsDatasetDraftState": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetDraftStateResponse",
+  },
+  "LLMObservabilityApi.V2.LockLLMObsDatasetDraftState": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetDraftStateResponse",
+  },
+  "LLMObservabilityApi.V2.UnlockLLMObsDatasetDraftState": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "LLMObservabilityApi.V2.ListLLMObsDatasetRecords": {
     projectId: {
       type: "string",
@@ -3032,6 +3065,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsDatasetVersions": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetVersionsResponse",
   },
   "LLMObservabilityApi.V2.ListLLMObsExperimentEvents": {
     experimentId: {
