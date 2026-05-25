@@ -6680,6 +6680,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
+    "v2.ListStaticAnalysisCodegenRulesets": {
+        "operationResponseType": "SastRulesetsResponse",
+    },
+    "v2.GetStaticAnalysisDefaultRulesets": {
+        "language": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DefaultRulesetsPerLanguageResponse",
+    },
     "v2.ListMultipleRulesets": {
         "body": {
             "type": "GetMultipleRulesetsRequest",
@@ -6687,8 +6697,51 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetMultipleRulesetsResponse",
     },
+    "v2.GetStaticAnalysisRuleset": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "includeTests": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeTestingRules": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "SastRulesetResponse",
+    },
     "v2.GetSecretsRules": {
         "operationResponseType": "SecretRuleArray",
+    },
+    "v2.CreateStaticAnalysisServerAnalysis": {
+        "body": {
+            "type": "AnalysisRequest",
+            "format": "",
+            },
+        "operationResponseType": "AnalysisResponse",
+    },
+    "v2.CreateStaticAnalysisAst": {
+        "body": {
+            "type": "GetAstRequest",
+            "format": "",
+            },
+        "operationResponseType": "GetAstResponse",
+    },
+    "v2.GetStaticAnalysisNodeTypes": {
+        "language": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NodeTypesResponse",
+    },
+    "v2.GetStaticAnalysisTreeSitterWasm": {
+        "file": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HttpFile",
     },
     "v2.UpsertSyncConfig": {
         "body": {
@@ -13270,6 +13323,161 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ResolveVulnerableSymbolsResponse",
+    },
+    "v2.ListAiMemoryViolationResults": {
+        "operationResponseType": "AiMemoryViolationResultsResponse",
+    },
+    "v2.CreateAiMemoryViolationResult": {
+        "body": {
+            "type": "AiMemoryViolationResultRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteAiMemoryViolationResult": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListAiPrompts": {
+        "operationResponseType": "AiPromptsResponse",
+    },
+    "v2.ListAiCustomRulesets": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AiCustomRulesetsResponse",
+    },
+    "v2.CreateAiCustomRuleset": {
+        "body": {
+            "type": "AiCustomRulesetRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiCustomRulesetResponse",
+    },
+    "v2.GetAiCustomRuleset": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiCustomRulesetResponse",
+    },
+    "v2.DeleteAiCustomRuleset": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAiCustomRuleset": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiCustomRulesetUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateAiCustomRule": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiCustomRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "AiCustomRuleResponse",
+    },
+    "v2.GetAiCustomRule": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiCustomRuleResponse",
+    },
+    "v2.DeleteAiCustomRule": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListAiCustomRuleRevisions": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "AiCustomRuleRevisionsResponse",
+    },
+    "v2.CreateAiCustomRuleRevision": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AiCustomRuleRevisionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetAiCustomRuleRevision": {
+        "rulesetName": {
+            "type": "string",
+            "format": "",
+            },
+        "ruleName": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AiCustomRuleRevisionResponse",
+    },
+    "v2.ListCustomRulesets": {
+        "operationResponseType": "CustomRulesetListResponse",
+    },
+    "v2.CreateCustomRuleset": {
+        "body": {
+            "type": "CustomRulesetRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomRulesetResponse",
     },
     "v2.GetCustomRuleset": {
         "rulesetName": {

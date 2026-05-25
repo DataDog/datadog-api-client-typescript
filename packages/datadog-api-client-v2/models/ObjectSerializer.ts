@@ -98,6 +98,38 @@ import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
+import { AiCustomRuleItem } from "./AiCustomRuleItem";
+import { AiCustomRuleRequest } from "./AiCustomRuleRequest";
+import { AiCustomRuleRequestAttributes } from "./AiCustomRuleRequestAttributes";
+import { AiCustomRuleRequestData } from "./AiCustomRuleRequestData";
+import { AiCustomRuleResponse } from "./AiCustomRuleResponse";
+import { AiCustomRuleResponseData } from "./AiCustomRuleResponseData";
+import { AiCustomRuleRevisionRequest } from "./AiCustomRuleRevisionRequest";
+import { AiCustomRuleRevisionRequestAttributes } from "./AiCustomRuleRevisionRequestAttributes";
+import { AiCustomRuleRevisionRequestData } from "./AiCustomRuleRevisionRequestData";
+import { AiCustomRuleRevisionResponse } from "./AiCustomRuleRevisionResponse";
+import { AiCustomRuleRevisionResponseAttributes } from "./AiCustomRuleRevisionResponseAttributes";
+import { AiCustomRuleRevisionResponseData } from "./AiCustomRuleRevisionResponseData";
+import { AiCustomRuleRevisionsResponse } from "./AiCustomRuleRevisionsResponse";
+import { AiCustomRulesetRequest } from "./AiCustomRulesetRequest";
+import { AiCustomRulesetRequestAttributes } from "./AiCustomRulesetRequestAttributes";
+import { AiCustomRulesetRequestData } from "./AiCustomRulesetRequestData";
+import { AiCustomRulesetResponse } from "./AiCustomRulesetResponse";
+import { AiCustomRulesetResponseAttributes } from "./AiCustomRulesetResponseAttributes";
+import { AiCustomRulesetResponseData } from "./AiCustomRulesetResponseData";
+import { AiCustomRulesetUpdateAttributes } from "./AiCustomRulesetUpdateAttributes";
+import { AiCustomRulesetUpdateData } from "./AiCustomRulesetUpdateData";
+import { AiCustomRulesetUpdateRequest } from "./AiCustomRulesetUpdateRequest";
+import { AiCustomRulesetsResponse } from "./AiCustomRulesetsResponse";
+import { AiMemoryViolationResultRequest } from "./AiMemoryViolationResultRequest";
+import { AiMemoryViolationResultRequestAttributes } from "./AiMemoryViolationResultRequestAttributes";
+import { AiMemoryViolationResultRequestData } from "./AiMemoryViolationResultRequestData";
+import { AiMemoryViolationResultResponseAttributes } from "./AiMemoryViolationResultResponseAttributes";
+import { AiMemoryViolationResultResponseData } from "./AiMemoryViolationResultResponseData";
+import { AiMemoryViolationResultsResponse } from "./AiMemoryViolationResultsResponse";
+import { AiPromptResponseAttributes } from "./AiPromptResponseAttributes";
+import { AiPromptResponseData } from "./AiPromptResponseData";
+import { AiPromptsResponse } from "./AiPromptsResponse";
 import { AlertEventAttributes } from "./AlertEventAttributes";
 import { AlertEventAttributesLinksItem } from "./AlertEventAttributesLinksItem";
 import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
@@ -111,6 +143,18 @@ import { AllocationExposureSchedule } from "./AllocationExposureSchedule";
 import { AllocationExposureScheduleData } from "./AllocationExposureScheduleData";
 import { AllocationExposureScheduleResponse } from "./AllocationExposureScheduleResponse";
 import { AllocationResponse } from "./AllocationResponse";
+import { AnalysisEdit } from "./AnalysisEdit";
+import { AnalysisFix } from "./AnalysisFix";
+import { AnalysisPosition } from "./AnalysisPosition";
+import { AnalysisRequest } from "./AnalysisRequest";
+import { AnalysisRequestData } from "./AnalysisRequestData";
+import { AnalysisRequestDataAttributes } from "./AnalysisRequestDataAttributes";
+import { AnalysisRequestRule } from "./AnalysisRequestRule";
+import { AnalysisResponse } from "./AnalysisResponse";
+import { AnalysisResponseData } from "./AnalysisResponseData";
+import { AnalysisResponseDataAttributes } from "./AnalysisResponseDataAttributes";
+import { AnalysisRuleResponse } from "./AnalysisRuleResponse";
+import { AnalysisViolation } from "./AnalysisViolation";
 import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
@@ -1022,6 +1066,7 @@ import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { CustomRuleRevisionsResponse } from "./CustomRuleRevisionsResponse";
 import { CustomRuleset } from "./CustomRuleset";
 import { CustomRulesetAttributes } from "./CustomRulesetAttributes";
+import { CustomRulesetListResponse } from "./CustomRulesetListResponse";
 import { CustomRulesetRequest } from "./CustomRulesetRequest";
 import { CustomRulesetRequestData } from "./CustomRulesetRequestData";
 import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
@@ -1100,6 +1145,9 @@ import { DatastoreData } from "./DatastoreData";
 import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
 import { DatastoreTrigger } from "./DatastoreTrigger";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
+import { DefaultRulesetsPerLanguageData } from "./DefaultRulesetsPerLanguageData";
+import { DefaultRulesetsPerLanguageDataAttributes } from "./DefaultRulesetsPerLanguageDataAttributes";
+import { DefaultRulesetsPerLanguageResponse } from "./DefaultRulesetsPerLanguageResponse";
 import { Degradation } from "./Degradation";
 import { DegradationArray } from "./DegradationArray";
 import { DegradationData } from "./DegradationData";
@@ -1552,6 +1600,12 @@ import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
+import { GetAstRequest } from "./GetAstRequest";
+import { GetAstRequestData } from "./GetAstRequestData";
+import { GetAstRequestDataAttributes } from "./GetAstRequestDataAttributes";
+import { GetAstResponse } from "./GetAstResponse";
+import { GetAstResponseData } from "./GetAstResponseData";
+import { GetAstResponseDataAttributes } from "./GetAstResponseDataAttributes";
 import { GetBlueprintResponse } from "./GetBlueprintResponse";
 import { GetBlueprintsResponse } from "./GetBlueprintsResponse";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
@@ -2514,6 +2568,9 @@ import { MuteFindingsRequestDataAttributes } from "./MuteFindingsRequestDataAttr
 import { MuteFindingsRequestDataRelationships } from "./MuteFindingsRequestDataRelationships";
 import { MuteFindingsResponse } from "./MuteFindingsResponse";
 import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
+import { NodeTypesResponse } from "./NodeTypesResponse";
+import { NodeTypesResponseData } from "./NodeTypesResponseData";
+import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
 import { NotebookCreateData } from "./NotebookCreateData";
 import { NotebookCreateRequest } from "./NotebookCreateRequest";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
@@ -3314,6 +3371,10 @@ import { SampleLogGenerationSubscriptionData } from "./SampleLogGenerationSubscr
 import { SampleLogGenerationSubscriptionResponse } from "./SampleLogGenerationSubscriptionResponse";
 import { SampleLogGenerationSubscriptionsResponse } from "./SampleLogGenerationSubscriptionsResponse";
 import { SampleLogGenerationSubscriptionsResponseMeta } from "./SampleLogGenerationSubscriptionsResponseMeta";
+import { SastRulesetData } from "./SastRulesetData";
+import { SastRulesetDataAttributes } from "./SastRulesetDataAttributes";
+import { SastRulesetResponse } from "./SastRulesetResponse";
+import { SastRulesetsResponse } from "./SastRulesetsResponse";
 import { ScaRequest } from "./ScaRequest";
 import { ScaRequestData } from "./ScaRequestData";
 import { ScaRequestDataAttributes } from "./ScaRequestDataAttributes";
@@ -4471,6 +4532,13 @@ const enumsMap: { [key: string]: any[] } = {
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
+  AiCustomRuleDataType: ["ai_rule"],
+  AiCustomRuleRevisionDataType: ["ai_rule_revision"],
+  AiCustomRuleRevisionExecutionMode: ["auto", "manual", "always"],
+  AiCustomRulesetDataType: ["ai_ruleset"],
+  AiMemoryViolationResultDataType: ["ai_memory_violation_result"],
+  AiMemoryViolationType: ["TP", "FP"],
+  AiPromptDataType: ["ai_prompt"],
   AlertEventAttributesLinksItemCategory: [
     "runbook",
     "documentation",
@@ -4489,6 +4557,9 @@ const enumsMap: { [key: string]: any[] } = {
   AllocationDataType: ["allocations"],
   AllocationExposureScheduleDataType: ["allocation_exposure_schedules"],
   AllocationType: ["FEATURE_GATE", "CANARY"],
+  AnalysisEditType: ["ADD", "UPDATE", "REMOVE"],
+  AnalysisRequestDataType: ["analysis_request"],
+  AnalysisResponseDataType: ["server_request"],
   AnonymizeUsersRequestType: ["anonymize_users_request"],
   AnonymizeUsersResponseType: ["anonymize_users_response"],
   AnthropicAPIKeyType: ["AnthropicAPIKey"],
@@ -5032,6 +5103,7 @@ const enumsMap: { [key: string]: any[] } = {
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
   DatastoreItemsDataType: ["items"],
   DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
+  DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
   DegradationDataAttributesSourceType: ["incident"],
   DeletedSuitesRequestType: ["delete_suites_request"],
   DeletedTestsRequestType: ["delete_tests_request"],
@@ -5233,6 +5305,8 @@ const enumsMap: { [key: string]: any[] } = {
   GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
+  GetAstRequestDataType: ["get_ast_request"],
+  GetAstResponseDataType: ["get_ast_response"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
   GetMappingResponseDataType: ["get_mappings_response"],
   GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
@@ -5627,6 +5701,7 @@ const enumsMap: { [key: string]: any[] } = {
     "HUMAN_ERROR",
     "NO_LONGER_ACCEPTED_RISK",
   ],
+  NodeTypesResponseDataType: ["get_node_types_response"],
   NotebookResourceType: ["notebook"],
   NotificationChannelEmailConfigType: ["email"],
   NotificationChannelEmailFormatType: ["html", "text"],
@@ -7117,6 +7192,41 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
+  AiCustomRuleItem: AiCustomRuleItem,
+  AiCustomRuleRequest: AiCustomRuleRequest,
+  AiCustomRuleRequestAttributes: AiCustomRuleRequestAttributes,
+  AiCustomRuleRequestData: AiCustomRuleRequestData,
+  AiCustomRuleResponse: AiCustomRuleResponse,
+  AiCustomRuleResponseData: AiCustomRuleResponseData,
+  AiCustomRuleRevisionRequest: AiCustomRuleRevisionRequest,
+  AiCustomRuleRevisionRequestAttributes: AiCustomRuleRevisionRequestAttributes,
+  AiCustomRuleRevisionRequestData: AiCustomRuleRevisionRequestData,
+  AiCustomRuleRevisionResponse: AiCustomRuleRevisionResponse,
+  AiCustomRuleRevisionResponseAttributes:
+    AiCustomRuleRevisionResponseAttributes,
+  AiCustomRuleRevisionResponseData: AiCustomRuleRevisionResponseData,
+  AiCustomRuleRevisionsResponse: AiCustomRuleRevisionsResponse,
+  AiCustomRulesetRequest: AiCustomRulesetRequest,
+  AiCustomRulesetRequestAttributes: AiCustomRulesetRequestAttributes,
+  AiCustomRulesetRequestData: AiCustomRulesetRequestData,
+  AiCustomRulesetResponse: AiCustomRulesetResponse,
+  AiCustomRulesetResponseAttributes: AiCustomRulesetResponseAttributes,
+  AiCustomRulesetResponseData: AiCustomRulesetResponseData,
+  AiCustomRulesetUpdateAttributes: AiCustomRulesetUpdateAttributes,
+  AiCustomRulesetUpdateData: AiCustomRulesetUpdateData,
+  AiCustomRulesetUpdateRequest: AiCustomRulesetUpdateRequest,
+  AiCustomRulesetsResponse: AiCustomRulesetsResponse,
+  AiMemoryViolationResultRequest: AiMemoryViolationResultRequest,
+  AiMemoryViolationResultRequestAttributes:
+    AiMemoryViolationResultRequestAttributes,
+  AiMemoryViolationResultRequestData: AiMemoryViolationResultRequestData,
+  AiMemoryViolationResultResponseAttributes:
+    AiMemoryViolationResultResponseAttributes,
+  AiMemoryViolationResultResponseData: AiMemoryViolationResultResponseData,
+  AiMemoryViolationResultsResponse: AiMemoryViolationResultsResponse,
+  AiPromptResponseAttributes: AiPromptResponseAttributes,
+  AiPromptResponseData: AiPromptResponseData,
+  AiPromptsResponse: AiPromptsResponse,
   AlertEventAttributes: AlertEventAttributes,
   AlertEventAttributesLinksItem: AlertEventAttributesLinksItem,
   AlertEventCustomAttributes: AlertEventCustomAttributes,
@@ -7130,6 +7240,18 @@ const typeMap: { [index: string]: any } = {
   AllocationExposureScheduleData: AllocationExposureScheduleData,
   AllocationExposureScheduleResponse: AllocationExposureScheduleResponse,
   AllocationResponse: AllocationResponse,
+  AnalysisEdit: AnalysisEdit,
+  AnalysisFix: AnalysisFix,
+  AnalysisPosition: AnalysisPosition,
+  AnalysisRequest: AnalysisRequest,
+  AnalysisRequestData: AnalysisRequestData,
+  AnalysisRequestDataAttributes: AnalysisRequestDataAttributes,
+  AnalysisRequestRule: AnalysisRequestRule,
+  AnalysisResponse: AnalysisResponse,
+  AnalysisResponseData: AnalysisResponseData,
+  AnalysisResponseDataAttributes: AnalysisResponseDataAttributes,
+  AnalysisRuleResponse: AnalysisRuleResponse,
+  AnalysisViolation: AnalysisViolation,
   Annotation: Annotation,
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
@@ -8223,6 +8345,7 @@ const typeMap: { [index: string]: any } = {
   CustomRuleRevisionsResponse: CustomRuleRevisionsResponse,
   CustomRuleset: CustomRuleset,
   CustomRulesetAttributes: CustomRulesetAttributes,
+  CustomRulesetListResponse: CustomRulesetListResponse,
   CustomRulesetRequest: CustomRulesetRequest,
   CustomRulesetRequestData: CustomRulesetRequestData,
   CustomRulesetRequestDataAttributes: CustomRulesetRequestDataAttributes,
@@ -8301,6 +8424,10 @@ const typeMap: { [index: string]: any } = {
   DatastoreDataAttributes: DatastoreDataAttributes,
   DatastoreTrigger: DatastoreTrigger,
   DatastoreTriggerWrapper: DatastoreTriggerWrapper,
+  DefaultRulesetsPerLanguageData: DefaultRulesetsPerLanguageData,
+  DefaultRulesetsPerLanguageDataAttributes:
+    DefaultRulesetsPerLanguageDataAttributes,
+  DefaultRulesetsPerLanguageResponse: DefaultRulesetsPerLanguageResponse,
   Degradation: Degradation,
   DegradationArray: DegradationArray,
   DegradationData: DegradationData,
@@ -8815,6 +8942,12 @@ const typeMap: { [index: string]: any } = {
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
+  GetAstRequest: GetAstRequest,
+  GetAstRequestData: GetAstRequestData,
+  GetAstRequestDataAttributes: GetAstRequestDataAttributes,
+  GetAstResponse: GetAstResponse,
+  GetAstResponseData: GetAstResponseData,
+  GetAstResponseDataAttributes: GetAstResponseDataAttributes,
   GetBlueprintResponse: GetBlueprintResponse,
   GetBlueprintsResponse: GetBlueprintsResponse,
   GetCustomFrameworkResponse: GetCustomFrameworkResponse,
@@ -9946,6 +10079,9 @@ const typeMap: { [index: string]: any } = {
   MuteFindingsRequestDataRelationships: MuteFindingsRequestDataRelationships,
   MuteFindingsResponse: MuteFindingsResponse,
   MuteFindingsResponseData: MuteFindingsResponseData,
+  NodeTypesResponse: NodeTypesResponse,
+  NodeTypesResponseData: NodeTypesResponseData,
+  NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
   NotebookCreateData: NotebookCreateData,
   NotebookCreateRequest: NotebookCreateRequest,
   NotebookTriggerWrapper: NotebookTriggerWrapper,
@@ -10943,6 +11079,10 @@ const typeMap: { [index: string]: any } = {
     SampleLogGenerationSubscriptionsResponse,
   SampleLogGenerationSubscriptionsResponseMeta:
     SampleLogGenerationSubscriptionsResponseMeta,
+  SastRulesetData: SastRulesetData,
+  SastRulesetDataAttributes: SastRulesetDataAttributes,
+  SastRulesetResponse: SastRulesetResponse,
+  SastRulesetsResponse: SastRulesetsResponse,
   ScaRequest: ScaRequest,
   ScaRequestData: ScaRequestData,
   ScaRequestDataAttributes: ScaRequestDataAttributes,
