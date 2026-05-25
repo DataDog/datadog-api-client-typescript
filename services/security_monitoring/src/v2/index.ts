@@ -24,6 +24,8 @@ export {
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
+  SecurityMonitoringApiCreateStaticAnalysisAstRequest,
+  SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeactivateContentPackRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
@@ -62,6 +64,10 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalEntitiesRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetStaticAnalysisDefaultRulesetsRequest,
+  SecurityMonitoringApiGetStaticAnalysisNodeTypesRequest,
+  SecurityMonitoringApiGetStaticAnalysisRulesetRequest,
+  SecurityMonitoringApiGetStaticAnalysisTreeSitterWasmRequest,
   SecurityMonitoringApiGetSuggestedActionsMatchingSignalRequest,
   SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
@@ -107,6 +113,21 @@ export {
 } from "./SecurityMonitoringApi";
 
 export { Advisory } from "./models/Advisory";
+export { AnalysisEdit } from "./models/AnalysisEdit";
+export { AnalysisEditType } from "./models/AnalysisEditType";
+export { AnalysisFix } from "./models/AnalysisFix";
+export { AnalysisPosition } from "./models/AnalysisPosition";
+export { AnalysisRequest } from "./models/AnalysisRequest";
+export { AnalysisRequestData } from "./models/AnalysisRequestData";
+export { AnalysisRequestDataAttributes } from "./models/AnalysisRequestDataAttributes";
+export { AnalysisRequestDataType } from "./models/AnalysisRequestDataType";
+export { AnalysisRequestRule } from "./models/AnalysisRequestRule";
+export { AnalysisResponse } from "./models/AnalysisResponse";
+export { AnalysisResponseData } from "./models/AnalysisResponseData";
+export { AnalysisResponseDataAttributes } from "./models/AnalysisResponseDataAttributes";
+export { AnalysisResponseDataType } from "./models/AnalysisResponseDataType";
+export { AnalysisRuleResponse } from "./models/AnalysisRuleResponse";
+export { AnalysisViolation } from "./models/AnalysisViolation";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { Asset } from "./models/Asset";
 export { AssetAttributes } from "./models/AssetAttributes";
@@ -173,6 +194,10 @@ export { CustomFrameworkRequirement } from "./models/CustomFrameworkRequirement"
 export { CustomFrameworkType } from "./models/CustomFrameworkType";
 export { CustomFrameworkWithoutRequirements } from "./models/CustomFrameworkWithoutRequirements";
 export { CVSS } from "./models/CVSS";
+export { DefaultRulesetsPerLanguageData } from "./models/DefaultRulesetsPerLanguageData";
+export { DefaultRulesetsPerLanguageDataAttributes } from "./models/DefaultRulesetsPerLanguageDataAttributes";
+export { DefaultRulesetsPerLanguageDataType } from "./models/DefaultRulesetsPerLanguageDataType";
+export { DefaultRulesetsPerLanguageResponse } from "./models/DefaultRulesetsPerLanguageResponse";
 export { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
 export { DependencyLocation } from "./models/DependencyLocation";
 export { DetachCaseRequest } from "./models/DetachCaseRequest";
@@ -210,6 +235,14 @@ export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
 export { FrameworkHandleAndVersionResponseData } from "./models/FrameworkHandleAndVersionResponseData";
 export { FullCustomFrameworkData } from "./models/FullCustomFrameworkData";
 export { FullCustomFrameworkDataAttributes } from "./models/FullCustomFrameworkDataAttributes";
+export { GetAstRequest } from "./models/GetAstRequest";
+export { GetAstRequestData } from "./models/GetAstRequestData";
+export { GetAstRequestDataAttributes } from "./models/GetAstRequestDataAttributes";
+export { GetAstRequestDataType } from "./models/GetAstRequestDataType";
+export { GetAstResponse } from "./models/GetAstResponse";
+export { GetAstResponseData } from "./models/GetAstResponseData";
+export { GetAstResponseDataAttributes } from "./models/GetAstResponseDataAttributes";
+export { GetAstResponseDataType } from "./models/GetAstResponseDataType";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetIoCIndicatorResponse } from "./models/GetIoCIndicatorResponse";
@@ -286,6 +319,10 @@ export { MuteFindingsRequestDataAttributes } from "./models/MuteFindingsRequestD
 export { MuteFindingsRequestDataRelationships } from "./models/MuteFindingsRequestDataRelationships";
 export { MuteFindingsResponse } from "./models/MuteFindingsResponse";
 export { MuteFindingsResponseData } from "./models/MuteFindingsResponseData";
+export { NodeTypesResponse } from "./models/NodeTypesResponse";
+export { NodeTypesResponseData } from "./models/NodeTypesResponseData";
+export { NodeTypesResponseDataAttributes } from "./models/NodeTypesResponseDataAttributes";
+export { NodeTypesResponseDataType } from "./models/NodeTypesResponseDataType";
 export { NotificationRule } from "./models/NotificationRule";
 export { NotificationRuleAttributes } from "./models/NotificationRuleAttributes";
 export { NotificationRuleResponse } from "./models/NotificationRuleResponse";
@@ -330,6 +367,10 @@ export { SampleLogGenerationSubscriptionsResponse } from "./models/SampleLogGene
 export { SampleLogGenerationSubscriptionsResponseMeta } from "./models/SampleLogGenerationSubscriptionsResponseMeta";
 export { SampleLogGenerationSubscriptionsStatusFilter } from "./models/SampleLogGenerationSubscriptionsStatusFilter";
 export { SampleLogGenerationSubscriptionStatus } from "./models/SampleLogGenerationSubscriptionStatus";
+export { SastRulesetData } from "./models/SastRulesetData";
+export { SastRulesetDataAttributes } from "./models/SastRulesetDataAttributes";
+export { SastRulesetResponse } from "./models/SastRulesetResponse";
+export { SastRulesetsResponse } from "./models/SastRulesetsResponse";
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
