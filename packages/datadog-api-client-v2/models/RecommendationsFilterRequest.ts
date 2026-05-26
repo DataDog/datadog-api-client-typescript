@@ -16,6 +16,10 @@ export class RecommendationsFilterRequest {
    */
   "filter"?: string;
   /**
+   * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+   */
+  "scope"?: string;
+  /**
    * Ordered list of sort clauses applied to the result set.
    */
   "sort"?: Array<RecommendationsFilterRequestSortItems>;
@@ -42,6 +46,10 @@ export class RecommendationsFilterRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
+      type: "string",
+    },
+    scope: {
+      baseName: "scope",
       type: "string",
     },
     sort: {
