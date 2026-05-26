@@ -6208,6 +6208,90 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListSecurityMonitoringDatasets": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringDatasetsListResponse",
+    },
+    "v2.CreateSecurityMonitoringDataset": {
+        "body": {
+            "type": "SecurityMonitoringDatasetCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringDatasetCreateResponse",
+    },
+    "v2.BatchGetSecurityMonitoringDatasetDependencies": {
+        "body": {
+            "type": "SecurityMonitoringDatasetDependenciesRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringDatasetDependenciesResponse",
+    },
+    "v2.GetSecurityMonitoringDataset": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringDatasetResponse",
+    },
+    "v2.DeleteSecurityMonitoringDataset": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSecurityMonitoringDataset": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringDatasetUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetSecurityMonitoringDatasetByVersion": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringDatasetResponse",
+    },
+    "v2.GetSecurityMonitoringDatasetVersionHistory": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringDatasetVersionHistoryResponse",
+    },
     "v2.GetEntityContext": {
         "query": {
             "type": "string",

@@ -1131,6 +1131,7 @@ export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest,
   SecurityMonitoringApiBulkCreateSampleLogGenerationSubscriptionsRequest,
   SecurityMonitoringApiBulkDeleteSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsRequest,
@@ -1149,6 +1150,7 @@ export {
   SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
@@ -1162,6 +1164,7 @@ export {
   SecurityMonitoringApiDeleteSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
@@ -1185,6 +1188,9 @@ export {
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiGetSecurityMonitoringDatasetRequest,
+  SecurityMonitoringApiGetSecurityMonitoringDatasetByVersionRequest,
+  SecurityMonitoringApiGetSecurityMonitoringDatasetVersionHistoryRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringHistsignalsByJobIdRequest,
   SecurityMonitoringApiGetSecurityMonitoringIntegrationConfigRequest,
@@ -1210,6 +1216,7 @@ export {
   SecurityMonitoringApiListSampleLogGenerationSubscriptionsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
+  SecurityMonitoringApiListSecurityMonitoringDatasetsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringIntegrationConfigsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
@@ -1231,6 +1238,7 @@ export {
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -6119,6 +6127,38 @@ export { SecurityMonitoringCriticalAssetType } from "./models/SecurityMonitoring
 export { SecurityMonitoringCriticalAssetUpdateAttributes } from "./models/SecurityMonitoringCriticalAssetUpdateAttributes";
 export { SecurityMonitoringCriticalAssetUpdateData } from "./models/SecurityMonitoringCriticalAssetUpdateData";
 export { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
+export { SecurityMonitoringDatasetAttributesRequest } from "./models/SecurityMonitoringDatasetAttributesRequest";
+export { SecurityMonitoringDatasetAttributesResponse } from "./models/SecurityMonitoringDatasetAttributesResponse";
+export { SecurityMonitoringDatasetColumn } from "./models/SecurityMonitoringDatasetColumn";
+export { SecurityMonitoringDatasetCreateData } from "./models/SecurityMonitoringDatasetCreateData";
+export { SecurityMonitoringDatasetCreateRequest } from "./models/SecurityMonitoringDatasetCreateRequest";
+export { SecurityMonitoringDatasetCreateResponse } from "./models/SecurityMonitoringDatasetCreateResponse";
+export { SecurityMonitoringDatasetCreateResponseData } from "./models/SecurityMonitoringDatasetCreateResponseData";
+export { SecurityMonitoringDatasetCreateType } from "./models/SecurityMonitoringDatasetCreateType";
+export { SecurityMonitoringDatasetData } from "./models/SecurityMonitoringDatasetData";
+export { SecurityMonitoringDatasetDefinition } from "./models/SecurityMonitoringDatasetDefinition";
+export { SecurityMonitoringDatasetDependenciesRequest } from "./models/SecurityMonitoringDatasetDependenciesRequest";
+export { SecurityMonitoringDatasetDependenciesRequestAttributes } from "./models/SecurityMonitoringDatasetDependenciesRequestAttributes";
+export { SecurityMonitoringDatasetDependenciesRequestData } from "./models/SecurityMonitoringDatasetDependenciesRequestData";
+export { SecurityMonitoringDatasetDependenciesResponse } from "./models/SecurityMonitoringDatasetDependenciesResponse";
+export { SecurityMonitoringDatasetDependentsAttributes } from "./models/SecurityMonitoringDatasetDependentsAttributes";
+export { SecurityMonitoringDatasetDependentsData } from "./models/SecurityMonitoringDatasetDependentsData";
+export { SecurityMonitoringDatasetDependentsType } from "./models/SecurityMonitoringDatasetDependentsType";
+export { SecurityMonitoringDatasetResponse } from "./models/SecurityMonitoringDatasetResponse";
+export { SecurityMonitoringDatasetSearch } from "./models/SecurityMonitoringDatasetSearch";
+export { SecurityMonitoringDatasetsListMeta } from "./models/SecurityMonitoringDatasetsListMeta";
+export { SecurityMonitoringDatasetsListResponse } from "./models/SecurityMonitoringDatasetsListResponse";
+export { SecurityMonitoringDatasetTimeWindow } from "./models/SecurityMonitoringDatasetTimeWindow";
+export { SecurityMonitoringDatasetType } from "./models/SecurityMonitoringDatasetType";
+export { SecurityMonitoringDatasetUpdateData } from "./models/SecurityMonitoringDatasetUpdateData";
+export { SecurityMonitoringDatasetUpdateRequest } from "./models/SecurityMonitoringDatasetUpdateRequest";
+export { SecurityMonitoringDatasetUpdateType } from "./models/SecurityMonitoringDatasetUpdateType";
+export { SecurityMonitoringDatasetVersionEntry } from "./models/SecurityMonitoringDatasetVersionEntry";
+export { SecurityMonitoringDatasetVersionFieldChange } from "./models/SecurityMonitoringDatasetVersionFieldChange";
+export { SecurityMonitoringDatasetVersionHistoryAttributes } from "./models/SecurityMonitoringDatasetVersionHistoryAttributes";
+export { SecurityMonitoringDatasetVersionHistoryData } from "./models/SecurityMonitoringDatasetVersionHistoryData";
+export { SecurityMonitoringDatasetVersionHistoryResponse } from "./models/SecurityMonitoringDatasetVersionHistoryResponse";
+export { SecurityMonitoringDatasetVersionHistoryType } from "./models/SecurityMonitoringDatasetVersionHistoryType";
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringIntegrationConfigAttributes } from "./models/SecurityMonitoringIntegrationConfigAttributes";
