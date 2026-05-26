@@ -4,6 +4,7 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { QueryValueWidgetComparison } from "./QueryValueWidgetComparison";
 import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
@@ -24,6 +25,10 @@ export class QueryValueWidgetRequest {
    * The log query.
    */
   "auditQuery"?: LogQueryDefinition;
+  /**
+   * A change indicator that compares the current value to a historical period.
+   */
+  "comparison"?: QueryValueWidgetComparison;
   /**
    * List of conditional formats.
    */
@@ -98,6 +103,10 @@ export class QueryValueWidgetRequest {
     auditQuery: {
       baseName: "audit_query",
       type: "LogQueryDefinition",
+    },
+    comparison: {
+      baseName: "comparison",
+      type: "QueryValueWidgetComparison",
     },
     conditionalFormats: {
       baseName: "conditional_formats",

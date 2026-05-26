@@ -15,6 +15,8 @@ import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
 import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
+import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
+import { ComparisonDuration } from "./ComparisonDuration";
 import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
@@ -113,6 +115,7 @@ import { ProductAnalyticsFunnelGroupBySort } from "./ProductAnalyticsFunnelGroup
 import { ProductAnalyticsFunnelQuery } from "./ProductAnalyticsFunnelQuery";
 import { ProductAnalyticsFunnelRequest } from "./ProductAnalyticsFunnelRequest";
 import { ProductAnalyticsFunnelWidgetDefinition } from "./ProductAnalyticsFunnelWidgetDefinition";
+import { QueryValueWidgetComparison } from "./QueryValueWidgetComparison";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { RetentionCohortCriteria } from "./RetentionCohortCriteria";
@@ -246,6 +249,13 @@ export const TypingInfo: ModelTypingInfo = {
     ChangeWidgetDefinitionType: ["change"],
     CheckStatusWidgetDefinitionType: ["check_status"],
     CohortWidgetDefinitionType: ["cohort"],
+    ComparisonDurationType: [
+      "previous_timeframe",
+      "custom_timeframe",
+      "previous_day",
+      "previous_week",
+      "previous_month",
+    ],
     DashboardGlobalTimeLiveSpan: [
       "15m",
       "1h",
@@ -466,6 +476,12 @@ export const TypingInfo: ModelTypingInfo = {
     ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
     ProductAnalyticsFunnelRequestType: ["user_journey_funnel"],
     QuerySortOrder: ["asc", "desc"],
+    QueryValueWidgetComparisonDirectionality: [
+      "increase_better",
+      "decrease_better",
+      "neutral",
+    ],
+    QueryValueWidgetComparisonType: ["absolute", "relative", "both"],
     QueryValueWidgetDefinitionType: ["query_value"],
     RetentionCohortCriteriaTimeIntervalType: ["calendar"],
     RetentionComputeMetric: ["__dd.retention", "__dd.retention_rate"],
@@ -795,6 +811,8 @@ export const TypingInfo: ModelTypingInfo = {
     ChangeWidgetRequest: ChangeWidgetRequest,
     CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
     CohortWidgetDefinition: CohortWidgetDefinition,
+    ComparisonCustomTimeframe: ComparisonCustomTimeframe,
+    ComparisonDuration: ComparisonDuration,
     Dashboard: Dashboard,
     DashboardBulkActionData: DashboardBulkActionData,
     DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
@@ -911,6 +929,7 @@ export const TypingInfo: ModelTypingInfo = {
     ProductAnalyticsFunnelRequest: ProductAnalyticsFunnelRequest,
     ProductAnalyticsFunnelWidgetDefinition:
       ProductAnalyticsFunnelWidgetDefinition,
+    QueryValueWidgetComparison: QueryValueWidgetComparison,
     QueryValueWidgetDefinition: QueryValueWidgetDefinition,
     QueryValueWidgetRequest: QueryValueWidgetRequest,
     RetentionCohortCriteria: RetentionCohortCriteria,
