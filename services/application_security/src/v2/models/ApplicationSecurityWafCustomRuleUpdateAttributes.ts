@@ -27,7 +27,7 @@ export class ApplicationSecurityWafCustomRuleUpdateAttributes {
    */
   "enabled": boolean;
   /**
-   * The Name of the WAF custom rule.
+   * The name of the WAF custom rule.
    */
   "name": string;
   /**
