@@ -163,6 +163,10 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE
   | typeof INGESTED_SPANS_BYTES_USAGE
   | typeof INGESTED_SPANS_BYTES_PERCENTAGE
+  | typeof SIEM_12MO_RETENTION_USAGE
+  | typeof SIEM_12MO_RETENTION_PERCENTAGE
+  | typeof SIEM_6MO_RETENTION_USAGE
+  | typeof SIEM_6MO_RETENTION_PERCENTAGE
   | typeof SIEM_ANALYZED_LOGS_ADD_ON_USAGE
   | typeof SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE
   | typeof SIEM_INGESTED_BYTES_USAGE
@@ -361,6 +365,10 @@ export const RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE =
 export const INGESTED_SPANS_BYTES_USAGE = "ingested_spans_bytes_usage";
 export const INGESTED_SPANS_BYTES_PERCENTAGE =
   "ingested_spans_bytes_percentage";
+export const SIEM_12MO_RETENTION_USAGE = "siem_12mo_retention_usage";
+export const SIEM_12MO_RETENTION_PERCENTAGE = "siem_12mo_retention_percentage";
+export const SIEM_6MO_RETENTION_USAGE = "siem_6mo_retention_usage";
+export const SIEM_6MO_RETENTION_PERCENTAGE = "siem_6mo_retention_percentage";
 export const SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
   "siem_analyzed_logs_add_on_usage";
 export const SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE =

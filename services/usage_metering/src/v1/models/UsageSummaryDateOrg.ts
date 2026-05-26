@@ -205,6 +205,10 @@ export class UsageSummaryDateOrg {
    */
   "cloudSiemEventsSum"?: number;
   /**
+   * Shows the sum of all Cloud SIEM Indexed Logs over all hours in the current date for the given org.
+   */
+  "cloudSiemIndexedLogsSum"?: number;
+  /**
    * Shows the high-water mark of all Static Analysis committers over all hours in the current date for the given org.
    */
   "codeAnalysisSaCommittersHwm"?: number;
@@ -973,6 +977,14 @@ export class UsageSummaryDateOrg {
    */
   "serverlessAppsTotalCountAvg"?: number;
   /**
+   * Shows the sum of Cloud SIEM Indexed Logs (12-month retention) over all hours in the current date for the given org.
+   */
+  "siem12moRetentionSum"?: number;
+  /**
+   * Shows the sum of Cloud SIEM Indexed Logs (6-month retention) over all hours in the current date for the given org.
+   */
+  "siem6moRetentionSum"?: number;
+  /**
    * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.
    */
   "siemAnalyzedLogsAddOnCountSum"?: number;
@@ -1276,6 +1288,11 @@ export class UsageSummaryDateOrg {
     },
     cloudSiemEventsSum: {
       baseName: "cloud_siem_events_sum",
+      type: "number",
+      format: "int64",
+    },
+    cloudSiemIndexedLogsSum: {
+      baseName: "cloud_siem_indexed_logs_sum",
       type: "number",
       format: "int64",
     },
@@ -2240,6 +2257,16 @@ export class UsageSummaryDateOrg {
     },
     serverlessAppsTotalCountAvg: {
       baseName: "serverless_apps_total_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    siem12moRetentionSum: {
+      baseName: "siem_12mo_retention_sum",
+      type: "number",
+      format: "int64",
+    },
+    siem6moRetentionSum: {
+      baseName: "siem_6mo_retention_sum",
       type: "number",
       format: "int64",
     },

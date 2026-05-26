@@ -621,6 +621,22 @@ export class MonthlyUsageAttributionValues {
    */
   "serverlessAppsUsage"?: number;
   /**
+   * The percentage of Cloud SIEM Indexed Logs (12-month retention) usage by tag(s).
+   */
+  "siem12moRetentionPercentage"?: number;
+  /**
+   * The Cloud SIEM Indexed Logs (12-month retention) usage by tag(s).
+   */
+  "siem12moRetentionUsage"?: number;
+  /**
+   * The percentage of Cloud SIEM Indexed Logs (6-month retention) usage by tag(s).
+   */
+  "siem6moRetentionPercentage"?: number;
+  /**
+   * The Cloud SIEM Indexed Logs (6-month retention) usage by tag(s).
+   */
+  "siem6moRetentionUsage"?: number;
+  /**
    * The percentage of log events analyzed by Cloud SIEM usage by tag(s).
    */
   "siemAnalyzedLogsAddOnPercentage"?: number;
@@ -1450,6 +1466,26 @@ export class MonthlyUsageAttributionValues {
     },
     serverlessAppsUsage: {
       baseName: "serverless_apps_usage",
+      type: "number",
+      format: "double",
+    },
+    siem12moRetentionPercentage: {
+      baseName: "siem_12mo_retention_percentage",
+      type: "number",
+      format: "double",
+    },
+    siem12moRetentionUsage: {
+      baseName: "siem_12mo_retention_usage",
+      type: "number",
+      format: "double",
+    },
+    siem6moRetentionPercentage: {
+      baseName: "siem_6mo_retention_percentage",
+      type: "number",
+      format: "double",
+    },
+    siem6moRetentionUsage: {
+      baseName: "siem_6mo_retention_usage",
       type: "number",
       format: "double",
     },
