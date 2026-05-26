@@ -921,6 +921,10 @@ export class UsageSummaryDateOrg {
    */
   "serverlessAppsAzureWebAppInstancesAvg"?: number;
   /**
+   * Shows the average number of DSM Fargate ECS tasks monitored under Serverless Apps DSM for the given date and given org.
+   */
+  "serverlessAppsDsmFargateTasksAvg"?: number;
+  /**
    * Shows the average number of Serverless Apps for Elastic Container Service for the given date and given org.
    */
   "serverlessAppsEcsAvg"?: number;
@@ -2185,6 +2189,11 @@ export class UsageSummaryDateOrg {
     },
     serverlessAppsAzureWebAppInstancesAvg: {
       baseName: "serverless_apps_azure_web_app_instances_avg",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsDsmFargateTasksAvg: {
+      baseName: "serverless_apps_dsm_fargate_tasks_avg",
       type: "number",
       format: "int64",
     },
